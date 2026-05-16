@@ -1,0 +1,611 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__vdma" kind="group">
+    <compoundname>nrf_vdma</compoundname>
+    <title>Generic Vector DMA layer.</title>
+    <innerclass refid="structnrf__vdma__job__t" prot="public">nrf_vdma_job_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__vdma_1ga9b496442550fec4ecc584eccb09a1c81" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vdma_attributes_t</name>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a6b814047ee4e40da85b6ba8e35726869" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_PLAIN_DATA</name>
+          <initializer>= 0x00</initializer>
+          <briefdescription>
+<para>Data is not modified. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a19d26b8da07a9b0a446ae67d24755dd2" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_BYTE_SWAP</name>
+          <initializer>= 0x07</initializer>
+          <briefdescription>
+<para>Data bytes are swapped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a3526922095bafacea5e292556c276973" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_JOB_LIST</name>
+          <initializer>= 0x08</initializer>
+          <briefdescription>
+<para>Allows chaining of joblists. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a10a465bc239cc0649218ff4ec75c493c" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_BUFFER_FILL</name>
+          <initializer>= 0x09</initializer>
+          <briefdescription>
+<para>Insters zeros into sink data buffers. Sink job attribute only. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81adbe8eb5be69a391c4b18cbb14a020c59" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_FIXED_ATTR</name>
+          <initializer>= 0x0A</initializer>
+          <briefdescription>
+<para>Identical job attributes and sizes for all jobs in the list. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a554ae57471070e0cf103843dce4721fa" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_CRC</name>
+          <initializer>= 0x0B</initializer>
+          <briefdescription>
+<para>CRC checksum is calculated on all data in the source list. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a57c425b2cb0988e2f108a909a6da57c9" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_STATIC_ADDR</name>
+          <initializer>= 0x0C</initializer>
+          <briefdescription>
+<para>Memory address is fixed for the entirety of the job. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81aa0390dad9dac9cec6ab3eeba4b974192" prot="public">
+          <name>NRF_VDMA_ATTRIBUTE_PLAIN_DATA_BUF_WRITE</name>
+          <initializer>= 0x0D</initializer>
+          <briefdescription>
+<para>Used to get better write performance when many short bursts are beiing sent. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>VDMA attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Only one attribute can be set for the job. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="72" column="1" bodyfile="helpers/nrf_vdma.h" bodystart="73" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__vdma_1ga714b825dd7ad39cfdefae5bee49cefb7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vdma_ext_attribute_t</name>
+        <enumvalue id="group__nrf__vdma_1gga714b825dd7ad39cfdefae5bee49cefb7ab71d0599cf41694842fdbe231c88f3df" prot="public">
+          <name>NRF_VDMA_EXT_ATTRIBUTE_PERIPHERAL_MODE</name>
+          <initializer>= 0x40</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vdma_1gga714b825dd7ad39cfdefae5bee49cefb7a6f070ba82213feaad075ded53866d677" prot="public">
+          <name>NRF_VDMA_EXT_ATTRIBUTE_EVENT_ENABLE</name>
+          <initializer>= 0x80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>VDMA extended attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This attributes can be combined with each other and with standard attribute </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="89" column="1" bodyfile="helpers/nrf_vdma.h" bodystart="90" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__vdma_1ga145cc526139348f5bc7e15c6e1b7a9fb" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t nrf_vdma_job_reduced_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_vdma_job_reduced_t</name>
+        <briefdescription>
+<para>Type describing VDMA job with fixed attributes and length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="65" column="18" bodyfile="helpers/nrf_vdma.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__vdma_1gae96e77eb1953e710a13bc7309ae9c765" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_vdma_job_fill</definition>
+        <argsstring>(nrf_vdma_job_t *p_job, void *p_buffer, size_t size, uint8_t attributes)</argsstring>
+        <name>nrf_vdma_job_fill</name>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+          <declname>p_job</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>attributes</declname>
+        </param>
+        <briefdescription>
+<para>Function for filling the specified structure of the job with given job parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the job to be filled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attributes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attributes of the job. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="147" column="22" bodyfile="helpers/nrf_vdma.h" bodystart="147" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1ga64d115124857548c03b60756e8dbaedb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_vdma_job_reduced_init</definition>
+        <argsstring>(nrf_vdma_job_reduced_t *p_job, void *p_buffer, size_t size, uint8_t attributes)</argsstring>
+        <name>nrf_vdma_job_reduced_init</name>
+        <param>
+          <type><ref refid="group__nrf__vdma_1ga145cc526139348f5bc7e15c6e1b7a9fb" kindref="member">nrf_vdma_job_reduced_t</ref> *</type>
+          <declname>p_job</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>attributes</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the specified structure of the job with fixed attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>First element of reduced job list occupies space for two elements.</para>
+<para><simplesect kind="note"><para>Use <ref refid="group__nrf__vdma_1ga2189b5334b84372385f8d39d6d2ae0dc" kindref="member">nrf_vdma_job_terminate()</ref> to terminate reduced job list.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the reduced structure of the job to be filled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attributes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional attribute of the job. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="169" column="22" bodyfile="helpers/nrf_vdma.h" bodystart="169" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1ga308ad35e42b4f887945c94a9db063bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_vdma_job_reduced_fill</definition>
+        <argsstring>(nrf_vdma_job_reduced_t *p_job, void *p_buffer)</argsstring>
+        <name>nrf_vdma_job_reduced_fill</name>
+        <param>
+          <type><ref refid="group__nrf__vdma_1ga145cc526139348f5bc7e15c6e1b7a9fb" kindref="member">nrf_vdma_job_reduced_t</ref> *</type>
+          <declname>p_job</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for filling the specified reduced structure of the job with given buffer pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the reduced structure of the job to be filled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="186" column="22" bodyfile="helpers/nrf_vdma.h" bodystart="186" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1gaf5ed29f6483508da6e519619a15b3f23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void *</type>
+        <definition>__STATIC_INLINE void * nrf_vdma_job_buffer_get</definition>
+        <argsstring>(nrf_vdma_job_t const *p_job)</argsstring>
+        <name>nrf_vdma_job_buffer_get</name>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> const *</type>
+          <declname>p_job</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the buffer associated with specified job. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the specified job.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the job buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="199" column="23" bodyfile="helpers/nrf_vdma.h" bodystart="199" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1gac25de0a1312420ec81e9b0499cff6c80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE size_t</type>
+        <definition>__STATIC_INLINE size_t nrf_vdma_job_size_get</definition>
+        <argsstring>(nrf_vdma_job_t const *p_job)</argsstring>
+        <name>nrf_vdma_job_size_get</name>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> const *</type>
+          <declname>p_job</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the size of the buffer associated with specified job. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the specified job.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Size of the job buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="211" column="24" bodyfile="helpers/nrf_vdma.h" bodystart="211" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1ga2189b5334b84372385f8d39d6d2ae0dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_vdma_job_terminate</definition>
+        <argsstring>(nrf_vdma_job_t *p_job)</argsstring>
+        <name>nrf_vdma_job_terminate</name>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+          <declname>p_job</declname>
+        </param>
+        <briefdescription>
+<para>Function for terminating the specified job. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When VectorDMA encounters job that is terminated, processing of the job list stops.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the job to be terminated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="223" column="22" bodyfile="helpers/nrf_vdma.h" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vdma_1ga49c9595dcd73fe99618c5e7960996369" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_vdma_job_link</definition>
+        <argsstring>(nrf_vdma_job_t *p_job, nrf_vdma_job_t *p_job_linked)</argsstring>
+        <name>nrf_vdma_job_link</name>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+          <declname>p_job</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+          <declname>p_job_linked</declname>
+        </param>
+        <briefdescription>
+<para>Function for linking the job with another job. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When VectorDMA encounters job that is linked to another job, execution of the linked job starts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the job to become link. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_job_linked</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the job to be linked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="237" column="22" bodyfile="helpers/nrf_vdma.h" bodystart="237" bodyend="242"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__vdma_1ga10f526fc917cb0982d788a3e4083a110" prot="public" static="no">
+        <name>NRF_VDMA_BUFFER_SIZE_MASK</name>
+        <initializer>VDMADESCRIPTOR_CONFIG_CNT_Msk</initializer>
+        <briefdescription>
+<para>Maximum size of VDMA buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="51" column="9" bodyfile="helpers/nrf_vdma.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__vdma_1ga7c340f3c00583e46cfbf56a9e11570bd" prot="public" static="no">
+        <name>NRF_VDMA_REDUCED_JOB_SIZE</name>
+        <param><defname>count</defname></param>
+        <initializer>(count + 2)</initializer>
+        <briefdescription>
+<para>Macro for computing size of the array of reduced job structures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of jobs to be stored in reduced job list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="100" column="9" bodyfile="helpers/nrf_vdma.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__vdma_1ga3353cd7e0d2fcdcf0319c5065b33968d" prot="public" static="no">
+        <name>NRF_VDMA_JOB_ELEMENT</name>
+        <param><defname>p_buffer</defname></param>
+        <param><defname>size</defname></param>
+        <param><defname>attribute</defname></param>
+        <initializer>        (uint32_t)p_buffer,                                               \
+        (uint32_t)(((attribute) &lt;&lt; VDMADESCRIPTOR_CONFIG_ATTRIBUTE_Pos) | \
+                   ((size) &amp; <ref refid="group__nrf__vdma_1ga10f526fc917cb0982d788a3e4083a110" kindref="member">NRF_VDMA_BUFFER_SIZE_MASK</ref>))</initializer>
+        <briefdescription>
+<para>Macro for defining an element of a job list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attribute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute mask.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Two words of the job descriptor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="111" column="9" bodyfile="helpers/nrf_vdma.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__vdma_1gaf0d87e01eb0a3f470eac76a69c042b8c" prot="public" static="no">
+        <name>NRF_VDMA_REDUCED_JOB_INIT_ELEMENT</name>
+        <param><defname>p_buffer</defname></param>
+        <param><defname>size</defname></param>
+        <param><defname>attribute</defname></param>
+        <initializer>    <ref refid="group__nrf__vdma_1ga3353cd7e0d2fcdcf0319c5065b33968d" kindref="member">NRF_VDMA_JOB_ELEMENT</ref>(p_buffer, size, <ref refid="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81adbe8eb5be69a391c4b18cbb14a020c59" kindref="member">NRF_VDMA_ATTRIBUTE_FIXED_ATTR</ref> | (attribute))</initializer>
+        <briefdescription>
+<para>Macro for defining initial element of reduced job list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the job buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attribute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attributes of the job.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Two words of the job descriptor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="125" column="9" bodyfile="helpers/nrf_vdma.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__vdma_1gab7fc78877d26519e1709d51190979dc8" prot="public" static="no">
+        <name>NRFX_VDMA_PERIPH_JOB</name>
+        <param><defname>addr</defname></param>
+        <param><defname>size</defname></param>
+        <initializer>        <ref refid="group__nrf__vdma_1ga3353cd7e0d2fcdcf0319c5065b33968d" kindref="member">NRF_VDMA_JOB_ELEMENT</ref>(addr, size, NRF_VDMA_EXT_ATTRIBUTE_PERIPHERAL_MODE)</initializer>
+        <briefdescription>
+<para>Macro for defining a job for transfer engaging peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of a DMA job.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Two words which contains address, size and the descriptor byte. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_vdma.h" line="136" column="9" bodyfile="helpers/nrf_vdma.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Helper layer that provides the common functionality for Vector DMA (VDMA). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

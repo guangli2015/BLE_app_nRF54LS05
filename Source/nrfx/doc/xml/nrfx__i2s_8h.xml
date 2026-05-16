@@ -1,0 +1,1025 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__i2s_8h" kind="file" language="C++">
+    <compoundname>nrfx_i2s.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__i2s_8h" local="no">haly/nrfy_i2s.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_i2s.h</label>
+        <link refid="nrfx__i2s_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__i2s__prescalers__t" prot="public">nrfx_i2s_prescalers_t</innerclass>
+    <innerclass refid="structnrfx__i2s__clk__params__t" prot="public">nrfx_i2s_clk_params_t</innerclass>
+    <innerclass refid="structnrfx__i2s__config__t" prot="public">nrfx_i2s_config_t</innerclass>
+    <innerclass refid="structnrfx__i2s__t" prot="public">nrfx_i2s_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__i2s_1ga253c33055db81ff561ce871fa9304fd0" prot="public" static="no">
+        <name>NRFX_I2S_DEFAULT_CONFIG</name>
+        <param><defname>_pin_sck</defname></param>
+        <param><defname>_pin_lrck</defname></param>
+        <param><defname>_pin_mck</defname></param>
+        <param><defname>_pin_sdout</defname></param>
+        <param><defname>_pin_sdin</defname></param>
+        <initializer>{                                                                                     \
+    .sck_pin      = _pin_sck,                                                         \
+    .lrck_pin     = _pin_lrck,                                                        \
+    .mck_pin      = _pin_mck,                                                         \
+    .sdout_pin    = _pin_sdout,                                                       \
+    .sdin_pin     = _pin_sdin,                                                        \
+    .irq_priority = NRFX_I2S_DEFAULT_CONFIG_IRQ_PRIORITY,                             \
+    .mode         = <ref refid="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa24a0b56d47e1d15b9b5c9b9d3775d4b2" kindref="member">NRF_I2S_MODE_MASTER</ref>,                                              \
+    .format       = <ref refid="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1cca68f5e22fc456e548528bf1037201ae68" kindref="member">NRF_I2S_FORMAT_I2S</ref>,                                               \
+    .alignment    = <ref refid="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190aa0c153dfb284d0433cf811e257f68e92" kindref="member">NRF_I2S_ALIGN_LEFT</ref>,                                               \
+    .sample_width = <ref refid="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a736f17419ddfa2cd390715b0b5c933eb" kindref="member">NRF_I2S_SWIDTH_16BIT</ref>,                                             \
+    .channels     = <ref refid="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea1c11023af3fc2f8d9bd8bad901275234" kindref="member">NRF_I2S_CHANNELS_LEFT</ref>,                                            \
+    .prescalers   =                                                                   \
+    {                                                                                 \
+        .mck_setup    = <ref refid="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aa02748b1a696e23de61f2587c972cb80" kindref="member">NRF_I2S_MCK_32MDIV8</ref>,                                          \
+        .ratio        = <ref refid="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a2e0d2025041a5f77159649b23c4e3be1" kindref="member">NRF_I2S_RATIO_32X</ref>,                                            \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__i2s__hal_1gae6fd9e57a9e93488c6200e98a1c53c60" kindref="member">NRF_I2S_HAS_CLKCONFIG</ref>,                                       \
+                        (.enable_bypass = false),                                     \
+                        ())                                                           \
+    },                                                                                \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__i2s__hal_1gae6fd9e57a9e93488c6200e98a1c53c60" kindref="member">NRF_I2S_HAS_CLKCONFIG</ref>,                                           \
+                     (.clksrc = <ref refid="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca006d0a833b037022286e7c7cb196b1ef" kindref="member">NRF_I2S_CLKSRC_PCLK32M</ref>),                              \
+                     ())                                                              \
+}</initializer>
+        <briefdescription>
+<para>I2S driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up I2S with the following options:<itemizedlist>
+<listitem><para>master mode</para>
+</listitem><listitem><para>i2s data format</para>
+</listitem><listitem><para>left alignment</para>
+</listitem><listitem><para>sample width 16 bit</para>
+</listitem><listitem><para>left channel enabled</para>
+</listitem><listitem><para>MCK frequency 4 MHz</para>
+</listitem><listitem><para>LRCK frequency 125 kHz</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_lrck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LRCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_mck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sdout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDOUT pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sdin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDIN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="132" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" prot="public" static="no">
+        <name>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The application must provide buffers that are to be used in the next part of the transfer. A call to <ref refid="group__nrfx__i2s_1gac53cbd4e59a713d9b5cab01e0c8230b7" kindref="member">nrfx_i2s_next_buffers_set</ref> must be done before the currently used buffers are completely processed (that is, the time remaining for supplying the next buffers depends on the used size of the buffers). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="158" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e" prot="public" static="no">
+        <name>NRFX_I2S_STATUS_TRANSFER_STOPPED</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The I2S peripheral has been stopped and all buffers that were passed to the driver have been released. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="165" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1gabd4763d797f808c9ac80cc239a184ac1" prot="public" static="no">
+        <name>NRFX_I2S_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_I2S_Type *)reg, \
+    .cb = {0},                    \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an I2S driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="245" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" prot="public" static="no">
+        <type><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfy_i2s_xfer_desc_t</ref></type>
+        <definition>typedef nrfy_i2s_xfer_desc_t nrfx_i2s_buffers_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_i2s_buffers_t</name>
+        <briefdescription>
+<para>I2S driver buffers structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="112" column="30" bodyfile="drivers/include/nrfx_i2s.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_i2s_data_handler_t) (nrfx_i2s_buffers_t const *p_released, uint32_t status)</definition>
+        <argsstring>)(nrfx_i2s_buffers_t const *p_released, uint32_t status)</argsstring>
+        <name>nrfx_i2s_data_handler_t</name>
+        <briefdescription>
+<para>I2S driver data handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A data handling function of this type must be specified during the initialization of the driver. The driver will call this function when it finishes using buffers passed to it by the application, and when it needs to be provided with buffers for the next part of the transfer.</para>
+<para><simplesect kind="note"><para>The <computeroutput>p_released</computeroutput> pointer passed to this function is temporary and will be invalid after the function returns, hence it cannot be stored and used later. If needed, the pointed content (that is, buffers pointers) must be copied instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_released</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure with pointers to buffers passed previously to the driver that will no longer be accessed by it (they can be now safely released or used for another purpose, in particular for a next part of the transfer). This pointer will be NULL if the application did not supply the buffers for the next part of the transfer (via a call to <ref refid="group__nrfx__i2s_1gac53cbd4e59a713d9b5cab01e0c8230b7" kindref="member">nrfx_i2s_next_buffers_set</ref>) since the previous time the data handler signaled such need. This means that data corruption occurred (the previous buffers are used for the second time) and no buffers can be released at the moment. Both pointers in this structure are NULL when the handler is called for the first time after a transfer is started, because no data has been transferred yet at this point. In all successive calls, the pointers specify what has been sent (TX) and what has been received (RX) in the part of the transfer that has just been completed (provided that a given direction is enabled, see <ref refid="group__nrfx__i2s_1ga8a8cc675f77fe2b7e0dcf552050e68e0" kindref="member">nrfx_i2s_start</ref>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Since the peripheral is stopped asynchronously, buffers that are released after the call to <ref refid="group__nrfx__i2s_1ga41c08a1ed6129cfe744a9ff14f609f2d" kindref="member">nrfx_i2s_stop</ref> are not used entirely. In this case, only a part (if any) of the TX buffer has been actually transmitted and only a part (if any) of the RX buffer is filled with received data. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit field describing the current status of the transfer. It can be 0 or a combination of the following flags:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" kindref="member">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e" kindref="member">NRFX_I2S_STATUS_TRANSFER_STOPPED</ref> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="214" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__i2s_1gad86fff0ad798ef02dcd5fa13cb45f256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_i2s_init</definition>
+        <argsstring>(nrfx_i2s_t *p_instance, nrfx_i2s_config_t const *p_config, nrfx_i2s_data_handler_t handler)</argsstring>
+        <name>nrfx_i2s_init</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the I2S driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data handler provided by the user. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested combination of configuration options is not allowed by the I2S peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="263" column="5" declfile="drivers/include/nrfx_i2s.h" declline="263" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1gaf3bbc360bf549b7c138df0e615f8d827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_i2s_uninit</definition>
+        <argsstring>(nrfx_i2s_t *p_instance)</argsstring>
+        <name>nrfx_i2s_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the I2S driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="272" column="6" declfile="drivers/include/nrfx_i2s.h" declline="272" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1gab813cd49b74aca4865f0ffc79f114de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_i2s_init_check</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance)</argsstring>
+        <name>nrfx_i2s_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the I2S driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="282" column="6" declfile="drivers/include/nrfx_i2s.h" declline="282" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga8a8cc675f77fe2b7e0dcf552050e68e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_i2s_start</definition>
+        <argsstring>(nrfx_i2s_t *p_instance, nrfx_i2s_buffers_t const *p_initial_buffers, uint8_t flags)</argsstring>
+        <name>nrfx_i2s_start</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" kindref="member">nrfx_i2s_buffers_t</ref> const *</type>
+          <declname>p_initial_buffers</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the continuous I2S transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The I2S data transfer can be performed in one of three modes: RX (reception) only, TX (transmission) only, or in both directions simultaneously. The mode is selected by specifying a proper buffer for a given direction in the call to this function or by passing NULL instead if this direction is to be disabled.</para>
+<para>The length of the buffer (which is a common value for RX and TX if both directions are enabled) is specified in 32-bit words. One 32-bit memory word can either contain four 8-bit samples, two 16-bit samples, or one right-aligned 24-bit sample sign-extended to a 32-bit value. For a detailed memory mapping for different supported configurations, see the Product Specification.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including I2S) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_initial_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the initial part of the transfer (buffers for all consecutive parts are provided through the data handler). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings). Currently, no additional flags are available.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer was already started or the driver has not been initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="316" column="5" declfile="drivers/include/nrfx_i2s.h" declline="316" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1gac53cbd4e59a713d9b5cab01e0c8230b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_i2s_next_buffers_set</definition>
+        <argsstring>(nrfx_i2s_t *p_instance, nrfx_i2s_buffers_t const *p_buffers)</argsstring>
+        <name>nrfx_i2s_next_buffers_set</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" kindref="member">nrfx_i2s_buffers_t</ref> const *</type>
+          <declname>p_buffers</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the buffers to be used in the next part of the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application must call this function when the data handler receives <ref refid="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" kindref="member">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</ref> in the <computeroutput>status</computeroutput> parameter. The call can be done immediately from the data handler function or later, but it has to be done before the I2S peripheral finishes processing the buffers supplied previously. Otherwise, data corruption will occur.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the upcoming part of the transfer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the buffers were already supplied or the peripheral is currently being stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="341" column="5" declfile="drivers/include/nrfx_i2s.h" declline="341" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga41c08a1ed6129cfe744a9ff14f609f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_i2s_stop</definition>
+        <argsstring>(nrfx_i2s_t *p_instance)</argsstring>
+        <name>nrfx_i2s_stop</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the I2S transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="349" column="6" declfile="drivers/include/nrfx_i2s.h" declline="349" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1gae3167a1861a06fbb31788a34f7f9c1c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_i2s_prescalers_calc</definition>
+        <argsstring>(nrfx_i2s_clk_params_t const *clk_params, nrfx_i2s_prescalers_t *prescalers)</argsstring>
+        <name>nrfx_i2s_prescalers_calc</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__clk__params__t" kindref="compound">nrfx_i2s_clk_params_t</ref> const *</type>
+          <declname>clk_params</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref> *</type>
+          <declname>prescalers</declname>
+        </param>
+        <briefdescription>
+<para>Function for calculating I2S clock prescaler values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function to find suitable value for prescalers in <ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref> structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">clk_params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters used to describe clock prescaling. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">prescalers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Prescaler structure pointer to be filled with prescaler values.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested configuration is not supported. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="364" column="5" declfile="drivers/include/nrfx_i2s.h" declline="364" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga7d7156e07ed6935b8e6e085a961d6861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_i2s_irq_handler</definition>
+        <argsstring>(nrfx_i2s_t *p_instance)</argsstring>
+        <name>nrfx_i2s_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="372" column="6" declfile="drivers/include/nrfx_i2s.h" declline="372" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_I2S_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_I2S_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_i2s.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_i2s<sp/>I2S<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_i2s</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Inter-IC<sp/>Sound<sp/>(I2S)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>I2S<sp/>prescalers<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structnrfx__i2s__prescalers__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1ga1e7fb828b72fa48367cbaeed264f9372" kindref="member">nrf_i2s_mck_t</ref><sp/><sp/><sp/>mck_setup;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Master<sp/>clock<sp/>generator<sp/>setup.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1ga11ab985aa62eb48d2177d6784e9a1820" kindref="member">nrf_i2s_ratio_t</ref><sp/>ratio;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>MCK/LRCK<sp/>ratio.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_I2S_HAS_CLKCONFIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable_bypass;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Bypass<sp/>clock<sp/>generator.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>MCK<sp/>will<sp/>be<sp/>equal<sp/>to<sp/>source<sp/>input.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}<sp/><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment">/**<sp/>@brief<sp/>Parameters<sp/>use<sp/>to<sp/>describe<sp/>I2S<sp/>clock<sp/>prescaling.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="structnrfx__i2s__clk__params__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base_clock_freq;<sp/></highlight><highlight class="comment">///&lt;<sp/>Freqency<sp/>of<sp/>the<sp/>I2S<sp/>base<sp/>clock<sp/>source.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transfer_rate;<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Desired<sp/>I2S<sp/>data<sp/>transfer<sp/>rate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1gac06986979fa6e2b0f4dd1f444b95ef00" kindref="member">nrf_i2s_swidth_t</ref><sp/>swidth;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>I2S<sp/>sample<sp/>width.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>allow_bypass;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Bypass<sp/>clock<sp/>generator<sp/>if<sp/>possible.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="structnrfx__i2s__clk__params__t" kindref="compound">nrfx_i2s_clk_params_t</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/**<sp/>@brief<sp/>I2S<sp/>driver<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structnrfx__i2s__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sck_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>SCK<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lrck_pin;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>LRCK<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mck_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>MCK<sp/>pin<sp/>number.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Optional.<sp/>Use<sp/>@ref<sp/>NRF_I2S_PIN_NOT_CONNECTED</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>signal<sp/>is<sp/>not<sp/>needed.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sdout_pin;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>SDOUT<sp/>pin<sp/>number.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Optional.<sp/>Use<sp/>@ref<sp/>NRF_I2S_PIN_NOT_CONNECTED</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>signal<sp/>is<sp/>not<sp/>needed.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sdin_pin;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>SDIN<sp/>pin<sp/>number.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Optional.<sp/>Use<sp/>@ref<sp/>NRF_I2S_PIN_NOT_CONNECTED</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>if<sp/>this<sp/>signal<sp/>is<sp/>not<sp/>needed.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_priority;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1ga05fa70f696366c5a06fa5f5e673735af" kindref="member">nrf_i2s_mode_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Mode<sp/>of<sp/>operation<sp/>(master<sp/>or<sp/>slave).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1ga18ab6f73e00677525e1ab53f24dfc1cc" kindref="member">nrf_i2s_format_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>format;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>I2S<sp/>frame<sp/>format.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1gae48fd73f7f8f0c2f321f192e4b9ed190" kindref="member">nrf_i2s_align_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alignment;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Alignment<sp/>of<sp/>sample<sp/>within<sp/>a<sp/>frame.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1gac06986979fa6e2b0f4dd1f444b95ef00" kindref="member">nrf_i2s_swidth_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>sample_width;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Sample<sp/>width.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1ga60b286e35e447040e992a3ded4375dbe" kindref="member">nrf_i2s_channels_t</ref><sp/><sp/><sp/><sp/>channels;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Enabled<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref><sp/>prescalers;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Clock<sp/>prescalers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_I2S_HAS_CLKCONFIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__i2s__hal_1gad0c72277d28dba147ebb0696a425c38c" kindref="member">nrf_i2s_clksrc_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>clksrc;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Clock<sp/>source<sp/>selection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>GPIO<sp/>configuration<sp/>of<sp/>pins.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>any<sp/>GPIO<sp/>parameters<sp/>of<sp/>the<sp/>used<sp/>pins.<sp/>Those</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>parameters<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>configured</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_psel_cfg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>pin<sp/>selection<sp/>configuration.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>pin<sp/>select<sp/>registers<sp/>in<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>Those<sp/>registers<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>set<sp/>up</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>@note<sp/>When<sp/>both<sp/>GPIO<sp/>configuration<sp/>and<sp/>pin</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>selection<sp/>are<sp/>to<sp/>be<sp/>skipped,<sp/>the<sp/>structure</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>fields<sp/>that<sp/>specify<sp/>pins<sp/>can<sp/>be<sp/>omitted,</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>as<sp/>they<sp/>are<sp/>ignored<sp/>anyway.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}<sp/><ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**<sp/>@brief<sp/>I2S<sp/>driver<sp/>buffers<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfy_i2s_xfer_desc_t</ref><sp/><ref refid="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" kindref="member">nrfx_i2s_buffers_t</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="114"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/>@brief<sp/>I2S<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>I2S<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>-<sp/>master<sp/>mode</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>-<sp/>i2s<sp/>data<sp/>format</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>-<sp/>left<sp/>alignment</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>-<sp/>sample<sp/>width<sp/>16<sp/>bit</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>-<sp/>left<sp/>channel<sp/>enabled</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>-<sp/>MCK<sp/>frequency<sp/>4<sp/>MHz</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>-<sp/>LRCK<sp/>frequency<sp/>125<sp/>kHz</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_sck<sp/><sp/><sp/>SCK<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_lrck<sp/><sp/>LRCK<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_mck<sp/><sp/><sp/>MCK<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_sdout<sp/>SDOUT<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_sdin<sp/><sp/>SDIN<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_I2S_DEFAULT_CONFIG(_pin_sck,<sp/>_pin_lrck,<sp/>_pin_mck,<sp/>_pin_sdout,<sp/>_pin_sdin)<sp/>\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sck_pin<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_sck,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.lrck_pin<sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_lrck,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.mck_pin<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_mck,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sdout_pin<sp/><sp/><sp/><sp/>=<sp/>_pin_sdout,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sdin_pin<sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_sdin,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.irq_priority<sp/>=<sp/>NRFX_I2S_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_MODE_MASTER,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.format<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_FORMAT_I2S,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.alignment<sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_ALIGN_LEFT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sample_width<sp/>=<sp/>NRF_I2S_SWIDTH_16BIT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.channels<sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_CHANNELS_LEFT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.prescalers<sp/><sp/><sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mck_setup<sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_MCK_32MDIV8,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ratio<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_I2S_RATIO_32X,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_I2S_HAS_CLKCONFIG,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.enable_bypass<sp/>=<sp/>false),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_I2S_HAS_CLKCONFIG,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.clksrc<sp/>=<sp/>NRF_I2S_CLKSRC_PCLK32M),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED<sp/>(1UL<sp/>&lt;&lt;<sp/>0)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/>/**&lt;<sp/>The<sp/>application<sp/>must<sp/>provide<sp/>buffers<sp/>that<sp/>are<sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>next</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>part<sp/>of<sp/>the<sp/>transfer.<sp/>A<sp/>call<sp/>to<sp/>@ref<sp/>nrfx_i2s_next_buffers_set<sp/>must</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>be<sp/>done<sp/>before<sp/>the<sp/>currently<sp/>used<sp/>buffers<sp/>are<sp/>completely<sp/>processed</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>(that<sp/>is,<sp/>the<sp/>time<sp/>remaining<sp/>for<sp/>supplying<sp/>the<sp/>next<sp/>buffers<sp/>depends<sp/>on</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>the<sp/>used<sp/>size<sp/>of<sp/>the<sp/>buffers).<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_I2S_STATUS_TRANSFER_STOPPED<sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>1)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/>/**&lt;<sp/>The<sp/>I2S<sp/>peripheral<sp/>has<sp/>been<sp/>stopped<sp/>and<sp/>all<sp/>buffers<sp/>that<sp/>were<sp/>passed</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>to<sp/>the<sp/>driver<sp/>have<sp/>been<sp/>released.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="169"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/>@brief<sp/>I2S<sp/>driver<sp/>data<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/>A<sp/>data<sp/>handling<sp/>function<sp/>of<sp/>this<sp/>type<sp/>must<sp/>be<sp/>specified<sp/>during<sp/>the<sp/>initialization</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/>of<sp/>the<sp/>driver.<sp/>The<sp/>driver<sp/>will<sp/>call<sp/>this<sp/>function<sp/>when<sp/>it<sp/>finishes<sp/>using</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/>buffers<sp/>passed<sp/>to<sp/>it<sp/>by<sp/>the<sp/>application,<sp/>and<sp/>when<sp/>it<sp/>needs<sp/>to<sp/>be<sp/>provided</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>with<sp/>buffers<sp/>for<sp/>the<sp/>next<sp/>part<sp/>of<sp/>the<sp/>transfer.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>@c<sp/>p_released<sp/>pointer<sp/>passed<sp/>to<sp/>this<sp/>function<sp/>is<sp/>temporary<sp/>and</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>will<sp/>be<sp/>invalid<sp/>after<sp/>the<sp/>function<sp/>returns,<sp/>hence<sp/>it<sp/>cannot<sp/>be<sp/>stored</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>used<sp/>later.<sp/>If<sp/>needed,<sp/>the<sp/>pointed<sp/>content<sp/>(that<sp/>is,<sp/>buffers<sp/>pointers)</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>must<sp/>be<sp/>copied<sp/>instead.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_released<sp/><sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>with<sp/>pointers<sp/>to<sp/>buffers</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>passed<sp/>previously<sp/>to<sp/>the<sp/>driver<sp/>that<sp/>will<sp/>no<sp/>longer</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>be<sp/>accessed<sp/>by<sp/>it<sp/>(they<sp/>can<sp/>be<sp/>now<sp/>safely<sp/>released<sp/>or</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>used<sp/>for<sp/>another<sp/>purpose,<sp/>in<sp/>particular<sp/>for<sp/>a<sp/>next</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>part<sp/>of<sp/>the<sp/>transfer).</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>pointer<sp/>will<sp/>be<sp/>NULL<sp/>if<sp/>the<sp/>application<sp/>did<sp/>not</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supply<sp/>the<sp/>buffers<sp/>for<sp/>the<sp/>next<sp/>part<sp/>of<sp/>the<sp/>transfer</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(via<sp/>a<sp/>call<sp/>to<sp/>@ref<sp/>nrfx_i2s_next_buffers_set)<sp/>since</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>previous<sp/>time<sp/>the<sp/>data<sp/>handler<sp/>signaled<sp/>such<sp/>need.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>means<sp/>that<sp/>data<sp/>corruption<sp/>occurred<sp/>(the<sp/>previous</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffers<sp/>are<sp/>used<sp/>for<sp/>the<sp/>second<sp/>time)<sp/>and<sp/>no<sp/>buffers</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>can<sp/>be<sp/>released<sp/>at<sp/>the<sp/>moment.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Both<sp/>pointers<sp/>in<sp/>this<sp/>structure<sp/>are<sp/>NULL<sp/>when<sp/>the</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handler<sp/>is<sp/>called<sp/>for<sp/>the<sp/>first<sp/>time<sp/>after<sp/>a<sp/>transfer</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>started,<sp/>because<sp/>no<sp/>data<sp/>has<sp/>been<sp/>transferred<sp/>yet</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>at<sp/>this<sp/>point.<sp/>In<sp/>all<sp/>successive<sp/>calls,<sp/>the<sp/>pointers</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>specify<sp/>what<sp/>has<sp/>been<sp/>sent<sp/>(TX)<sp/>and<sp/>what<sp/>has<sp/>been</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>received<sp/>(RX)<sp/>in<sp/>the<sp/>part<sp/>of<sp/>the<sp/>transfer<sp/>that<sp/>has</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>just<sp/>been<sp/>completed<sp/>(provided<sp/>that<sp/>a<sp/>given<sp/>direction</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>enabled,<sp/>see<sp/>@ref<sp/>nrfx_i2s_start).</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@note<sp/>Since<sp/>the<sp/>peripheral<sp/>is<sp/>stopped<sp/>asynchronously,</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffers<sp/>that<sp/>are<sp/>released<sp/>after<sp/>the<sp/>call<sp/>to</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>nrfx_i2s_stop<sp/>are<sp/>not<sp/>used<sp/>entirely.</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>In<sp/>this<sp/>case,<sp/>only<sp/>a<sp/>part<sp/>(if<sp/>any)<sp/>of<sp/>the<sp/>TX</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer<sp/>has<sp/>been<sp/>actually<sp/>transmitted<sp/>and<sp/>only</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>part<sp/>(if<sp/>any)<sp/>of<sp/>the<sp/>RX<sp/>buffer<sp/>is<sp/>filled<sp/>with</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>received<sp/>data.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>status<sp/><sp/>Bit<sp/>field<sp/>describing<sp/>the<sp/>current<sp/>status<sp/>of<sp/>the<sp/>transfer.</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>It<sp/>can<sp/>be<sp/>0<sp/>or<sp/>a<sp/>combination<sp/>of<sp/>the<sp/>following<sp/>flags:</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>@ref<sp/>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>@ref<sp/>NRFX_I2S_STATUS_TRANSFER_STOPPED</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref>)(<ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfx_i2s_buffers_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_released,</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="217"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref><sp/>handler;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>use_rx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>use_tx<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>rx_ready<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>tx_ready<sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>buffers_needed<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>buffers_reused<sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>skip_gpio_cfg<sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>skip_psel_cfg<sp/><sp/>:<sp/>1;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfx_i2s_buffers_t</ref><sp/><sp/>next_buffers;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfx_i2s_buffers_t</ref><sp/><sp/>current_buffers;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">}<sp/>nrfx_i2s_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="235"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="237"><highlight class="comment">/**<sp/>@brief<sp/>I2S<sp/>driver<sp/>instance<sp/>data<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238" refid="structnrfx__i2s__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_I2S_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>with<sp/>I2S<sp/>instance<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_i2s_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal">}<sp/><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref>;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="244"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>an<sp/>I2S<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_I2S_INSTANCE(reg)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="246"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="247"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_reg<sp/>=<sp/>(NRF_I2S_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="248"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/>=<sp/>{0},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="249"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="251"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>I2S<sp/>driver.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>handler<sp/><sp/><sp/><sp/>Data<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Must<sp/>not<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/>The<sp/>requested<sp/>combination<sp/>of<sp/>configuration</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options<sp/>is<sp/>not<sp/>allowed<sp/>by<sp/>the<sp/>I2S<sp/>peripheral.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1gad86fff0ad798ef02dcd5fa13cb45f256" kindref="member">nrfx_i2s_init</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref><sp/><sp/><sp/>handler);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="267"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>I2S<sp/>driver.</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1gaf3bbc360bf549b7c138df0e615f8d827" kindref="member">nrfx_i2s_uninit</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="274"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>I2S<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Instance<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Instance<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1gab813cd49b74aca4865f0ffc79f114de2" kindref="member">nrfx_i2s_init_check</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="284"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>the<sp/>continuous<sp/>I2S<sp/>transfer.</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>The<sp/>I2S<sp/>data<sp/>transfer<sp/>can<sp/>be<sp/>performed<sp/>in<sp/>one<sp/>of<sp/>three<sp/>modes:<sp/>RX<sp/>(reception)</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*<sp/>only,<sp/>TX<sp/>(transmission)<sp/>only,<sp/>or<sp/>in<sp/>both<sp/>directions<sp/>simultaneously.</highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/>*<sp/>The<sp/>mode<sp/>is<sp/>selected<sp/>by<sp/>specifying<sp/>a<sp/>proper<sp/>buffer<sp/>for<sp/>a<sp/>given<sp/>direction</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>call<sp/>to<sp/>this<sp/>function<sp/>or<sp/>by<sp/>passing<sp/>NULL<sp/>instead<sp/>if<sp/>this<sp/>direction</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/>*<sp/>is<sp/>to<sp/>be<sp/>disabled.</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="293"><highlight class="comment"><sp/>*<sp/>The<sp/>length<sp/>of<sp/>the<sp/>buffer<sp/>(which<sp/>is<sp/>a<sp/>common<sp/>value<sp/>for<sp/>RX<sp/>and<sp/>TX<sp/>if<sp/>both</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"><sp/>*<sp/>directions<sp/>are<sp/>enabled)<sp/>is<sp/>specified<sp/>in<sp/>32-bit<sp/>words.<sp/>One<sp/>32-bit<sp/>memory</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*<sp/>word<sp/>can<sp/>either<sp/>contain<sp/>four<sp/>8-bit<sp/>samples,<sp/>two<sp/>16-bit<sp/>samples,<sp/>or<sp/>one</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*<sp/>right-aligned<sp/>24-bit<sp/>sample<sp/>sign-extended<sp/>to<sp/>a<sp/>32-bit<sp/>value.</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*<sp/>For<sp/>a<sp/>detailed<sp/>memory<sp/>mapping<sp/>for<sp/>different<sp/>supported<sp/>configurations,</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*<sp/>see<sp/>the<sp/>Product<sp/>Specification.</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*<sp/>@note<sp/>Peripherals<sp/>using<sp/>EasyDMA<sp/>(including<sp/>I2S)<sp/>require<sp/>the<sp/>transfer<sp/>buffers</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>be<sp/>placed<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.<sp/>If<sp/>this<sp/>condition<sp/>is<sp/>not<sp/>met,</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>this<sp/>function<sp/>will<sp/>fail<sp/>with<sp/>the<sp/>error<sp/>code<sp/>-EACCES.</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="304"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="305"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_initial_buffers<sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>specifying<sp/>the<sp/>buffers</highlight></codeline>
+<codeline lineno="306"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>initial<sp/>part<sp/>of<sp/>the<sp/>transfer</highlight></codeline>
+<codeline lineno="307"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(buffers<sp/>for<sp/>all<sp/>consecutive<sp/>parts<sp/>are<sp/>provided</highlight></codeline>
+<codeline lineno="308"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>through<sp/>the<sp/>data<sp/>handler).</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>flags<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Transfer<sp/>options<sp/>(0<sp/>for<sp/>default<sp/>settings).</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Currently,<sp/>no<sp/>additional<sp/>flags<sp/>are<sp/>available.</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>operation<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>Transfer<sp/>was<sp/>already<sp/>started<sp/>or<sp/>the<sp/>driver<sp/>has<sp/>not<sp/>been<sp/>initialized.</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>provided<sp/>buffers<sp/>are<sp/>not<sp/>placed<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1ga8a8cc675f77fe2b7e0dcf552050e68e0" kindref="member">nrfx_i2s_start</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfx_i2s_buffers_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_initial_buffers,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="320"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>supplying<sp/>the<sp/>buffers<sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>next<sp/>part<sp/>of</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>transfer.</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*<sp/>The<sp/>application<sp/>must<sp/>call<sp/>this<sp/>function<sp/>when<sp/>the<sp/>data<sp/>handler<sp/>receives</highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/>*<sp/>@ref<sp/>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED<sp/>in<sp/>the<sp/>@c<sp/>status<sp/>parameter.</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/>*<sp/>The<sp/>call<sp/>can<sp/>be<sp/>done<sp/>immediately<sp/>from<sp/>the<sp/>data<sp/>handler<sp/>function<sp/>or<sp/>later,</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/>*<sp/>but<sp/>it<sp/>has<sp/>to<sp/>be<sp/>done<sp/>before<sp/>the<sp/>I2S<sp/>peripheral<sp/>finishes<sp/>processing<sp/>the</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/>*<sp/>buffers<sp/>supplied<sp/>previously.<sp/>Otherwise,<sp/>data<sp/>corruption<sp/>will<sp/>occur.</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_buffers<sp/><sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>specifying<sp/>the<sp/>buffers</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>upcoming<sp/>part<sp/>of<sp/>the<sp/>transfer.</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>If<sp/>the<sp/>operation<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="335"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>If<sp/>the<sp/>buffers<sp/>were<sp/>already<sp/>supplied<sp/>or</highlight></codeline>
+<codeline lineno="336"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>peripheral<sp/>is<sp/>currently<sp/>being<sp/>stopped.</highlight></codeline>
+<codeline lineno="337"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>provided<sp/>buffers<sp/>are<sp/>not<sp/>placed<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.</highlight></codeline>
+<codeline lineno="338"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_i2s_data_handler_t</highlight></codeline>
+<codeline lineno="340"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1gac53cbd4e59a713d9b5cab01e0c8230b7" kindref="member">nrfx_i2s_next_buffers_set</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfx_i2s_buffers_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_buffers);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="344"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>stopping<sp/>the<sp/>I2S<sp/>transfer.</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1ga41c08a1ed6129cfe744a9ff14f609f2d" kindref="member">nrfx_i2s_stop</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="351"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>calculating<sp/>I2S<sp/>clock<sp/>prescaler<sp/>values.</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="354"><highlight class="comment"><sp/>*<sp/>Call<sp/>this<sp/>function<sp/>to<sp/>find<sp/>suitable<sp/>value<sp/>for<sp/>prescalers<sp/>in</highlight></codeline>
+<codeline lineno="355"><highlight class="comment"><sp/>*<sp/>@ref<sp/>nrfx_i2s_config_t<sp/>structure.</highlight></codeline>
+<codeline lineno="356"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>clk_params<sp/>Parameters<sp/>used<sp/>to<sp/>describe<sp/>clock<sp/>prescaling.</highlight></codeline>
+<codeline lineno="358"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>prescalers<sp/>Prescaler<sp/>structure<sp/>pointer<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>prescaler<sp/>values.</highlight></codeline>
+<codeline lineno="359"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="360"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Suitable<sp/>prescaler<sp/>values<sp/>were<sp/>found.</highlight></codeline>
+<codeline lineno="361"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/>No<sp/>suitable<sp/>prescaler<sp/>values<sp/>were<sp/>found.</highlight></codeline>
+<codeline lineno="362"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOTSUP<sp/>Requested<sp/>configuration<sp/>is<sp/>not<sp/>supported.</highlight></codeline>
+<codeline lineno="363"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1gae3167a1861a06fbb31788a34f7f9c1c6" kindref="member">nrfx_i2s_prescalers_calc</ref>(<ref refid="structnrfx__i2s__clk__params__t" kindref="compound">nrfx_i2s_clk_params_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>clk_params,</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>prescalers);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="367"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="370"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="371"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__i2s_1ga7d7156e07ed6935b8e6e085a961d6861" kindref="member">nrfx_i2s_irq_handler</ref>(<ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="374"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_I2S_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_i2s.h"/>
+  </compounddef>
+</doxygen>

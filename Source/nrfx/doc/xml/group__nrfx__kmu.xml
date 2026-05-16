@@ -1,0 +1,815 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__kmu" kind="group">
+    <compoundname>nrfx_kmu</compoundname>
+    <title>KMU driver</title>
+    <innerclass refid="structnrfx__kmu__key__slot__metadata__t" prot="public">nrfx_kmu_key_slot_metadata_t</innerclass>
+    <innerclass refid="structnrfx__kmu__key__slot__data__t" prot="public">nrfx_kmu_key_slot_data_t</innerclass>
+    <innergroup refid="group__nrfx__kmu__config">KMU peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__kmu_1ga8aa51fb4d5e8ee1847df298f857284d1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_kmu_rpolicy_t</name>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a46296b85286cb80861f5afde228fa6c7" prot="public">
+          <name>NRFX_KMU_RPOLICY_LOCKED</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Locked</initializer>
+          <briefdescription>
+<para>Locked revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a8d13a96f9d34ec9d502489a999b1f36d" prot="public">
+          <name>NRFX_KMU_RPOLICY_ROTATING</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Rotating</initializer>
+          <briefdescription>
+<para>Rotating revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a470d97e0f17d5a204bee2343ea42aed9" prot="public">
+          <name>NRFX_KMU_RPOLICY_REVOKED</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Revoked</initializer>
+          <briefdescription>
+<para>Revoked revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU revoke policy type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="56" column="1" bodyfile="drivers/include/nrfx_kmu.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_kmu_event_handler_t) (nrf_kmu_event_t event_type)</definition>
+        <argsstring>)(nrf_kmu_event_t event_type)</argsstring>
+        <name>nrfx_kmu_event_handler_t</name>
+        <briefdescription>
+<para>KMU driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="95" column="9" bodyfile="drivers/include/nrfx_kmu.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__kmu_1gaa9dbffc7b0378376a66bab61b98eb410" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_init</definition>
+        <argsstring>(nrfx_kmu_event_handler_t *handler)</argsstring>
+        <name>nrfx_kmu_init</name>
+        <param>
+          <type><ref refid="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" kindref="member">nrfx_kmu_event_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing KMU driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler. Used only if KMU interrupts are present on a device (can be checked with <ref refid="group__nrf__kmu__hal_1ga4c6ae62693cf3dfbf360b1a959882fc0" kindref="member">NRF_KMU_HAS_INTEN</ref>)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="106" column="5" declfile="drivers/include/nrfx_kmu.h" declline="106" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gae245e635ea50854a97936ce719cf63b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_kmu_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_kmu_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing KMU driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="109" column="6" declfile="drivers/include/nrfx_kmu.h" declline="109" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gac7f2ff23a990e54988df6d763208f269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slot_provision</definition>
+        <argsstring>(nrfx_kmu_key_slot_data_t const *p_key_slot_data, uint32_t slot_id)</argsstring>
+        <name>nrfx_kmu_key_slot_provision</name>
+        <param>
+          <type><ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref> const *</type>
+          <declname>p_key_slot_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for provisioning data to given key slot in KMU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Requires enabled writing to non-volatile memory.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_key_slot_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the key slot data structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provisioning was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when provisioning the key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="124" column="5" declfile="drivers/include/nrfx_kmu.h" declline="124" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga2e0bc363e662b8ae4c0267e19bb6dbf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_push</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_push</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for pushing <computeroutput>num_slots</computeroutput> consecutive key slots from KMU to address specified in <computeroutput>keyslot_dest</computeroutput> field in <ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref> at provisioning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to push.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pushing was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is revoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after pushing only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when pushing the key slot (slot is bloked or empty). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="140" column="5" declfile="drivers/include/nrfx_kmu.h" declline="140" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga25faa081e13274c096bdb670f9be38e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_push_block</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_push_block</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for blocking <computeroutput>num_slots</computeroutput> consecutive key slots from being pushed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to block from being pushed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Blocking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after blocking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when push blocking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="155" column="5" declfile="drivers/include/nrfx_kmu.h" declline="155" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gaf3e3eb69c562f02118788d1477697814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_block</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_block</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for blocking <computeroutput>num_slots</computeroutput> consecutive key slots from being pushed or revoked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Blocking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after blocking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when blocking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="171" column="5" declfile="drivers/include/nrfx_kmu.h" declline="171" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga34f945eb4b610ff8708a7614ff2c0d60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_revoke</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_revoke</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for revoking <computeroutput>num_slots</computeroutput> consecutive key slots. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to revoke.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Revoking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after revoking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when revoking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="186" column="5" declfile="drivers/include/nrfx_kmu.h" declline="186" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gac45e702474e30c8ae71eedb96fa642c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slot_metadata_read</definition>
+        <argsstring>(uint32_t slot_id, nrfx_kmu_key_slot_metadata_t *p_metadata)</argsstring>
+        <name>nrfx_kmu_key_slot_metadata_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__kmu__key__slot__metadata__t" kindref="compound">nrfx_kmu_key_slot_metadata_t</ref> *</type>
+          <declname>p_metadata</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading metadata from a key slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a metadata structure to be filled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is revoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is empty. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="201" column="5" declfile="drivers/include/nrfx_kmu.h" declline="201" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga65fe2e0d137bc1da59f94e5011849a92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_empty_check</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots, bool *p_is_empty)</argsstring>
+        <name>nrfx_kmu_key_slots_empty_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>p_is_empty</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given <computeroutput>num_slots</computeroutput> consecutive key slots can be written to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_is_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable determining if <computeroutput>num_slots</computeroutput> consecutive key slots are empty. If at least one of the <computeroutput>num_slots</computeroutput> key slots is occupied or revoked (non-rotating policy), <computeroutput>p_is_empty</computeroutput> is equal to false.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="217" column="5" declfile="drivers/include/nrfx_kmu.h" declline="217" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gab8e07c85953a84eca781d14dd6106a8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_revoked_check</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots, bool *p_is_revoked)</argsstring>
+        <name>nrfx_kmu_key_slots_revoked_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>p_is_revoked</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given <computeroutput>num_slots</computeroutput> consecutive key slots are revoked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_is_revoked</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable determining if <computeroutput>num_slots</computeroutput> consecutive key slots are revoked. If at least one of the <computeroutput>num_slots</computeroutput> key slots is empty or occupied, <computeroutput>p_is_empty</computeroutput> is equal to false.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="232" column="5" declfile="drivers/include/nrfx_kmu.h" declline="232" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga73be89ebaec97a4de2173a2be95a7bf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_next_available_key_slots_find</definition>
+        <argsstring>(uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_next_available_key_slots_find</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for finding first <computeroutput>num_slots</computeroutput> consecutive available key slots. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive key slots to find.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot ID of the first available key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>num_slots consecutive empty key slots were not found, too many occupied and/or revoked key slots. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="243" column="5" declfile="drivers/include/nrfx_kmu.h" declline="243" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__kmu_1ga062602ac8166daa05ed4f9529ccf02a1" prot="public" static="no">
+        <name>KEY_SLOT_WORDS_COUNT</name>
+        <initializer>((KMU_KEYSLOTBITS) / 32)</initializer>
+        <briefdescription>
+<para>Macro for calculating how many 32-bit words can be placed in one key slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="52" column="9" bodyfile="drivers/include/nrfx_kmu.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Key Management Unit (KMU) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

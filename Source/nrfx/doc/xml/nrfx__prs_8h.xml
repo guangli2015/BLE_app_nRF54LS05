@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__prs_8h" kind="file" language="C++">
+    <compoundname>nrfx_prs.h</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__prs_1ga112b4b3bda2602776c5942e9c8c4624e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_prs_acquire</definition>
+        <argsstring>(void const *p_base_addr, nrfx_irq_handler_t irq_handler, void *p_instance)</argsstring>
+        <name>nrfx_prs_acquire</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_base_addr</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__common_1ga8a376a2034709d3d824de72d0f791145" kindref="member">nrfx_irq_handler_t</ref></type>
+          <declname>irq_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for acquiring shared peripheral resources associated with the specified peripheral using instance pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Certain resources and registers are shared among peripherals that have the same ID (for example: SPI0, SPIM0, SPIS0, TWI0, TWIM0, and TWIS0 in nRF52832). Only one of them can be utilized at a given time. This function reserves proper resources to be used by the specified peripheral. If NRFX_PRS_ENABLED is set to a non-zero value, IRQ handlers for peripherals that are sharing resources with others are invoked by the <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module instead of the user code. The drivers must then specify their interrupt handling routines with instance pointer and register them by using this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested peripheral base pointer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt handler to register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to shared peripheral instance structure used in interrupt handling.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If resources were acquired successfully or the specified peripheral is not handled by the PRS subsystem and there is no need to acquire resources for it. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If resources were already acquired. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/prs/nrfx_prs.h" line="71" column="5" declfile="drivers/src/prs/nrfx_prs.h" declline="71" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__prs_1gad6d2a989afdfd94c72396e995d41451a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_prs_release</definition>
+        <argsstring>(void const *p_base_addr)</argsstring>
+        <name>nrfx_prs_release</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_base_addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for releasing shared resources reserved previously by <ref refid="group__nrfx__prs_1ga112b4b3bda2602776c5942e9c8c4624e" kindref="member">nrfx_prs_acquire()</ref> for the specified peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Released peripheral base pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/prs/nrfx_prs.h" line="81" column="6" declfile="drivers/src/prs/nrfx_prs.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2017<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_PRS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_PRS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_prs<sp/>Peripheral<sp/>Resource<sp/>Sharing<sp/>(PRS)</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrfx</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Peripheral<sp/>Resource<sp/>Sharing<sp/>interface<sp/>(PRS).</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>acquiring<sp/>shared<sp/>peripheral<sp/>resources<sp/>associated<sp/>with</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>specified<sp/>peripheral<sp/>using<sp/>instance<sp/>pointer.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Certain<sp/>resources<sp/>and<sp/>registers<sp/>are<sp/>shared<sp/>among<sp/>peripherals<sp/>that<sp/>have</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>the<sp/>same<sp/>ID<sp/>(for<sp/>example:<sp/>SPI0,<sp/>SPIM0,<sp/>SPIS0,<sp/>TWI0,<sp/>TWIM0,<sp/>and<sp/>TWIS0<sp/>in</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>nRF52832).<sp/>Only<sp/>one<sp/>of<sp/>them<sp/>can<sp/>be<sp/>utilized<sp/>at<sp/>a<sp/>given<sp/>time.<sp/>This<sp/>function</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>reserves<sp/>proper<sp/>resources<sp/>to<sp/>be<sp/>used<sp/>by<sp/>the<sp/>specified<sp/>peripheral.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>If<sp/>NRFX_PRS_ENABLED<sp/>is<sp/>set<sp/>to<sp/>a<sp/>non-zero<sp/>value,<sp/>IRQ<sp/>handlers<sp/>for<sp/>peripherals</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>that<sp/>are<sp/>sharing<sp/>resources<sp/>with<sp/>others<sp/>are<sp/>invoked<sp/>by<sp/>the<sp/>@ref<sp/>nrfx_prs</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>module<sp/>instead<sp/>of<sp/>the<sp/>user<sp/>code.<sp/>The<sp/>drivers<sp/>must<sp/>then<sp/>specify<sp/>their</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>handling<sp/>routines<sp/>with<sp/>instance<sp/>pointer<sp/>and<sp/>register<sp/>them<sp/>by<sp/>using<sp/>this<sp/>function.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_base_addr<sp/>Requested<sp/>peripheral<sp/>base<sp/>pointer.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_handler<sp/>Interrupt<sp/>handler<sp/>to<sp/>register.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/>Pointer<sp/>to<sp/>shared<sp/>peripheral<sp/>instance<sp/>structure<sp/>used<sp/>in</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interrupt<sp/>handling.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>If<sp/>resources<sp/>were<sp/>acquired<sp/>successfully<sp/>or<sp/>the<sp/>specified<sp/>peripheral<sp/>is<sp/>not<sp/>handled</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>by<sp/>the<sp/>PRS<sp/>subsystem<sp/>and<sp/>there<sp/>is<sp/>no<sp/>need<sp/>to<sp/>acquire<sp/>resources<sp/>for<sp/>it.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>If<sp/>resources<sp/>were<sp/>already<sp/>acquired.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__prs_1ga112b4b3bda2602776c5942e9c8c4624e" kindref="member">nrfx_prs_acquire</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_base_addr,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1ga8a376a2034709d3d824de72d0f791145" kindref="member">nrfx_irq_handler_t</ref><sp/>irq_handler,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="75"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>releasing<sp/>shared<sp/>resources<sp/>reserved<sp/>previously<sp/>by</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>nrfx_prs_acquire()<sp/>for<sp/>the<sp/>specified<sp/>peripheral.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_base_addr<sp/>Released<sp/>peripheral<sp/>base<sp/>pointer.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__prs_1gad6d2a989afdfd94c72396e995d41451a" kindref="member">nrfx_prs_release</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_base_addr);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="83"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_PRS_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/src/prs/nrfx_prs.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1605 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__uart__hal" kind="group">
+    <compoundname>nrf_uart_hal</compoundname>
+    <title>UART HAL</title>
+    <innerclass refid="structnrf__uart__config__t" prot="public">nrf_uart_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga61ed3c0eb7723a0dfda76d7d5025e5a8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_task_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga61ed3c0eb7723a0dfda76d7d5025e5a8a7944c51647176e92ecd9ed71413d036e" prot="public">
+          <name>NRF_UART_TASK_STARTRX</name>
+          <initializer>= offsetof(NRF_UART_Type, TASKS_STARTRX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for starting reception. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga61ed3c0eb7723a0dfda76d7d5025e5a8a968271c88c4239dcf601036015600e60" prot="public">
+          <name>NRF_UART_TASK_STOPRX</name>
+          <initializer>= offsetof(NRF_UART_Type, TASKS_STOPRX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for stopping reception. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga61ed3c0eb7723a0dfda76d7d5025e5a8a31d6b14e13e08941a016ec705875d09f" prot="public">
+          <name>NRF_UART_TASK_STARTTX</name>
+          <initializer>= offsetof(NRF_UART_Type, TASKS_STARTTX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for starting transmission. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga61ed3c0eb7723a0dfda76d7d5025e5a8ac076bc6fc36a354a198d7778f4a1d680" prot="public">
+          <name>NRF_UART_TASK_STOPTX</name>
+          <initializer>= offsetof(NRF_UART_Type, TASKS_STOPTX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for stopping transmission. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga61ed3c0eb7723a0dfda76d7d5025e5a8ae814ca635be2cc5f81d60cae0fd6b053" prot="public">
+          <name>NRF_UART_TASK_SUSPEND</name>
+          <initializer>= offsetof(NRF_UART_Type, TASKS_SUSPEND)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for suspending UART. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UART tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="68" column="1" bodyfile="hal/nrf_uart.h" bodystart="69" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1gad1710c9c8832f8d4b3264cca8029b730" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_event_t</name>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730ad6b390f60fde5c9f4f78d38b9828937c" prot="public">
+          <name>NRF_UART_EVENT_CTS</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_CTS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from CTS line activation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730a61d620c43e4a53c1ae7261d6eba14dca" prot="public">
+          <name>NRF_UART_EVENT_NCTS</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_NCTS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from CTS line deactivation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730abbbe469642409d1edcb3e60f7081e530" prot="public">
+          <name>NRF_UART_EVENT_RXDRDY</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_RXDRDY)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from data ready in RXD. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730aa18bae5b1345aac3762c049c98181399" prot="public">
+          <name>NRF_UART_EVENT_TXDRDY</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_TXDRDY)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from data sent from TXD. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730a598a30db76b856bcf3dc5c33ea318c84" prot="public">
+          <name>NRF_UART_EVENT_ERROR</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_ERROR)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from error detection. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggad1710c9c8832f8d4b3264cca8029b730aa0d6c0da694b3ff12b7a5a0604a0750d" prot="public">
+          <name>NRF_UART_EVENT_RXTO</name>
+          <initializer>= offsetof(NRF_UART_Type, EVENTS_RXTO)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from receiver timeout. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UART events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="78" column="1" bodyfile="hal/nrf_uart.h" bodystart="79" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga6761747333c2f75275f1937c2d6ad74e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_int_mask_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74eaf3952af638e0621a0ea5d4147c6dccc3" prot="public">
+          <name>NRF_UART_INT_MASK_CTS</name>
+          <initializer>= UART_INTENCLR_CTS_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>CTS line activation interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74ea55a1410d9ee579f1ea41f68e4fcd8342" prot="public">
+          <name>NRF_UART_INT_MASK_NCTS</name>
+          <initializer>= UART_INTENCLR_NCTS_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>CTS line deactivation interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74ea4221966a92b24fda0827418021b3845e" prot="public">
+          <name>NRF_UART_INT_MASK_RXDRDY</name>
+          <initializer>= UART_INTENCLR_RXDRDY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Data ready in RXD interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74ea0626e3c6e2f81c3f363b6b896a3f833f" prot="public">
+          <name>NRF_UART_INT_MASK_TXDRDY</name>
+          <initializer>= UART_INTENCLR_TXDRDY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Data sent from TXD interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74ea06656ef3afe5293a39be053d4ef85125" prot="public">
+          <name>NRF_UART_INT_MASK_ERROR</name>
+          <initializer>= UART_INTENCLR_ERROR_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Error detection interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga6761747333c2f75275f1937c2d6ad74ea1623602f4b7bf3d4ee2eed44f73b702d" prot="public">
+          <name>NRF_UART_INT_MASK_RXTO</name>
+          <initializer>= UART_INTENCLR_RXTO_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Receiver timeout interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UART interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="89" column="1" bodyfile="hal/nrf_uart.h" bodystart="90" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga8f8c852e9d2eca9a20348c0640d7db5e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_baudrate_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea383757ee779a142c3389e77a5618131a" prot="public">
+          <name>NRF_UART_BAUDRATE_1200</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud1200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1200 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ead538441e899131383dc6fba84081dbde" prot="public">
+          <name>NRF_UART_BAUDRATE_2400</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud2400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>2400 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea1adca8d04e52de1d85f33b1897310f2f" prot="public">
+          <name>NRF_UART_BAUDRATE_4800</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud4800</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>4800 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eab756a5e0b424f332b9cf7143a4127f7b" prot="public">
+          <name>NRF_UART_BAUDRATE_9600</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud9600</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>9600 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea1a7dd8a087e9169505096b3eac3b2e57" prot="public">
+          <name>NRF_UART_BAUDRATE_14400</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud14400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>14400 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea545c88be9dfc1bfae61e3b338f470962" prot="public">
+          <name>NRF_UART_BAUDRATE_19200</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud19200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>19200 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea2ae8c9cd33f76e9b4ec761128957bda3" prot="public">
+          <name>NRF_UART_BAUDRATE_28800</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud28800</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>28800 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eaaa74df764a7068cbdcdb83812c8decff" prot="public">
+          <name>NRF_UART_BAUDRATE_31250</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud31250</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>31250 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea0744f8a5257e55a965f6a6583c05687f" prot="public">
+          <name>NRF_UART_BAUDRATE_38400</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud38400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>38400 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea36ec1ad8b0bed3d13137b9f3d4957753" prot="public">
+          <name>NRF_UART_BAUDRATE_56000</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud56000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>56000 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eaf723ee66cddb66e67b7a169c7becdc77" prot="public">
+          <name>NRF_UART_BAUDRATE_57600</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud57600</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>57600 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea9bf0fca698611c5cb5a86aeea33ca8b2" prot="public">
+          <name>NRF_UART_BAUDRATE_76800</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud76800</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>76800 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea899519ef5bc33b854b4ffe9b2fd743db" prot="public">
+          <name>NRF_UART_BAUDRATE_115200</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud115200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>115200 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea64f94cbf9ccb1633751df9727d2d1e09" prot="public">
+          <name>NRF_UART_BAUDRATE_230400</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud230400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>230400 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eaccb8e6d20d3d94158dd289be8d5892b9" prot="public">
+          <name>NRF_UART_BAUDRATE_250000</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud250000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>250000 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eaa5314f8c0a319b78a9c2730b70f32cbd" prot="public">
+          <name>NRF_UART_BAUDRATE_460800</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud460800</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>460800 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eafd0a988a75e8d74588e9e65d620b0297" prot="public">
+          <name>NRF_UART_BAUDRATE_921600</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud921600</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>921600 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5eadd4bf9d81444a39933d4d9ab529bc0d1" prot="public">
+          <name>NRF_UART_BAUDRATE_1000000</name>
+          <initializer>= UART_BAUDRATE_BAUDRATE_Baud1M</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1000000 baud. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Baudrates supported by UART. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="100" column="1" bodyfile="hal/nrf_uart.h" bodystart="101" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga2657a793028d3f7083ad87cc05bd9817" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_error_mask_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga2657a793028d3f7083ad87cc05bd9817abb3cd66d759e0db84edaef35d1d5f0fd" prot="public">
+          <name>NRF_UART_ERROR_OVERRUN_MASK</name>
+          <initializer>= UART_ERRORSRC_OVERRUN_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Overrun error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga2657a793028d3f7083ad87cc05bd9817ac4ca465ca398652189df240dd8c59a1b" prot="public">
+          <name>NRF_UART_ERROR_PARITY_MASK</name>
+          <initializer>= UART_ERRORSRC_PARITY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Parity error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga2657a793028d3f7083ad87cc05bd9817a73489365f43fa6d77431818176005335" prot="public">
+          <name>NRF_UART_ERROR_FRAMING_MASK</name>
+          <initializer>= UART_ERRORSRC_FRAMING_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Framing error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga2657a793028d3f7083ad87cc05bd9817a1e318d4ecd962d5b08d7a221f2d8f6de" prot="public">
+          <name>NRF_UART_ERROR_BREAK_MASK</name>
+          <initializer>= UART_ERRORSRC_BREAK_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Break error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART error masks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="123" column="1" bodyfile="hal/nrf_uart.h" bodystart="124" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga26a900177fa34963f4ac68f3896ad803" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_parity_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga26a900177fa34963f4ac68f3896ad803a0ac8b6f846138b0b5c25f6547718ae3c" prot="public">
+          <name>NRF_UART_PARITY_EXCLUDED</name>
+          <initializer>= UART_CONFIG_PARITY_Excluded &lt;&lt; UART_CONFIG_PARITY_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Parity excluded. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga26a900177fa34963f4ac68f3896ad803ae95f6012ea9758f77526ef9ecbaaf5aa" prot="public">
+          <name>NRF_UART_PARITY_INCLUDED</name>
+          <initializer>= UART_CONFIG_PARITY_Included &lt;&lt; UART_CONFIG_PARITY_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Parity included. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART parity modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="132" column="1" bodyfile="hal/nrf_uart.h" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga64bc954123930f8167c2386a4dd58848" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_hwfc_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga64bc954123930f8167c2386a4dd58848ae70d354622bd8186a27d9e5f8563e8b3" prot="public">
+          <name>NRF_UART_HWFC_DISABLED</name>
+          <initializer>= UART_CONFIG_HWFC_Disabled</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Hardware flow control disabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga64bc954123930f8167c2386a4dd58848adcce80c5ac80b773199d39121700fc3c" prot="public">
+          <name>NRF_UART_HWFC_ENABLED</name>
+          <initializer>= UART_CONFIG_HWFC_Enabled</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Hardware flow control enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART flow control modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="139" column="1" bodyfile="hal/nrf_uart.h" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1ga86541355ae5c6a5699495c2483a85335" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_stop_t</name>
+        <enumvalue id="group__nrf__uart__hal_1gga86541355ae5c6a5699495c2483a85335a12996cfbd62d3a657a95f8088155225e" prot="public">
+          <name>NRF_UART_STOP_ONE</name>
+          <initializer>= UART_CONFIG_STOP_One &lt;&lt; UART_CONFIG_STOP_Pos</initializer>
+          <briefdescription>
+<para>One stop bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1gga86541355ae5c6a5699495c2483a85335a1a4b5feb485b900ea35310d0dbdc93b4" prot="public">
+          <name>NRF_UART_STOP_TWO</name>
+          <initializer>= UART_CONFIG_STOP_Two &lt;&lt; UART_CONFIG_STOP_Pos</initializer>
+          <briefdescription>
+<para>Two stop bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART stop bit modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="147" column="1" bodyfile="hal/nrf_uart.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uart__hal_1gaefcc99f71b39e6750fae1b28765fb20d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uart_paritytype_t</name>
+        <enumvalue id="group__nrf__uart__hal_1ggaefcc99f71b39e6750fae1b28765fb20da49f3221f6523cf71692001b348a72f7a" prot="public">
+          <name>NRF_UART_PARITYTYPE_EVEN</name>
+          <initializer>= UART_CONFIG_PARITYTYPE_Even &lt;&lt; UART_CONFIG_PARITYTYPE_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Parity even. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uart__hal_1ggaefcc99f71b39e6750fae1b28765fb20da4a52289b6fd2e56639d2622488fd9ff4" prot="public">
+          <name>NRF_UART_PARITYTYPE_ODD</name>
+          <initializer>= UART_CONFIG_PARITYTYPE_Odd &lt;&lt; UART_CONFIG_PARITYTYPE_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Parity odd. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART parity types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="156" column="1" bodyfile="hal/nrf_uart.h" bodystart="157" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga4ccf1a06d588351d7f8b4a768538c72f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_event_clear</definition>
+        <argsstring>(NRF_UART_Type *p_reg, nrf_uart_event_t event)</argsstring>
+        <name>nrf_uart_event_clear</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1gad1710c9c8832f8d4b3264cca8029b730" kindref="member">nrf_uart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified UART event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="418" column="24" bodyfile="hal/nrf_uart.h" bodystart="418" bodyend="422" declfile="hal/nrf_uart.h" declline="182" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga606e9a1fa988a2f345aa0fbfe62286d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_uart_event_check</definition>
+        <argsstring>(NRF_UART_Type const *p_reg, nrf_uart_event_t event)</argsstring>
+        <name>nrf_uart_event_check</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1gad1710c9c8832f8d4b3264cca8029b730" kindref="member">nrf_uart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the UART event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="424" column="24" bodyfile="hal/nrf_uart.h" bodystart="424" bodyend="427" declfile="hal/nrf_uart.h" declline="193" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga34b7c6fb8b390d1a89f16014745cdfc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_event_address_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg, nrf_uart_event_t event)</argsstring>
+        <name>nrf_uart_event_address_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1gad1710c9c8832f8d4b3264cca8029b730" kindref="member">nrf_uart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified UART event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="429" column="28" bodyfile="hal/nrf_uart.h" bodystart="429" bodyend="433" declfile="hal/nrf_uart.h" declline="203" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga1810118150a18a4a7141515ce673f5ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_int_enable</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uart_int_enable</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__uart__hal_1ga6761747333c2f75275f1937c2d6ad74e" kindref="member">nrf_uart_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="435" column="24" bodyfile="hal/nrf_uart.h" bodystart="435" bodyend="438" declfile="hal/nrf_uart.h" declline="213" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga356b6c5f4931514e70461d4a6b9d48fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_int_enable_check</definition>
+        <argsstring>(NRF_UART_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uart_int_enable_check</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__uart__hal_1ga6761747333c2f75275f1937c2d6ad74e" kindref="member">nrf_uart_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="440" column="28" bodyfile="hal/nrf_uart.h" bodystart="440" bodyend="443" declfile="hal/nrf_uart.h" declline="224" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga79f8c0342aa7df242eaf661497e1cab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_int_disable</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uart_int_disable</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__uart__hal_1ga6761747333c2f75275f1937c2d6ad74e" kindref="member">nrf_uart_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="445" column="24" bodyfile="hal/nrf_uart.h" bodystart="445" bodyend="448" declfile="hal/nrf_uart.h" declline="233" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga5b14625de90dd7efa4a676864ad7a08d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_errorsrc_get_and_clear</definition>
+        <argsstring>(NRF_UART_Type *p_reg)</argsstring>
+        <name>nrf_uart_errorsrc_get_and_clear</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting error source mask. Function is clearing error source flags after reading. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask with error source flags. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="450" column="28" bodyfile="hal/nrf_uart.h" bodystart="450" bodyend="455" declfile="hal/nrf_uart.h" declline="242" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga9d0c5e3f47bcdb6aa05ce2f32b642718" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_enable</definition>
+        <argsstring>(NRF_UART_Type *p_reg)</argsstring>
+        <name>nrf_uart_enable</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling UART. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="457" column="24" bodyfile="hal/nrf_uart.h" bodystart="457" bodyend="460" declfile="hal/nrf_uart.h" declline="249" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga05a59664bec3868983c19d1d1aab6e47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_disable</definition>
+        <argsstring>(NRF_UART_Type *p_reg)</argsstring>
+        <name>nrf_uart_disable</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling UART. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="462" column="24" bodyfile="hal/nrf_uart.h" bodystart="462" bodyend="465" declfile="hal/nrf_uart.h" declline="256" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga9a4b477deefb352c2a506beb608db367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_txrx_pins_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pseltxd, uint32_t pselrxd)</argsstring>
+        <name>nrf_uart_txrx_pins_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pseltxd</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TX/RX pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pseltxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="467" column="24" bodyfile="hal/nrf_uart.h" bodystart="467" bodyend="481" declfile="hal/nrf_uart.h" declline="265" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga916e58177ce3921e1ca25b93c7ee6feb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_txrx_pins_disconnect</definition>
+        <argsstring>(NRF_UART_Type *p_reg)</argsstring>
+        <name>nrf_uart_txrx_pins_disconnect</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disconnecting TX/RX pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="483" column="24" bodyfile="hal/nrf_uart.h" bodystart="483" bodyend="486" declfile="hal/nrf_uart.h" declline="274" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gae996cdc2376ef13552a2e175fe54fb00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_tx_pin_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pseltxd)</argsstring>
+        <name>nrf_uart_tx_pin_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pseltxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TX pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pseltxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="488" column="24" bodyfile="hal/nrf_uart.h" bodystart="488" bodyend="495" declfile="hal/nrf_uart.h" declline="282" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga185c5d2dd6a70ce1caa02925631f0a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_tx_pin_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg)</argsstring>
+        <name>nrf_uart_tx_pin_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting TX pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TX pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="497" column="28" bodyfile="hal/nrf_uart.h" bodystart="497" bodyend="504" declfile="hal/nrf_uart.h" declline="291" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga0b6e5329d35792408db9d767db9c879e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_rx_pin_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pselrxd)</argsstring>
+        <name>nrf_uart_rx_pin_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring RX pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="506" column="24" bodyfile="hal/nrf_uart.h" bodystart="506" bodyend="513" declfile="hal/nrf_uart.h" declline="299" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga43e05bb6e6b697b7ce23c61cdcc5b9bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_rx_pin_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg)</argsstring>
+        <name>nrf_uart_rx_pin_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting RX pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RX pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="515" column="28" bodyfile="hal/nrf_uart.h" bodystart="515" bodyend="522" declfile="hal/nrf_uart.h" declline="308" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga765e3fbf922a67674977087ccba9766e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_rts_pin_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pselrts)</argsstring>
+        <name>nrf_uart_rts_pin_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring RTS pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="524" column="24" bodyfile="hal/nrf_uart.h" bodystart="524" bodyend="531" declfile="hal/nrf_uart.h" declline="316" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gacaaef7353f53511c5253106fc70f481c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_rts_pin_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg)</argsstring>
+        <name>nrf_uart_rts_pin_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting RTS pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RTS pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="533" column="28" bodyfile="hal/nrf_uart.h" bodystart="533" bodyend="540" declfile="hal/nrf_uart.h" declline="325" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga275b64b75777991ca37dafcd5eaac792" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_cts_pin_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pselcts)</argsstring>
+        <name>nrf_uart_cts_pin_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselcts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring CTS pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselcts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="542" column="24" bodyfile="hal/nrf_uart.h" bodystart="542" bodyend="549" declfile="hal/nrf_uart.h" declline="333" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gab5e10a9d04873dcfb6d2ffe9bf9fb970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_cts_pin_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg)</argsstring>
+        <name>nrf_uart_cts_pin_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting CTS pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CTS pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="551" column="28" bodyfile="hal/nrf_uart.h" bodystart="551" bodyend="558" declfile="hal/nrf_uart.h" declline="342" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga233ad2e767cda140392f71b783856f25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_hwfc_pins_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint32_t pselrts, uint32_t pselcts)</argsstring>
+        <name>nrf_uart_hwfc_pins_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrts</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselcts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring flow control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselcts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="560" column="24" bodyfile="hal/nrf_uart.h" bodystart="560" bodyend="575" declfile="hal/nrf_uart.h" declline="351" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga58d5bf6d518022f9a70db58e46e9d71b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_hwfc_pins_disconnect</definition>
+        <argsstring>(NRF_UART_Type *p_reg)</argsstring>
+        <name>nrf_uart_hwfc_pins_disconnect</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disconnecting flow control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="577" column="24" bodyfile="hal/nrf_uart.h" bodystart="577" bodyend="580" declfile="hal/nrf_uart.h" declline="360" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga0f9599db902d7d5687e41960861c052f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_uart_rxd_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg)</argsstring>
+        <name>nrf_uart_rxd_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading RX data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Received byte. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="582" column="27" bodyfile="hal/nrf_uart.h" bodystart="582" bodyend="585" declfile="hal/nrf_uart.h" declline="369" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gafcbe59c42409c30ae67c5ce356e81bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_txd_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, uint8_t txd)</argsstring>
+        <name>nrf_uart_txd_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>txd</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting Tx data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">txd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="587" column="24" bodyfile="hal/nrf_uart.h" bodystart="587" bodyend="590" declfile="hal/nrf_uart.h" declline="377" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gabfb2d0dcd715241ffd35366a89a5f0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_task_trigger</definition>
+        <argsstring>(NRF_UART_Type *p_reg, nrf_uart_task_t task)</argsstring>
+        <name>nrf_uart_task_trigger</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1ga61ed3c0eb7723a0dfda76d7d5025e5a8" kindref="member">nrf_uart_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting an UART task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="592" column="24" bodyfile="hal/nrf_uart.h" bodystart="592" bodyend="595" declfile="hal/nrf_uart.h" declline="385" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1ga4ed8898231ccdf2ebc2510b56fbeac00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uart_task_address_get</definition>
+        <argsstring>(NRF_UART_Type const *p_reg, nrf_uart_task_t task)</argsstring>
+        <name>nrf_uart_task_address_get</name>
+        <param>
+          <type>NRF_UART_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1ga61ed3c0eb7723a0dfda76d7d5025e5a8" kindref="member">nrf_uart_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="597" column="28" bodyfile="hal/nrf_uart.h" bodystart="597" bodyend="601" declfile="hal/nrf_uart.h" declline="395" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gae958cb0991b05c497c7d996bc99e6c5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_configure</definition>
+        <argsstring>(NRF_UART_Type *p_reg, nrf_uart_config_t const *p_cfg)</argsstring>
+        <name>nrf_uart_configure</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__uart__config__t" kindref="compound">nrf_uart_config_t</ref> const *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring UART. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to UART settings structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="603" column="24" bodyfile="hal/nrf_uart.h" bodystart="603" bodyend="614" declfile="hal/nrf_uart.h" declline="404" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uart__hal_1gafa5abc297e9adb026f8e15af80b2b30f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uart_baudrate_set</definition>
+        <argsstring>(NRF_UART_Type *p_reg, nrf_uart_baudrate_t baudrate)</argsstring>
+        <name>nrf_uart_baudrate_set</name>
+        <param>
+          <type>NRF_UART_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1ga8f8c852e9d2eca9a20348c0640d7db5e" kindref="member">nrf_uart_baudrate_t</ref></type>
+          <declname>baudrate</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting UART baud rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">baudrate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Baud rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="616" column="24" bodyfile="hal/nrf_uart.h" bodystart="616" bodyend="619" declfile="hal/nrf_uart.h" declline="413" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__uart__hal_1gab38e708a2cf27ff754d4bc2a6e57f35f" prot="public" static="no">
+        <name>NRF_UART_HAS_STOP_BITS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UART has configurable number of stop bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="52" column="9" bodyfile="hal/nrf_uart.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uart__hal_1ga38a78d3f2b10257dbcda71d0a8bb7d18" prot="public" static="no">
+        <name>NRF_UART_HAS_PARITY_BIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UART has parity bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="59" column="9" bodyfile="hal/nrf_uart.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uart__hal_1ga505f00f51ff5b93317032f1e3b5ba1a6" prot="public" static="no">
+        <name>NRF_UART_PSEL_DISCONNECTED</name>
+        <initializer>0xFFFFFFFF</initializer>
+        <briefdescription>
+<para>Pin disconnected value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uart.h" line="65" column="9" bodyfile="hal/nrf_uart.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the UART peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

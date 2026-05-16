@@ -1,0 +1,1196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__temp_8h" kind="file" language="C++">
+    <compoundname>nrf_temp.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includedby refid="nrfy__temp_8h" local="no">haly/nrfy_temp.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>hal/nrf_temp.h</label>
+        <link refid="nrf__temp_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__temp__hal_1ga906169907f9abe8c84d8a71d4f800c77" prot="public" static="no">
+        <name>NRF_TEMP_HAS_CALIBRATION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the calibration of temperature measurement is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="52" column="9" bodyfile="hal/nrf_temp.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_temp_task_t</name>
+        <enumvalue id="group__nrf__temp__hal_1gga1cf2b8f17afc332ee359ec43260612efac19d618bf3b37f2edfeae3a4f01452d9" prot="public">
+          <name>NRF_TEMP_TASK_START</name>
+          <initializer>= offsetof(NRF_TEMP_Type, TASKS_START)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start temperature measurement. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__temp__hal_1gga1cf2b8f17afc332ee359ec43260612efa41a84a8acb1ec9226460fdc6c02c34a1" prot="public">
+          <name>NRF_TEMP_TASK_STOP</name>
+          <initializer>= offsetof(NRF_TEMP_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Stop temperature measurement. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TEMP tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="58" column="1" bodyfile="hal/nrf_temp.h" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_temp_event_t</name>
+        <enumvalue id="group__nrf__temp__hal_1gga51bd7440f309009867719b2e18237134a20cbba1ffdc9eb93502cda0f3ab4f787" prot="public">
+          <name>NRF_TEMP_EVENT_DATARDY</name>
+          <initializer>= offsetof(NRF_TEMP_Type, EVENTS_DATARDY)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Temperature measurement complete, data ready. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TEMP events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="65" column="1" bodyfile="hal/nrf_temp.h" bodystart="66" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__temp__hal_1gafd94a5da292412e60cf09ee4aad30237" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_temp_int_mask_t</name>
+        <enumvalue id="group__nrf__temp__hal_1ggafd94a5da292412e60cf09ee4aad30237a5e3940c06238140f5bd0b59d15b71bab" prot="public">
+          <name>NRF_TEMP_INT_DATARDY_MASK</name>
+          <initializer>= TEMP_INTENSET_DATARDY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on DATARDY event. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TEMP interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="71" column="1" bodyfile="hal/nrf_temp.h" bodystart="72" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga96374ca23596be300c94bcc430604528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_int_enable</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_temp_int_enable</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__temp__hal_1gafd94a5da292412e60cf09ee4aad30237" kindref="member">nrf_temp_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="256" column="24" bodyfile="hal/nrf_temp.h" bodystart="256" bodyend="259" declfile="hal/nrf_temp.h" declline="83" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gaed50fdeac4049a8f03e3599aec0e9039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_int_disable</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_temp_int_disable</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__temp__hal_1gafd94a5da292412e60cf09ee4aad30237" kindref="member">nrf_temp_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="261" column="24" bodyfile="hal/nrf_temp.h" bodystart="261" bodyend="264" declfile="hal/nrf_temp.h" declline="92" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gaf31d101258557b158e5a633185bb98f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_int_enable_check</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_temp_int_enable_check</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__temp__hal_1gafd94a5da292412e60cf09ee4aad30237" kindref="member">nrf_temp_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="266" column="28" bodyfile="hal/nrf_temp.h" bodystart="266" bodyend="269" declfile="hal/nrf_temp.h" declline="103" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gac8845468be5b9eeefaa87a9681698ffc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_task_address_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, nrf_temp_task_t task)</argsstring>
+        <name>nrf_temp_task_address_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified TEMP task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the requested task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="271" column="28" bodyfile="hal/nrf_temp.h" bodystart="271" bodyend="275" declfile="hal/nrf_temp.h" declline="113" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga5ed67adbf437075afead2f3a7c606d64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_task_trigger</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_task_t task)</argsstring>
+        <name>nrf_temp_task_trigger</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified TEMP task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="277" column="24" bodyfile="hal/nrf_temp.h" bodystart="277" bodyend="280" declfile="hal/nrf_temp.h" declline="122" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gab14f4647228668bfa7adb76b4979432b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_event_address_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, nrf_temp_event_t event)</argsstring>
+        <name>nrf_temp_event_address_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified TEMP event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the requested event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="282" column="28" bodyfile="hal/nrf_temp.h" bodystart="282" bodyend="286" declfile="hal/nrf_temp.h" declline="132" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga731fc5e9efd8d3d2c9fe0068d45507f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_event_clear</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_event_t event)</argsstring>
+        <name>nrf_temp_event_clear</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified TEMP event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="288" column="24" bodyfile="hal/nrf_temp.h" bodystart="288" bodyend="292" declfile="hal/nrf_temp.h" declline="141" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga68a9ec6fc4931b3b1308e93e5f0f7f27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_temp_event_check</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, nrf_temp_event_t event)</argsstring>
+        <name>nrf_temp_event_check</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of a specific event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="294" column="24" bodyfile="hal/nrf_temp.h" bodystart="294" bodyend="297" declfile="hal/nrf_temp.h" declline="152" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga21d3c1128cdd2ba4b1cd863989a85133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE int32_t</type>
+        <definition>NRF_STATIC_INLINE int32_t nrf_temp_result_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg)</argsstring>
+        <name>nrf_temp_result_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the result of temperature measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Returned value is in 2&apos;s complement format, 0.25 °C steps</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Temperature value register contents. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="299" column="27" bodyfile="hal/nrf_temp.h" bodystart="299" bodyend="302" declfile="hal/nrf_temp.h" declline="163" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga141dcead300047992b44764e6c97e430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_calibration_coeff_set</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, uint32_t coeff)</argsstring>
+        <name>nrf_temp_calibration_coeff_set</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>coeff</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the calibration coefficient for the temperature measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">coeff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Calibration coefficient. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="305" column="24" bodyfile="hal/nrf_temp.h" bodystart="305" bodyend="308" declfile="hal/nrf_temp.h" declline="172" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gae9dc78ea40ce75eda744047d5980753c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_calibration_coeff_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg)</argsstring>
+        <name>nrf_temp_calibration_coeff_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the calibration coefficient for the temperature measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Calibration coefficient. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="310" column="28" bodyfile="hal/nrf_temp.h" bodystart="310" bodyend="313" declfile="hal/nrf_temp.h" declline="181" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga4ccbcc02f47cea3e5a99fae28aa36c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_subscribe_set</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_temp_subscribe_set</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given TEMP task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="193" column="24" declfile="hal/nrf_temp.h" declline="193" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga745bcba2cd7e6cee25732fbabf27d689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_subscribe_clear</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_task_t task)</argsstring>
+        <name>nrf_temp_subscribe_clear</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given TEMP task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="204" column="24" declfile="hal/nrf_temp.h" declline="204" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga1d3c6a77f8b701d48c536986e926ea51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_subscribe_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, nrf_temp_task_t task)</argsstring>
+        <name>nrf_temp_subscribe_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given TEMP task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TEMP subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="216" column="28" declfile="hal/nrf_temp.h" declline="216" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1gadf6f4386801743a690eabf58966ffafb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_publish_set</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_temp_publish_set</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given TEMP event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="227" column="24" declfile="hal/nrf_temp.h" declline="227" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga13da057b53a8e70523e5ec03c6d2ea2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_temp_publish_clear</definition>
+        <argsstring>(NRF_TEMP_Type *p_reg, nrf_temp_event_t event)</argsstring>
+        <name>nrf_temp_publish_clear</name>
+        <param>
+          <type>NRF_TEMP_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given TEMP event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="238" column="24" declfile="hal/nrf_temp.h" declline="238" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__temp__hal_1ga9f7a930aa9fe0fe3fceb0f59e1943ff6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_temp_publish_get</definition>
+        <argsstring>(NRF_TEMP_Type const *p_reg, nrf_temp_event_t event)</argsstring>
+        <name>nrf_temp_publish_get</name>
+        <param>
+          <type>NRF_TEMP_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given TEMP event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TEMP publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_temp.h" line="250" column="28" declfile="hal/nrf_temp.h" declline="250" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2012<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">*<sp/>@defgroup<sp/>nrf_temp_hal<sp/>TEMP<sp/>HAL</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">*<sp/>@ingroup<sp/>nrf_temp</highlight></codeline>
+<codeline lineno="47"><highlight class="comment">*<sp/>@brief<sp/><sp/><sp/>Hardware<sp/>access<sp/>layer<sp/>for<sp/>managing<sp/>the<sp/>Temperature<sp/>sensor<sp/>(TEMP).</highlight></codeline>
+<codeline lineno="48"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(TEMP_CALIB_CALIB_Msk)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>indicating<sp/>whether<sp/>the<sp/>calibration<sp/>of<sp/>temperature<sp/>measurement<sp/>is<sp/>present.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_TEMP_HAS_CALIBRATION<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_TEMP_HAS_CALIBRATION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment">/**<sp/>@brief<sp/>TEMP<sp/>tasks.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1gga1cf2b8f17afc332ee359ec43260612efac19d618bf3b37f2edfeae3a4f01452d9" kindref="member">NRF_TEMP_TASK_START</ref><sp/>=<sp/>offsetof(NRF_TEMP_Type,<sp/>TASKS_START),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Start<sp/>temperature<sp/>measurement.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1gga1cf2b8f17afc332ee359ec43260612efa41a84a8acb1ec9226460fdc6c02c34a1" kindref="member">NRF_TEMP_TASK_STOP</ref><sp/><sp/>=<sp/>offsetof(NRF_TEMP_Type,<sp/>TASKS_STOP)<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Stop<sp/>temperature<sp/>measurement.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}<sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment">/**<sp/>@brief<sp/>TEMP<sp/>events.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1gga51bd7440f309009867719b2e18237134a20cbba1ffdc9eb93502cda0f3ab4f787" kindref="member">NRF_TEMP_EVENT_DATARDY</ref><sp/>=<sp/>offsetof(NRF_TEMP_Type,<sp/>EVENTS_DATARDY)<sp/></highlight><highlight class="comment">/**&lt;<sp/>Temperature<sp/>measurement<sp/>complete,<sp/>data<sp/>ready.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}<sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**<sp/>@brief<sp/>TEMP<sp/>interrupts.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ggafd94a5da292412e60cf09ee4aad30237a5e3940c06238140f5bd0b59d15b71bab" kindref="member">NRF_TEMP_INT_DATARDY_MASK</ref><sp/>=<sp/>TEMP_INTENSET_DATARDY_Msk<sp/></highlight><highlight class="comment">/**&lt;<sp/>Interrupt<sp/>on<sp/>DATARDY<sp/>event.<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/><ref refid="group__nrf__temp__hal_1gafd94a5da292412e60cf09ee4aad30237" kindref="member">nrf_temp_int_mask_t</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>specified<sp/>interrupts.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>enabled.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_temp_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga96374ca23596be300c94bcc430604528" kindref="member">nrf_temp_int_enable</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>specified<sp/>interrupts.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>disabled.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_temp_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1gaed50fdeac4049a8f03e3599aec0e9039" kindref="member">nrf_temp_int_disable</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>specified<sp/>interrupts<sp/>are<sp/>enabled.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_temp_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>@return<sp/>Mask<sp/>of<sp/>enabled<sp/>interrupts.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gaf31d101258557b158e5a633185bb98f7" kindref="member">nrf_temp_int_enable_check</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>TEMP<sp/>task<sp/>register.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Requested<sp/>task.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>@return<sp/>Address<sp/>of<sp/>the<sp/>requested<sp/>task<sp/>register.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gac8845468be5b9eeefaa87a9681698ffc" kindref="member">nrf_temp_task_address_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>activating<sp/>the<sp/>specified<sp/>TEMP<sp/>task.</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>to<sp/>be<sp/>activated.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga5ed67adbf437075afead2f3a7c606d64" kindref="member">nrf_temp_task_trigger</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>TEMP<sp/>event<sp/>register.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Requested<sp/>event.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>@return<sp/>Address<sp/>of<sp/>the<sp/>requested<sp/>event<sp/>register.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gab14f4647228668bfa7adb76b4979432b" kindref="member">nrf_temp_event_address_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>specified<sp/>TEMP<sp/>event.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>to<sp/>clear.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga731fc5e9efd8d3d2c9fe0068d45507f2" kindref="member">nrf_temp_event_clear</ref>(NRF_TEMP_Type<sp/>*<sp/><sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>state<sp/>of<sp/>a<sp/>specific<sp/>event.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>event<sp/>has<sp/>been<sp/>generated.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>event<sp/>has<sp/>not<sp/>been<sp/>generated.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga68a9ec6fc4931b3b1308e93e5f0f7f27" kindref="member">nrf_temp_event_check</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>result<sp/>of<sp/>temperature<sp/>measurement.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@note<sp/>Returned<sp/>value<sp/>is<sp/>in<sp/>2&apos;s<sp/>complement<sp/>format,<sp/>0.25<sp/>°C<sp/>steps</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>@return<sp/>Temperature<sp/>value<sp/>register<sp/>contents.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">NRF_STATIC_INLINE<sp/>int32_t<sp/><ref refid="group__nrf__temp__hal_1ga21d3c1128cdd2ba4b1cd863989a85133" kindref="member">nrf_temp_result_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_TEMP_HAS_CALIBRATION</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>calibration<sp/>coefficient<sp/>for<sp/>the<sp/>temperature<sp/>measurement.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>coeff<sp/>Calibration<sp/>coefficient.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga141dcead300047992b44764e6c97e430" kindref="member">nrf_temp_calibration_coeff_set</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>coeff);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>calibration<sp/>coefficient<sp/>for<sp/>the<sp/>temperature<sp/>measurement.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*<sp/>@return<sp/>Calibration<sp/>coefficient.</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gae9dc78ea40ce75eda744047d5980753c" kindref="member">nrf_temp_calibration_coeff_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(DPPI_PRESENT)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="185"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>task.</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/><sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>set<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/>Channel<sp/>through<sp/>which<sp/>to<sp/>subscribe<sp/>events.</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga4ccbcc02f47cea3e5a99fae28aa36c48" kindref="member">nrf_temp_subscribe_set</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="197"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>task.</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>clear<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga745bcba2cd7e6cee25732fbabf27d689" kindref="member">nrf_temp_subscribe_clear</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="207"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>task.</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>read<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@return<sp/>TEMP<sp/>subscribe<sp/>configuration.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1ga1d3c6a77f8b701d48c536986e926ea51" kindref="member">nrf_temp_subscribe_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="219"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>publish<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>event.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/><sp/><sp/>Event<sp/>for<sp/>which<sp/>to<sp/>set<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/>Channel<sp/>through<sp/>which<sp/>to<sp/>publish<sp/>the<sp/>event.</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1gadf6f4386801743a690eabf58966ffafb" kindref="member">nrf_temp_publish_set</ref>(NRF_TEMP_Type<sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="231"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>publish<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>event.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>for<sp/>which<sp/>to<sp/>clear<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga13da057b53a8e70523e5ec03c6d2ea2d" kindref="member">nrf_temp_publish_clear</ref>(NRF_TEMP_Type<sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="241"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>publish<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEMP<sp/>event.</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>for<sp/>which<sp/>to<sp/>read<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*<sp/>@return<sp/>TEMP<sp/>publish<sp/>configuration.</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1ga9f7a930aa9fe0fe3fceb0f59e1943ff6" kindref="member">nrf_temp_publish_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>defined(DPPI_PRESENT)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga96374ca23596be300c94bcc430604528" kindref="member">nrf_temp_int_enable</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;INTENSET<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1gaed50fdeac4049a8f03e3599aec0e9039" kindref="member">nrf_temp_int_disable</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;INTENCLR<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gaf31d101258557b158e5a633185bb98f7" kindref="member">nrf_temp_int_enable_check</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;INTENSET<sp/>&amp;<sp/>mask;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gac8845468be5b9eeefaa87a9681698ffc" kindref="member">nrf_temp_task_address_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_task_event_address_get(p_reg,<sp/>task);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga5ed67adbf437075afead2f3a7c606d64" kindref="member">nrf_temp_task_trigger</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>*(</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)((uint8_t<sp/>*)p_reg<sp/>+<sp/>(uint32_t)task)<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gab14f4647228668bfa7adb76b4979432b" kindref="member">nrf_temp_event_address_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event)</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_task_event_address_get(p_reg,<sp/>event);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga731fc5e9efd8d3d2c9fe0068d45507f2" kindref="member">nrf_temp_event_clear</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event)</highlight></codeline>
+<codeline lineno="289"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)((uint8_t<sp/>*)p_reg<sp/>+<sp/>(uint32_t)event))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>nrf_event_readback((uint8_t<sp/>*)p_reg<sp/>+<sp/>(uint32_t)event);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga68a9ec6fc4931b3b1308e93e5f0f7f27" kindref="member">nrf_temp_event_check</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_event_check(p_reg,<sp/>event);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal">NRF_STATIC_INLINE<sp/>int32_t<sp/><ref refid="group__nrf__temp__hal_1ga21d3c1128cdd2ba4b1cd863989a85133" kindref="member">nrf_temp_result_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;TEMP;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_TEMP_HAS_CALIBRATION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga141dcead300047992b44764e6c97e430" kindref="member">nrf_temp_calibration_coeff_set</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>coeff)</highlight></codeline>
+<codeline lineno="306"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CALIB<sp/>=<sp/>coeff;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1gae9dc78ea40ce75eda744047d5980753c" kindref="member">nrf_temp_calibration_coeff_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="311"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;CALIB;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(DPPI_PRESENT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga4ccbcc02f47cea3e5a99fae28aa36c48" kindref="member">nrf_temp_subscribe_set</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel)</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL))<sp/>=</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)channel<sp/>|<sp/>NRF_SUBSCRIBE_PUBLISH_ENABLE);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga745bcba2cd7e6cee25732fbabf27d689" kindref="member">nrf_temp_subscribe_clear</ref>(NRF_TEMP_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/>task)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1ga1d3c6a77f8b701d48c536986e926ea51" kindref="member">nrf_temp_subscribe_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga1cf2b8f17afc332ee359ec43260612ef" kindref="member">nrf_temp_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="333"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>((uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL));</highlight></codeline>
+<codeline lineno="335"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1gadf6f4386801743a690eabf58966ffafb" kindref="member">nrf_temp_publish_set</ref>(NRF_TEMP_Type<sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event,</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel)</highlight></codeline>
+<codeline lineno="340"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>event<sp/>+<sp/>0x80uL))<sp/>=</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)channel<sp/>|<sp/>NRF_SUBSCRIBE_PUBLISH_ENABLE);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__temp__hal_1ga13da057b53a8e70523e5ec03c6d2ea2d" kindref="member">nrf_temp_publish_clear</ref>(NRF_TEMP_Type<sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/>event)</highlight></codeline>
+<codeline lineno="347"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>event<sp/>+<sp/>0x80uL))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__temp__hal_1ga9f7a930aa9fe0fe3fceb0f59e1943ff6" kindref="member">nrf_temp_publish_get</ref>(NRF_TEMP_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__temp__hal_1ga51bd7440f309009867719b2e18237134" kindref="member">nrf_temp_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event)</highlight></codeline>
+<codeline lineno="353"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>((uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>event<sp/>+<sp/>0x80uL));</highlight></codeline>
+<codeline lineno="355"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>defined(DPPI_PRESENT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="360"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="hal/nrf_temp.h"/>
+  </compounddef>
+</doxygen>

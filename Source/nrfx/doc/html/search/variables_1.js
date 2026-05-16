@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['b_5fpin_0',['b_pin',['../structnrfy__qdec__pins__t.html#aab730d67a6f90ac8e506064232eb6318',1,'nrfy_qdec_pins_t']]],
+  ['balen_1',['balen',['../structnrf__radio__packet__conf__t.html#acaa8a081d410bac445a44e78fb8aa41e',1,'nrf_radio_packet_conf_t']]],
+  ['base_5fclock_2',['base_clock',['../structnrfx__pwm__config__t.html#a1415f76ec1b447316c236373dbb192ff',1,'nrfx_pwm_config_t::base_clock()'],['../structnrfy__pwm__config__t.html#af85c505e0f774ab81c078e5a80a169c6',1,'nrfy_pwm_config_t::base_clock()']]],
+  ['base_5fclock_5ffreq_3',['base_clock_freq',['../structnrfx__i2s__clk__params__t.html#a3193b717b98b8b3b9dc2ef4af11c9719',1,'nrfx_i2s_clk_params_t::base_clock_freq()'],['../structnrfx__pdm__output__t.html#abfe205d8cc35ac65431c909e63a0d22e',1,'nrfx_pdm_output_t::base_clock_freq()'],['../structnrfx__tdm__clk__params__t.html#aca75fa043b96bc53f29a7aa1c8ff2fdf',1,'nrfx_tdm_clk_params_t::base_clock_freq()']]],
+  ['baudrate_4',['baudrate',['../structnrfx__uart__config__t.html#a2c37e3e3538441b5d118192939712c99',1,'nrfx_uart_config_t::baudrate()'],['../structnrfx__uarte__config__t.html#a63c27058290737e899870cad8cc3fb48',1,'nrfx_uarte_config_t::baudrate()'],['../structnrfy__uarte__config__t.html#a425fa113d90f1d6139dec64bd1cf7021',1,'nrfy_uarte_config_t::baudrate()']]],
+  ['behaviour_5',['behaviour',['../structnrfx__wdt__config__t.html#a657fc9c135708fac4ff620ab495039f3',1,'nrfx_wdt_config_t::behaviour()'],['../structnrfy__wdt__config__t.html#a38382e502ce2f88cbb688128614706d4',1,'nrfy_wdt_config_t::behaviour()']]],
+  ['big_5fendian_6',['big_endian',['../structnrf__radio__packet__conf__t.html#a33f9087f24972b0fc10ba525361025f6',1,'nrf_radio_packet_conf_t']]],
+  ['bit_5forder_7',['bit_order',['../structnrfx__spi__config__t.html#ac8f1d2944d8331f43278fb3a71666973',1,'nrfx_spi_config_t::bit_order()'],['../structnrfx__spim__config__t.html#a3aa69efd80c720697318ef0bd500e881',1,'nrfx_spim_config_t::bit_order()'],['../structnrfx__spis__config__t.html#a7267affceacb40164cf53cb87c5aec9d',1,'nrfx_spis_config_t::bit_order()'],['../structnrfy__spim__config__t.html#a8123b4be876b18d850641972f3b33ef6',1,'nrfy_spim_config_t::bit_order()']]],
+  ['bit_5fwidth_8',['bit_width',['../structnrfx__timer__config__t.html#ae3503b2e51b8cedcbd0dcd930847c5e9',1,'nrfx_timer_config_t::bit_width()'],['../structnrfy__timer__config__t.html#a6c20f306f079ff12992bfe22b47fcea7',1,'nrfy_timer_config_t::bit_width()']]],
+  ['blending_5fmethod_9',['blending_method',['../structnrf__cracen__rng__control__t.html#aa29608efd0f7a7ae7bb31756ac7ca81e',1,'nrf_cracen_rng_control_t']]],
+  ['bmrequesttype_10',['bmRequestType',['../structnrfx__usbd__setup__t.html#a4ef8cbb8f5fa4c9b9952b79bef7c7c53',1,'nrfx_usbd_setup_t']]],
+  ['brequest_11',['bRequest',['../structnrfx__usbd__setup__t.html#aca95f5a762b2be4c4d8153abe83d53c5',1,'nrfx_usbd_setup_t']]],
+  ['buf_5freq_12',['buf_req',['../structnrfx__twis__event__t.html#a8b3916e84de7070969e0109aa6738afe',1,'nrfx_twis_event_t::buf_req()'],['../structnrfx__uarte__rx__cache__t.html#a0dae16dca449d4eae9e7dcb07afcb0f5',1,'nrfx_uarte_rx_cache_t::buf_req()']]],
+  ['buffer_13',['buffer',['../structnrf__saadc__config__t.html#ad6b1dd308fafe74389a34ba293e254f2',1,'nrf_saadc_config_t']]],
+  ['buffer_5freleased_14',['buffer_released',['../structnrfx__pdm__evt__t.html#ac4a03910b0eca24c0275ef88173c99ab',1,'nrfx_pdm_evt_t']]],
+  ['buffer_5frequested_15',['buffer_requested',['../structnrfx__pdm__evt__t.html#aa22a290acdd7586c5baa5d3fb4e8ad50',1,'nrfx_pdm_evt_t']]],
+  ['buffer_5fsize_16',['buffer_size',['../structnrf__saadc__config__t.html#a96c9fb56653b319575fd4c2889add0c0',1,'nrf_saadc_config_t::buffer_size()'],['../structnrfy__i2s__xfer__desc__t.html#a6e792a98c5957927ecc093e28df1ff22',1,'nrfy_i2s_xfer_desc_t::buffer_size()']]],
+  ['burst_17',['burst',['../structnrfx__saadc__adv__config__t.html#a2139819d6a89794f5ccb351678f676b8',1,'nrfx_saadc_adv_config_t::burst()'],['../structnrf__saadc__channel__config__t.html#a1302832da87878d08d264a9e92def254',1,'nrf_saadc_channel_config_t::burst()']]],
+  ['byte0_18',['byte0',['../structnrf__qspi__addrconfig__conf__t.html#a8c29a1d6092c7bb392c05712f7c6335e',1,'nrf_qspi_addrconfig_conf_t']]],
+  ['byte1_19',['byte1',['../structnrf__qspi__addrconfig__conf__t.html#a7205e128946eeb6f8aebca122d249a2e',1,'nrf_qspi_addrconfig_conf_t']]],
+  ['bytes_20',['bytes',['../structnrfx__uart__xfer__event__t.html#a01d5805308bf7d03472b3d319d035b0a',1,'nrfx_uart_xfer_event_t']]]
+];

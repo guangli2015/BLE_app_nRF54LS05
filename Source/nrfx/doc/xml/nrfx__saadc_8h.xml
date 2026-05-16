@@ -1,0 +1,1788 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__saadc_8h" kind="file" language="C++">
+    <compoundname>nrfx_saadc.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__saadc_8h" local="no">haly/nrfy_saadc.h</includes>
+    <includes refid="nrfx__analog__common_8h" local="no">helpers/nrfx_analog_common.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_saadc.h</label>
+        <link refid="nrfx__saadc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__saadc__channel__t" prot="public">nrfx_saadc_channel_t</innerclass>
+    <innerclass refid="structnrfx__saadc__adv__config__t" prot="public">nrfx_saadc_adv_config_t</innerclass>
+    <innerclass refid="structnrfx__saadc__done__evt__t" prot="public">nrfx_saadc_done_evt_t</innerclass>
+    <innerclass refid="structnrfx__saadc__limit__evt__t" prot="public">nrfx_saadc_limit_evt_t</innerclass>
+    <innerclass refid="structnrfx__saadc__evt__t" prot="public">nrfx_saadc_evt_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__saadc_1ga8329d9a090da9d2a4090b0d9087b028c" prot="public" static="no">
+        <name>NRFX_SAADC_DEFAULT_ACQTIME</name>
+        <initializer><ref refid="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a7452b8e0b08b260e95c8cdcc949a0eed" kindref="member">NRF_SAADC_ACQTIME_10US</ref></initializer>
+        <briefdescription>
+<para>Auxiliary symbol specifying default value for the SAADC acquisition time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="54" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1ga5723d253b7ad62d48bd7fe0d491e3505" prot="public" static="no">
+        <name>NRFX_SAADC_DEFAULT_CONV_TIME</name>
+        <initializer>7</initializer>
+        <briefdescription>
+<para>Auxiliary symbol specifying default value for the SAADC conversion time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="61" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1ga034c904f53296aae0b54aaee84e565d3" prot="public" static="no">
+        <name>NRFX_SAADC_INTERNAL_TIMER_INTERVAL_MAX_US</name>
+        <initializer>128U</initializer>
+        <briefdescription>
+<para>Maximum value of the internal timer interval in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="65" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1gac74f96012bf62aa48dfdd96728d7f3c5" prot="public" static="no">
+        <name>NRFX_SAADC_REF_INTERNAL_VALUE</name>
+        <initializer><ref refid="group__nrfx__analog__common_1gab1cc9461ece789e2d07cc093f2a930d5" kindref="member">NRFX_ANALOG_REF_INTERNAL_VAL</ref></initializer>
+        <briefdescription>
+<para>Symbol specifying internal reference voltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="68" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1gaf4a66c6cb9be9f9121f07bfd24669591" prot="public" static="no">
+        <name>NRFX_SAADC_DEFAULT_CHANNEL_SE</name>
+        <param><defname>_pin_p</defname></param>
+        <param><defname>_index</defname></param>
+        <initializer>{                                                                      \
+    .channel_config =                                                  \
+    {                                                                  \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1gaa5661e8ffcbe53a029c29d6ba0583c44" kindref="member">NRF_SAADC_HAS_CH_CONFIG_RES</ref>,                  \
+                         (.resistor_p = <ref refid="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303ac941d50e00494def50bfb5c2ab32c84d" kindref="member">NRF_SAADC_RESISTOR_DISABLED</ref>,   \
+                          .resistor_n = <ref refid="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303ac941d50e00494def50bfb5c2ab32c84d" kindref="member">NRF_SAADC_RESISTOR_DISABLED</ref>,), \
+                         ())                                           \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga45583252aa5a8dae04e846bc4f3017c0" kindref="member">NRF_SAADC_HAS_CH_GAIN</ref>,                        \
+                         (.gain = <ref refid="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a49a79897cf1a7f924965c566a41880e7" kindref="member">NRF_SAADC_GAIN1</ref>,),                   \
+                         ())                                           \
+        .reference  = <ref refid="group__nrf__saadc__hal_1ggad540c22a2e06a7828a5ce6c71bc8a5d4a45e4751bab9abc4fb0e8cf281f2010fc" kindref="member">NRF_SAADC_REFERENCE_INTERNAL</ref>,                    \
+        .acq_time   = <ref refid="group__nrfx__saadc_1ga8329d9a090da9d2a4090b0d9087b028c" kindref="member">NRFX_SAADC_DEFAULT_ACQTIME</ref>,                      \
+        .mode       = <ref refid="group__nrf__saadc__hal_1gga4436d07f1135db83c486397781e718c2ad0ce3a0327c0393e981db20d43c709f8" kindref="member">NRF_SAADC_MODE_SINGLE_ENDED</ref>,                     \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1gae82bb75def4cbe30869377f2bd812eff" kindref="member">NRF_SAADC_HAS_CH_BURST</ref>,                       \
+                         (.burst = <ref refid="group__nrf__saadc__hal_1gga46239c9f1d0af686aa09373d68c9a61aa605705545f3c481ada5c0c068c26dd28" kindref="member">NRF_SAADC_BURST_DISABLED</ref>,),         \
+                         ())                                           \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga87c3c7a4e10e890b1f98ca5fc36cb66c" kindref="member">NRF_SAADC_HAS_CH_CHOPPING</ref>,                    \
+                         (.chopping = <ref refid="group__nrf__saadc__hal_1ggaa18b274782a05bb0f4951aad5bbfcba3a2d59d651abbcbed6be4e5de31564a9bb" kindref="member">NRF_SAADC_CHOPPING_DISABLED</ref>,),   \
+                         ())                                           \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga50edca853669eba026773c006e3e671e" kindref="member">NRF_SAADC_HAS_CH_HIGHSPEED</ref>,                   \
+                         (.highspeed = <ref refid="group__nrf__saadc__hal_1ggac0721477d4f9c4597d244bf7ac69faaba0a5aeec937ddca360e4b3d8d0053c04f" kindref="member">NRF_SAADC_HIGHSPEED_DISABLED</ref>,), \
+                         ())                                           \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(NRF_SAADC_HAS_CONV_TIME,                      \
+                         (.conv_time = <ref refid="group__nrfx__saadc_1ga5723d253b7ad62d48bd7fe0d491e3505" kindref="member">NRFX_SAADC_DEFAULT_CONV_TIME</ref>,), \
+                         ())                                           \
+    },                                                                 \
+    .pin_p          = (<ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref>)_pin_p,                     \
+    .pin_n          = <ref refid="group__nrfx__analog__common_1ggaf727a59cfc5495ba282cefc8e06da3cfa5e266b8d06780edc8a4d74f92613f282" kindref="member">NRFX_ANALOG_INPUT_DISABLED</ref>,                      \
+    .channel_index  = _index,                                          \
+}</initializer>
+        <briefdescription>
+<para>SAADC channel default configuration for the single-ended mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up single-ended SAADC channel with the following options:<itemizedlist>
+<listitem><para>resistor ladder disabled</para>
+</listitem><listitem><para>gain: 1</para>
+</listitem><listitem><para>reference voltage: internal</para>
+</listitem><listitem><para>sample acquisition time: 10 us</para>
+</listitem><listitem><para>burst disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Positive input analog pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="85" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1gac1bfcb40aff58467f474fe2610ab7111" prot="public" static="no">
+        <name>NRFX_SAADC_DEFAULT_CHANNEL_DIFFERENTIAL</name>
+        <param><defname>_pin_p</defname></param>
+        <param><defname>_pin_n</defname></param>
+        <param><defname>_index</defname></param>
+        <initializer>{                                                                       \
+    .channel_config =                                                   \
+    {                                                                   \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1gaa5661e8ffcbe53a029c29d6ba0583c44" kindref="member">NRF_SAADC_HAS_CH_CONFIG_RES</ref>,                   \
+                         (.resistor_p = <ref refid="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303ac941d50e00494def50bfb5c2ab32c84d" kindref="member">NRF_SAADC_RESISTOR_DISABLED</ref>,    \
+                          .resistor_n = <ref refid="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303ac941d50e00494def50bfb5c2ab32c84d" kindref="member">NRF_SAADC_RESISTOR_DISABLED</ref>,),  \
+                         ())                                            \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga45583252aa5a8dae04e846bc4f3017c0" kindref="member">NRF_SAADC_HAS_CH_GAIN</ref>,                         \
+                         (.gain = <ref refid="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a49a79897cf1a7f924965c566a41880e7" kindref="member">NRF_SAADC_GAIN1</ref>,),                    \
+                         ())                                            \
+        .reference  = <ref refid="group__nrf__saadc__hal_1ggad540c22a2e06a7828a5ce6c71bc8a5d4a45e4751bab9abc4fb0e8cf281f2010fc" kindref="member">NRF_SAADC_REFERENCE_INTERNAL</ref>,                     \
+        .acq_time   = <ref refid="group__nrfx__saadc_1ga8329d9a090da9d2a4090b0d9087b028c" kindref="member">NRFX_SAADC_DEFAULT_ACQTIME</ref>,                       \
+        .mode       = <ref refid="group__nrf__saadc__hal_1gga4436d07f1135db83c486397781e718c2a4c57cd1fc309cd665870b257f4c50767" kindref="member">NRF_SAADC_MODE_DIFFERENTIAL</ref>,                      \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1gae82bb75def4cbe30869377f2bd812eff" kindref="member">NRF_SAADC_HAS_CH_BURST</ref>,                        \
+                         (.burst = <ref refid="group__nrf__saadc__hal_1gga46239c9f1d0af686aa09373d68c9a61aa605705545f3c481ada5c0c068c26dd28" kindref="member">NRF_SAADC_BURST_DISABLED</ref>,),          \
+                         ())                                            \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga87c3c7a4e10e890b1f98ca5fc36cb66c" kindref="member">NRF_SAADC_HAS_CH_CHOPPING</ref>,                     \
+                         (.chopping = <ref refid="group__nrf__saadc__hal_1ggaa18b274782a05bb0f4951aad5bbfcba3a2d59d651abbcbed6be4e5de31564a9bb" kindref="member">NRF_SAADC_CHOPPING_DISABLED</ref>,),    \
+                         ())                                            \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__saadc__hal_1ga50edca853669eba026773c006e3e671e" kindref="member">NRF_SAADC_HAS_CH_HIGHSPEED</ref>,                    \
+                         (.highspeed = <ref refid="group__nrf__saadc__hal_1ggac0721477d4f9c4597d244bf7ac69faaba0a5aeec937ddca360e4b3d8d0053c04f" kindref="member">NRF_SAADC_HIGHSPEED_DISABLED</ref>,),  \
+                         ())                                            \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(NRF_SAADC_HAS_CONV_TIME,                       \
+                         (.conv_time = <ref refid="group__nrfx__saadc_1ga5723d253b7ad62d48bd7fe0d491e3505" kindref="member">NRFX_SAADC_DEFAULT_CONV_TIME</ref>,),  \
+                         ())                                            \
+    },                                                                  \
+    .pin_p          = (<ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref>)_pin_p,                      \
+    .pin_n          = (<ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref>)_pin_n,                      \
+    .channel_index  = _index,                                           \
+}</initializer>
+        <briefdescription>
+<para>SAADC channel default configuration for the differential mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up differential SAADC channel with the following options:<itemizedlist>
+<listitem><para>resistor ladder disabled</para>
+</listitem><listitem><para>gain: 1/6</para>
+</listitem><listitem><para>reference voltage: internal</para>
+</listitem><listitem><para>sample acquisition time: 10 us</para>
+</listitem><listitem><para>burst disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Positive input analog pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Negative input analog pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="133" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1gabd25506763f42aa66d4d184e4027d02b" prot="public" static="no">
+        <name>NRFX_SAADC_SAMPLES_TO_BYTES</name>
+        <param><defname>_samples</defname></param>
+        <initializer>(_samples * 2)</initializer>
+        <briefdescription>
+<para>Macro for getting number of bytes needed to store specified number of SAADC samples. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes needed to store specified number of samples. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="172" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1ga0aa404311ca74bec52b4d68a39274b89" prot="public" static="no">
+        <name>NRFX_SAADC_SAMPLE_GET</name>
+        <param><defname>_samples</defname></param>
+        <param><defname>_index</defname></param>
+        <initializer>(((int16_t *)(_samples))[(_index)])</initializer>
+        <briefdescription>
+<para>Macro for getting specified SAADC sample from the filled buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_samples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer filled with SAADC samples. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Specified sample. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="182" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__saadc_1gaf7df25c886122c44b21a707ade278967" prot="public" static="no">
+        <name>NRFX_SAADC_DEFAULT_ADV_CONFIG</name>
+        <initializer>{                                                                               \
+    .oversampling      = <ref refid="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a07bd46d3a4b42947b73e5ffbf77de0bf" kindref="member">NRF_SAADC_OVERSAMPLE_DISABLED</ref>,                         \
+    .burst             = <ref refid="group__nrf__saadc__hal_1gga46239c9f1d0af686aa09373d68c9a61aa605705545f3c481ada5c0c068c26dd28" kindref="member">NRF_SAADC_BURST_DISABLED</ref>,                              \
+    .internal_timer_cc = 0,                                                     \
+    .start_on_end      = false,                                                 \
+}</initializer>
+        <briefdescription>
+<para>SAADC driver advanced mode default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up advanced mode of the SAADC driver with the following options:<itemizedlist>
+<listitem><para>oversampling disabled</para>
+</listitem><listitem><para>burst disabled</para>
+</listitem><listitem><para>internal sampling timer disabled</para>
+</listitem><listitem><para>triggering of the START task on the END event disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Positive input analog pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Negative input analog pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="structnrfx__saadc__adv__config__t" kindref="compound">nrfx_saadc_adv_config_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="199" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__saadc_1ga40b21459a4cbd52d9c1fea7582a884bb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_saadc_evt_type_t</name>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba5afba4cb6f732fc83add1c16b3878562" prot="public">
+          <name>NRFX_SAADC_EVT_DONE</name>
+          <briefdescription>
+<para>Event generated when the buffer is filled with samples. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba0e749ed671f0700bfa1bd4fff48eba6a" prot="public">
+          <name>NRFX_SAADC_EVT_LIMIT</name>
+          <briefdescription>
+<para>Event generated when one of the limits is reached. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba2f89be5f47e4ce29506a41f12bb8f350" prot="public">
+          <name>NRFX_SAADC_EVT_CALIBRATEDONE</name>
+          <briefdescription>
+<para>Event generated when the calibration is complete. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba7ea6bd57de5635c6b3dbdfb9e1ed26f5" prot="public">
+          <name>NRFX_SAADC_EVT_BUF_REQ</name>
+          <briefdescription>
+<para>Event generated when the next buffer for continuous conversion is requested. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba12ed1df95444c8f922b367133fee2062" prot="public">
+          <name>NRFX_SAADC_EVT_READY</name>
+          <briefdescription>
+<para>Event generated when the first buffer is acquired by the peripheral and sampling can be started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba635d57a1f75401fe97bb0e7a1e8c02e9" prot="public">
+          <name>NRFX_SAADC_EVT_FINISHED</name>
+          <briefdescription>
+<para>Event generated when all supplied buffers are filled with results. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SAADC driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="226" column="1" bodyfile="drivers/include/nrfx_saadc.h" bodystart="227" bodyend="234"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_saadc_event_handler_t) (nrfx_saadc_evt_t const *p_event)</definition>
+        <argsstring>)(nrfx_saadc_evt_t const *p_event)</argsstring>
+        <name>nrfx_saadc_event_handler_t</name>
+        <briefdescription>
+<para>SAADC driver event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When operating in the advanced mode:<itemizedlist>
+<listitem><para>when the sampling is performed by the external timer, the external timer can be safely started on <ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba12ed1df95444c8f922b367133fee2062" kindref="member">NRFX_SAADC_EVT_READY</ref> and stopped on <ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba635d57a1f75401fe97bb0e7a1e8c02e9" kindref="member">NRFX_SAADC_EVT_FINISHED</ref>.</para>
+</listitem><listitem><para>call the <ref refid="group__nrfx__saadc_1gada187c0436a60206fc00493c490fb9e2" kindref="member">nrfx_saadc_buffer_set()</ref> on <ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba7ea6bd57de5635c6b3dbdfb9e1ed26f5" kindref="member">NRFX_SAADC_EVT_BUF_REQ</ref> to achieve the continuous conversion.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an SAADC driver event. The event structure is allocated on the stack, so it is valid only within the context of the event handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="272" column="9" bodyfile="drivers/include/nrfx_saadc.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__saadc_1gab17cbf8c0f873d259677240c33652094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_init</definition>
+        <argsstring>(uint8_t interrupt_priority)</argsstring>
+        <name>nrfx_saadc_init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>interrupt_priority</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the SAADC driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">interrupt_priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt priority.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="282" column="5" declfile="drivers/include/nrfx_saadc.h" declline="282" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga5f7a950aba941d0b17e20dcfc97ee446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_saadc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the SAADC driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function stops all ongoing conversions and disables all channels. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="289" column="6" declfile="drivers/include/nrfx_saadc.h" declline="289" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga0a54ecbc68b3526896c1ef9c7d0579ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_saadc_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the SAADC driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="297" column="6" declfile="drivers/include/nrfx_saadc.h" declline="297" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gadd7c7f518a283b1db44440832816c2de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t nrfx_saadc_interval_to_cc</definition>
+        <argsstring>(uint16_t interval_us)</argsstring>
+        <name>nrfx_saadc_interval_to_cc</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>interval_us</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the internal timer CC value from the interval in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The internal timer runs at 16 MHz, so to convert the interval in microseconds to the internal timer CC value, we can use the formula: interval_cc = interval_us * 16 MHz where 16 MHz is the frequency of the internal timer. </para>
+</simplesect>
+<simplesect kind="note"><para>The maximum value for interval_cc is 2047, which corresponds to approximately 7816 Hz ~ 128us. The minimum value for interval_cc depends on the SoC.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">interval_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The interval in microseconds to be converted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The internal timer CC value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="314" column="10" declfile="drivers/include/nrfx_saadc.h" declline="314" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gab083c3d925c9d4c8053c572fbc662e6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_channels_config</definition>
+        <argsstring>(nrfx_saadc_channel_t const *p_channels, uint32_t channel_count)</argsstring>
+        <name>nrfx_saadc_channels_config</name>
+        <param>
+          <type><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref> const *</type>
+          <declname>p_channels</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_count</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring multiple SAADC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The values of the <ref refid="structnrf__saadc__channel__config__t_1a1302832da87878d08d264a9e92def254" kindref="member">nrf_saadc_channel_config_t::burst</ref> fields in channel configurations are ignored. They will be overridden with the value suitable for the selected driver operation mode. </para>
+</simplesect>
+<simplesect kind="note"><para>The desired mode (simple or advanced) must be set after the channels are configured.</para>
+</simplesect>
+<simplesect kind="warning"><para>This function overrides previous configuration done on any channel by <ref refid="group__nrfx__saadc_1gab083c3d925c9d4c8053c572fbc662e6e" kindref="member">nrfx_saadc_channels_config</ref> or <ref refid="group__nrfx__saadc_1ga9ac08c7f3b1bb531e91cb1a59127fd85" kindref="member">nrfx_saadc_channel_config</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_channels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array of channel configuration structures. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of channels to be configured.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to configure the same channel more than once or attempt to configure an invalid analog pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="335" column="5" declfile="drivers/include/nrfx_saadc.h" declline="335" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga9ac08c7f3b1bb531e91cb1a59127fd85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_channel_config</definition>
+        <argsstring>(nrfx_saadc_channel_t const *p_channel)</argsstring>
+        <name>nrfx_saadc_channel_config</name>
+        <param>
+          <type><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref> const *</type>
+          <declname>p_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring single SAADC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The values of the <ref refid="structnrf__saadc__channel__config__t_1a1302832da87878d08d264a9e92def254" kindref="member">nrf_saadc_channel_config_t::burst</ref> fields in channel configurations are ignored. They will be overridden with the value suitable for the selected driver operation mode.</para>
+</simplesect>
+<simplesect kind="warning"><para>This function overrides previous configuration done on specified channel by <ref refid="group__nrfx__saadc_1gab083c3d925c9d4c8053c572fbc662e6e" kindref="member">nrfx_saadc_channels_config</ref> or <ref refid="group__nrfx__saadc_1ga9ac08c7f3b1bb531e91cb1a59127fd85" kindref="member">nrfx_saadc_channel_config</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the channel configuration structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to configure an invalid analog pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="354" column="5" declfile="drivers/include/nrfx_saadc.h" declline="354" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga755f7156443c57555a12568717db36d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_saadc_channels_configured_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_channels_configured_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the currently configured SAADC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Bitmask of configured channels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="361" column="10" declfile="drivers/include/nrfx_saadc.h" declline="361" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga3f5d1b286a79ab6fd2ec2a237711d69e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_channels_deconfig</definition>
+        <argsstring>(uint32_t channel_mask)</argsstring>
+        <name>nrfx_saadc_channels_deconfig</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for deconfiguring the specified SAADC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Pins associated with the deconfigured channels will be released after next <ref refid="group__nrfx__saadc_1ga80f6945de4d0fb0db9c051129a186c16" kindref="member">nrfx_saadc_simple_mode_set()</ref> or <ref refid="group__nrfx__saadc_1ga0aa1760b4589da6b0011bb674572a7c5" kindref="member">nrfx_saadc_advanced_mode_set()</ref> call.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask of channels to be deconfigured.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Deconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="374" column="5" declfile="drivers/include/nrfx_saadc.h" declline="374" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga80f6945de4d0fb0db9c051129a186c16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_simple_mode_set</definition>
+        <argsstring>(uint32_t channel_mask, nrf_saadc_resolution_t resolution, nrf_saadc_oversample_t oversampling, nrfx_saadc_event_handler_t event_handler)</argsstring>
+        <name>nrfx_saadc_simple_mode_set</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__saadc__hal_1gaeb0690ef4bdb8ec1cfac1f6c6a496630" kindref="member">nrf_saadc_resolution_t</ref></type>
+          <declname>resolution</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__saadc__hal_1ga62ca4cd30bcc0c4a306135c957f7ed39" kindref="member">nrf_saadc_oversample_t</ref></type>
+          <declname>oversampling</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SAADC driver in the simple mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The simple mode allows obtaining a single sample from each requested channel. The conversion can be done in a blocking or non-blocking manner. Sampling is initiated by calling <ref refid="group__nrfx__saadc_1gafbe77d02eb8d2c8321d03f892e9d08db" kindref="member">nrfx_saadc_mode_trigger()</ref> once.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask of channels to be used in the simple mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">resolution</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resolution configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">oversampling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Oversampling configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. In case of providing NULL, the conversion will be performed in the blocking manner.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate channel that is not configured. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="393" column="5" declfile="drivers/include/nrfx_saadc.h" declline="393" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga0aa1760b4589da6b0011bb674572a7c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_advanced_mode_set</definition>
+        <argsstring>(uint32_t channel_mask, nrf_saadc_resolution_t resolution, nrfx_saadc_adv_config_t const *p_config, nrfx_saadc_event_handler_t event_handler)</argsstring>
+        <name>nrfx_saadc_advanced_mode_set</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__saadc__hal_1gaeb0690ef4bdb8ec1cfac1f6c6a496630" kindref="member">nrf_saadc_resolution_t</ref></type>
+          <declname>resolution</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__saadc__adv__config__t" kindref="compound">nrfx_saadc_adv_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SAADC driver in the advanced mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The advanced mode allows performing double-buffered conversions of arbitrary length. The conversions can be done in a blocking or non-blocking manner. When performing conversions in the non-blocking manner and <ref refid="structnrfx__saadc__adv__config__t_1a4d08d3f8c0a1b4ca5d6dea339d665d1b" kindref="member">nrfx_saadc_adv_config_t::internal_timer_cc</ref> is set to 0, sampling needs to be done by triggering <ref refid="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a53f835ed3f4b6e9ff24d1550ead3c941" kindref="member">NRF_SAADC_TASK_SAMPLE</ref> externally (for example by using the TIMER and/or the PPI/DPPI). When performing conversions in the non-blocking manner and <ref refid="structnrfx__saadc__adv__config__t_1aec36ad60812a02f057881ed6bb129636" kindref="member">nrfx_saadc_adv_config_t::start_on_end</ref> is false, the <ref refid="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a7900b2c3694c7cc4da64f5de28da8b9b" kindref="member">NRF_SAADC_TASK_START</ref> needs to be triggered on <ref refid="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a3caea189d3feb4fb51f3eeeaa31a7d51" kindref="member">NRF_SAADC_EVENT_END</ref> externally (for example by using the PPI/DPPI). Sampling is initiated by calling <ref refid="group__nrfx__saadc_1gafbe77d02eb8d2c8321d03f892e9d08db" kindref="member">nrfx_saadc_mode_trigger()</ref>. In case of performing conversions in the blocking manner, <ref refid="group__nrfx__saadc_1gafbe77d02eb8d2c8321d03f892e9d08db" kindref="member">nrfx_saadc_mode_trigger()</ref> may need to be called several times as each call sample each requested channel once.</para>
+<para><simplesect kind="note"><para>The internal timer can only be used when a single input channel is enabled. </para>
+</simplesect>
+<simplesect kind="note"><para>The internal timer can only be used in the non-blocking mode.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask of channels to be used in the advanced mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">resolution</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resolution configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the advanced mode configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. In case of providing NULL, the conversion will be performed in the blocking manner.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate channel that is not configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate either of the following:<itemizedlist>
+<listitem><para>internal timer in the blocking mode,</para>
+</listitem><listitem><para>internal timer with multiple channels enabled,</para>
+</listitem><listitem><para>oversampling without burst with multiple channels enabled. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="430" column="5" declfile="drivers/include/nrfx_saadc.h" declline="430" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gada187c0436a60206fc00493c490fb9e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_buffer_set</definition>
+        <argsstring>(nrf_saadc_value_t *p_buffer, uint16_t size)</argsstring>
+        <name>nrfx_saadc_buffer_set</name>
+        <param>
+          <type><ref refid="group__nrf__saadc__hal_1gaf3083862e80023851eb8e73acc728cc5" kindref="member">nrf_saadc_value_t</ref> *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the buffer to be used in the next part of the conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to be filled with conversion results. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples in the buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer was supplied successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffer is not in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-E2BIG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffer is not aligned to the number of activated channels or is too long for the EasyDMA to handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is in the idle mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Both buffers for double-buffered conversions are already set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="449" column="5" declfile="drivers/include/nrfx_saadc.h" declline="449" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gafbe77d02eb8d2c8321d03f892e9d08db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_mode_trigger</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_mode_trigger</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for triggering the conversion in the configured mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation finished successfully in the blocking manner or started successfully in the non-blocking manner. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is performing the conversion in the advanced blocking mode. Call the function again to continue the conversion. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is no buffer provided. Supply the buffer using <ref refid="group__nrfx__saadc_1gada187c0436a60206fc00493c490fb9e2" kindref="member">nrfx_saadc_buffer_set()</ref> and try again. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is an ongoing conversion or calibration being performed in the non-blocking manner or the driver is in the idle mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="463" column="5" declfile="drivers/include/nrfx_saadc.h" declline="463" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1ga480525496e0676a598b828789104fdf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_saadc_abort</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_abort</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for aborting the ongoing and buffered conversions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Aborting blocking conversion or calibration from different context is not supported. Perform the operation in non-blocking manner instead.</para>
+</simplesect>
+<simplesect kind="note"><para><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba5afba4cb6f732fc83add1c16b3878562" kindref="member">NRFX_SAADC_EVT_DONE</ref> event will be generated if there is a conversion in progress. Event will contain number of words in the sample buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="474" column="6" declfile="drivers/include/nrfx_saadc.h" declline="474" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gaf7631840337df828f28f152c607a3e4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_limits_set</definition>
+        <argsstring>(uint8_t channel, int16_t limit_low, int16_t limit_high)</argsstring>
+        <name>nrfx_saadc_limits_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>limit_low</declname>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>limit_high</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SAADC channel limits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When limits are enabled and the conversion result exceeds the defined bounds, the handler function is called with the corresponding event as parameter.</para>
+<para><simplesect kind="note"><para>Before the limits are set, the driver operation mode (simple or advanced) has to be configured. Only non-blocking conversions can be monitored.</para>
+</simplesect>
+<simplesect kind="note"><para>Changing of the driver operation mode disables all configured limits.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">limit_low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Limit low value to generate interrupt. Use <computeroutput>INT16_MIN</computeroutput> to disable interrupt generation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">limit_high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Limit high value to generate interrupt. Use <computeroutput>INT16_MAX</computeroutput> to disable interrupt generation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested channel limits were set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate the limits on disabled channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate the limits for blocking conversions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attempt to activate the limits without configured mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="498" column="5" declfile="drivers/include/nrfx_saadc.h" declline="498" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__saadc_1gab7acf39050c11f6f28445c1056e45151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_saadc_offset_calibrate</definition>
+        <argsstring>(nrfx_saadc_event_handler_t calib_event_handler)</argsstring>
+        <name>nrfx_saadc_offset_calibrate</name>
+        <param>
+          <type><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref></type>
+          <declname>calib_event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the SAADC offset calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">calib_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Calibration event handler provided by the user. In case of providing NULL, the calibration will be performed in the blocking manner.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Calibration finished successfully in the blocking manner or started successfully in the non-blocking manner. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a conversion or calibration ongoing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="510" column="5" declfile="drivers/include/nrfx_saadc.h" declline="510" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__saadc_8h_1a7176f75784641969914485c07a7be4ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_saadc_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_saadc_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_saadc.h" line="514" column="6" declfile="drivers/include/nrfx_saadc.h" declline="514" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_SAADC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_saadc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;helpers/nrfx_analog_common.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_saadc<sp/>SAADC<sp/>driver</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_saadc</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Successive<sp/>Approximation<sp/>Analog-to-Digital<sp/>Converter<sp/>(SAADC)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_SAADC_HAS_ACQTIME_ENUM<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment">/**<sp/>@brief<sp/>Auxiliary<sp/>symbol<sp/>specifying<sp/>default<sp/>value<sp/>for<sp/>the<sp/>SAADC<sp/>acquisition<sp/>time.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_ACQTIME<sp/>NRF_SAADC_ACQTIME_10US</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_ACQTIME<sp/>79</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_SAADC_HAS_CONVTIME<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment">/**<sp/>@brief<sp/>Auxiliary<sp/>symbol<sp/>specifying<sp/>default<sp/>value<sp/>for<sp/>the<sp/>SAADC<sp/>conversion<sp/>time.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_CONV_TIME<sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment">/**<sp/>@brief<sp/>Maximum<sp/>value<sp/>of<sp/>the<sp/>internal<sp/>timer<sp/>interval<sp/>in<sp/>microseconds.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_INTERNAL_TIMER_INTERVAL_MAX_US<sp/>128U</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="67"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>specifying<sp/>internal<sp/>reference<sp/>voltage.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_REF_INTERNAL_VALUE<sp/>NRFX_ANALOG_REF_INTERNAL_VAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@brief<sp/>SAADC<sp/>channel<sp/>default<sp/>configuration<sp/>for<sp/>the<sp/>single-ended<sp/>mode.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>single-ended<sp/>SAADC<sp/>channel<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>-<sp/>resistor<sp/>ladder<sp/>disabled</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>-<sp/>gain:<sp/>1</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>-<sp/>reference<sp/>voltage:<sp/>internal</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>-<sp/>sample<sp/>acquisition<sp/>time:<sp/>10<sp/>us</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>-<sp/>burst<sp/>disabled</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_p<sp/>Positive<sp/>input<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_index<sp/>Channel<sp/>index.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_saadc_channel_t</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_CHANNEL_SE(_pin_p,<sp/>_index)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="86"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.channel_config<sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="89"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_CONFIG_RES,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.resistor_p<sp/>=<sp/>NRF_SAADC_RESISTOR_DISABLED,<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.resistor_n<sp/>=<sp/>NRF_SAADC_RESISTOR_DISABLED,),<sp/>\</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_GAIN,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.gain<sp/>=<sp/>NRF_SAADC_GAIN1,),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.reference<sp/><sp/>=<sp/>NRF_SAADC_REFERENCE_INTERNAL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.acq_time<sp/><sp/><sp/>=<sp/>NRFX_SAADC_DEFAULT_ACQTIME,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_SAADC_MODE_SINGLE_ENDED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_BURST,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.burst<sp/>=<sp/>NRF_SAADC_BURST_DISABLED,),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_CHOPPING,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.chopping<sp/>=<sp/>NRF_SAADC_CHOPPING_DISABLED,),<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_HIGHSPEED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.highspeed<sp/>=<sp/>NRF_SAADC_HIGHSPEED_DISABLED,),<sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CONV_TIME,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.conv_time<sp/>=<sp/>NRFX_SAADC_DEFAULT_CONV_TIME,),<sp/>\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pin_p<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(nrfx_analog_input_t)_pin_p,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pin_n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRFX_ANALOG_INPUT_DISABLED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.channel_index<sp/><sp/>=<sp/>_index,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="117"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>@brief<sp/>SAADC<sp/>channel<sp/>default<sp/>configuration<sp/>for<sp/>the<sp/>differential<sp/>mode.</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>differential<sp/>SAADC<sp/>channel<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>-<sp/>resistor<sp/>ladder<sp/>disabled</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>-<sp/>gain:<sp/>1/6</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>-<sp/>reference<sp/>voltage:<sp/>internal</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>-<sp/>sample<sp/>acquisition<sp/>time:<sp/>10<sp/>us</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>-<sp/>burst<sp/>disabled</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_p<sp/>Positive<sp/>input<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_n<sp/>Negative<sp/>input<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_index<sp/>Channel<sp/>index.</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_saadc_channel_t</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_CHANNEL_DIFFERENTIAL(_pin_p,<sp/>_pin_n,<sp/>_index)<sp/>\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.channel_config<sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_CONFIG_RES,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.resistor_p<sp/>=<sp/>NRF_SAADC_RESISTOR_DISABLED,<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.resistor_n<sp/>=<sp/>NRF_SAADC_RESISTOR_DISABLED,),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_GAIN,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.gain<sp/>=<sp/>NRF_SAADC_GAIN1,),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.reference<sp/><sp/>=<sp/>NRF_SAADC_REFERENCE_INTERNAL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.acq_time<sp/><sp/><sp/>=<sp/>NRFX_SAADC_DEFAULT_ACQTIME,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="146"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_SAADC_MODE_DIFFERENTIAL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_BURST,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.burst<sp/>=<sp/>NRF_SAADC_BURST_DISABLED,),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_CHOPPING,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.chopping<sp/>=<sp/>NRF_SAADC_CHOPPING_DISABLED,),<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CH_HIGHSPEED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.highspeed<sp/>=<sp/>NRF_SAADC_HIGHSPEED_DISABLED,),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_SAADC_HAS_CONV_TIME,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="157"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.conv_time<sp/>=<sp/>NRFX_SAADC_DEFAULT_CONV_TIME,),<sp/><sp/>\</highlight></codeline>
+<codeline lineno="158"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pin_p<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(nrfx_analog_input_t)_pin_p,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pin_n<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(nrfx_analog_input_t)_pin_n,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.channel_index<sp/><sp/>=<sp/>_index,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="165"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>getting<sp/>number<sp/>of<sp/>bytes<sp/>needed<sp/>to<sp/>store<sp/>specified<sp/>number<sp/>of<sp/>SAADC<sp/>samples.</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_samples<sp/><sp/><sp/><sp/>Number<sp/>of<sp/>samples.</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>bytes<sp/>needed<sp/>to<sp/>store<sp/>specified<sp/>number<sp/>of<sp/>samples.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_SAMPLES_TO_BYTES(_samples)<sp/>(_samples<sp/>*<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>getting<sp/>specified<sp/>SAADC<sp/>sample<sp/>from<sp/>the<sp/>filled<sp/>buffer.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_samples<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>buffer<sp/>filled<sp/>with<sp/>SAADC<sp/>samples.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_index<sp/><sp/><sp/><sp/><sp/><sp/>Sample<sp/>index.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@return<sp/>Specified<sp/>sample.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_SAMPLE_GET(_samples,<sp/>_index)<sp/>(((int16_t<sp/>*)(_samples))[(_index)])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/>@brief<sp/>SAADC<sp/>driver<sp/>advanced<sp/>mode<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>advanced<sp/>mode<sp/>of<sp/>the<sp/>SAADC<sp/>driver<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>-<sp/>oversampling<sp/>disabled</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/>-<sp/>burst<sp/>disabled</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>-<sp/>internal<sp/>sampling<sp/>timer<sp/>disabled</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>-<sp/>triggering<sp/>of<sp/>the<sp/>START<sp/>task<sp/>on<sp/>the<sp/>END<sp/>event<sp/>disabled</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_p<sp/>Positive<sp/>input<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_n<sp/>Negative<sp/>input<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_index<sp/>Channel<sp/>index.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_saadc_adv_config_t</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SAADC_DEFAULT_ADV_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="200"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.oversampling<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_SAADC_OVERSAMPLE_DISABLED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="202"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.burst<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_SAADC_BURST_DISABLED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="203"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.internal_timer_cc<sp/>=<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="204"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.start_on_end<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>false,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="207"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>channel<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="structnrfx__saadc__channel__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrf__saadc__channel__config__t" kindref="compound">nrf_saadc_channel_config_t</ref><sp/>channel_config;<sp/></highlight><highlight class="comment">///&lt;<sp/>Channel<sp/>hardware<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pin_p;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Input<sp/>positive<sp/>pin<sp/>selection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pin_n;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Input<sp/>negative<sp/>pin<sp/>selection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_index;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Channel<sp/>index.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}<sp/><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="216"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>driver<sp/>advanced<sp/>mode<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="structnrfx__saadc__adv__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1ga62ca4cd30bcc0c4a306135c957f7ed39" kindref="member">nrf_saadc_oversample_t</ref><sp/>oversampling;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Oversampling<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1ga46239c9f1d0af686aa09373d68c9a61a" kindref="member">nrf_saadc_burst_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>burst;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Burst<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal_timer_cc;<sp/></highlight><highlight class="comment">///&lt;<sp/>Internal<sp/>timer<sp/>capture<sp/>and<sp/>compare<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_on_end;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Flag<sp/>indicating<sp/>if<sp/>the<sp/>START<sp/>task<sp/>is<sp/>to<sp/>be<sp/>triggered<sp/>on<sp/>the<sp/>END<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}<sp/><ref refid="structnrfx__saadc__adv__config__t" kindref="compound">nrfx_saadc_adv_config_t</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="225"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>driver<sp/>event<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba5afba4cb6f732fc83add1c16b3878562" kindref="member">NRFX_SAADC_EVT_DONE</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>buffer<sp/>is<sp/>filled<sp/>with<sp/>samples.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba0e749ed671f0700bfa1bd4fff48eba6a" kindref="member">NRFX_SAADC_EVT_LIMIT</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>one<sp/>of<sp/>the<sp/>limits<sp/>is<sp/>reached.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba2f89be5f47e4ce29506a41f12bb8f350" kindref="member">NRFX_SAADC_EVT_CALIBRATEDONE</ref>,<sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>calibration<sp/>is<sp/>complete.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba7ea6bd57de5635c6b3dbdfb9e1ed26f5" kindref="member">NRFX_SAADC_EVT_BUF_REQ</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>next<sp/>buffer<sp/>for<sp/>continuous<sp/>conversion<sp/>is<sp/>requested.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba12ed1df95444c8f922b367133fee2062" kindref="member">NRFX_SAADC_EVT_READY</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>first<sp/>buffer<sp/>is<sp/>acquired<sp/>by<sp/>the<sp/>peripheral<sp/>and<sp/>sampling<sp/>can<sp/>be<sp/>started.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1gga40b21459a4cbd52d9c1fea7582a884bba635d57a1f75401fe97bb0e7a1e8c02e9" kindref="member">NRFX_SAADC_EVT_FINISHED</ref>,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>all<sp/>supplied<sp/>buffers<sp/>are<sp/>filled<sp/>with<sp/>results.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal">}<sp/><ref refid="group__nrfx__saadc_1ga40b21459a4cbd52d9c1fea7582a884bb" kindref="member">nrfx_saadc_evt_type_t</ref>;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="236"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>driver<sp/>done<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237" refid="structnrfx__saadc__done__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1gaf3083862e80023851eb8e73acc728cc5" kindref="member">nrf_saadc_value_t</ref><sp/>*<sp/>p_buffer;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>buffer<sp/>with<sp/>converted<sp/>samples.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Number<sp/>of<sp/>samples<sp/>in<sp/>the<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}<sp/><ref refid="structnrfx__saadc__done__evt__t" kindref="compound">nrfx_saadc_done_evt_t</ref>;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="243"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>driver<sp/>limit<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244" refid="structnrfx__saadc__limit__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Channel<sp/>on<sp/>which<sp/>the<sp/>limit<sp/>was<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1gad3a1aa4df4fa236684487f209f438a3d" kindref="member">nrf_saadc_limit_t</ref><sp/>limit_type;<sp/></highlight><highlight class="comment">///&lt;<sp/>Type<sp/>of<sp/>limit<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">}<sp/><ref refid="structnrfx__saadc__limit__evt__t" kindref="compound">nrfx_saadc_limit_evt_t</ref>;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="250"><highlight class="comment">/**<sp/>@brief<sp/>SAADC<sp/>driver<sp/>event<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251" refid="structnrfx__saadc__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1ga40b21459a4cbd52d9c1fea7582a884bb" kindref="member">nrfx_saadc_evt_type_t</ref><sp/>type;<sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__saadc__done__evt__t" kindref="compound">nrfx_saadc_done_evt_t</ref><sp/><sp/>done;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Data<sp/>for<sp/>@ref<sp/>NRFX_SAADC_EVT_DONE<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__saadc__limit__evt__t" kindref="compound">nrfx_saadc_limit_evt_t</ref><sp/>limit;<sp/></highlight><highlight class="comment">///&lt;<sp/>Data<sp/>for<sp/>@ref<sp/>NRFX_SAADC_EVT_LIMIT<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>data;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Union<sp/>to<sp/>store<sp/>event<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">}<sp/><ref refid="structnrfx__saadc__evt__t" kindref="compound">nrfx_saadc_evt_t</ref>;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="261"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*<sp/>@brief<sp/>SAADC<sp/>driver<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/>When<sp/>operating<sp/>in<sp/>the<sp/>advanced<sp/>mode:</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/>-<sp/>when<sp/>the<sp/>sampling<sp/>is<sp/>performed<sp/>by<sp/>the<sp/>external<sp/>timer,<sp/>the<sp/>external<sp/>timer<sp/>can<sp/>be<sp/>safely<sp/>started</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*<sp/><sp/><sp/>on<sp/>@ref<sp/>NRFX_SAADC_EVT_READY<sp/>and<sp/>stopped<sp/>on<sp/>@ref<sp/>NRFX_SAADC_EVT_FINISHED.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*<sp/>-<sp/>call<sp/>the<sp/>@ref<sp/>nrfx_saadc_buffer_set()<sp/>on<sp/>@ref<sp/>NRFX_SAADC_EVT_BUF_REQ<sp/>to<sp/>achieve<sp/>the<sp/>continuous<sp/>conversion.</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_event<sp/>Pointer<sp/>to<sp/>an<sp/>SAADC<sp/>driver<sp/>event.<sp/>The<sp/>event<sp/>structure<sp/>is<sp/>allocated<sp/>on</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>stack,<sp/>so<sp/>it<sp/>is<sp/>valid<sp/>only<sp/>within<sp/>the<sp/>context<sp/>of<sp/>the<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref>)(<ref refid="structnrfx__saadc__evt__t" kindref="compound">nrfx_saadc_evt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_event);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="274"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>SAADC<sp/>driver.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>interrupt_priority<sp/>Interrupt<sp/>priority.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gab17cbf8c0f873d259677240c33652094" kindref="member">nrfx_saadc_init</ref>(uint8_t<sp/>interrupt_priority);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="284"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>SAADC<sp/>driver.</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>stops<sp/>all<sp/>ongoing<sp/>conversions<sp/>and<sp/>disables<sp/>all<sp/>channels.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga5f7a950aba941d0b17e20dcfc97ee446" kindref="member">nrfx_saadc_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="291"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>SAADC<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="293"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga0a54ecbc68b3526896c1ef9c7d0579ed" kindref="member">nrfx_saadc_init_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="299"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>internal<sp/>timer<sp/>CC<sp/>value<sp/>from<sp/>the<sp/>interval<sp/>in<sp/>microseconds.</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>internal<sp/>timer<sp/>runs<sp/>at<sp/>16<sp/>MHz,<sp/>so<sp/>to<sp/>convert<sp/>the<sp/>interval<sp/>in<sp/>microseconds</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>the<sp/>internal<sp/>timer<sp/>CC<sp/>value,<sp/>we<sp/>can<sp/>use<sp/>the<sp/>formula:</highlight></codeline>
+<codeline lineno="304"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>interval_cc<sp/>=<sp/>interval_us<sp/>*<sp/>16<sp/>MHz</highlight></codeline>
+<codeline lineno="305"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>where<sp/>16<sp/>MHz<sp/>is<sp/>the<sp/>frequency<sp/>of<sp/>the<sp/>internal<sp/>timer.</highlight></codeline>
+<codeline lineno="306"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>maximum<sp/>value<sp/>for<sp/>interval_cc<sp/>is<sp/>2047,<sp/>which<sp/>corresponds<sp/>to</highlight></codeline>
+<codeline lineno="307"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>approximately<sp/>7816<sp/>Hz<sp/>~<sp/>128us.</highlight></codeline>
+<codeline lineno="308"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>minimum<sp/>value<sp/>for<sp/>interval_cc<sp/>depends<sp/>on<sp/>the<sp/>SoC.</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>interval_us<sp/>The<sp/>interval<sp/>in<sp/>microseconds<sp/>to<sp/>be<sp/>converted.</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>internal<sp/>timer<sp/>CC<sp/>value.</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal">uint16_t<sp/><ref refid="group__nrfx__saadc_1gadd7c7f518a283b1db44440832816c2de" kindref="member">nrfx_saadc_interval_to_cc</ref>(uint16_t<sp/>interval_us);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="316"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="317"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>configuring<sp/>multiple<sp/>SAADC<sp/>channels.</highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>values<sp/>of<sp/>the<sp/>@ref<sp/>nrf_saadc_channel_config_t.burst<sp/>fields<sp/>in<sp/>channel<sp/>configurations</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>are<sp/>ignored.<sp/>They<sp/>will<sp/>be<sp/>overridden<sp/>with<sp/>the<sp/>value<sp/>suitable<sp/>for<sp/>the<sp/>selected<sp/>driver</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>operation<sp/>mode.</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>desired<sp/>mode<sp/>(simple<sp/>or<sp/>advanced)<sp/>must<sp/>be<sp/>set<sp/>after<sp/>the<sp/>channels<sp/>are<sp/>configured.</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*<sp/>@warning<sp/>This<sp/>function<sp/>overrides<sp/>previous<sp/>configuration<sp/>done<sp/>on<sp/>any<sp/>channel<sp/>by</highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>nrfx_saadc_channels_config<sp/>or<sp/>@ref<sp/>nrfx_saadc_channel_config.</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_channels<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>array<sp/>of<sp/>channel<sp/>configuration<sp/>structures.</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_count<sp/>Number<sp/>of<sp/>channels<sp/>to<sp/>be<sp/>configured.</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Configuration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/>Attempt<sp/>to<sp/>configure<sp/>the<sp/>same<sp/>channel<sp/>more<sp/>than<sp/>once<sp/>or</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>attempt<sp/>to<sp/>configure<sp/>an<sp/>invalid<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gab083c3d925c9d4c8053c572fbc662e6e" kindref="member">nrfx_saadc_channels_config</ref>(<ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_channels,</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_count);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="338"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>configuring<sp/>single<sp/>SAADC<sp/>channel.</highlight></codeline>
+<codeline lineno="340"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="341"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>values<sp/>of<sp/>the<sp/>@ref<sp/>nrf_saadc_channel_config_t.burst<sp/>fields<sp/>in<sp/>channel<sp/>configurations</highlight></codeline>
+<codeline lineno="342"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>are<sp/>ignored.<sp/>They<sp/>will<sp/>be<sp/>overridden<sp/>with<sp/>the<sp/>value<sp/>suitable<sp/>for<sp/>the<sp/>selected<sp/>driver</highlight></codeline>
+<codeline lineno="343"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>operation<sp/>mode.</highlight></codeline>
+<codeline lineno="344"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/>*<sp/>@warning<sp/>This<sp/>function<sp/>overrides<sp/>previous<sp/>configuration<sp/>done<sp/>on<sp/>specified<sp/>channel<sp/>by</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>nrfx_saadc_channels_config<sp/>or<sp/>@ref<sp/>nrfx_saadc_channel_config.</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_channel<sp/>Pointer<sp/>to<sp/>the<sp/>channel<sp/>configuration<sp/>structure.</highlight></codeline>
+<codeline lineno="349"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Configuration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/>Attempt<sp/>to<sp/>configure<sp/>an<sp/>invalid<sp/>analog<sp/>pin.</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga9ac08c7f3b1bb531e91cb1a59127fd85" kindref="member">nrfx_saadc_channel_config</ref>(<ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_channel);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="356"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>currently<sp/>configured<sp/>SAADC<sp/>channels.</highlight></codeline>
+<codeline lineno="358"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="359"><highlight class="comment"><sp/>*<sp/>@return<sp/>Bitmask<sp/>of<sp/>configured<sp/>channels.</highlight></codeline>
+<codeline lineno="360"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__saadc_1ga755f7156443c57555a12568717db36d7" kindref="member">nrfx_saadc_channels_configured_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="363"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="364"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>deconfiguring<sp/>the<sp/>specified<sp/>SAADC<sp/>channels.</highlight></codeline>
+<codeline lineno="365"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="366"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Pins<sp/>associated<sp/>with<sp/>the<sp/>deconfigured<sp/>channels<sp/>will<sp/>be<sp/>released<sp/>after</highlight></codeline>
+<codeline lineno="367"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next<sp/>@ref<sp/>nrfx_saadc_simple_mode_set()<sp/>or<sp/>@ref<sp/>nrfx_saadc_advanced_mode_set()<sp/>call.</highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/>Bitmask<sp/>of<sp/>channels<sp/>to<sp/>be<sp/>deconfigured.</highlight></codeline>
+<codeline lineno="370"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="371"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Deconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="372"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="373"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga3f5d1b286a79ab6fd2ec2a237711d69e" kindref="member">nrfx_saadc_channels_deconfig</ref>(uint32_t<sp/>channel_mask);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="376"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="377"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>SAADC<sp/>driver<sp/>in<sp/>the<sp/>simple<sp/>mode.</highlight></codeline>
+<codeline lineno="378"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="379"><highlight class="comment"><sp/>*<sp/>The<sp/>simple<sp/>mode<sp/>allows<sp/>obtaining<sp/>a<sp/>single<sp/>sample<sp/>from<sp/>each<sp/>requested<sp/>channel.</highlight></codeline>
+<codeline lineno="380"><highlight class="comment"><sp/>*<sp/>The<sp/>conversion<sp/>can<sp/>be<sp/>done<sp/>in<sp/>a<sp/>blocking<sp/>or<sp/>non-blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="381"><highlight class="comment"><sp/>*<sp/>Sampling<sp/>is<sp/>initiated<sp/>by<sp/>calling<sp/>@ref<sp/>nrfx_saadc_mode_trigger()<sp/>once.</highlight></codeline>
+<codeline lineno="382"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="383"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/><sp/>Bitmask<sp/>of<sp/>channels<sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>simple<sp/>mode.</highlight></codeline>
+<codeline lineno="384"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>resolution<sp/><sp/><sp/><sp/>Resolution<sp/>configuration.</highlight></codeline>
+<codeline lineno="385"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>oversampling<sp/><sp/>Oversampling<sp/>configuration.</highlight></codeline>
+<codeline lineno="386"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>In<sp/>case<sp/>of<sp/>providing<sp/>NULL,</highlight></codeline>
+<codeline lineno="387"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>conversion<sp/>will<sp/>be<sp/>performed<sp/>in<sp/>the<sp/>blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="388"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="389"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="390"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="391"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/>Attempt<sp/>to<sp/>activate<sp/>channel<sp/>that<sp/>is<sp/>not<sp/>configured.</highlight></codeline>
+<codeline lineno="392"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="393"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga80f6945de4d0fb0db9c051129a186c16" kindref="member">nrfx_saadc_simple_mode_set</ref>(uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1gaeb0690ef4bdb8ec1cfac1f6c6a496630" kindref="member">nrf_saadc_resolution_t</ref><sp/><sp/><sp/><sp/><sp/>resolution,</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1ga62ca4cd30bcc0c4a306135c957f7ed39" kindref="member">nrf_saadc_oversample_t</ref><sp/><sp/><sp/><sp/><sp/>oversampling,</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref><sp/>event_handler);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="398"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="399"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>SAADC<sp/>driver<sp/>in<sp/>the<sp/>advanced<sp/>mode.</highlight></codeline>
+<codeline lineno="400"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="401"><highlight class="comment"><sp/>*<sp/>The<sp/>advanced<sp/>mode<sp/>allows<sp/>performing<sp/>double-buffered<sp/>conversions<sp/>of<sp/>arbitrary<sp/>length.</highlight></codeline>
+<codeline lineno="402"><highlight class="comment"><sp/>*<sp/>The<sp/>conversions<sp/>can<sp/>be<sp/>done<sp/>in<sp/>a<sp/>blocking<sp/>or<sp/>non-blocking<sp/>manner.<sp/>When<sp/>performing<sp/>conversions</highlight></codeline>
+<codeline lineno="403"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>non-blocking<sp/>manner<sp/>and<sp/>@ref<sp/>nrfx_saadc_adv_config_t.internal_timer_cc<sp/>is<sp/>set<sp/>to<sp/>0,</highlight></codeline>
+<codeline lineno="404"><highlight class="comment"><sp/>*<sp/>sampling<sp/>needs<sp/>to<sp/>be<sp/>done<sp/>by<sp/>triggering<sp/>@ref<sp/>NRF_SAADC_TASK_SAMPLE<sp/>externally</highlight></codeline>
+<codeline lineno="405"><highlight class="comment"><sp/>*<sp/>(for<sp/>example<sp/>by<sp/>using<sp/>the<sp/>TIMER<sp/>and/or<sp/>the<sp/>PPI/DPPI).</highlight></codeline>
+<codeline lineno="406"><highlight class="comment"><sp/>*<sp/>When<sp/>performing<sp/>conversions<sp/>in<sp/>the<sp/>non-blocking<sp/>manner<sp/>and<sp/>@ref<sp/>nrfx_saadc_adv_config_t.start_on_end</highlight></codeline>
+<codeline lineno="407"><highlight class="comment"><sp/>*<sp/>is<sp/>false,<sp/>the<sp/>@ref<sp/>NRF_SAADC_TASK_START<sp/>needs<sp/>to<sp/>be<sp/>triggered<sp/>on<sp/>@ref<sp/>NRF_SAADC_EVENT_END</highlight></codeline>
+<codeline lineno="408"><highlight class="comment"><sp/>*<sp/>externally<sp/>(for<sp/>example<sp/>by<sp/>using<sp/>the<sp/>PPI/DPPI).</highlight></codeline>
+<codeline lineno="409"><highlight class="comment"><sp/>*<sp/>Sampling<sp/>is<sp/>initiated<sp/>by<sp/>calling<sp/>@ref<sp/>nrfx_saadc_mode_trigger().<sp/>In<sp/>case<sp/>of<sp/>performing</highlight></codeline>
+<codeline lineno="410"><highlight class="comment"><sp/>*<sp/>conversions<sp/>in<sp/>the<sp/>blocking<sp/>manner,<sp/>@ref<sp/>nrfx_saadc_mode_trigger()<sp/>may<sp/>need<sp/>to<sp/>be<sp/>called<sp/>several</highlight></codeline>
+<codeline lineno="411"><highlight class="comment"><sp/>*<sp/>times<sp/>as<sp/>each<sp/>call<sp/>sample<sp/>each<sp/>requested<sp/>channel<sp/>once.</highlight></codeline>
+<codeline lineno="412"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="413"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>internal<sp/>timer<sp/>can<sp/>only<sp/>be<sp/>used<sp/>when<sp/>a<sp/>single<sp/>input<sp/>channel<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="414"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>internal<sp/>timer<sp/>can<sp/>only<sp/>be<sp/>used<sp/>in<sp/>the<sp/>non-blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="415"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="416"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/><sp/>Bitmask<sp/>of<sp/>channels<sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>advanced<sp/>mode.</highlight></codeline>
+<codeline lineno="417"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>resolution<sp/><sp/><sp/><sp/>Resolution<sp/>configuration.</highlight></codeline>
+<codeline lineno="418"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>advanced<sp/>mode<sp/>configuration.</highlight></codeline>
+<codeline lineno="419"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>In<sp/>case<sp/>of<sp/>providing<sp/>NULL,</highlight></codeline>
+<codeline lineno="420"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>conversion<sp/>will<sp/>be<sp/>performed<sp/>in<sp/>the<sp/>blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="421"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="422"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="423"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="424"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/>Attempt<sp/>to<sp/>activate<sp/>channel<sp/>that<sp/>is<sp/>not<sp/>configured.</highlight></codeline>
+<codeline lineno="425"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOTSUP<sp/>Attempt<sp/>to<sp/>activate<sp/>either<sp/>of<sp/>the<sp/>following:</highlight></codeline>
+<codeline lineno="426"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>internal<sp/>timer<sp/>in<sp/>the<sp/>blocking<sp/>mode,</highlight></codeline>
+<codeline lineno="427"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>internal<sp/>timer<sp/>with<sp/>multiple<sp/>channels<sp/>enabled,</highlight></codeline>
+<codeline lineno="428"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>oversampling<sp/>without<sp/>burst<sp/>with<sp/>multiple<sp/>channels<sp/>enabled.</highlight></codeline>
+<codeline lineno="429"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga0aa1760b4589da6b0011bb674572a7c5" kindref="member">nrfx_saadc_advanced_mode_set</ref>(uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__saadc__hal_1gaeb0690ef4bdb8ec1cfac1f6c6a496630" kindref="member">nrf_saadc_resolution_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resolution,</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__saadc__adv__config__t" kindref="compound">nrfx_saadc_adv_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event_handler);</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="435"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="436"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>supplying<sp/>the<sp/>buffer<sp/>to<sp/>be<sp/>used<sp/>in<sp/>the<sp/>next<sp/>part<sp/>of</highlight></codeline>
+<codeline lineno="437"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>conversion.</highlight></codeline>
+<codeline lineno="438"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="439"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_buffer<sp/>Pointer<sp/>to<sp/>the<sp/>buffer<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>conversion<sp/>results.</highlight></codeline>
+<codeline lineno="440"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>size<sp/><sp/><sp/><sp/><sp/>Number<sp/>of<sp/>samples<sp/>in<sp/>the<sp/>buffer.</highlight></codeline>
+<codeline lineno="441"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="442"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Buffer<sp/>was<sp/>supplied<sp/>successfully.</highlight></codeline>
+<codeline lineno="443"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>provided<sp/>buffer<sp/>is<sp/>not<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.</highlight></codeline>
+<codeline lineno="444"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-E2BIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>provided<sp/>buffer<sp/>is<sp/>not<sp/>aligned<sp/>to<sp/>the<sp/>number<sp/>of<sp/>activated<sp/>channels</highlight></codeline>
+<codeline lineno="445"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>or<sp/>is<sp/>too<sp/>long<sp/>for<sp/>the<sp/>EasyDMA<sp/>to<sp/>handle.</highlight></codeline>
+<codeline lineno="446"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>in<sp/>the<sp/>idle<sp/>mode.</highlight></codeline>
+<codeline lineno="447"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/><sp/><sp/><sp/>Both<sp/>buffers<sp/>for<sp/>double-buffered<sp/>conversions<sp/>are<sp/>already<sp/>set.</highlight></codeline>
+<codeline lineno="448"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="449"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gada187c0436a60206fc00493c490fb9e2" kindref="member">nrfx_saadc_buffer_set</ref>(<ref refid="group__nrf__saadc__hal_1gaf3083862e80023851eb8e73acc728cc5" kindref="member">nrf_saadc_value_t</ref><sp/>*<sp/>p_buffer,<sp/>uint16_t<sp/>size);</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="451"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="452"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>triggering<sp/>the<sp/>conversion<sp/>in<sp/>the<sp/>configured<sp/>mode.</highlight></codeline>
+<codeline lineno="453"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="454"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Operation<sp/>finished<sp/>successfully<sp/>in<sp/>the<sp/>blocking<sp/>manner<sp/>or<sp/>started</highlight></codeline>
+<codeline lineno="455"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>successfully<sp/>in<sp/>the<sp/>non-blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="456"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>performing<sp/>the<sp/>conversion<sp/>in<sp/>the<sp/>advanced<sp/>blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="457"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Call<sp/>the<sp/>function<sp/>again<sp/>to<sp/>continue<sp/>the<sp/>conversion.</highlight></codeline>
+<codeline lineno="458"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOMEM<sp/><sp/><sp/><sp/><sp/><sp/>There<sp/>is<sp/>no<sp/>buffer<sp/>provided.</highlight></codeline>
+<codeline lineno="459"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Supply<sp/>the<sp/>buffer<sp/>using<sp/>@ref<sp/>nrfx_saadc_buffer_set()<sp/>and<sp/>try<sp/>again.</highlight></codeline>
+<codeline lineno="460"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>There<sp/>is<sp/>an<sp/>ongoing<sp/>conversion<sp/>or<sp/>calibration<sp/>being<sp/>performed</highlight></codeline>
+<codeline lineno="461"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>the<sp/>non-blocking<sp/>manner<sp/>or<sp/>the<sp/>driver<sp/>is<sp/>in<sp/>the<sp/>idle<sp/>mode.</highlight></codeline>
+<codeline lineno="462"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="463"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gafbe77d02eb8d2c8321d03f892e9d08db" kindref="member">nrfx_saadc_mode_trigger</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="465"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="466"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>aborting<sp/>the<sp/>ongoing<sp/>and<sp/>buffered<sp/>conversions.</highlight></codeline>
+<codeline lineno="467"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="468"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Aborting<sp/>blocking<sp/>conversion<sp/>or<sp/>calibration<sp/>from<sp/>different<sp/>context<sp/>is<sp/>not<sp/>supported.</highlight></codeline>
+<codeline lineno="469"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Perform<sp/>the<sp/>operation<sp/>in<sp/>non-blocking<sp/>manner<sp/>instead.</highlight></codeline>
+<codeline lineno="470"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="471"><highlight class="comment"><sp/>*<sp/>@note<sp/>@ref<sp/>NRFX_SAADC_EVT_DONE<sp/>event<sp/>will<sp/>be<sp/>generated<sp/>if<sp/>there<sp/>is<sp/>a<sp/>conversion<sp/>in<sp/>progress.</highlight></codeline>
+<codeline lineno="472"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Event<sp/>will<sp/>contain<sp/>number<sp/>of<sp/>words<sp/>in<sp/>the<sp/>sample<sp/>buffer.</highlight></codeline>
+<codeline lineno="473"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="474"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1ga480525496e0676a598b828789104fdf6" kindref="member">nrfx_saadc_abort</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="476"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="477"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>SAADC<sp/>channel<sp/>limits.</highlight></codeline>
+<codeline lineno="478"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="479"><highlight class="comment"><sp/>*<sp/>When<sp/>limits<sp/>are<sp/>enabled<sp/>and<sp/>the<sp/>conversion<sp/>result<sp/>exceeds<sp/>the<sp/>defined<sp/>bounds,</highlight></codeline>
+<codeline lineno="480"><highlight class="comment"><sp/>*<sp/>the<sp/>handler<sp/>function<sp/>is<sp/>called<sp/>with<sp/>the<sp/>corresponding<sp/>event<sp/>as<sp/>parameter.</highlight></codeline>
+<codeline lineno="481"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="482"><highlight class="comment"><sp/>*<sp/>@note<sp/>Before<sp/>the<sp/>limits<sp/>are<sp/>set,<sp/>the<sp/>driver<sp/>operation<sp/>mode<sp/>(simple<sp/>or<sp/>advanced)<sp/>has</highlight></codeline>
+<codeline lineno="483"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>be<sp/>configured.<sp/>Only<sp/>non-blocking<sp/>conversions<sp/>can<sp/>be<sp/>monitored.</highlight></codeline>
+<codeline lineno="484"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="485"><highlight class="comment"><sp/>*<sp/>@note<sp/>Changing<sp/>of<sp/>the<sp/>driver<sp/>operation<sp/>mode<sp/>disables<sp/>all<sp/>configured<sp/>limits.</highlight></codeline>
+<codeline lineno="486"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="487"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/><sp/><sp/><sp/>Channel<sp/>index.</highlight></codeline>
+<codeline lineno="488"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>limit_low<sp/><sp/>Limit<sp/>low<sp/>value<sp/>to<sp/>generate<sp/>interrupt.<sp/>Use<sp/>@c<sp/>INT16_MIN</highlight></codeline>
+<codeline lineno="489"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>disable<sp/>interrupt<sp/>generation.</highlight></codeline>
+<codeline lineno="490"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>limit_high<sp/>Limit<sp/>high<sp/>value<sp/>to<sp/>generate<sp/>interrupt.<sp/>Use<sp/>@c<sp/>INT16_MAX</highlight></codeline>
+<codeline lineno="491"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>disable<sp/>interrupt<sp/>generation.</highlight></codeline>
+<codeline lineno="492"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="493"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Requested<sp/>channel<sp/>limits<sp/>were<sp/>set.</highlight></codeline>
+<codeline lineno="494"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/><sp/><sp/><sp/>Attempt<sp/>to<sp/>activate<sp/>the<sp/>limits<sp/>on<sp/>disabled<sp/>channel.</highlight></codeline>
+<codeline lineno="495"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EPERM<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Attempt<sp/>to<sp/>activate<sp/>the<sp/>limits<sp/>for<sp/>blocking<sp/>conversions.</highlight></codeline>
+<codeline lineno="496"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>Attempt<sp/>to<sp/>activate<sp/>the<sp/>limits<sp/>without<sp/>configured<sp/>mode.</highlight></codeline>
+<codeline lineno="497"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="498"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gaf7631840337df828f28f152c607a3e4c" kindref="member">nrfx_saadc_limits_set</ref>(uint8_t<sp/>channel,<sp/>int16_t<sp/>limit_low,<sp/>int16_t<sp/>limit_high);</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="500"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="501"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>the<sp/>SAADC<sp/>offset<sp/>calibration.</highlight></codeline>
+<codeline lineno="502"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="503"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>calib_event_handler<sp/>Calibration<sp/>event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>In<sp/>case<sp/>of<sp/>providing<sp/>NULL,</highlight></codeline>
+<codeline lineno="504"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>calibration<sp/>will<sp/>be<sp/>performed<sp/>in<sp/>the<sp/>blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="505"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="506"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Calibration<sp/>finished<sp/>successfully<sp/>in<sp/>the<sp/>blocking<sp/>manner</highlight></codeline>
+<codeline lineno="507"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>or<sp/>started<sp/>successfully<sp/>in<sp/>the<sp/>non-blocking<sp/>manner.</highlight></codeline>
+<codeline lineno="508"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>There<sp/>is<sp/>a<sp/>conversion<sp/>or<sp/>calibration<sp/>ongoing.</highlight></codeline>
+<codeline lineno="509"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="510"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__saadc_1gab7acf39050c11f6f28445c1056e45151" kindref="member">nrfx_saadc_offset_calibrate</ref>(<ref refid="group__nrfx__saadc_1ga9ce1b06a70aa2aa079dd5f8a0182de9e" kindref="member">nrfx_saadc_event_handler_t</ref><sp/>calib_event_handler);</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="512"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="513"><highlight class="normal"></highlight></codeline>
+<codeline lineno="514"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_saadc_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"></highlight></codeline>
+<codeline lineno="516"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="517"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="518"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="519"><highlight class="normal"></highlight></codeline>
+<codeline lineno="520"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_SAADC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_saadc.h"/>
+  </compounddef>
+</doxygen>

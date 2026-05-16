@@ -1,0 +1,861 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__lfxo__hal" kind="group">
+    <compoundname>nrf_lfxo_hal</compoundname>
+    <title>LFXO HAL</title>
+    <innerclass refid="structnrf__lfxo__status__t" prot="public">nrf_lfxo_status_t</innerclass>
+    <innerclass refid="structnrf__lfxo__amplitude__ctrl__t" prot="public">nrf_lfxo_amplitude_ctrl_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__lfxo__hal_1gab79cbcdbffb1f990c6935bb5587193bc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfxo_event_t</name>
+        <enumvalue id="group__nrf__lfxo__hal_1ggab79cbcdbffb1f990c6935bb5587193bca95d53517581a96f0a44006fc9ffabb47" prot="public">
+          <name>NRF_LFXO_EVENT_MODECHANGED</name>
+          <initializer>= offsetof(NRF_LFXO_Type, EVENTS_MODECHANGED)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>LFXO mode changed. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1ggab79cbcdbffb1f990c6935bb5587193bca4a1b40320f112287ddeef60f6663c18d" prot="public">
+          <name>NRF_LFXO_EVENT_ERRORSTARTING</name>
+          <initializer>= offsetof(NRF_LFXO_Type, EVENTS_ERRORSTARTING)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Error while starting the LFXO in PIERCE mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1ggab79cbcdbffb1f990c6935bb5587193bca4b29be5968f05488f96ca7c350624e10" prot="public">
+          <name>NRF_LFXO_EVENT_ERRORRUNNING</name>
+          <initializer>= offsetof(NRF_LFXO_Type, EVENTS_ERRORRUNNING)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Error detected while LFXO was running. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFXO events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="58" column="1" bodyfile="hal/nrf_lfxo.h" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfxo__hal_1gaf12c695a86668c7503bf7f3da98a411b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfxo_int_mask_t</name>
+        <enumvalue id="group__nrf__lfxo__hal_1ggaf12c695a86668c7503bf7f3da98a411bae20892a9a5d87c057921bf73148192e1" prot="public">
+          <name>NRF_LFXO_INT_MODECHANGED_MASK</name>
+          <initializer>= LFXO_INTENSET_MODECHANGED_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on MODECHANGED event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1ggaf12c695a86668c7503bf7f3da98a411ba0356f88653e7d26931cf27c35bad0ea4" prot="public">
+          <name>NRF_LFXO_INT_ERRORSTARTING_MASK</name>
+          <initializer>= LFXO_INTENSET_ERRORSTARTING_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on ERRORSTARTING event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1ggaf12c695a86668c7503bf7f3da98a411ba3ffb2604bacd1074bcb40cc9f61917dd" prot="public">
+          <name>NRF_LFXO_INT_ERRORRUNNING_MASK</name>
+          <initializer>= LFXO_INTENSET_ERRORRUNNING_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on ERRORRUNNING event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFXO interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="66" column="1" bodyfile="hal/nrf_lfxo.h" bodystart="67" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfxo__hal_1ga452646370672202d977a47bba4927854" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfxo_oscillator_mode_t</name>
+        <enumvalue id="group__nrf__lfxo__hal_1gga452646370672202d977a47bba4927854a9bd9ab75d1035359be181b05059a8002" prot="public">
+          <name>NRF_LFXO_OSCILLATOR_MODE_PIERCE</name>
+          <initializer>= LFXO_STATUS_MODE_Pierce</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Pierce mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1gga452646370672202d977a47bba4927854a59045eb4d34717adb35ba131b02493eb" prot="public">
+          <name>NRF_LFXO_OSCILLATOR_MODE_PIXO</name>
+          <initializer>= LFXO_STATUS_MODE_Pixo</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>PIXO mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1gga452646370672202d977a47bba4927854af4febd1bd32b0d21a0ca09d1dab40c03" prot="public">
+          <name>NRF_LFXO_OSCILLATOR_MODE_EXTSINE</name>
+          <initializer>= LFXO_STATUS_MODE_ExternalSine</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>External sine wave clock. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1gga452646370672202d977a47bba4927854adbe67a92a0f021910e8dde4bb5b7bc9b" prot="public">
+          <name>NRF_LFXO_OSCILLATOR_MODE_EXTSQ</name>
+          <initializer>= LFXO_STATUS_MODE_ExternalSquare</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>External square wave clock. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFXO modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="74" column="1" bodyfile="hal/nrf_lfxo.h" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfxo__hal_1ga45d1b083e52a8bbd70b26dcf0717d928" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfxo_power_control_t</name>
+        <enumvalue id="group__nrf__lfxo__hal_1gga45d1b083e52a8bbd70b26dcf0717d928a02675051263909d73cee0c44d737b3a1" prot="public">
+          <name>NRF_LFXO_POWER_CONTROL_AUTO</name>
+          <initializer>= LFXO_PWRUPCTRL_CTRL_Auto</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Automatically handled by the peripheral. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1gga45d1b083e52a8bbd70b26dcf0717d928aa4d1c924617fbc4978f40f00270f9939" prot="public">
+          <name>NRF_LFXO_POWER_CONTROL_POWER_UP</name>
+          <initializer>= LFXO_PWRUPCTRL_CTRL_PowerUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Power up. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfxo__hal_1gga45d1b083e52a8bbd70b26dcf0717d928a634552db861d586f023f056be6040563" prot="public">
+          <name>NRF_LFXO_POWER_CONTROL_POWER_DOWN</name>
+          <initializer>= LFXO_PWRUPCTRL_CTRL_PowerDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Power down. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Power up control. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="100" column="1" bodyfile="hal/nrf_lfxo.h" bodystart="101" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga78d611e888f31373763a31a130cc42a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfxo_event_address_get</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg, nrf_lfxo_event_t event)</argsstring>
+        <name>nrf_lfxo_event_address_get</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfxo__hal_1gab79cbcdbffb1f990c6935bb5587193bc" kindref="member">nrf_lfxo_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LFXO Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="267" column="28" bodyfile="hal/nrf_lfxo.h" bodystart="267" bodyend="271" declfile="hal/nrf_lfxo.h" declline="115" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga5f14d42df1cd0973c7cade9c9a782852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_event_clear</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, nrf_lfxo_event_t event)</argsstring>
+        <name>nrf_lfxo_event_clear</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfxo__hal_1gab79cbcdbffb1f990c6935bb5587193bc" kindref="member">nrf_lfxo_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="273" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="273" bodyend="277" declfile="hal/nrf_lfxo.h" declline="124" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga2f7b13ee6a192e1c80f7a117529c3f3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfxo_event_check</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg, nrf_lfxo_event_t event)</argsstring>
+        <name>nrf_lfxo_event_check</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfxo__hal_1gab79cbcdbffb1f990c6935bb5587193bc" kindref="member">nrf_lfxo_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="279" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="279" bodyend="282" declfile="hal/nrf_lfxo.h" declline="135" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga92d6b7fc91e39a5a0f4fcea9c29d48c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_int_enable</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfxo_int_enable</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__lfxo__hal_1gaf12c695a86668c7503bf7f3da98a411b" kindref="member">nrf_lfxo_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="284" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="284" bodyend="287" declfile="hal/nrf_lfxo.h" declline="144" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga077a6637fd078dd56f41314b2b55d3c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_int_disable</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfxo_int_disable</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__lfxo__hal_1gaf12c695a86668c7503bf7f3da98a411b" kindref="member">nrf_lfxo_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="289" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="289" bodyend="292" declfile="hal/nrf_lfxo.h" declline="153" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga4c280680ad9d1e105172a653c9d90a7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfxo_int_enable_check</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfxo_int_enable_check</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__lfxo__hal_1gaf12c695a86668c7503bf7f3da98a411b" kindref="member">nrf_lfxo_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="294" column="28" bodyfile="hal/nrf_lfxo.h" bodystart="294" bodyend="297" declfile="hal/nrf_lfxo.h" declline="164" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1gac6cf9d2c01c92c53dbc506d3cd068761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfxo_int_pending_get</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg)</argsstring>
+        <name>nrf_lfxo_int_pending_get</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of pending interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bitmask with information about pending interrupts. Use <ref refid="group__nrf__lfxo__hal_1gaf12c695a86668c7503bf7f3da98a411b" kindref="member">nrf_lfxo_int_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="299" column="28" bodyfile="hal/nrf_lfxo.h" bodystart="299" bodyend="302" declfile="hal/nrf_lfxo.h" declline="177" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga6bf50696f9f4cd7bd1314077a982cc90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_status_get</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg, nrf_lfxo_status_t *p_status)</argsstring>
+        <name>nrf_lfxo_status_get</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__lfxo__status__t" kindref="compound">nrf_lfxo_status_t</ref> *</type>
+          <declname>p_status</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting LFXO status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with LFXO status. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="304" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="304" bodyend="312" declfile="hal/nrf_lfxo.h" declline="185" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga02615caf22b6459e2299d3e1d366bf61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfxo_statusana_ready_check</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg)</argsstring>
+        <name>nrf_lfxo_statusana_ready_check</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking status of analog module READY signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="315" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="315" bodyend="318" declfile="hal/nrf_lfxo.h" declline="197" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga57eb3d5e681fa655f6d991e7594950fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfxo_statusana_settled_check</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg)</argsstring>
+        <name>nrf_lfxo_statusana_settled_check</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking status of analog module SETTLED signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="320" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="320" bodyend="323" declfile="hal/nrf_lfxo.h" declline="207" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga3c18105b42516a18cb36a69ab6f0d0be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_lfxo_cload_get</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg)</argsstring>
+        <name>nrf_lfxo_cload_get</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting internal capacitive load value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Capacitance value in pF, resolution: 1pF. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="326" column="27" bodyfile="hal/nrf_lfxo.h" bodystart="326" bodyend="336" declfile="hal/nrf_lfxo.h" declline="217" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga1c914b3a4537fd2a23aa3cf49b04568d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_cload_set</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, uint8_t cap)</argsstring>
+        <name>nrf_lfxo_cload_set</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>cap</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting internal capacitive load value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capacitance value in pF, resolution: 1pF. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="338" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="338" bodyend="351" declfile="hal/nrf_lfxo.h" declline="225" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1ga2ea62bac5932c8e8fdfeeb6453c63d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_amplitude_control_get</definition>
+        <argsstring>(NRF_LFXO_Type const *p_reg, nrf_lfxo_amplitude_ctrl_t *p_ctrl)</argsstring>
+        <name>nrf_lfxo_amplitude_control_get</name>
+        <param>
+          <type>NRF_LFXO_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__lfxo__amplitude__ctrl__t" kindref="compound">nrf_lfxo_amplitude_ctrl_t</ref> *</type>
+          <declname>p_ctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting amplitude control configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with amplitude control configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="353" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="353" bodyend="363" declfile="hal/nrf_lfxo.h" declline="233" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1gae08eef491afbf03bff729db8c517df08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_amplitude_control_set</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, nrf_lfxo_amplitude_ctrl_t *p_ctrl)</argsstring>
+        <name>nrf_lfxo_amplitude_control_set</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__lfxo__amplitude__ctrl__t" kindref="compound">nrf_lfxo_amplitude_ctrl_t</ref> *</type>
+          <declname>p_ctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting amplitude control configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with amplitude control configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="365" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="365" bodyend="374" declfile="hal/nrf_lfxo.h" declline="242" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1gaf43a3d2f07db6741915e81eb6ea2f756" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_power_control_set</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, nrf_lfxo_power_control_t pwrctrl)</argsstring>
+        <name>nrf_lfxo_power_control_set</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfxo__hal_1ga45d1b083e52a8bbd70b26dcf0717d928" kindref="member">nrf_lfxo_power_control_t</ref></type>
+          <declname>pwrctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for power control set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pwrctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Power up control. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="376" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="376" bodyend="380" declfile="hal/nrf_lfxo.h" declline="251" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfxo__hal_1gabaea5a9bb66215e41dc81dd8f00ca8d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfxo_mode_set</definition>
+        <argsstring>(NRF_LFXO_Type *p_reg, nrf_lfxo_oscillator_mode_t oscmode, bool hpmode)</argsstring>
+        <name>nrf_lfxo_mode_set</name>
+        <param>
+          <type>NRF_LFXO_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfxo__hal_1ga452646370672202d977a47bba4927854" kindref="member">nrf_lfxo_oscillator_mode_t</ref></type>
+          <declname>oscmode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>hpmode</declname>
+        </param>
+        <briefdescription>
+<para>Function setting LFXO mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">oscmode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Oscillator mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hpmode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>High performance mode enable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="382" column="24" bodyfile="hal/nrf_lfxo.h" bodystart="382" bodyend="388" declfile="hal/nrf_lfxo.h" declline="261" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__lfxo__hal_1ga732be75906197a158829dbb7ee8a95e6" prot="public" static="no">
+        <name>NRF_LFXO_HAS_STATUSANA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the STATUSANA register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfxo.h" line="52" column="9" bodyfile="hal/nrf_lfxo.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Low Frequency Crystal Oscillator (LFXO). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

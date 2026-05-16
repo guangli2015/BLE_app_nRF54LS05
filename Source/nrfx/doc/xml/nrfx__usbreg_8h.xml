@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__usbreg_8h" kind="file" language="C++">
+    <compoundname>nrfx_usbreg.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__usbreg_8h" local="no">hal/nrf_usbreg.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_usbreg.h</label>
+        <link refid="nrfx__usbreg_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__usbreg__config__t" prot="public">nrfx_usbreg_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__usbreg_1gac2810cd02182d6f58a9924abd46110ea" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbreg_evt_t</name>
+        <enumvalue id="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa9d7e72ca53359f9d5736d1e21abee492" prot="public">
+          <name>NRFX_USBREG_EVT_DETECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power detected on the connector (plugged in). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa1bcd30699573ef11e195eb1d726abeec" prot="public">
+          <name>NRFX_USBREG_EVT_REMOVED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power removed from the connector. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa5eaa0cc3dead007120e4eb75223b13fd" prot="public">
+          <name>NRFX_USBREG_EVT_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power regulator ready. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Events from USB power system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="53" column="1" bodyfile="drivers/include/nrfx_usbreg.h" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__usbreg_1ga78d3a3bd4f9ed2023faa9598d46d50cd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbreg_state_t</name>
+        <enumvalue id="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda425c6bca9330497894debdeb8dda82ad" prot="public">
+          <name>NRFX_USBREG_STATE_DISCONNECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No power on USB lines detected. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda0395460ff8d244ffb6578837e1ef7450" prot="public">
+          <name>NRFX_USBREG_STATE_CONNECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The USB power is detected, but USB power regulator is not ready. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cdaddb8f7fbd02b4b4074959505e3e3ccdc" prot="public">
+          <name>NRFX_USBREG_STATE_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>From the power viewpoint, USB is ready for working. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>USB power state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The single enumerator that holds all data about current state of USB related POWER.</para>
+<para>Organized this way that higher power state has higher numeric value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="67" column="1" bodyfile="drivers/include/nrfx_usbreg.h" bodystart="67" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__usbreg_1gac6401490e5f1e2bcd65cdc45172ef39a" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_usbreg_event_handler_t) (nrfx_usbreg_evt_t event)</definition>
+        <argsstring>)(nrfx_usbreg_evt_t event)</argsstring>
+        <name>nrfx_usbreg_event_handler_t</name>
+        <briefdescription>
+<para>Event handler for the USB-related power events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="78" column="9" bodyfile="drivers/include/nrfx_usbreg.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__usbreg_1ga5813705f6c73bb1d29031d46a72f2ca8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__usbreg_1gac6401490e5f1e2bcd65cdc45172ef39a" kindref="member">nrfx_usbreg_event_handler_t</ref></type>
+        <definition>nrfx_usbreg_event_handler_t nrfx_usbreg_handler_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_handler_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the USBREG handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Handler of the USB power. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="96" column="29" declfile="drivers/include/nrfx_usbreg.h" declline="96" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1gad9a980c86bba4e02382390384ef37659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbreg_init</definition>
+        <argsstring>(nrfx_usbreg_config_t const *p_config)</argsstring>
+        <name>nrfx_usbreg_init</name>
+        <param>
+          <type><ref refid="structnrfx__usbreg__config__t" kindref="compound">nrfx_usbreg_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the processing of USBREG events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures and sets up the USB power event processing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration structure. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__usbreg_1gad26391ca3eab4f94128158d9bc05e521" kindref="member">nrfx_usbreg_uninit</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="107" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1ga96f5ef3dc1be68e8958765ad40141e57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbreg_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for enabling the processing of USBREG events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="110" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="110" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1ga9e9e6a01c1406dd61cc796f367e1e5b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbreg_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the processing of USBREG events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="113" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="113" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1gad26391ca3eab4f94128158d9bc05e521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbreg_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitalizing the processing of USBREG events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__usbreg_1gad9a980c86bba4e02382390384ef37659" kindref="member">nrfx_usbreg_init</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="120" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="120" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1gadb604182587d0d07719025d961c263f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbreg_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the USBREG driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="128" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="128" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbreg_1gac2647a1e5e8fcbf742b75c8620828a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE <ref refid="group__nrfx__usbreg_1ga78d3a3bd4f9ed2023faa9598d46d50cd" kindref="member">nrfx_usbreg_state_t</ref></type>
+        <definition>NRFX_STATIC_INLINE nrfx_usbreg_state_t nrfx_usbreg_usbstatus_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_usbstatus_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the status of USBREG. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current USB power status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="138" column="40" bodyfile="drivers/include/nrfx_usbreg.h" bodystart="138" bodyend="150" declfile="drivers/include/nrfx_usbreg.h" declline="135" declcolumn="40"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__usbreg_8h_1ac7886869f21520875075a1b007c2b296" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbreg_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbreg_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbreg.h" line="155" column="6" declfile="drivers/include/nrfx_usbreg.h" declline="155" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2019<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_USBREG_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_USBREG_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_usbreg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_usbreg<sp/>USBREG<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_usbd</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_power</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>USB<sp/>regulators<sp/>(USBREG)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**<sp/>@brief<sp/>Events<sp/>from<sp/>USB<sp/>power<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa9d7e72ca53359f9d5736d1e21abee492" kindref="member">NRFX_USBREG_EVT_DETECTED</ref>,<sp/></highlight><highlight class="comment">/**&lt;<sp/>USB<sp/>power<sp/>detected<sp/>on<sp/>the<sp/>connector<sp/>(plugged<sp/>in).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa1bcd30699573ef11e195eb1d726abeec" kindref="member">NRFX_USBREG_EVT_REMOVED</ref>,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>USB<sp/>power<sp/>removed<sp/>from<sp/>the<sp/>connector.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1ggac2810cd02182d6f58a9924abd46110eaa5eaa0cc3dead007120e4eb75223b13fd" kindref="member">NRFX_USBREG_EVT_READY</ref><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>USB<sp/>power<sp/>regulator<sp/>ready.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="group__nrfx__usbreg_1gac2810cd02182d6f58a9924abd46110ea" kindref="member">nrfx_usbreg_evt_t</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>@brief<sp/>USB<sp/>power<sp/>state</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>The<sp/>single<sp/>enumerator<sp/>that<sp/>holds<sp/>all<sp/>data<sp/>about<sp/>current<sp/>state<sp/>of<sp/>USB</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>related<sp/>POWER.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>Organized<sp/>this<sp/>way<sp/>that<sp/>higher<sp/>power<sp/>state<sp/>has<sp/>higher<sp/>numeric<sp/>value</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda425c6bca9330497894debdeb8dda82ad" kindref="member">NRFX_USBREG_STATE_DISCONNECTED</ref>,<sp/></highlight><highlight class="comment">/**&lt;<sp/>No<sp/>power<sp/>on<sp/>USB<sp/>lines<sp/>detected.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda0395460ff8d244ffb6578837e1ef7450" kindref="member">NRFX_USBREG_STATE_CONNECTED</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>The<sp/>USB<sp/>power<sp/>is<sp/>detected,<sp/>but<sp/>USB<sp/>power<sp/>regulator<sp/>is<sp/>not<sp/>ready.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cdaddb8f7fbd02b4b4074959505e3e3ccdc" kindref="member">NRFX_USBREG_STATE_READY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>From<sp/>the<sp/>power<sp/>viewpoint,<sp/>USB<sp/>is<sp/>ready<sp/>for<sp/>working.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/><ref refid="group__nrfx__usbreg_1ga78d3a3bd4f9ed2023faa9598d46d50cd" kindref="member">nrfx_usbreg_state_t</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Event<sp/>handler<sp/>for<sp/>the<sp/>USB-related<sp/>power<sp/>events.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@param<sp/>event<sp/>Event<sp/>type</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__usbreg_1gac6401490e5f1e2bcd65cdc45172ef39a" kindref="member">nrfx_usbreg_event_handler_t</ref>)(<ref refid="group__nrfx__usbreg_1gac2810cd02182d6f58a9924abd46110ea" kindref="member">nrfx_usbreg_evt_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>@brief<sp/>The<sp/>configuration<sp/>of<sp/>the<sp/>USB-related<sp/>power<sp/>events.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>Configuration<sp/>used<sp/>to<sp/>enable<sp/>and<sp/>configure<sp/>USB<sp/>power<sp/>event<sp/>handling.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="structnrfx__usbreg__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__usbreg_1gac6401490e5f1e2bcd65cdc45172ef39a" kindref="member">nrfx_usbreg_event_handler_t</ref><sp/>handler;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//!&lt;<sp/>Event<sp/>processing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_priority;<sp/></highlight><highlight class="comment">//!&lt;<sp/>Priority<sp/>of<sp/>the<sp/>USBREG<sp/>interrupt.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}<sp/><ref refid="structnrfx__usbreg__config__t" kindref="compound">nrfx_usbreg_config_t</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="91"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>USBREG<sp/>handler.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@return<sp/>Handler<sp/>of<sp/>the<sp/>USB<sp/>power.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><ref refid="group__nrfx__usbreg_1gac6401490e5f1e2bcd65cdc45172ef39a" kindref="member">nrfx_usbreg_event_handler_t</ref><sp/><ref refid="group__nrfx__usbreg_1ga5813705f6c73bb1d29031d46a72f2ca8" kindref="member">nrfx_usbreg_handler_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>processing<sp/>of<sp/>USBREG<sp/>events.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>Configures<sp/>and<sp/>sets<sp/>up<sp/>the<sp/>USB<sp/>power<sp/>event<sp/>processing.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/>Configuration<sp/>structure.<sp/>Must<sp/>not<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_usbreg_uninit</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gad9a980c86bba4e02382390384ef37659" kindref="member">nrfx_usbreg_init</ref>(<ref refid="structnrfx__usbreg__config__t" kindref="compound">nrfx_usbreg_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*p_config);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="109"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>the<sp/>processing<sp/>of<sp/>USBREG<sp/>events.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1ga96f5ef3dc1be68e8958765ad40141e57" kindref="member">nrfx_usbreg_enable</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="112"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>the<sp/>processing<sp/>of<sp/>USBREG<sp/>events.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1ga9e9e6a01c1406dd61cc796f367e1e5b3" kindref="member">nrfx_usbreg_disable</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="115"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitalizing<sp/>the<sp/>processing<sp/>of<sp/>USBREG<sp/>events.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_usbreg_init</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gad26391ca3eab4f94128158d9bc05e521" kindref="member">nrfx_usbreg_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>USBREG<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gadb604182587d0d07719025d961c263f1" kindref="member">nrfx_usbreg_init_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="130"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>status<sp/>of<sp/>USBREG.</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@return<sp/>Current<sp/>USB<sp/>power<sp/>status.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal">NRFX_STATIC_INLINE<sp/><ref refid="group__nrfx__usbreg_1ga78d3a3bd4f9ed2023faa9598d46d50cd" kindref="member">nrfx_usbreg_state_t</ref><sp/><ref refid="group__nrfx__usbreg_1gac2647a1e5e8fcbf742b75c8620828a6a" kindref="member">nrfx_usbreg_usbstatus_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">NRFX_STATIC_INLINE<sp/><ref refid="group__nrfx__usbreg_1ga78d3a3bd4f9ed2023faa9598d46d50cd" kindref="member">nrfx_usbreg_state_t</ref><sp/><ref refid="group__nrfx__usbreg_1gac2647a1e5e8fcbf742b75c8620828a6a" kindref="member">nrfx_usbreg_usbstatus_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>status<sp/>=<sp/><ref refid="group__nrf__usbreg__hal_1gad32a7d9f071bd87bf6f031081b8f4d7d" kindref="member">nrf_usbreg_status_get</ref>(NRF_USBREGULATOR);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>(status<sp/>&amp;<sp/><ref refid="group__nrf__usbreg__hal_1ggaebec804f89b6688e6721f19b4d8ef19ea96a1646de94932318898f62a3f9f84b3" kindref="member">NRF_USBREG_STATUS_VBUSDETECT_MASK</ref>))</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda425c6bca9330497894debdeb8dda82ad" kindref="member">NRFX_USBREG_STATE_DISCONNECTED</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>(status<sp/>&amp;<sp/><ref refid="group__nrf__usbreg__hal_1ggaebec804f89b6688e6721f19b4d8ef19ea83bd89ca397706a41f69dffb0ef34ac2" kindref="member">NRF_USBREG_STATUS_OUTPUTRDY_MASK</ref>))</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cda0395460ff8d244ffb6578837e1ef7450" kindref="member">NRFX_USBREG_STATE_CONNECTED</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__usbreg_1gga78d3a3bd4f9ed2023faa9598d46d50cdaddb8f7fbd02b4b4074959505e3e3ccdc" kindref="member">NRFX_USBREG_STATE_READY</ref>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="153"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_usbreg_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_USBREG_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_usbreg.h"/>
+  </compounddef>
+</doxygen>

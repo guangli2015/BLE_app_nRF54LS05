@@ -1,0 +1,1182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__timer" kind="group">
+    <compoundname>nrfx_timer</compoundname>
+    <title>Timer driver</title>
+    <innerclass refid="structnrfx__timer__config__t" prot="public">nrfx_timer_config_t</innerclass>
+    <innerclass refid="structnrfx__timer__t" prot="public">nrfx_timer_t</innerclass>
+    <innergroup refid="group__nrfx__timer__config">TIMER periperal driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_timer_event_handler_t) (nrf_timer_event_t event_type, void *p_context)</definition>
+        <argsstring>)(nrf_timer_event_t event_type, void *p_context)</argsstring>
+        <name>nrfx_timer_event_handler_t</name>
+        <briefdescription>
+<para>Timer driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>General purpose parameter set during initialization of the timer. This parameter can be used to pass additional information to the handler function, for example, the timer ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="107" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__timer_1gae1dc5cd697ba8ba87fb4a27826352ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_timer_init</definition>
+        <argsstring>(nrfx_timer_t *p_instance, nrfx_timer_config_t const *p_config, nrfx_timer_event_handler_t timer_event_handler)</argsstring>
+        <name>nrfx_timer_init</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" kindref="member">nrfx_timer_event_handler_t</ref></type>
+          <declname>timer_event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Can be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified frequency is not supported by the TIMER instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="143" column="5" declfile="drivers/include/nrfx_timer.h" declline="143" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf3781973f26baf1affdc7b19bb953f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_timer_reconfigure</definition>
+        <argsstring>(nrfx_timer_t *p_instance, nrfx_timer_config_t const *p_config)</argsstring>
+        <name>nrfx_timer_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified frequency is not supported by the TIMER instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is enabled and cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="158" column="5" declfile="drivers/include/nrfx_timer.h" declline="158" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga25c58d5caeea20fb474fad200dc97532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_uninit</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="166" column="6" declfile="drivers/include/nrfx_timer.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga0ab536a93aa49be49349b1e1a7c86822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_timer_init_check</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TIMER driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="176" column="6" declfile="drivers/include/nrfx_timer.h" declline="176" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gae3d96ec7234f718f13c3aa2256fb3ff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_enable</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_enable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for turning on the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="183" column="6" declfile="drivers/include/nrfx_timer.h" declline="183" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gab2c7cdce5d7b355331a597f436be284d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_disable</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_disable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for turning off the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timer will allow to enter the lowest possible SYSTEM_ON state only after this function is called.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="193" column="6" declfile="drivers/include/nrfx_timer.h" declline="193" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga34804ca27610a4eaf5ea22530c55521c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_timer_is_enabled</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_is_enabled</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the timer state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="203" column="6" declfile="drivers/include/nrfx_timer.h" declline="203" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga3fa603bf05f19747f442dab48082b26c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_pause</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_pause</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for pausing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="210" column="6" declfile="drivers/include/nrfx_timer.h" declline="210" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga5160df8f634192b300dc056b959daa1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_resume</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_resume</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for resuming the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="217" column="6" declfile="drivers/include/nrfx_timer.h" declline="217" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gac6d492f568183f9caf6450d4258d4d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_clear</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_clear</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="224" column="6" declfile="drivers/include/nrfx_timer.h" declline="224" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga99be46982b90f37a307277847cb4446f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_increment</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_increment</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for incrementing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="231" column="6" declfile="drivers/include/nrfx_timer.h" declline="231" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaedeb4f4f3dedc8c24e46416a68ccc74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_irq_handler</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="238" column="6" declfile="drivers/include/nrfx_timer.h" declline="238" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga2ab8eee3cd5fe5288daa580354de368e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_task_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_task_t timer_task)</argsstring>
+        <name>nrfx_timer_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga1db410e4a6b7e38de383220b20724906" kindref="member">nrf_timer_task_t</ref></type>
+          <declname>timer_task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="373" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="373" bodyend="377" declfile="drivers/include/nrfx_timer.h" declline="248" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga8ddf77dd21d86aa805d12e34f4a6bf3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_capture_task_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_capture_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer capture task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="379" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="379" bodyend="384" declfile="drivers/include/nrfx_timer.h" declline="259" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gace4c7a97948efd518caf4d81f31c6345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_event_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_event_t timer_event)</argsstring>
+        <name>nrfx_timer_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga6c7c835fd175129175fe2c08237af3c3" kindref="member">nrf_timer_event_t</ref></type>
+          <declname>timer_event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="386" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="386" bodyend="390" declfile="drivers/include/nrfx_timer.h" declline="270" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf06f9d1e3055c73bdd4c4495823a812e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_compare_event_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer compare event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="392" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="392" bodyend="397" declfile="drivers/include/nrfx_timer.h" declline="281" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf3672aa2cf9bacea8187b514c1ca4bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_capture</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel)</argsstring>
+        <name>nrfx_timer_capture</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for capturing the timer value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Captured value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="292" column="10" declfile="drivers/include/nrfx_timer.h" declline="292" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga496b2a519416b132dd6af05e0eacc477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_capture_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel)</argsstring>
+        <name>nrfx_timer_capture_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the capture value from the specified channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function to read channel values when PPI is used for capturing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Captured value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="399" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="399" bodyend="403" declfile="drivers/include/nrfx_timer.h" declline="304" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaa3e8f898a384907e83d0eb4442bff917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel, uint32_t cc_value, bool enable_int)</argsstring>
+        <name>nrfx_timer_compare</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cc_value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_int</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the timer channel in compare mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Enable or disable the interrupt for the compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="315" column="6" declfile="drivers/include/nrfx_timer.h" declline="315" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga508dbcf01f2867f67bf1fb0f07e536d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_extended_compare</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel, uint32_t cc_value, nrf_timer_short_mask_t timer_short_mask, bool enable_int)</argsstring>
+        <name>nrfx_timer_extended_compare</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cc_value</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga1dee3ab20f9dfa38bacf2502a8d1688c" kindref="member">nrf_timer_short_mask_t</ref></type>
+          <declname>timer_short_mask</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_int</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the timer channel in the extended compare mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_short_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcut between the compare event on the channel and the timer task (STOP or CLEAR). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Enable or disable the interrupt for the compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="330" column="6" declfile="drivers/include/nrfx_timer.h" declline="330" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga1c286ccda89895468b47715bc3cd32ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_us_to_ticks</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t time_us)</argsstring>
+        <name>nrfx_timer_us_to_ticks</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_us</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting time in microseconds to timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in microseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="344" column="10" declfile="drivers/include/nrfx_timer.h" declline="344" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga382d2f16b258bc75e2fed6ef2e854324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_ms_to_ticks</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t time_ms)</argsstring>
+        <name>nrfx_timer_ms_to_ticks</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_ms</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting time in milliseconds to timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in milliseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="354" column="10" declfile="drivers/include/nrfx_timer.h" declline="354" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga383f3b0a31b3c15f7694e630956ff924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare_int_enable</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_int_enable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling timer compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="362" column="6" declfile="drivers/include/nrfx_timer.h" declline="362" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gac4eeecc3aa5e1bff45e76f33bd541b83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare_int_disable</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_int_disable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling timer compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="370" column="6" declfile="drivers/include/nrfx_timer.h" declline="370" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__timer_1gab08fba04ab603ad5833fb1d060323c5f" prot="public" static="no">
+        <name>NRFX_TIMER_DEFAULT_CONFIG</name>
+        <param><defname>_frequency</defname></param>
+        <initializer>{                                                                 \
+    .frequency          = _frequency,                             \
+    .mode               = <ref refid="group__nrf__timer__hal_1gga61044c286dc20ccb08df3988bc57a6f2ad7bea280ee3b3c84bd9e89e2dc7f1f41" kindref="member">NRF_TIMER_MODE_TIMER</ref>,                   \
+    .bit_width          = <ref refid="group__nrf__timer__hal_1gga567f81d672267a218a5b2f0155be3043a4c8f9ba039c905e7d207203ad06e8d4d" kindref="member">NRF_TIMER_BIT_WIDTH_16</ref>,                 \
+    .interrupt_priority = <ref refid="group__nrfx__timer__config_1gaad5afdcba3d444ec4f49bf92d594e40b" kindref="member">NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY</ref>, \
+    .p_context          = NULL                                    \
+}</initializer>
+        <briefdescription>
+<para>TIMER driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TIMER with the following options:<itemizedlist>
+<listitem><para>works as timer</para>
+</listitem><listitem><para>width: 16 bit</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer frequency in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="70" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gae1529d456574336a389af763096cc484" prot="public" static="no">
+        <name>NRFX_TIMER_FREQUENCY_STATIC_CHECK</name>
+        <param><defname>id</defname></param>
+        <param><defname>frequency</defname></param>
+        <initializer>        <ref refid="group__nrf__timer__hal_1ga039a5c273ecc5106956fd93ff587d7d8" kindref="member">NRF_TIMER_FREQUENCY_STATIC_CHECK</ref>(<ref refid="group__nrf__timer__hal_1ga2e0e97a97cb4193ec2bb6665c1d03ea4" kindref="member">NRF_TIMER_INST_GET</ref>(id), frequency)</initializer>
+        <briefdescription>
+<para>Macro for checking whether specified frequency can be achived for given timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Macro is using compile time assertion.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the specified timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired frequency value in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="87" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gadc337139f6cc9eb8be1fb9b9a6ab51f0" prot="public" static="no">
+        <name>NRFX_TIMER_BASE_FREQUENCY_GET</name>
+        <param><defname>p_instance</defname></param>
+        <initializer>        <ref refid="group__nrf__timer__hal_1ga018c5fef9d84458226b20249a4b28f6d" kindref="member">NRF_TIMER_BASE_FREQUENCY_GET</ref>((p_instance)-&gt;p_reg)</initializer>
+        <briefdescription>
+<para>Macro for getting base frequency value in Hz for a given timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="95" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gaca158586dc862a10cb4ed6def758ea51" prot="public" static="no">
+        <name>NRFX_TIMER_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                   \
+    .p_reg = (NRF_TIMER_Type *)reg, \
+    .cb = {0},                      \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a timer driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="126" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TIMER peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

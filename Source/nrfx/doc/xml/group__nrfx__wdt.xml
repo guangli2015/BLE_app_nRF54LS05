@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__wdt" kind="group">
+    <compoundname>nrfx_wdt</compoundname>
+    <title>WDT driver</title>
+    <innerclass refid="structnrfx__wdt__t" prot="public">nrfx_wdt_t</innerclass>
+    <innerclass refid="structnrfx__wdt__config__t" prot="public">nrfx_wdt_config_t</innerclass>
+    <innergroup refid="group__nrfx__wdt__config">WDT peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_wdt_event_handler_t) (nrf_wdt_event_t event_type, uint32_t requests, void *p_context)</definition>
+        <argsstring>)(nrf_wdt_event_t event_type, uint32_t requests, void *p_context)</argsstring>
+        <name>nrfx_wdt_event_handler_t</name>
+        <briefdescription>
+<para>WDT event handler function type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>WDT event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">requests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of the request status register. Bits that have been set can be used to determine which RR (Reload Request) register was the reason for timeout event. Valid only when <ref refid="group__nrf__wdt__hal_1ggadca2b19e3bb4c0b4e1b3372ade1112eead466fd1643e86d6e541a468fd8e9d05d" kindref="member">NRF_WDT_EVENT_TIMEOUT</ref> is passed in <computeroutput>event_type</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="75" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__wdt_1gad16fe63f0b930b063a839a3b52462289" prot="public" static="no">
+        <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+        <definition>typedef nrf_wdt_rr_register_t nrfx_wdt_channel_id</definition>
+        <argsstring></argsstring>
+        <name>nrfx_wdt_channel_id</name>
+        <briefdescription>
+<para>WDT channel ID type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="80" column="31" bodyfile="drivers/include/nrfx_wdt.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__wdt_1ga82b4215747413e3369fb2be472f2a195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_init</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_config_t const *p_config, nrfx_wdt_event_handler_t wdt_event_handler, void *p_context)</argsstring>
+        <name>nrfx_wdt_init</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" kindref="member">nrfx_wdt_event_handler_t</ref></type>
+          <declname>wdt_event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the WDT driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. NULL if configuration is to be skipped and will be done later using <ref refid="group__nrfx__wdt_1ga4f00564c2a80d90c816d55db80a02785" kindref="member">nrfx_wdt_reconfigure</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">wdt_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Ignored when <ref refid="group__nrfx__wdt__config_1gaeeb2020e1775bb931a298862d7fec64a" kindref="member">NRFX_WDT_CONFIG_NO_IRQ</ref> option is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context passed in event handler. Ignored when <ref refid="group__nrfx__wdt__config_1gaeeb2020e1775bb931a298862d7fec64a" kindref="member">NRFX_WDT_CONFIG_NO_IRQ</ref> option is enabled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="150" column="5" declfile="drivers/include/nrfx_wdt.h" declline="150" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga3ddf48b90195061146fd512162bfd041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_uninit</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the WDT driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The instance can be uninitialized only when not running.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="162" column="6" declfile="drivers/include/nrfx_wdt.h" declline="162" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga3615901b329f75a09c0eb0f3135b247f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_wdt_init_check</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance)</argsstring>
+        <name>nrfx_wdt_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the WDT driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="172" column="6" declfile="drivers/include/nrfx_wdt.h" declline="172" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga4f00564c2a80d90c816d55db80a02785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_reconfigure</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_config_t const *p_config)</argsstring>
+        <name>nrfx_wdt_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is already active. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="184" column="5" declfile="drivers/include/nrfx_wdt.h" declline="184" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga227f0484cad96cff81d28f92d10d8d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_channel_alloc</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_channel_id *p_channel_id)</argsstring>
+        <name>nrfx_wdt_channel_alloc</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref> *</type>
+          <declname>p_channel_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a watchdog channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function can not be called after <ref refid="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" kindref="member">nrfx_wdt_enable</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_channel_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of granted channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel was successfully allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is no available channel to be used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="198" column="5" declfile="drivers/include/nrfx_wdt.h" declline="198" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga2ff531bf4faf6eb152f3098c12d22fc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_channels_free</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_channels_free</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for deallocating all previously allocated watchdog channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function can be called when watchdog is stopped, that is before <ref refid="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" kindref="member">nrfx_wdt_enable()</ref> or after <ref refid="group__nrfx__wdt_1ga6d711363740b8f0eed3f2419c3fc5c01" kindref="member">nrfx_wdt_stop()</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="209" column="6" declfile="drivers/include/nrfx_wdt.h" declline="209" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_enable</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_enable</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>After calling this function the watchdog is started, so the user needs to feed all allocated watchdog channels to avoid reset. At least one watchdog channel must be allocated.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="220" column="6" declfile="drivers/include/nrfx_wdt.h" declline="220" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1gacbde935f7b304a960d1200051c5907d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_feed</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance)</argsstring>
+        <name>nrfx_wdt_feed</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for feeding the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function feeds all allocated watchdog channels.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="229" column="6" declfile="drivers/include/nrfx_wdt.h" declline="229" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga96ac2c146bdff157a899a35902efee3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_channel_feed</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrfx_wdt_channel_id channel_id)</argsstring>
+        <name>nrfx_wdt_channel_feed</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref></type>
+          <declname>channel_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for feeding an individual watchdog channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of watchdog channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="237" column="6" declfile="drivers/include/nrfx_wdt.h" declline="237" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga6d711363740b8f0eed3f2419c3fc5c01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_stop</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_stop</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Watchdog has been successfully stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration does not allow for stopping the watchdog. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="248" column="5" declfile="drivers/include/nrfx_wdt.h" declline="248" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga1c0c06815b586fe43452c03888bd81a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_irq_handler</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="256" column="6" declfile="drivers/include/nrfx_wdt.h" declline="256" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga821b5c25a136a4ce867bd1b0468196d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_wdt_task_address_get</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrf_wdt_task_t task)</argsstring>
+        <name>nrfx_wdt_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested task address for the WDT driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the WDT tasks.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="281" column="29" bodyfile="drivers/include/nrfx_wdt.h" bodystart="281" bodyend="285" declfile="drivers/include/nrfx_wdt.h" declline="266" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1gabf551ee135ebfdc7f4f317410969fd0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_wdt_event_address_get</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrf_wdt_event_t event)</argsstring>
+        <name>nrfx_wdt_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested event address for the WDT driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the WDT events.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="287" column="29" bodyfile="drivers/include/nrfx_wdt.h" bodystart="287" bodyend="291" declfile="drivers/include/nrfx_wdt.h" declline="277" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__wdt_1ga8b331b25b00f861346afd4216094446c" prot="public" static="no">
+        <name>NRFX_WDT_HAS_STOP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether watchdog stopping is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="53" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1gaa03a46f38b798aab8635682a15a986e9" prot="public" static="no">
+        <name>NRFX_WDT_IRQ_CONFIG</name>
+        <initializer>.interrupt_priority = NRFX_WDT_DEFAULT_CONFIG_IRQ_PRIORITY</initializer>
+        <briefdescription>
+<para>WDT instance interrupt priority configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="60" column="13" bodyfile="drivers/include/nrfx_wdt.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1gad25549c618d6baef297141806fd66966" prot="public" static="no">
+        <name>NRFX_WDT_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_WDT_Type *)reg, \
+    .cb    = {0},                 \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the WDT driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="105" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1ga4ff5c769b9eb5eb19789bfebdb617640" prot="public" static="no">
+        <name>NRFX_WDT_DEFAULT_CONFIG</name>
+        <initializer>{                                                           \
+    .behaviour          = <ref refid="group__nrf__wdt__hal_1gga51ff75754f3358c7f822eed5e925ec11a239ddadb4006aaa013a77a6750b816f5" kindref="member">NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK</ref>, \
+    .reload_value       = 2000,                             \
+    <ref refid="group__nrfx__wdt_1gaa03a46f38b798aab8635682a15a986e9" kindref="member">NRFX_WDT_IRQ_CONFIG</ref>                                     \
+}</initializer>
+        <briefdescription>
+<para>WDT driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up WDT with the following options:<itemizedlist>
+<listitem><para>run when CPU is in SLEEP mode, pause when in HALT mode</para>
+</listitem><listitem><para>reload value: 2000 ms </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="128" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Watchdog Timer (WDT) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrf__pwm__sequence__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrf_pwm_sequence_t</compoundname>
+    <includes local="no">nrf_pwm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrf__pwm__sequence__t_1ad3244198df7ea3a206740dacd398db1e" prot="public" static="no" mutable="no">
+        <type><ref refid="unionnrf__pwm__values__t" kindref="compound">nrf_pwm_values_t</ref></type>
+        <definition>nrf_pwm_values_t nrf_pwm_sequence_t::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>nrf_pwm_sequence_t::values</qualifiedname>
+        <briefdescription>
+<para>Pointer to an array with duty cycle values. This array must be in Data RAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This field is defined as an union of pointers to provide a convenient way to define duty cycle values in various loading modes (see <ref refid="group__nrf__pwm__hal_1ga453888e5feb46774da27499ca1eeafd2" kindref="member">nrf_pwm_dec_load_t</ref>). In each value, the most significant bit (15) determines the polarity of the output and the others (14-0) compose the 15-bit value to be compared with the pulse generator counter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="303" column="22" bodyfile="hal/nrf_pwm.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrf__pwm__sequence__t_1a10eb34aa01124d2e6924607cae877fe0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t nrf_pwm_sequence_t::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>nrf_pwm_sequence_t::length</qualifiedname>
+        <briefdescription>
+<para>Number of 16-bit values in the array pointed by <computeroutput>values</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="312" column="14" bodyfile="hal/nrf_pwm.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrf__pwm__sequence__t_1a4affe1893257c8976f28309cd4cf3d61" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t nrf_pwm_sequence_t::repeats</definition>
+        <argsstring></argsstring>
+        <name>repeats</name>
+        <qualifiedname>nrf_pwm_sequence_t::repeats</qualifiedname>
+        <briefdescription>
+<para>Number of times that each duty cycle is to be repeated (after being played once). Ignored in <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" kindref="member">NRF_PWM_STEP_TRIGGERED</ref> mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="313" column="14" bodyfile="hal/nrf_pwm.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrf__pwm__sequence__t_1abeac7fdb41a97569861f03fd52c2f526" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t nrf_pwm_sequence_t::end_delay</definition>
+        <argsstring></argsstring>
+        <name>end_delay</name>
+        <qualifiedname>nrf_pwm_sequence_t::end_delay</qualifiedname>
+        <briefdescription>
+<para>Additional time (in PWM periods) that the last duty cycle is to be kept after the sequence is played. Ignored in <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" kindref="member">NRF_PWM_STEP_TRIGGERED</ref> mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="314" column="14" bodyfile="hal/nrf_pwm.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure for defining a sequence of PWM duty cycles. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>When the sequence is set (by a call to <ref refid="group__nrf__pwm__hal_1ga993b47eb4fc9b6350ced9043945a8206" kindref="member">nrf_pwm_sequence_set</ref>), the provided duty cycle values are not copied. The <computeroutput>values</computeroutput> pointer is stored in the internal register of the peripheral, and the values are loaded from RAM during the sequence playback. Therefore, you must ensure that the values do not change before and during the sequence playback (for example, the values cannot be placed in a local variable that is allocated on stack). If the sequence is played in a loop and the values are to be updated before the next iteration, it is safe to modify them when the corresponding event signaling the end of sequence occurs (<ref refid="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa60bc770e86e8c3e1987b7828c5527e3b" kindref="member">NRF_PWM_EVENT_SEQEND0</ref> or <ref refid="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa250b4184e07ce53864c00aa17f142c3e" kindref="member">NRF_PWM_EVENT_SEQEND1</ref>, respectively).</para>
+<para><simplesect kind="note"><para>The <computeroutput>repeats</computeroutput> and <computeroutput>end_delay</computeroutput> values (which are written to the SEQ[n].REFRESH and SEQ[n].ENDDELAY registers in the peripheral, respectively) are ignored at the end of a complex sequence playback, indicated by the LOOPSDONE event. See the Product Specification for more information. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>nrf_pwm_sequence_t</label>
+        <link refid="structnrf__pwm__sequence__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>values</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>nrf_pwm_values_grouped_t</label>
+        <link refid="structnrf__pwm__values__grouped__t"/>
+      </node>
+      <node id="4">
+        <label>nrf_pwm_values_individual_t</label>
+        <link refid="structnrf__pwm__values__individual__t"/>
+      </node>
+      <node id="2">
+        <label>nrf_pwm_values_t</label>
+        <link refid="unionnrf__pwm__values__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>p_grouped</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>p_individual</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>p_wave_form</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>nrf_pwm_values_wave_form_t</label>
+        <link refid="structnrf__pwm__values__wave__form__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="hal/nrf_pwm.h" line="301" column="1" bodyfile="hal/nrf_pwm.h" bodystart="302" bodyend="315"/>
+    <listofallmembers>
+      <member refid="structnrf__pwm__sequence__t_1abeac7fdb41a97569861f03fd52c2f526" prot="public" virt="non-virtual"><scope>nrf_pwm_sequence_t</scope><name>end_delay</name></member>
+      <member refid="structnrf__pwm__sequence__t_1a10eb34aa01124d2e6924607cae877fe0" prot="public" virt="non-virtual"><scope>nrf_pwm_sequence_t</scope><name>length</name></member>
+      <member refid="structnrf__pwm__sequence__t_1a4affe1893257c8976f28309cd4cf3d61" prot="public" virt="non-virtual"><scope>nrf_pwm_sequence_t</scope><name>repeats</name></member>
+      <member refid="structnrf__pwm__sequence__t_1ad3244198df7ea3a206740dacd398db1e" prot="public" virt="non-virtual"><scope>nrf_pwm_sequence_t</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__nfct__fixes" kind="group">
+    <compoundname>nrfx_nfct_fixes</compoundname>
+    <title>NFCT driver fixes and workarounds</title>
+    <briefdescription>
+<para>Fixes for hardware-related anomalies. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>If you are using the nRF52832 chip, the workarounds for the following anomalies are applied:<itemizedlist>
+<listitem><para>79. NFCT: A false EVENTS_FIELDDETECTED event occurs after the field is lost.</para>
+</listitem><listitem><para>116. NFCT does not release HFCLK when switching from ACTIVATED to SENSE mode. To implement the first workaround, an instance of NRF_TIMER is used. After the NFC field is detected, the timing module periodically polls its state to determine when the field is turned off. To implement the second workaround, power reset is used to release the clock acquired by NFCT after the field is turned off. Note that the NFCT register configuration is restored to defaults.</para>
+</listitem></itemizedlist>
+</para>
+<para>If you are using the nRF52833, nRF52840 or nRF5340 chips, the workarounds for the following anomalies are applied:<itemizedlist>
+<listitem><para>190. NFCT: Event FIELDDETECTED can be generated too early. To implement this workaround, an instance of NRF_TIMER is used. After the NFC field is detected, the timing module measures the necessary waiting period after which NFCT can be activated. This debouncing technique is used to filter possible field instabilities.</para>
+</listitem></itemizedlist>
+</para>
+<para>The current code contains a patch for the anomaly 25 (NFCT: Reset value of SENSRES register is incorrect), so that the module now works on Windows Phone. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

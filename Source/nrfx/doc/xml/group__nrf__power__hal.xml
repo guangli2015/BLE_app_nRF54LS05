@@ -1,0 +1,4197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__power__hal" kind="group">
+    <compoundname>nrf_power_hal</compoundname>
+    <title>POWER HAL</title>
+    <innerclass refid="structnrf__power__abb__config__t" prot="public">nrf_power_abb_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_task_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga6452fff919765c34921624d3e73eb650a062b62dabcbfb45746e9830a70b6b83a" prot="public">
+          <name>NRF_POWER_TASK_CONSTLAT</name>
+          <initializer>= offsetof(NRF_POWER_Type, TASKS_CONSTLAT)</initializer>
+          <briefdescription>
+<para>Enable constant latency mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga6452fff919765c34921624d3e73eb650a540df20769f7db1e8afd7792e4d7f141" prot="public">
+          <name>NRF_POWER_TASK_LOWPWR</name>
+          <initializer>= offsetof(NRF_POWER_Type, TASKS_LOWPWR)</initializer>
+          <briefdescription>
+<para>Enable low-power mode (variable latency). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga6452fff919765c34921624d3e73eb650a800275d1dc85fdd95f61ee2e6f2da206" prot="public">
+          <name>NRF_POWER_TASK_SEMAPHORE_ACQUIRE</name>
+          <initializer>= offsetof(NRF_POWER_Type, TASKS_SEMAPHORE.ACQUIRE)</initializer>
+          <briefdescription>
+<para>Acquire the semaphore for regulator voltage scaling procedure. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga6452fff919765c34921624d3e73eb650ace1261739a5b058bc9388b031eb63a63" prot="public">
+          <name>NRF_POWER_TASK_SEMAPHORE_RELEASE</name>
+          <initializer>= offsetof(NRF_POWER_Type, TASKS_SEMAPHORE.RELEASE)</initializer>
+          <briefdescription>
+<para>Release the semaphore for regulator voltage scaling procedure. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga6452fff919765c34921624d3e73eb650a2b29ab3fd70cf71adb8f47f1385b0f06" prot="public">
+          <name>NRF_POWER_TASK_REGULATOR_UPDATE</name>
+          <initializer>= offsetof(NRF_POWER_Type, TASKS_REGUPDATE)</initializer>
+          <briefdescription>
+<para>Update the regulator configuration. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="237" column="1" bodyfile="hal/nrf_power.h" bodystart="238" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_event_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4ac6ea1490a7ac382f2caf0f12060258a9" prot="public">
+          <name>NRF_POWER_EVENT_POFWARN</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_POFWARN)</initializer>
+          <briefdescription>
+<para>Power failure warning. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4a288d0c0b2c57d50c5783c2b8a9532db5" prot="public">
+          <name>NRF_POWER_EVENT_SLEEPENTER</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_SLEEPENTER)</initializer>
+          <briefdescription>
+<para>CPU entered WFI/WFE sleep mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4a6aa5ab7fd5b034d2860a19dece927422" prot="public">
+          <name>NRF_POWER_EVENT_SLEEPEXIT</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_SLEEPEXIT)</initializer>
+          <briefdescription>
+<para>CPU exited WFI/WFE sleep mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4abc91dc94f7acf392347ada35592d47d0" prot="public">
+          <name>NRF_POWER_EVENT_USBDETECTED</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_USBDETECTED)</initializer>
+          <briefdescription>
+<para>Voltage supply detected on VBUS. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4a539ed9f98231b4adc01816c711aef3c7" prot="public">
+          <name>NRF_POWER_EVENT_USBREMOVED</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_USBREMOVED)</initializer>
+          <briefdescription>
+<para>Voltage supply removed from VBUS. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4a47d7cba1a39dda183bdfa7e38fad6fb1" prot="public">
+          <name>NRF_POWER_EVENT_USBPWRRDY</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_USBPWRRDY)</initializer>
+          <briefdescription>
+<para>USB 3.3 V supply ready. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4adbdbfbab81a1e6a126b65900993a9688" prot="public">
+          <name>NRF_POWER_EVENT_SEMAPHORE_ACQUIRED</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_SEMAPHORE.ACQUIRED)</initializer>
+          <briefdescription>
+<para>Acquired the semaphore for regulator voltage scaling procedure. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4a21638cfc653af6990d8daf191e816c74" prot="public">
+          <name>NRF_POWER_EVENT_SEMAPHORE_RELEASED</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_SEMAPHORE.RELEASED)</initializer>
+          <briefdescription>
+<para>Released the semaphore for regulator voltage scaling procedure. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4ad9a788bc7fb97f7676bf1766ae87c8b0" prot="public">
+          <name>NRF_POWER_EVENT_REGULATOR_UPDATED</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_REGUPDATED)</initializer>
+          <briefdescription>
+<para>Updated the regulator configuration. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4afd6de432ab388de78370cc6abf4b73bc" prot="public">
+          <name>NRF_POWER_EVENT_ABB_LOCK_0</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_ABBLOCK[0])</initializer>
+          <briefdescription>
+<para>ABB lock for the ABB domain 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga64bec8dee5aca9c1cd233b251da21ab4ad548d560388c34031d766a4e4f5e868d" prot="public">
+          <name>NRF_POWER_EVENT_ABB_LOCK_1</name>
+          <initializer>= offsetof(NRF_POWER_Type, EVENTS_ABBLOCK[1])</initializer>
+          <briefdescription>
+<para>ABB lock for the ABB domain 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="255" column="1" bodyfile="hal/nrf_power.h" bodystart="256" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga92ca4cddecad24911ab7c8be411ced69" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_int_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69abf3bfe5d950be312aa854513a18aeabd" prot="public">
+          <name>NRF_POWER_INT_POFWARN_MASK</name>
+          <initializer>= POWER_INTENSET_POFWARN_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for POFWARN event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a3e2677809ae7bf10daa820030f2cc442" prot="public">
+          <name>NRF_POWER_INT_SLEEPENTER_MASK</name>
+          <initializer>= POWER_INTENSET_SLEEPENTER_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for SLEEPENTER event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a37f88f7f49dbc11ab2881aec913f826c" prot="public">
+          <name>NRF_POWER_INT_SLEEPEXIT_MASK</name>
+          <initializer>= POWER_INTENSET_SLEEPEXIT_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for SLEEPEXIT event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a458c1b4030e7743c0818bbd5385d18f4" prot="public">
+          <name>NRF_POWER_INT_USBDETECTED_MASK</name>
+          <initializer>= POWER_INTENSET_USBDETECTED_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for USBDETECTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a99797b92f3db56e84797af2653748849" prot="public">
+          <name>NRF_POWER_INT_USBREMOVED_MASK</name>
+          <initializer>= POWER_INTENSET_USBREMOVED_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for USBREMOVED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69ab9a098b3bde8361843b0adecf8297706" prot="public">
+          <name>NRF_POWER_INT_USBPWRRDY_MASK</name>
+          <initializer>= POWER_INTENSET_USBPWRRDY_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for USBPWRRDY event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69ab7cba048407f08c5ae0b4b5733500d1e" prot="public">
+          <name>NRF_POWER_INT_SEMAPHORE_ACQUIRED</name>
+          <initializer>= POWER_INTEN_SEMAPHOREACQUIRED_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for SEMAPHORE_ACQUIRED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a00cf19f13fedf80804d8d4ddc94e5b59" prot="public">
+          <name>NRF_POWER_INT_SEMAPHORE_RELEASED</name>
+          <initializer>= POWER_INTEN_SEMAPHORERELEASED_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for SEMAPHORE_RELEASED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69af3edb402cb486b11bc0886b2f47c041b" prot="public">
+          <name>NRF_POWER_INT_REGULATOR_UPDATED</name>
+          <initializer>= POWER_INTEN_REGUPDATED_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for REGULATOR_UPDATED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69aaa186e05343b95e0f8c22cfc1dc9f1b8" prot="public">
+          <name>NRF_POWER_INT_ABB_LOCK_0</name>
+          <initializer>= POWER_INTEN_ABBLOCK0_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for ABB_LOCK_0 event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga92ca4cddecad24911ab7c8be411ced69a05945f71b8da1253191d5faceca1cc63" prot="public">
+          <name>NRF_POWER_INT_ABB_LOCK_1</name>
+          <initializer>= POWER_INTEN_ABBLOCK1_Msk</initializer>
+          <briefdescription>
+<para>Write &apos;1&apos; to enable interrupt for ABB_LOCK_1 event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="283" column="1" bodyfile="hal/nrf_power.h" bodystart="284" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga3febba1780ce498df7e0f03ac2b7c30b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_resetreas_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30ba0c011b629cdd2402f51ccfbddc9a6d14" prot="public">
+          <name>NRF_POWER_RESETREAS_RESETPIN_MASK</name>
+          <initializer>= POWER_RESETREAS_RESETPIN_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of RESETPIN field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30bab9b34a328e8ced38d6e04fe39acae295" prot="public">
+          <name>NRF_POWER_RESETREAS_DOG_MASK</name>
+          <initializer>= POWER_RESETREAS_DOG_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of DOG field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30ba649469b18203dc461e7153a0ef33bf71" prot="public">
+          <name>NRF_POWER_RESETREAS_SREQ_MASK</name>
+          <initializer>= POWER_RESETREAS_SREQ_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of SREQ field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30bab3f481364015c004fe0facc63b0b058e" prot="public">
+          <name>NRF_POWER_RESETREAS_LOCKUP_MASK</name>
+          <initializer>= POWER_RESETREAS_LOCKUP_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of LOCKUP field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30ba5c46ebb1f07e9f6257c1bc152b1c622e" prot="public">
+          <name>NRF_POWER_RESETREAS_OFF_MASK</name>
+          <initializer>= POWER_RESETREAS_OFF_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of OFF field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30ba63a5e9b614f06eb8a3462a4fe3ec06e4" prot="public">
+          <name>NRF_POWER_RESETREAS_LPCOMP_MASK</name>
+          <initializer>= POWER_RESETREAS_LPCOMP_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of LPCOMP field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30bae4228ae63436d9069eb4c55895e4ed65" prot="public">
+          <name>NRF_POWER_RESETREAS_DIF_MASK</name>
+          <initializer>= POWER_RESETREAS_DIF_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of DIF field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30bab7bbe8e6c82cd042c384b66b3f249898" prot="public">
+          <name>NRF_POWER_RESETREAS_NFC_MASK</name>
+          <initializer>= POWER_RESETREAS_NFC_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of NFC field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30bae6a771f904bdbc5e866b0b8daa8ec36a" prot="public">
+          <name>NRF_POWER_RESETREAS_VBUS_MASK</name>
+          <initializer>= POWER_RESETREAS_VBUS_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of VBUS field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3febba1780ce498df7e0f03ac2b7c30baf66181df2fefaf89ef84c72cddd05911" prot="public">
+          <name>NRF_POWER_RESETREAS_CTRLAP_MASK</name>
+          <initializer>= POWER_RESETREAS_CTRLAP_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bit mask of CTRLAP field. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Reset reason. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="312" column="1" bodyfile="hal/nrf_power.h" bodystart="313" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga85664e3b3bd3a99f8c8ef1fdbb1e2496" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_usbregstatus_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga85664e3b3bd3a99f8c8ef1fdbb1e2496afd9eddec83b650949f6e68e9419cf244" prot="public">
+          <name>NRF_POWER_USBREGSTATUS_VBUSDETECT_MASK</name>
+          <initializer>= POWER_USBREGSTATUS_VBUSDETECT_Msk</initializer>
+          <briefdescription>
+<para>USB detected or removed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga85664e3b3bd3a99f8c8ef1fdbb1e2496a876fbf69774a0135f3b9a79897f7b7fd" prot="public">
+          <name>NRF_POWER_USBREGSTATUS_OUTPUTRDY_MASK</name>
+          <initializer>= POWER_USBREGSTATUS_OUTPUTRDY_Msk</initializer>
+          <briefdescription>
+<para>USB 3.3 V supply ready. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>USBREGSTATUS register bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga7e5fad60a4dce6da9602068fd5fd9c28" kindref="member">nrf_power_usbregstatus_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="341" column="1" bodyfile="hal/nrf_power.h" bodystart="342" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1gaaf5443f9755d50c1e2d07a51990ba665" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_ramblock_t</name>
+        <enumvalue id="group__nrf__power__hal_1ggaaf5443f9755d50c1e2d07a51990ba665afc4cb3e4426ebe3aca6d9527a2237541" prot="public">
+          <name>NRF_POWER_RAMBLOCK0</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK0_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggaaf5443f9755d50c1e2d07a51990ba665aff2bf3cc5f305b3093a58248380c4dab" prot="public">
+          <name>NRF_POWER_RAMBLOCK1</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK1_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggaaf5443f9755d50c1e2d07a51990ba665abf87687d9f39354b0ab707b34c6a0779" prot="public">
+          <name>NRF_POWER_RAMBLOCK2</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK2_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggaaf5443f9755d50c1e2d07a51990ba665a4be71bc04b43568e610ac80d06c0fcce" prot="public">
+          <name>NRF_POWER_RAMBLOCK3</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK3_Pos</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Numbers of RAM blocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga0e1c55ee096228d2e71662a099cb61c4" kindref="member">nrf_power_ramblock_mask_t</ref> </para>
+</simplesect>
+<simplesect kind="note"><para>RAM blocks must be used in nRF51. In newer SoCs, RAM is divided into segments and this functionality is not supported. See the PS for mapping between the internal RAM and RAM blocks, because this mapping is not 1:1, and functions related to old style blocks must not be used. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="359" column="1" bodyfile="hal/nrf_power.h" bodystart="360" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga0e1c55ee096228d2e71662a099cb61c4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_ramblock_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga0e1c55ee096228d2e71662a099cb61c4a8098befc6d01884f5bcf8211c59f7bc5" prot="public">
+          <name>NRF_POWER_RAMBLOCK0_MASK</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK0_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga0e1c55ee096228d2e71662a099cb61c4ac72c19aa5956a813a0658035b02ee660" prot="public">
+          <name>NRF_POWER_RAMBLOCK1_MASK</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK1_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga0e1c55ee096228d2e71662a099cb61c4a16411423d1f0ebff32014171004dd67d" prot="public">
+          <name>NRF_POWER_RAMBLOCK2_MASK</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK2_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga0e1c55ee096228d2e71662a099cb61c4a77eb69cd525ba2e7a99ac52f0d55f11b" prot="public">
+          <name>NRF_POWER_RAMBLOCK3_MASK</name>
+          <initializer>= POWER_RAMSTATUS_RAMBLOCK3_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Masks of RAM blocks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gaaf5443f9755d50c1e2d07a51990ba665" kindref="member">nrf_power_ramblock_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="376" column="1" bodyfile="hal/nrf_power.h" bodystart="377" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga79872e2ebbcedf5ca759ef232c797157" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_onoffram_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157ae24d7fe63dfb6c1816b2ca3c763b7451" prot="public">
+          <name>NRF_POWER_ONRAM0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 0 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157a3ba15e28f0e63be320d2d5ca1268609a" prot="public">
+          <name>NRF_POWER_OFFRAM0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 0 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157a662451909ea9b79b063c310fd59f8d1b" prot="public">
+          <name>NRF_POWER_ONRAM1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 1 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157ad8ec70b345f01d11d77a87977bdc1824" prot="public">
+          <name>NRF_POWER_OFFRAM1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 1 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157a3ff3329bc8a7c39d897f796011695126" prot="public">
+          <name>NRF_POWER_ONRAM2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 2 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157a15bb7629e501dbcf0b691117bc893d41" prot="public">
+          <name>NRF_POWER_OFFRAM2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 2 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157afd83ec10ce9e56363b29e9deb88441e3" prot="public">
+          <name>NRF_POWER_ONRAM3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 3 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga79872e2ebbcedf5ca759ef232c797157ae47bcf8105e1db8991fb5996e06e8ca5" prot="public">
+          <name>NRF_POWER_OFFRAM3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 3 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RAM power state position of the bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gac71371d7bb39ba729cb7ed9dfbfe0e49" kindref="member">nrf_power_onoffram_mask_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="394" column="1" bodyfile="hal/nrf_power.h" bodystart="395" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1gac71371d7bb39ba729cb7ed9dfbfe0e49" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_onoffram_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49abc2b6e2fe11e81ffec3ed2b5e83200cc" prot="public">
+          <name>NRF_POWER_ONRAM0_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_ONRAM0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 0 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49ac0a57e493dcb64e19ccb6bf4f51f597a" prot="public">
+          <name>NRF_POWER_OFFRAM0_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_OFFRAM0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 0 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49a30de72fd80fdd497ff4a3a0f6c4520b1" prot="public">
+          <name>NRF_POWER_ONRAM1_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_ONRAM1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 1 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49a4698a342ef014ac79ac29df0e63e7ff6" prot="public">
+          <name>NRF_POWER_OFFRAM1_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_OFFRAM1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 1 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49a087fa8e393343d8d848d4f8be9fb5fae" prot="public">
+          <name>NRF_POWER_ONRAM2_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_ONRAM2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 2 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49a27af6b2a0a2f94d84f0acc5a643bdc50" prot="public">
+          <name>NRF_POWER_OFFRAM2_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_OFFRAM2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 2 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49a12fb3a32cecf39f4f021de13da092dbb" prot="public">
+          <name>NRF_POWER_ONRAM3_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_ONRAM3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep RAM block 3 ON or OFF in System ON mode. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggac71371d7bb39ba729cb7ed9dfbfe0e49ab4d72c52323e7197966211355ba5f186" prot="public">
+          <name>NRF_POWER_OFFRAM3_MASK</name>
+          <initializer>= 1U &lt;&lt; NRF_POWER_OFFRAM3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep retention on RAM block 3 when RAM block is switched OFF. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RAM power state bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga79872e2ebbcedf5ca759ef232c797157" kindref="member">nrf_power_onoffram_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="411" column="1" bodyfile="hal/nrf_power.h" bodystart="412" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1gacc0f863f34d48f5975564a11975dda2e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_pof_thr_t</name>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2eab4fb7ea911008ae039ffe54b21c235aa" prot="public">
+          <name>NRF_POWER_POFTHR_V21</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V21</initializer>
+          <briefdescription>
+<para>Set threshold to 2.1 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea83ebb6ec6ba81f72446761838931d4fd" prot="public">
+          <name>NRF_POWER_POFTHR_V23</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V23</initializer>
+          <briefdescription>
+<para>Set threshold to 2.3 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea387664457c4e47fcb4f070ca655e8c9c" prot="public">
+          <name>NRF_POWER_POFTHR_V25</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V25</initializer>
+          <briefdescription>
+<para>Set threshold to 2.5 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea5b9897d77046971bc191c7cf3caa610a" prot="public">
+          <name>NRF_POWER_POFTHR_V27</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V27</initializer>
+          <briefdescription>
+<para>Set threshold to 2.7 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea99ec1985ccd5ddcf31777fc93eeb0783" prot="public">
+          <name>NRF_POWER_POFTHR_V17</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V17</initializer>
+          <briefdescription>
+<para>Set threshold to 1.7 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea3555fddf55feea0c57b3054130770d7c" prot="public">
+          <name>NRF_POWER_POFTHR_V18</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V18</initializer>
+          <briefdescription>
+<para>Set threshold to 1.8 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea60b0ce9856d3beed4e88d00006d40bea" prot="public">
+          <name>NRF_POWER_POFTHR_V19</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V19</initializer>
+          <briefdescription>
+<para>Set threshold to 1.9 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea7dadc6f82fd855039f4b21f8aab9e949" prot="public">
+          <name>NRF_POWER_POFTHR_V20</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V20</initializer>
+          <briefdescription>
+<para>Set threshold to 2.0 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2eae486a7dba0fa0834eea448ec6dd549f9" prot="public">
+          <name>NRF_POWER_POFTHR_V22</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V22</initializer>
+          <briefdescription>
+<para>Set threshold to 2.2 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2eae7f11fb1ae3fd597665b51fa8f6af931" prot="public">
+          <name>NRF_POWER_POFTHR_V24</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V24</initializer>
+          <briefdescription>
+<para>Set threshold to 2.4 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2eaaebdd649455c76291d55255322d8f6f1" prot="public">
+          <name>NRF_POWER_POFTHR_V26</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V26</initializer>
+          <briefdescription>
+<para>Set threshold to 2.6 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1ggacc0f863f34d48f5975564a11975dda2ea136e921768387320a7a6ee8dc6531cfb" prot="public">
+          <name>NRF_POWER_POFTHR_V28</name>
+          <initializer>= POWER_POFCON_THRESHOLD_V28</initializer>
+          <briefdescription>
+<para>Set threshold to 2.8 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Power failure comparator thresholds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="425" column="1" bodyfile="hal/nrf_power.h" bodystart="426" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga3dfa1a1f6a6daaab25b7a47bbf42969b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_pof_thrvddh_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba7934d5246e85ddc1ec655d99e0f75292" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V27</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V27</initializer>
+          <briefdescription>
+<para>Set threshold to 2.7 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba27699fc0bd1b6829b5241976f8e7c113" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V28</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V28</initializer>
+          <briefdescription>
+<para>Set threshold to 2.8 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba6eb9dd6d51c0b831b5c8849729718655" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V29</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V29</initializer>
+          <briefdescription>
+<para>Set threshold to 2.9 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969bacf04f386c6124777f02ee7f500c27409" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V30</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V30</initializer>
+          <briefdescription>
+<para>Set threshold to 3.0 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969bac136478d76f44580707d61a6e0fda84d" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V31</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V31</initializer>
+          <briefdescription>
+<para>Set threshold to 3.1 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba9725ae80a1f953c09de76c375b9c2758" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V32</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V32</initializer>
+          <briefdescription>
+<para>Set threshold to 3.2 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba67b2c8e8308fec5da4676d3d18472b1d" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V33</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V33</initializer>
+          <briefdescription>
+<para>Set threshold to 3.3 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969baf52f0aec993bd958b56e74e33503a72f" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V34</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V34</initializer>
+          <briefdescription>
+<para>Set threshold to 3.4 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba7512614787226109d413efd0ba1f63a2" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V35</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V35</initializer>
+          <briefdescription>
+<para>Set threshold to 3.5 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba3efcb0659676e7338b05a7120d78b3a5" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V36</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V36</initializer>
+          <briefdescription>
+<para>Set threshold to 3.6 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba8a969eb365d007944cff79e9ba217327" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V37</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V37</initializer>
+          <briefdescription>
+<para>Set threshold to 3.7 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969bac18a9d0ec5d834c0cc0228aa0f863d9c" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V38</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V38</initializer>
+          <briefdescription>
+<para>Set threshold to 3.8 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969baa5bd3b3654da5d8b9f122cb5d9232dd5" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V39</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V39</initializer>
+          <briefdescription>
+<para>Set threshold to 3.9 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969baa74de8068a1a09ca205c798edc010a0e" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V40</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V40</initializer>
+          <briefdescription>
+<para>Set threshold to 4.0 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969baa8e1f9b85bdaa6acff1a499277a34914" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V41</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V41</initializer>
+          <briefdescription>
+<para>Set threshold to 4.1 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga3dfa1a1f6a6daaab25b7a47bbf42969ba002f035a3609c980a52aa7b56df26cb5" prot="public">
+          <name>NRF_POWER_POFTHRVDDH_V42</name>
+          <initializer>= POWER_POFCON_THRESHOLDVDDH_V42</initializer>
+          <briefdescription>
+<para>Set threshold to 4.2 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Power failure comparator thresholds for VDDH. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="446" column="1" bodyfile="hal/nrf_power.h" bodystart="447" bodyend="464"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga4c4e3a1505af5d72f3ccd16cf986abd8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_mainregstatus_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga4c4e3a1505af5d72f3ccd16cf986abd8a8006a2c2e410e14a49b0d3b1fbf9674a" prot="public">
+          <name>NRF_POWER_MAINREGSTATUS_NORMAL</name>
+          <initializer>= POWER_MAINREGSTATUS_MAINREGSTATUS_Normal</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Normal voltage mode. Voltage supplied on VDD. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga4c4e3a1505af5d72f3ccd16cf986abd8a09b8037fd8116a5c9b3ef25cb0d7bdd0" prot="public">
+          <name>NRF_POWER_MAINREGSTATUS_HIGH</name>
+          <initializer>= POWER_MAINREGSTATUS_MAINREGSTATUS_High</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>High voltage mode. Voltage supplied on VDDH. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Main regulator status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="469" column="1" bodyfile="hal/nrf_power.h" bodystart="470" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_rampower_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a5d46900bc88da70ce19d48eab284977d" prot="public">
+          <name>NRF_POWER_RAMPOWER_S0POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S0POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a01ebf19f5ae2b559e9a3cbad032b049e" prot="public">
+          <name>NRF_POWER_RAMPOWER_S1POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S1POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a13422fe81852216d3111f06a557ef218" prot="public">
+          <name>NRF_POWER_RAMPOWER_S2POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S2POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a34391563327130d1de2d6dabdec6a437" prot="public">
+          <name>NRF_POWER_RAMPOWER_S3POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S3POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a27d28cb25ec16f6452812480a07d7e1f" prot="public">
+          <name>NRF_POWER_RAMPOWER_S4POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S4POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a03c0995c32802387fe3e08e4827e9eba" prot="public">
+          <name>NRF_POWER_RAMPOWER_S5POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S5POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a112b0505f217263614e4a28a65917639" prot="public">
+          <name>NRF_POWER_RAMPOWER_S6POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S6POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a65dc454862f12d69932d6e8e282b6c38" prot="public">
+          <name>NRF_POWER_RAMPOWER_S7POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S7POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a934432155870c55fb5113097990b335a" prot="public">
+          <name>NRF_POWER_RAMPOWER_S8POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S8POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a3e7f498590e43db00f55d4e0abc325a7" prot="public">
+          <name>NRF_POWER_RAMPOWER_S9POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S9POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a3f3c4efaad3bf35e1173f19bae1ba10f" prot="public">
+          <name>NRF_POWER_RAMPOWER_S10POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S10POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a95a2039ffef33fa6f8442d2ac2af2f13" prot="public">
+          <name>NRF_POWER_RAMPOWER_S11POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S11POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a8b1bfce24221f814b92b3367600bd686" prot="public">
+          <name>NRF_POWER_RAMPOWER_S12POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S12POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a97071c85303091d9a369bcdb8cbd02ef" prot="public">
+          <name>NRF_POWER_RAMPOWER_S13POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S13POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56ad7b2c324089686817d8911c5fff82833" prot="public">
+          <name>NRF_POWER_RAMPOWER_S14POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S14POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a19860cc44ce7ae05510030ac0c00437f" prot="public">
+          <name>NRF_POWER_RAMPOWER_S15POWER_MASK</name>
+          <initializer>= POWER_RAM_POWER_S15POWER_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56ad623a7ecee888fbdf7e91a96841a624b" prot="public">
+          <name>NRF_POWER_RAMPOWER_S0RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S0RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56adad01be1174ce85971124b3b183f0ba6" prot="public">
+          <name>NRF_POWER_RAMPOWER_S1RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S1RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a4cd3463584e09e4d18ae9a4004b354db" prot="public">
+          <name>NRF_POWER_RAMPOWER_S2RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S2RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a422e25f3ba526dd5283426933531f023" prot="public">
+          <name>NRF_POWER_RAMPOWER_S3RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S3RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a50dee96b008fa017a85686983bf0c13b" prot="public">
+          <name>NRF_POWER_RAMPOWER_S4RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S4RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a1952ce358f2ad0f8f0f14a7d71e6ae09" prot="public">
+          <name>NRF_POWER_RAMPOWER_S5RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S5RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56ab7847d33c66f2b9fca5ace78d501a4a4" prot="public">
+          <name>NRF_POWER_RAMPOWER_S6RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S6RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a7697395ebe4b7fc7639c8d0ca2dba106" prot="public">
+          <name>NRF_POWER_RAMPOWER_S7RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S7RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56ae9fba6e5336b524463023831ce98a1b5" prot="public">
+          <name>NRF_POWER_RAMPOWER_S8RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S8RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a210f4fa84a900479699fbdec7ef90f31" prot="public">
+          <name>NRF_POWER_RAMPOWER_S9RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S9RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a7621be13ad4150dafdaa4a8901e76bc9" prot="public">
+          <name>NRF_POWER_RAMPOWER_S10RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S10RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a94937ec6e98730db36c7b0a19c4fcef7" prot="public">
+          <name>NRF_POWER_RAMPOWER_S11RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S11RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56aed1db4f0c01222072ad43cdaeb63031e" prot="public">
+          <name>NRF_POWER_RAMPOWER_S12RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S12RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56afdf1989a1fdddbfc5f34229299455fe7" prot="public">
+          <name>NRF_POWER_RAMPOWER_S13RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S13RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56ae503ce0b5c5629e46881999c9a7baf10" prot="public">
+          <name>NRF_POWER_RAMPOWER_S14RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S14RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga487eca5d7c2a0af37a3c50cfb03c6b56a4db24f9739236342a23a8d95e8e90149" prot="public">
+          <name>NRF_POWER_RAMPOWER_S15RETENTION_MASK</name>
+          <initializer>= POWER_RAM_POWER_S15RETENTION_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Bit masks for RAMPOWER register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>All possible bits described, even if they are not used in selected MCU. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="492" column="1" bodyfile="hal/nrf_power.h" bodystart="493" bodyend="583"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga770cecdacf3a854d13aa2d53e1c29bee" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_vreg_mask_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beeab5ba3b8dcdf7fef981727796e7a151fe" prot="public">
+          <name>NRF_POWER_VREG_1V8_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREG1V8_Msk</initializer>
+          <briefdescription>
+<para>1.8 V regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beea7b585e09bbbfe9e6b73ca37a2d29cce2" prot="public">
+          <name>NRF_POWER_VREG_1V0_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREG1V0_Msk</initializer>
+          <briefdescription>
+<para>1.0 V regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beea0e9636d7e1bbf9237d841ffd559647b5" prot="public">
+          <name>NRF_POWER_VREG_0V8_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREG0V8_Msk</initializer>
+          <briefdescription>
+<para>0.8 V regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beea34630dd759ecc318688f91be8ce760c2" prot="public">
+          <name>NRF_POWER_VREG_VS_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREGVS_Msk</initializer>
+          <briefdescription>
+<para>Voltage scaled regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beea6a9e21fb1d91b0b39f86637d0626eced" prot="public">
+          <name>NRF_POWER_VREG_MAIN1V8_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREGMAIN1V8_Msk</initializer>
+          <briefdescription>
+<para>1.8 V rail at VREGMAIN regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beeaa42f1e6b419f56c7008fb4e3ce7ab10c" prot="public">
+          <name>NRF_POWER_VREG_MAIN1V0_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREGMAIN1V0_Msk</initializer>
+          <briefdescription>
+<para>1.0 V rail at VREGMAIN regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beea402b6aff94036c87bb1fb1a04b283b5f" prot="public">
+          <name>NRF_POWER_VREG_MAINVS_MASK</name>
+          <initializer>= POWER_REGCONFIG_VREGMAINVS_Msk</initializer>
+          <briefdescription>
+<para>Voltage scaled rail at VREGMAIN regulator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga770cecdacf3a854d13aa2d53e1c29beeaf875e55d3b413f7d761d39753d089002" prot="public">
+          <name>NRF_POWER_VREG_FORCE_MASK</name>
+          <initializer>= POWER_REGCONFIG_FORCE_Msk</initializer>
+          <briefdescription>
+<para>Force the regulator enable configuration. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER voltage regulators bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="591" column="1" bodyfile="hal/nrf_power.h" bodystart="592" bodyend="601"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga53430096d68829bab78b99e6a7758e3d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_op_point_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga53430096d68829bab78b99e6a7758e3da719d1fe5b5aa4d12b42facb1f93e04b7" prot="public">
+          <name>NRF_POWER_OP_POINT_0V4</name>
+          <initializer>= POWER_ABB_OPPOINT_OPPOINT_OpPoint0V4</initializer>
+          <briefdescription>
+<para>Operating point 0.4 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga53430096d68829bab78b99e6a7758e3da1dfaf0667d9d89b486ff57ab3ef87de4" prot="public">
+          <name>NRF_POWER_OP_POINT_0V5</name>
+          <initializer>= POWER_ABB_OPPOINT_OPPOINT_OpPoint0V5</initializer>
+          <briefdescription>
+<para>Operating point 0.5 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga53430096d68829bab78b99e6a7758e3daf1b2eacf036656fbda755e44e06e9114" prot="public">
+          <name>NRF_POWER_OP_POINT_0V6</name>
+          <initializer>= POWER_ABB_OPPOINT_OPPOINT_OpPoint0V6</initializer>
+          <briefdescription>
+<para>Operating point 0.6 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga53430096d68829bab78b99e6a7758e3daeb0c6a34948bc85eb4727e0a10a6166f" prot="public">
+          <name>NRF_POWER_OP_POINT_0V8</name>
+          <initializer>= POWER_ABB_OPPOINT_OPPOINT_OpPoint0V8</initializer>
+          <briefdescription>
+<para>Operating point 0.8 V. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER operating points for ABB domain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="606" column="1" bodyfile="hal/nrf_power.h" bodystart="607" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__power__hal_1ga1d59f7f076924c43c551ebbee116f209" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_power_override_value_t</name>
+        <enumvalue id="group__nrf__power__hal_1gga1d59f7f076924c43c551ebbee116f209a07bc006fcf22bbca6377b28476b81551" prot="public">
+          <name>NRF_POWER_OVERRIDE_VALUE_POWER_DOWN</name>
+          <initializer>= POWER_ABB_OPPOINT_ABBPWROVERRIDEVAL_PowerDown</initializer>
+          <briefdescription>
+<para>ABB analog macro powered down. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__power__hal_1gga1d59f7f076924c43c551ebbee116f209ae9b84bc3c8163985e23f6c8fbbf99342" prot="public">
+          <name>NRF_POWER_OVERRIDE_VALUE_POWER_UP</name>
+          <initializer>= POWER_ABB_OPPOINT_ABBPWROVERRIDEVAL_PowerUp</initializer>
+          <briefdescription>
+<para>ABB analog macro powered up. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>POWER operating points for ABB domain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="615" column="1" bodyfile="hal/nrf_power.h" bodystart="616" bodyend="619"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__power__hal_1gad6ed3d641631f14b0484485fd051ef51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_task_trigger</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_task_t task)</argsstring>
+        <name>nrf_power_task_trigger</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" kindref="member">nrf_power_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating a specific POWER task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1282" column="24" bodyfile="hal/nrf_power.h" bodystart="1282" bodyend="1285" declfile="hal/nrf_power.h" declline="637" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gac67343a2c966a797945d3d447e8d4458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_task_address_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, nrf_power_task_t task)</argsstring>
+        <name>nrf_power_task_address_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" kindref="member">nrf_power_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specific POWER task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1287" column="28" bodyfile="hal/nrf_power.h" bodystart="1287" bodyend="1291" declfile="hal/nrf_power.h" declline="647" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga456bf19c1d3c0411e33af18fa037481c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_event_clear</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_event_clear</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a specific event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1293" column="24" bodyfile="hal/nrf_power.h" bodystart="1293" bodyend="1297" declfile="hal/nrf_power.h" declline="656" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga29b2e7267a49a0d04b1f3bf4edc101e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_event_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_event_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the POWER event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1299" column="24" bodyfile="hal/nrf_power.h" bodystart="1299" bodyend="1302" declfile="hal/nrf_power.h" declline="667" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga399be233fc8bfd540739e61c552a0bf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_event_get_and_clear</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_event_get_and_clear</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting and clearing the state of specific event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks the state of the event and clears it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event was set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event was not set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1304" column="24" bodyfile="hal/nrf_power.h" bodystart="1304" bodyend="1313" declfile="hal/nrf_power.h" declline="680" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gabe16d110629d651d4bd714bb5f9e915f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_event_address_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_event_address_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specific POWER event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1315" column="28" bodyfile="hal/nrf_power.h" bodystart="1315" bodyend="1319" declfile="hal/nrf_power.h" declline="691" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gab853a595fd79cd1d1019cdd22a30d2fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_int_enable</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_int_enable</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling selected interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__power__hal_1ga92ca4cddecad24911ab7c8be411ced69" kindref="member">nrf_power_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1321" column="24" bodyfile="hal/nrf_power.h" bodystart="1321" bodyend="1324" declfile="hal/nrf_power.h" declline="701" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gae488f7aab5a977eca67b729098246f48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_int_enable_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_int_enable_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__power__hal_1ga92ca4cddecad24911ab7c8be411ced69" kindref="member">nrf_power_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1326" column="28" bodyfile="hal/nrf_power.h" bodystart="1326" bodyend="1329" declfile="hal/nrf_power.h" declline="712" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gacc0a9e5e2e5d03b960d723d6ddeb1380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_int_enable_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_int_enable_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the information about enabled interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The flags of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1331" column="28" bodyfile="hal/nrf_power.h" bodystart="1331" bodyend="1334" declfile="hal/nrf_power.h" declline="721" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2a420ae01a7fa45da69afe710154891d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_int_disable</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_int_disable</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling selected interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__power__hal_1ga92ca4cddecad24911ab7c8be411ced69" kindref="member">nrf_power_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1336" column="24" bodyfile="hal/nrf_power.h" bodystart="1336" bodyend="1339" declfile="hal/nrf_power.h" declline="730" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga283b45cae85cd27280003f1b550ea077" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_subscribe_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_power_subscribe_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" kindref="member">nrf_power_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given POWER task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="741" column="24" declfile="hal/nrf_power.h" declline="741" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga4967e295c49be7edc371ac01c3922889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_subscribe_clear</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_task_t task)</argsstring>
+        <name>nrf_power_subscribe_clear</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" kindref="member">nrf_power_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given POWER task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="752" column="24" declfile="hal/nrf_power.h" declline="752" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga569ac682cd4e989b290e29c5aaa179ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_subscribe_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, nrf_power_task_t task)</argsstring>
+        <name>nrf_power_subscribe_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga6452fff919765c34921624d3e73eb650" kindref="member">nrf_power_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given POWER task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>POWER subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="763" column="28" declfile="hal/nrf_power.h" declline="763" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gabcd34095e7c5603eb949b320308f3b9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_publish_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_power_publish_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given POWER event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="774" column="24" declfile="hal/nrf_power.h" declline="774" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2583429f3cb12dba3479fcbdd028ca8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_publish_clear</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_publish_clear</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given POWER event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="785" column="24" declfile="hal/nrf_power.h" declline="785" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga32ab7f65dcbc8279c7fb1d7add7b2653" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_publish_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, nrf_power_event_t event)</argsstring>
+        <name>nrf_power_publish_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga64bec8dee5aca9c1cd233b251da21ab4" kindref="member">nrf_power_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given POWER event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>POWER publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="796" column="28" declfile="hal/nrf_power.h" declline="796" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaad306f69122fdd920fbf4c7e87745222" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_resetreas_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_resetreas_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the reset reason bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns the reset reason bitmask. Unless cleared, the RESETREAS register is cumulative. A field is cleared by writing &apos;1&apos; to it (see <ref refid="group__nrf__power__hal_1ga47102dd335c0ecb520ed0cd70c7dc143" kindref="member">nrf_power_resetreas_clear</ref>). If none of the reset sources is flagged, the chip was reset from the on-chip reset generator, which indicates a power-on-reset or a brown out reset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The mask of reset reasons constructed with <ref refid="group__nrf__power__hal_1ga3febba1780ce498df7e0f03ac2b7c30b" kindref="member">nrf_power_resetreas_mask_t</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1382" column="28" bodyfile="hal/nrf_power.h" bodystart="1382" bodyend="1385" declfile="hal/nrf_power.h" declline="815" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga47102dd335c0ecb520ed0cd70c7dc143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_resetreas_clear</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_resetreas_clear</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the selected reset reason field. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function clears the selected reset reason field.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mask constructed from <ref refid="group__nrf__power__hal_1ga3febba1780ce498df7e0f03ac2b7c30b" kindref="member">nrf_power_resetreas_mask_t</ref> enumerator values.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gaad306f69122fdd920fbf4c7e87745222" kindref="member">nrf_power_resetreas_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1387" column="24" bodyfile="hal/nrf_power.h" bodystart="1387" bodyend="1390" declfile="hal/nrf_power.h" declline="827" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gac7a0dd99ee51b1f040a2f9845fd31cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_powerstatus_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_powerstatus_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting power status of the LTE Modem domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The LTE Modem domain is powered on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The LTE Modem domain is powered off. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="839" column="24" declfile="hal/nrf_power.h" declline="839" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2ef11c1ac5edea30bcd95716ee8a2cec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_ramstatus_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_ramstatus_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the RAMSTATUS register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value with bits set according to the masks in <ref refid="group__nrf__power__hal_1ga0e1c55ee096228d2e71662a099cb61c4" kindref="member">nrf_power_ramblock_mask_t</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="850" column="28" declfile="hal/nrf_power.h" declline="850" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga1447b9e52caebb0ecf092a90544ecbe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_pofcon_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable, nrf_power_pof_thr_t thr)</argsstring>
+        <name>nrf_power_pofcon_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1gacc0f863f34d48f5975564a11975dda2e" kindref="member">nrf_power_pof_thr_t</ref></type>
+          <declname>thr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the power failure comparator configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the power failure comparator is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">thr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Voltage threshold value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1423" column="24" bodyfile="hal/nrf_power.h" bodystart="1423" bodyend="1443" declfile="hal/nrf_power.h" declline="875" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2aab621e2142289fe639fdec013dfe3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__power__hal_1gacc0f863f34d48f5975564a11975dda2e" kindref="member">nrf_power_pof_thr_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_power_pof_thr_t nrf_power_pofcon_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, bool *p_enabled)</argsstring>
+        <name>nrf_power_pofcon_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>p_enabled</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the power failure comparator configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_enabled</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function sets this boolean variable to true if power failure comparator is enabled. The pointer can be NULL if we do not need this information.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Threshold setting for power failure comparator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1445" column="39" bodyfile="hal/nrf_power.h" bodystart="1445" bodyend="1456" declfile="hal/nrf_power.h" declline="889" declcolumn="39"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga570aa25425f8bebefc433bd031e7f080" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_pofcon_vddh_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, nrf_power_pof_thrvddh_t thr)</argsstring>
+        <name>nrf_power_pofcon_vddh_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__power__hal_1ga3dfa1a1f6a6daaab25b7a47bbf42969b" kindref="member">nrf_power_pof_thrvddh_t</ref></type>
+          <declname>thr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the VDDH power failure comparator threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">thr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Threshold to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1460" column="24" bodyfile="hal/nrf_power.h" bodystart="1460" bodyend="1468" declfile="hal/nrf_power.h" declline="900" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga91a4e59a0eef52900085ee9e3001f74c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__power__hal_1ga3dfa1a1f6a6daaab25b7a47bbf42969b" kindref="member">nrf_power_pof_thrvddh_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_power_pof_thrvddh_t nrf_power_pofcon_vddh_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_pofcon_vddh_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the VDDH power failure comparator threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VDDH threshold currently configured. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1470" column="43" bodyfile="hal/nrf_power.h" bodystart="1470" bodyend="1474" declfile="hal/nrf_power.h" declline="910" declcolumn="43"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga29711581b57c9223bb2286d39690ef65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_gpregret_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t reg_num, uint32_t val)</argsstring>
+        <name>nrf_power_gpregret_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>reg_num</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the general purpose retention register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reg_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>General purpose retention register number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be set in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1478" column="24" bodyfile="hal/nrf_power.h" bodystart="1478" bodyend="1507" declfile="hal/nrf_power.h" declline="921" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga91bbc3e3c6803e42e95b48903dd2b030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_gpregret_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint32_t reg_num)</argsstring>
+        <name>nrf_power_gpregret_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>reg_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting general purpose retention register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reg_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>General purpose retention register number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value from the register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1509" column="28" bodyfile="hal/nrf_power.h" bodystart="1509" bodyend="1534" declfile="hal/nrf_power.h" declline="933" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga6b3e6f1754daf543262eb6d4233be975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_dcdcen_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_dcdcen_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Enable or disable DCDC converter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If the device consist of high voltage power input (VDDH), this setting will relate to the converter on low voltage side (1.3 V output).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if DCDC converter is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1538" column="24" bodyfile="hal/nrf_power.h" bodystart="1538" bodyend="1542" declfile="hal/nrf_power.h" declline="946" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gab625f43f64efc077da3b502786346400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_dcdcen_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_dcdcen_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of the DCDC converter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If the device consist of high voltage power input (VDDH), this setting will relate to the converter on low voltage side (1.3 V output).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Converter is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Converter is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1544" column="24" bodyfile="hal/nrf_power.h" bodystart="1544" bodyend="1549" declfile="hal/nrf_power.h" declline="959" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga5d09133631495b690df29a092a6057a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_rampower_mask_on</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint8_t block, uint32_t section_mask)</argsstring>
+        <name>nrf_power_rampower_mask_on</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>block</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>section_mask</declname>
+        </param>
+        <briefdescription>
+<para>Turn ON sections in the selected RAM block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function turns ON several sections in one block and also block retention.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" kindref="member">nrf_power_rampower_mask_t</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gaee6c27678fe7f87ea8bc778c706245e6" kindref="member">nrf_power_rampower_mask_off</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RAM block index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">section_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of the sections created by merging <ref refid="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" kindref="member">nrf_power_rampower_mask_t</ref> flags. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1553" column="24" bodyfile="hal/nrf_power.h" bodystart="1553" bodyend="1558" declfile="hal/nrf_power.h" declline="976" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaee6c27678fe7f87ea8bc778c706245e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_rampower_mask_off</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint8_t block, uint32_t section_mask)</argsstring>
+        <name>nrf_power_rampower_mask_off</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>block</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>section_mask</declname>
+        </param>
+        <briefdescription>
+<para>Turn ON sections in the selected RAM block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function turns OFF several sections in one block and also block retention.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" kindref="member">nrf_power_rampower_mask_t</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gaee6c27678fe7f87ea8bc778c706245e6" kindref="member">nrf_power_rampower_mask_off</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RAM block index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">section_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of the sections created by merging <ref refid="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" kindref="member">nrf_power_rampower_mask_t</ref> flags. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1560" column="24" bodyfile="hal/nrf_power.h" bodystart="1560" bodyend="1565" declfile="hal/nrf_power.h" declline="993" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gac2435b18ef4c25f807b1fce2eb7bb50d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_rampower_mask_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint8_t block)</argsstring>
+        <name>nrf_power_rampower_mask_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>block</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the ON mask and retention sections in the selected RAM block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RAM block index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of sections state composed from <ref refid="group__nrf__power__hal_1ga487eca5d7c2a0af37a3c50cfb03c6b56" kindref="member">nrf_power_rampower_mask_t</ref> flags. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1567" column="28" bodyfile="hal/nrf_power.h" bodystart="1567" bodyend="1570" declfile="hal/nrf_power.h" declline="1005" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga16853affef979cdc62291b811f25cc46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_dcdcen_vddh_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_dcdcen_vddh_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the DCDC converter on VDDH. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if DCDC converter on VDDH is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1574" column="24" bodyfile="hal/nrf_power.h" bodystart="1574" bodyend="1582" declfile="hal/nrf_power.h" declline="1015" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaa4132dcc882fb84520a8046ab88f8e8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_dcdcen_vddh_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_dcdcen_vddh_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of DCDC converter on VDDH. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Converter is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Converter is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1584" column="24" bodyfile="hal/nrf_power.h" bodystart="1584" bodyend="1589" declfile="hal/nrf_power.h" declline="1025" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga835338600525d9f90b302fd45b66b417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__power__hal_1ga4c4e3a1505af5d72f3ccd16cf986abd8" kindref="member">nrf_power_mainregstatus_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_power_mainregstatus_t nrf_power_mainregstatus_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_mainregstatus_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the main supply status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current main supply status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1594" column="27" bodyfile="hal/nrf_power.h" bodystart="1594" bodyend="1599" declfile="hal/nrf_power.h" declline="1037" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga7e5fad60a4dce6da9602068fd5fd9c28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_usbregstatus_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_usbregstatus_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the whole USBREGSTATUS register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The USBREGSTATUS register value. Use <ref refid="group__nrf__power__hal_1ga85664e3b3bd3a99f8c8ef1fdbb1e2496" kindref="member">nrf_power_usbregstatus_mask_t</ref> values for bit masking.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gad3a706ce20f081231917ebb96d8d43db" kindref="member">nrf_power_usbregstatus_vbusdet_get</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1gad6fd5ec05e096da4231aa53d77ba03da" kindref="member">nrf_power_usbregstatus_outrdy_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1603" column="28" bodyfile="hal/nrf_power.h" bodystart="1603" bodyend="1606" declfile="hal/nrf_power.h" declline="1052" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gad3a706ce20f081231917ebb96d8d43db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_usbregstatus_vbusdet_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_usbregstatus_vbusdet_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the VBUS input detection status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>USBDETECTED and USBREMOVED events are derived from this information</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>VBUS voltage below valid threshold. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>VBUS voltage above valid threshold.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga7e5fad60a4dce6da9602068fd5fd9c28" kindref="member">nrf_power_usbregstatus_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1608" column="24" bodyfile="hal/nrf_power.h" bodystart="1608" bodyend="1611" declfile="hal/nrf_power.h" declline="1066" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gad6fd5ec05e096da4231aa53d77ba03da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_usbregstatus_outrdy_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_usbregstatus_outrdy_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of the elapsed time for the USB supply output settling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBREG output settling time not elapsed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBREG output settling time elapsed (same information as USBPWRRDY event).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrf__power__hal_1ga7e5fad60a4dce6da9602068fd5fd9c28" kindref="member">nrf_power_usbregstatus_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1613" column="24" bodyfile="hal/nrf_power.h" bodystart="1613" bodyend="1616" declfile="hal/nrf_power.h" declline="1079" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaaa1f3fb61935c73926fb3cfb83bac042" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_abb_busy_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint8_t domain_idx)</argsstring>
+        <name>nrf_power_abb_busy_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>domain_idx</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified ABB domain is busy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of ABB domain.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ABB is busy with applying the new operating point. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ABB is ready to accept the new operating point. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1620" column="24" bodyfile="hal/nrf_power.h" bodystart="1620" bodyend="1624" declfile="hal/nrf_power.h" declline="1092" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga7992c27e5e710edda444097fd8ef2099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_abb_config_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint8_t domain_idx, nrf_power_abb_config_t const *p_config)</argsstring>
+        <name>nrf_power_abb_config_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>domain_idx</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__power__abb__config__t" kindref="compound">nrf_power_abb_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting configuration of the operating point for the specified ABB domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of ABB domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1626" column="24" bodyfile="hal/nrf_power.h" bodystart="1626" bodyend="1640" declfile="hal/nrf_power.h" declline="1101" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gac98f9ae23cc84e516d248647a7b56e4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_abb_config_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint8_t domain_idx, nrf_power_abb_config_t *p_config)</argsstring>
+        <name>nrf_power_abb_config_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>domain_idx</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__power__abb__config__t" kindref="compound">nrf_power_abb_config_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting configuration of the operating point for the specified ABB domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of ABB domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1642" column="24" bodyfile="hal/nrf_power.h" bodystart="1642" bodyend="1659" declfile="hal/nrf_power.h" declline="1112" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga98b1b5ac9785863d7ebc67531f6d8dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_abb_force_lock_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint8_t domain_idx, bool enable)</argsstring>
+        <name>nrf_power_abb_force_lock_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>domain_idx</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the force lock for the specified ABB domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of ABB domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if force lock is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1661" column="24" bodyfile="hal/nrf_power.h" bodystart="1661" bodyend="1669" declfile="hal/nrf_power.h" declline="1123" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gad2c4e7e6386a510e255b7ac070438c37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_abb_force_lock_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg, uint8_t domain_idx)</argsstring>
+        <name>nrf_power_abb_force_lock_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>domain_idx</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the force lock for the specified ABB domain is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of ABB domain whose status is checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Force lock is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Force lock is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1671" column="24" bodyfile="hal/nrf_power.h" bodystart="1671" bodyend="1676" declfile="hal/nrf_power.h" declline="1136" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga797fd69868a9401732ad72d42f1e6f0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_vreg_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_vreg_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the enabled voltage regulators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of enabled voltage regulators to be set. Use <ref refid="group__nrf__power__hal_1ga770cecdacf3a854d13aa2d53e1c29bee" kindref="member">nrf_power_vreg_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1680" column="24" bodyfile="hal/nrf_power.h" bodystart="1680" bodyend="1683" declfile="hal/nrf_power.h" declline="1148" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaefd3d8e293a7a44023b85b5e515d476d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_power_vreg_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_vreg_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting mask of enabled voltage regulators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled voltage regulators. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1685" column="28" bodyfile="hal/nrf_power.h" bodystart="1685" bodyend="1688" declfile="hal/nrf_power.h" declline="1157" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga0c4c69bddf74e08380046fcb1821f7ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_vreg_or_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_vreg_or_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified voltage regulators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of voltage regulators to be enabled. Use <ref refid="group__nrf__power__hal_1ga770cecdacf3a854d13aa2d53e1c29bee" kindref="member">nrf_power_vreg_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1690" column="24" bodyfile="hal/nrf_power.h" bodystart="1690" bodyend="1693" declfile="hal/nrf_power.h" declline="1166" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gabcd3cb1c7ef038b8af0dc23eef59da9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_vreg_clear_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_power_vreg_clear_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified voltage regulators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of voltage regulators to be disabled. Use <ref refid="group__nrf__power__hal_1ga770cecdacf3a854d13aa2d53e1c29bee" kindref="member">nrf_power_vreg_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1695" column="24" bodyfile="hal/nrf_power.h" bodystart="1695" bodyend="1698" declfile="hal/nrf_power.h" declline="1175" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga25fdf5a67c48bc521919771381d52979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_ulp_mode_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_ulp_mode_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the Ultra Low Power (ULP) mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Going into ULP mode is allowed only if this mode is enabled - otherwise it is blocked. If the ULV mode is blocked, the ULP mode is also blocked.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if ULP mode is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1703" column="24" bodyfile="hal/nrf_power.h" bodystart="1703" bodyend="1708" declfile="hal/nrf_power.h" declline="1188" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gaf710827004768a3a31e57dda8ed2ca2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_ulp_mode_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_ulp_mode_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the ULP mode is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Going into ULP mode is allowed only if this mode is enabled - otherwise it is blocked. If the ULV mode is blocked, the ULP mode is also blocked.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ULP mode is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ULP mode is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1710" column="24" bodyfile="hal/nrf_power.h" bodystart="1710" bodyend="1714" declfile="hal/nrf_power.h" declline="1201" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2a19d58b3104c5ade48f1804f2f89cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_ulv_mode_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_ulv_mode_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the Ultra Low Voltage (ULV) mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Going into ULP mode is allowed only if this mode is enabled - otherwise it is blocked. If the ULV mode is blocked, the ULP mode is also blocked.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if ULV mode is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1716" column="24" bodyfile="hal/nrf_power.h" bodystart="1716" bodyend="1721" declfile="hal/nrf_power.h" declline="1212" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga1673cd7086ce57ced3ad7191d40f0307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_ulv_mode_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_ulv_mode_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the ULV mode is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Going into ULP mode is allowed only if this mode is enabled - otherwise it is blocked. If the ULV mode is blocked, the ULP mode is also blocked.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ULV mode is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ULV mode is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1723" column="24" bodyfile="hal/nrf_power.h" bodystart="1723" bodyend="1727" declfile="hal/nrf_power.h" declline="1225" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga2b3c763f09b5552d478919075157c036" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_sem_status_get</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_sem_status_get</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the POWER semaphore status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Semaphore is acquired. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Semaphore is released. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1731" column="24" bodyfile="hal/nrf_power.h" bodystart="1731" bodyend="1735" declfile="hal/nrf_power.h" declline="1237" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga9366872b258b831ee37bcbdfec023b3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_bils_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_bils_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting BILS instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if all configured BILS instances are to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1739" column="24" bodyfile="hal/nrf_power.h" bodystart="1739" bodyend="1744" declfile="hal/nrf_power.h" declline="1247" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1gadfe7f82b5a96d1408c2e9a5e00c53b90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_bils_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_bils_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if BILS instances are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All configured BILS instances are enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All BILS instances are disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1746" column="24" bodyfile="hal/nrf_power.h" bodystart="1746" bodyend="1750" declfile="hal/nrf_power.h" declline="1257" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga891d262e69cb4fac63a9758aa36c63c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_power_pmic_set</definition>
+        <argsstring>(NRF_POWER_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_power_pmic_set</name>
+        <param>
+          <type>NRF_POWER_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PMIC interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if PMIC interface is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1754" column="24" bodyfile="hal/nrf_power.h" bodystart="1754" bodyend="1759" declfile="hal/nrf_power.h" declline="1267" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__power__hal_1ga20683794648d38a852df13e15f4b0f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_power_pmic_check</definition>
+        <argsstring>(NRF_POWER_Type const *p_reg)</argsstring>
+        <name>nrf_power_pmic_check</name>
+        <param>
+          <type>NRF_POWER_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PMIC interface is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PMIC interface is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PMIC interface is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="1761" column="24" bodyfile="hal/nrf_power.h" bodystart="1761" bodyend="1765" declfile="hal/nrf_power.h" declline="1277" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__power__hal_1ga08e69b53d59a64c1c3c04253b7077b0b" prot="public" static="no">
+        <name>NRF_POWER_HAS_CONST_LATENCY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether Constant Latency mode is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="52" column="9" bodyfile="hal/nrf_power.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gabf3db35f80983fedc55ae62fc1f3b36a" prot="public" static="no">
+        <name>NRF_POWER_HAS_LOW_POWER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether Low-Power mode is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="59" column="9" bodyfile="hal/nrf_power.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gac59f7ef1aa519359d536ede541d3a123" prot="public" static="no">
+        <name>NRF_POWER_HAS_SLEEPEVT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether sleep events are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="66" column="9" bodyfile="hal/nrf_power.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gafd2601d87d1bd114ab912a336a84e73f" prot="public" static="no">
+        <name>NRF_POWER_HAS_USBREG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the POWER peripheral controls the USB regulator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="73" column="9" bodyfile="hal/nrf_power.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gac9e29c06df7e789c14e08904b20f5c2b" prot="public" static="no">
+        <name>NRF_POWER_HAS_DCDCEN_VDDH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether DCDCEN for REG0 is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="80" column="9" bodyfile="hal/nrf_power.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga94f77a5af727c67f6239358dfd4854aa" prot="public" static="no">
+        <name>NRF_POWER_HAS_DCDCEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether DCDCEN for REG1 is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="87" column="9" bodyfile="hal/nrf_power.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gadbe4d08348308cc5adfb488efabc7e75" prot="public" static="no">
+        <name>NRF_POWER_HAS_POFWARN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether power failure event is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="94" column="9" bodyfile="hal/nrf_power.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga6eb31a9e51433ccc5153f13836262413" prot="public" static="no">
+        <name>NRF_POWER_HAS_POFCON</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether power failure comparator is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="101" column="9" bodyfile="hal/nrf_power.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga91da3b2902ebfface225894862947d61" prot="public" static="no">
+        <name>NRF_POWER_HAS_POFCON_VDDH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether power failure comparator for VDDH is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="108" column="9" bodyfile="hal/nrf_power.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gafb6d47e6eeec0e4c768d14a5d47a7d7d" prot="public" static="no">
+        <name>NRF_POWER_HAS_RESETREAS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RESETREAS register is present in POWER. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="115" column="9" bodyfile="hal/nrf_power.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga147a56d724fc87b7dd9f01163bda04d0" prot="public" static="no">
+        <name>NRF_POWER_HAS_RESETREAS_CTRLAP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RESETREAS CTRLAP is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="122" column="9" bodyfile="hal/nrf_power.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga8b404ebd7180cbc61fc10051b484347f" prot="public" static="no">
+        <name>NRF_POWER_HAS_RESETREAS_LPCOMP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RESETREAS LPCOMP is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="129" column="9" bodyfile="hal/nrf_power.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga3ebb915c2530c98c6ef0553b04d8339d" prot="public" static="no">
+        <name>NRF_POWER_HAS_RESETREAS_NFC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RESETREAS NFC is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="136" column="9" bodyfile="hal/nrf_power.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga860ae57ae991dc714952f708b1bb8c0d" prot="public" static="no">
+        <name>NRF_POWER_HAS_RESETREAS_VBUS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RESETREAS VBUS is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="143" column="9" bodyfile="hal/nrf_power.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga2adc2361652f04ec80a5d76016f930f9" prot="public" static="no">
+        <name>NRF_POWER_HAS_MAINREGSTATUS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether MAINREGSTATUS register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="150" column="9" bodyfile="hal/nrf_power.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gab8b4080818e5c37e22c0fc4653d3dd7a" prot="public" static="no">
+        <name>NRF_POWER_HAS_GPREGRET</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether GPREGRET register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="157" column="9" bodyfile="hal/nrf_power.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga2089d59f882f579e34a7a384ddb35054" prot="public" static="no">
+        <name>NRF_POWER_HAS_GPREGRET_ARRAY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether GPREGRET register is treated as an array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="164" column="9" bodyfile="hal/nrf_power.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga52b5b62ea8d1a83e05650e9ec5df42af" prot="public" static="no">
+        <name>NRFX_POWER_GPREGRET_COUNT</name>
+        <initializer>POWER_GPREGRET_MaxCount</initializer>
+        <briefdescription>
+<para>Size of GPREGRET register when defined as array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="171" column="9" bodyfile="hal/nrf_power.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga7e93c6ce1e6ea02f3dca3ebe9e464199" prot="public" static="no">
+        <name>NRF_POWER_HAS_SEMAPHORE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether semaphore for regulator voltage scaling procedure is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="176" column="9" bodyfile="hal/nrf_power.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1gadd9d0775ca19e151088353fdb3e4f9bf" prot="public" static="no">
+        <name>NRF_POWER_HAS_VREG_UPDATE_TASK_EVENT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether task and event responsible for updating voltage regulators configuration are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="184" column="9" bodyfile="hal/nrf_power.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga9564ee71fc917dda7503c072d3b06d9c" prot="public" static="no">
+        <name>NRF_POWER_HAS_VREG_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether voltage regulators are configurable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="191" column="9" bodyfile="hal/nrf_power.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga29c81b7bd5a63e199322f6576f9f2361" prot="public" static="no">
+        <name>NRF_POWER_HAS_ABB</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the Adaptive Body Biasing (ABB) domains are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="198" column="9" bodyfile="hal/nrf_power.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga96609a8fa044e676cb275f15c79be693" prot="public" static="no">
+        <name>NRF_POWER_HAS_BLOCK_MODES</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the power block modes are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="205" column="9" bodyfile="hal/nrf_power.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga3050c661fec6f0d747c962a3bfc83ffc" prot="public" static="no">
+        <name>NRF_POWER_HAS_BILS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the Built-in Leakage Sensors (BILS) are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="212" column="9" bodyfile="hal/nrf_power.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga2fe6ddd9b3c4e0dadd63b2886b7b7059" prot="public" static="no">
+        <name>NRF_POWER_HAS_PMIC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the Power Management IC (PMIC) is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="219" column="9" bodyfile="hal/nrf_power.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga1f7030f36b5e18dac55c59d48b3b28b5" prot="public" static="no">
+        <name>NRF_POWER_HAS_RAM_POWER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the RAM power can be controlled here. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="226" column="9" bodyfile="hal/nrf_power.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga9879807e3b60c07f3e96b99d9c3384e3" prot="public" static="no">
+        <name>NRF_POWER_EVENTS_ABB_LOCK_COUNT</name>
+        <initializer>POWER_EVENTS_ABBLOCK_MaxCount</initializer>
+        <briefdescription>
+<para>Symbol specifying the maximum number of available <computeroutput>ABB_LOCK</computeroutput> events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="233" column="9" bodyfile="hal/nrf_power.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga6c98d42bb48563b0293f0f7a5bf5f0c7" prot="public" static="no">
+        <name>NRF_POWER_RAMPOWER_S0POWER_POS</name>
+        <initializer>POWER_RAM_POWER_S0POWER_Pos</initializer>
+        <briefdescription>
+<para>Position of power configuration bits for RAM section 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="478" column="9" bodyfile="hal/nrf_power.h" bodystart="478" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__power__hal_1ga590d66812b3290e9af9e9af15e0bed7e" prot="public" static="no">
+        <name>NRF_POWER_RAMPOWER_S0RETENTION_POS</name>
+        <initializer>POWER_RAM_POWER_S0RETENTION_Pos</initializer>
+        <briefdescription>
+<para>Position of retention configuration bits for RAM section 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_power.h" line="481" column="9" bodyfile="hal/nrf_power.h" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the POWER peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

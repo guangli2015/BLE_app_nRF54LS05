@@ -1,0 +1,1538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__uicr__hal" kind="group">
+    <compoundname>nrf_uicr_hal</compoundname>
+    <title>UICR HAL</title>
+    <innerclass refid="structnrf__uicr__mem__config__t" prot="public">nrf_uicr_mem_config_t</innerclass>
+    <innerclass refid="structnrf__uicr__ipcmap__pair__t" prot="public">nrf_uicr_ipcmap_pair_t</innerclass>
+    <innerclass refid="structnrf__uicr__ipcmap__config__t" prot="public">nrf_uicr_ipcmap_config_t</innerclass>
+    <innerclass refid="structnrf__uicr__dppi__link__t" prot="public">nrf_uicr_dppi_link_t</innerclass>
+    <innerclass refid="structnrf__uicr__periph__config__t" prot="public">nrf_uicr_periph_config_t</innerclass>
+    <innerclass refid="structnrf__uicr__mailbox__config__t" prot="public">nrf_uicr_mailbox_config_t</innerclass>
+    <innerclass refid="structnrf__uicr__boot__region__config__t" prot="public">nrf_uicr_boot_region_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__uicr__hal_1ga8ce5128128bc90c4bcdf2ae9decbd461" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uicr_mem_config_perm_mask_t</name>
+        <enumvalue id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461a110deaf304a983ef7dcc4dd1dcf5115d" prot="public">
+          <name>NRF_UICR_MEM_CONFIG_PERM_READ_MASK</name>
+          <initializer>= UICR_MEM_CONFIG_READ_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Read access. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461adb4faf64a9cde0cf81ea7f04af4f5aab" prot="public">
+          <name>NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK</name>
+          <initializer>= UICR_MEM_CONFIG_WRITE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Write access. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461a74eb6d3b08bdcecb3660d4e619173d08" prot="public">
+          <name>NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK</name>
+          <initializer>= UICR_MEM_CONFIG_EXECUTE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Software execute. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461aee3c0f160f33ae7b7e72c3a97c75ea63" prot="public">
+          <name>NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK</name>
+          <initializer>= UICR_MEM_CONFIG_SECURE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Non-secure access. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Memory permissions mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When bit is set, the selected action is not allowed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="167" column="1" bodyfile="hal/nrf_uicr.h" bodystart="168" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uicr__hal_1ga633bfb6ff9adb31de5fdcad1c67846f9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uicr_feature_index_mask_t</name>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a8a50b080cc50af4c180c353031c6928c" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_0_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH0_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 0. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a3865b0bc734e3e7ed2ea51e34e249591" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_1_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH1_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 1. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a9cabfd34749e57ae9cfe27d78adefd0f" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_2_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH2_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 2. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a8774f0d50dcc9fa9639b20c13115aa31" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_3_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH3_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 3. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a3c87f11e1b6400f04a756690aaaeed7f" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_4_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH4_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 4. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae0c64e03ce39ab7b31230cfd03414348" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_5_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH5_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 5. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a5dec069be5479d79ec954b7e51022266" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_6_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH6_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 6. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ad33d2c3488235aa431936d7ee6163152" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_7_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH7_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 7. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a40e36cdae9b4965dfa3e78896b797577" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_8_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH8_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 8. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6f44792d9671f8f5b4a6b3e19e22d882" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_9_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH9_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 9. <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae6f70d75ca15b34127e1540c82c6278b" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_10_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH10_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 10. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac0c046040e5f189c0976b9333dd7413e" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_11_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH11_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 11. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a5bce945074c75d3f818c3a06efad0b72" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_12_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH12_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 12. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6dbb52322a35221ca99e6ca128acf170" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_13_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH13_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 13. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac85c015fddd8f1b33fe34457ad70c088" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_14_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH14_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 14. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a4b97322b886bc6f3637d1c6dbf419ea9" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_15_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH15_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 15. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a874bb06cef755e43f17549c7316bd528" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_16_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH16_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 16. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a94c15c97987eca2ed933ad827766db23" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_17_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH17_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 17. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac85ac1f32b09385d8148483defaed467" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_18_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH18_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 18. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a7d6c8f023fc62845cb3c0b0d2f48c9c2" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_19_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH19_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 19. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9accb71e91d3bb45454c36a4d93d4d1438" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_20_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH20_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 20. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a47df59cfcd253d246bce8c4e72172f42" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_21_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH21_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 21. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6ba9a8d820c122ea587a93d2ce591dd8" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_22_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH22_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 22. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a96bb3246c80cb72d2c446e5fa9983fe1" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_23_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH23_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 23. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac1f46dbbb7fa34e8becbfeb768492856" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_24_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH24_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 24. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a2f23b7518bbc3f5d1df3d793e6007f3c" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_25_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH25_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 25. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae30d3301c06e509a387a71e1e4ec99ad" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_26_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH26_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 26. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a9a5ae501ecfb1e40a9180e1da312c474" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_27_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH27_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 27. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a82cd4f1347453af3f0d931c1e1727fd2" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_28_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH28_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 28. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a801404e21079d8825acfe00a505eb10a" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_29_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH29_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 29. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a39767807c8a659855e43dee322bca2d6" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_30_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH30_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 30. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a2ba920734a29d7f2c5e3b0a7e9f3ea6e" prot="public">
+          <name>NRF_UICR_FEATURE_INDEX_31_MASK</name>
+          <initializer>= UICR_GPIOTE_CH_OWN_CH31_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Feature index 31. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Feature index mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Ownership of the pin is indicated by bit not set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="190" column="1" bodyfile="hal/nrf_uicr.h" bodystart="191" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uicr__hal_1ga66ccb3acfe92e9f7cbfd2ca1fdbcf270" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uicr_feature_t</name>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a2ec35746b1d4568def693fd65f0abb28" prot="public">
+          <name>NRF_UICR_FEATURE_GPIO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>GPIO port. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6d514e525436b9a9c9d2ff74f568dbe6" prot="public">
+          <name>NRF_UICR_FEATURE_GPIOTE_CH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>GPIOTE channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6f43bb9191bc47761cc86aa955d1045c" prot="public">
+          <name>NRF_UICR_FEATURE_IPCT_LOCAL_CH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Local IPCT channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270ad665729e7bae569b9bbdf9ca7855e57d" prot="public">
+          <name>NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Local IPCT interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270aedf069a8ff8421b975adf03656c48a66" prot="public">
+          <name>NRF_UICR_FEATURE_IPCT_GLOBAL_CH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Global IPCT channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6439193cd83670c367d622555f7adf56" prot="public">
+          <name>NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Global IPCT interrupt. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a570d168c607bf2117b867d5614742d03" prot="public">
+          <name>NRF_UICR_FEATURE_DPPI_LOCAL_CH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Local DPPI channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270afae9a02df30948ac802db6549d36827b" prot="public">
+          <name>NRF_UICR_FEATURE_DPPI_LOCAL_CHG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Local DPPI channel group. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a9d181e78ee0b0e9103f3b60861ba4f18" prot="public">
+          <name>NRF_UICR_FEATURE_DPPI_GLOBAL_CH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Global DPPI channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a115dbfac65edffb3ae33750141029aee" prot="public">
+          <name>NRF_UICR_FEATURE_DPPI_GLOBAL_CHG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Global DPPI channel group. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a531e8911c5c45980f53f966205ea7776" prot="public">
+          <name>NRF_UICR_FEATURE_GRTC_CC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>GRTC compare channel. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UICR features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="227" column="1" bodyfile="hal/nrf_uicr.h" bodystart="228" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uicr__hal_1gaf409f7ff093daa5f8fe61b52f6bb46f9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uicr_boot_region_perm_mask_t</name>
+        <enumvalue id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a1cea7ec9f1c753126fcd784c4eaee19f" prot="public">
+          <name>NRF_UICR_BOOT_REGION_PERM_READ_MASK</name>
+          <initializer>= UICR_BOOTCONF_READ_Msk</initializer>
+          <briefdescription>
+<para>Read access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9ab60317e38f28dfc55f88ac3efc0c8826" prot="public">
+          <name>NRF_UICR_BOOT_REGION_PERM_WRITE_MASK</name>
+          <initializer>= UICR_BOOTCONF_WRITE_Msk</initializer>
+          <briefdescription>
+<para>Write access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a6f54d194f723f974dd816882836637d3" prot="public">
+          <name>NRF_UICR_BOOT_REGION_PERM_EXECUTE_MASK</name>
+          <initializer>= UICR_BOOTCONF_EXECUTE_Msk</initializer>
+          <briefdescription>
+<para>Software execute. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a6549116a40c06387fc6f78ecf1ab1f5c" prot="public">
+          <name>NRF_UICR_BOOT_REGION_PERM_SECURE_MASK</name>
+          <initializer>= UICR_BOOTCONF_SECURE_Msk</initializer>
+          <briefdescription>
+<para>Secure-only access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Immutable boot region permissions mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When bit is set, the selected action is allowed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="291" column="1" bodyfile="hal/nrf_uicr.h" bodystart="292" bodyend="299"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gaeb34d5e0726dc518648e5c1cf9cfa00a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_uicr_fits_check</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint32_t addr, uint32_t len_bytes)</argsstring>
+        <name>nrf_uicr_fits_check</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified range of addresses fits in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting address of the range to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the range to be checked in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range fits in UICR. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range doesn&apos;t fit in UICR. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="518" column="24" bodyfile="hal/nrf_uicr.h" bodystart="518" bodyend="533" declfile="hal/nrf_uicr.h" declline="321" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga2733c418f74d5b72a4c0ad308a065e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__uicr__mem__config__t" kindref="compound">nrf_uicr_mem_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_uicr_mem_config_t nrf_uicr_mem_config_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_mem_config_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the memory block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configuration of the specified memory block. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="536" column="41" bodyfile="hal/nrf_uicr.h" bodystart="536" bodyend="554" declfile="hal/nrf_uicr.h" declline="334" declcolumn="41"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga6a2eade6e610e70f18d6265563af82ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_mem_size_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_mem_size_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the size of the memory block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Size of the specified memory block in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="556" column="28" bodyfile="hal/nrf_uicr.h" bodystart="556" bodyend="560" declfile="hal/nrf_uicr.h" declline="345" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga9d971fc2dbf7c88e30df716ba99e740d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__uicr__periph__config__t" kindref="compound">nrf_uicr_periph_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_uicr_periph_config_t nrf_uicr_periph_config_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_periph_config_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configuration of the specified peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="564" column="44" bodyfile="hal/nrf_uicr.h" bodystart="564" bodyend="583" declfile="hal/nrf_uicr.h" declline="357" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gaa0a66e6f2c8c5a5158edebf108ea0673" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_feature_own_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, nrf_uicr_feature_t feature, uint8_t index)</argsstring>
+        <name>nrf_uicr_feature_own_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uicr__hal_1ga66ccb3acfe92e9f7cbfd2ca1fdbcf270" kindref="member">nrf_uicr_feature_t</ref></type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the ownership requests of the feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feature to be accessed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the feature. Only used for applicable features, otherwise skipped.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Ownership requests mask of the specified feature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="587" column="28" bodyfile="hal/nrf_uicr.h" bodystart="587" bodyend="626" declfile="hal/nrf_uicr.h" declline="371" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga39509ccfe57f58d08f6609b08c99a0e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_feature_secure_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, nrf_uicr_feature_t feature, uint8_t index)</argsstring>
+        <name>nrf_uicr_feature_secure_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uicr__hal_1ga66ccb3acfe92e9f7cbfd2ca1fdbcf270" kindref="member">nrf_uicr_feature_t</ref></type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the permission requests of the feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feature to be accessed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the feature. Only used for applicable features, otherwise skipped.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Permission requests mask of the specified feature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="628" column="28" bodyfile="hal/nrf_uicr.h" bodystart="628" bodyend="681" declfile="hal/nrf_uicr.h" declline="384" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga4c00b81f689650ea22c439963136e3ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__uicr__dppi__link__t" kindref="compound">nrf_uicr_dppi_link_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_uicr_dppi_link_t nrf_uicr_feature_link_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, nrf_uicr_feature_t feature, uint8_t index)</argsstring>
+        <name>nrf_uicr_feature_link_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uicr__hal_1ga66ccb3acfe92e9f7cbfd2ca1fdbcf270" kindref="member">nrf_uicr_feature_t</ref></type>
+          <declname>feature</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the linking requests of the feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">feature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feature to be accessed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the feature. Only used for applicable features, otherwise skipped.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Linking requests masks for source and sink of the specified feature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="683" column="40" bodyfile="hal/nrf_uicr.h" bodystart="683" bodyend="719" declfile="hal/nrf_uicr.h" declline="397" declcolumn="40"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gad97ca56d56a3a159289ff20f28c4fcbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__uicr__ipcmap__config__t" kindref="compound">nrf_uicr_ipcmap_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_uicr_ipcmap_config_t nrf_uicr_ipcmap_config_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_ipcmap_config_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the IPCMAP channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the IPCMAP channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configuration of the specified IPCMAP channel. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="721" column="44" bodyfile="hal/nrf_uicr.h" bodystart="721" bodyend="740" declfile="hal/nrf_uicr.h" declline="409" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gaf17b98b7ea1b5c6b17d0a7534812de65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_mailbox_address_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_mailbox_address_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the MAILBOX. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start address of the specified MAILBOX. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="744" column="28" bodyfile="hal/nrf_uicr.h" bodystart="744" bodyend="749" declfile="hal/nrf_uicr.h" declline="422" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gaa913e12362a7fcbb985453bba7c7ac92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__uicr__mailbox__config__t" kindref="compound">nrf_uicr_mailbox_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_uicr_mailbox_config_t nrf_uicr_mailbox_config_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_mailbox_config_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the MAILBOX. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the MAILBOX.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configuration of the specified MAILBOX. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="752" column="27" bodyfile="hal/nrf_uicr.h" bodystart="752" bodyend="768" declfile="hal/nrf_uicr.h" declline="433" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gafc55b845d7d0eddb1bf6df4aac09c3d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_initsvtor_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg)</argsstring>
+        <name>nrf_uicr_initsvtor_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the initial value of the secure VTOR (Vector Table Offset Register). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Initial value of the secure VTOR. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="772" column="28" bodyfile="hal/nrf_uicr.h" bodystart="772" bodyend="775" declfile="hal/nrf_uicr.h" declline="445" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga35f097d276870db880c195f0657afe38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_initnsvtor_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg)</argsstring>
+        <name>nrf_uicr_initnsvtor_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the initial value of the non-secure VTOR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Initial value of the non-secure VTOR. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="777" column="28" bodyfile="hal/nrf_uicr.h" bodystart="777" bodyend="780" declfile="hal/nrf_uicr.h" declline="454" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gae786054ad658b6d9d824caeaf4cc00c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_uicr_ptrextuicr_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg)</argsstring>
+        <name>nrf_uicr_ptrextuicr_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the extended UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the extended UICR. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="784" column="29" bodyfile="hal/nrf_uicr.h" bodystart="784" bodyend="787" declfile="hal/nrf_uicr.h" declline="465" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga72b2daea4bfed2a80d04fa74fc57abc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uicr_boot_region_config_set</definition>
+        <argsstring>(NRF_UICR_Type *p_reg, nrf_uicr_boot_region_config_t const *p_config)</argsstring>
+        <name>nrf_uicr_boot_region_config_set</name>
+        <param>
+          <type>NRF_UICR_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__uicr__boot__region__config__t" kindref="compound">nrf_uicr_boot_region_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the configuration of the immutable boot region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the configuration structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="793" column="6" bodyfile="hal/nrf_uicr.h" bodystart="793" bodyend="803" declfile="hal/nrf_uicr.h" declline="476" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1gac07a9377a2dbeb1a9f7fca466c945c97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_uicr_boot_region_config_get</definition>
+        <argsstring>(NRF_UICR_Type const *p_reg, nrf_uicr_boot_region_config_t *p_config)</argsstring>
+        <name>nrf_uicr_boot_region_config_get</name>
+        <param>
+          <type>NRF_UICR_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__uicr__boot__region__config__t" kindref="compound">nrf_uicr_boot_region_config_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the immutable boot region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with immutable boot region settings.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration is applied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is equal to 0xFFFFFFFF, meaning that configuration is not applied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="805" column="24" bodyfile="hal/nrf_uicr.h" bodystart="805" bodyend="816" declfile="hal/nrf_uicr.h" declline="488" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga208c47feed9c5c3328f3af54503428af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_gpio_instance_get</definition>
+        <argsstring>(NRF_UICREXTENDED_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_uicr_gpio_instance_get</name>
+        <param>
+          <type>NRF_UICREXTENDED_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the GPIO instance address associated with the specified GPIO entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of GPIO entry.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GPIO instance address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="820" column="28" bodyfile="hal/nrf_uicr.h" bodystart="820" bodyend="825" declfile="hal/nrf_uicr.h" declline="501" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uicr__hal_1ga65ead495d131afb60fef4ed7b8e0dbbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uicr_gpio_ctrlsel_get</definition>
+        <argsstring>(NRF_UICREXTENDED_Type const *p_reg, uint32_t pin_number)</argsstring>
+        <name>nrf_uicr_gpio_ctrlsel_get</name>
+        <param>
+          <type>NRF_UICREXTENDED_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin_number</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the CTRLSEL configuration associated with the specified GPIO pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute pin number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CTRLSEL configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="827" column="28" bodyfile="hal/nrf_uicr.h" bodystart="827" bodyend="834" declfile="hal/nrf_uicr.h" declline="512" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gac8a578ff0091dd7545c8d34b3d1906ec" prot="public" static="no">
+        <name>NRF_UICR_HAS_MEM_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether memory configuration through UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="52" column="9" bodyfile="hal/nrf_uicr.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gabc4cc4f6c8b324f22e590fe8299d2695" prot="public" static="no">
+        <name>NRF_UICR_HAS_PERIPH_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether peripheral configuration through UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="59" column="9" bodyfile="hal/nrf_uicr.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gac39e751b3adde40ebdc356ca38c4fb96" prot="public" static="no">
+        <name>NRF_UICR_HAS_FEATURE_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether feature configuration through UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="66" column="9" bodyfile="hal/nrf_uicr.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga76f9e43790a153f4a525b78eefe4d384" prot="public" static="no">
+        <name>NRF_UICR_HAS_MAILBOX</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether mailbox configuration through UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="73" column="9" bodyfile="hal/nrf_uicr.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gae372027930aecce11d48984885c91a5b" prot="public" static="no">
+        <name>NRF_UICR_HAS_VTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether VTOR configuration through UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="80" column="9" bodyfile="hal/nrf_uicr.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga1ae27704197dd3a03046e04735ccbc8a" prot="public" static="no">
+        <name>NRF_UICR_HAS_PTREXT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether extended UICR is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="87" column="9" bodyfile="hal/nrf_uicr.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga4225dbb077a826d9890253ebd433af88" prot="public" static="no">
+        <name>NRF_UICR_HAS_FEATURE_GPIO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether GPIO feature is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="94" column="9" bodyfile="hal/nrf_uicr.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga4f30e48b6a2e60609d29b8ddabdc5a5f" prot="public" static="no">
+        <name>NRF_UICR_HAS_BOOTCONF</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether immutable boot region configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="101" column="9" bodyfile="hal/nrf_uicr.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga2db5c083bc627da3901dc32feb2ab2e1" prot="public" static="no">
+        <name>NRF_UICR_HAS_BOOTCONF_SECURE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether SECURE field in the BOOTCONF register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="108" column="9" bodyfile="hal/nrf_uicr.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gaf0667d650ca16bb8b0c127dace26da5e" prot="public" static="no">
+        <name>NRF_UICR_HAS_CH_LINK_DIR_EN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether linking channels of DPPI as either source or sink is configured using the LINK.DIR and LINK.EN registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="119" column="9" bodyfile="hal/nrf_uicr.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga2d76f0ebfca6b54939f5f6dbb5d7b998" prot="public" static="no">
+        <name>NRF_UICR_MEM_COUNT</name>
+        <initializer>UICR_MEM_MaxCount</initializer>
+        <briefdescription>
+<para>Number of memory blocks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="125" column="9" bodyfile="hal/nrf_uicr.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gada990a37dd2ad29da5908376434200f6" prot="public" static="no">
+        <name>NRF_UICR_PERIPH_COUNT</name>
+        <initializer>UICR_PERIPH_MaxCount</initializer>
+        <briefdescription>
+<para>Number of peripherals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="128" column="9" bodyfile="hal/nrf_uicr.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga09473c70d80bcb2afff60f732f633eeb" prot="public" static="no">
+        <name>NRF_UICR_GPIO_COUNT</name>
+        <initializer>UICREXTENDED_GPIO_MaxCount</initializer>
+        <briefdescription>
+<para>Number of GPIOs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="132" column="9" bodyfile="hal/nrf_uicr.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga62268de8a4d18e676f3c61c63681661a" prot="public" static="no">
+        <name>NRF_UICR_GPIOTE_CH_COUNT</name>
+        <initializer>UICR_GPIOTE_MaxCount</initializer>
+        <briefdescription>
+<para>Number of GPIOTE channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="136" column="9" bodyfile="hal/nrf_uicr.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga49224132f9758c36f1b06e0020551697" prot="public" static="no">
+        <name>NRF_UICR_IPCT_GLOBAL_COUNT</name>
+        <initializer>UICR_IPCT_GLOBAL_MaxCount</initializer>
+        <briefdescription>
+<para>Number of global IPCTs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="139" column="9" bodyfile="hal/nrf_uicr.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga2a531c1af0bae25ba6ee47f7cea0377c" prot="public" static="no">
+        <name>NRF_UICR_DPPI_LOCAL_COUNT</name>
+        <initializer>UICR_DPPI_LOCAL_MaxCount</initializer>
+        <briefdescription>
+<para>Number of local IPCTs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="142" column="9" bodyfile="hal/nrf_uicr.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga9491ea8761e5cfdb9c12389203bcdf58" prot="public" static="no">
+        <name>NRF_UICR_DPPI_GLOBAL_COUNT</name>
+        <initializer>UICR_DPPI_GLOBAL_MaxCount</initializer>
+        <briefdescription>
+<para>Number of global DPPIs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="145" column="9" bodyfile="hal/nrf_uicr.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga26582a5a0ff35a1a64755ade0a496c62" prot="public" static="no">
+        <name>NRF_UICR_IPCMAP_COUNT</name>
+        <initializer>UICR_IPCMAP_MaxCount</initializer>
+        <briefdescription>
+<para>Number of IPCMAPs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="148" column="9" bodyfile="hal/nrf_uicr.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1ga168cfdf22a9ab7f27256ef815c8a9b7c" prot="public" static="no">
+        <name>NRF_UICR_MAILBOX_COUNT</name>
+        <initializer>UICR_MAILBOX_MaxCount</initializer>
+        <briefdescription>
+<para>Number of MAILBOXes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="151" column="9" bodyfile="hal/nrf_uicr.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uicr__hal_1gaf7e4df2c614ddeea5cf690d8c1842188" prot="public" static="no">
+        <name>NRF_UICR_BOOTCONF_PERM_MASK</name>
+        <initializer>                                    (UICR_BOOTCONF_READ_Msk | \
+                                    UICR_BOOTCONF_WRITE_Msk | \
+                                    UICR_BOOTCONF_EXECUTE_Msk | \
+                                    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__uicr__hal_1ga2db5c083bc627da3901dc32feb2ab2e1" kindref="member">NRF_UICR_HAS_BOOTCONF_SECURE</ref>, \
+                                                     (UICR_BOOTCONF_SECURE_Msk), (0)))</initializer>
+        <briefdescription>
+<para>Immutable boot region permissions bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uicr.h" line="154" column="9" bodyfile="hal/nrf_uicr.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the User Information Configuration Registers (UICR) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

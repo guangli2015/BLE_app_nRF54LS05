@@ -1,0 +1,945 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__twi" kind="group">
+    <compoundname>nrfx_twi</compoundname>
+    <title>TWI driver</title>
+    <innerclass refid="structnrfx__twi__xfer__desc__t" prot="public">nrfx_twi_xfer_desc_t</innerclass>
+    <innerclass refid="structnrfx__twi__event__t" prot="public">nrfx_twi_event_t</innerclass>
+    <innerclass refid="structnrfx__twi__t" prot="public">nrfx_twi_t</innerclass>
+    <innerclass refid="structnrfx__twi__config__t" prot="public">nrfx_twi_config_t</innerclass>
+    <innergroup refid="group__nrfx__twi__config">TWI peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__twi_1gaf227c5ab481c56715097ba08a0ae2bac" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twi_xfer_type_t</name>
+        <enumvalue id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a" prot="public">
+          <name>NRFX_TWI_XFER_TX</name>
+          <briefdescription>
+<para>TX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2bacac11390a9257b1036b10cd77eaee53e2a" prot="public">
+          <name>NRFX_TWI_XFER_RX</name>
+          <briefdescription>
+<para>RX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca8339203b38c17da2f0793f02661b0e83" prot="public">
+          <name>NRFX_TWI_XFER_TXRX</name>
+          <briefdescription>
+<para>TX transfer followed by RX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca81c31707f88003a02ccc7fcd7beb0e1c" prot="public">
+          <name>NRFX_TWI_XFER_TXTX</name>
+          <briefdescription>
+<para>TX transfer followed by TX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWI master driver transfer types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="53" column="1" bodyfile="drivers/include/nrfx_twi.h" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__twi_1ga59df8dc09ea6b976f8112ef264e8c1a6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twi_event_type_t</name>
+        <enumvalue id="group__nrfx__twi_1gga59df8dc09ea6b976f8112ef264e8c1a6a6f50db79773a3ca43f8d78c4a7064510" prot="public">
+          <name>NRFX_TWI_EVT_DONE</name>
+          <briefdescription>
+<para>Transfer completed event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1gga59df8dc09ea6b976f8112ef264e8c1a6a3ab204968c724cc0467715bdcd1f152c" prot="public">
+          <name>NRFX_TWI_EVT_ADDRESS_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending the address. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1gga59df8dc09ea6b976f8112ef264e8c1a6a4fa4f698d6c60e5a032f953ff2be61d2" prot="public">
+          <name>NRFX_TWI_EVT_DATA_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending a data byte. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1gga59df8dc09ea6b976f8112ef264e8c1a6a219f33b07b265bf3b2fc3a19043774d9" prot="public">
+          <name>NRFX_TWI_EVT_OVERRUN</name>
+          <briefdescription>
+<para>Error event: The unread data is replaced by new data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twi_1gga59df8dc09ea6b976f8112ef264e8c1a6a47b8c8e31248fe102b0166f9afcb5de0" prot="public">
+          <name>NRFX_TWI_EVT_BUS_ERROR</name>
+          <briefdescription>
+<para>Error event: An unexpected transition occurred on the bus. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWI master driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="74" column="1" bodyfile="drivers/include/nrfx_twi.h" bodystart="75" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__twi_1ga4a5856fcc74ac329ae6f8c565fbdc781" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_twi_event_handler_t) (nrfx_twi_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_twi_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_twi_event_handler_t</name>
+        <briefdescription>
+<para>TWI event handler prototype. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="91" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__twi_1gaaa96fc1da44267a7a62202ccde44ae06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twi_init</definition>
+        <argsstring>(nrfx_twi_t *p_instance, nrfx_twi_config_t const *p_config, nrfx_twi_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_twi_init</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twi__config__t" kindref="compound">nrfx_twi_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twi_1ga4a5856fcc74ac329ae6f8c565fbdc781" kindref="member">nrfx_twi_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TWI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, blocking mode is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="293" column="5" declfile="drivers/include/nrfx_twi.h" declline="293" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga3957fcbc3a2fcc471202dbfd68f5cc9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twi_reconfigure</definition>
+        <argsstring>(nrfx_twi_t *p_instance, nrfx_twi_config_t const *p_config)</argsstring>
+        <name>nrfx_twi_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twi__config__t" kindref="compound">nrfx_twi_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the TWI instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="308" column="5" declfile="drivers/include/nrfx_twi.h" declline="308" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga9c8e1c3b502f639a93107c51944c6d29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twi_uninit</definition>
+        <argsstring>(nrfx_twi_t *p_instance)</argsstring>
+        <name>nrfx_twi_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TWI instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="316" column="6" declfile="drivers/include/nrfx_twi.h" declline="316" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1gabda5db5121a0b1807da746e2a8b909ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twi_enable</definition>
+        <argsstring>(nrfx_twi_t *p_instance)</argsstring>
+        <name>nrfx_twi_enable</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TWI instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="323" column="6" declfile="drivers/include/nrfx_twi.h" declline="323" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1gafba57eb00d011fdfe6d0c7e4f758d9c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twi_disable</definition>
+        <argsstring>(nrfx_twi_t *p_instance)</argsstring>
+        <name>nrfx_twi_disable</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TWI instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="330" column="6" declfile="drivers/include/nrfx_twi.h" declline="330" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1gaa5924a8a9d9dfb95ff13304f9c3c0d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twi_xfer</definition>
+        <argsstring>(nrfx_twi_t *p_instance, nrfx_twi_xfer_desc_t const *p_xfer_desc, uint32_t flags)</argsstring>
+        <name>nrfx_twi_xfer</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twi__xfer__desc__t" kindref="compound">nrfx_twi_xfer_desc_t</ref> const *</type>
+          <declname>p_xfer_desc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing a TWI transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The following transfer types can be configured (<ref refid="structnrfx__twi__xfer__desc__t_1a3959af41675fdabe42c9207ce0bc6963" kindref="member">nrfx_twi_xfer_desc_t::type</ref>):<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca8339203b38c17da2f0793f02661b0e83" kindref="member">NRFX_TWI_XFER_TXRX</ref> - Write operation followed by a read operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca81c31707f88003a02ccc7fcd7beb0e1c" kindref="member">NRFX_TWI_XFER_TXTX</ref> - Write operation followed by a write operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a" kindref="member">NRFX_TWI_XFER_TX</ref> - Write operation (with or without STOP condition).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2bacac11390a9257b1036b10cd77eaee53e2a" kindref="member">NRFX_TWI_XFER_RX</ref> - Read operation (with STOP condition).</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>TX-RX and TX-TX transfers are supported only in non-blocking mode.</para>
+</simplesect>
+Additional options are provided using the flags parameter:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d" kindref="member">NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</ref> - No user event handler after transfer completion. In most cases, this also means no interrupt at the end of the transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29" kindref="member">NRFX_TWI_FLAG_TX_NO_STOP</ref> - No stop condition after TX transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twi_1ga5684cab698a35c770a78854e348c2408" kindref="member">NRFX_TWI_FLAG_SUSPEND</ref> - Transfer will be suspended. This allows for combining multiple transfers into one transaction. Only transactions with the same direction can be combined. To finish the transaction, call the function without this flag.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Some flag combinations are invalid:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29" kindref="member">NRFX_TWI_FLAG_TX_NO_STOP</ref> with <ref refid="structnrfx__twi__xfer__desc__t_1a3959af41675fdabe42c9207ce0bc6963" kindref="member">nrfx_twi_xfer_desc_t::type</ref> different than <ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a" kindref="member">NRFX_TWI_XFER_TX</ref></para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_xfer_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transfer descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unexpected transition occurred on the bus. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Other direction of transaction is suspended on the bus. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EOVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unread data is replaced by new data (TXRX and RX) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EIO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Negative acknowledgement (NACK) is received after sending the address in polling mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Negative acknowledgement (NACK) is received after sending a data byte in polling mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="367" column="5" declfile="drivers/include/nrfx_twi.h" declline="367" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga2f31a628a4bb00eaeb30ad63716499f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twi_irq_handler</definition>
+        <argsstring>(nrfx_twi_t *p_instance)</argsstring>
+        <name>nrfx_twi_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="376" column="6" declfile="drivers/include/nrfx_twi.h" declline="376" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga74f9c2116576ef7e29d2bc6a08d53643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twi_init_check</definition>
+        <argsstring>(nrfx_twi_t const *p_instance)</argsstring>
+        <name>nrfx_twi_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TWI driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="478" column="6" declfile="drivers/include/nrfx_twi.h" declline="478" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga7ad4c5f8afa8fc13a02a0a67a024c67e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twi_is_busy</definition>
+        <argsstring>(nrfx_twi_t const *p_instance)</argsstring>
+        <name>nrfx_twi_is_busy</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the TWI driver state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TWI instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWI driver is currently busy performing a transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWI driver is ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="488" column="6" declfile="drivers/include/nrfx_twi.h" declline="488" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1gae8fb5691723bce5cce250e78aa9c14aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t nrfx_twi_data_count_get</definition>
+        <argsstring>(nrfx_twi_t const *p_instance)</argsstring>
+        <name>nrfx_twi_data_count_get</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the transferred data count. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Data count. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="497" column="8" declfile="drivers/include/nrfx_twi.h" declline="497" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga7e850f6480a6d7ff7cd430da75679922" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twi_stopped_event_get</definition>
+        <argsstring>(nrfx_twi_t const *p_instance)</argsstring>
+        <name>nrfx_twi_stopped_event_get</name>
+        <param>
+          <type><ref refid="structnrfx__twi__t" kindref="compound">nrfx_twi_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a STOPPED TWI event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A STOPPED event can be used to detect the end of a transfer if the <ref refid="group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d" kindref="member">NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</ref> option is used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>STOPPED event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="509" column="10" declfile="drivers/include/nrfx_twi.h" declline="509" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twi_1ga94460d960bcfd297a2b22d82aaf9d8c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_twi_bus_recover</definition>
+        <argsstring>(uint32_t scl_pin, uint32_t sda_pin)</argsstring>
+        <name>nrfx_twi_bus_recover</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>scl_pin</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sda_pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for recovering the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks if the bus is not stuck because of a slave holding the SDA line in the low state, and if needed it performs required number of pulses on the SCL line to make the slave release the SDA line. Finally, the function generates a STOP condition on the bus to put it into a known state.</para>
+<para><simplesect kind="note"><para>This function can be used only if the TWI driver is uninitialized.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scl_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sda_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="529" column="24" bodyfile="drivers/include/nrfx_twi.h" bodystart="529" bodyend="532" declfile="drivers/include/nrfx_twi.h" declline="526" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__twi_1ga72bc7ecc93fe6cac8409642da1e25fce" prot="public" static="no">
+        <name>NRFX_TWI_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_TWI_Type *)reg, \
+    .cb    = {0},                 \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a TWI master driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="133" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga06897416b475f64c397f6ac2aa0cd51b" prot="public" static="no">
+        <name>NRFX_TWI_DEFAULT_CONFIG</name>
+        <param><defname>_pin_scl</defname></param>
+        <param><defname>_pin_sda</defname></param>
+        <initializer>{                                                                \
+    .scl                = _pin_scl,                              \
+    .sda                = _pin_sda,                              \
+    .frequency          = <ref refid="group__nrf__twi__hal_1gga4366397176d6e463a2e594be0d996a61a07af2ed5e83d9bd35903d51792856fa9" kindref="member">NRF_TWI_FREQ_100K</ref>,                     \
+    .interrupt_priority = <ref refid="group__nrfx__twi__config_1ga761563262c363158ae7620f7a2f36b5a" kindref="member">NRFX_TWI_DEFAULT_CONFIG_IRQ_PRIORITY</ref>,  \
+    .hold_bus_uninit    = false,                                 \
+}</initializer>
+        <briefdescription>
+<para>TWI master driver instance default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TWI with the following options:<itemizedlist>
+<listitem><para>clock frequency: 100 kHz</para>
+</listitem><listitem><para>disable bus holding after uninit</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_scl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="219" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d" prot="public" static="no">
+        <name>NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</name>
+        <initializer>(1UL &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>Flag indicating that the interrupt after each transfer will be suppressed, and the event handler will not be called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="229" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29" prot="public" static="no">
+        <name>NRFX_TWI_FLAG_TX_NO_STOP</name>
+        <initializer>(1UL &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>Flag indicating that the TX transfer will not end with a stop condition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="231" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga5684cab698a35c770a78854e348c2408" prot="public" static="no">
+        <name>NRFX_TWI_FLAG_SUSPEND</name>
+        <initializer>(1UL &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be suspended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="233" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1gaa9406d59abbc1f914a47edcb573ef683" prot="public" static="no">
+        <name>NRFX_TWI_XFER_DESC_TX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>{                                                   \
+    .type             = <ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a" kindref="member">NRFX_TWI_XFER_TX</ref>,           \
+    .address          = (addr),                     \
+    .primary_length   = (length),                   \
+    .secondary_length = 0,                          \
+    .p_primary_buf    = (p_data),                   \
+    .p_secondary_buf  = NULL,                       \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="236" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga9496c7354553841d40495f025f626dcf" prot="public" static="no">
+        <name>NRFX_TWI_XFER_DESC_RX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>{                                                   \
+    .type             = <ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2bacac11390a9257b1036b10cd77eaee53e2a" kindref="member">NRFX_TWI_XFER_RX</ref>,           \
+    .address          = (addr),                     \
+    .primary_length   = (length),                   \
+    .secondary_length = 0,                          \
+    .p_primary_buf    = (p_data),                   \
+    .p_secondary_buf  = NULL,                       \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="247" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga55f782b6a418104c143b4aafb2648e4a" prot="public" static="no">
+        <name>NRFX_TWI_XFER_DESC_TXRX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_rx</defname></param>
+        <param><defname>rx_len</defname></param>
+        <initializer>{                                                                 \
+    .type             = <ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca8339203b38c17da2f0793f02661b0e83" kindref="member">NRFX_TWI_XFER_TXRX</ref>,                       \
+    .address          = (addr),                                   \
+    .primary_length   = (tx_len),                                 \
+    .secondary_length = (rx_len),                                 \
+    .p_primary_buf    = (p_tx),                                   \
+    .p_secondary_buf  = (p_rx),                                   \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="258" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1gae5c32acc87146cdd3de969ad60085e08" prot="public" static="no">
+        <name>NRFX_TWI_XFER_DESC_TXTX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_tx2</defname></param>
+        <param><defname>tx_len2</defname></param>
+        <initializer>{                                                                   \
+    .type             = <ref refid="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca81c31707f88003a02ccc7fcd7beb0e1c" kindref="member">NRFX_TWI_XFER_TXTX</ref>,                         \
+    .address          = (addr),                                     \
+    .primary_length   = (tx_len),                                   \
+    .secondary_length = (tx_len2),                                  \
+    .p_primary_buf    = (p_tx),                                     \
+    .p_secondary_buf  = (p_tx2),                                    \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="269" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twi_1ga4b21ab166f6bbf178c291c00bdecc16b" prot="public" static="no">
+        <name>NRFX_TWI_INST_HANDLER_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" kindref="member">NRFX_CONCAT_3</ref>(nrfx_twi_, idx, _irq_handler)</initializer>
+        <briefdescription>
+<para>Macro returning TWI interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>param[in] idx TWI index.</para>
+<para><simplesect kind="return"><para>Interrupt handler. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twi.h" line="543" column="9" bodyfile="drivers/include/nrfx_twi.h" bodystart="543" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Two Wire Interface master (TWI) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

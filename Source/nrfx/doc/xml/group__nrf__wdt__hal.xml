@@ -1,0 +1,1585 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__wdt__hal" kind="group">
+    <compoundname>nrf_wdt_hal</compoundname>
+    <title>WDT HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_task_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1gga4e5aac87484fc059e81f79023c6676a3a0d3614cd25353ac839d48d79421d2db5" prot="public">
+          <name>NRF_WDT_TASK_START</name>
+          <initializer>= offsetof(NRF_WDT_Type, TASKS_START)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for starting WDT. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga4e5aac87484fc059e81f79023c6676a3a3e9f49a56fca50e986a0843233474b04" prot="public">
+          <name>NRF_WDT_TASK_STOP</name>
+          <initializer>= offsetof(NRF_WDT_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Task for stopping WDT. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="87" column="1" bodyfile="hal/nrf_wdt.h" bodystart="88" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_event_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1ggadca2b19e3bb4c0b4e1b3372ade1112eead466fd1643e86d6e541a468fd8e9d05d" prot="public">
+          <name>NRF_WDT_EVENT_TIMEOUT</name>
+          <initializer>= offsetof(NRF_WDT_Type, EVENTS_TIMEOUT)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from WDT time-out. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggadca2b19e3bb4c0b4e1b3372ade1112eea3e73212483c0db92e22c93ab5876f91b" prot="public">
+          <name>NRF_WDT_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_WDT_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event from WDT stop. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="96" column="1" bodyfile="hal/nrf_wdt.h" bodystart="97" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1ga51ff75754f3358c7f822eed5e925ec11" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_behaviour_mask_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1gga51ff75754f3358c7f822eed5e925ec11a239ddadb4006aaa013a77a6750b816f5" prot="public">
+          <name>NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK</name>
+          <initializer>= WDT_CONFIG_SLEEP_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>WDT will run when CPU is in SLEEP mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga51ff75754f3358c7f822eed5e925ec11ad9c510027f2ec11f7de9c940838b1dd9" prot="public">
+          <name>NRF_WDT_BEHAVIOUR_RUN_HALT_MASK</name>
+          <initializer>= WDT_CONFIG_HALT_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>WDT will run when CPU is in HALT mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga51ff75754f3358c7f822eed5e925ec11ab45037d2507feae02b663d268b4e7c2e" prot="public">
+          <name>NRF_WDT_BEHAVIOUR_STOP_ENABLE_MASK</name>
+          <initializer>= WDT_CONFIG_STOPEN_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>WDT allows stopping. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT behavior in the SLEEP or HALT CPU modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="105" column="1" bodyfile="hal/nrf_wdt.h" bodystart="106" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_rr_register_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682a72d7831db7b9a6a0550941a11112b7f7" prot="public">
+          <name>NRF_WDT_RR0</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682ae6a1af4921d76ce760f18b59b3f019f0" prot="public">
+          <name>NRF_WDT_RR1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682af4590924963428264d9db24e62f861a1" prot="public">
+          <name>NRF_WDT_RR2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682a61aa4c84aac04cab876faa44f3739545" prot="public">
+          <name>NRF_WDT_RR3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682a18bfcbdb8ace4091ac25de2c71e45d45" prot="public">
+          <name>NRF_WDT_RR4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682acba6f055b490c4f7bddc39e148dd5495" prot="public">
+          <name>NRF_WDT_RR5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682a280da3e21e70b175b2a515de2a293c30" prot="public">
+          <name>NRF_WDT_RR6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1ggad49f6a91acfd021376d8fe9281768682a9b76c8ea515eb5318ddb817a928e9fc0" prot="public">
+          <name>NRF_WDT_RR7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reload request register 7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT reload request registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="115" column="1" bodyfile="hal/nrf_wdt.h" bodystart="116" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1ga6508630a7983705b8d03ec7c5020a7ce" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_rr_register_mask_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea3e75e606f50eab0d970e12e58025b64d" prot="public">
+          <name>NRF_WDT_RR0_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR0)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea89c8a064d184599b47194ee468022673" prot="public">
+          <name>NRF_WDT_RR1_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR1)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea350f85bd3635b1923e76e7754512cbc9" prot="public">
+          <name>NRF_WDT_RR2_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR2)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea8f73ffc6e33595212af26254f2d87f5c" prot="public">
+          <name>NRF_WDT_RR3_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR3)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7ceaf58005fafb834a8fb89108dc8b782c03" prot="public">
+          <name>NRF_WDT_RR4_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR4)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea1604c6ceff6a9ee88ae47063a3578ea0" prot="public">
+          <name>NRF_WDT_RR5_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR5)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7cea4976f53e8f1ba19839db44e16d4f3c4b" prot="public">
+          <name>NRF_WDT_RR6_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR6)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga6508630a7983705b8d03ec7c5020a7ceab4dc067c258db038898749fe06bc2b78" prot="public">
+          <name>NRF_WDT_RR7_MASK</name>
+          <initializer>= (1UL &lt;&lt; NRF_WDT_RR7)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for reload request register 7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT reload request registers mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="128" column="1" bodyfile="hal/nrf_wdt.h" bodystart="129" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_wdt_int_mask_t</name>
+        <enumvalue id="group__nrf__wdt__hal_1gga481c5b1827479b7a63209de9877b010aa15cb5f84a1b1dfe1bc5fb99c83c73d00" prot="public">
+          <name>NRF_WDT_INT_TIMEOUT_MASK</name>
+          <initializer>= WDT_INTENSET_TIMEOUT_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>WDT interrupt from time-out event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__wdt__hal_1gga481c5b1827479b7a63209de9877b010aabd0c2d5c76d6f673668fa46749a623c6" prot="public">
+          <name>NRF_WDT_INT_STOPPED_MASK</name>
+          <initializer>= WDT_INTENSET_STOPPED_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>WDT interrupt from stop event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>WDT interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="141" column="1" bodyfile="hal/nrf_wdt.h" bodystart="142" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga44219f23caefddb85e133a42b6f114a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_behaviour_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_behaviour_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring the watchdog behaviour when the CPU is sleeping or halted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Watchdog behaviour mask, created using <ref refid="group__nrf__wdt__hal_1ga51ff75754f3358c7f822eed5e925ec11" kindref="member">nrf_wdt_behaviour_mask_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="432" column="24" bodyfile="hal/nrf_wdt.h" bodystart="432" bodyend="435" declfile="hal/nrf_wdt.h" declline="155" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga66aad1e4e88a9458112c970375fd8718" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_task_trigger</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_task_t task)</argsstring>
+        <name>nrf_wdt_task_trigger</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the WDT task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="437" column="24" bodyfile="hal/nrf_wdt.h" bodystart="437" bodyend="440" declfile="hal/nrf_wdt.h" declline="163" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga8d5067e43d1c58928a31cc3c84d8e08d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_event_clear</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_event_t event)</argsstring>
+        <name>nrf_wdt_event_clear</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the WDT event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="442" column="24" bodyfile="hal/nrf_wdt.h" bodystart="442" bodyend="446" declfile="hal/nrf_wdt.h" declline="171" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga664248cffeed5aa680e1818040d5dab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_wdt_event_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_event_t event)</argsstring>
+        <name>nrf_wdt_event_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the WDT event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="448" column="24" bodyfile="hal/nrf_wdt.h" bodystart="448" bodyend="451" declfile="hal/nrf_wdt.h" declline="182" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gaa243d4d85f5206b96ad92e6dd57f01ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_int_enable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_int_enable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="453" column="24" bodyfile="hal/nrf_wdt.h" bodystart="453" bodyend="456" declfile="hal/nrf_wdt.h" declline="191" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gaa2132aae8902dc53be3f9f198c481391" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_int_enable_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_int_enable_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="458" column="28" bodyfile="hal/nrf_wdt.h" bodystart="458" bodyend="461" declfile="hal/nrf_wdt.h" declline="202" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga21b5e30de36a42e46880e6b4522bc180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_int_disable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_int_disable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="463" column="24" bodyfile="hal/nrf_wdt.h" bodystart="463" bodyend="466" declfile="hal/nrf_wdt.h" declline="211" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gac363c745dac2e243f0eb7be6e8077bf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_nmi_int_enable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_nmi_int_enable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified non-maskable interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="469" column="24" bodyfile="hal/nrf_wdt.h" bodystart="469" bodyend="472" declfile="hal/nrf_wdt.h" declline="221" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga66862a6cd09925012188484576b38129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_nmi_int_enable_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_nmi_int_enable_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified non-maskable interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="474" column="28" bodyfile="hal/nrf_wdt.h" bodystart="474" bodyend="477" declfile="hal/nrf_wdt.h" declline="232" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gac7b24ea8bf137eed34ebbd89cf94e8a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_nmi_int_disable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_wdt_nmi_int_disable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a specified non-maskable interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__wdt__hal_1ga481c5b1827479b7a63209de9877b010a" kindref="member">nrf_wdt_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="479" column="24" bodyfile="hal/nrf_wdt.h" bodystart="479" bodyend="482" declfile="hal/nrf_wdt.h" declline="241" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga1a929dd644656b5524c503b6388dc5e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_subscribe_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_wdt_subscribe_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given WDT task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="253" column="24" declfile="hal/nrf_wdt.h" declline="253" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga100fb268417ad5fdbf3877ca706c143a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_subscribe_clear</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_task_t task)</argsstring>
+        <name>nrf_wdt_subscribe_clear</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given WDT task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="264" column="24" declfile="hal/nrf_wdt.h" declline="264" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gabd2d4356d53903ee2b6a0390075f6b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_subscribe_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_task_t task)</argsstring>
+        <name>nrf_wdt_subscribe_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given WDT task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>WDT subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="275" column="28" declfile="hal/nrf_wdt.h" declline="275" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga64782f6e042f47ca3919773b6f48cd74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_publish_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_wdt_publish_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given WDT event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="285" column="24" declfile="hal/nrf_wdt.h" declline="285" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga35f95a069e4b8fbe5cdb0f923608ffef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_publish_clear</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_event_t event)</argsstring>
+        <name>nrf_wdt_publish_clear</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given WDT event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="296" column="24" declfile="hal/nrf_wdt.h" declline="296" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gabba34c4df31a6ffafed48c9b54a7c6a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_publish_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_event_t event)</argsstring>
+        <name>nrf_wdt_publish_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given WDT event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>WDT publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="307" column="28" declfile="hal/nrf_wdt.h" declline="307" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga29693e6f06553d94326127f02022cee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_task_address_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_task_t task)</argsstring>
+        <name>nrf_wdt_task_address_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specific WDT task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of requested task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="525" column="28" bodyfile="hal/nrf_wdt.h" bodystart="525" bodyend="529" declfile="hal/nrf_wdt.h" declline="319" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga2e4529d1b6c2f4d10783a02d61637738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_event_address_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_event_t event)</argsstring>
+        <name>nrf_wdt_event_address_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specific WDT event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of requested event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="531" column="28" bodyfile="hal/nrf_wdt.h" bodystart="531" bodyend="535" declfile="hal/nrf_wdt.h" declline="330" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga9789202587287788aafbc8f6b9aae62e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_wdt_started_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg)</argsstring>
+        <name>nrf_wdt_started_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the watchdog status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is not started. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="537" column="24" bodyfile="hal/nrf_wdt.h" bodystart="537" bodyend="544" declfile="hal/nrf_wdt.h" declline="341" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gae0e05a9e5a690c93adf9568d6b1930bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_wdt_request_status_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_rr_register_t rr_register)</argsstring>
+        <name>nrf_wdt_request_status_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+          <declname>rr_register</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the watchdog reload request status for specified register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rr_register</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request register to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request is running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No reload requests are running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="546" column="24" bodyfile="hal/nrf_wdt.h" bodystart="546" bodyend="550" declfile="hal/nrf_wdt.h" declline="352" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga6b2e6ea8d899c4faa84e8e7b414d1fa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_request_status_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg)</argsstring>
+        <name>nrf_wdt_request_status_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the watchdog reload requests status mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Running reload requests mask, constructed with <ref refid="group__nrf__wdt__hal_1ga6508630a7983705b8d03ec7c5020a7ce" kindref="member">nrf_wdt_rr_register_mask_t</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="552" column="28" bodyfile="hal/nrf_wdt.h" bodystart="552" bodyend="555" declfile="hal/nrf_wdt.h" declline="362" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gaacc29ec5fdaf70c4d18771e1ed92f598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_reload_value_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, uint32_t reload_value)</argsstring>
+        <name>nrf_wdt_reload_value_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>reload_value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the watchdog reload value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reload_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Watchdog counter initial value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="557" column="24" bodyfile="hal/nrf_wdt.h" bodystart="557" bodyend="560" declfile="hal/nrf_wdt.h" declline="370" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga5cd04d4c6cb73debcf8c01c3d5cb1a76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_wdt_reload_value_get</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg)</argsstring>
+        <name>nrf_wdt_reload_value_get</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the watchdog reload value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reload value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="562" column="28" bodyfile="hal/nrf_wdt.h" bodystart="562" bodyend="565" declfile="hal/nrf_wdt.h" declline="379" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga6a07464995565bfe144d18900eba3514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_reload_request_enable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_rr_register_t rr_register)</argsstring>
+        <name>nrf_wdt_reload_request_enable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+          <declname>rr_register</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling a specific reload request register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rr_register</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request register to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="567" column="24" bodyfile="hal/nrf_wdt.h" bodystart="567" bodyend="571" declfile="hal/nrf_wdt.h" declline="387" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga21346521f29d3895edae8e0a692741fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_reload_request_disable</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_rr_register_t rr_register)</argsstring>
+        <name>nrf_wdt_reload_request_disable</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+          <declname>rr_register</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a specific reload request register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rr_register</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request register to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="573" column="24" bodyfile="hal/nrf_wdt.h" bodystart="573" bodyend="577" declfile="hal/nrf_wdt.h" declline="396" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gaa3a48c55dff5f1f9b96d4f91102ade33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_wdt_reload_request_enable_check</definition>
+        <argsstring>(NRF_WDT_Type const *p_reg, nrf_wdt_rr_register_t rr_register)</argsstring>
+        <name>nrf_wdt_reload_request_enable_check</name>
+        <param>
+          <type>NRF_WDT_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+          <declname>rr_register</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the status of a specific reload request register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rr_register</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request register to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The reload request register is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The reload request register is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="579" column="24" bodyfile="hal/nrf_wdt.h" bodystart="579" bodyend="583" declfile="hal/nrf_wdt.h" declline="408" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1ga190ad953fc0c2c3422b6c63f78221875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_reload_request_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, nrf_wdt_rr_register_t rr_register)</argsstring>
+        <name>nrf_wdt_reload_request_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+          <declname>rr_register</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting a specific reload request register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rr_register</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reload request register to set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="585" column="24" bodyfile="hal/nrf_wdt.h" bodystart="585" bodyend="589" declfile="hal/nrf_wdt.h" declline="417" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__wdt__hal_1gad759789ffc8883f02fa5312a68e81836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_wdt_task_stop_enable_set</definition>
+        <argsstring>(NRF_WDT_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_wdt_task_stop_enable_set</name>
+        <param>
+          <type>NRF_WDT_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling stopping the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if stopping is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="592" column="24" bodyfile="hal/nrf_wdt.h" bodystart="592" bodyend="595" declfile="hal/nrf_wdt.h" declline="427" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__wdt__hal_1gae9f382f4b1dd581729bac1c58d1c75e8" prot="public" static="no">
+        <name>NRF_WDT_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, WDT, idx)</initializer>
+        <briefdescription>
+<para>Macro getting pointer to the structure of registers of the WDT peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>WDT instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the WDT peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="61" column="9" bodyfile="hal/nrf_wdt.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__wdt__hal_1ga2222c8a787c1f34c35fe69c94c8d4960" prot="public" static="no">
+        <name>NRF_WDT_HAS_STOP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of Task STOP functionality. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="65" column="9" bodyfile="hal/nrf_wdt.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__wdt__hal_1ga3821b77e97ee2fb1ed4e99151f59dd11" prot="public" static="no">
+        <name>NRF_WDT_HAS_NMI</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of non-maskable interrupt configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="72" column="9" bodyfile="hal/nrf_wdt.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__wdt__hal_1ga5702bdf7b7c033caa5f6750bd0a5fdc5" prot="public" static="no">
+        <name>NRF_WDT_CHANNEL_NUMBER</name>
+        <initializer>WDT_RR_MaxCount</initializer>
+        <briefdescription>
+<para>Number of WDT channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="78" column="9" bodyfile="hal/nrf_wdt.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__wdt__hal_1ga0f15154f342cd01e71a5148f9d9752f6" prot="public" static="no">
+        <name>NRF_WDT_RR_VALUE</name>
+        <initializer>WDT_RR_RR_Reload</initializer>
+        <briefdescription>
+<para>WDT register reload value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="81" column="9" bodyfile="hal/nrf_wdt.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__wdt__hal_1ga17d30c5e4cde62e785e5e72006307573" prot="public" static="no">
+        <name>NRF_WDT_RR_VALUE_MS</name>
+        <initializer>0x07CFFFFFUL</initializer>
+        <briefdescription>
+<para>WDT maximum reload value in miliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_wdt.h" line="84" column="9" bodyfile="hal/nrf_wdt.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Watchdog Timer (WDT) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

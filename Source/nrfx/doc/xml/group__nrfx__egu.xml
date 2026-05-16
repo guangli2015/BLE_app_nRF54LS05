@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__egu" kind="group">
+    <compoundname>nrfx_egu</compoundname>
+    <title>EGU driver</title>
+    <innerclass refid="structnrfx__egu__t" prot="public">nrfx_egu_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__egu_1ga844bba4c5bcfb030b71a17ef135681dc" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_egu_event_handler_t) (uint8_t event_idx, void *p_context)</definition>
+        <argsstring>)(uint8_t event_idx, void *p_context)</argsstring>
+        <name>nrfx_egu_event_handler_t</name>
+        <briefdescription>
+<para>EGU driver event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event that generated the interrupt. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the event handler. Set on initialization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="58" column="9" bodyfile="drivers/include/nrfx_egu.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__egu_1ga83d0c34bc897f3730f8d38347f8a2a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_egu_init</definition>
+        <argsstring>(nrfx_egu_t *p_instance, uint8_t interrupt_priority, nrfx_egu_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_egu_init</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>interrupt_priority</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__egu_1ga844bba4c5bcfb030b71a17ef135681dc" kindref="member">nrfx_egu_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">interrupt_priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt priority. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. In case of providing NULL, event notifications are not done and EGU interrupts are disabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="95" column="5" declfile="drivers/include/nrfx_egu.h" declline="95" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1gadac62f0c4c7115319550c52b8aaf187f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_egu_int_enable</definition>
+        <argsstring>(nrfx_egu_t *p_instance, uint32_t mask)</argsstring>
+        <name>nrfx_egu_int_enable</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling interrupts on specified events of a given EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of events with interrupts to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="106" column="6" declfile="drivers/include/nrfx_egu.h" declline="106" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1ga078dda8d3a8eabc0b12581a2eb136b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_egu_task_address_get</definition>
+        <argsstring>(nrfx_egu_t const *p_instance, nrf_egu_task_t task)</argsstring>
+        <name>nrfx_egu_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__egu__hal_1gaad68fb4ae35283a506e3231ffe8ccf5c" kindref="member">nrf_egu_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified EGU task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EGU task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="173" column="29" bodyfile="drivers/include/nrfx_egu.h" bodystart="173" bodyend="177" declfile="drivers/include/nrfx_egu.h" declline="116" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1ga9cd06a129820fae45d5cfa406d73a97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_egu_event_address_get</definition>
+        <argsstring>(nrfx_egu_t const *p_instance, nrf_egu_event_t event)</argsstring>
+        <name>nrfx_egu_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__egu__hal_1ga9183c09f1bac5cba4a7b01601ea8cae4" kindref="member">nrf_egu_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified EGU event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EGU event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="179" column="29" bodyfile="drivers/include/nrfx_egu.h" bodystart="179" bodyend="183" declfile="drivers/include/nrfx_egu.h" declline="127" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1gaad4df6663486a831bcaada5803cb74ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_egu_int_disable</definition>
+        <argsstring>(nrfx_egu_t *p_instance, uint32_t mask)</argsstring>
+        <name>nrfx_egu_int_disable</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling interrupts on specified events of a given EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of events with interrupts to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="136" column="6" declfile="drivers/include/nrfx_egu.h" declline="136" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1gae578eaaa99b002b2f599bd5def0783dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_egu_trigger</definition>
+        <argsstring>(nrfx_egu_t *p_instance, uint8_t event_idx)</argsstring>
+        <name>nrfx_egu_trigger</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_idx</declname>
+        </param>
+        <briefdescription>
+<para>Function for triggering an event specified by <computeroutput>event_idx</computeroutput> of a given EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event to be triggered. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="144" column="6" declfile="drivers/include/nrfx_egu.h" declline="144" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1ga34029b7252ce7aa3aab0abe7f1ae2ca9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_egu_uninit</definition>
+        <argsstring>(nrfx_egu_t *p_instance)</argsstring>
+        <name>nrfx_egu_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="151" column="6" declfile="drivers/include/nrfx_egu.h" declline="151" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1ga818a9b192a9b26b587784322f3783aad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_egu_init_check</definition>
+        <argsstring>(nrfx_egu_t const *p_instance)</argsstring>
+        <name>nrfx_egu_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the EGU driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="161" column="6" declfile="drivers/include/nrfx_egu.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__egu_1gacb13149100cbce6d1d531ea6f424db79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_egu_irq_handler</definition>
+        <argsstring>(nrfx_egu_t *p_instance)</argsstring>
+        <name>nrfx_egu_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="191" column="6" declfile="drivers/include/nrfx_egu.h" declline="191" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__egu_1ga6f4e3b805cc5bdb231314a4dc0738599" prot="public" static="no">
+        <name>NRFX_EGU_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_EGU_Type *)reg, \
+    .cb    = {0},                 \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an EGU driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="77" column="9" bodyfile="drivers/include/nrfx_egu.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__egu_1gaff744701de7839b469fcf694425ab75f" prot="public" static="no">
+        <name>NRFX_EGU_INST_HANDLER_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" kindref="member">NRFX_CONCAT_3</ref>(nrfx_egu_, idx, _irq_handler)</initializer>
+        <briefdescription>
+<para>Macro returning EGU interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>param[in] idx EGU index.</para>
+<para><simplesect kind="return"><para>Interrupt handler. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_egu.h" line="170" column="9" bodyfile="drivers/include/nrfx_egu.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Event Generator Unit (EGU) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

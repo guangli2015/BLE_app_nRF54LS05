@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__adc_8h" kind="file" language="C++">
+    <compoundname>nrfx_adc.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__adc_8h" local="no">hal/nrf_adc.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_adc.h</label>
+        <link refid="nrfx__adc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__adc__done__evt__t" prot="public">nrfx_adc_done_evt_t</innerclass>
+    <innerclass refid="structnrfx__adc__sample__evt__t" prot="public">nrfx_adc_sample_evt_t</innerclass>
+    <innerclass refid="structnrfx__adc__evt__t" prot="public">nrfx_adc_evt_t</innerclass>
+    <innerclass refid="structnrfx__adc__channel__s" prot="public">nrfx_adc_channel_s</innerclass>
+    <innerclass refid="structnrfx__adc__config__t" prot="public">nrfx_adc_config_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__adc_1gab397a529290a801046af5014ba7c52bf" prot="public" static="no">
+        <name>NRFX_ADC_DEFAULT_CHANNEL</name>
+        <param><defname>analog_input</defname></param>
+        <initializer>{                                                              \
+    NULL,                                                      \
+    {                                                          \
+        .resolution = <ref refid="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1a8bdf17e186ff6caae203defd5581ab5f" kindref="member">NRF_ADC_CONFIG_RES_10BIT</ref>,                \
+        .scaling    = <ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa22a8204b4afc86cf5cdcbc268b2cd7d3" kindref="member">NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE</ref>, \
+        .reference  = <ref refid="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca020cf59f6939b0ff592ed74b37ae7d0a" kindref="member">NRF_ADC_CONFIG_REF_VBG</ref>,                  \
+        .input      = (<ref refid="group__nrf__adc__hal_1ga7efdf26b2463b9e15aaaaffa76ee224f" kindref="member">nrf_adc_config_input_t</ref>)analog_input,    \
+        .extref     = <ref refid="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3ba84b1b26b3f4382a16962ff978aee69f9" kindref="member">NRF_ADC_CONFIG_EXTREFSEL_NONE</ref>            \
+    }                                                          \
+}</initializer>
+        <briefdescription>
+<para>ADC channel default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up ADC channel with the following options:<itemizedlist>
+<listitem><para>10 bits resolution</para>
+</listitem><listitem><para>full scale input</para>
+</listitem><listitem><para>reference voltage: 1.2 V</para>
+</listitem><listitem><para>external reference input disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">analog_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Analog input. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="93" column="9" bodyfile="drivers/include/nrfx_adc.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__adc_1ga66ba6d3bdea06a27fe780cbf5f79392e" prot="public" static="no">
+        <name>NRFX_ADC_DEFAULT_CONFIG</name>
+        <initializer>{                                                              \
+    .interrupt_priority = NRFX_ADC_DEFAULT_CONFIG_IRQ_PRIORITY \
+}</initializer>
+        <briefdescription>
+<para>ADC default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="127" column="9" bodyfile="drivers/include/nrfx_adc.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__adc_1ga9f4099880e8e97943b648a988ad6f920" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_adc_evt_type_t</name>
+        <enumvalue id="group__nrfx__adc_1gga9f4099880e8e97943b648a988ad6f920ade7ed5252ac9efd80bdd0100950dacd3" prot="public">
+          <name>NRFX_ADC_EVT_DONE</name>
+          <briefdescription>
+<para>Event generated when the buffer is filled with samples. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__adc_1gga9f4099880e8e97943b648a988ad6f920a32f6ccf80a510ab185bc716ed0efe230" prot="public">
+          <name>NRFX_ADC_EVT_SAMPLE</name>
+          <briefdescription>
+<para>Event generated when the requested channel is sampled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="52" column="1" bodyfile="drivers/include/nrfx_adc.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__adc_1gaa9e073b45c9bd5dc267b6ac5157de6a3" prot="public" static="no">
+        <type>struct <ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_s</ref></type>
+        <definition>typedef struct nrfx_adc_channel_s nrfx_adc_channel_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_adc_channel_t</name>
+        <briefdescription>
+<para>Forward declaration of the nrfx_adc_channel_t type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="106" column="33" bodyfile="drivers/include/nrfx_adc.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__adc_1gaa6a6022c699118501697ec60b947ac1a" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_adc_event_handler_t) (nrfx_adc_evt_t const *p_event)</definition>
+        <argsstring>)(nrfx_adc_evt_t const *p_event)</argsstring>
+        <name>nrfx_adc_event_handler_t</name>
+        <briefdescription>
+<para>User event handler prototype. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is called when the requested number of samples has been processed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="139" column="9" bodyfile="drivers/include/nrfx_adc.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__adc_1ga5143935271ffc0f369dda95b5c8ea137" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_adc_init</definition>
+        <argsstring>(nrfx_adc_config_t const *p_config, nrfx_adc_event_handler_t event_handler)</argsstring>
+        <name>nrfx_adc_init</name>
+        <param>
+          <type><ref refid="structnrfx__adc__config__t" kindref="compound">nrfx_adc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__adc_1gaa6a6022c699118501697ec60b947ac1a" kindref="member">nrfx_adc_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the ADC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a valid event handler is provided, the driver is initialized in non-blocking mode. If event_handler is NULL, the driver works in blocking mode.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="153" column="5" declfile="drivers/include/nrfx_adc.h" declline="153" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga5e30a87be2798c4d5d9d2862cb538315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the ADC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function stops all ongoing conversions and disables all channels. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="161" column="6" declfile="drivers/include/nrfx_adc.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga2b6f21096cd32a893a5d54044833342f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_adc_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the ADC driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="169" column="6" declfile="drivers/include/nrfx_adc.h" declline="169" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1gafda522bd00c34751ff50b2e11b9b58de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_channel_enable</definition>
+        <argsstring>(nrfx_adc_channel_t *const p_channel)</argsstring>
+        <name>nrfx_adc_channel_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__adc_1gaa9e073b45c9bd5dc267b6ac5157de6a3" kindref="member">nrfx_adc_channel_t</ref> *const</type>
+          <declname>p_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling an ADC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function configures and enables the channel. When <ref refid="group__nrfx__adc_1ga714a3b01941e838af9b7a6a9f4cdc152" kindref="member">nrfx_adc_buffer_convert</ref> is called, all channels that have been enabled with this function are sampled.</para>
+<para>This function can be called only when there is no conversion in progress (the ADC is not busy).</para>
+<para><simplesect kind="note"><para>The channel instance variable <computeroutput>p_channel</computeroutput> is used by the driver as an item in a list. Therefore, it cannot be an automatic variable that is located on the stack.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the channel instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="185" column="6" declfile="drivers/include/nrfx_adc.h" declline="185" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga839ac5a065c47998e12567abab4bff77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_channel_disable</definition>
+        <argsstring>(nrfx_adc_channel_t *const p_channel)</argsstring>
+        <name>nrfx_adc_channel_disable</name>
+        <param>
+          <type><ref refid="group__nrfx__adc_1gaa9e073b45c9bd5dc267b6ac5157de6a3" kindref="member">nrfx_adc_channel_t</ref> *const</type>
+          <declname>p_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling an ADC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be called only when there is no conversion in progress (the ADC is not busy).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the channel instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="195" column="6" declfile="drivers/include/nrfx_adc.h" declline="195" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga813d4738cc637109bc04f5ef983f3adc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_all_channels_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_all_channels_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling all ADC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be called only when there is no conversion in progress (the ADC is not busy). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="203" column="6" declfile="drivers/include/nrfx_adc.h" declline="203" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga746b04a256622cfdac02e9e16a4b80f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_sample</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_sample</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting ADC sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function triggers single ADC sampling. If more than one channel is enabled, the driver emulates scanning and all channels are sampled in the order they were enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="211" column="6" declfile="drivers/include/nrfx_adc.h" declline="211" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga2bcb6af7fd75c834ce4c11329b9ffd4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_adc_sample_convert</definition>
+        <argsstring>(nrfx_adc_channel_t const *p_channel, nrf_adc_value_t *p_value)</argsstring>
+        <name>nrfx_adc_sample_convert</name>
+        <param>
+          <type><ref refid="group__nrfx__adc_1gaa9e073b45c9bd5dc267b6ac5157de6a3" kindref="member">nrfx_adc_channel_t</ref> const *</type>
+          <declname>p_channel</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref> *</type>
+          <declname>p_value</declname>
+        </param>
+        <briefdescription>
+<para>Function for executing a single ADC conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function selects the desired input and starts a single conversion. If a valid pointer is provided for the result, the function blocks until the conversion is completed. Otherwise, the function returns when the conversion is started, and the result is provided in an event (driver must be initialized in non-blocking mode, otherwise an assertion will fail). The function will fail if ADC is busy. The channel does not need to be enabled to perform a single conversion.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the location where the result is to be placed. Unless NULL is provided, the function is blocking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conversion was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC driver is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="229" column="5" declfile="drivers/include/nrfx_adc.h" declline="229" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga714a3b01941e838af9b7a6a9f4cdc152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_adc_buffer_convert</definition>
+        <argsstring>(nrf_adc_value_t *buffer, uint16_t size)</argsstring>
+        <name>nrfx_adc_buffer_convert</name>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref> *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting data to the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the driver is initialized in non-blocking mode, this function returns when the first conversion is set up. When the buffer is filled, the application is notified by the event handler. If the driver is initialized in blocking mode, the function returns when the buffer is filled.</para>
+<para>Conversion is done on all enabled channels, but it is not triggered by this function. This function will prepare the ADC for sampling and then wait for the SAMPLE task. Sampling can be triggered manually by the <ref refid="group__nrfx__adc_1ga746b04a256622cfdac02e9e16a4b80f4" kindref="member">nrfx_adc_sample</ref> function or by PPI using the <ref refid="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaa5dad3f3202d9b32372f7b76d91338b87" kindref="member">NRF_ADC_TASK_START</ref> task.</para>
+<para><simplesect kind="note"><para>If more than one channel is enabled, the function emulates scanning, and a single START task will trigger conversion on all enabled channels. For example: If 3 channels are enabled and the user requests 6 samples, the completion event handler will be called after 2 START tasks.</para>
+</simplesect>
+<simplesect kind="note"><para>The application must adjust the sampling frequency. The maximum frequency depends on the sampling timer and the maximum latency of the ADC interrupt. If an interrupt is not handled before the next sampling is triggered, the sample will be lost.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer size in samples.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Conversion was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="261" column="5" declfile="drivers/include/nrfx_adc.h" declline="261" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga78047b346455f169ab1f71b058a9a9d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_adc_is_busy</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_is_busy</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the ADC state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is ready. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="269" column="6" declfile="drivers/include/nrfx_adc.h" declline="269" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__adc_1ga87638435f249e14b457aba357a154cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_adc_start_task_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_start_task_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the ADC START task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is used to get the address of the START task, which can be used to trigger ADC conversion.</para>
+<para><simplesect kind="return"><para>Start task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="282" column="29" bodyfile="drivers/include/nrfx_adc.h" bodystart="282" bodyend="285" declfile="drivers/include/nrfx_adc.h" declline="279" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__adc_8h_1a3a8c821e9e0c73ba44774de19d3e0e62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_adc_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_adc_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_adc.h" line="291" column="6" declfile="drivers/include/nrfx_adc.h" declline="291" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_ADC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_ADC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_adc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_adc<sp/>ADC<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_adc</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Analog-to-Digital<sp/>Converter<sp/>(ADC)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Driver<sp/>event<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__adc_1gga9f4099880e8e97943b648a988ad6f920ade7ed5252ac9efd80bdd0100950dacd3" kindref="member">NRFX_ADC_EVT_DONE</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>buffer<sp/>is<sp/>filled<sp/>with<sp/>samples.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__adc_1gga9f4099880e8e97943b648a988ad6f920a32f6ccf80a510ab185bc716ed0efe230" kindref="member">NRFX_ADC_EVT_SAMPLE</ref>,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>generated<sp/>when<sp/>the<sp/>requested<sp/>channel<sp/>is<sp/>sampled.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}<sp/><ref refid="group__nrfx__adc_1ga9f4099880e8e97943b648a988ad6f920" kindref="member">nrfx_adc_evt_type_t</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment">/**<sp/>@brief<sp/>ADC<sp/>driver<sp/>DONE<sp/>event<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structnrfx__adc__done__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/>*<sp/>p_buffer;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>buffer<sp/>with<sp/>converted<sp/>samples.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Number<sp/>of<sp/>samples<sp/>in<sp/>the<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="structnrfx__adc__done__evt__t" kindref="compound">nrfx_adc_done_evt_t</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**<sp/>@brief<sp/>SAMPLE<sp/>event<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="structnrfx__adc__sample__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/><sp/><sp/>sample;<sp/></highlight><highlight class="comment">///&lt;<sp/>Converted<sp/>sample.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="structnrfx__adc__sample__evt__t" kindref="compound">nrfx_adc_sample_evt_t</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/**<sp/>@brief<sp/>ADC<sp/>driver<sp/>event.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structnrfx__adc__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__adc_1ga9f4099880e8e97943b648a988ad6f920" kindref="member">nrfx_adc_evt_type_t</ref><sp/>type;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__adc__done__evt__t" kindref="compound">nrfx_adc_done_evt_t</ref><sp/><sp/><sp/>done;<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Data<sp/>for<sp/>DONE<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__adc__sample__evt__t" kindref="compound">nrfx_adc_sample_evt_t</ref><sp/>sample;<sp/></highlight><highlight class="comment">///&lt;<sp/>Data<sp/>for<sp/>SAMPLE<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>data;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Union<sp/>to<sp/>store<sp/>event<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="structnrfx__adc__evt__t" kindref="compound">nrfx_adc_evt_t</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>@brief<sp/>ADC<sp/>channel<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>ADC<sp/>channel<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/>-<sp/>10<sp/>bits<sp/>resolution</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>-<sp/>full<sp/>scale<sp/>input</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>-<sp/>reference<sp/>voltage:<sp/>1.2<sp/>V</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>-<sp/>external<sp/>reference<sp/>input<sp/>disabled</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>analog_input<sp/>Analog<sp/>input.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_ADC_DEFAULT_CHANNEL(analog_input)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NULL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.resolution<sp/>=<sp/>NRF_ADC_CONFIG_RES_10BIT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.scaling<sp/><sp/><sp/><sp/>=<sp/>NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE,<sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.reference<sp/><sp/>=<sp/>NRF_ADC_CONFIG_REF_VBG,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.input<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(nrf_adc_config_input_t)analog_input,<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.extref<sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_ADC_CONFIG_EXTREFSEL_NONE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment">/**<sp/>@brief<sp/>Forward<sp/>declaration<sp/>of<sp/>the<sp/>nrfx_adc_channel_t<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_s</ref><sp/><ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_t</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="108"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>@brief<sp/>ADC<sp/>channel.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>This<sp/>structure<sp/>is<sp/>defined<sp/>by<sp/>the<sp/>user<sp/>and<sp/>used<sp/>by<sp/>the<sp/>driver.<sp/>Therefore,<sp/>it<sp/>should</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*<sp/>not<sp/>be<sp/>defined<sp/>on<sp/>the<sp/>stack<sp/>as<sp/>a<sp/>local<sp/>variable.</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="structnrfx__adc__channel__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_s</ref></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_t</ref><sp/>*<sp/><ref refid="structnrfx__adc__channel__s_1add3c18c0ab7f1aacf3b666c4119975e5" kindref="member">p_next</ref>;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>next<sp/>enabled<sp/>channel<sp/>(for<sp/>internal<sp/>use).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrf__adc__config__t" kindref="compound">nrf_adc_config_t</ref><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__adc__channel__s_1a3fcde8bad0e6da38817e7138012bb4d2" kindref="member">config</ref>;<sp/></highlight><highlight class="comment">///&lt;<sp/>ADC<sp/>configuration<sp/>for<sp/>the<sp/>current<sp/>channel.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="120"><highlight class="comment">/**<sp/>@brief<sp/>ADC<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="structnrfx__adc__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>Priority<sp/>of<sp/>ADC<sp/>interrupt.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}<sp/><ref refid="structnrfx__adc__config__t" kindref="compound">nrfx_adc_config_t</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="126"><highlight class="comment">/**<sp/>@brief<sp/>ADC<sp/>default<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_ADC_DEFAULT_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_ADC_DEFAULT_CONFIG_IRQ_PRIORITY<sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@brief<sp/>User<sp/>event<sp/>handler<sp/>prototype.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>is<sp/>called<sp/>when<sp/>the<sp/>requested<sp/>number<sp/>of<sp/>samples<sp/>has<sp/>been<sp/>processed.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@param<sp/>p_event<sp/>Event.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__adc_1gaa6a6022c699118501697ec60b947ac1a" kindref="member">nrfx_adc_event_handler_t</ref>)(<ref refid="structnrfx__adc__evt__t" kindref="compound">nrfx_adc_evt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_event);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="141"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>ADC.</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>If<sp/>a<sp/>valid<sp/>event<sp/>handler<sp/>is<sp/>provided,<sp/>the<sp/>driver<sp/>is<sp/>initialized<sp/>in<sp/>non-blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*<sp/>If<sp/>event_handler<sp/>is<sp/>NULL,<sp/>the<sp/>driver<sp/>works<sp/>in<sp/>blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga5143935271ffc0f369dda95b5c8ea137" kindref="member">nrfx_adc_init</ref>(<ref refid="structnrfx__adc__config__t" kindref="compound">nrfx_adc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__adc_1gaa6a6022c699118501697ec60b947ac1a" kindref="member">nrfx_adc_event_handler_t</ref><sp/><sp/>event_handler);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="156"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>ADC.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>stops<sp/>all<sp/>ongoing<sp/>conversions<sp/>and<sp/>disables<sp/>all<sp/>channels.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga5e30a87be2798c4d5d9d2862cb538315" kindref="member">nrfx_adc_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>ADC<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga2b6f21096cd32a893a5d54044833342f" kindref="member">nrfx_adc_init_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="171"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>an<sp/>ADC<sp/>channel.</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>configures<sp/>and<sp/>enables<sp/>the<sp/>channel.<sp/>When<sp/>@ref<sp/>nrfx_adc_buffer_convert<sp/>is</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>called,<sp/>all<sp/>channels<sp/>that<sp/>have<sp/>been<sp/>enabled<sp/>with<sp/>this<sp/>function<sp/>are<sp/>sampled.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>can<sp/>be<sp/>called<sp/>only<sp/>when<sp/>there<sp/>is<sp/>no<sp/>conversion<sp/>in<sp/>progress</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>(the<sp/>ADC<sp/>is<sp/>not<sp/>busy).</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>channel<sp/>instance<sp/>variable<sp/>@p<sp/>p_channel<sp/>is<sp/>used<sp/>by<sp/>the<sp/>driver<sp/>as<sp/>an<sp/>item</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>a<sp/>list.<sp/>Therefore,<sp/>it<sp/>cannot<sp/>be<sp/>an<sp/>automatic<sp/>variable<sp/>that<sp/>is<sp/>located<sp/>on<sp/>the<sp/>stack.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_channel<sp/>Pointer<sp/>to<sp/>the<sp/>channel<sp/>instance.</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1gafda522bd00c34751ff50b2e11b9b58de" kindref="member">nrfx_adc_channel_enable</ref>(<ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_t</ref><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>p_channel);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="187"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>an<sp/>ADC<sp/>channel.</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>can<sp/>be<sp/>called<sp/>only<sp/>when<sp/>there<sp/>is<sp/>no<sp/>conversion<sp/>in<sp/>progress</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>(the<sp/>ADC<sp/>is<sp/>not<sp/>busy).</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/>@param<sp/>p_channel<sp/>Pointer<sp/>to<sp/>the<sp/>channel<sp/>instance.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga839ac5a065c47998e12567abab4bff77" kindref="member">nrfx_adc_channel_disable</ref>(<ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_t</ref><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>p_channel);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="197"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>all<sp/>ADC<sp/>channels.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>can<sp/>be<sp/>called<sp/>only<sp/>when<sp/>there<sp/>is<sp/>no<sp/>conversion<sp/>in<sp/>progress</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*<sp/>(the<sp/>ADC<sp/>is<sp/>not<sp/>busy).</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga813d4738cc637109bc04f5ef983f3adc" kindref="member">nrfx_adc_all_channels_disable</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="205"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>ADC<sp/>sampling.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>triggers<sp/>single<sp/>ADC<sp/>sampling.<sp/>If<sp/>more<sp/>than<sp/>one<sp/>channel<sp/>is<sp/>enabled,<sp/>the<sp/>driver</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/>emulates<sp/>scanning<sp/>and<sp/>all<sp/>channels<sp/>are<sp/>sampled<sp/>in<sp/>the<sp/>order<sp/>they<sp/>were<sp/>enabled.</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga746b04a256622cfdac02e9e16a4b80f4" kindref="member">nrfx_adc_sample</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="213"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>executing<sp/>a<sp/>single<sp/>ADC<sp/>conversion.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>selects<sp/>the<sp/>desired<sp/>input<sp/>and<sp/>starts<sp/>a<sp/>single<sp/>conversion.<sp/>If<sp/>a<sp/>valid<sp/>pointer</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*<sp/>is<sp/>provided<sp/>for<sp/>the<sp/>result,<sp/>the<sp/>function<sp/>blocks<sp/>until<sp/>the<sp/>conversion<sp/>is<sp/>completed.<sp/>Otherwise,<sp/>the</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>function<sp/>returns<sp/>when<sp/>the<sp/>conversion<sp/>is<sp/>started,<sp/>and<sp/>the<sp/>result<sp/>is<sp/>provided<sp/>in<sp/>an<sp/>event<sp/>(driver</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>must<sp/>be<sp/>initialized<sp/>in<sp/>non-blocking<sp/>mode,<sp/>otherwise<sp/>an<sp/>assertion<sp/>will<sp/>fail).<sp/>The<sp/>function<sp/>will</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>fail<sp/>if<sp/>ADC<sp/>is<sp/>busy.<sp/>The<sp/>channel<sp/>does<sp/>not<sp/>need<sp/>to<sp/>be<sp/>enabled<sp/>to<sp/>perform<sp/>a<sp/>single<sp/>conversion.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_channel<sp/>Channel.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_value<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>location<sp/>where<sp/>the<sp/>result<sp/>is<sp/>to<sp/>be<sp/>placed.<sp/>Unless<sp/>NULL<sp/>is</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>provided,<sp/>the<sp/>function<sp/>is<sp/>blocking.</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Conversion<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>The<sp/>ADC<sp/>driver<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga2bcb6af7fd75c834ce4c11329b9ffd4c" kindref="member">nrfx_adc_sample_convert</ref>(<ref refid="structnrfx__adc__channel__s" kindref="compound">nrfx_adc_channel_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_channel,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_value);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="232"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>converting<sp/>data<sp/>to<sp/>the<sp/>buffer.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>If<sp/>the<sp/>driver<sp/>is<sp/>initialized<sp/>in<sp/>non-blocking<sp/>mode,<sp/>this<sp/>function<sp/>returns<sp/>when<sp/>the<sp/>first</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/>conversion<sp/>is<sp/>set<sp/>up.<sp/>When<sp/>the<sp/>buffer<sp/>is<sp/>filled,<sp/>the<sp/>application<sp/>is<sp/>notified<sp/>by<sp/>the<sp/>event</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>handler.<sp/>If<sp/>the<sp/>driver<sp/>is<sp/>initialized<sp/>in<sp/>blocking<sp/>mode,<sp/>the<sp/>function<sp/>returns<sp/>when<sp/>the<sp/>buffer<sp/>is</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*<sp/>filled.</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>Conversion<sp/>is<sp/>done<sp/>on<sp/>all<sp/>enabled<sp/>channels,<sp/>but<sp/>it<sp/>is<sp/>not<sp/>triggered<sp/>by<sp/>this</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>function.<sp/>This<sp/>function<sp/>will<sp/>prepare<sp/>the<sp/>ADC<sp/>for<sp/>sampling<sp/>and<sp/>then</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>wait<sp/>for<sp/>the<sp/>SAMPLE<sp/>task.<sp/>Sampling<sp/>can<sp/>be<sp/>triggered<sp/>manually<sp/>by<sp/>the<sp/>@ref</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>nrfx_adc_sample<sp/>function<sp/>or<sp/>by<sp/>PPI<sp/>using<sp/>the<sp/>@ref<sp/>NRF_ADC_TASK_START<sp/>task.</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>@note<sp/>If<sp/>more<sp/>than<sp/>one<sp/>channel<sp/>is<sp/>enabled,<sp/>the<sp/>function<sp/>emulates<sp/>scanning,<sp/>and</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>a<sp/>single<sp/>START<sp/>task<sp/>will<sp/>trigger<sp/>conversion<sp/>on<sp/>all<sp/>enabled<sp/>channels.<sp/>For<sp/>example:</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*<sp/>If<sp/>3<sp/>channels<sp/>are<sp/>enabled<sp/>and<sp/>the<sp/>user<sp/>requests<sp/>6<sp/>samples,<sp/>the<sp/>completion<sp/>event</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*<sp/>handler<sp/>will<sp/>be<sp/>called<sp/>after<sp/>2<sp/>START<sp/>tasks.</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>application<sp/>must<sp/>adjust<sp/>the<sp/>sampling<sp/>frequency.<sp/>The<sp/>maximum<sp/>frequency</highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/>*<sp/>depends<sp/>on<sp/>the<sp/>sampling<sp/>timer<sp/>and<sp/>the<sp/>maximum<sp/>latency<sp/>of<sp/>the<sp/>ADC<sp/>interrupt.<sp/>If</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>an<sp/>interrupt<sp/>is<sp/>not<sp/>handled<sp/>before<sp/>the<sp/>next<sp/>sampling<sp/>is<sp/>triggered,<sp/>the<sp/>sample</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*<sp/>will<sp/>be<sp/>lost.</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>buffer<sp/>Result<sp/>buffer.</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>size<sp/><sp/><sp/>Buffer<sp/>size<sp/>in<sp/>samples.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Conversion<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>The<sp/>driver<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga714a3b01941e838af9b7a6a9f4cdc152" kindref="member">nrfx_adc_buffer_convert</ref>(<ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/>*<sp/>buffer,<sp/>uint16_t<sp/>size);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="263"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>retrieving<sp/>the<sp/>ADC<sp/>state.</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>ADC<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>ADC<sp/>is<sp/>ready.</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__adc_1ga78047b346455f169ab1f71b058a9a9d5" kindref="member">nrfx_adc_is_busy</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="271"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>the<sp/>ADC<sp/>START<sp/>task.</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>is<sp/>used<sp/>to<sp/>get<sp/>the<sp/>address<sp/>of<sp/>the<sp/>START<sp/>task,<sp/>which<sp/>can<sp/>be<sp/>used<sp/>to<sp/>trigger<sp/>ADC</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>conversion.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@return<sp/>Start<sp/>task<sp/>address.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__adc_1ga87638435f249e14b457aba357a154cf3" kindref="member">nrfx_adc_start_task_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__adc_1ga87638435f249e14b457aba357a154cf3" kindref="member">nrfx_adc_start_task_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1gab5c2bfd2d845732507f73ddc2b63f90a" kindref="member">nrf_adc_task_address_get</ref>(NRF_ADC,<sp/><ref refid="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaa5dad3f3202d9b32372f7b76d91338b87" kindref="member">NRF_ADC_TASK_START</ref>);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="288"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_adc_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_ADC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_adc.h"/>
+  </compounddef>
+</doxygen>

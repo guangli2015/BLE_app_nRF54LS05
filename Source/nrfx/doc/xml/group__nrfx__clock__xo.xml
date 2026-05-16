@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__clock__xo" kind="group">
+    <compoundname>nrfx_clock_xo</compoundname>
+    <title>XO driver</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__clock__xo_1ga0069d7109e9d3ede229d68f2775ec19d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_clock_xo_event_type_t</name>
+        <enumvalue id="group__nrfx__clock__xo_1gga0069d7109e9d3ede229d68f2775ec19da50573efa1656f05152bb5f9bd29e5ca1" prot="public">
+          <name>NRFX_CLOCK_XO_EVT_HFCLK_STARTED</name>
+          <initializer>= NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_HF_STARTED_MASK)</initializer>
+          <briefdescription>
+<para>XO has been started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>XO clock events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="54" column="1" bodyfile="drivers/include/nrfx_clock_xo.h" bodystart="55" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__clock__xo_1ga5f44f7410e8126a68db7b2acc878c17e" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_clock_xo_event_handler_t) (nrfx_clock_xo_event_type_t event)</definition>
+        <argsstring>)(nrfx_clock_xo_event_type_t event)</argsstring>
+        <name>nrfx_clock_xo_event_handler_t</name>
+        <briefdescription>
+<para>XO clock event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="72" column="9" bodyfile="drivers/include/nrfx_clock_xo.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__clock__xo_1gac722dd2d1178e454921ea2a017daab76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_xo_init</definition>
+        <argsstring>(nrfx_clock_xo_event_handler_t event_handler)</argsstring>
+        <name>nrfx_clock_xo_init</name>
+        <param>
+          <type><ref refid="group__nrfx__clock__xo_1ga5f44f7410e8126a68db7b2acc878c17e" kindref="member">nrfx_clock_xo_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing internal structures in the nrfx_clock_xo module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After initialization, the module is in power off state (clocks are not started).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If not provided, driver works in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="85" column="5" declfile="drivers/include/nrfx_clock_xo.h" declline="85" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1gae78db70642ad02baec7c330ecdc11b5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_xo_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_xo_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the clock module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="88" column="6" declfile="drivers/include/nrfx_clock_xo.h" declline="88" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1ga8b9419b7cfe6e256aac0d7d2c8376b3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_clock_xo_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_xo_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the clock driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="96" column="6" declfile="drivers/include/nrfx_clock_xo.h" declline="96" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1ga04749cfd31f867bf76346e9ed081a913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_xo_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_xo_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the XO clock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="99" column="6" declfile="drivers/include/nrfx_clock_xo.h" declline="99" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1gadddaf82c73607c631ab576dff40bda03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_xo_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_xo_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the XO clock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="102" column="6" declfile="drivers/include/nrfx_clock_xo.h" declline="102" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1ga4af17d495ea9e3024b1410ac6063f29f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_clock_xo_running_check</definition>
+        <argsstring>(nrf_clock_hfclk_t *p_clk_src)</argsstring>
+        <name>nrfx_clock_xo_running_check</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1gac89aad0e037b7aeefc5264a4dca76197" kindref="member">nrf_clock_hfclk_t</ref> *</type>
+          <declname>p_clk_src</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the XO clock state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_clk_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a clock source that is running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The XO clock is running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The XO clock is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="163" column="25" bodyfile="drivers/include/nrfx_clock_xo.h" bodystart="163" bodyend="167" declfile="drivers/include/nrfx_clock_xo.h" declline="112" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__xo_1gadf0361c9dd69c1bab71fb5d18f7faa38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_xo_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_xo_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>XO interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_xo.h" line="159" column="6" declfile="drivers/include/nrfx_clock_xo.h" declline="159" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>XO clock driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

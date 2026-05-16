@@ -1,0 +1,1608 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__timer_8h" kind="file" language="C++">
+    <compoundname>nrfx_timer.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__timer_8h" local="no">haly/nrfy_timer.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_timer.h</label>
+        <link refid="nrfx__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__timer__config__t" prot="public">nrfx_timer_config_t</innerclass>
+    <innerclass refid="structnrfx__timer__t" prot="public">nrfx_timer_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__timer_1gab08fba04ab603ad5833fb1d060323c5f" prot="public" static="no">
+        <name>NRFX_TIMER_DEFAULT_CONFIG</name>
+        <param><defname>_frequency</defname></param>
+        <initializer>{                                                                 \
+    .frequency          = _frequency,                             \
+    .mode               = <ref refid="group__nrf__timer__hal_1gga61044c286dc20ccb08df3988bc57a6f2ad7bea280ee3b3c84bd9e89e2dc7f1f41" kindref="member">NRF_TIMER_MODE_TIMER</ref>,                   \
+    .bit_width          = <ref refid="group__nrf__timer__hal_1gga567f81d672267a218a5b2f0155be3043a4c8f9ba039c905e7d207203ad06e8d4d" kindref="member">NRF_TIMER_BIT_WIDTH_16</ref>,                 \
+    .interrupt_priority = <ref refid="group__nrfx__timer__config_1gaad5afdcba3d444ec4f49bf92d594e40b" kindref="member">NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY</ref>, \
+    .p_context          = NULL                                    \
+}</initializer>
+        <briefdescription>
+<para>TIMER driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TIMER with the following options:<itemizedlist>
+<listitem><para>works as timer</para>
+</listitem><listitem><para>width: 16 bit</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer frequency in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="70" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gae1529d456574336a389af763096cc484" prot="public" static="no">
+        <name>NRFX_TIMER_FREQUENCY_STATIC_CHECK</name>
+        <param><defname>id</defname></param>
+        <param><defname>frequency</defname></param>
+        <initializer>        <ref refid="group__nrf__timer__hal_1ga039a5c273ecc5106956fd93ff587d7d8" kindref="member">NRF_TIMER_FREQUENCY_STATIC_CHECK</ref>(<ref refid="group__nrf__timer__hal_1ga2e0e97a97cb4193ec2bb6665c1d03ea4" kindref="member">NRF_TIMER_INST_GET</ref>(id), frequency)</initializer>
+        <briefdescription>
+<para>Macro for checking whether specified frequency can be achived for given timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Macro is using compile time assertion.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the specified timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired frequency value in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="87" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gadc337139f6cc9eb8be1fb9b9a6ab51f0" prot="public" static="no">
+        <name>NRFX_TIMER_BASE_FREQUENCY_GET</name>
+        <param><defname>p_instance</defname></param>
+        <initializer>        <ref refid="group__nrf__timer__hal_1ga018c5fef9d84458226b20249a4b28f6d" kindref="member">NRF_TIMER_BASE_FREQUENCY_GET</ref>((p_instance)-&gt;p_reg)</initializer>
+        <briefdescription>
+<para>Macro for getting base frequency value in Hz for a given timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="95" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__timer_1gaca158586dc862a10cb4ed6def758ea51" prot="public" static="no">
+        <name>NRFX_TIMER_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                   \
+    .p_reg = (NRF_TIMER_Type *)reg, \
+    .cb = {0},                      \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a timer driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="126" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_timer_event_handler_t) (nrf_timer_event_t event_type, void *p_context)</definition>
+        <argsstring>)(nrf_timer_event_t event_type, void *p_context)</argsstring>
+        <name>nrfx_timer_event_handler_t</name>
+        <briefdescription>
+<para>Timer driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>General purpose parameter set during initialization of the timer. This parameter can be used to pass additional information to the handler function, for example, the timer ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="107" column="9" bodyfile="drivers/include/nrfx_timer.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__timer_1gae1dc5cd697ba8ba87fb4a27826352ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_timer_init</definition>
+        <argsstring>(nrfx_timer_t *p_instance, nrfx_timer_config_t const *p_config, nrfx_timer_event_handler_t timer_event_handler)</argsstring>
+        <name>nrfx_timer_init</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" kindref="member">nrfx_timer_event_handler_t</ref></type>
+          <declname>timer_event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Can be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified frequency is not supported by the TIMER instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="143" column="5" declfile="drivers/include/nrfx_timer.h" declline="143" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf3781973f26baf1affdc7b19bb953f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_timer_reconfigure</definition>
+        <argsstring>(nrfx_timer_t *p_instance, nrfx_timer_config_t const *p_config)</argsstring>
+        <name>nrfx_timer_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified frequency is not supported by the TIMER instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is enabled and cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="158" column="5" declfile="drivers/include/nrfx_timer.h" declline="158" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga25c58d5caeea20fb474fad200dc97532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_uninit</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="166" column="6" declfile="drivers/include/nrfx_timer.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga0ab536a93aa49be49349b1e1a7c86822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_timer_init_check</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TIMER driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="176" column="6" declfile="drivers/include/nrfx_timer.h" declline="176" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gae3d96ec7234f718f13c3aa2256fb3ff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_enable</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_enable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for turning on the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="183" column="6" declfile="drivers/include/nrfx_timer.h" declline="183" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gab2c7cdce5d7b355331a597f436be284d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_disable</definition>
+        <argsstring>(nrfx_timer_t *p_instance)</argsstring>
+        <name>nrfx_timer_disable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for turning off the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The timer will allow to enter the lowest possible SYSTEM_ON state only after this function is called.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="193" column="6" declfile="drivers/include/nrfx_timer.h" declline="193" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga34804ca27610a4eaf5ea22530c55521c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_timer_is_enabled</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_is_enabled</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the timer state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="203" column="6" declfile="drivers/include/nrfx_timer.h" declline="203" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga3fa603bf05f19747f442dab48082b26c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_pause</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_pause</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for pausing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="210" column="6" declfile="drivers/include/nrfx_timer.h" declline="210" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga5160df8f634192b300dc056b959daa1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_resume</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_resume</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for resuming the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="217" column="6" declfile="drivers/include/nrfx_timer.h" declline="217" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gac6d492f568183f9caf6450d4258d4d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_clear</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_clear</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="224" column="6" declfile="drivers/include/nrfx_timer.h" declline="224" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga99be46982b90f37a307277847cb4446f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_increment</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_increment</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for incrementing the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="231" column="6" declfile="drivers/include/nrfx_timer.h" declline="231" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaedeb4f4f3dedc8c24e46416a68ccc74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_irq_handler</definition>
+        <argsstring>(nrfx_timer_t const *p_instance)</argsstring>
+        <name>nrfx_timer_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="238" column="6" declfile="drivers/include/nrfx_timer.h" declline="238" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga2ab8eee3cd5fe5288daa580354de368e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_task_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_task_t timer_task)</argsstring>
+        <name>nrfx_timer_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga1db410e4a6b7e38de383220b20724906" kindref="member">nrf_timer_task_t</ref></type>
+          <declname>timer_task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="373" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="373" bodyend="377" declfile="drivers/include/nrfx_timer.h" declline="248" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga8ddf77dd21d86aa805d12e34f4a6bf3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_capture_task_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_capture_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer capture task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="379" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="379" bodyend="384" declfile="drivers/include/nrfx_timer.h" declline="259" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gace4c7a97948efd518caf4d81f31c6345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_event_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_event_t timer_event)</argsstring>
+        <name>nrfx_timer_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga6c7c835fd175129175fe2c08237af3c3" kindref="member">nrf_timer_event_t</ref></type>
+          <declname>timer_event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="386" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="386" bodyend="390" declfile="drivers/include/nrfx_timer.h" declline="270" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf06f9d1e3055c73bdd4c4495823a812e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_compare_event_address_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified timer compare event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="392" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="392" bodyend="397" declfile="drivers/include/nrfx_timer.h" declline="281" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaf3672aa2cf9bacea8187b514c1ca4bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_capture</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel)</argsstring>
+        <name>nrfx_timer_capture</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for capturing the timer value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Captured value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="292" column="10" declfile="drivers/include/nrfx_timer.h" declline="292" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga496b2a519416b132dd6af05e0eacc477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_timer_capture_get</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel)</argsstring>
+        <name>nrfx_timer_capture_get</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the capture value from the specified channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function to read channel values when PPI is used for capturing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Captured value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="399" column="29" bodyfile="drivers/include/nrfx_timer.h" bodystart="399" bodyend="403" declfile="drivers/include/nrfx_timer.h" declline="304" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gaa3e8f898a384907e83d0eb4442bff917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel, uint32_t cc_value, bool enable_int)</argsstring>
+        <name>nrfx_timer_compare</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cc_value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_int</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the timer channel in compare mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Enable or disable the interrupt for the compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="315" column="6" declfile="drivers/include/nrfx_timer.h" declline="315" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga508dbcf01f2867f67bf1fb0f07e536d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_extended_compare</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, nrf_timer_cc_channel_t cc_channel, uint32_t cc_value, nrf_timer_short_mask_t timer_short_mask, bool enable_int)</argsstring>
+        <name>nrfx_timer_extended_compare</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref></type>
+          <declname>cc_channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cc_value</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__timer__hal_1ga1dee3ab20f9dfa38bacf2502a8d1688c" kindref="member">nrf_timer_short_mask_t</ref></type>
+          <declname>timer_short_mask</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_int</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the timer channel in the extended compare mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_short_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcut between the compare event on the channel and the timer task (STOP or CLEAR). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Enable or disable the interrupt for the compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="330" column="6" declfile="drivers/include/nrfx_timer.h" declline="330" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga1c286ccda89895468b47715bc3cd32ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_us_to_ticks</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t time_us)</argsstring>
+        <name>nrfx_timer_us_to_ticks</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_us</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting time in microseconds to timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in microseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="344" column="10" declfile="drivers/include/nrfx_timer.h" declline="344" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga382d2f16b258bc75e2fed6ef2e854324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_timer_ms_to_ticks</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t time_ms)</argsstring>
+        <name>nrfx_timer_ms_to_ticks</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_ms</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting time in milliseconds to timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in milliseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="354" column="10" declfile="drivers/include/nrfx_timer.h" declline="354" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1ga383f3b0a31b3c15f7694e630956ff924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare_int_enable</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_int_enable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling timer compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="362" column="6" declfile="drivers/include/nrfx_timer.h" declline="362" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__timer_1gac4eeecc3aa5e1bff45e76f33bd541b83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_timer_compare_int_disable</definition>
+        <argsstring>(nrfx_timer_t const *p_instance, uint32_t channel)</argsstring>
+        <name>nrfx_timer_compare_int_disable</name>
+        <param>
+          <type><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling timer compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_timer.h" line="370" column="6" declfile="drivers/include/nrfx_timer.h" declline="370" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_TIMER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TIMER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_timer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_timer<sp/>Timer<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_timer</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>TIMER<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>The<sp/>configuration<sp/>structure<sp/>of<sp/>the<sp/>timer<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structnrfx__timer__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frequency;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Frequency<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga61044c286dc20ccb08df3988bc57a6f2" kindref="member">nrf_timer_mode_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>mode;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Mode<sp/>of<sp/>operation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga567f81d672267a218a5b2f0155be3043" kindref="member">nrf_timer_bit_width_t</ref><sp/>bit_width;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Bit<sp/>width.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>Interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Context<sp/>passed<sp/>to<sp/>interrupt<sp/>handler.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>@brief<sp/>TIMER<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>TIMER<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>-<sp/>works<sp/>as<sp/>timer</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>-<sp/>width:<sp/>16<sp/>bit</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_frequency<sp/>Timer<sp/>frequency<sp/>in<sp/>Hz.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TIMER_DEFAULT_CONFIG(_frequency)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.frequency<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_frequency,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_TIMER_MODE_TIMER,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.bit_width<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_TIMER_BIT_WIDTH_16,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_TIMER_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/>\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_context<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>checking<sp/>whether<sp/>specified<sp/>frequency<sp/>can<sp/>be<sp/>achived<sp/>for<sp/>given<sp/>timer<sp/>instance.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>@note<sp/>Macro<sp/>is<sp/>using<sp/>compile<sp/>time<sp/>assertion.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>of<sp/>the<sp/>specified<sp/>timer<sp/>instance.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>frequency<sp/>Desired<sp/>frequency<sp/>value<sp/>in<sp/>Hz.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TIMER_FREQUENCY_STATIC_CHECK(id,<sp/>frequency)<sp/>\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRF_TIMER_FREQUENCY_STATIC_CHECK(NRF_TIMER_INST_GET(id),<sp/>frequency)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>getting<sp/>base<sp/>frequency<sp/>value<sp/>in<sp/>Hz<sp/>for<sp/>a<sp/>given<sp/>timer<sp/>instance.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TIMER_BASE_FREQUENCY_GET(p_instance)<sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRF_TIMER_BASE_FREQUENCY_GET((p_instance)-&gt;p_reg)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Timer<sp/>driver<sp/>event<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_type<sp/>Timer<sp/>event.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/>General<sp/>purpose<sp/>parameter<sp/>set<sp/>during<sp/>initialization<sp/>of</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>timer.<sp/>This<sp/>parameter<sp/>can<sp/>be<sp/>used<sp/>to<sp/>pass</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>additional<sp/>information<sp/>to<sp/>the<sp/>handler<sp/>function,<sp/>for</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>example,<sp/>the<sp/>timer<sp/>ID.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" kindref="member">nrfx_timer_event_handler_t</ref>)(<ref refid="group__nrf__timer__hal_1ga6c7c835fd175129175fe2c08237af3c3" kindref="member">nrf_timer_event_t</ref><sp/>event_type,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_context);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="109"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" kindref="member">nrfx_timer_event_handler_t</ref><sp/>handler;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>context;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}<sp/>nrfx_timer_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="118"><highlight class="comment">/**<sp/>@brief<sp/>Timer<sp/>driver<sp/>instance<sp/>data<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="structnrfx__timer__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_TIMER_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>TIMER<sp/>peripheral<sp/>instance<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_timer_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}<sp/><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="125"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>a<sp/>timer<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TIMER_INSTANCE(reg)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_reg<sp/>=<sp/>(NRF_TIMER_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/>=<sp/>{0},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>timer_event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Can<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/>Specified<sp/>frequency<sp/>is<sp/>not<sp/>supported<sp/>by<sp/>the<sp/>TIMER<sp/>instance.</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gae1dc5cd697ba8ba87fb4a27826352ff8" kindref="member">nrfx_timer_init</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529" kindref="member">nrfx_timer_event_handler_t</ref><sp/><sp/>timer_event_handler);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/><sp/><sp/><sp/>Specified<sp/>frequency<sp/>is<sp/>not<sp/>supported<sp/>by<sp/>the<sp/>TIMER<sp/>instance.</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>enabled<sp/>and<sp/>cannot<sp/>be<sp/>reconfigured.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gaf3781973f26baf1affdc7b19bb953f35" kindref="member">nrfx_timer_reconfigure</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__timer__config__t" kindref="compound">nrfx_timer_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="161"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga25c58d5caeea20fb474fad200dc97532" kindref="member">nrfx_timer_uninit</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="168"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>TIMER<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Instance<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Instance<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga0ab536a93aa49be49349b1e1a7c86822" kindref="member">nrfx_timer_init_check</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="178"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>turning<sp/>on<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gae3d96ec7234f718f13c3aa2256fb3ff7" kindref="member">nrfx_timer_enable</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="185"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>turning<sp/>off<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>The<sp/>timer<sp/>will<sp/>allow<sp/>to<sp/>enter<sp/>the<sp/>lowest<sp/>possible<sp/>SYSTEM_ON<sp/>state</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/>only<sp/>after<sp/>this<sp/>function<sp/>is<sp/>called.</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gab2c7cdce5d7b355331a597f436be284d" kindref="member">nrfx_timer_disable</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="195"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>the<sp/>timer<sp/>state.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Timer<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Timer<sp/>is<sp/>not<sp/>enabled.</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga34804ca27610a4eaf5ea22530c55521c" kindref="member">nrfx_timer_is_enabled</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="205"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>pausing<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga3fa603bf05f19747f442dab48082b26c" kindref="member">nrfx_timer_pause</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="212"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>resuming<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga5160df8f634192b300dc056b959daa1f" kindref="member">nrfx_timer_resume</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="219"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gac6d492f568183f9caf6450d4258d4d8d" kindref="member">nrfx_timer_clear</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="226"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>incrementing<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga99be46982b90f37a307277847cb4446f" kindref="member">nrfx_timer_increment</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="233"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gaedeb4f4f3dedc8c24e46416a68ccc74b" kindref="member">nrfx_timer_irq_handler</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="240"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>timer<sp/>task.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>timer_task<sp/>Timer<sp/>task.</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@return<sp/>Task<sp/>address.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga2ab8eee3cd5fe5288daa580354de368e" kindref="member">nrfx_timer_task_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga1db410e4a6b7e38de383220b20724906" kindref="member">nrf_timer_task_t</ref><sp/><sp/><sp/><sp/><sp/>timer_task);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="251"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>timer<sp/>capture<sp/>task.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/><sp/><sp/><sp/>Capture<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*<sp/>@return<sp/>Task<sp/>address.</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga8ddf77dd21d86aa805d12e34f4a6bf3d" kindref="member">nrfx_timer_capture_task_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="262"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>timer<sp/>event.</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>timer_event<sp/>Timer<sp/>event.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*<sp/>@return<sp/>Event<sp/>address.</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1gace4c7a97948efd518caf4d81f31c6345" kindref="member">nrfx_timer_event_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga6c7c835fd175129175fe2c08237af3c3" kindref="member">nrf_timer_event_t</ref><sp/><sp/><sp/><sp/>timer_event);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="273"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>timer<sp/>compare<sp/>event.</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/><sp/><sp/><sp/>Compare<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*<sp/>@return<sp/>Event<sp/>address.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1gaf06f9d1e3055c73bdd4c4495823a812e" kindref="member">nrfx_timer_compare_event_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="284"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>capturing<sp/>the<sp/>timer<sp/>value.</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_channel<sp/>Capture<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*<sp/>@return<sp/>Captured<sp/>value.</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__timer_1gaf3672aa2cf9bacea8187b514c1ca4bb9" kindref="member">nrfx_timer_capture</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref><sp/>cc_channel);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="294"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>capture<sp/>value<sp/>from<sp/>the<sp/>specified<sp/>channel.</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*<sp/>Use<sp/>this<sp/>function<sp/>to<sp/>read<sp/>channel<sp/>values<sp/>when<sp/>PPI<sp/>is<sp/>used<sp/>for<sp/>capturing.</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_channel<sp/>Capture<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*<sp/>@return<sp/>Captured<sp/>value.</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga496b2a519416b132dd6af05e0eacc477" kindref="member">nrfx_timer_capture_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref><sp/>cc_channel);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="307"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="308"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>timer<sp/>channel<sp/>in<sp/>compare<sp/>mode.</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_channel<sp/>Compare<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_value<sp/><sp/><sp/>Compare<sp/>value.</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>enable_int<sp/>Enable<sp/>or<sp/>disable<sp/>the<sp/>interrupt<sp/>for<sp/>the<sp/>compare<sp/>channel.</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gaa3e8f898a384907e83d0eb4442bff917" kindref="member">nrfx_timer_compare</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref><sp/>cc_channel,</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cc_value,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable_int);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="320"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>timer<sp/>channel<sp/>in<sp/>the<sp/>extended<sp/>compare<sp/>mode.</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_channel<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Compare<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>cc_value<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Compare<sp/>value.</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>timer_short_mask<sp/>Shortcut<sp/>between<sp/>the<sp/>compare<sp/>event<sp/>on<sp/>the<sp/>channel</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>the<sp/>timer<sp/>task<sp/>(STOP<sp/>or<sp/>CLEAR).</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>enable_int<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enable<sp/>or<sp/>disable<sp/>the<sp/>interrupt<sp/>for<sp/>the<sp/>compare<sp/>channel.</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga508dbcf01f2867f67bf1fb0f07e536d7" kindref="member">nrfx_timer_extended_compare</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref><sp/>cc_channel,</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cc_value,</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga1dee3ab20f9dfa38bacf2502a8d1688c" kindref="member">nrf_timer_short_mask_t</ref><sp/>timer_short_mask,</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable_int);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="336"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="337"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>converting<sp/>time<sp/>in<sp/>microseconds<sp/>to<sp/>timer<sp/>ticks.</highlight></codeline>
+<codeline lineno="338"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="340"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>time_us<sp/><sp/><sp/><sp/>Time<sp/>in<sp/>microseconds.</highlight></codeline>
+<codeline lineno="341"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="342"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>ticks.</highlight></codeline>
+<codeline lineno="343"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__timer_1ga1c286ccda89895468b47715bc3cd32ba" kindref="member">nrfx_timer_us_to_ticks</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/>uint32_t<sp/>time_us);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="346"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>converting<sp/>time<sp/>in<sp/>milliseconds<sp/>to<sp/>timer<sp/>ticks.</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="349"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>time_ms<sp/><sp/><sp/><sp/>Time<sp/>in<sp/>milliseconds.</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>ticks.</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__timer_1ga382d2f16b258bc75e2fed6ef2e854324" kindref="member">nrfx_timer_ms_to_ticks</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/>uint32_t<sp/>time_ms);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="356"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>timer<sp/>compare<sp/>interrupt.</highlight></codeline>
+<codeline lineno="358"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="359"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="360"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/><sp/><sp/><sp/>Compare<sp/>channel.</highlight></codeline>
+<codeline lineno="361"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1ga383f3b0a31b3c15f7694e630956ff924" kindref="member">nrfx_timer_compare_int_enable</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/>uint32_t<sp/>channel);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="364"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="365"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>timer<sp/>compare<sp/>interrupt.</highlight></codeline>
+<codeline lineno="366"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="367"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/><sp/><sp/><sp/>Compare<sp/>channel.</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__timer_1gac4eeecc3aa5e1bff45e76f33bd541b83" kindref="member">nrfx_timer_compare_int_disable</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/>uint32_t<sp/>channel);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga2ab8eee3cd5fe5288daa580354de368e" kindref="member">nrfx_timer_task_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga1db410e4a6b7e38de383220b20724906" kindref="member">nrf_timer_task_t</ref><sp/><sp/><sp/><sp/><sp/>timer_task)</highlight></codeline>
+<codeline lineno="375"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__timer_1gac1bf1cf18b1cdeb9b1feb0f3aedc0c44" kindref="member">nrfy_timer_task_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df" kindref="member">p_reg</ref>,<sp/>timer_task);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga8ddf77dd21d86aa805d12e34f4a6bf3d" kindref="member">nrfx_timer_capture_task_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel)</highlight></codeline>
+<codeline lineno="381"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__timer_1gac1bf1cf18b1cdeb9b1feb0f3aedc0c44" kindref="member">nrfy_timer_task_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df" kindref="member">p_reg</ref>,</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfy__timer_1gaa2d03138a5c1648a11d57392d56d8675" kindref="member">nrfy_timer_capture_task_get</ref>((uint8_t)channel));</highlight></codeline>
+<codeline lineno="384"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1gace4c7a97948efd518caf4d81f31c6345" kindref="member">nrfx_timer_event_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga6c7c835fd175129175fe2c08237af3c3" kindref="member">nrf_timer_event_t</ref><sp/><sp/><sp/><sp/>timer_event)</highlight></codeline>
+<codeline lineno="388"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__timer_1gac33c67632d00b9cc2f6ca83f1a0e6c6f" kindref="member">nrfy_timer_event_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df" kindref="member">p_reg</ref>,<sp/>timer_event);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1gaf06f9d1e3055c73bdd4c4495823a812e" kindref="member">nrfx_timer_compare_event_address_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel)</highlight></codeline>
+<codeline lineno="394"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__timer_1gac33c67632d00b9cc2f6ca83f1a0e6c6f" kindref="member">nrfy_timer_event_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df" kindref="member">p_reg</ref>,</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfy__timer_1ga8ad5ee070df1becba5b5e86e007c93ff" kindref="member">nrfy_timer_compare_event_get</ref>((uint8_t)channel));</highlight></codeline>
+<codeline lineno="397"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__timer_1ga496b2a519416b132dd6af05e0eacc477" kindref="member">nrfx_timer_capture_get</ref>(<ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__timer__hal_1ga21336e3aff87c90e95f08eff763d91a8" kindref="member">nrf_timer_cc_channel_t</ref><sp/>cc_channel)</highlight></codeline>
+<codeline lineno="401"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__timer_1ga6fc6d42f2fb43f09c80fc44d46cd7d2d" kindref="member">nrfy_timer_cc_get</ref>(p_instance-&gt;<ref refid="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df" kindref="member">p_reg</ref>,<sp/>cc_channel);</highlight></codeline>
+<codeline lineno="403"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="406"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="407"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_TIMER_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_timer.h"/>
+  </compounddef>
+</doxygen>

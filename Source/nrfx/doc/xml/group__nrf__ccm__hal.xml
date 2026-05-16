@@ -1,0 +1,2720 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__ccm__hal" kind="group">
+    <compoundname>nrf_ccm_hal</compoundname>
+    <title>AES CCM HAL</title>
+    <innerclass refid="structnrf__ccm__cnf__t" prot="public">nrf_ccm_cnf_t</innerclass>
+    <innerclass refid="structnrf__ccm__config__t" prot="public">nrf_ccm_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_task_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1gga2dede4b5a487f5846c0c27a00ecff430a963632466dea23d52ddce71010af0971" prot="public">
+          <name>NRF_CCM_TASK_KSGEN</name>
+          <initializer>= offsetof(NRF_CCM_Type, TASKS_KSGEN)</initializer>
+          <briefdescription>
+<para>Start generation of key-stream. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga2dede4b5a487f5846c0c27a00ecff430aadf9154d76e74b0e08d25d35d984ebb7" prot="public">
+          <name>NRF_CCM_TASK_START</name>
+          <initializer>= offsetof(NRF_CCM_Type, TASKS_CRYPT)</initializer>
+          <briefdescription>
+<para>Start encryption/decryption. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga2dede4b5a487f5846c0c27a00ecff430a9196c27a96d98e13ff3858a4e90bcb4c" prot="public">
+          <name>NRF_CCM_TASK_STOP</name>
+          <initializer>= offsetof(NRF_CCM_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stop encryption/decryption. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga2dede4b5a487f5846c0c27a00ecff430a9d47835d2ceee3e4450493ef71fed59d" prot="public">
+          <name>NRF_CCM_TASK_RATEOVERRIDE</name>
+          <initializer>= offsetof(NRF_CCM_Type, TASKS_RATEOVERRIDE)</initializer>
+          <briefdescription>
+<para>Override DATARATE setting in MODE register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="314" column="1" bodyfile="hal/nrf_ccm.h" bodystart="315" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_event_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1gga9de429cccef1f7a1e1dc63fe5563aa77ad6a75d343d39205ce1732d4a0e678e13" prot="public">
+          <name>NRF_CCM_EVENT_ENDKSGEN</name>
+          <initializer>= offsetof(NRF_CCM_Type, EVENTS_ENDKSGEN)</initializer>
+          <briefdescription>
+<para>Keystream generation complete. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga9de429cccef1f7a1e1dc63fe5563aa77ae925ee1545a1b987ab72a7e8aadc35b8" prot="public">
+          <name>NRF_CCM_EVENT_END</name>
+          <initializer>= offsetof(NRF_CCM_Type, EVENTS_ENDCRYPT)</initializer>
+          <briefdescription>
+<para>Encrypt/decrypt complete. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga9de429cccef1f7a1e1dc63fe5563aa77ac0dd8115c3f8e282e26af2cb49783d45" prot="public">
+          <name>NRF_CCM_EVENT_ERROR</name>
+          <initializer>= offsetof(NRF_CCM_Type, EVENTS_ERROR)</initializer>
+          <briefdescription>
+<para>CCM error event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="331" column="1" bodyfile="hal/nrf_ccm.h" bodystart="332" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1gac98b1cb2a24240168775e1e306c1ed07" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_short_mask_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1ggac98b1cb2a24240168775e1e306c1ed07ab71d819ce4b10b1b7919d877d7aa81f6" prot="public">
+          <name>NRF_CCM_SHORT_ENDKSGEN_START_MASK</name>
+          <initializer>= CCM_SHORTS_ENDKSGEN_CRYPT_Msk</initializer>
+          <briefdescription>
+<para>Shortcut for starting encryption/decryption when the key-stream generation is complete. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of CCM shorts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="346" column="1" bodyfile="hal/nrf_ccm.h" bodystart="347" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1gaadb9b1cc060488c2ce85c403c463a265" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_int_mask_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1ggaadb9b1cc060488c2ce85c403c463a265ae05a877f606e44e69a171f9261cbd47c" prot="public">
+          <name>NRF_CCM_INT_ENDKSGEN_MASK</name>
+          <initializer>= CCM_INTENSET_ENDKSGEN_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ENDKSGEN event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggaadb9b1cc060488c2ce85c403c463a265a5b371809f783d4fb6e115a573c073a96" prot="public">
+          <name>NRF_CCM_INT_END_MASK</name>
+          <initializer>= CCM_INTENSET_ENDCRYPT_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on encrypt/decrypt complete event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggaadb9b1cc060488c2ce85c403c463a265a68d7571388ad5ec246d5a80080a07091" prot="public">
+          <name>NRF_CCM_INT_ERROR_MASK</name>
+          <initializer>= CCM_INTENSET_ERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="353" column="1" bodyfile="hal/nrf_ccm.h" bodystart="354" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1gacfa3ca60c3a9a6b9775da8de55891e5b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_error_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1ggacfa3ca60c3a9a6b9775da8de55891e5ba2dd1bae8f04d727f464f206b0eb37815" prot="public">
+          <name>NRF_CCM_ERROR_NO_ERROR</name>
+          <initializer>= CCM_ERRORSTATUS_ERRORSTATUS_NoError</initializer>
+          <briefdescription>
+<para>No errors have occurred. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggacfa3ca60c3a9a6b9775da8de55891e5baaebc12191f6df8e41bdc0d102d17966f" prot="public">
+          <name>NRF_CCM_ERROR_PREMATURE_INPTR_END</name>
+          <initializer>= CCM_ERRORSTATUS_ERRORSTATUS_PrematureInptrEnd</initializer>
+          <briefdescription>
+<para>End of INPTR job list before CCM data structure was read. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggacfa3ca60c3a9a6b9775da8de55891e5ba86411b37a51403b4636dc64d8268ca72" prot="public">
+          <name>NRF_CCM_ERROR_PREMATURE_OUTPTR_END</name>
+          <initializer>= CCM_ERRORSTATUS_ERRORSTATUS_PrematureOutptrEnd</initializer>
+          <briefdescription>
+<para>End of OUTPTR job list before CCM data structure was read. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggacfa3ca60c3a9a6b9775da8de55891e5ba4c0966c6d17e808f2bb4b3120049889d" prot="public">
+          <name>NRF_CCM_ERROR_ENCRYPTION_TOO_SLOW</name>
+          <initializer>= CCM_ERRORSTATUS_ERRORSTATUS_EncryptionTooSlow</initializer>
+          <briefdescription>
+<para>Encryption did not complete in time. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM error status when ERROR event is generated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="368" column="1" bodyfile="hal/nrf_ccm.h" bodystart="369" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1ga185933f2c5689be81cc9d650565bcd11" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_mode_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1gga185933f2c5689be81cc9d650565bcd11a656f78f49e10703d7846cdbc27727560" prot="public">
+          <name>NRF_CCM_MODE_ENCRYPTION</name>
+          <initializer>= CCM_MODE_MODE_Encryption</initializer>
+          <briefdescription>
+<para>Encryption mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga185933f2c5689be81cc9d650565bcd11a4d52de2d041a8bf7daa3a7b4e2019ce7" prot="public">
+          <name>NRF_CCM_MODE_DECRYPTION</name>
+          <initializer>= CCM_MODE_MODE_Decryption</initializer>
+          <briefdescription>
+<para>Decryption mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga185933f2c5689be81cc9d650565bcd11ad8144303b3ff9d3bb6d423306c64fc22" prot="public">
+          <name>NRF_CCM_MODE_FAST_DECRYPTION</name>
+          <initializer>= CCM_MODE_MODE_FastDecryption</initializer>
+          <briefdescription>
+<para>Fast decryption mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM modes of operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="378" column="1" bodyfile="hal/nrf_ccm.h" bodystart="379" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1ga1d6e97200cb2c3f20d655240ea69d6a5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_datarate_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5a4075d59dac85992e79f845bea5939119" prot="public">
+          <name>NRF_CCM_DATARATE_125K</name>
+          <initializer>=  CCM_MODE_DATARATE_125Kbit</initializer>
+          <briefdescription>
+<para>125 Kbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5a9380eb3f003bde415820c8c6cf79d42e" prot="public">
+          <name>NRF_CCM_DATARATE_250K</name>
+          <initializer>= CCM_MODE_DATARATE_250Kbit</initializer>
+          <briefdescription>
+<para>250 Kbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5abd98c8c3e1f89e717a0cc540c76a2519" prot="public">
+          <name>NRF_CCM_DATARATE_500K</name>
+          <initializer>=  CCM_MODE_DATARATE_500Kbit</initializer>
+          <briefdescription>
+<para>500 Kbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5ae341f05e1f11b2ce06c68ddc5c2a33a4" prot="public">
+          <name>NRF_CCM_DATARATE_1M</name>
+          <initializer>= CCM_MODE_DATARATE_1Mbit</initializer>
+          <briefdescription>
+<para>1 Mbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5a942d8bfa56aab8fdea41ec89462e6e93" prot="public">
+          <name>NRF_CCM_DATARATE_2M</name>
+          <initializer>= CCM_MODE_DATARATE_2Mbit</initializer>
+          <briefdescription>
+<para>2 Mbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga1d6e97200cb2c3f20d655240ea69d6a5acc1328b84090c4387374a6045104ead5" prot="public">
+          <name>NRF_CCM_DATARATE_4M</name>
+          <initializer>= CCM_MODE_DATARATE_4Mbit</initializer>
+          <briefdescription>
+<para>4 Mbps. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM data rates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="389" column="1" bodyfile="hal/nrf_ccm.h" bodystart="390" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1gacc9f2441148c27bbdc146ced8eb37b9b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_protocol_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1ggacc9f2441148c27bbdc146ced8eb37b9baaa2f3f550b52ad06f53108e79fe9f347" prot="public">
+          <name>NRF_CCM_MODE_PROTOCOL_BLE</name>
+          <initializer>= CCM_MODE_PROTOCOL_Ble</initializer>
+          <briefdescription>
+<para>BLE packet format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggacc9f2441148c27bbdc146ced8eb37b9ba5602eb6f96c79bff0a2e3416c8f18111" prot="public">
+          <name>NRF_CCM_MODE_PROTOCOL_IEEE802154</name>
+          <initializer>= CCM_MODE_PROTOCOL_Ieee802154</initializer>
+          <briefdescription>
+<para>802.15.4 packet format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM protocol and packet format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="410" column="1" bodyfile="hal/nrf_ccm.h" bodystart="411" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1ga0168161f5b7fcfe2c8ce01e062d7a7e7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_length_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1gga0168161f5b7fcfe2c8ce01e062d7a7e7a55e5dda4a8402d2ce7845fa2cc622c73" prot="public">
+          <name>NRF_CCM_LENGTH_DEFAULT</name>
+          <initializer>= CCM_MODE_LENGTH_Default</initializer>
+          <briefdescription>
+<para>Default length. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1gga0168161f5b7fcfe2c8ce01e062d7a7e7a60fd1f50e556dd5b082e8c753c46fdc8" prot="public">
+          <name>NRF_CCM_LENGTH_EXTENDED</name>
+          <initializer>= CCM_MODE_LENGTH_Extended</initializer>
+          <briefdescription>
+<para>Extended length. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM packet length options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="423" column="1" bodyfile="hal/nrf_ccm.h" bodystart="424" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__ccm__hal_1gabec984e48ab599fc40b92b50aca99c6f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ccm_maclen_t</name>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa85ac004451f07973478cdd1699775f8c" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M0</name>
+          <initializer>= CCM_MODE_MACLEN_M0</initializer>
+          <briefdescription>
+<para>0 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa6cd03d8252695c31b0e38affb8be576b" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M4</name>
+          <initializer>= CCM_MODE_MACLEN_M4</initializer>
+          <briefdescription>
+<para>4 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fad9719f2a248cf404c2d26f45aef746ba" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M6</name>
+          <initializer>= CCM_MODE_MACLEN_M6</initializer>
+          <briefdescription>
+<para>6 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa271196bd769fb3a42cdfcf8defa09fe3" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M8</name>
+          <initializer>= CCM_MODE_MACLEN_M8</initializer>
+          <briefdescription>
+<para>8 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa7914e14522ae049627946739b7271394" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M10</name>
+          <initializer>= CCM_MODE_MACLEN_M10</initializer>
+          <briefdescription>
+<para>10 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa9cfd92a48cde722681a1e3e62e1142a0" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M12</name>
+          <initializer>= CCM_MODE_MACLEN_M12</initializer>
+          <briefdescription>
+<para>12 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa9d509ec59013296bb0301093836f9fca" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M14</name>
+          <initializer>= CCM_MODE_MACLEN_M14</initializer>
+          <briefdescription>
+<para>14 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ccm__hal_1ggabec984e48ab599fc40b92b50aca99c6fa691a489b3f7c8e6ed3159f2feb729fba" prot="public">
+          <name>NRF_CCM_MODE_MACLEN_M16</name>
+          <initializer>= CCM_MODE_MACLEN_M16</initializer>
+          <briefdescription>
+<para>16 bytes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CCM MAC length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="432" column="1" bodyfile="hal/nrf_ccm.h" bodystart="433" bodyend="442"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga9a85224f11dfad88732218ebe03f9c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_task_trigger</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_task_t task)</argsstring>
+        <name>nrf_ccm_task_trigger</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" kindref="member">nrf_ccm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating a specific CCM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="974" column="24" bodyfile="hal/nrf_ccm.h" bodystart="974" bodyend="978" declfile="hal/nrf_ccm.h" declline="469" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gab7220271df70c4ef04d6552f6fbf74de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_task_address_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, nrf_ccm_task_t task)</argsstring>
+        <name>nrf_ccm_task_address_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" kindref="member">nrf_ccm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a specific CCM task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="980" column="28" bodyfile="hal/nrf_ccm.h" bodystart="980" bodyend="984" declfile="hal/nrf_ccm.h" declline="480" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gad8be593b9eefbedd85e38151bf5832a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_event_clear</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_event_t event)</argsstring>
+        <name>nrf_ccm_event_clear</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a specific CCM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="986" column="24" bodyfile="hal/nrf_ccm.h" bodystart="986" bodyend="991" declfile="hal/nrf_ccm.h" declline="489" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaa2be743c1ef1304bf7c9b6d98ac548c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_ccm_event_check</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, nrf_ccm_event_t event)</argsstring>
+        <name>nrf_ccm_event_check</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of a specific CCM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="993" column="24" bodyfile="hal/nrf_ccm.h" bodystart="993" bodyend="997" declfile="hal/nrf_ccm.h" declline="501" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga5c1679029c4fcf09c3445b170b6ffa19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_event_address_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, nrf_ccm_event_t event)</argsstring>
+        <name>nrf_ccm_event_address_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a specific CCM event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="999" column="28" bodyfile="hal/nrf_ccm.h" bodystart="999" bodyend="1003" declfile="hal/nrf_ccm.h" declline="512" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga79505962cc22e5fb88b8456fd43b4b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_shorts_enable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_shorts_enable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1006" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1006" bodyend="1010" declfile="hal/nrf_ccm.h" declline="522" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gae16fcf6c83ad1d93d46fdaa3789dfbf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_shorts_disable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_shorts_disable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1012" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1012" bodyend="1016" declfile="hal/nrf_ccm.h" declline="531" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga7bb97ad8b7a96d5f1b4c6286da79ba80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_shorts_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_shorts_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the specified shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1018" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1018" bodyend="1022" declfile="hal/nrf_ccm.h" declline="540" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gae6cdb42da4118ce6a51568699564344a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_int_enable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_int_enable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__ccm__hal_1gaadb9b1cc060488c2ce85c403c463a265" kindref="member">nrf_ccm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1025" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1025" bodyend="1028" declfile="hal/nrf_ccm.h" declline="551" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga2b494a0518dd061b247ff341be45b025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_int_disable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_int_disable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__ccm__hal_1gaadb9b1cc060488c2ce85c403c463a265" kindref="member">nrf_ccm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1030" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1030" bodyend="1033" declfile="hal/nrf_ccm.h" declline="560" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga8867c93af39791438608b49d634597b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_int_enable_check</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_ccm_int_enable_check</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__ccm__hal_1gaadb9b1cc060488c2ce85c403c463a265" kindref="member">nrf_ccm_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1035" column="28" bodyfile="hal/nrf_ccm.h" bodystart="1035" bodyend="1038" declfile="hal/nrf_ccm.h" declline="571" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga93606d4a5a315ae323c80bf1a0602940" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_enable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg)</argsstring>
+        <name>nrf_ccm_enable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the CCM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1040" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1040" bodyend="1043" declfile="hal/nrf_ccm.h" declline="578" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaf4b80365bac2fb3d21fa0b92e5d25650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_disable</definition>
+        <argsstring>(NRF_CCM_Type *p_reg)</argsstring>
+        <name>nrf_ccm_disable</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the CCM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1045" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1045" bodyend="1048" declfile="hal/nrf_ccm.h" declline="585" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gac253c1936f52f294f7429f5e6d29741b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_configure</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_config_t const *p_config)</argsstring>
+        <name>nrf_ccm_configure</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__ccm__config__t" kindref="compound">nrf_ccm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the CCM peripheral configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1050" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1050" bodyend="1067" declfile="hal/nrf_ccm.h" declline="593" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga87e501bd771ea42c4c5fa1619b7479f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_maxpacketsize_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint8_t size)</argsstring>
+        <name>nrf_ccm_maxpacketsize_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the length of key-stream generated when the packet length is configured as extended. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum length of the key-stream. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1070" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1070" bodyend="1076" declfile="hal/nrf_ccm.h" declline="604" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga100ec36cc4babc6c80f056c32048b863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_ccm_micstatus_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_micstatus_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the MIC check result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIC check passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIC check failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1080" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1080" bodyend="1083" declfile="hal/nrf_ccm.h" declline="617" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaa6b520cc38cf5e6c1e2d05cadde5f3a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_ccm_macstatus_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_macstatus_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the MAC check result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MAC check passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MAC check failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1087" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1087" bodyend="1090" declfile="hal/nrf_ccm.h" declline="629" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga8d9d0175ad11447cd00eb82f229bec53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__ccm__hal_1gacfa3ca60c3a9a6b9775da8de55891e5b" kindref="member">nrf_ccm_error_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_ccm_error_t nrf_ccm_errorstatus_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_errorstatus_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the error status when ERROR event is generated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>status when the ERROR event is generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1094" column="35" bodyfile="hal/nrf_ccm.h" bodystart="1094" bodyend="1097" declfile="hal/nrf_ccm.h" declline="640" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gac5572ede6ba2c649cad86d4d82f14ceb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_cnfptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_cnf_t const *p_data)</argsstring>
+        <name>nrf_ccm_cnfptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__ccm__cnf__t" kindref="compound">nrf_ccm_cnf_t</ref> const *</type>
+          <declname>p_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the data structure holding the AES key and the CCM NONCE vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the data structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1101" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1101" bodyend="1105" declfile="hal/nrf_ccm.h" declline="651" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga994569698e9e256cac4e648b5e13e4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__ccm__cnf__t" kindref="compound">nrf_ccm_cnf_t</ref> *</type>
+        <definition>NRF_STATIC_INLINE nrf_ccm_cnf_t * nrf_ccm_cnfptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_cnfptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the data structure holding the AES key and the CCM NONCE vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the data structure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1107" column="34" bodyfile="hal/nrf_ccm.h" bodystart="1107" bodyend="1110" declfile="hal/nrf_ccm.h" declline="662" declcolumn="34"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga14427bead44aa9dc1c2ff39612cce10b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_key_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t const *p_key)</argsstring>
+        <name>nrf_ccm_key_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_key</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AES key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the AES 128-bit key value. The key shall be stored in big endian byte order. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1114" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1114" bodyend="1122" declfile="hal/nrf_ccm.h" declline="673" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gadd022049b1e721301c4213785c0398f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t const volatile *</type>
+        <definition>NRF_STATIC_INLINE uint32_t const volatile * nrf_ccm_key_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_key_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AES key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the AES 128-bit key value. The key is stored in big endian byte order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1124" column="44" bodyfile="hal/nrf_ccm.h" bodystart="1124" bodyend="1127" declfile="hal/nrf_ccm.h" declline="682" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga7e13667c3817900d42952d004d398f54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_nonce_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t const *p_nonce)</argsstring>
+        <name>nrf_ccm_nonce_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_nonce</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AES nonce. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_nonce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the AES 13-byte nonce value. The nonce shall be stored in big endian byte order. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1131" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1131" bodyend="1139" declfile="hal/nrf_ccm.h" declline="694" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gacfff0d73274453b8291b67d247f31f0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t const volatile *</type>
+        <definition>NRF_STATIC_INLINE uint32_t const volatile * nrf_ccm_nonce_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_nonce_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AES nonce. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the AES 13-byte nonce value. The nonce is stored in big endian byte order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1141" column="44" bodyfile="hal/nrf_ccm.h" bodystart="1141" bodyend="1144" declfile="hal/nrf_ccm.h" declline="704" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaad71c6536c7a1a1d4c5efd5eeb8303cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_in_amount_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_in_amount_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of bytes read from the input data, not including the job list structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes read from the input data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1148" column="28" bodyfile="hal/nrf_ccm.h" bodystart="1148" bodyend="1151" declfile="hal/nrf_ccm.h" declline="716" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga51ba484f77af41054d8b1ec9670359fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_inptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t const *p_data)</argsstring>
+        <name>nrf_ccm_inptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the input data pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1162" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1162" bodyend="1166" declfile="hal/nrf_ccm.h" declline="726" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga8cc2b5ffdc3f91c3d90744d6d0c7636e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_ccm_inptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_inptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the input data pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Input data pointer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1168" column="29" bodyfile="hal/nrf_ccm.h" bodystart="1168" bodyend="1171" declfile="hal/nrf_ccm.h" declline="736" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga7c96e19e88eefd176fbeb9fd85a51297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_in_ptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_vdma_job_t const *p_job)</argsstring>
+        <name>nrf_ccm_in_ptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> const *</type>
+          <declname>p_job</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to a job list containing unencrypted CCM data structure in Encryption mode or encrypted CCM data structure in Decryption mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a job list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1175" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1175" bodyend="1179" declfile="hal/nrf_ccm.h" declline="748" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gabe720cb5f6425542f992debb4a295516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+        <definition>NRF_STATIC_INLINE nrf_vdma_job_t * nrf_ccm_in_ptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_in_ptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to job list containing unencrypted CCM data structure in Encryption mode or encrypted CCM data structure in Decryption mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to a job list. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1181" column="35" bodyfile="hal/nrf_ccm.h" bodystart="1181" bodyend="1184" declfile="hal/nrf_ccm.h" declline="760" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga7c6693fa080426df18618cfaff9b5d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_outptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t const *p_data)</argsstring>
+        <name>nrf_ccm_outptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the output data pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output data pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1188" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1188" bodyend="1192" declfile="hal/nrf_ccm.h" declline="770" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gacd6ce17163e6039d5e8cd9a2f6c2be07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_ccm_outptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_outptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the output data pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Output data pointer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1194" column="29" bodyfile="hal/nrf_ccm.h" bodystart="1194" bodyend="1197" declfile="hal/nrf_ccm.h" declline="780" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaa01ff841d9024351e9aebddfc9ed2b88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_out_ptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_vdma_job_t const *p_job)</argsstring>
+        <name>nrf_ccm_out_ptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> const *</type>
+          <declname>p_job</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to a job list containing encrypted CCM data structure in Encryption mode or decrypted CCM data structure in Decryption mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a job list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1201" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1201" bodyend="1205" declfile="hal/nrf_ccm.h" declline="792" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga2e758c89d37e3e149b209b7e77124e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__vdma__job__t" kindref="compound">nrf_vdma_job_t</ref> *</type>
+        <definition>NRF_STATIC_INLINE nrf_vdma_job_t * nrf_ccm_out_ptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_out_ptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to a job list containing encrypted CCM data structure in Encryption mode or decrypted CCM data structure in Decryption mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the job list. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1207" column="35" bodyfile="hal/nrf_ccm.h" bodystart="1207" bodyend="1210" declfile="hal/nrf_ccm.h" declline="804" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gafaf25f90a48bc7dd28b3ce9dc9874e67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_out_amount_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_out_amount_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of bytes available in the output data, not including the job list structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes available in the output data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1155" column="28" bodyfile="hal/nrf_ccm.h" bodystart="1155" bodyend="1158" declfile="hal/nrf_ccm.h" declline="816" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaef8cf688fefc45e1b78db80d14d9580d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_scratchptr_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint32_t const *p_area)</argsstring>
+        <name>nrf_ccm_scratchptr_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_area</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the scratch area used for temporary storage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_area</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the scratch area. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1214" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1214" bodyend="1218" declfile="hal/nrf_ccm.h" declline="827" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga9c064c4427178dbf1d125e0f52ef7c7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_ccm_scratchptr_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_scratchptr_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the scratch area. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the scratch area. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1220" column="29" bodyfile="hal/nrf_ccm.h" bodystart="1220" bodyend="1223" declfile="hal/nrf_ccm.h" declline="837" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gab33d58e47347eef25c2541aecd68a2c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_datarate_override_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_datarate_t datarate)</argsstring>
+        <name>nrf_ccm_datarate_override_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga1d6e97200cb2c3f20d655240ea69d6a5" kindref="member">nrf_ccm_datarate_t</ref></type>
+          <declname>datarate</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the data rate override value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">datarate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override value to be applied when the RATEOVERRIDE task is triggered. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1227" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1227" bodyend="1231" declfile="hal/nrf_ccm.h" declline="848" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga9c9285c0a19fbe8a19cce218404cb9c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__ccm__hal_1ga1d6e97200cb2c3f20d655240ea69d6a5" kindref="member">nrf_ccm_datarate_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_ccm_datarate_t nrf_ccm_datarate_override_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_datarate_override_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting data override setting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Data override setting. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1233" column="38" bodyfile="hal/nrf_ccm.h" bodystart="1233" bodyend="1236" declfile="hal/nrf_ccm.h" declline="858" declcolumn="38"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga6f6b4e485f00eef787e82f4244f828ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_adatamask_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint8_t adata_msk)</argsstring>
+        <name>nrf_ccm_adatamask_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>adata_msk</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the CCM adata mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">adata_msk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CCM adata mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1240" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1240" bodyend="1244" declfile="hal/nrf_ccm.h" declline="868" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gad40b804e4d6ad5172d8f97ca1512974b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_adatamask_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_adatamask_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting bitmask for the first adata byte. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CCM adata mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1246" column="28" bodyfile="hal/nrf_ccm.h" bodystart="1246" bodyend="1249" declfile="hal/nrf_ccm.h" declline="878" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gad300d56c4bc2759bac1a4ee01f43b2d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_headermask_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, uint8_t header_msk)</argsstring>
+        <name>nrf_ccm_headermask_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>header_msk</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the CCM header mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header_msk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CCM header mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1253" column="24" bodyfile="hal/nrf_ccm.h" bodystart="1253" bodyend="1257" declfile="hal/nrf_ccm.h" declline="888" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gac2a132d0cee9554fafe9f30655496ce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_headermask_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg)</argsstring>
+        <name>nrf_ccm_headermask_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the bitmask for packet header (S0) before MIC generation/authentication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CCM header mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="1259" column="28" bodyfile="hal/nrf_ccm.h" bodystart="1259" bodyend="1262" declfile="hal/nrf_ccm.h" declline="899" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gab0026e02d14e66216a11351b840fc179" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_subscribe_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_ccm_subscribe_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" kindref="member">nrf_ccm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given CCM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="911" column="24" declfile="hal/nrf_ccm.h" declline="911" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga0f8b230349815c215e379b28312c7d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_subscribe_clear</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_task_t task)</argsstring>
+        <name>nrf_ccm_subscribe_clear</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" kindref="member">nrf_ccm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given CCM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="922" column="24" declfile="hal/nrf_ccm.h" declline="922" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga1604478459daf156242700a541373785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_subscribe_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, nrf_ccm_task_t task)</argsstring>
+        <name>nrf_ccm_subscribe_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga2dede4b5a487f5846c0c27a00ecff430" kindref="member">nrf_ccm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given CCM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CCM subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="934" column="28" declfile="hal/nrf_ccm.h" declline="934" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gacd3ff8fbbcf7de7bf01be1ea5d11d930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_publish_set</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_ccm_publish_set</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given CCM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="945" column="24" declfile="hal/nrf_ccm.h" declline="945" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1ga1180502c12ce4c876b2fd890d7710d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ccm_publish_clear</definition>
+        <argsstring>(NRF_CCM_Type *p_reg, nrf_ccm_event_t event)</argsstring>
+        <name>nrf_ccm_publish_clear</name>
+        <param>
+          <type>NRF_CCM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given CCM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="956" column="24" declfile="hal/nrf_ccm.h" declline="956" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ccm__hal_1gaaa904f81a9c5169564c775aef8e18267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ccm_publish_get</definition>
+        <argsstring>(NRF_CCM_Type const *p_reg, nrf_ccm_event_t event)</argsstring>
+        <name>nrf_ccm_publish_get</name>
+        <param>
+          <type>NRF_CCM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ccm__hal_1ga9de429cccef1f7a1e1dc63fe5563aa77" kindref="member">nrf_ccm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given CCM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CCM publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="968" column="28" declfile="hal/nrf_ccm.h" declline="968" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga609733f6d824f93172e4e4aa8284f9c2" prot="public" static="no">
+        <name>NRF_CCM_HAS_TASK_KSGEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the KSGEN task. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="63" column="9" bodyfile="hal/nrf_ccm.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga832902475013f7f50f6ff134bd43b6a9" prot="public" static="no">
+        <name>NRF_CCM_HAS_TASK_CRYPT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the CRYPT task. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="70" column="9" bodyfile="hal/nrf_ccm.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga687430fd768454cf28df1e59b664ccab" prot="public" static="no">
+        <name>NRF_CCM_HAS_TASK_RATEOVERRIDE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the RATEOVERRIDE task. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="77" column="9" bodyfile="hal/nrf_ccm.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga5ba0db214679f8ac4627d0751103872a" prot="public" static="no">
+        <name>NRF_CCM_HAS_EVENT_ENDKSGEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the ENDKSGEN event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="85" column="9" bodyfile="hal/nrf_ccm.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaba460a30c7e8bb9fff8e92d0876ac35d" prot="public" static="no">
+        <name>NRF_CCM_HAS_EVENT_ENDCRYPT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the ENDCRYPT event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="93" column="9" bodyfile="hal/nrf_ccm.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaf8211d899cb718e4614f5b355812938b" prot="public" static="no">
+        <name>NRF_CCM_HAS_ADATAMASK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the ADATAMASK register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="100" column="9" bodyfile="hal/nrf_ccm.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga3a5daf48654668fd5e4e0648371ea849" prot="public" static="no">
+        <name>NRF_CCM_HAS_CNFPTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the CNFPTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="107" column="9" bodyfile="hal/nrf_ccm.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaf0b7f91b5af65bc32b53aacfefee71c7" prot="public" static="no">
+        <name>NRF_CCM_HAS_IN_AMOUNT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the IN.AMOUNT register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="114" column="9" bodyfile="hal/nrf_ccm.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga8b44dd26eab54617025844e7869c4070" prot="public" static="no">
+        <name>NRF_CCM_HAS_OUT_AMOUNT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the OUT.AMOUNT register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="121" column="9" bodyfile="hal/nrf_ccm.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaf410004fe0b1d4fc80c04522b46d8c87" prot="public" static="no">
+        <name>NRF_CCM_HAS_RATEOVERRIDE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the RATEOVERRIDE register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="128" column="9" bodyfile="hal/nrf_ccm.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaa65153a8730344bc9d5f50192575c638" prot="public" static="no">
+        <name>NRF_CCM_HAS_ERRORSTATUS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the ERRORSTATUS register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="135" column="9" bodyfile="hal/nrf_ccm.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga26504cc33553daf987ae5d0617571435" prot="public" static="no">
+        <name>NRF_CCM_HAS_MICSTATUS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the MICSTATUS register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="142" column="9" bodyfile="hal/nrf_ccm.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga9a62dcafec5c5029f95f36d3ac04f264" prot="public" static="no">
+        <name>NRF_CCM_HAS_MACSTATUS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the MACSTATUS register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="149" column="9" bodyfile="hal/nrf_ccm.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gac15b21fc17e6fa1405c04029339ad4fc" prot="public" static="no">
+        <name>NRF_CCM_HAS_KEY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the KEY register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="156" column="9" bodyfile="hal/nrf_ccm.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gada64a8edc1a7a04118c5dcd28f423f66" prot="public" static="no">
+        <name>NRF_CCM_HAS_NONCE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the NONCE register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="163" column="9" bodyfile="hal/nrf_ccm.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga6f62000aa7bb0a9ba4003c34c2471b04" prot="public" static="no">
+        <name>NRF_CCM_HAS_INPTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the INPTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="170" column="9" bodyfile="hal/nrf_ccm.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga9e8ab57b4a56b1d5d058dbf32d4a917f" prot="public" static="no">
+        <name>NRF_CCM_HAS_OUTPTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the OUTPTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="177" column="9" bodyfile="hal/nrf_ccm.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga798734a01e20089563d255a66475a5d3" prot="public" static="no">
+        <name>NRF_CCM_HAS_IN_PTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the IN.PTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="184" column="9" bodyfile="hal/nrf_ccm.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gacaab1a0bf0755c609bad39b5cd9e853e" prot="public" static="no">
+        <name>NRF_CCM_HAS_OUT_PTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the OUT.PTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="191" column="9" bodyfile="hal/nrf_ccm.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga116349ce788f42cec6edcc5b16d9715d" prot="public" static="no">
+        <name>NRF_CCM_HAS_SCRATCHPTR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the SCRATCHPTR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="198" column="9" bodyfile="hal/nrf_ccm.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga75b803297a95a4d3eed0c3c05bf357fd" prot="public" static="no">
+        <name>NRF_CCM_HAS_MAXPACKETSIZE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the MAXPACKETSIZE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="205" column="9" bodyfile="hal/nrf_ccm.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga2b909d062cb21c477c0fb05567658827" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_FAST_DECRYPTION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Presence of AES fast decrypt mode. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="212" column="9" bodyfile="hal/nrf_ccm.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga6dc9278dc2ffea7f9100b0e62948876f" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_PROTOCOL</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of protocol and packet format selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="219" column="9" bodyfile="hal/nrf_ccm.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga0e88dd4a959b50718d76c20ff94a5d3d" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_PROTOCOL_BLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the BLE packet format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="226" column="9" bodyfile="hal/nrf_ccm.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga9c572a2bde3c75f56b04c203a1ba1665" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_PROTOCOL_IEEE802154</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the 802.15.4 packet format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="233" column="9" bodyfile="hal/nrf_ccm.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gab3dcc6a9ee5e75d26bcb661de71748fb" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_LENGTH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the packet lengh configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="240" column="9" bodyfile="hal/nrf_ccm.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga39c8f96c98acebfd58ac3ae0c0cd077c" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_DATARATE_125K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Support for 125 Kbit radio data rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="248" column="9" bodyfile="hal/nrf_ccm.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga1a251950dc35c2949c72922eb4297849" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_DATARATE_250K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Support for 250 Kbit radio data rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="255" column="9" bodyfile="hal/nrf_ccm.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gad823901fb655a74900e3184660089775" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_DATARATE_500K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Support for 500 Kbit radio data rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="263" column="9" bodyfile="hal/nrf_ccm.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gab8990d2e5302f7329106511ad7a4e876" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_DATARATE_4M</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Support for 4 Mbit radio data rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="270" column="9" bodyfile="hal/nrf_ccm.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga49f53c52fad99350404166b8329f288a" prot="public" static="no">
+        <name>NRF_CCM_HAS_MODE_MACLEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the CCM MAC length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="277" column="9" bodyfile="hal/nrf_ccm.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga937f287058080a9f790f96edf531e888" prot="public" static="no">
+        <name>NRF_CCM_HAS_DATARATE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the radio data rate that the CCM shall run synchronous with. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="284" column="9" bodyfile="hal/nrf_ccm.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaa140b4d2036f17d6dd64167405e87ee1" prot="public" static="no">
+        <name>NRF_CCM_HAS_HEADERMASK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Presence of the HEADERMASK register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="291" column="9" bodyfile="hal/nrf_ccm.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1gaa65eac493abe2950bf0aaab31ed6d814" prot="public" static="no">
+        <name>NRF_CCM_KEY_SIZE</name>
+        <initializer>16</initializer>
+        <briefdescription>
+<para>AES key size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="298" column="9" bodyfile="hal/nrf_ccm.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga74a79145f01afeba8726359dbf571ebf" prot="public" static="no">
+        <name>NRF_CCM_IV_SIZE</name>
+        <initializer>8</initializer>
+        <briefdescription>
+<para>Initialization vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="300" column="9" bodyfile="hal/nrf_ccm.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__ccm__hal_1ga17df5080e63b2276a9f2644e95470286" prot="public" static="no">
+        <name>NRF_CCM_PKTCTR_SIZE</name>
+        <initializer>9</initializer>
+        <briefdescription>
+<para>Packet counter configuration size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ccm.h" line="302" column="9" bodyfile="hal/nrf_ccm.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the AES CCM peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

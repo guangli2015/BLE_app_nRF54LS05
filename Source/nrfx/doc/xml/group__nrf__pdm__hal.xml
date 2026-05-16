@@ -1,0 +1,2999 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__pdm__hal" kind="group">
+    <compoundname>nrf_pdm_hal</compoundname>
+    <title>PDM HAL</title>
+    <innerclass refid="structnrf__pdm__filter__ctrl__t" prot="public">nrf_pdm_filter_ctrl_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_task_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga6848dcee43c9bb51bf52965d7ec07609ae89ac91cd8802a6bff946480f34b40e2" prot="public">
+          <name>NRF_PDM_TASK_START</name>
+          <initializer>= offsetof(NRF_PDM_Type, TASKS_DMA.START)</initializer>
+          <briefdescription>
+<para>Starts continuous PDM transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6848dcee43c9bb51bf52965d7ec07609a125576e624bc26cf4c87f3826c53b2b9" prot="public">
+          <name>NRF_PDM_TASK_STOP</name>
+          <initializer>= offsetof(NRF_PDM_Type, TASKS_DMA.STOP)</initializer>
+          <briefdescription>
+<para>Stops PDM transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="221" column="1" bodyfile="hal/nrf_pdm.h" bodystart="222" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_event_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1ggabd47039f89fd8698f53f31dbf8e7d1e4a7524dfd91be0dc0c2074148ce40647f4" prot="public">
+          <name>NRF_PDM_EVENT_STARTED</name>
+          <initializer>= offsetof(NRF_PDM_Type, EVENTS_STARTED)</initializer>
+          <briefdescription>
+<para>PDM transfer is started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabd47039f89fd8698f53f31dbf8e7d1e4a2421d4f365c410552760f4ff15e77f3f" prot="public">
+          <name>NRF_PDM_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_PDM_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>PDM transfer is finished. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabd47039f89fd8698f53f31dbf8e7d1e4ac5d4065f36b43520cae1fd3e435ea58d" prot="public">
+          <name>NRF_PDM_EVENT_END</name>
+          <initializer>= offsetof(NRF_PDM_Type, EVENTS_DMA.END)</initializer>
+          <briefdescription>
+<para>The PDM has written the last sample specified by MAXCNT (or the last sample after a STOP task has been received) to Data RAM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="233" column="1" bodyfile="hal/nrf_pdm.h" bodystart="234" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga86b84c2a22cbcb80053f3ce0e46da4f2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_int_mask_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga86b84c2a22cbcb80053f3ce0e46da4f2a483deab8fa99434a1e5ea554318452e7" prot="public">
+          <name>NRF_PDM_INT_STARTED</name>
+          <initializer>= PDM_INTENSET_STARTED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on EVENTS_STARTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga86b84c2a22cbcb80053f3ce0e46da4f2ad960479235be06958d1c9633d196f86d" prot="public">
+          <name>NRF_PDM_INT_STOPPED</name>
+          <initializer>= PDM_INTENSET_STOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on EVENTS_STOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga86b84c2a22cbcb80053f3ce0e46da4f2af05de1ee4ffa578bc6ae91d9ac9d5326" prot="public">
+          <name>NRF_PDM_INT_END</name>
+          <initializer>= PDM_INTENSET_DMAEND_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on EVENTS_END event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM interrupt masks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="245" column="1" bodyfile="hal/nrf_pdm.h" bodystart="246" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga6703930305da65cc2f258ad1f68f863d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_freq_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da21a922e95fbf816179d93d61ed9468a2" prot="public">
+          <name>NRF_PDM_FREQ_1000K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_1000K</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.000 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da93c505a45c079de603a778e538f916c2" prot="public">
+          <name>NRF_PDM_FREQ_1032K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_Default</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.032 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da141c4dae8d2e36dcb0ce48f3c7311beb" prot="public">
+          <name>NRF_PDM_FREQ_1067K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_1067K</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.067 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da429bf427ab6cb49187e234bcd09153d6" prot="public">
+          <name>NRF_PDM_FREQ_1231K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_1231K</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.231 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da3e9aec69d3dedad85a80d1c3e4a055f8" prot="public">
+          <name>NRF_PDM_FREQ_1280K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_1280K</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.280 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da4a9beeb46a8313e53e46602010570575" prot="public">
+          <name>NRF_PDM_FREQ_1333K</name>
+          <initializer>= PDM_PDMCLKCTRL_FREQ_1333K</initializer>
+          <briefdescription>
+<para>PDM_CLK = 1.333 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM clock frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="258" column="1" bodyfile="hal/nrf_pdm.h" bodystart="259" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1gaa440ffa5a57cc209736e6d66ff1b9088" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_ratio_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088a260288b0834d8797ea2d878f6d2fab3c" prot="public">
+          <name>NRF_PDM_RATIO_32X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio32</initializer>
+          <briefdescription>
+<para>Ratio of 32. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088abde9c9ec8579626396bddacfb807a0e1" prot="public">
+          <name>NRF_PDM_RATIO_48X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio48</initializer>
+          <briefdescription>
+<para>Ratio of 48. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088ad0c33a4dc10179916e3ec6a3391fbd7d" prot="public">
+          <name>NRF_PDM_RATIO_50X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio50</initializer>
+          <briefdescription>
+<para>Ratio of 50. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088aa165fd177221dc7be65cf727fd8be40a" prot="public">
+          <name>NRF_PDM_RATIO_64X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio64</initializer>
+          <briefdescription>
+<para>Ratio of 64. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088a7751765dfa324acc1a8ab08bf340f0f1" prot="public">
+          <name>NRF_PDM_RATIO_80X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio80</initializer>
+          <briefdescription>
+<para>Ratio of 80. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088af5d202dbb210b29e43abc5f3d55b2094" prot="public">
+          <name>NRF_PDM_RATIO_96X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio96</initializer>
+          <briefdescription>
+<para>Ratio of 96. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088a77fb20cb237b078ee8791605f7ab282c" prot="public">
+          <name>NRF_PDM_RATIO_100X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio100</initializer>
+          <briefdescription>
+<para>Ratio of 100. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088a333045a46d3b1476daa6f98631b75856" prot="public">
+          <name>NRF_PDM_RATIO_128X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio128</initializer>
+          <briefdescription>
+<para>Ratio of 128. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088a7ae2ff3a6f32e4ce7e95aec6ad07047a" prot="public">
+          <name>NRF_PDM_RATIO_150X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio150</initializer>
+          <briefdescription>
+<para>Ratio of 150. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088af22e77ae1b489aef73965be8ccfa6be7" prot="public">
+          <name>NRF_PDM_RATIO_192X</name>
+          <initializer>= PDM_RATIO_RATIO_Ratio192</initializer>
+          <briefdescription>
+<para>Ratio of 192. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088aec6c58fc2fdae0005851d094f74f9f6f" prot="public">
+          <name>NRF_PDM_RATIO_CUSTOM</name>
+          <initializer>= PDM_RATIO_RATIO_Custom</initializer>
+          <briefdescription>
+<para>Custom ratio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM ratio between PDM_CLK and output sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="277" column="1" bodyfile="hal/nrf_pdm.h" bodystart="278" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1gadc5bd87887dfb140a868d6ba14df0a42" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_mode_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1ggadc5bd87887dfb140a868d6ba14df0a42ad2914cf718183eece935c17771a61a7c" prot="public">
+          <name>NRF_PDM_MODE_STEREO</name>
+          <initializer>= PDM_MODE_OPERATION_Stereo</initializer>
+          <briefdescription>
+<para>Sample and store one pair (Left + Right) of 16-bit samples per RAM word. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggadc5bd87887dfb140a868d6ba14df0a42a4958b92efb70f1debb0147cea68eb459" prot="public">
+          <name>NRF_PDM_MODE_MONO</name>
+          <initializer>= PDM_MODE_OPERATION_Mono</initializer>
+          <briefdescription>
+<para>Sample and store two successive Left samples (16 bit each) per RAM word. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM operation mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="312" column="1" bodyfile="hal/nrf_pdm.h" bodystart="313" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1gacf1325c08d54c6953c2446dacf835217" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_edge_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1ggacf1325c08d54c6953c2446dacf835217a0b89e686051d527a7e5f2f9fe10072fb" prot="public">
+          <name>NRF_PDM_EDGE_LEFTFALLING</name>
+          <initializer>= PDM_MODE_EDGE_LeftFalling</initializer>
+          <briefdescription>
+<para>Left (or mono) is sampled on falling edge of PDM_CLK. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggacf1325c08d54c6953c2446dacf835217a4a0a048d1c58b61dd7552d5ebd0e0e01" prot="public">
+          <name>NRF_PDM_EDGE_LEFTRISING</name>
+          <initializer>= PDM_MODE_EDGE_LeftRising</initializer>
+          <briefdescription>
+<para>Left (or mono) is sampled on rising edge of PDM_CLK. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM sampling mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="319" column="1" bodyfile="hal/nrf_pdm.h" bodystart="320" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga2de024db84f169477a537aef3f1a0a92" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_mclksrc_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga2de024db84f169477a537aef3f1a0a92a2a5d19fc35b24eee2d2f7a6e71c99638" prot="public">
+          <name>NRF_PDM_MCLKSRC_PCLK32M</name>
+          <initializer>= PDM_MCLKCONFIG_SRC_PCLK32M</initializer>
+          <briefdescription>
+<para>32MHz peripheral clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga2de024db84f169477a537aef3f1a0a92a617dcee2bcb0673887863ca0bac021c6" prot="public">
+          <name>NRF_PDM_MCLKSRC_ACLK</name>
+          <initializer>= PDM_MCLKCONFIG_SRC_ACLK</initializer>
+          <briefdescription>
+<para>Audio PLL clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM clock source selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="327" column="1" bodyfile="hal/nrf_pdm.h" bodystart="328" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga59c8f6d4a52476ad2586c6a166c4cc9c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_sample_delay_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga59c8f6d4a52476ad2586c6a166c4cc9cafc6e52ff6c3c6d35ea9102eb939ea89e" prot="public">
+          <name>NRF_PDM_SAMPLE_DELAY_NONE</name>
+          <initializer>= PDM_FILTER_CTRL_DATASAMPLEDELAY_NoDelay</initializer>
+          <briefdescription>
+<para>No delay added. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga59c8f6d4a52476ad2586c6a166c4cc9caba3a0ce13822b0bbdd576c29a793a2df" prot="public">
+          <name>NRF_PDM_SAMPLE_DELAY_LEFT</name>
+          <initializer>= PDM_FILTER_CTRL_DATASAMPLEDELAY_DelayOnLeft</initializer>
+          <briefdescription>
+<para>One clock cycle delay on left channel. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga59c8f6d4a52476ad2586c6a166c4cc9cad5c700b14ede3a536756f1c1e7ea4e28" prot="public">
+          <name>NRF_PDM_SAMPLE_DELAY_RIGHT</name>
+          <initializer>= PDM_FILTER_CTRL_DATASAMPLEDELAY_DelayOnRight</initializer>
+          <briefdescription>
+<para>One clock cycle delay on right channel. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga59c8f6d4a52476ad2586c6a166c4cc9cab6ab2958199ce72dce39c2666e0eaf38" prot="public">
+          <name>NRF_PDM_SAMPLE_DELAY_BOTH</name>
+          <initializer>= PDM_FILTER_CTRL_DATASAMPLEDELAY_DelayOnBoth</initializer>
+          <briefdescription>
+<para>One clock cycle delay on both channels. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM input data sample delay. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="341" column="1" bodyfile="hal/nrf_pdm.h" bodystart="342" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1gabde19e5593c590a7f0abe916be305cfc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_filter_cic_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcaa4026f8795f37e26da3d36029d6eeeea" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_0</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range0</initializer>
+          <briefdescription>
+<para>OSR range low - 4 bits, OSR range high - 32 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcab3f785880d0dfa0052d8a7092eac6dd2" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_1</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range1</initializer>
+          <briefdescription>
+<para>OSR range low - 34 bits, OSR range high - 36 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca75fd60037c0988ca4ba7877e1190cac3" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_2</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range2</initializer>
+          <briefdescription>
+<para>OSR range low - 38 bits, OSR range high - 42 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcabb117cd9572e283dac0753bd18ccf768" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_3</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range3</initializer>
+          <briefdescription>
+<para>OSR range low - 44 bits, OSR range high - 48 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca1bff2d778d5e3a39b7c737a403939f54" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_4</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range4</initializer>
+          <briefdescription>
+<para>OSR range low - 50 bits, OSR range high - 54 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca8ef8187f02229529c599dd533bb8fa7e" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_5</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range5</initializer>
+          <briefdescription>
+<para>OSR range low - 56 bits, OSR range high - 64 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca307898db563f35e731145f97686d348e" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_6</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range6</initializer>
+          <briefdescription>
+<para>OSR range low - 66 bits, OSR range high - 72 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcab66f0e3dc1fbb29d69ef45f2a9b773a9" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_7</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range7</initializer>
+          <briefdescription>
+<para>OSR range low - 74 bits, OSR range high - 84 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca490af13d6168b5cfa65ea08f9259be99" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_8</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range8</initializer>
+          <briefdescription>
+<para>OSR range low - 86 bits, OSR range high - 96 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca50e1f218ebd8e4dd7792fbc20dc669ef" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_9</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range9</initializer>
+          <briefdescription>
+<para>OSR range low - 98 bits, OSR range high - 110 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcaaba8e48f57be5096eb650ee92d855774" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_10</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range10</initializer>
+          <briefdescription>
+<para>OSR range low - 112 bits, OSR range high - 128 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcab65b6f361ef20abd5abd1eb03c71dea1" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_11</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range11</initializer>
+          <briefdescription>
+<para>OSR range low - 130 bits, OSR range high - 146 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca506f1c52aabcf6e1613c80e7be8c7157" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_12</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range12</initializer>
+          <briefdescription>
+<para>OSR range low - 148 bits, OSR range high - 168 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcaa7e2b3e4c3b48770641e3c7b1d3fdee9" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_13</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range13</initializer>
+          <briefdescription>
+<para>OSR range low - 170 bits, OSR range high - 194 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfcaa1fcd870b9fabf2908fc29a815de6bc9" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_14</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range14</initializer>
+          <briefdescription>
+<para>OSR range low - 196 bits, OSR range high - 222 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1ggabde19e5593c590a7f0abe916be305cfca608636275cc67343b8be77f3edc140ba" prot="public">
+          <name>NRF_PDM_FILTER_CIC_MSB_RANGE_15</name>
+          <initializer>= PDM_FILTER_CTRL_CICFILTERMSBCUSTOM_Range15</initializer>
+          <briefdescription>
+<para>OSR range low - 224 bits, OSR range high - 256 bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM CIC filter most significant bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="350" column="1" bodyfile="hal/nrf_pdm.h" bodystart="351" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga97289878ada088e62e667696d6729358" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_filter_hp_pole_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a566352ab8e9fbce11091c7369d1cfa39" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_0_16_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p0p16</initializer>
+          <briefdescription>
+<para>0.16 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a1614fe62aac3d0029a5685078f8ade63" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_0_32_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p0p32</initializer>
+          <briefdescription>
+<para>0.32 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a15fcd193b0dce738ad4467b6ce08709d" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_0_64_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p0p64</initializer>
+          <briefdescription>
+<para>0.64 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a923640fe1187c000baf27ad21711dcc2" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_1_25_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p1p25</initializer>
+          <briefdescription>
+<para>1.25 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a5a85ea4380e278ca92c94bad3ecdae5a" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_2_5_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p2p5</initializer>
+          <briefdescription>
+<para>2.5 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a27e5364267fc7393cc90b49f69b26bca" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_5_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p5</initializer>
+          <briefdescription>
+<para>5 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358af91732322254e0862f15921fc28787e8" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_10_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p10</initializer>
+          <briefdescription>
+<para>10 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a15e499076d9e13f7bd50fb7c6f922c44" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_20_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p20</initializer>
+          <briefdescription>
+<para>20 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a1e5b11fb4cf6c50add6529fcf932ea70" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_40_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p40</initializer>
+          <briefdescription>
+<para>40 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a9af6950994bd1c11807684240299fa3a" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_79_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p79</initializer>
+          <briefdescription>
+<para>79 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358ae4c28b2a57a29eb3f582f403fef5c4b1" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_157_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p157</initializer>
+          <briefdescription>
+<para>157 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a901fd7e4ccfc6b110676bd97cc4006f8" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_310_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p310</initializer>
+          <briefdescription>
+<para>310 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a5486871890681e1b843948a651cff00c" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_603_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p603</initializer>
+          <briefdescription>
+<para>603 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358a7942c8e928f5b4d90e966b08a5d28740" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_1152_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p1152</initializer>
+          <briefdescription>
+<para>1152 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga97289878ada088e62e667696d6729358ae7cf399ebd0d84af7a168371e02e101b" prot="public">
+          <name>NRF_PDM_FILTER_HP_POLE_2110_HZ</name>
+          <initializer>= PDM_FILTER_HPPOLE_HPPOLE_p2110</initializer>
+          <briefdescription>
+<para>2110 Hz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM high pass filter -3dB gain pole frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="371" column="1" bodyfile="hal/nrf_pdm.h" bodystart="372" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pdm__hal_1ga4de8afeeac1bf2fa598b1cefdfb2e000" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pdm_filter_softcycles_t</name>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000a54d1d9a9ab932737731a674369b3f040" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_2</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s2</initializer>
+          <briefdescription>
+<para>2 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000ae8131af114482ec3ec00ecab31ded0b4" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_8</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s8</initializer>
+          <briefdescription>
+<para>8 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000ae8971456dc595bdd27b3d8102e18bd7a" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_32</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s32</initializer>
+          <briefdescription>
+<para>32 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000a95ebb85e55bbc1ebca6d6975d62209bd" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_64</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s64</initializer>
+          <briefdescription>
+<para>64 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000a16ce2cb9604b4cf1205c2314f0e9272d" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_128</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s128</initializer>
+          <briefdescription>
+<para>128 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000a9a31cd8c25fd5adbb305784b029bfc31" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_256</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s256</initializer>
+          <briefdescription>
+<para>256 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000aa549fe988be011200624ca6334c57959" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_512</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_s512</initializer>
+          <briefdescription>
+<para>512 filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pdm__hal_1gga4de8afeeac1bf2fa598b1cefdfb2e000a878bf6a5e57086f926cf78695dd6fa9c" prot="public">
+          <name>NRF_PDM_FILTER_SOFTCYCLES_CUSTOM</name>
+          <initializer>= PDM_FILTER_SOFTCYCLES_DISABLE_custom</initializer>
+          <briefdescription>
+<para>Custom number of filter source clock cycles. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM number of cycles for soft mute transition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="391" column="1" bodyfile="hal/nrf_pdm.h" bodystart="392" bodyend="401"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>typedef uint8_t nrf_pdm_gain_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_pdm_gain_t</name>
+        <briefdescription>
+<para>PDM gain type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="218" column="17" bodyfile="hal/nrf_pdm.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gaa20eeff5e9ce2633d33850c7880746ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_task_trigger</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_task_t task)</argsstring>
+        <name>nrf_pdm_task_trigger</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for triggering a PDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="861" column="24" bodyfile="hal/nrf_pdm.h" bodystart="861" bodyend="864" declfile="hal/nrf_pdm.h" declline="423" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gad68d6c8d5185c9bda1b5d3f2d4b6f7df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_task_address_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_task_t task)</argsstring>
+        <name>nrf_pdm_task_address_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a PDM task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified PDM task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="866" column="28" bodyfile="hal/nrf_pdm.h" bodystart="866" bodyend="869" declfile="hal/nrf_pdm.h" declline="433" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gafede3329a79865da467ddf1a2dccb9dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_pdm_event_check</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_event_t event)</argsstring>
+        <name>nrf_pdm_event_check</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the PDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="871" column="24" bodyfile="hal/nrf_pdm.h" bodystart="871" bodyend="874" declfile="hal/nrf_pdm.h" declline="445" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga18fbcbf09943bebb076d7392e723e717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_event_clear</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_event_t event)</argsstring>
+        <name>nrf_pdm_event_clear</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a PDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="876" column="24" bodyfile="hal/nrf_pdm.h" bodystart="876" bodyend="880" declfile="hal/nrf_pdm.h" declline="453" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga2f9b6599215604e62fd93c8eac08b076" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_event_address_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_event_t event)</argsstring>
+        <name>nrf_pdm_event_address_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a PDM event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified PDM event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="882" column="28" bodyfile="hal/nrf_pdm.h" bodystart="882" bodyend="886" declfile="hal/nrf_pdm.h" declline="463" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga64441adea754e237e275b82d5651f2a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_int_enable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pdm_int_enable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling PDM interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__pdm__hal_1ga86b84c2a22cbcb80053f3ce0e46da4f2" kindref="member">nrf_pdm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="888" column="24" bodyfile="hal/nrf_pdm.h" bodystart="888" bodyend="891" declfile="hal/nrf_pdm.h" declline="473" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga7df3ab546e429882e0f34ae9117f1909" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_int_enable_check</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pdm_int_enable_check</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__pdm__hal_1ga86b84c2a22cbcb80053f3ce0e46da4f2" kindref="member">nrf_pdm_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="893" column="28" bodyfile="hal/nrf_pdm.h" bodystart="893" bodyend="896" declfile="hal/nrf_pdm.h" declline="484" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga778a47046ee0b7bb71be2f8f80a4db97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_int_disable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pdm_int_disable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__pdm__hal_1ga86b84c2a22cbcb80053f3ce0e46da4f2" kindref="member">nrf_pdm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="898" column="24" bodyfile="hal/nrf_pdm.h" bodystart="898" bodyend="901" declfile="hal/nrf_pdm.h" declline="493" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga0c41c54ed3e08ad68c31729fc7ece694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_subscribe_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_pdm_subscribe_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given PDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="504" column="24" declfile="hal/nrf_pdm.h" declline="504" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga89efa8e6085257047287d92a9b742c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_subscribe_clear</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_task_t task)</argsstring>
+        <name>nrf_pdm_subscribe_clear</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given PDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="515" column="24" declfile="hal/nrf_pdm.h" declline="515" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga9081bfb305f40c70bb325acfc668f759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_subscribe_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_task_t task)</argsstring>
+        <name>nrf_pdm_subscribe_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given PDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PDM subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="526" column="28" declfile="hal/nrf_pdm.h" declline="526" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gae1cf72b720c53c87f46b5024b5f952ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_publish_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_pdm_publish_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given PDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="537" column="24" declfile="hal/nrf_pdm.h" declline="537" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga33b6ba79f528c33efb31140d3e007906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_publish_clear</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_event_t event)</argsstring>
+        <name>nrf_pdm_publish_clear</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given PDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="548" column="24" declfile="hal/nrf_pdm.h" declline="548" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga2801881f8b5daf4a25969f710ca43afd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_publish_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_event_t event)</argsstring>
+        <name>nrf_pdm_publish_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gabd47039f89fd8698f53f31dbf8e7d1e4" kindref="member">nrf_pdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given PDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PDM publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="559" column="28" declfile="hal/nrf_pdm.h" declline="559" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gac707149ccdaaf098b93fb99d40b46f85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_enable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg)</argsstring>
+        <name>nrf_pdm_enable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the PDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+The PDM peripheral must be enabled before use. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="943" column="24" bodyfile="hal/nrf_pdm.h" bodystart="943" bodyend="946" declfile="hal/nrf_pdm.h" declline="570" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga7bdfd17fa37b4b3b73e55d8af56dc30b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_disable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg)</argsstring>
+        <name>nrf_pdm_disable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the PDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="948" column="24" bodyfile="hal/nrf_pdm.h" bodystart="948" bodyend="951" declfile="hal/nrf_pdm.h" declline="577" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga3032c46804835e95b644307c7c5504f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_pdm_enable_check</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_enable_check</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PDM peripheral is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM peripheral is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM peripheral is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="953" column="24" bodyfile="hal/nrf_pdm.h" bodystart="953" bodyend="956" declfile="hal/nrf_pdm.h" declline="587" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga46df3d7bde70ea30bfd0ff19d214cefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_mode_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_mode_t pdm_mode, nrf_pdm_edge_t pdm_edge)</argsstring>
+        <name>nrf_pdm_mode_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gadc5bd87887dfb140a868d6ba14df0a42" kindref="member">nrf_pdm_mode_t</ref></type>
+          <declname>pdm_mode</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gacf1325c08d54c6953c2446dacf835217" kindref="member">nrf_pdm_edge_t</ref></type>
+          <declname>pdm_edge</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PDM operation mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdm_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM operation mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdm_edge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM sampling mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="958" column="24" bodyfile="hal/nrf_pdm.h" bodystart="958" bodyend="964" declfile="hal/nrf_pdm.h" declline="596" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gafded470ca8489a1c117ec70fd859e09a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_mode_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_mode_t *p_pdm_mode, nrf_pdm_edge_t *p_pdm_edge)</argsstring>
+        <name>nrf_pdm_mode_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gadc5bd87887dfb140a868d6ba14df0a42" kindref="member">nrf_pdm_mode_t</ref> *</type>
+          <declname>p_pdm_mode</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gacf1325c08d54c6953c2446dacf835217" kindref="member">nrf_pdm_edge_t</ref> *</type>
+          <declname>p_pdm_edge</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the PDM operation mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_pdm_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM operation mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_pdm_edge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM sampling mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="966" column="24" bodyfile="hal/nrf_pdm.h" bodystart="966" bodyend="973" declfile="hal/nrf_pdm.h" declline="607" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gab571afca8dc52370df56a27daa0c6c84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_clock_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_freq_t pdm_freq)</argsstring>
+        <name>nrf_pdm_clock_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6703930305da65cc2f258ad1f68f863d" kindref="member">nrf_pdm_freq_t</ref></type>
+          <declname>pdm_freq</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PDM clock frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pdm_freq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM clock frequency. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="976" column="24" bodyfile="hal/nrf_pdm.h" bodystart="976" bodyend="979" declfile="hal/nrf_pdm.h" declline="618" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga972c21836ef6d94098f7b9add19616c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__pdm__hal_1ga6703930305da65cc2f258ad1f68f863d" kindref="member">nrf_pdm_freq_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_pdm_freq_t nrf_pdm_clock_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_clock_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the PDM clock frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PDM clock frequency. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="981" column="34" bodyfile="hal/nrf_pdm.h" bodystart="981" bodyend="985" declfile="hal/nrf_pdm.h" declline="627" declcolumn="34"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga78664bf4b7c5fc6124495864d6e03bd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_prescaler_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t prescaler)</argsstring>
+        <name>nrf_pdm_prescaler_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>prescaler</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PDM prescaler divisor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prescaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM prescaler divisor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="989" column="24" bodyfile="hal/nrf_pdm.h" bodystart="989" bodyend="993" declfile="hal/nrf_pdm.h" declline="637" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga65593fac2cfefac606005121b44ea84d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_prescaler_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_prescaler_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the PDM prescaler divisor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PDM prescaler divisor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="995" column="28" bodyfile="hal/nrf_pdm.h" bodystart="995" bodyend="998" declfile="hal/nrf_pdm.h" declline="646" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga6f9d46c104f75b4be3d0f054a4a44aca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_psel_connect</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t psel_clk, uint32_t psel_din)</argsstring>
+        <name>nrf_pdm_psel_connect</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>psel_clk</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>psel_din</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting up the PDM pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">psel_clk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CLK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">psel_din</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DIN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1001" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1001" bodyend="1007" declfile="hal/nrf_pdm.h" declline="656" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga3c3490b2877638cb3323e031861a356a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_clk_pin_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_pdm_clk_pin_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the CLK pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CLK pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1009" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1009" bodyend="1012" declfile="hal/nrf_pdm.h" declline="666" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga7015e7e70a867e71440f26840b361daf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_din_pin_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_pdm_din_pin_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the DIN pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DIN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1014" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1014" bodyend="1017" declfile="hal/nrf_pdm.h" declline="674" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga331f6bce46d78ab4c858ff6b9c440248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_clk_pin_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_clk_pin_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the CLK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CLK pin selection; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1019" column="28" bodyfile="hal/nrf_pdm.h" bodystart="1019" bodyend="1022" declfile="hal/nrf_pdm.h" declline="683" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga2ef58dd5d2d8ed1d23e32391aed0cc1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pdm_din_pin_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_din_pin_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the DIN pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>DIN pin selection; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1024" column="28" bodyfile="hal/nrf_pdm.h" bodystart="1024" bodyend="1027" declfile="hal/nrf_pdm.h" declline="692" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga5afa96d2c1c7adb19bd8c2c49051a535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_psel_disconnect</definition>
+        <argsstring>(NRF_PDM_Type *p_reg)</argsstring>
+        <name>nrf_pdm_psel_disconnect</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disconnecting the PDM pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1029" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1029" bodyend="1035" declfile="hal/nrf_pdm.h" declline="699" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga5972d0587ee12dae9d7d2601b6a9352e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_gain_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_gain_t gain_l, nrf_pdm_gain_t gain_r)</argsstring>
+        <name>nrf_pdm_gain_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref></type>
+          <declname>gain_l</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref></type>
+          <declname>gain_r</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PDM gain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left channel gain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">gain_r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right channel gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1037" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1037" bodyend="1043" declfile="hal/nrf_pdm.h" declline="708" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga97217da60d8f7be0826237320c1a11fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_gain_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_gain_t *p_gain_l, nrf_pdm_gain_t *p_gain_r)</argsstring>
+        <name>nrf_pdm_gain_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref> *</type>
+          <declname>p_gain_l</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref> *</type>
+          <declname>p_gain_r</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the PDM gain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_gain_l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left channel gain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_gain_r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right channel gain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1045" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1045" bodyend="1051" declfile="hal/nrf_pdm.h" declline="719" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gabaf334bcac9fc1dfc74c4b363a73ea65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_buffer_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint32_t *p_buffer, uint32_t num)</argsstring>
+        <name>nrf_pdm_buffer_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the PDM sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The amount of allocated RAM depends on the operation mode.<itemizedlist>
+<listitem><para>For stereo mode: N 32-bit words.</para>
+</listitem><listitem><para>For mono mode: Ceil(N/2) 32-bit words.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the RAM address where samples are to be written with EasyDMA. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of samples to allocate memory for in EasyDMA mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1053" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1053" bodyend="1061" declfile="hal/nrf_pdm.h" declline="734" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga827366e0010c6d97f2999f05545837dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_pdm_buffer_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_buffer_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the current PDM sample buffer address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the current sample buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1063" column="29" bodyfile="hal/nrf_pdm.h" bodystart="1063" bodyend="1066" declfile="hal/nrf_pdm.h" declline="743" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gab68b48a26e8dad9f5a832f72f9838a30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_ratio_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_ratio_t ratio)</argsstring>
+        <name>nrf_pdm_ratio_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1gaa440ffa5a57cc209736e6d66ff1b9088" kindref="member">nrf_pdm_ratio_t</ref></type>
+          <declname>ratio</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting ratio between PDM_CLK and output sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ratio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ratio between PDM_CLK and output sample rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1069" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1069" bodyend="1072" declfile="hal/nrf_pdm.h" declline="752" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga18dcaa1707df8b9a7fc190c4439b5033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_custom_ratio_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, uint8_t ratio)</argsstring>
+        <name>nrf_pdm_custom_ratio_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ratio</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting custom ratio between PDM_CLK and output sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Before calling this function, the caller must ensure that custom ratio configuration has been set using <ref refid="group__nrf__pdm__hal_1gab68b48a26e8dad9f5a832f72f9838a30" kindref="member">nrf_pdm_ratio_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ratio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Custom ratio between PDM_CLK and output sample rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1075" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1075" bodyend="1081" declfile="hal/nrf_pdm.h" declline="764" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gaa0900e673cec609d9e859f5b9588972d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_mclksrc_configure</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_mclksrc_t mclksrc)</argsstring>
+        <name>nrf_pdm_mclksrc_configure</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga2de024db84f169477a537aef3f1a0a92" kindref="member">nrf_pdm_mclksrc_t</ref></type>
+          <declname>mclksrc</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring PDM clock source. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mclksrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock source selection. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1086" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1086" bodyend="1093" declfile="hal/nrf_pdm.h" declline="775" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gaceff3bffb9dcdcafc997698a8d71c235" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_ctrl_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_filter_ctrl_t const *fctrl)</argsstring>
+        <name>nrf_pdm_filter_ctrl_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pdm__filter__ctrl__t" kindref="compound">nrf_pdm_filter_ctrl_t</ref> const *</type>
+          <declname>fctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting PDM filter configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with filter configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1098" column="6" bodyfile="hal/nrf_pdm.h" bodystart="1098" bodyend="1124" declfile="hal/nrf_pdm.h" declline="786" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gaf59119cdfd35a379ee411e45f085dbce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_ctrl_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg, nrf_pdm_filter_ctrl_t *fctrl)</argsstring>
+        <name>nrf_pdm_filter_ctrl_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pdm__filter__ctrl__t" kindref="compound">nrf_pdm_filter_ctrl_t</ref> *</type>
+          <declname>fctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting PDM filter configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with filter configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1127" column="6" bodyfile="hal/nrf_pdm.h" bodystart="1127" bodyend="1151" declfile="hal/nrf_pdm.h" declline="795" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gabc299b5c71fc813ef12489be636e21cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_hp_pole_enable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_pdm_filter_hp_pole_enable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling PDM high-pass filter gain pole. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if high-pass filter is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1154" column="6" bodyfile="hal/nrf_pdm.h" bodystart="1154" bodyend="1158" declfile="hal/nrf_pdm.h" declline="804" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga15ddb9f73b89da62bb0595c2996b98bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_hp_pole_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_filter_hp_pole_t hppole)</argsstring>
+        <name>nrf_pdm_filter_hp_pole_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga97289878ada088e62e667696d6729358" kindref="member">nrf_pdm_filter_hp_pole_t</ref></type>
+          <declname>hppole</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting PDM high-pass filter gain pole. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">hppole</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>High-pass filter gain pole. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1161" column="6" bodyfile="hal/nrf_pdm.h" bodystart="1161" bodyend="1164" declfile="hal/nrf_pdm.h" declline="813" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga98f3a8068c7d5f8921b2e079f47233a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__pdm__hal_1ga97289878ada088e62e667696d6729358" kindref="member">nrf_pdm_filter_hp_pole_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_pdm_filter_hp_pole_t nrf_pdm_filter_hp_pole_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_filter_hp_pole_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting PDM high-pass filter gain pole. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>High-pass filter gain pole. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1166" column="44" bodyfile="hal/nrf_pdm.h" bodystart="1166" bodyend="1169" declfile="hal/nrf_pdm.h" declline="822" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gaec0f4de3fac444054dcc724c293588ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_softmute_enable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_pdm_filter_softmute_enable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling PDM filter soft mute function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if soft mute function is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1171" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1171" bodyend="1175" declfile="hal/nrf_pdm.h" declline="830" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga4c11282a7dcdf82b2e1b45f5afc12544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_softcycles_set</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, nrf_pdm_filter_softcycles_t cycles)</argsstring>
+        <name>nrf_pdm_filter_softcycles_set</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga4de8afeeac1bf2fa598b1cefdfb2e000" kindref="member">nrf_pdm_filter_softcycles_t</ref></type>
+          <declname>cycles</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting PDM number of cycles used for soft mute transition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cycles</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of cycles. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1178" column="6" bodyfile="hal/nrf_pdm.h" bodystart="1178" bodyend="1181" declfile="hal/nrf_pdm.h" declline="839" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1ga8af1a66bcc1b2ce0df8ad828b3e7843d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__pdm__hal_1ga4de8afeeac1bf2fa598b1cefdfb2e000" kindref="member">nrf_pdm_filter_softcycles_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_pdm_filter_softcycles_t nrf_pdm_filter_softcycles_get</definition>
+        <argsstring>(NRF_PDM_Type const *p_reg)</argsstring>
+        <name>nrf_pdm_filter_softcycles_get</name>
+        <param>
+          <type>NRF_PDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting PDM number of cycles used for soft mute transition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of cycles. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1184" column="29" bodyfile="hal/nrf_pdm.h" bodystart="1184" bodyend="1187" declfile="hal/nrf_pdm.h" declline="849" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pdm__hal_1gae11aa6cd08627dcde8cbeca886c22e7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pdm_filter_sampledelay_enable</definition>
+        <argsstring>(NRF_PDM_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_pdm_filter_sampledelay_enable</name>
+        <param>
+          <type>NRF_PDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling PDM input data sample delay. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if sample delay is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="1189" column="24" bodyfile="hal/nrf_pdm.h" bodystart="1189" bodyend="1193" declfile="hal/nrf_pdm.h" declline="857" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gac639221b8ef0adc63f22e0212cc2f09e" prot="public" static="no">
+        <name>NRF_PDM_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref>(NRF_PDM, idx)</initializer>
+        <briefdescription>
+<para>Macro for getting a pointer to the structure of registers of the PDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PDM instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the PDM peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="60" column="9" bodyfile="hal/nrf_pdm.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf67a901cdd622ecdb230c578b08b9fe2" prot="public" static="no">
+        <name>NRF_PDM_HAS_MCLKCONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether master clock source configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="64" column="9" bodyfile="hal/nrf_pdm.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaa83396f4675042ff22c8b3cf2f72a4da" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether ratio configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="71" column="9" bodyfile="hal/nrf_pdm.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga0c9502ce75fd9329cd8a16ab51d667c0" prot="public" static="no">
+        <name>NRF_PDM_HAS_DMA_TASKS_EVENTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM DMA tasks and events are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="79" column="9" bodyfile="hal/nrf_pdm.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga1214d1abe6bb5f15d21bd0dc5d844c1d" prot="public" static="no">
+        <name>NRF_PDM_HAS_PDMCLKCTRL</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM clock control register is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="86" column="9" bodyfile="hal/nrf_pdm.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaa2d0e9edea76b3279573e992b8fcbe77" prot="public" static="no">
+        <name>NRF_PDM_HAS_FREQ_1231K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether 1231k PDM clock frequency is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="93" column="9" bodyfile="hal/nrf_pdm.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf7259984a917b3f3c277f31d577ecb1d" prot="public" static="no">
+        <name>NRF_PDM_HAS_FREQ_1280K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether 1280k PDM clock frequency is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="100" column="9" bodyfile="hal/nrf_pdm.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga57ae8b53a6ac26e3f5e8afe016ee4c72" prot="public" static="no">
+        <name>NRF_PDM_HAS_FREQ_1333K</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether 1333k PDM clock frequency is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="107" column="9" bodyfile="hal/nrf_pdm.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga30e2ea5a74de32ae9c604241fadc3ad9" prot="public" static="no">
+        <name>NRF_PDM_HAS_PRESCALER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM prescaler register is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="114" column="9" bodyfile="hal/nrf_pdm.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga979ca599f613dcfa862cbd9f2cf9a6a1" prot="public" static="no">
+        <name>NRF_PDM_HAS_CLKSELECT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM clock select register is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="121" column="9" bodyfile="hal/nrf_pdm.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gada33899aed5e590f88e4b9244161f548" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO32</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 32 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="128" column="9" bodyfile="hal/nrf_pdm.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf8d3c56a40ac368b09385a7c3f950e77" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO48</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 48 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="135" column="9" bodyfile="hal/nrf_pdm.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gab4340ca4736c903239769074efc70d19" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO50</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 50 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="142" column="9" bodyfile="hal/nrf_pdm.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gab072d59aeb83c34f53d77162f6fabd0d" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO96</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 96 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="149" column="9" bodyfile="hal/nrf_pdm.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gade351de0b92b562fd67ffb98be0aa4bd" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO100</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 100 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="156" column="9" bodyfile="hal/nrf_pdm.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga3b4dd658c6c538ed13422c680d589788" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO128</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 128 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="163" column="9" bodyfile="hal/nrf_pdm.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf07286575bf1f448fad029d2ebd58cee" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO150</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 150 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="170" column="9" bodyfile="hal/nrf_pdm.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gabe75e4da4e7f60eed4f5f8e63da12c79" prot="public" static="no">
+        <name>NRF_PDM_HAS_RATIO192</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM ratio of 192 configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="177" column="9" bodyfile="hal/nrf_pdm.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga7a8b8ad5b22f3e189d87db611d397c65" prot="public" static="no">
+        <name>NRF_PDM_HAS_CUSTOM_RATIO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM custom ratio configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="184" column="9" bodyfile="hal/nrf_pdm.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga78d0e323fb13a11bde2abcbb592646f9" prot="public" static="no">
+        <name>NRF_PDM_HAS_FILTER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM filter registers are available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="191" column="9" bodyfile="hal/nrf_pdm.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf9419ffcb671a926d8e6946d1272049a" prot="public" static="no">
+        <name>NRF_PDM_GAIN_MINIMUM</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Minimum value of PDM gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="197" column="9" bodyfile="hal/nrf_pdm.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gaf2dbf0024fadb324a3575bdce121b720" prot="public" static="no">
+        <name>NRF_PDM_GAIN_DEFAULT</name>
+        <initializer>0x28</initializer>
+        <briefdescription>
+<para>Default value of PDM gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="199" column="9" bodyfile="hal/nrf_pdm.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gac45fef57f7faed3003b61d575f706e7d" prot="public" static="no">
+        <name>NRF_PDM_GAIN_MAXIMUM</name>
+        <initializer>0x50</initializer>
+        <briefdescription>
+<para>Maximum value of PDM gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="201" column="9" bodyfile="hal/nrf_pdm.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gacaec6d1ba20db1483708e57ac27d779e" prot="public" static="no">
+        <name>NRF_PDM_PRESCALER_MIN</name>
+        <initializer>PDM_PRESCALER_DIVISOR_Min</initializer>
+        <briefdescription>
+<para>Minimum value of PDM prescaler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="205" column="9" bodyfile="hal/nrf_pdm.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1gae673cacd232d5898ecd0521ce0b62b8c" prot="public" static="no">
+        <name>NRF_PDM_PRESCALER_MAX</name>
+        <initializer>PDM_PRESCALER_DIVISOR_Max</initializer>
+        <briefdescription>
+<para>Maximum value of PDM prescaler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="207" column="9" bodyfile="hal/nrf_pdm.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pdm__hal_1ga00d04b4cdd15689a96509eac4e8b8b1d" prot="public" static="no">
+        <name>NRF_PDM_HAS_SELECTABLE_CLOCK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PDM has selectable clock source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pdm.h" line="212" column="9" bodyfile="hal/nrf_pdm.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Pulse Density Modulation (PDM) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

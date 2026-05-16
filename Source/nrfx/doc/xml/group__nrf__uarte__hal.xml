@@ -1,0 +1,3079 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__uarte__hal" kind="group">
+    <compoundname>nrf_uarte_hal</compoundname>
+    <title>UARTE HAL</title>
+    <innerclass refid="structnrf__uarte__config__t" prot="public">nrf_uarte_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_task_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12abd99d435a65192d48802b693b9acab6b" prot="public">
+          <name>NRF_UARTE_TASK_STARTRX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, TASKS_DMA.RX.START)</initializer>
+          <briefdescription>
+<para>Start UART receiver. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12a0bc486fb0751337a49fa3b4570279afc" prot="public">
+          <name>NRF_UARTE_TASK_STOPRX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, TASKS_DMA.RX.STOP)</initializer>
+          <briefdescription>
+<para>Stop UART receiver. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12af3a09172b5dff04de632997f0f7d5a73" prot="public">
+          <name>NRF_UARTE_TASK_STARTTX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, TASKS_DMA.TX.START)</initializer>
+          <briefdescription>
+<para>Start UART transmitter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12a4f014e7e6d864c697f3b501581e77d0c" prot="public">
+          <name>NRF_UARTE_TASK_STOPTX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, TASKS_DMA.TX.STOP)</initializer>
+          <briefdescription>
+<para>Stop UART transmitter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12aac4a3088721b4cffa1f8788032b49d84" prot="public">
+          <name>NRF_UARTE_TASK_FLUSHRX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, TASKS_FLUSHRX)</initializer>
+          <briefdescription>
+<para>Flush RX FIFO in RX buffer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UARTE tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="166" column="1" bodyfile="hal/nrf_uarte.h" bodystart="167" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_event_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aadb7e7f48f8a385142af3ae249e8a15ae" prot="public">
+          <name>NRF_UARTE_EVENT_CTS</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_CTS)</initializer>
+          <briefdescription>
+<para>CTS is activated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aaa9eadfafaf2bc8d8525973db6ad0fffa" prot="public">
+          <name>NRF_UARTE_EVENT_NCTS</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_NCTS)</initializer>
+          <briefdescription>
+<para>CTS is deactivated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec" prot="public">
+          <name>NRF_UARTE_EVENT_RXDRDY</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_RXDRDY)</initializer>
+          <briefdescription>
+<para>Data received in RXD (but potentially not yet transferred to Data RAM). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa41438c8cc0a6dd6a3c534e25640c5f15" prot="public">
+          <name>NRF_UARTE_EVENT_TXDRDY</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_TXDRDY)</initializer>
+          <briefdescription>
+<para>Data sent from TXD. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aadb747c6d6000073aff543006fb6a67bf" prot="public">
+          <name>NRF_UARTE_EVENT_ERROR</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_ERROR)</initializer>
+          <briefdescription>
+<para>Error detected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aacfe771476126c4edf5f77d96a46a4f71" prot="public">
+          <name>NRF_UARTE_EVENT_RXTO</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_RXTO)</initializer>
+          <briefdescription>
+<para>Receiver timeout. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aaf294fd2bdf6d029e97ddc0821d662e12" prot="public">
+          <name>NRF_UARTE_EVENT_TXSTOPPED</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_TXSTOPPED)</initializer>
+          <briefdescription>
+<para>Transmitted stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa8329b5c3838d796c881a3962424b4150" prot="public">
+          <name>NRF_UARTE_EVENT_ENDRX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_DMA.RX.END)</initializer>
+          <briefdescription>
+<para>Receive buffer is filled up. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa8e4ed69aeb2b036939ecfb11afaf01b7" prot="public">
+          <name>NRF_UARTE_EVENT_ENDTX</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_DMA.TX.END)</initializer>
+          <briefdescription>
+<para>Last TX byte transmitted. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa3088313a496175a52d7f4b5e050c7702" prot="public">
+          <name>NRF_UARTE_EVENT_RXSTARTED</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_DMA.RX.READY)</initializer>
+          <briefdescription>
+<para>Receiver has started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa499f8441d47ff978989ed67aa6a6b27a" prot="public">
+          <name>NRF_UARTE_EVENT_TXSTARTED</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_DMA.TX.READY)</initializer>
+          <briefdescription>
+<para>Transmitter has started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa55407dec1dbae5e6279268d71b0587fd" prot="public">
+          <name>NRF_UARTE_EVENT_FRAME_TIMEOUT</name>
+          <initializer>= offsetof(NRF_UARTE_Type, EVENTS_FRAMETIMEOUT)</initializer>
+          <briefdescription>
+<para>Frame timeout. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UARTE events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="183" column="1" bodyfile="hal/nrf_uarte.h" bodystart="184" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga34d5c38f66b74d10c11f72ea548e2138" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_short_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138a3cc21925e8c9ba6b47b5e4fc5ca89e29" prot="public">
+          <name>NRF_UARTE_SHORT_ENDRX_STARTRX</name>
+          <initializer>= UARTE_SHORTS_DMA_RX_END_DMA_RX_START_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between ENDRX event and STARTRX task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138ab09bcb8597c21c3677695b1398ac044e" prot="public">
+          <name>NRF_UARTE_SHORT_ENDRX_STOPRX</name>
+          <initializer>= UARTE_SHORTS_DMA_RX_END_DMA_RX_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between ENDRX event and STOPRX task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138aeca5b4a017684808e562ec2820f35bc2" prot="public">
+          <name>NRF_UARTE_SHORT_ENDTX_STOPTX</name>
+          <initializer>= UARTE_SHORTS_DMA_TX_END_DMA_TX_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between ENDTX event and STOPTX task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138a33695643186fbe9f393a1cd7fbc8560d" prot="public">
+          <name>NRF_UARTE_SHORT_FRAME_TIMEOUT_STOPRX</name>
+          <initializer>= UARTE_SHORTS_FRAMETIMEOUT_DMA_RX_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between ENDTX event and STOPTX task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="209" column="1" bodyfile="hal/nrf_uarte.h" bodystart="210" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_int_mask_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daf20b28af97bf98240e439be787e5c4d0" prot="public">
+          <name>NRF_UARTE_INT_CTS_MASK</name>
+          <initializer>= UARTE_INTENSET_CTS_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on CTS event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da59bb6b09498fa43d957024eaa753e408" prot="public">
+          <name>NRF_UARTE_INT_NCTS_MASK</name>
+          <initializer>= UARTE_INTENSET_NCTS_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on NCTS event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daa7f3b9072bbc035da6c43572e3631981" prot="public">
+          <name>NRF_UARTE_INT_RXDRDY_MASK</name>
+          <initializer>= UARTE_INTENSET_RXDRDY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXDRDY event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da9fcbc283a6cf19a2d8acce330fd22751" prot="public">
+          <name>NRF_UARTE_INT_TXDRDY_MASK</name>
+          <initializer>= UARTE_INTENSET_TXDRDY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXDRDY event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dab082797b57a6a1372b90cd1f93d474b2" prot="public">
+          <name>NRF_UARTE_INT_ERROR_MASK</name>
+          <initializer>= UARTE_INTENSET_ERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dae04416c04b5abdc51fce34d22b2e4100" prot="public">
+          <name>NRF_UARTE_INT_RXTO_MASK</name>
+          <initializer>= UARTE_INTENSET_RXTO_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXTO event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dac82a332df7e6c202081c26ce4c873953" prot="public">
+          <name>NRF_UARTE_INT_TXSTOPPED_MASK</name>
+          <initializer>= UARTE_INTENSET_TXSTOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXSTOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daf4ae0123794e860fae0a6d2b8218da32" prot="public">
+          <name>NRF_UARTE_INT_ENDRX_MASK</name>
+          <initializer>= UARTE_INTENSET_DMARXEND_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ENDRX event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daaa49ccde68d4ef6871758c50d701698d" prot="public">
+          <name>NRF_UARTE_INT_ENDTX_MASK</name>
+          <initializer>= UARTE_INTENSET_DMATXEND_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ENDTX event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da8952e20f257456e2b6ca5474b980fafb" prot="public">
+          <name>NRF_UARTE_INT_RXSTARTED_MASK</name>
+          <initializer>= UARTE_INTENSET_DMARXREADY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXSTARTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da9c88cf5a272fcdf3585c7ff021b07f92" prot="public">
+          <name>NRF_UARTE_INT_TXSTARTED_MASK</name>
+          <initializer>= UARTE_INTENSET_DMATXREADY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXSTARTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da9497fcb45ba5137eb2784c9acf4641be" prot="public">
+          <name>NRF_UARTE_INT_FRAME_TIMEOUT_MASK</name>
+          <initializer>= UARTE_INTENSET_FRAMETIMEOUT_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on FRAMETIMEOUT event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>UARTE interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="229" column="1" bodyfile="hal/nrf_uarte.h" bodystart="230" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga42eca93d0e7d6354bcc75d6e2cdb462e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_baudrate_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea0d8daad791322bcc600d42ed57d9e208" prot="public">
+          <name>NRF_UARTE_BAUDRATE_1200</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud1200</initializer>
+          <briefdescription>
+<para>1200 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eaf46e7dd95a090a2cd64c1c9cfadf2ad5" prot="public">
+          <name>NRF_UARTE_BAUDRATE_2400</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud2400</initializer>
+          <briefdescription>
+<para>2400 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea6677e10c9acb2684b6fecf68492715c7" prot="public">
+          <name>NRF_UARTE_BAUDRATE_4800</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud4800</initializer>
+          <briefdescription>
+<para>4800 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eaeb153c4183d63ecb9ec6af6af734de97" prot="public">
+          <name>NRF_UARTE_BAUDRATE_9600</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud9600</initializer>
+          <briefdescription>
+<para>9600 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea8bdc32e6d7c97372039e5d9a492590f5" prot="public">
+          <name>NRF_UARTE_BAUDRATE_14400</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud14400</initializer>
+          <briefdescription>
+<para>14400 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea70d18503d81a11007456bd3e89c945d5" prot="public">
+          <name>NRF_UARTE_BAUDRATE_19200</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud19200</initializer>
+          <briefdescription>
+<para>19200 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea86e1747104e9f7c2df7a610141b21f1a" prot="public">
+          <name>NRF_UARTE_BAUDRATE_28800</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud28800</initializer>
+          <briefdescription>
+<para>28800 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea5c86870ab4a044f4c10b40d192ba8a00" prot="public">
+          <name>NRF_UARTE_BAUDRATE_31250</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud31250</initializer>
+          <briefdescription>
+<para>31250 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eac52db59615094af65f8d478f02a68234" prot="public">
+          <name>NRF_UARTE_BAUDRATE_38400</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud38400</initializer>
+          <briefdescription>
+<para>38400 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea3283f76b77f5b4ecefbadb3fdc1062ff" prot="public">
+          <name>NRF_UARTE_BAUDRATE_56000</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud56000</initializer>
+          <briefdescription>
+<para>56000 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea527231954d1e97b9cc6d9408f5d432b2" prot="public">
+          <name>NRF_UARTE_BAUDRATE_57600</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud57600</initializer>
+          <briefdescription>
+<para>57600 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea05c8f6c846aacb6793e1205d3533c479" prot="public">
+          <name>NRF_UARTE_BAUDRATE_76800</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud76800</initializer>
+          <briefdescription>
+<para>76800 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea7b89b684f80db1d68e98d93321426e05" prot="public">
+          <name>NRF_UARTE_BAUDRATE_115200</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud115200</initializer>
+          <briefdescription>
+<para>115200 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea01eeab23554f8418f13ac59c0d2e9cf8" prot="public">
+          <name>NRF_UARTE_BAUDRATE_230400</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud230400</initializer>
+          <briefdescription>
+<para>230400 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea4236634f18ab5639793652d3cef4d17e" prot="public">
+          <name>NRF_UARTE_BAUDRATE_250000</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud250000</initializer>
+          <briefdescription>
+<para>250000 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea76aeb4941330f856f18f1d8b092861cb" prot="public">
+          <name>NRF_UARTE_BAUDRATE_460800</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud460800</initializer>
+          <briefdescription>
+<para>460800 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eac0f3d8da95efc2f5dfc618789522285a" prot="public">
+          <name>NRF_UARTE_BAUDRATE_921600</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud921600</initializer>
+          <briefdescription>
+<para>921600 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea4a0c94847b9e1eb020672b81f177aa39" prot="public">
+          <name>NRF_UARTE_BAUDRATE_1000000</name>
+          <initializer>= UARTE_BAUDRATE_BAUDRATE_Baud1M</initializer>
+          <briefdescription>
+<para>1000000 baud. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Baudrates supported by UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="255" column="1" bodyfile="hal/nrf_uarte.h" bodystart="256" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga83eec8b883f6b2e77e4baa39b65d9cb0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_error_mask_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0a252a1e515833af01bc95347d61a22e5c" prot="public">
+          <name>NRF_UARTE_ERROR_OVERRUN_MASK</name>
+          <initializer>= UARTE_ERRORSRC_OVERRUN_Msk</initializer>
+          <briefdescription>
+<para>Overrun error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0ae3a0b96204ac5f2197ce75c8a8e79a8e" prot="public">
+          <name>NRF_UARTE_ERROR_PARITY_MASK</name>
+          <initializer>= UARTE_ERRORSRC_PARITY_Msk</initializer>
+          <briefdescription>
+<para>Parity error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0aeaba8538c226f4784b25f86582d8a469" prot="public">
+          <name>NRF_UARTE_ERROR_FRAMING_MASK</name>
+          <initializer>= UARTE_ERRORSRC_FRAMING_Msk</initializer>
+          <briefdescription>
+<para>Framing error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0a05874849929b6d5a555378258e81eb2d" prot="public">
+          <name>NRF_UARTE_ERROR_BREAK_MASK</name>
+          <initializer>= UARTE_ERRORSRC_BREAK_Msk</initializer>
+          <briefdescription>
+<para>Break error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE error masks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="278" column="1" bodyfile="hal/nrf_uarte.h" bodystart="279" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga8aaeeefd8dcc602621e652895d8760ce" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_parity_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga8aaeeefd8dcc602621e652895d8760cea17846ae089c79d17a516e8f112f673cd" prot="public">
+          <name>NRF_UARTE_PARITY_EXCLUDED</name>
+          <initializer>= UARTE_CONFIG_PARITY_Excluded &lt;&lt; UARTE_CONFIG_PARITY_Pos</initializer>
+          <briefdescription>
+<para>Parity excluded. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga8aaeeefd8dcc602621e652895d8760cea8e974850339489e88039da76031b0c50" prot="public">
+          <name>NRF_UARTE_PARITY_INCLUDED</name>
+          <initializer>= UARTE_CONFIG_PARITY_Included &lt;&lt; UARTE_CONFIG_PARITY_Pos</initializer>
+          <briefdescription>
+<para>Parity included. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE parity modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="287" column="1" bodyfile="hal/nrf_uarte.h" bodystart="288" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga067ff543548e273bd1658c8746894c11" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_hwfc_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga067ff543548e273bd1658c8746894c11a5a0258c57be0d052b3d1811967e4d689" prot="public">
+          <name>NRF_UARTE_HWFC_DISABLED</name>
+          <initializer>= UARTE_CONFIG_HWFC_Disabled &lt;&lt; UARTE_CONFIG_HWFC_Pos</initializer>
+          <briefdescription>
+<para>Hardware flow control disabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga067ff543548e273bd1658c8746894c11a00927c92cfe376a926365e4ecdfbb512" prot="public">
+          <name>NRF_UARTE_HWFC_ENABLED</name>
+          <initializer>= UARTE_CONFIG_HWFC_Enabled  &lt;&lt; UARTE_CONFIG_HWFC_Pos</initializer>
+          <briefdescription>
+<para>Hardware flow control enabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE flow control modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="294" column="1" bodyfile="hal/nrf_uarte.h" bodystart="295" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1gaf1d6928d2c4cae2bce9205c05c9a2b91" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_stop_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1ggaf1d6928d2c4cae2bce9205c05c9a2b91ad589067c6ef83f8b7caae93f99cef541" prot="public">
+          <name>NRF_UARTE_STOP_ONE</name>
+          <initializer>= UARTE_CONFIG_STOP_One &lt;&lt; UARTE_CONFIG_STOP_Pos</initializer>
+          <briefdescription>
+<para>One stop bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggaf1d6928d2c4cae2bce9205c05c9a2b91add7462fa97524ae1bd67999c02c7b180" prot="public">
+          <name>NRF_UARTE_STOP_TWO</name>
+          <initializer>= UARTE_CONFIG_STOP_Two &lt;&lt; UARTE_CONFIG_STOP_Pos</initializer>
+          <briefdescription>
+<para>Two stop bits. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE stop bit modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="302" column="1" bodyfile="hal/nrf_uarte.h" bodystart="303" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga5bd965c0acc87987e247c3a812353923" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_paritytype_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga5bd965c0acc87987e247c3a812353923a1f6bdb309fe828abc37df8f6b3a0f724" prot="public">
+          <name>NRF_UARTE_PARITYTYPE_EVEN</name>
+          <initializer>= UARTE_CONFIG_PARITYTYPE_Even &lt;&lt; UARTE_CONFIG_PARITYTYPE_Pos</initializer>
+          <briefdescription>
+<para>Parity even. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga5bd965c0acc87987e247c3a812353923ae2978aa504ba543fd6ce965d81a05f3c" prot="public">
+          <name>NRF_UARTE_PARITYTYPE_ODD</name>
+          <initializer>= UARTE_CONFIG_PARITYTYPE_Odd &lt;&lt; UARTE_CONFIG_PARITYTYPE_Pos</initializer>
+          <briefdescription>
+<para>Parity odd. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE parity types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="311" column="1" bodyfile="hal/nrf_uarte.h" bodystart="312" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1gaca822c66f6b34e52eb1bd0e59f5f37e9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_frame_timeout_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1ggaca822c66f6b34e52eb1bd0e59f5f37e9a973742d6c908b2040e32bd7a7d0c29e1" prot="public">
+          <name>NRF_UARTE_FRAME_TIMEOUT_EN</name>
+          <initializer>= UARTE_CONFIG_FRAMETIMEOUT_ENABLED &lt;&lt; UARTE_CONFIG_FRAMETIMEOUT_Pos</initializer>
+          <briefdescription>
+<para>Frame timeout enabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggaca822c66f6b34e52eb1bd0e59f5f37e9ab5f30fa5aa3379e40c2ce1fffd701473" prot="public">
+          <name>NRF_UARTE_FRAME_TIMEOUT_DIS</name>
+          <initializer>= UARTE_CONFIG_FRAMETIMEOUT_DISABLED &lt;&lt; UARTE_CONFIG_FRAMETIMEOUT_Pos</initializer>
+          <briefdescription>
+<para>Frame timeout disabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE Frame timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="320" column="1" bodyfile="hal/nrf_uarte.h" bodystart="320" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1ga7d31117e18913e9df35b0e3e43a2c68b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_frame_size_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68ba9470b7c08991ffa95ae8987d8c66c38f" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_4_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_4bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>4 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68ba2e573639d43ddf0138eb2579801ad570" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_5_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_5bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>5 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68bad2a5cf5409da2a846950b1a350ce87ba" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_6_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_6bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>6 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68ba8eefb167d5d907e8a5c09ab934ab4e88" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_7_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_7bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>7 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68baa386eb2eaab8db0239407ef491317761" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_8_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_8bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>8 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1gga7d31117e18913e9df35b0e3e43a2c68baccc89d01b6fd43586b58f12e29408ffa" prot="public">
+          <name>NRF_UARTE_FRAME_SIZE_9_BIT</name>
+          <initializer>= UARTE_CONFIG_FRAMESIZE_9bit &lt;&lt; UARTE_CONFIG_FRAMESIZE_Pos</initializer>
+          <briefdescription>
+<para>9 bit frame size. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE Frame size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="328" column="1" bodyfile="hal/nrf_uarte.h" bodystart="328" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__uarte__hal_1gab40eeabfee483ec7bbc889481d58b858" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_uarte_endian_t</name>
+        <enumvalue id="group__nrf__uarte__hal_1ggab40eeabfee483ec7bbc889481d58b858a02e3ef79dd14955241926f6a1bdc11d3" prot="public">
+          <name>NRF_UARTE_ENDIAN_MSB</name>
+          <initializer>= UARTE_CONFIG_ENDIAN_MSB &lt;&lt; UARTE_CONFIG_ENDIAN_Pos</initializer>
+          <briefdescription>
+<para>Data is trimmed from MSB end. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__uarte__hal_1ggab40eeabfee483ec7bbc889481d58b858a87d3f144f749dc8838d7f7399ace3fa9" prot="public">
+          <name>NRF_UARTE_ENDIAN_LSB</name>
+          <initializer>= UARTE_CONFIG_ENDIAN_LSB &lt;&lt; UARTE_CONFIG_ENDIAN_Pos</initializer>
+          <briefdescription>
+<para>Data is trimmed from LSB end. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UARTE Frame trimming endianness when frame size is less than 8. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="338" column="1" bodyfile="hal/nrf_uarte.h" bodystart="338" bodyend="341"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga5dae90ae9ce6c18e2fcf8a03d3657602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_event_clear</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_event_t event)</argsstring>
+        <name>nrf_uarte_event_clear</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a specific UARTE event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="844" column="24" bodyfile="hal/nrf_uarte.h" bodystart="844" bodyend="848" declfile="hal/nrf_uarte.h" declline="370" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gace95ff2a8e55699ccaec942fc699ab3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_uarte_event_check</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, nrf_uarte_event_t event)</argsstring>
+        <name>nrf_uarte_event_check</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the UARTE event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="850" column="24" bodyfile="hal/nrf_uarte.h" bodystart="850" bodyend="854" declfile="hal/nrf_uarte.h" declline="381" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga71fbc9d9b1a7a7fb61e54af1db53e9b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_event_address_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, nrf_uarte_event_t event)</argsstring>
+        <name>nrf_uarte_event_address_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified UARTE event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="856" column="28" bodyfile="hal/nrf_uarte.h" bodystart="856" bodyend="860" declfile="hal/nrf_uarte.h" declline="392" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaa95a64c55eaf1ef8c5034c701be8cc2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_shorts_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_shorts_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring UARTE shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="862" column="24" bodyfile="hal/nrf_uarte.h" bodystart="862" bodyend="865" declfile="hal/nrf_uarte.h" declline="401" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gacdf7d64e583ad40f2f6284080af2bb54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_shorts_get</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_shorts_get</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting UARTE shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of requested shortcuts which were enabled. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="867" column="28" bodyfile="hal/nrf_uarte.h" bodystart="867" bodyend="870" declfile="hal/nrf_uarte.h" declline="411" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaf118432d67372baf106ddebd40706ac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_shorts_enable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_shorts_enable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling UARTE shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="872" column="24" bodyfile="hal/nrf_uarte.h" bodystart="872" bodyend="875" declfile="hal/nrf_uarte.h" declline="419" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga4b45795e5eb4ab6ca6bec57fef5ca900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_shorts_disable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_shorts_disable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling UARTE shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="877" column="24" bodyfile="hal/nrf_uarte.h" bodystart="877" bodyend="880" declfile="hal/nrf_uarte.h" declline="427" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaa541c8ca2314f3228f99d6745d51ba03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_int_enable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_int_enable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling UARTE interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d" kindref="member">nrf_uarte_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="882" column="24" bodyfile="hal/nrf_uarte.h" bodystart="882" bodyend="885" declfile="hal/nrf_uarte.h" declline="436" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga90865440e200499623f4cc89e01db83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_int_enable_check</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_int_enable_check</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d" kindref="member">nrf_uarte_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="887" column="28" bodyfile="hal/nrf_uarte.h" bodystart="887" bodyend="890" declfile="hal/nrf_uarte.h" declline="447" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga9b7a75ee458272927873b753c7f0d3ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_int_disable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_uarte_int_disable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d" kindref="member">nrf_uarte_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="892" column="24" bodyfile="hal/nrf_uarte.h" bodystart="892" bodyend="895" declfile="hal/nrf_uarte.h" declline="456" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga122e4a898f64c58603ffe58ebe9f0828" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_subscribe_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_uarte_subscribe_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" kindref="member">nrf_uarte_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given UARTE task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="467" column="24" declfile="hal/nrf_uarte.h" declline="467" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga615374471fc4545e9b26e69963c37d95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_subscribe_clear</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_task_t task)</argsstring>
+        <name>nrf_uarte_subscribe_clear</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" kindref="member">nrf_uarte_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given UARTE task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="478" column="24" declfile="hal/nrf_uarte.h" declline="478" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gae862a605cb9492fb73607ba86965723a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_subscribe_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, nrf_uarte_task_t task)</argsstring>
+        <name>nrf_uarte_subscribe_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" kindref="member">nrf_uarte_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given UARTE task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>UARTE subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="490" column="28" declfile="hal/nrf_uarte.h" declline="490" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga92107bd9f425356f88682a286ba480e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_publish_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_uarte_publish_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given UARTE event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="501" column="24" declfile="hal/nrf_uarte.h" declline="501" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gacfa67b79ba293492c74d1e670106fcc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_publish_clear</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_event_t event)</argsstring>
+        <name>nrf_uarte_publish_clear</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given UARTE event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="512" column="24" declfile="hal/nrf_uarte.h" declline="512" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaa586bb2b4a31439f47b08985a993188d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_publish_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, nrf_uarte_event_t event)</argsstring>
+        <name>nrf_uarte_publish_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a" kindref="member">nrf_uarte_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given UARTE event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>UARTE publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="524" column="28" declfile="hal/nrf_uarte.h" declline="524" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gafb0484282cce3fb422e1179cbbede5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_errorsrc_get_and_clear</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_errorsrc_get_and_clear</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting error source mask. Function is clearing error source flags after reading. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask with error source flags. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="939" column="28" bodyfile="hal/nrf_uarte.h" bodystart="939" bodyend="944" declfile="hal/nrf_uarte.h" declline="535" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga00a98872628825eee87ac9c62fdb700a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_errorsrc_get</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_errorsrc_get</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting error source mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask with error source flags. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="946" column="28" bodyfile="hal/nrf_uarte.h" bodystart="946" bodyend="949" declfile="hal/nrf_uarte.h" declline="544" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga4d8058bfb348894a24031d7104ae478d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_errorsrc_clear</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t errsrc_mask)</argsstring>
+        <name>nrf_uarte_errorsrc_clear</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>errsrc_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing error source flags after reading. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errsrc_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with error sources to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="951" column="24" bodyfile="hal/nrf_uarte.h" bodystart="951" bodyend="954" declfile="hal/nrf_uarte.h" declline="553" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga070849bf37e459b44758bfe6cd63859b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_enable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_enable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="956" column="24" bodyfile="hal/nrf_uarte.h" bodystart="956" bodyend="959" declfile="hal/nrf_uarte.h" declline="560" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gac6629a9ad9c7acbf36515e484a45d166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_disable</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_disable</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="961" column="24" bodyfile="hal/nrf_uarte.h" bodystart="961" bodyend="964" declfile="hal/nrf_uarte.h" declline="567" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gae8d7bc802477ebd1b07539e0c9ec8ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_uarte_enable_check</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_enable_check</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the UARTE is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UARTE is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UARTE is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="966" column="24" bodyfile="hal/nrf_uarte.h" bodystart="966" bodyend="969" declfile="hal/nrf_uarte.h" declline="577" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga3639640032bc1ad556e7706b9ca1dedb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_txrx_pins_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pseltxd, uint32_t pselrxd)</argsstring>
+        <name>nrf_uarte_txrx_pins_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pseltxd</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TX/RX pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pseltxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="971" column="24" bodyfile="hal/nrf_uarte.h" bodystart="971" bodyend="977" declfile="hal/nrf_uarte.h" declline="586" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gae12fb2e2d49533008304ff39d250929d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_txrx_pins_disconnect</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_txrx_pins_disconnect</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disconnecting TX/RX pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="979" column="24" bodyfile="hal/nrf_uarte.h" bodystart="979" bodyend="982" declfile="hal/nrf_uarte.h" declline="595" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga4e6083baad20671a5f356019ccd53aba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_tx_pin_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pseltxd)</argsstring>
+        <name>nrf_uarte_tx_pin_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pseltxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TX pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pseltxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="984" column="24" bodyfile="hal/nrf_uarte.h" bodystart="984" bodyend="987" declfile="hal/nrf_uarte.h" declline="603" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gad20aa88659fd7ee2ac284a89730057c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_tx_pin_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_tx_pin_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting TX pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TX pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="989" column="28" bodyfile="hal/nrf_uarte.h" bodystart="989" bodyend="992" declfile="hal/nrf_uarte.h" declline="612" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga7c8734ff4adfc8c2a4ecfae4d57bb22e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_rx_pin_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pselrxd)</argsstring>
+        <name>nrf_uarte_rx_pin_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrxd</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring RX pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrxd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RXD pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="994" column="24" bodyfile="hal/nrf_uarte.h" bodystart="994" bodyend="997" declfile="hal/nrf_uarte.h" declline="620" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaf13bcb5b920de9d9d50ee369f4a7d6c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_rx_pin_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_rx_pin_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting RX pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RX pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="999" column="28" bodyfile="hal/nrf_uarte.h" bodystart="999" bodyend="1002" declfile="hal/nrf_uarte.h" declline="629" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga3b049f6ff481c49b93aaa37aad506eb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_rts_pin_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pselrts)</argsstring>
+        <name>nrf_uarte_rts_pin_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring RTS pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1004" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1004" bodyend="1007" declfile="hal/nrf_uarte.h" declline="637" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gae45c79f51d7ee117ede98c03dbc7a724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_rts_pin_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_rts_pin_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting RTS pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RTS pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1009" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1009" bodyend="1012" declfile="hal/nrf_uarte.h" declline="646" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gac7b47f9b0289a59ec695d1d3e0ca7704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_cts_pin_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pselcts)</argsstring>
+        <name>nrf_uarte_cts_pin_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselcts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring CTS pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselcts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1014" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1014" bodyend="1017" declfile="hal/nrf_uarte.h" declline="654" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga143b34d55cfc636dd26a804566eef939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_cts_pin_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_cts_pin_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting CTS pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CTS pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1019" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1019" bodyend="1022" declfile="hal/nrf_uarte.h" declline="663" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga6203bd22ea2ff2288a5634c2ec4a3d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_hwfc_pins_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t pselrts, uint32_t pselcts)</argsstring>
+        <name>nrf_uarte_hwfc_pins_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselrts</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pselcts</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring flow control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselrts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pselcts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CTS pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1024" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1024" bodyend="1030" declfile="hal/nrf_uarte.h" declline="672" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga7d032eec8527123301563e29fae8fe8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_hwfc_pins_disconnect</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_hwfc_pins_disconnect</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disconnecting flow control pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1032" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1032" bodyend="1035" declfile="hal/nrf_uarte.h" declline="681" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga3bdb712b7c870d00490404158c8f6531" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_task_trigger</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_task_t task)</argsstring>
+        <name>nrf_uarte_task_trigger</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" kindref="member">nrf_uarte_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting an UARTE task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1037" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1037" bodyend="1040" declfile="hal/nrf_uarte.h" declline="689" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaf3123d724a34655489ff9a353f24dd10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_task_address_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg, nrf_uarte_task_t task)</argsstring>
+        <name>nrf_uarte_task_address_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12" kindref="member">nrf_uarte_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1042" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1042" bodyend="1046" declfile="hal/nrf_uarte.h" declline="699" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga7ade109c5df6108b680ecc9186f079b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_configure</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_config_t const *p_cfg)</argsstring>
+        <name>nrf_uarte_configure</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__uarte__config__t" kindref="compound">nrf_uarte_config_t</ref> const *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to UARTE settings structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1048" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1048" bodyend="1066" declfile="hal/nrf_uarte.h" declline="708" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga156a5e07b05444cdaebe7bbfa141f0d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_baudrate_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, nrf_uarte_baudrate_t baudrate)</argsstring>
+        <name>nrf_uarte_baudrate_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uarte__hal_1ga42eca93d0e7d6354bcc75d6e2cdb462e" kindref="member">nrf_uarte_baudrate_t</ref></type>
+          <declname>baudrate</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting UARTE baud rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">baudrate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Baud rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1068" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1068" bodyend="1071" declfile="hal/nrf_uarte.h" declline="717" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gabf28e16035c5d0c273e7e83c885b4266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_tx_maxcnt_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, size_t length)</argsstring>
+        <name>nrf_uarte_tx_maxcnt_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the transmit buffer length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to receive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1073" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1073" bodyend="1081" declfile="hal/nrf_uarte.h" declline="726" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaaa377e777d745982b43b2be3365cc723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_tx_ptr_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint8_t const *p_buffer)</argsstring>
+        <name>nrf_uarte_tx_ptr_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the transmit buffer pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer for received data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1083" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1083" bodyend="1091" declfile="hal/nrf_uarte.h" declline="735" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gab54534a45e185cee807e27b4b2a77d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_tx_buffer_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint8_t const *p_buffer, size_t length)</argsstring>
+        <name>nrf_uarte_tx_buffer_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer with data to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1093" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1093" bodyend="1099" declfile="hal/nrf_uarte.h" declline="745" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaa2591b6842b0ef1033a095e9484d0cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t const *</type>
+        <definition>NRF_STATIC_INLINE uint8_t const  * nrf_uarte_tx_buffer_get</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_tx_buffer_get</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the transmit buffer address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the transmit buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1101" column="34" bodyfile="hal/nrf_uarte.h" bodystart="1101" bodyend="1108" declfile="hal/nrf_uarte.h" declline="756" declcolumn="34"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga4b52b1f7133577c0cf017143d5dc5ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_tx_amount_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_tx_amount_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of bytes transmitted in the last transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Amount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of bytes transmitted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1110" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1110" bodyend="1117" declfile="hal/nrf_uarte.h" declline="765" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gafb3c87aed034e9cb01c9f731665f47fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_rx_maxcnt_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, size_t length)</argsstring>
+        <name>nrf_uarte_rx_maxcnt_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the receive buffer length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to receive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1119" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1119" bodyend="1127" declfile="hal/nrf_uarte.h" declline="773" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gadd87965eeb8f31ffa48c7c96178d0c44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_rx_ptr_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint8_t *p_buffer)</argsstring>
+        <name>nrf_uarte_rx_ptr_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the receive buffer pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer for received data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1129" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1129" bodyend="1137" declfile="hal/nrf_uarte.h" declline="782" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga1bb25747646dd76f76f5939cc332abc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_rx_buffer_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint8_t *p_buffer, size_t length)</argsstring>
+        <name>nrf_uarte_rx_buffer_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer for received data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to receive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1139" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1139" bodyend="1145" declfile="hal/nrf_uarte.h" declline="792" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gaee7e0cd824a91100b21464fca8d789fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t *</type>
+        <definition>NRF_STATIC_INLINE uint8_t * nrf_uarte_rx_buffer_get</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg)</argsstring>
+        <name>nrf_uarte_rx_buffer_get</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the reception buffer address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the reception buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1147" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1147" bodyend="1154" declfile="hal/nrf_uarte.h" declline="803" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga61ad399cf37f988ff775dd594edee863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_uarte_rx_amount_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_rx_amount_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of bytes received in the last transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Amount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of bytes received. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1156" column="28" bodyfile="hal/nrf_uarte.h" bodystart="1156" bodyend="1163" declfile="hal/nrf_uarte.h" declline="812" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga4c86e0f1c306c0e184ae4a0d7273bb52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_frame_timeout_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint32_t timeout)</argsstring>
+        <name>nrf_uarte_frame_timeout_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting frame timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame timeout in bits. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1166" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1166" bodyend="1169" declfile="hal/nrf_uarte.h" declline="821" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1gad68a76ddc35125d5a7dfb856ed81b1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_uarte_address_set</definition>
+        <argsstring>(NRF_UARTE_Type *p_reg, uint8_t address)</argsstring>
+        <name>nrf_uarte_address_set</name>
+        <param>
+          <type>NRF_UARTE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting address register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1173" column="24" bodyfile="hal/nrf_uarte.h" bodystart="1173" bodyend="1176" declfile="hal/nrf_uarte.h" declline="831" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__uarte__hal_1ga940539feefde6ba54412c8f54d071f0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_uarte_address_get</definition>
+        <argsstring>(NRF_UARTE_Type const *p_reg)</argsstring>
+        <name>nrf_uarte_address_get</name>
+        <param>
+          <type>NRF_UARTE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="1178" column="27" bodyfile="hal/nrf_uarte.h" bodystart="1178" bodyend="1181" declfile="hal/nrf_uarte.h" declline="840" declcolumn="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga163aa58099af5af3b8ee35c3155a34f0" prot="public" static="no">
+        <name>NRF_UARTE_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, UARTE, idx)</initializer>
+        <briefdescription>
+<para>Macro getting pointer to the structure of registers of the UARTE peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UARTE instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the UARTE peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="63" column="9" bodyfile="hal/nrf_uarte.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga8c6fb673c718d483cfd092b2876e4e3a" prot="public" static="no">
+        <name>NRF_UARTE_HAS_DMA_REG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether dedicated DMA register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="67" column="9" bodyfile="hal/nrf_uarte.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga076e06cca1beb456e2f3aeef25078be8" prot="public" static="no">
+        <name>NRF_UARTE_HAS_DMA_TASKS_EVENTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE DMA tasks and events are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="75" column="9" bodyfile="hal/nrf_uarte.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga9b1018ce818e2f7a1400ca0e43b0cf2a" prot="public" static="no">
+        <name>NRF_UARTE_HAS_DMA_SHORTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE DMA shortcuts are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="82" column="9" bodyfile="hal/nrf_uarte.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga5a41ceea56437a8d61dfd70a6f0f6a6f" prot="public" static="no">
+        <name>NRF_UARTE_HAS_ENDTX_STOPTX_SHORT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE ENDTX_STOPTX shortcut is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="90" column="9" bodyfile="hal/nrf_uarte.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga4e66b49935b2c3c052458586ffad8034" prot="public" static="no">
+        <name>NRF_UARTE_HAS_FRAME_TIMEOUT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE FRAMETIMEOUT event is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="97" column="9" bodyfile="hal/nrf_uarte.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga9ae4d1f184f65f4602495c2f7d6e41b3" prot="public" static="no">
+        <name>NRF_UARTE_HAS_PARITY_TYPES</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE parity types are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="104" column="9" bodyfile="hal/nrf_uarte.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga8d73e548a33990453e72e1750e97d8bf" prot="public" static="no">
+        <name>NRF_UARTE_HAS_STOP_MODES</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE STOP modes are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="111" column="9" bodyfile="hal/nrf_uarte.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gad61dfdefac8b51361374efa9e15fbb9c" prot="public" static="no">
+        <name>NRF_UARTE_HAS_FRAME_SIZE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether UARTE supports variable frame size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="118" column="9" bodyfile="hal/nrf_uarte.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga6c547cbc1ccbf14db5198d72aaeeeb49" prot="public" static="no">
+        <name>NRF_UARTE_BASE_FREQUENCY_320MHZ</name>
+        <initializer>(<ref refid="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" kindref="member">NRFX_MHZ_TO_HZ</ref>(320UL))</initializer>
+        <briefdescription>
+<para>Base frequency value 320 MHz for UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="124" column="9" bodyfile="hal/nrf_uarte.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gad1d66a544d55b791e4a9c7cb26186144" prot="public" static="no">
+        <name>NRF_UARTE_BASE_FREQUENCY_128MHZ</name>
+        <initializer>(<ref refid="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" kindref="member">NRFX_MHZ_TO_HZ</ref>(128UL))</initializer>
+        <briefdescription>
+<para>Base frequency value 128 MHz for UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="126" column="9" bodyfile="hal/nrf_uarte.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gabf5b1cb781ef23c14045cab6c9357db4" prot="public" static="no">
+        <name>NRF_UARTE_BASE_FREQUENCY_64MHZ</name>
+        <initializer>(<ref refid="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" kindref="member">NRFX_MHZ_TO_HZ</ref>(64UL))</initializer>
+        <briefdescription>
+<para>Base frequency value 64 MHz for UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="128" column="9" bodyfile="hal/nrf_uarte.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gac4d1b4891d0eddf0341d513217d6d0db" prot="public" static="no">
+        <name>NRF_UARTE_BASE_FREQUENCY_16MHZ</name>
+        <initializer>(<ref refid="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" kindref="member">NRFX_MHZ_TO_HZ</ref>(16UL))</initializer>
+        <briefdescription>
+<para>Base frequency value 16 MHz for UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="130" column="9" bodyfile="hal/nrf_uarte.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gacc63e8d67874d59dbc37c8704b62f169" prot="public" static="no">
+        <name>NRF_UARTE_IS_320MHZ_UARTE</name>
+        <param><defname>p_reg</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrfx__utils_1ga9cc7f9da377228c1f0b191bd660577af" kindref="member">NRFX_INSTANCE_PRESENT</ref>(UARTE120), (p_reg == NRF_UARTE120), (false))</initializer>
+        <briefdescription>
+<para>Macro for checking whether the base frequency for the specified UARTE is 320 MHz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="134" column="9" bodyfile="hal/nrf_uarte.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1ga68e72cc37ed15adfd86c09f040259217" prot="public" static="no">
+        <name>NRF_UARTE_IS_128MHZ_UARTE</name>
+        <param><defname>p_reg</defname></param>
+        <initializer>    (<ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrfx__utils_1ga238278032464c932dc46946bedd44473" kindref="member">NRFX_IS_ENABLED</ref>(NRF_CPU_FREQ_IS_128MHZ),                               \
+        (<ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrfx__utils_1ga9cc7f9da377228c1f0b191bd660577af" kindref="member">NRFX_INSTANCE_PRESENT</ref>(UARTE00), (p_reg == NRF_UARTE00), (false))), \
+        (false)))</initializer>
+        <briefdescription>
+<para>Macro for checking whether the base frequency for the specified UARTE is 128 MHz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="140" column="9" bodyfile="hal/nrf_uarte.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gab7ed47dc391119f4368f54a15ee15300" prot="public" static="no">
+        <name>NRF_UARTE_IS_64MHZ_UARTE</name>
+        <param><defname>p_reg</defname></param>
+        <initializer>    (<ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrfx__utils_1ga238278032464c932dc46946bedd44473" kindref="member">NRFX_IS_ENABLED</ref>(NRF_CPU_FREQ_IS_64MHZ),                                \
+        (<ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrfx__utils_1ga9cc7f9da377228c1f0b191bd660577af" kindref="member">NRFX_INSTANCE_PRESENT</ref>(UARTE00), (p_reg == NRF_UARTE00), (false))), \
+        (false)))</initializer>
+        <briefdescription>
+<para>Macro for checking whether the base frequency for the specified UARTE is 64 MHz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="148" column="9" bodyfile="hal/nrf_uarte.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__uarte__hal_1gaa420fce556af9f1f14701f5c4dd3729a" prot="public" static="no">
+        <name>NRF_UARTE_BASE_FREQUENCY_GET</name>
+        <param><defname>p_reg</defname></param>
+        <initializer>    ((<ref refid="group__nrf__uarte__hal_1gacc63e8d67874d59dbc37c8704b62f169" kindref="member">NRF_UARTE_IS_320MHZ_UARTE</ref>(p_reg)) ? (<ref refid="group__nrf__uarte__hal_1ga6c547cbc1ccbf14db5198d72aaeeeb49" kindref="member">NRF_UARTE_BASE_FREQUENCY_320MHZ</ref>): \
+    ((<ref refid="group__nrf__uarte__hal_1ga68e72cc37ed15adfd86c09f040259217" kindref="member">NRF_UARTE_IS_128MHZ_UARTE</ref>(p_reg)) ? (<ref refid="group__nrf__uarte__hal_1gad1d66a544d55b791e4a9c7cb26186144" kindref="member">NRF_UARTE_BASE_FREQUENCY_128MHZ</ref>): \
+    ((<ref refid="group__nrf__uarte__hal_1gab7ed47dc391119f4368f54a15ee15300" kindref="member">NRF_UARTE_IS_64MHZ_UARTE</ref>(p_reg))  ? (<ref refid="group__nrf__uarte__hal_1gabf5b1cb781ef23c14045cab6c9357db4" kindref="member">NRF_UARTE_BASE_FREQUENCY_64MHZ</ref>) : \
+    (<ref refid="group__nrf__uarte__hal_1gac4d1b4891d0eddf0341d513217d6d0db" kindref="member">NRF_UARTE_BASE_FREQUENCY_16MHZ</ref>))))</initializer>
+        <briefdescription>
+<para>Macro for getting base frequency value in Hz for the specified UARTE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_uarte.h" line="159" column="9" bodyfile="hal/nrf_uarte.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the UARTE peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

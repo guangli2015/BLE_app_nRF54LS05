@@ -1,0 +1,1011 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__nvmc" kind="group">
+    <compoundname>nrfx_nvmc</compoundname>
+    <title>NVMC driver</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__nvmc_1gab447d7f92897091dab84ce0ea89b9a21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nvmc_page_erase</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_nvmc_page_erase</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for erasing a page in flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function blocks until the erase operation finishes.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first word in the page to erase.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Page erase complete. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address is not aligned to the size of the page. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="66" column="5" declfile="drivers/include/nrfx_nvmc.h" declline="66" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga22670eae8ee9b447f3a2651a39b3a1b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nvmc_uicr_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_uicr_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for erasing the user information configuration register (UICR). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UICR has been successfully erased. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UICR erase is not supported. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="78" column="5" declfile="drivers/include/nrfx_nvmc.h" declline="78" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga85781588ba14021ded786b7e8f92d053" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_all_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_all_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for erasing the whole flash memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>All user code and UICR will be erased. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="85" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga1e60f731f13c39a2dafc0ccd28329977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nvmc_page_partial_erase_init</definition>
+        <argsstring>(uint32_t address, uint32_t duration_ms)</argsstring>
+        <name>nrfx_nvmc_page_partial_erase_init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>duration_ms</declname>
+        </param>
+        <briefdescription>
+<para>Function for initiating a complete page erase split into parts (also known as partial erase). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function initiates a partial erase with the specified duration. To execute each part of the partial erase, use <ref refid="group__nrfx__nvmc_1ga056243905d1a6e78c3b8e1ffd0886779" kindref="member">nrfx_nvmc_page_partial_erase_continue</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first word in the page to erase. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in milliseconds that each partial erase will take.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Partial erase started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address is not aligned to the size of the page.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__nvmc_1ga056243905d1a6e78c3b8e1ffd0886779" kindref="member">nrfx_nvmc_page_partial_erase_continue()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="102" column="5" declfile="drivers/include/nrfx_nvmc.h" declline="102" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga056243905d1a6e78c3b8e1ffd0886779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_page_partial_erase_continue</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_page_partial_erase_continue</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for performing a part of the complete page erase (also known as partial erase). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function must be called several times to erase the whole page, once for each erase part.</para>
+<para><simplesect kind="note"><para>The actual time needed to perform each part of the page erase is longer than the partial erase duration specified in the call to <ref refid="group__nrfx__nvmc_1ga1e60f731f13c39a2dafc0ccd28329977" kindref="member">nrfx_nvmc_page_partial_erase_init</ref>, since the NVMC peripheral needs certain additional amount of time to handle the process. For details regarding this additional time, see the &quot;Electrical specification&quot; section for the NVMC peripheral in the Product Specification.</para>
+</simplesect>
+<simplesect kind="note"><para>Using a page that was not completely erased leads to undefined behavior. Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Partial erase finished. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Partial erase not finished. Call the function again to process the next part. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="124" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="124" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga7dad8f0be04849a1a26174f56c6ca82c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_fits_memory_check</definition>
+        <argsstring>(uint32_t addr, bool uicr_allowed, uint32_t num_bytes)</argsstring>
+        <name>nrfx_nvmc_fits_memory_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uicr_allowed</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified range of addresses fits in non-volatile memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function checks if the range fits in regular memory, or in either UICR or regular memory, depending on arguments. To check if a range fits specifically in UICR use <ref refid="group__nrfx__nvmc_1ga2d03c3bb0bc7d201a4c4daeb81846681" kindref="member">nrfx_nvmc_fits_uicr_check</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting address of the range to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">uicr_allowed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, addresses in the UICR area are considered valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the range to be checked in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range fits in NVM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range doesn&apos;t fit in NVM. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="142" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="142" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga2d03c3bb0bc7d201a4c4daeb81846681" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_fits_uicr_check</definition>
+        <argsstring>(uint32_t addr, uint32_t num_bytes)</argsstring>
+        <name>nrfx_nvmc_fits_uicr_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified range of addresses fits in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting address of the range to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the range to be checked in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range fits in UICR. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Range doesn&apos;t fit in UICR. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="153" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="153" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga73e6af0bfda875da0e0b76859077f9d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_byte_writable_check</definition>
+        <argsstring>(uint32_t address, uint8_t value)</argsstring>
+        <name>nrfx_nvmc_byte_writable_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether a byte is writable at the specified address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The NVMC is only able to write &apos;0&apos; to bits in the flash that are erased (set to &apos;1&apos;). It cannot rewrite a bit back to &apos;1&apos;. This function checks if the value currently residing at the specified address can be transformed to the desired value without any &apos;0&apos; to &apos;1&apos; transitions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte can be written at the specified address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte cannot be written at the specified address. Erase the page or change the address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="170" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="170" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga399000fb5977151de6adf7b08503b60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_byte_write</definition>
+        <argsstring>(uint32_t address, uint8_t value)</argsstring>
+        <name>nrfx_nvmc_byte_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a single byte to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the flash write has been completed, use <ref refid="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" kindref="member">nrfx_nvmc_write_done_check()</ref>.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="184" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="184" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga92fedba8a52edf87f03a0d3de865ccc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_halfword_writable_check</definition>
+        <argsstring>(uint32_t address, uint16_t value)</argsstring>
+        <name>nrfx_nvmc_halfword_writable_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether a halfword is writable at the specified address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The NVMC is only able to write &apos;0&apos; to bits in the Flash that are erased (set to &apos;1&apos;). It cannot rewrite a bit back to &apos;1&apos;. This function checks if the value currently residing at the specified address can be transformed to the desired value without any &apos;0&apos; to &apos;1&apos; transitions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be checked. Must be halfword-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Halfword can be written at the specified address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Halfword cannot be written at the specified address. Erase page or change address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="201" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="201" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga66dfc2e3d6e3940ef12477c2eaab5cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_halfword_write</definition>
+        <argsstring>(uint32_t address, uint16_t value)</argsstring>
+        <name>nrfx_nvmc_halfword_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 16-bit halfword to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the flash write has been completed, use <ref refid="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" kindref="member">nrfx_nvmc_write_done_check()</ref>.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. Must be halfword-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="215" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="215" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga9a8cd173377bc4d1ae943b9eedc0074f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nvmc_word_writable_check</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrfx_nvmc_word_writable_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether a word is writable at the specified address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The NVMC is only able to write &apos;0&apos; to bits in the Flash that are erased (set to &apos;1&apos;). It cannot rewrite a bit back to &apos;1&apos;. This function checks if the value currently residing at the specified address can be transformed to the desired value without any &apos;0&apos; to &apos;1&apos; transitions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be checked. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word can be written at the specified address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word cannot be written at the specified address. Erase page or change address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="232" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="232" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga61cfb10bcc72814ebf0dc04629fc4bcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_word_write</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrfx_nvmc_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the flash write has been completed, use <ref refid="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" kindref="member">nrfx_nvmc_write_done_check()</ref>.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="246" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="246" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga57b135322719272be99c514b2f360661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_bytes_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_bytes)</argsstring>
+        <name>nrfx_nvmc_bytes_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive bytes to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last flash write has been completed, use <ref refid="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" kindref="member">nrfx_nvmc_write_done_check()</ref>.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the data to copy from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="261" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="261" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1gabdcbab6bdac9f16a8b2eab8be0698c4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nvmc_words_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_words)</argsstring>
+        <name>nrfx_nvmc_words_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_words</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive words to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last flash write has been completed, use <ref refid="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" kindref="member">nrfx_nvmc_write_done_check()</ref>.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to copy from. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_words</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of words to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="276" column="6" declfile="drivers/include/nrfx_nvmc.h" declline="276" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga12bc6d38b813eaa6c3e33d8681b15529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t nrfx_nvmc_otp_halfword_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_nvmc_otp_halfword_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a 16-bit aligned halfword from the OTP (UICR) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>OTP is a region of the UICR present in some chips. This function must be used to read halfword data from this region since unaligned accesses are not available on the OTP flash area.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to read from. Must be halfword-aligned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contents at <computeroutput>address</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="289" column="10" declfile="drivers/include/nrfx_nvmc.h" declline="289" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga67d6fd4feefe96f3939b887c799fb60f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_nvmc_uicr_word_read</definition>
+        <argsstring>(uint32_t const volatile *address)</argsstring>
+        <name>nrfx_nvmc_uicr_word_read</name>
+        <param>
+          <type>uint32_t const volatile *</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a 32-bit aligned word from the UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function should be used to read from the UICR since reading the flash main memory area straight after reading the UICR results in undefined behaviour for nRF9160.</para>
+<para><simplesect kind="note"><para>See anomaly 7 in the errata document.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to read from. Must be word-aligned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contents at <computeroutput>address</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="370" column="29" bodyfile="drivers/include/nrfx_nvmc.h" bodystart="370" bodyend="394" declfile="drivers/include/nrfx_nvmc.h" declline="304" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga4682d19b4fdf44e21a48a937d4ee496f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_nvmc_uicr_word_write</definition>
+        <argsstring>(uint32_t volatile *address, uint32_t value)</argsstring>
+        <name>nrfx_nvmc_uicr_word_write</name>
+        <param>
+          <type>uint32_t volatile *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit aligned word to the UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function should be used to write to the UICR since writing the flash main memory area straight after writing the UICR results in undefined behaviour for nRF9160 / nRF9151</para>
+<para><simplesect kind="note"><para>See anomaly 7 in the errata document.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to write to. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="396" column="25" bodyfile="drivers/include/nrfx_nvmc.h" bodystart="396" bodyend="418" declfile="drivers/include/nrfx_nvmc.h" declline="319" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga7a35eb43e624e84293fd0187d947fdab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_nvmc_flash_size_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_flash_size_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the total flash size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Flash total size in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="326" column="10" declfile="drivers/include/nrfx_nvmc.h" declline="326" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga618b9b451de6267d6614baae41fa090f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_nvmc_flash_page_size_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_flash_page_size_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the flash page size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Flash page size in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="333" column="10" declfile="drivers/include/nrfx_nvmc.h" declline="333" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga7b0bbf5041b542a66726bb97ad571cc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_nvmc_flash_page_count_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_flash_page_count_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the flash page count. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Flash page count. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="340" column="10" declfile="drivers/include/nrfx_nvmc.h" declline="340" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1gadefedd962852c5c685c1da242858171c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_nvmc_write_done_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_write_done_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the last flash write has been completed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last write completed successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last write is still in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="365" column="25" bodyfile="drivers/include/nrfx_nvmc.h" bodystart="365" bodyend="368" declfile="drivers/include/nrfx_nvmc.h" declline="348" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga36eb097ee20de05cfed37f2518bd911d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_nvmc_icache_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_icache_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for enabling the Instruction Cache (ICache). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Enabling ICache reduces the amount of accesses to flash memory, which can boost performance and lower power consumption. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="357" column="25" declfile="drivers/include/nrfx_nvmc.h" declline="357" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nvmc_1ga55a174aaa70c57116e5c19a43d8f4aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_nvmc_icache_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nvmc_icache_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling ICache. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nvmc.h" line="360" column="25" declfile="drivers/include/nrfx_nvmc.h" declline="360" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Non-Volatile Memory Controller (NVMC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

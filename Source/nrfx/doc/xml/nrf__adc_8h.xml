@@ -1,0 +1,1316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__adc_8h" kind="file" language="C++">
+    <compoundname>nrf_adc.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includedby refid="nrfx__adc_8h" local="no">drivers/include/nrfx_adc.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>hal/nrf_adc.h</label>
+        <link refid="nrf__adc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrf__adc__config__t" prot="public">nrf_adc_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga8c0d07ee2b58a745b411e5afbbb1d306" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_int_mask_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga8c0d07ee2b58a745b411e5afbbb1d306acea5bcc7fe27e38a3432f3e8859bc891" prot="public">
+          <name>NRF_ADC_INT_END_MASK</name>
+          <initializer>= ADC_INTENSET_END_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>ADC interrupt on END event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>ADC interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="52" column="1" bodyfile="hal/nrf_adc.h" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga0e2d579c008431f61b5edff7fe7221a1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_config_resolution_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1ab1c5821c28eff2ea73a67e1d36636e0b" prot="public">
+          <name>NRF_ADC_CONFIG_RES_8BIT</name>
+          <initializer>= ADC_CONFIG_RES_8bit</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>8-bit resolution. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1a3c28de4a6e74c5bd731807d648d69f60" prot="public">
+          <name>NRF_ADC_CONFIG_RES_9BIT</name>
+          <initializer>= ADC_CONFIG_RES_9bit</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>9-bit resolution. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1a8bdf17e186ff6caae203defd5581ab5f" prot="public">
+          <name>NRF_ADC_CONFIG_RES_10BIT</name>
+          <initializer>= ADC_CONFIG_RES_10bit</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>10-bit resolution. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Resolution of the analog-to-digital converter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="58" column="1" bodyfile="hal/nrf_adc.h" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1gad7b74a0d0016edbf83a72bb0b0aa038a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_config_scaling_t</name>
+        <enumvalue id="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa22a8204b4afc86cf5cdcbc268b2cd7d3" prot="public">
+          <name>NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE</name>
+          <initializer>= ADC_CONFIG_INPSEL_AnalogInputNoPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Full scale input. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aaec6a1d2ad92299bda512727003f548e6" prot="public">
+          <name>NRF_ADC_CONFIG_SCALING_INPUT_TWO_THIRDS</name>
+          <initializer>= ADC_CONFIG_INPSEL_AnalogInputTwoThirdsPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>2/3 scale input. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa6a5c2d9f9b7e045f40382b60561aed1e" prot="public">
+          <name>NRF_ADC_CONFIG_SCALING_INPUT_ONE_THIRD</name>
+          <initializer>= ADC_CONFIG_INPSEL_AnalogInputOneThirdPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1/3 scale input. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa07424f67e2c58a56e440ab636b245911" prot="public">
+          <name>NRF_ADC_CONFIG_SCALING_SUPPLY_TWO_THIRDS</name>
+          <initializer>= ADC_CONFIG_INPSEL_SupplyTwoThirdsPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>2/3 of supply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aadaf431f44f53fd84924879055e10ad24" prot="public">
+          <name>NRF_ADC_CONFIG_SCALING_SUPPLY_ONE_THIRD</name>
+          <initializer>= ADC_CONFIG_INPSEL_SupplyOneThirdPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1/3 of supply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Scaling factor of the analog-to-digital conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="67" column="1" bodyfile="hal/nrf_adc.h" bodystart="68" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga6cf31b935854d716335772def0e2ca3b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_config_extref_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3ba84b1b26b3f4382a16962ff978aee69f9" prot="public">
+          <name>NRF_ADC_CONFIG_EXTREFSEL_NONE</name>
+          <initializer>= ADC_CONFIG_EXTREFSEL_None</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Analog reference inputs disabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3babc8341dddcf3984bd0acf7c6aca3729d" prot="public">
+          <name>NRF_ADC_CONFIG_EXTREFSEL_AREF0</name>
+          <initializer>= ADC_CONFIG_EXTREFSEL_AnalogReference0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AREF0 as analog reference. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3ba92e47f5cf953dd1d70bc5b2289c0ad8c" prot="public">
+          <name>NRF_ADC_CONFIG_EXTREFSEL_AREF1</name>
+          <initializer>= ADC_CONFIG_EXTREFSEL_AnalogReference1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AREF1 as analog reference. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>External reference selection of the analog-to-digital converter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="78" column="1" bodyfile="hal/nrf_adc.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1gadfd4f9444fc622b4c9222cb41e9e10ac" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_config_reference_t</name>
+        <enumvalue id="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca020cf59f6939b0ff592ed74b37ae7d0a" prot="public">
+          <name>NRF_ADC_CONFIG_REF_VBG</name>
+          <initializer>= ADC_CONFIG_REFSEL_VBG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1.2 V reference. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca33b4afe66d7e1ab2ace87cb3d6fdf3ae" prot="public">
+          <name>NRF_ADC_CONFIG_REF_SUPPLY_ONE_HALF</name>
+          <initializer>= ADC_CONFIG_REFSEL_SupplyOneHalfPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1/2 of power supply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca25640c8a96df57aab1a1bb005f784e1c" prot="public">
+          <name>NRF_ADC_CONFIG_REF_SUPPLY_ONE_THIRD</name>
+          <initializer>= ADC_CONFIG_REFSEL_SupplyOneThirdPrescaling</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>1/3 of power supply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10acabc46924c802e3f209e7f2664a42bd308" prot="public">
+          <name>NRF_ADC_CONFIG_REF_EXT</name>
+          <initializer>= ADC_CONFIG_REFSEL_External</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>External reference. See <ref refid="group__nrf__adc__hal_1ga6cf31b935854d716335772def0e2ca3b" kindref="member">nrf_adc_config_extref_t</ref> for further configuration. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Reference selection of the analog-to-digital converter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="86" column="1" bodyfile="hal/nrf_adc.h" bodystart="87" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga7efdf26b2463b9e15aaaaffa76ee224f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_config_input_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faaa23c48a8b4fb9b32151321ff598b3f2" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_DISABLED</name>
+          <initializer>= ADC_CONFIG_PSEL_Disabled</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No input selected. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa64920912300e3d6ab1b60b0c117ee8df" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_0</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fad7bf1e82e2f6b17aeea2c0eca71eff46" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_1</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa0a4dde6a4dea2ed0dcd649b018bd87c0" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_2</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa06c34472a5fab68617fe0ce773675182" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_3</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faa0a50e03b234a2b622784c58ec35e7ad" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_4</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa799a8b1a6bcd74ab08b06cae71bf6a31" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_5</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faa6874f0ae7dc758d78f9bc1e36cab438" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_6</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa900625b3eed7cd3a85e37b41d97f0376" prot="public">
+          <name>NRF_ADC_CONFIG_INPUT_7</name>
+          <initializer>= ADC_CONFIG_PSEL_AnalogInput7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Input 7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Input selection of the analog-to-digital converter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="95" column="1" bodyfile="hal/nrf_adc.h" bodystart="96" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_task_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaa5dad3f3202d9b32372f7b76d91338b87" prot="public">
+          <name>NRF_ADC_TASK_START</name>
+          <initializer>= offsetof(NRF_ADC_Type, TASKS_START)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>ADC start sampling task. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaae85f1e0d14a73626b09b1460d0816c49" prot="public">
+          <name>NRF_ADC_TASK_STOP</name>
+          <initializer>= offsetof(NRF_ADC_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>ADC stop sampling task. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Analog-to-digital converter tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="109" column="1" bodyfile="hal/nrf_adc.h" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_adc_event_t</name>
+        <enumvalue id="group__nrf__adc__hal_1gga55695cdb071d7fe5939f4a494f251feaaf7286395c1e23c9b25a0f3cadd31b2e1" prot="public">
+          <name>NRF_ADC_EVENT_END</name>
+          <initializer>= offsetof(NRF_ADC_Type, EVENTS_END)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>End of a conversion event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Analog-to-digital converter events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="116" column="1" bodyfile="hal/nrf_adc.h" bodystart="117" bodyend="119"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" prot="public" static="no">
+        <type>uint16_t</type>
+        <definition>typedef uint16_t nrf_adc_value_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_adc_value_t</name>
+        <briefdescription>
+<para>Analog-to-digital value type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="132" column="18" bodyfile="hal/nrf_adc.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga7a789b6a23b9f1ae0ec2d8363ac8477e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_task_trigger</definition>
+        <argsstring>(NRF_ADC_Type *p_reg, nrf_adc_task_t task)</argsstring>
+        <name>nrf_adc_task_trigger</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified ADC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="274" column="24" bodyfile="hal/nrf_adc.h" bodystart="274" bodyend="277" declfile="hal/nrf_adc.h" declline="141" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1gab5c2bfd2d845732507f73ddc2b63f90a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_adc_task_address_get</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg, nrf_adc_task_t task)</argsstring>
+        <name>nrf_adc_task_address_get</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of an ADC task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ADC task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified ADC task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="279" column="28" bodyfile="hal/nrf_adc.h" bodystart="279" bodyend="283" declfile="hal/nrf_adc.h" declline="151" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1gad58f1c0ee4e198108980fe5522d63510" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_adc_event_check</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg, nrf_adc_event_t event)</argsstring>
+        <name>nrf_adc_event_check</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of an ADC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="285" column="24" bodyfile="hal/nrf_adc.h" bodystart="285" bodyend="288" declfile="hal/nrf_adc.h" declline="163" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga344087602f226ab4733b07a2421a26e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_event_clear</definition>
+        <argsstring>(NRF_ADC_Type *p_reg, nrf_adc_event_t event)</argsstring>
+        <name>nrf_adc_event_clear</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing an ADC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="290" column="24" bodyfile="hal/nrf_adc.h" bodystart="290" bodyend="293" declfile="hal/nrf_adc.h" declline="171" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga5b05a6f68e9bec4243e9635246a216c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_adc_event_address_get</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg, nrf_adc_event_t event)</argsstring>
+        <name>nrf_adc_event_address_get</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified ADC event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ADC event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified ADC event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="295" column="28" bodyfile="hal/nrf_adc.h" bodystart="295" bodyend="299" declfile="hal/nrf_adc.h" declline="181" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga9b4df834f9f0b78f4b72382bbffd5b32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_int_enable</definition>
+        <argsstring>(NRF_ADC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_adc_int_enable</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__adc__hal_1ga8c0d07ee2b58a745b411e5afbbb1d306" kindref="member">nrf_adc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="301" column="24" bodyfile="hal/nrf_adc.h" bodystart="301" bodyend="304" declfile="hal/nrf_adc.h" declline="191" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga810df10f79ca9cbb841b547862e035c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_int_disable</definition>
+        <argsstring>(NRF_ADC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_adc_int_disable</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__adc__hal_1ga8c0d07ee2b58a745b411e5afbbb1d306" kindref="member">nrf_adc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="306" column="24" bodyfile="hal/nrf_adc.h" bodystart="306" bodyend="309" declfile="hal/nrf_adc.h" declline="200" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1gadfe3c24b119cc43d7fe8d95dd3040af1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_adc_int_enable_check</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_adc_int_enable_check</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__adc__hal_1ga8c0d07ee2b58a745b411e5afbbb1d306" kindref="member">nrf_adc_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="311" column="28" bodyfile="hal/nrf_adc.h" bodystart="311" bodyend="314" declfile="hal/nrf_adc.h" declline="211" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga69092a575a75de70c0e7d52dcf66ea7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_adc_busy_check</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg)</argsstring>
+        <name>nrf_adc_busy_check</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the ADC is busy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks whether the ADC converter is busy with a conversion.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is not busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="316" column="24" bodyfile="hal/nrf_adc.h" bodystart="316" bodyend="319" declfile="hal/nrf_adc.h" declline="223" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga06df9532f0a27a83ea9beda9b2475357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_enable</definition>
+        <argsstring>(NRF_ADC_Type *p_reg)</argsstring>
+        <name>nrf_adc_enable</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the ADC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="321" column="24" bodyfile="hal/nrf_adc.h" bodystart="321" bodyend="324" declfile="hal/nrf_adc.h" declline="230" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga68cc9612bae4035a2cb10a679214e85e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_disable</definition>
+        <argsstring>(NRF_ADC_Type *p_reg)</argsstring>
+        <name>nrf_adc_disable</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the ADC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="326" column="24" bodyfile="hal/nrf_adc.h" bodystart="326" bodyend="329" declfile="hal/nrf_adc.h" declline="237" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga0bc4bc2c469fd7b89b57e13f2e9e2840" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_adc_enable_check</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg)</argsstring>
+        <name>nrf_adc_enable_check</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the ADC is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ADC is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="331" column="24" bodyfile="hal/nrf_adc.h" bodystart="331" bodyend="334" declfile="hal/nrf_adc.h" declline="247" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1gab838261f5d077482f9606852e4d6bbc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_adc_value_t nrf_adc_result_get</definition>
+        <argsstring>(NRF_ADC_Type const *p_reg)</argsstring>
+        <name>nrf_adc_result_get</name>
+        <param>
+          <type>NRF_ADC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the ADC conversion result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function retrieves and returns the last analog-to-digital conversion result.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Last conversion result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="336" column="35" bodyfile="hal/nrf_adc.h" bodystart="336" bodyend="339" declfile="hal/nrf_adc.h" declline="258" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__adc__hal_1ga8519b8679dccef53429be26031a3a535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_adc_init</definition>
+        <argsstring>(NRF_ADC_Type *p_reg, nrf_adc_config_t const *p_config)</argsstring>
+        <name>nrf_adc_init</name>
+        <param>
+          <type>NRF_ADC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__adc__config__t" kindref="compound">nrf_adc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the ADC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function writes data to ADC&apos;s CONFIG register. After the configuration, the ADC is in DISABLE state and must be enabled before using it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_adc.h" line="341" column="24" bodyfile="hal/nrf_adc.h" bodystart="341" bodyend="349" declfile="hal/nrf_adc.h" declline="269" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2014<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_ADC_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_ADC_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_adc_hal<sp/>ADC<sp/>HAL</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_adc</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Hardware<sp/>access<sp/>layer<sp/>for<sp/>managing<sp/>the<sp/>Analog-to-Digital<sp/>Converter<sp/>(ADC)</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>peripheral.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>ADC<sp/>interrupts.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga8c0d07ee2b58a745b411e5afbbb1d306acea5bcc7fe27e38a3432f3e8859bc891" kindref="member">NRF_ADC_INT_END_MASK</ref><sp/><sp/>=<sp/>ADC_INTENSET_END_Msk,<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>interrupt<sp/>on<sp/>END<sp/>event.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga8c0d07ee2b58a745b411e5afbbb1d306" kindref="member">nrf_adc_int_mask_t</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment">/**<sp/>@brief<sp/>Resolution<sp/>of<sp/>the<sp/>analog-to-digital<sp/>converter.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1ab1c5821c28eff2ea73a67e1d36636e0b" kindref="member">NRF_ADC_CONFIG_RES_8BIT</ref><sp/><sp/>=<sp/>ADC_CONFIG_RES_8bit,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>8-bit<sp/>resolution.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1a3c28de4a6e74c5bd731807d648d69f60" kindref="member">NRF_ADC_CONFIG_RES_9BIT</ref><sp/><sp/>=<sp/>ADC_CONFIG_RES_9bit,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>9-bit<sp/>resolution.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga0e2d579c008431f61b5edff7fe7221a1a8bdf17e186ff6caae203defd5581ab5f" kindref="member">NRF_ADC_CONFIG_RES_10BIT</ref><sp/>=<sp/>ADC_CONFIG_RES_10bit,<sp/></highlight><highlight class="comment">/**&lt;<sp/>10-bit<sp/>resolution.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga0e2d579c008431f61b5edff7fe7221a1" kindref="member">nrf_adc_config_resolution_t</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="66"><highlight class="comment">/**<sp/>@brief<sp/>Scaling<sp/>factor<sp/>of<sp/>the<sp/>analog-to-digital<sp/>conversion.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa22a8204b4afc86cf5cdcbc268b2cd7d3" kindref="member">NRF_ADC_CONFIG_SCALING_INPUT_FULL_SCALE</ref><sp/><sp/>=<sp/>ADC_CONFIG_INPSEL_AnalogInputNoPrescaling,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Full<sp/>scale<sp/>input.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aaec6a1d2ad92299bda512727003f548e6" kindref="member">NRF_ADC_CONFIG_SCALING_INPUT_TWO_THIRDS</ref><sp/><sp/>=<sp/>ADC_CONFIG_INPSEL_AnalogInputTwoThirdsPrescaling,<sp/></highlight><highlight class="comment">/**&lt;<sp/>2/3<sp/>scale<sp/>input.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa6a5c2d9f9b7e045f40382b60561aed1e" kindref="member">NRF_ADC_CONFIG_SCALING_INPUT_ONE_THIRD</ref><sp/><sp/><sp/>=<sp/>ADC_CONFIG_INPSEL_AnalogInputOneThirdPrescaling,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>1/3<sp/>scale<sp/>input.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aa07424f67e2c58a56e440ab636b245911" kindref="member">NRF_ADC_CONFIG_SCALING_SUPPLY_TWO_THIRDS</ref><sp/>=<sp/>ADC_CONFIG_INPSEL_SupplyTwoThirdsPrescaling,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>2/3<sp/>of<sp/>supply.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggad7b74a0d0016edbf83a72bb0b0aa038aadaf431f44f53fd84924879055e10ad24" kindref="member">NRF_ADC_CONFIG_SCALING_SUPPLY_ONE_THIRD</ref><sp/><sp/>=<sp/>ADC_CONFIG_INPSEL_SupplyOneThirdPrescaling<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>1/3<sp/>of<sp/>supply.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1gad7b74a0d0016edbf83a72bb0b0aa038a" kindref="member">nrf_adc_config_scaling_t</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment">/**<sp/>@brief<sp/>External<sp/>reference<sp/>selection<sp/>of<sp/>the<sp/>analog-to-digital<sp/>converter.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3ba84b1b26b3f4382a16962ff978aee69f9" kindref="member">NRF_ADC_CONFIG_EXTREFSEL_NONE</ref><sp/><sp/>=<sp/>ADC_CONFIG_EXTREFSEL_None,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Analog<sp/>reference<sp/>inputs<sp/>disabled.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3babc8341dddcf3984bd0acf7c6aca3729d" kindref="member">NRF_ADC_CONFIG_EXTREFSEL_AREF0</ref><sp/>=<sp/>ADC_CONFIG_EXTREFSEL_AnalogReference0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>AREF0<sp/>as<sp/>analog<sp/>reference.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga6cf31b935854d716335772def0e2ca3ba92e47f5cf953dd1d70bc5b2289c0ad8c" kindref="member">NRF_ADC_CONFIG_EXTREFSEL_AREF1</ref><sp/>=<sp/>ADC_CONFIG_EXTREFSEL_AnalogReference1<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>AREF1<sp/>as<sp/>analog<sp/>reference.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga6cf31b935854d716335772def0e2ca3b" kindref="member">nrf_adc_config_extref_t</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment">/**<sp/>@brief<sp/>Reference<sp/>selection<sp/>of<sp/>the<sp/>analog-to-digital<sp/>converter.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca020cf59f6939b0ff592ed74b37ae7d0a" kindref="member">NRF_ADC_CONFIG_REF_VBG</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_REFSEL_VBG,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>1.2<sp/>V<sp/>reference.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca33b4afe66d7e1ab2ace87cb3d6fdf3ae" kindref="member">NRF_ADC_CONFIG_REF_SUPPLY_ONE_HALF</ref><sp/><sp/>=<sp/>ADC_CONFIG_REFSEL_SupplyOneHalfPrescaling,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>1/2<sp/>of<sp/>power<sp/>supply.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10aca25640c8a96df57aab1a1bb005f784e1c" kindref="member">NRF_ADC_CONFIG_REF_SUPPLY_ONE_THIRD</ref><sp/>=<sp/>ADC_CONFIG_REFSEL_SupplyOneThirdPrescaling,<sp/></highlight><highlight class="comment">/**&lt;<sp/>1/3<sp/>of<sp/>power<sp/>supply.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ggadfd4f9444fc622b4c9222cb41e9e10acabc46924c802e3f209e7f2664a42bd308" kindref="member">NRF_ADC_CONFIG_REF_EXT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_REFSEL_External<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>External<sp/>reference.<sp/>See<sp/>@ref<sp/>nrf_adc_config_extref_t<sp/>for<sp/>further<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1gadfd4f9444fc622b4c9222cb41e9e10ac" kindref="member">nrf_adc_config_reference_t</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment">/**<sp/>@brief<sp/>Input<sp/>selection<sp/>of<sp/>the<sp/>analog-to-digital<sp/>converter.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faaa23c48a8b4fb9b32151321ff598b3f2" kindref="member">NRF_ADC_CONFIG_INPUT_DISABLED</ref><sp/>=<sp/>ADC_CONFIG_PSEL_Disabled,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>No<sp/>input<sp/>selected.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa64920912300e3d6ab1b60b0c117ee8df" kindref="member">NRF_ADC_CONFIG_INPUT_0</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fad7bf1e82e2f6b17aeea2c0eca71eff46" kindref="member">NRF_ADC_CONFIG_INPUT_1</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput1,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa0a4dde6a4dea2ed0dcd649b018bd87c0" kindref="member">NRF_ADC_CONFIG_INPUT_2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput2,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>2.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa06c34472a5fab68617fe0ce773675182" kindref="member">NRF_ADC_CONFIG_INPUT_3</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput3,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>3.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faa0a50e03b234a2b622784c58ec35e7ad" kindref="member">NRF_ADC_CONFIG_INPUT_4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput4,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>4.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa799a8b1a6bcd74ab08b06cae71bf6a31" kindref="member">NRF_ADC_CONFIG_INPUT_5</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput5,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>5.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224faa6874f0ae7dc758d78f9bc1e36cab438" kindref="member">NRF_ADC_CONFIG_INPUT_6</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput6,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>6.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga7efdf26b2463b9e15aaaaffa76ee224fa900625b3eed7cd3a85e37b41d97f0376" kindref="member">NRF_ADC_CONFIG_INPUT_7</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ADC_CONFIG_PSEL_AnalogInput7,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Input<sp/>7.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga7efdf26b2463b9e15aaaaffa76ee224f" kindref="member">nrf_adc_config_input_t</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="108"><highlight class="comment">/**<sp/>@brief<sp/>Analog-to-digital<sp/>converter<sp/>tasks.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaa5dad3f3202d9b32372f7b76d91338b87" kindref="member">NRF_ADC_TASK_START</ref><sp/>=<sp/>offsetof(NRF_ADC_Type,<sp/>TASKS_START),<sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>start<sp/>sampling<sp/>task.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga0403cc8baa68147ae21762eb2a5df9aaae85f1e0d14a73626b09b1460d0816c49" kindref="member">NRF_ADC_TASK_STOP</ref><sp/><sp/>=<sp/>offsetof(NRF_ADC_Type,<sp/>TASKS_STOP)<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>stop<sp/>sampling<sp/>task.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="115"><highlight class="comment">/**<sp/>@brief<sp/>Analog-to-digital<sp/>converter<sp/>events.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gga55695cdb071d7fe5939f4a494f251feaaf7286395c1e23c9b25a0f3cadd31b2e1" kindref="member">NRF_ADC_EVENT_END</ref><sp/>=<sp/>offsetof(NRF_ADC_Type,<sp/>EVENTS_END)<sp/></highlight><highlight class="comment">/**&lt;<sp/>End<sp/>of<sp/>a<sp/>conversion<sp/>event.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}<sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment">/**<sp/>@brief<sp/>Analog-to-digital<sp/>converter<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="structnrf__adc__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga0e2d579c008431f61b5edff7fe7221a1" kindref="member">nrf_adc_config_resolution_t</ref><sp/>resolution;<sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>resolution.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gad7b74a0d0016edbf83a72bb0b0aa038a" kindref="member">nrf_adc_config_scaling_t</ref><sp/><sp/><sp/><sp/>scaling;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>scaling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1gadfd4f9444fc622b4c9222cb41e9e10ac" kindref="member">nrf_adc_config_reference_t</ref><sp/><sp/>reference;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>reference.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga7efdf26b2463b9e15aaaaffa76ee224f" kindref="member">nrf_adc_config_input_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>input;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>input<sp/>selection.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga6cf31b935854d716335772def0e2ca3b" kindref="member">nrf_adc_config_extref_t</ref><sp/><sp/><sp/><sp/><sp/>extref;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>ADC<sp/>external<sp/>reference<sp/>selection.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}<sp/><ref refid="structnrf__adc__config__t" kindref="compound">nrf_adc_config_t</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="131"><highlight class="comment">/**<sp/>@brief<sp/>Analog-to-digital<sp/>value<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>activating<sp/>the<sp/>specified<sp/>ADC<sp/>task.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>to<sp/>be<sp/>activated.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga7a789b6a23b9f1ae0ec2d8363ac8477e" kindref="member">nrf_adc_task_trigger</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref><sp/>task);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>an<sp/>ADC<sp/>task<sp/>register.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>ADC<sp/>task.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>@return<sp/>Address<sp/>of<sp/>the<sp/>specified<sp/>ADC<sp/>task.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1gab5c2bfd2d845732507f73ddc2b63f90a" kindref="member">nrf_adc_task_address_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>retrieving<sp/>the<sp/>state<sp/>of<sp/>an<sp/>ADC<sp/>event.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>event<sp/>has<sp/>been<sp/>generated.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>event<sp/>has<sp/>not<sp/>been<sp/>generated.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1gad58f1c0ee4e198108980fe5522d63510" kindref="member">nrf_adc_event_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="165"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>an<sp/>ADC<sp/>event.</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>Event<sp/>to<sp/>clear.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga344087602f226ab4733b07a2421a26e6" kindref="member">nrf_adc_event_clear</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/>event);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="173"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>ADC<sp/>event<sp/>register.</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/>ADC<sp/>event.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*<sp/>@return<sp/>Address<sp/>of<sp/>the<sp/>specified<sp/>ADC<sp/>event.</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1ga5b05a6f68e9bec4243e9635246a216c4" kindref="member">nrf_adc_event_address_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>the<sp/>specified<sp/>interrupts.</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>enabled.</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_adc_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga9b4df834f9f0b78f4b72382bbffd5b32" kindref="member">nrf_adc_int_enable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="193"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>the<sp/>specified<sp/>interrupts.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>disabled.</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_adc_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga810df10f79ca9cbb841b547862e035c4" kindref="member">nrf_adc_int_disable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="202"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>specified<sp/>interrupts<sp/>are<sp/>enabled.</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Mask<sp/>of<sp/>interrupts<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrf_adc_int_mask_t<sp/>values<sp/>for<sp/>bit<sp/>masking.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/>@return<sp/>Mask<sp/>of<sp/>enabled<sp/>interrupts.</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1gadfe3c24b119cc43d7fe8d95dd3040af1" kindref="member">nrf_adc_int_enable_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="213"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>whether<sp/>the<sp/>ADC<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>checks<sp/>whether<sp/>the<sp/>ADC<sp/>converter<sp/>is<sp/>busy<sp/>with<sp/>a<sp/>conversion.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>ADC<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>ADC<sp/>is<sp/>not<sp/>busy.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga69092a575a75de70c0e7d52dcf66ea7e" kindref="member">nrf_adc_busy_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="225"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>the<sp/>ADC.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga06df9532f0a27a83ea9beda9b2475357" kindref="member">nrf_adc_enable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="232"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>the<sp/>ADC.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga68cc9612bae4035a2cb10a679214e85e" kindref="member">nrf_adc_disable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="239"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>ADC<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>ADC<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>ADC<sp/>is<sp/>not<sp/>enabled.</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga0bc4bc2c469fd7b89b57e13f2e9e2840" kindref="member">nrf_adc_enable_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="249"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>retrieving<sp/>the<sp/>ADC<sp/>conversion<sp/>result.</highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>retrieves<sp/>and<sp/>returns<sp/>the<sp/>last<sp/>analog-to-digital<sp/>conversion<sp/>result.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>@return<sp/>Last<sp/>conversion<sp/>result.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/><ref refid="group__nrf__adc__hal_1gab838261f5d077482f9606852e4d6bbc8" kindref="member">nrf_adc_result_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="260"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>ADC.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>writes<sp/>data<sp/>to<sp/>ADC&apos;s<sp/>CONFIG<sp/>register.<sp/>After<sp/>the<sp/>configuration,</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/>the<sp/>ADC<sp/>is<sp/>in<sp/>DISABLE<sp/>state<sp/>and<sp/>must<sp/>be<sp/>enabled<sp/>before<sp/>using<sp/>it.</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/>Configuration<sp/>parameters.</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga8519b8679dccef53429be26031a3a535" kindref="member">nrf_adc_init</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="structnrf__adc__config__t" kindref="compound">nrf_adc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga7a789b6a23b9f1ae0ec2d8363ac8477e" kindref="member">nrf_adc_task_trigger</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref><sp/>task)</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)((uint8_t<sp/>*)p_reg<sp/>+<sp/>(uint32_t)task))<sp/>=<sp/>0x1UL;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1gab5c2bfd2d845732507f73ddc2b63f90a" kindref="member">nrf_adc_task_address_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga0403cc8baa68147ae21762eb2a5df9aa" kindref="member">nrf_adc_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="281"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_task_event_address_get(p_reg,<sp/>task);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1gad58f1c0ee4e198108980fe5522d63510" kindref="member">nrf_adc_event_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/>event)</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_event_check(p_reg,<sp/>event);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga344087602f226ab4733b07a2421a26e6" kindref="member">nrf_adc_event_clear</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/>event)</highlight></codeline>
+<codeline lineno="291"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)((uint8_t<sp/>*)p_reg<sp/>+<sp/>(uint32_t)event))<sp/>=<sp/>0x0UL;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1ga5b05a6f68e9bec4243e9635246a216c4" kindref="member">nrf_adc_event_address_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__adc__hal_1ga55695cdb071d7fe5939f4a494f251fea" kindref="member">nrf_adc_event_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>event)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_task_event_address_get(p_reg,<sp/>event);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga9b4df834f9f0b78f4b72382bbffd5b32" kindref="member">nrf_adc_int_enable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;INTENSET<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga810df10f79ca9cbb841b547862e035c4" kindref="member">nrf_adc_int_disable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;INTENCLR<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__adc__hal_1gadfe3c24b119cc43d7fe8d95dd3040af1" kindref="member">nrf_adc_int_enable_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="312"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;INTENSET<sp/>&amp;<sp/>mask;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga69092a575a75de70c0e7d52dcf66ea7e" kindref="member">nrf_adc_busy_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((p_reg-&gt;BUSY<sp/>&amp;<sp/>ADC_BUSY_BUSY_Msk)<sp/>==<sp/>(ADC_BUSY_BUSY_Busy<sp/>&lt;&lt;<sp/>ADC_BUSY_BUSY_Pos));</highlight></codeline>
+<codeline lineno="319"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga06df9532f0a27a83ea9beda9b2475357" kindref="member">nrf_adc_enable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="322"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;ENABLE<sp/>=<sp/>(ADC_ENABLE_ENABLE_Enabled<sp/>&lt;&lt;<sp/>ADC_ENABLE_ENABLE_Pos);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga68cc9612bae4035a2cb10a679214e85e" kindref="member">nrf_adc_disable</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;ENABLE<sp/>=<sp/>(ADC_ENABLE_ENABLE_Disabled<sp/>&lt;&lt;<sp/>ADC_ENABLE_ENABLE_Pos);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga0bc4bc2c469fd7b89b57e13f2e9e2840" kindref="member">nrf_adc_enable_check</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="332"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(p_reg-&gt;ENABLE<sp/>==<sp/>(ADC_ENABLE_ENABLE_Enabled<sp/>&lt;&lt;<sp/>ADC_ENABLE_ENABLE_Pos));</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref><sp/><ref refid="group__nrf__adc__hal_1gab838261f5d077482f9606852e4d6bbc8" kindref="member">nrf_adc_result_get</ref>(NRF_ADC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="group__nrf__adc__hal_1ga7d013ea47d3b3525e656484f06274acd" kindref="member">nrf_adc_value_t</ref>)p_reg-&gt;RESULT;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__adc__hal_1ga8519b8679dccef53429be26031a3a535" kindref="member">nrf_adc_init</ref>(NRF_ADC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="structnrf__adc__config__t" kindref="compound">nrf_adc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config)</highlight></codeline>
+<codeline lineno="342"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CONFIG<sp/>=</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((p_config-&gt;<ref refid="structnrf__adc__config__t_1aeabcce3f7814da03f223ad2a992865d1" kindref="member">resolution</ref><sp/>&lt;&lt;<sp/>ADC_CONFIG_RES_Pos)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>ADC_CONFIG_RES_Msk)</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|((p_config-&gt;<ref refid="structnrf__adc__config__t_1a280529b228ebb915939ab2b9720d73da" kindref="member">scaling</ref><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>ADC_CONFIG_INPSEL_Pos)<sp/><sp/><sp/><sp/>&amp;<sp/>ADC_CONFIG_INPSEL_Msk)</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|((p_config-&gt;<ref refid="structnrf__adc__config__t_1a52dc01c53528ebb080237d4f94d5ef09" kindref="member">reference</ref><sp/><sp/>&lt;&lt;<sp/>ADC_CONFIG_REFSEL_Pos)<sp/><sp/><sp/><sp/>&amp;<sp/>ADC_CONFIG_REFSEL_Msk)</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|((p_config-&gt;<ref refid="structnrf__adc__config__t_1a58e0bea9b400b8c2d2ed026854fd44d9" kindref="member">input</ref><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>ADC_CONFIG_PSEL_Pos)<sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>ADC_CONFIG_PSEL_Msk)</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|((p_config-&gt;<ref refid="structnrf__adc__config__t_1af7cbeecf21f748fa5e82104bb90ff650" kindref="member">extref</ref><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>ADC_CONFIG_EXTREFSEL_Pos)<sp/>&amp;<sp/>ADC_CONFIG_EXTREFSEL_Msk);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="353"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>NRF_ADC_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="hal/nrf_adc.h"/>
+  </compounddef>
+</doxygen>

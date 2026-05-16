@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Introduction and configuration</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>nrfx is a standalone set of drivers for peripherals present in Nordic Semiconductor&apos;s SoCs. It provides drivers that can be used in various environments without the necessity to integrate other parts of the SDK into them. For the user&apos;s convenience, the drivers come with the MDK package. This package contains definitions of register structures and bitfields for all supported SoCs, as well as startup and initialization files for them.</para>
+<para>Refer to the <ref refid="nrfx_drv_supp_matrix" kindref="compound">Driver support overview</ref> to check which drivers are suitable for a given SoC.</para>
+<sect1 id="index_1nrfx_integration">
+<title>Integration</title>
+<para>The purpose of nrfx is to make it possible to use the same set of peripheral drivers in various environments, from RTOSes to bare metal applications. Hence, for a given host environment, a light integration layer must be provided that implements certain specific routines, like interrupt management, critical sections, assertions, or logging. This is done by filling a predefined set of macros with proper implementations (or keeping some empty if desired) in files named:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__glue" kindref="compound">nrfx_glue.h</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__log" kindref="compound">nrfx_log.h</ref></para>
+</listitem></itemizedlist>
+</para>
+<para>Templates of these files are provided in the <ulink url="https://github.com/NordicSemiconductor/nrfx/tree/master/templates">nrfx/templates</ulink> subfolder. Their customized versions can be placed in any location within the host environment that the used compiler can access via include paths.</para>
+<para>In addition, the following locations should be specified as include paths ([nrfx] stands for the nrfx root folder location): <programlisting><codeline><highlight class="normal">[nrfx]/</highlight></codeline>
+<codeline><highlight class="normal">[nrfx]/bsp/stable</highlight></codeline>
+<codeline><highlight class="normal">[nrfx]/drivers/include</highlight></codeline>
+</programlisting></para>
+<para><simplesect kind="note"><para>Unless otherwise stated, nrfx API functions do not provide thread safety themselves. Users are responsible for providing the proper synchronization of the nrfx function calls in a given environment if those are to be used from different contexts.</para>
+</simplesect>
+</para>
+</sect1>
+<sect1 id="index_1nrfx_irq_handlers">
+<title>IRQ handlers</title>
+<para>The IRQ handlers in all drivers are implemented as ordinary API functions named &quot;nrfx_{peripheral}_irq_handler&quot;. These functions accept pointer to the driver instance structure as an argument and must be called upon execution of IRQ handler from the interrupt vector table, so the driver is made aware of the hardware event occurrence.</para>
+</sect1>
+<sect1 id="index_1nrfx_configuration">
+<title>Configuration</title>
+<para>The drivers use both dynamic (run time) and static (compile time) configuration.</para>
+<para>Dynamic configuration is done by specifying desired options in configuration structures passed to the drivers during their initialization. Refer to the API reference for a given driver to see the members of its configuration structure.</para>
+<para>Static configuration allows enabling and disabling their specific features, defining default parameters for dynamic configuration, parametrization of logging in particular drivers. It is done by specifying desired values of macros in a file named:</para>
+<para><itemizedlist>
+<listitem><para>nrfx_config.h</para>
+</listitem></itemizedlist>
+</para>
+<para>This file, similarly to the integration files mentioned above, can be placed in any suitable location within the host environment. The <ulink url="https://github.com/NordicSemiconductor/nrfx/tree/master/templates">nrfx/bsp/stable/templates</ulink> subfolder contains templates of configuration files for all currently supported Nordic SoCs. These files are included through a common nrfx_config.h file, according to the selected SoC. Refer to the &quot;driver configuration&quot; section in the API reference for a given driver for more information regarding configuration options available for it.</para>
+</sect1>
+<sect1 id="index_1nrfx_api_change_procedure">
+<title>API change procedure</title>
+<para>Starting from 3.0 release, nrfx API can no longer be considered as stable for minor version updates. Taking into account the potential impact on the end users, APIs are changed in a few stages. Every deprecated API is completely removed from the code base after two minor releases, counting from the one making the functionality obsolete. Refer to the <ulink url="https://github.com/NordicSemiconductor/nrfx/wiki/API-change-procedure">API change procedure</ulink> for more details regarding the process.</para>
+</sect1>
+<sect1 id="index_1nrfx_additional_reqs">
+<title>Additional requirements</title>
+<para>Nordic SoCs are based on ARM® Cortex™-M series processors and some contain RISC-V coprocessors. Before you can start developing with nrfx, you must add the CMSIS header files to include paths during the compilation process. Download these files from the following website:</para>
+<para><itemizedlist>
+<listitem><para><ulink url="https://github.com/ARM-software/CMSIS">ARM® CMSIS repository</ulink> (CMSIS/Include directory)</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1nrfx_samples">
+<title>nrfx samples</title>
+<para>You can refer to the <ulink url="https://docs.nordicsemi.com/bundle/nrfx_samples_3.8.0/page/index.html">latest release of nrfx samples</ulink> for the usage examples of nrfx drivers within Zephyr RTOS.</para>
+</sect1>
+<sect1 id="index_1HALY">
+<title>HALY</title>
+<para>Starting from 4.0 release, Extended Hardware Access Layer API located in <ulink url="https://github.com/NordicSemiconductor/nrfx/tree/master/haly">nrfx/haly</ulink> directory is no longer developed. API stability, support for new peripherals or extension for existing ones is not guaranteed. </para>
+</sect1>
+    </detaileddescription>
+    <location file="doc/main_page.dox"/>
+  </compounddef>
+</doxygen>

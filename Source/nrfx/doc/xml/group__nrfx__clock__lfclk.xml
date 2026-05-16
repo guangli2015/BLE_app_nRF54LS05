@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__clock__lfclk" kind="group">
+    <compoundname>nrfx_clock_lfclk</compoundname>
+    <title>LFCLK driver</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__clock__lfclk_1ga78c24af4a4f083d2472cd9e4d644c306" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_clock_lfclk_evt_type_t</name>
+        <enumvalue id="group__nrfx__clock__lfclk_1gga78c24af4a4f083d2472cd9e4d644c306a33293f0473bc7ebfcbe774ff55b5f33a" prot="public">
+          <name>NRFX_CLOCK_LFCLK_EVT_LFCLK_STARTED</name>
+          <initializer>= NRFX_BITMASK_TO_BITPOS(NRF_CLOCK_INT_LF_STARTED_MASK)</initializer>
+          <briefdescription>
+<para>LFCLK has been started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Clock events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="59" column="1" bodyfile="drivers/include/nrfx_clock_lfclk.h" bodystart="60" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__clock__lfclk_1gaed41c70a26b1dd74ad8a767c262a7539" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_clock_lfclk_event_handler_t) (nrfx_clock_lfclk_evt_type_t event)</definition>
+        <argsstring>)(nrfx_clock_lfclk_evt_type_t event)</argsstring>
+        <name>nrfx_clock_lfclk_event_handler_t</name>
+        <briefdescription>
+<para>Lfclk event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="78" column="9" bodyfile="drivers/include/nrfx_clock_lfclk.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1gaa34d3b837c22c5d8f526efa2fe45a36e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_lfclk_init</definition>
+        <argsstring>(nrfx_clock_lfclk_event_handler_t event_handler)</argsstring>
+        <name>nrfx_clock_lfclk_init</name>
+        <param>
+          <type><ref refid="group__nrfx__clock__lfclk_1gaed41c70a26b1dd74ad8a767c262a7539" kindref="member">nrfx_clock_lfclk_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing internal structures in the nrfx_clock_lfclk module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After initialization, the module is in power off state (clocks are not started).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If not provided, driver works in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="91" column="5" declfile="drivers/include/nrfx_clock_lfclk.h" declline="91" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga552e42f5976b6e71b5ac854977f1cdd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_lfclk_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the lfclk module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="94" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="94" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1gad2ccc04f2d849ea63a0c39f810ee52db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_clock_lfclk_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the lfclk driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="102" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="102" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1gacc9aefe92a550759b8f0ac8cb21af297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_lfclk_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the LFCLK. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="107" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga8f134f28fdc21f0c68b1e513fb5fbc1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_lfclk_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the LFCLK. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="112" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="112" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1gac82c9685195f323d4df1a4774e2ee798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_clock_lfclk_running_check</definition>
+        <argsstring>(nrf_clock_lfclk_t *p_clk_src)</argsstring>
+        <name>nrfx_clock_lfclk_running_check</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga5b00bcdc07defd8187f2be8a2ec7a597" kindref="member">nrf_clock_lfclk_t</ref> *</type>
+          <declname>p_clk_src</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the LFCLK state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>XTAL source is assumed for domains with multiple sources.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_clk_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a clock source that is running. Set to NULL if not needed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clock domain is running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clock domain is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="167" column="25" bodyfile="drivers/include/nrfx_clock_lfclk.h" bodystart="167" bodyend="170" declfile="drivers/include/nrfx_clock_lfclk.h" declline="124" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga685a7dff2e05deaa91e07fea182008e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_lfclk_calibration_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_calibration_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the calibration of internal LFCLK. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function starts the calibration process. The process cannot be aborted. LFCLK and (HFCLK or XO) must be running before this function is called.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The low-frequency or high-frequency clock is off. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock is in the calibration phase. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="138" column="5" declfile="drivers/include/nrfx_clock_lfclk.h" declline="138" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga7e9efe78d637ecaeaa557d86b8ce6615" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_lfclk_calibrating_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_calibrating_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if calibration is in progress. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function indicates that the system is in calibration phase.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock is in the calibration phase. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="148" column="5" declfile="drivers/include/nrfx_clock_lfclk.h" declline="148" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga83e2cd3624a6a8867863c7ad39809611" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_lfclk_calibration_timer_start</definition>
+        <argsstring>(uint8_t interval)</argsstring>
+        <name>nrfx_clock_lfclk_calibration_timer_start</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting calibration timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time after which the CTTO event and interrupt will be generated (in 0.25 s units). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="157" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="157" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock__lfclk_1ga3a627adad79010888e888155199341e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_lfclk_calibration_timer_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_lfclk_calibration_timer_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the calibration timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="160" column="6" declfile="drivers/include/nrfx_clock_lfclk.h" declline="160" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__clock__lfclk_1ga3cae000d2ee17605e2a51583699d79a6" prot="public" static="no">
+        <name>NRFX_CLOCK_LFCLK_LFRC_EVT_OFFSET</name>
+        <initializer>32</initializer>
+        <briefdescription>
+<para>Symbol specifying driver event offset for LFRC hardware events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock_lfclk.h" line="56" column="9" bodyfile="drivers/include/nrfx_clock_lfclk.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LFCLK clock driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

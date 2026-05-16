@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__ramc__hal" kind="group">
+    <compoundname>nrf_ramc_hal</compoundname>
+    <title>RAMC RAM Controller HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__ramc__hal_1ga2ba7c22e38ebe9b9734eddba97a78c47" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_ramc_event_t</name>
+        <enumvalue id="group__nrf__ramc__hal_1gga2ba7c22e38ebe9b9734eddba97a78c47abb6413e2c8801d87a28d8d99d2739cd5" prot="public">
+          <name>NRF_RAMC_EVENT_ERROR_FIXABLE</name>
+          <initializer>= offsetof(NRF_RAMC_Type, EVENTS_ERRORFIX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>ECC detected fixable (one bit) error in read data from RAM. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__ramc__hal_1gga2ba7c22e38ebe9b9734eddba97a78c47abe472a2604c6c7437b24588fb19eeb5e" prot="public">
+          <name>NRF_RAMC_EVENT_ERROR_NON_FIXABLE</name>
+          <initializer>= offsetof(NRF_RAMC_Type, EVENTS_ERRORNONFIX)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>ECC detected non-fixable (multiple bits) error in read data from RAM. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RAMC events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="62" column="1" bodyfile="hal/nrf_ramc.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga9dd2ac8445392428cc632454c99759c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ramc_event_clear</definition>
+        <argsstring>(NRF_RAMC_Type *p_reg, nrf_ramc_event_t event)</argsstring>
+        <name>nrf_ramc_event_clear</name>
+        <param>
+          <type>NRF_RAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ramc__hal_1ga2ba7c22e38ebe9b9734eddba97a78c47" kindref="member">nrf_ramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified RAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="159" column="24" bodyfile="hal/nrf_ramc.h" bodystart="159" bodyend="163" declfile="hal/nrf_ramc.h" declline="74" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga73051de98e3c4f61af9d47aa759ec0de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_ramc_event_check</definition>
+        <argsstring>(NRF_RAMC_Type const *p_reg, nrf_ramc_event_t event)</argsstring>
+        <name>nrf_ramc_event_check</name>
+        <param>
+          <type>NRF_RAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ramc__hal_1ga2ba7c22e38ebe9b9734eddba97a78c47" kindref="member">nrf_ramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the RAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="165" column="24" bodyfile="hal/nrf_ramc.h" bodystart="165" bodyend="168" declfile="hal/nrf_ramc.h" declline="85" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga8105f0cacc85e46ff36e4d8e3d730ca7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ramc_event_address_get</definition>
+        <argsstring>(NRF_RAMC_Type const *p_reg, nrf_ramc_event_t event)</argsstring>
+        <name>nrf_ramc_event_address_get</name>
+        <param>
+          <type>NRF_RAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__ramc__hal_1ga2ba7c22e38ebe9b9734eddba97a78c47" kindref="member">nrf_ramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified RAMC event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="170" column="28" bodyfile="hal/nrf_ramc.h" bodystart="170" bodyend="174" declfile="hal/nrf_ramc.h" declline="95" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga3dd877582fc24eeb306d373c37a8c405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ramc_waitstates_set</definition>
+        <argsstring>(NRF_RAMC_Type *p_reg, uint8_t waitstates)</argsstring>
+        <name>nrf_ramc_waitstates_set</name>
+        <param>
+          <type>NRF_RAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>waitstates</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting number of waitstates for a read from the RAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">waitstates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of waitstates [0...1]. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="177" column="24" bodyfile="hal/nrf_ramc.h" bodystart="177" bodyend="181" declfile="hal/nrf_ramc.h" declline="105" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga43a7d50b84ae7a6cc9ec1bfe06313797" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_ramc_waitstates_get</definition>
+        <argsstring>(NRF_RAMC_Type const *p_reg)</argsstring>
+        <name>nrf_ramc_waitstates_get</name>
+        <param>
+          <type>NRF_RAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of waitstates for a read from the RAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of waitstates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="183" column="27" bodyfile="hal/nrf_ramc.h" bodystart="183" bodyend="186" declfile="hal/nrf_ramc.h" declline="114" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga7e001187f64aa11ac4799c5c0f585b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ramc_secbase_set</definition>
+        <argsstring>(NRF_RAMC_Type *p_reg, uint32_t addr)</argsstring>
+        <name>nrf_ramc_secbase_set</name>
+        <param>
+          <type>NRF_RAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting base address for secure access area. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When the SECENABLE is enabled, any non-secure accesses to the address within the RAM which are above or equal to the base address generates an error.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Base address. Writes to the bits [11:0] are ignored and are read as zero. Similarly, the MSB size depends on the size of the RAM, writes to those MSB above the size are ignored and are read as zero. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="188" column="24" bodyfile="hal/nrf_ramc.h" bodystart="188" bodyend="191" declfile="hal/nrf_ramc.h" declline="127" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga38baa57dcfb993894b2cd21bf4e5fa2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_ramc_secbase_get</definition>
+        <argsstring>(NRF_RAMC_Type const *p_reg)</argsstring>
+        <name>nrf_ramc_secbase_get</name>
+        <param>
+          <type>NRF_RAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting base address for secure access area. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Base address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="193" column="28" bodyfile="hal/nrf_ramc.h" bodystart="193" bodyend="196" declfile="hal/nrf_ramc.h" declline="136" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga629ad4643db2aeffa78ca6e286a3e234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_ramc_secenable_set</definition>
+        <argsstring>(NRF_RAMC_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_ramc_secenable_set</name>
+        <param>
+          <type>NRF_RAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting secure access restrictions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if secure access restrictions are to be enabled, false otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="198" column="24" bodyfile="hal/nrf_ramc.h" bodystart="198" bodyend="202" declfile="hal/nrf_ramc.h" declline="144" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__ramc__hal_1ga1ccf89786b7b52f24de2f735fb1c1550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_ramc_secenable_check</definition>
+        <argsstring>(NRF_RAMC_Type const *p_reg)</argsstring>
+        <name>nrf_ramc_secenable_check</name>
+        <param>
+          <type>NRF_RAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking secure access restrictions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Secure access restrictions are enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Secure access restrictions are disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_ramc.h" line="204" column="24" bodyfile="hal/nrf_ramc.h" bodystart="204" bodyend="207" declfile="hal/nrf_ramc.h" declline="154" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Random Access Memory Controller (RAMC) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2686 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__tampc__hal" kind="group">
+    <compoundname>nrf_tampc_hal</compoundname>
+    <title>TAMPC HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1gafd58f0ae0fbd3d8cef598d752801103e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_event_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1ggafd58f0ae0fbd3d8cef598d752801103ea528fd43155ee4e3f6023663cf78cc47d" prot="public">
+          <name>NRF_TAMPC_EVENT_TAMPER</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, EVENTS_TAMPER)</initializer>
+          <briefdescription>
+<para>TAMPC detected an error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1ggafd58f0ae0fbd3d8cef598d752801103ea4eeaf6f92f7777499b8e17a7cbd0e583" prot="public">
+          <name>NRF_TAMPC_EVENT_WRITE_ERROR</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, EVENTS_WRITEERROR)</initializer>
+          <briefdescription>
+<para>Attempted to write a VALUE in PROTECT registers without clearing the WRITEPROTECT. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TAMPC events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="171" column="1" bodyfile="hal/nrf_tampc.h" bodystart="172" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1ga4a86f2230e15f01b5b7b3b3b1593dc6e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tapmc_int_mask_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1gga4a86f2230e15f01b5b7b3b3b1593dc6ead4e30256db47428d1af568943f3f6b53" prot="public">
+          <name>NRF_TAMPC_INT_TAMPER_MASK</name>
+          <initializer>= TAMPC_INTENSET_TAMPER_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TAMPER event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga4a86f2230e15f01b5b7b3b3b1593dc6ea174c4994ea56798d4291d358532ce918" prot="public">
+          <name>NRF_TAMPC_INT_WRITE_ERROR_MASK</name>
+          <initializer>= TAMPC_INTENSET_WRITEERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on WRITEERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga4a86f2230e15f01b5b7b3b3b1593dc6ea0e0b95af8c48e5ec366fa361786baec8" prot="public">
+          <name>NRF_TAMPC_ALL_INTS_MASK</name>
+          <initializer>= NRF_TAMPC_INT_TAMPER_MASK
+
+                                   | NRF_TAMPC_INT_WRITE_ERROR_MASK</initializer>
+          <briefdescription>
+<para>All TAMPC interrupts. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TAMPC interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="180" column="1" bodyfile="hal/nrf_tampc.h" bodystart="181" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1ga31776bd34d533794421abe7a71fd56ed" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_activeshield_mask_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1gga31776bd34d533794421abe7a71fd56eda43b4868d5124873778b5b1874315507f" prot="public">
+          <name>NRF_TAMPC_ACTIVESHIELD_CHANNEL_0_MASK</name>
+          <initializer>= TAMPC_ACTIVESHIELD_CHEN_CH0_Msk</initializer>
+          <briefdescription>
+<para>Enable active shield channel 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga31776bd34d533794421abe7a71fd56eda2a5f09e011e9c545ac5876d83bcbd537" prot="public">
+          <name>NRF_TAMPC_ACTIVESHIELD_CHANNEL_1_MASK</name>
+          <initializer>= TAMPC_ACTIVESHIELD_CHEN_CH1_Msk</initializer>
+          <briefdescription>
+<para>Enable active shield channel 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga31776bd34d533794421abe7a71fd56eda51a9de6a0a470c7c7cc3652035a4b824" prot="public">
+          <name>NRF_TAMPC_ACTIVESHIELD_CHANNEL_2_MASK</name>
+          <initializer>= TAMPC_ACTIVESHIELD_CHEN_CH2_Msk</initializer>
+          <briefdescription>
+<para>Enable active shield channel 2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga31776bd34d533794421abe7a71fd56edae7ab8b9a7125acfd82d56c9368b5b159" prot="public">
+          <name>NRF_TAMPC_ACTIVESHIELD_CHANNEL_3_MASK</name>
+          <initializer>= TAMPC_ACTIVESHIELD_CHEN_CH3_Msk</initializer>
+          <briefdescription>
+<para>Enable active shield channel 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga31776bd34d533794421abe7a71fd56eda1fd461f01a04a444846152b445190a06" prot="public">
+          <name>NRF_TAMPC_ALL_ACTIVESHIELD_CHANNELS_MASK</name>
+          <initializer>= NRF_TAMPC_ACTIVESHIELD_CHANNEL_0_MASK
+                                             | NRF_TAMPC_ACTIVESHIELD_CHANNEL_1_MASK
+
+                                             | NRF_TAMPC_ACTIVESHIELD_CHANNEL_2_MASK
+                                             | NRF_TAMPC_ACTIVESHIELD_CHANNEL_3_MASK</initializer>
+          <briefdescription>
+<para>All TAMPC active shield channels. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Active shield channel mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="194" column="1" bodyfile="hal/nrf_tampc.h" bodystart="195" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1ga3d37c3b1b216e6cf794359b8e51723ea" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_detector_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaaf28bbf3f4d3595c51bec2b764b5fac0b" prot="public">
+          <name>NRF_TAMPC_DETECTOR_ACTIVE_SHIELD</name>
+          <initializer>= TAMPC_STATUS_ACTIVESHIELD_Msk</initializer>
+          <briefdescription>
+<para>Active shield error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaa0dc4650c09b7964988eb8ff4b59803b3" prot="public">
+          <name>NRF_TAMPC_DETECTOR_TAMPER_SWITCH</name>
+          <initializer>= TAMPC_STATUS_TAMPERSWITCH_Msk</initializer>
+          <briefdescription>
+<para>External tamper switch error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaa4d0a24d7f1804c1c62baab71de01ac1b" prot="public">
+          <name>NRF_TAMPC_DETECTOR_PROTECTED_SIGNAL</name>
+          <initializer>= TAMPC_STATUS_PROTECT_Msk</initializer>
+          <briefdescription>
+<para>Protected signals error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaad2226dd95682c9a3fd4c6b789c1bcddc" prot="public">
+          <name>NRF_TAMPC_DETECTOR_CRACEN</name>
+          <initializer>= TAMPC_STATUS_CRACENTAMP_Msk</initializer>
+          <briefdescription>
+<para>CRACEN error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaa03237d6e8ba087216c1ca2e53313471b" prot="public">
+          <name>NRF_TAMPC_DETECTOR_GLITCH_DOMAIN_SLOW</name>
+          <initializer>= TAMPC_STATUS_GLITCHSLOWDOMAIN0_Msk</initializer>
+          <briefdescription>
+<para>Slow domain glitch error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga3d37c3b1b216e6cf794359b8e51723eaa4c7b5273950bbb0f68343fd40de2c274" prot="public">
+          <name>NRF_TAMPC_DETECTOR_GLITCH_DOMAIN_FAST</name>
+          <initializer>= TAMPC_STATUS_GLITCHFASTDOMAIN0_Msk |
+                                            TAMPC_STATUS_GLITCHFASTDOMAIN1_Msk |
+                                            TAMPC_STATUS_GLITCHFASTDOMAIN2_Msk |
+                                            TAMPC_STATUS_GLITCHFASTDOMAIN3_Msk</initializer>
+          <briefdescription>
+<para>Fast domain glitch error detector. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TAMPC error detectors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="212" column="1" bodyfile="hal/nrf_tampc.h" bodystart="213" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_protect_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6ea6a7c70beab85810fe13fbaaa504e7ced" prot="public">
+          <name>NRF_TAMPC_PROTECT_ACTIVE_SHIELD</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.ACTIVESHIELD)</initializer>
+          <briefdescription>
+<para>Control register for active shield detector enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6eaca547141c7bb14a3a3cf062aea41e952" prot="public">
+          <name>NRF_TAMPC_PROTECT_TAMPER_SWITCH</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.TAMPERSWITCH)</initializer>
+          <briefdescription>
+<para>Control register for external tamper switch enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6eac0d9db6b1e8205b4bce26565eb53c8d5" prot="public">
+          <name>NRF_TAMPC_PROTECT_CRACEN</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.CRACENTAMP)</initializer>
+          <briefdescription>
+<para>Control register for CRACEN tamper detector enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6ea4cd2ccca0f2900d9ee15c9a174ff7b82" prot="public">
+          <name>NRF_TAMPC_PROTECT_GLITCH_DOMAIN_SLOW</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.GLITCHSLOWDOMAIN)</initializer>
+          <briefdescription>
+<para>Control register for slow domain glitch detectors enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6eaa74b037be49f9f907fe7a152f676ec35" prot="public">
+          <name>NRF_TAMPC_PROTECT_GLITCH_DOMAIN_FAST</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.GLITCHFASTDOMAIN)</initializer>
+          <briefdescription>
+<para>Control register for fast domain glitch detectors enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6ea06710da356af6455194126bee2a7a213" prot="public">
+          <name>NRF_TAMPC_PROTECT_RESETEN_EXT</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.EXTRESETEN)</initializer>
+          <briefdescription>
+<para>Control register for external tamper reset enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6ea04f1bcd1c8b8c95e98d71b8ab4206a59" prot="public">
+          <name>NRF_TAMPC_PROTECT_RESETEN_INT</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.INTRESETEN)</initializer>
+          <briefdescription>
+<para>Control register for internal tamper reset enable signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga53eac04e318e23e766b987ffbfb7eb6ea5f6a54a6a2ad37284883d7d856e794b6" prot="public">
+          <name>NRF_TAMPC_PROTECT_ERASE_PROTECT</name>
+          <initializer>= offsetof(NRF_TAMPC_Type, PROTECT.ERASEPROTECT)</initializer>
+          <briefdescription>
+<para>Control register for erase protection. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Signal protector registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="237" column="1" bodyfile="hal/nrf_tampc.h" bodystart="238" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_debug_type_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1ggaf2f0751ed1239adf14594505acc846bca1f0ec803185ea02baef99fcd0b6ce379" prot="public">
+          <name>NRF_TAMPC_DEBUG_TYPE_DBGEN</name>
+          <briefdescription>
+<para>Invasive (halting) debug. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1ggaf2f0751ed1239adf14594505acc846bcafd919c71e5703980c6630c33553096a2" prot="public">
+          <name>NRF_TAMPC_DEBUG_TYPE_NIDEN</name>
+          <briefdescription>
+<para>Non-invasive debug. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1ggaf2f0751ed1239adf14594505acc846bca8c89b722420c770a6ef4547eef7d27e3" prot="public">
+          <name>NRF_TAMPC_DEBUG_TYPE_SPIDEN</name>
+          <briefdescription>
+<para>Secure privileged invasive (halting) debug. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1ggaf2f0751ed1239adf14594505acc846bca9933b8704fa1d3beac77507b93abb972" prot="public">
+          <name>NRF_TAMPC_DEBUG_TYPE_SPNIDEN</name>
+          <briefdescription>
+<para>Secure privileged non-invasive debug. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1ggaf2f0751ed1239adf14594505acc846bcaecb2574883ef78a7850b2d2ad1bcb34e" prot="public">
+          <name>NRF_TAMPC_DEBUG_TYPE_DEVICEEN</name>
+          <briefdescription>
+<para>Domain circuitry. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Control register debug types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="259" column="1" bodyfile="hal/nrf_tampc.h" bodystart="260" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tampc_warmboot_mode_t</name>
+        <enumvalue id="group__nrf__tampc__hal_1gga7e50a553bc35d6152231ca4c85e97719a6f5d3f106a062b3f8cbaf554eae744b0" prot="public">
+          <name>NRF_TAMPC_WARMBOOT_MODE_UNRET_IDLE</name>
+          <briefdescription>
+<para>Unretained idle mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tampc__hal_1gga7e50a553bc35d6152231ca4c85e97719a90a298703e845e01768d5fc39b1e42ca" prot="public">
+          <name>NRF_TAMPC_WARMBOOT_MODE_SYSTEMOFF</name>
+          <briefdescription>
+<para>System off mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Warm boot control register mode types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="271" column="1" bodyfile="hal/nrf_tampc.h" bodystart="272" bodyend="275"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaed4060875a77fbf7a5d5fc66428a4310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_event_clear</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_event_t event)</argsstring>
+        <name>nrf_tampc_event_clear</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gafd58f0ae0fbd3d8cef598d752801103e" kindref="member">nrf_tampc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified TAMPC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="753" column="24" bodyfile="hal/nrf_tampc.h" bodystart="753" bodyend="757" declfile="hal/nrf_tampc.h" declline="283" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga4ce7dbf25c915e73330ea87a631ce826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_event_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_event_t event)</argsstring>
+        <name>nrf_tampc_event_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gafd58f0ae0fbd3d8cef598d752801103e" kindref="member">nrf_tampc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the TAMPC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="759" column="24" bodyfile="hal/nrf_tampc.h" bodystart="759" bodyend="762" declfile="hal/nrf_tampc.h" declline="294" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gadd73e7de72faf5d7a11c77c2bf375de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tampc_event_address_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_event_t event)</argsstring>
+        <name>nrf_tampc_event_address_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gafd58f0ae0fbd3d8cef598d752801103e" kindref="member">nrf_tampc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified TAMPC event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="764" column="28" bodyfile="hal/nrf_tampc.h" bodystart="764" bodyend="768" declfile="hal/nrf_tampc.h" declline="304" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaf0005105d854458a9e6702decdb857bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_int_enable</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_int_enable</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__tampc__hal_1ga4a86f2230e15f01b5b7b3b3b1593dc6e" kindref="member">nrf_tapmc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="770" column="24" bodyfile="hal/nrf_tampc.h" bodystart="770" bodyend="773" declfile="hal/nrf_tampc.h" declline="314" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga64e12fd7611b59ead0f8af8e716faf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_int_disable</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_int_disable</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__tampc__hal_1ga4a86f2230e15f01b5b7b3b3b1593dc6e" kindref="member">nrf_tapmc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="775" column="24" bodyfile="hal/nrf_tampc.h" bodystart="775" bodyend="778" declfile="hal/nrf_tampc.h" declline="323" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga0d66f9363956bb4a96ba44859d8c9eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tampc_int_enable_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_int_enable_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__tampc__hal_1ga4a86f2230e15f01b5b7b3b3b1593dc6e" kindref="member">nrf_tapmc_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="780" column="28" bodyfile="hal/nrf_tampc.h" bodystart="780" bodyend="783" declfile="hal/nrf_tampc.h" declline="334" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga2e6205e997597029b96ba90a323db444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tampc_int_pending_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg)</argsstring>
+        <name>nrf_tampc_int_pending_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of pending interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bitmask with information about pending interrupts. Use <ref refid="group__nrf__tampc__hal_1ga4a86f2230e15f01b5b7b3b3b1593dc6e" kindref="member">nrf_tapmc_int_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="785" column="28" bodyfile="hal/nrf_tampc.h" bodystart="785" bodyend="788" declfile="hal/nrf_tampc.h" declline="347" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gad6d384184ee59c9d12254de813cd4647" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_detector_status_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_detector_t detector)</argsstring>
+        <name>nrf_tampc_detector_status_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga3d37c3b1b216e6cf794359b8e51723ea" kindref="member">nrf_tampc_detector_t</ref></type>
+          <declname>detector</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the error detection status for given error detector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">detector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error detector for which the error status is to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error detected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No error detected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="790" column="24" bodyfile="hal/nrf_tampc.h" bodystart="790" bodyend="794" declfile="hal/nrf_tampc.h" declline="358" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gab8c389dc550f6c0782c98c47bcdd8104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_detector_status_clear</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_detector_t detector)</argsstring>
+        <name>nrf_tampc_detector_status_clear</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga3d37c3b1b216e6cf794359b8e51723ea" kindref="member">nrf_tampc_detector_t</ref></type>
+          <declname>detector</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the error detection status for given error detector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">detector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error detector for which the error status is to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="796" column="24" bodyfile="hal/nrf_tampc.h" bodystart="796" bodyend="864" declfile="hal/nrf_tampc.h" declline="367" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga54b24e28d357b7c4de1e4b2e80676480" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_activeshield_channel_enable</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_activeshield_channel_enable</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified active shield detector channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of active shield detector channels to be enabled, constructed from <ref refid="group__nrf__tampc__hal_1ga31776bd34d533794421abe7a71fd56ed" kindref="member">nrf_tampc_activeshield_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="867" column="24" bodyfile="hal/nrf_tampc.h" bodystart="867" bodyend="870" declfile="hal/nrf_tampc.h" declline="378" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga16bdc63c1fb024383030b998fadfa757" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_activeshield_channel_disable</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_activeshield_channel_disable</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified active shield detector channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of active shield detector channels to be disabled, constructed from <ref refid="group__nrf__tampc__hal_1ga31776bd34d533794421abe7a71fd56ed" kindref="member">nrf_tampc_activeshield_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="872" column="24" bodyfile="hal/nrf_tampc.h" bodystart="872" bodyend="876" declfile="hal/nrf_tampc.h" declline="387" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga1ec06dd4d9ddef1e0ee907661ad59009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tampc_activeshield_channel_enable_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tampc_activeshield_channel_enable_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified active shield detector channels are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of active shield detector channels to be checked, constructed from <ref refid="group__nrf__tampc__hal_1ga31776bd34d533794421abe7a71fd56ed" kindref="member">nrf_tampc_activeshield_mask_t</ref> enumerator values.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled active shield detector channels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="878" column="28" bodyfile="hal/nrf_tampc.h" bodystart="878" bodyend="882" declfile="hal/nrf_tampc.h" declline="399" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga5f09d7641ced96c23fe5b34c9ed1321b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_domain_ctrl_value_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain, bool enable)</argsstring>
+        <name>nrf_tampc_domain_ctrl_value_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting signal value of the domain control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if signal is to be logic 1, false if logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="885" column="24" bodyfile="hal/nrf_tampc.h" bodystart="885" bodyend="955" declfile="hal/nrf_tampc.h" declline="412" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga999e0e96885ead461e4cc91b0133a330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_domain_ctrl_value_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain)</argsstring>
+        <name>nrf_tampc_domain_ctrl_value_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the signal value of the domain control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="957" column="24" bodyfile="hal/nrf_tampc.h" bodystart="957" bodyend="987" declfile="hal/nrf_tampc.h" declline="428" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga734f55d7850179577a542e6cba414490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_domain_ctrl_lock_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain, bool enable)</argsstring>
+        <name>nrf_tampc_domain_ctrl_lock_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lock value of the domain control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if register is to be locked, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="989" column="24" bodyfile="hal/nrf_tampc.h" bodystart="989" bodyend="1059" declfile="hal/nrf_tampc.h" declline="441" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaaa6acd739502332832c5e1a0245de3f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_domain_ctrl_lock_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain)</argsstring>
+        <name>nrf_tampc_domain_ctrl_lock_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the lock value of the domain control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is unlocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1061" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1061" bodyend="1091" declfile="hal/nrf_tampc.h" declline="457" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga32b621d68a71c3cc330878d9272322af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_ap_ctrl_value_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain, bool enable)</argsstring>
+        <name>nrf_tampc_ap_ctrl_value_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting signal value of the access port control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if signal is to be logic 1, false if logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1093" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1093" bodyend="1135" declfile="hal/nrf_tampc.h" declline="470" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga38023181deb9b13d0c9200a19e95d0da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_ap_ctrl_value_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain)</argsstring>
+        <name>nrf_tampc_ap_ctrl_value_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the signal value of the access port control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1137" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1137" bodyend="1159" declfile="hal/nrf_tampc.h" declline="486" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga7295ce5393b79752d6949a437a3be707" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_ap_ctrl_lock_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain, bool enable)</argsstring>
+        <name>nrf_tampc_ap_ctrl_lock_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lock value of the access port control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if register is to be locked, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1161" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1161" bodyend="1203" declfile="hal/nrf_tampc.h" declline="499" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga0e05bde3a989136503ed77fe2eaf099e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_ap_ctrl_lock_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type, nrf_domain_t domain)</argsstring>
+        <name>nrf_tampc_ap_ctrl_lock_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>nrf_domain_t</type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the lock value of the access port control register for given debug type and domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain for which the value is to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is unlocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1205" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1205" bodyend="1227" declfile="hal/nrf_tampc.h" declline="515" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga45567e05003edbfdb34bd408693e1bb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_coresight_ctrl_value_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, bool enable)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_value_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting signal value of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if signal is to be logic 1, false if logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1230" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1230" bodyend="1309" declfile="hal/nrf_tampc.h" declline="527" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaa1cddeee705aa3d0e48382cc203d352e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_coresight_ctrl_value_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_value_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the signal value of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1311" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1311" bodyend="1340" declfile="hal/nrf_tampc.h" declline="540" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga6ae7e503d4e3167ccd4a32a9c01282d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_coresight_ctrl_lock_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, bool enable)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_lock_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lock value of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if register is to be locked, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1342" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1342" bodyend="1421" declfile="hal/nrf_tampc.h" declline="550" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga5cce23656ca6ef7601fb48eadddfc5a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_coresight_ctrl_lock_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_lock_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the lock value of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is unlocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1423" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1423" bodyend="1452" declfile="hal/nrf_tampc.h" declline="563" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga04efebd2a9cddc6cddef2328db8f2d02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_coresight_ctrl_fault_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_debug_type_t type, bool enable)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_fault_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting fault injection of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if fault is to be injected, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1454" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1454" bodyend="1533" declfile="hal/nrf_tampc.h" declline="573" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gae283b949b8e391d226435def0943f094" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_coresight_ctrl_fault_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_debug_type_t type)</argsstring>
+        <name>nrf_tampc_coresight_ctrl_fault_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1gaf2f0751ed1239adf14594505acc846bc" kindref="member">nrf_tampc_debug_type_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the fault injection of the Coresight register for given debug type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Debug type to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fault is to be injected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1535" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1535" bodyend="1564" declfile="hal/nrf_tampc.h" declline="586" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaf3fa403effbc169157b7ca1ffa56652e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_warmboot_ctrl_value_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_warmboot_mode_t mode, bool enable)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_value_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting signal value of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if signal is to be logic 1, false if logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1568" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1568" bodyend="1605" declfile="hal/nrf_tampc.h" declline="598" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gad48f662d9f07d69a130ced8e9cce5a52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_warmboot_ctrl_value_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_warmboot_mode_t mode)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_value_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the signal value of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1607" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1607" bodyend="1624" declfile="hal/nrf_tampc.h" declline="611" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gab002ad12acfb00f1a379572f6d339e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_warmboot_ctrl_lock_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_warmboot_mode_t mode, bool enable)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_lock_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lock value of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if register is to be locked, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1626" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1626" bodyend="1663" declfile="hal/nrf_tampc.h" declline="621" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga7515ea5ba5495328cde698ff5443f06c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_warmboot_ctrl_lock_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_warmboot_mode_t mode)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_lock_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the lock value of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is unlocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1665" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1665" bodyend="1682" declfile="hal/nrf_tampc.h" declline="634" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga79553966d774f0ef7e7937a5bbf93654" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_warmboot_ctrl_fault_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_warmboot_mode_t mode, bool enable)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_fault_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting fault injection of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if fault is to be injected, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1684" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1684" bodyend="1721" declfile="hal/nrf_tampc.h" declline="644" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gaf3126771d64de8b5ce3e4f75a7410738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_warmboot_ctrl_fault_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_warmboot_mode_t mode)</argsstring>
+        <name>nrf_tampc_warmboot_ctrl_fault_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the fault injection of the warm boot register for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fault is to be injected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1723" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1723" bodyend="1740" declfile="hal/nrf_tampc.h" declline="657" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga623c3b34052919896afae6363a47d601" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_warmboot_status_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_warmboot_mode_t mode)</argsstring>
+        <name>nrf_tampc_warmboot_status_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the error detection status for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode for which to retrieve the error status.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error detected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No error detected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1742" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1742" bodyend="1761" declfile="hal/nrf_tampc.h" declline="669" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga699aa59726fd1c40d27435a559ed321a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_warmboot_status_clear</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_warmboot_mode_t mode)</argsstring>
+        <name>nrf_tampc_warmboot_status_clear</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga7e50a553bc35d6152231ca4c85e97719" kindref="member">nrf_tampc_warmboot_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the error detection status for given warm boot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Warm boot mode for which the error status is to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1763" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1763" bodyend="1779" declfile="hal/nrf_tampc.h" declline="678" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gac79559fab6e344250e7afe7e29dc3294" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_protector_ctrl_value_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_protect_t ctrl, bool enable)</argsstring>
+        <name>nrf_tampc_protector_ctrl_value_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>ctrl</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting signal value of the given signal protector register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector control register to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if signal is to be logic 1, false if logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1783" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1783" bodyend="1799" declfile="hal/nrf_tampc.h" declline="690" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga33594a54ecd03f7d61b596425c168eaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_protector_ctrl_value_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_protect_t ctrl)</argsstring>
+        <name>nrf_tampc_protector_ctrl_value_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>ctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the signal value of the given signal protector register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector control register to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1801" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1801" bodyend="1810" declfile="hal/nrf_tampc.h" declline="703" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gad128131165f085fa64a1bd648e4568dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_protector_ctrl_lock_set</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_protect_t ctrl, bool enable)</argsstring>
+        <name>nrf_tampc_protector_ctrl_lock_set</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>ctrl</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lock value of the given signal protector register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector control register to be modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if register is to be locked, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1812" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1812" bodyend="1828" declfile="hal/nrf_tampc.h" declline="713" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga476aaede7a03a57949b0eeeb750e8cd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_protector_ctrl_lock_get</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_protect_t ctrl)</argsstring>
+        <name>nrf_tampc_protector_ctrl_lock_get</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>ctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the lock value of the given signal protector register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector control register to be retrieved.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register is unlocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1830" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1830" bodyend="1839" declfile="hal/nrf_tampc.h" declline="726" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1ga19d3bd0658f4b6a7f3725b35c6acf793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tampc_protector_status_check</definition>
+        <argsstring>(NRF_TAMPC_Type const *p_reg, nrf_tampc_protect_t status)</argsstring>
+        <name>nrf_tampc_protector_status_check</name>
+        <param>
+          <type>NRF_TAMPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the error detection status for given signal protector status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector status register for which to retrieve the error status.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error detected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No error detected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1841" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1841" bodyend="1850" declfile="hal/nrf_tampc.h" declline="738" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tampc__hal_1gae31ab70f792a16e1f9d26b32cf716215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tampc_protector_status_clear</definition>
+        <argsstring>(NRF_TAMPC_Type *p_reg, nrf_tampc_protect_t status)</argsstring>
+        <name>nrf_tampc_protector_status_clear</name>
+        <param>
+          <type>NRF_TAMPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tampc__hal_1ga53eac04e318e23e766b987ffbfb7eb6e" kindref="member">nrf_tampc_protect_t</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the error detection status for given signal protector status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal protector status register for which the error status is to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="1852" column="24" bodyfile="hal/nrf_tampc.h" bodystart="1852" bodyend="1859" declfile="hal/nrf_tampc.h" declline="747" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga521079c0a8beaf8ddc54267b35ac031c" prot="public" static="no">
+        <name>NRF_TAMPC_KEY_MASK</name>
+        <initializer>                            (TAMPC_PROTECT_DOMAIN_DBGEN_CTRL_KEY_KEY \
+                            &lt;&lt; TAMPC_PROTECT_DOMAIN_DBGEN_CTRL_KEY_Pos)</initializer>
+        <briefdescription>
+<para>Protect register write key mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="53" column="9" bodyfile="hal/nrf_tampc.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga5502a4ed0a6cf4beeb70f1caa3ec54fb" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_EVENT_WRITE_ERROR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC write error event is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="61" column="9" bodyfile="hal/nrf_tampc.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga027ca10ae81d42bb6bef71396dbf50a5" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_ACTIVE_SHIELD_CHANNELS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC active shield channels are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="68" column="9" bodyfile="hal/nrf_tampc.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gae4c45d814cb9607f4a04f22b491a3ccf" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_EXTENDED_PROTECTORS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC extended protection is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="75" column="9" bodyfile="hal/nrf_tampc.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gaab117279126550b479546228c97f907d" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_ERASE_PROTECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC erase protector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="82" column="9" bodyfile="hal/nrf_tampc.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga88eb2f616444a0c57f10bfbc9d25c408" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_EXTERNAL_TAMPERSWITCH_PROTECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC external tamper switch protector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="89" column="9" bodyfile="hal/nrf_tampc.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gafa6cd51097b6c7a063db456e45319902" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_DOMAIN_SPIDEN_PROTECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether domain secure priviliged invasive debug detector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="96" column="9" bodyfile="hal/nrf_tampc.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gad84a357edeefe17772c282917ed01662" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_AP_SPIDEN_PROTECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether AP secure priviliged invasive debug detector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="103" column="9" bodyfile="hal/nrf_tampc.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga7f08dba9fe0856ef7f86aa9377b92512" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_DETECTORS_ENABLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the availability to enable the TAMPC detectors feature is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="110" column="9" bodyfile="hal/nrf_tampc.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga420b3f5a84b8917574b9f8d6a55c7fcc" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_CORESIGHT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the configuration of Coresight debugger signals protection is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="117" column="9" bodyfile="hal/nrf_tampc.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga9bacc931fe86fc4e57729b2504a7a2e4" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_WARMBOOT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the configuration of warm boot protection is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="124" column="9" bodyfile="hal/nrf_tampc.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gacb7c4e7cc9a931fd86f3458326258cbf" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_ACTIVE_SHIELD_DETECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC active shield detector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="131" column="9" bodyfile="hal/nrf_tampc.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga5d3ff86e37c63b78391c182bd905ec72" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_EXTERNAL_TAMPERSWITCH_DETECTOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC external tamper switch detector is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="138" column="9" bodyfile="hal/nrf_tampc.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga604b1799a31d1e088ee0a632a64cc617" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_CRACEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC has CRACEN detection features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="145" column="9" bodyfile="hal/nrf_tampc.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1gae7bd078f6c08d3477df484fe05b4bf65" prot="public" static="no">
+        <name>NRF_TAMPC_HAS_GLITCHSLOWDOMAIN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TAMPC has slow domain glitch detection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="152" column="9" bodyfile="hal/nrf_tampc.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tampc__hal_1ga8bf695088fe65564016962624ea0821a" prot="public" static="no">
+        <name>NRF_TAMPC_ACTIVESHIELD_CHANNEL_COUNT</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>Number of active shield channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tampc.h" line="160" column="9" bodyfile="hal/nrf_tampc.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Tamper Controller (TAMPC) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

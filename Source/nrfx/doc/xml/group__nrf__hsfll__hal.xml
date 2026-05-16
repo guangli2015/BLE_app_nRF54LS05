@@ -1,0 +1,1265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__hsfll__hal" kind="group">
+    <compoundname>nrf_hsfll_hal</compoundname>
+    <title>HSFLL HAL</title>
+    <innerclass refid="structnrf__hsfll__status__clk__t" prot="public">nrf_hsfll_status_clk_t</innerclass>
+    <innerclass refid="structnrf__hsfll__freqm__error__t" prot="public">nrf_hsfll_freqm_error_t</innerclass>
+    <innerclass refid="structnrf__hsfll__clkctrl__t" prot="public">nrf_hsfll_clkctrl_t</innerclass>
+    <innerclass refid="structnrf__hsfll__dithering__t" prot="public">nrf_hsfll_dithering_t</innerclass>
+    <innerclass refid="structnrf__hsfll__sleep__t" prot="public">nrf_hsfll_sleep_t</innerclass>
+    <innerclass refid="structnrf__hsfll__trim__t" prot="public">nrf_hsfll_trim_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__hsfll__hal_1gaaf63c801dadc3cc404e66e2288ecdd70" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_hsfll_task_t</name>
+        <enumvalue id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a1d1aa0962f779b54ae27d2d3406989ae" prot="public">
+          <name>NRF_HSFLL_TASK_START</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, TASKS_START)</initializer>
+          <briefdescription>
+<para>Start the HSFLL. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a626ed1e7d60ba132a4c196c8e7f558bd" prot="public">
+          <name>NRF_HSFLL_TASK_STOP</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stop the HSFLL. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a9fd42b7f977773a1f028565c5ccd2b34" prot="public">
+          <name>NRF_HSFLL_TASK_FREQ_MEAS</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, TASKS_FREQMEAS)</initializer>
+          <briefdescription>
+<para>Start frequency measurement in software-controlled mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a5cacc8169f1737a957426789174ea5d0" prot="public">
+          <name>NRF_HSFLL_TASK_FREQ_CHANGE</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, TASKS_FREQCHANGE)</initializer>
+          <briefdescription>
+<para>Trigger frequency change. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>HSFLL tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="128" column="1" bodyfile="hal/nrf_hsfll.h" bodystart="129" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__hsfll__hal_1ga67c57226bb78f8858844566d3c89b500" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_hsfll_event_t</name>
+        <enumvalue id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500a577fa5953e1f9ddf58fc4b0fa0f35b67" prot="public">
+          <name>NRF_HSFLL_EVENT_STARTED</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, EVENTS_STARTED)</initializer>
+          <briefdescription>
+<para>HSFLL started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500aee8611794727dea5269e6efe4a205ab8" prot="public">
+          <name>NRF_HSFLL_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>HSFLL stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500aa8fe7cc76c9f6af4b19f0e180db644c9" prot="public">
+          <name>NRF_HSFLL_EVENT_FREQM_DONE</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, EVENTS_FREQMDONE)</initializer>
+          <briefdescription>
+<para>HSFLL frequency measurement done. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500a5b4f6c091326004d42baa02fa970cc42" prot="public">
+          <name>NRF_HSFLL_EVENT_FREQ_CHANGED</name>
+          <initializer>= offsetof(NRF_HSFLL_Type, EVENTS_FREQCHANGED)</initializer>
+          <briefdescription>
+<para>HSFLL frequency change done. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>HSFLL events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="141" column="1" bodyfile="hal/nrf_hsfll.h" bodystart="142" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__hsfll__hal_1ga22d84dbd304c5820d04b30f24eb51876" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_hsfll_mode_status_t</name>
+        <enumvalue id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876ae4707366f19688348511e74363840e40" prot="public">
+          <name>NRF_HSFLL_MODE_STATUS_OPEN_LOOP</name>
+          <initializer>= HSFLL_CLOCKSTATUS_MODE_OpenLoop</initializer>
+          <briefdescription>
+<para>Open loop mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876ac3c5b3bfe3187d5425cee3c46e0c90e2" prot="public">
+          <name>NRF_HSFLL_MODE_STATUS_CLOSED_LOOP</name>
+          <initializer>= HSFLL_CLOCKSTATUS_MODE_ClosedLoop</initializer>
+          <briefdescription>
+<para>Closed loop mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876a64fafb5c9c162b7a91b3e4f06ce33162" prot="public">
+          <name>NRF_HSFLL_MODE_STATUS_BYPASS</name>
+          <initializer>= HSFLL_CLOCKSTATUS_MODE_Bypass</initializer>
+          <briefdescription>
+<para>Bypass mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>HSFLL clock status operating modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="154" column="1" bodyfile="hal/nrf_hsfll.h" bodystart="155" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__hsfll__hal_1ga39dc8779fe0c54cc97619419fe1a8882" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_hsfll_mode_ctrl_t</name>
+        <enumvalue id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a170b39f552c1e309a6695fe6108d0915" prot="public">
+          <name>NRF_HSFLL_MODE_CTRL_AUTO</name>
+          <initializer>= HSFLL_CLOCKCTRL_MODE_MODE_Auto</initializer>
+          <briefdescription>
+<para>The PCGC controls the mode automatically. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882adea16baa54cd516deccdf3c8b1f8813e" prot="public">
+          <name>NRF_HSFLL_MODE_CTRL_OPEN_LOOP</name>
+          <initializer>= HSFLL_CLOCKCTRL_MODE_MODE_OpenLoop</initializer>
+          <briefdescription>
+<para>Open loop mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a299ea696692e727ed26aedf36330560b" prot="public">
+          <name>NRF_HSFLL_MODE_CTRL_CLOSED_LOOP</name>
+          <initializer>= HSFLL_CLOCKCTRL_MODE_MODE_ClosedLoop</initializer>
+          <briefdescription>
+<para>Closed loop mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a8f2480b89871d9f9038335794a14a5a2" prot="public">
+          <name>NRF_HSFLL_MODE_CTRL_BYPASS</name>
+          <initializer>= HSFLL_CLOCKCTRL_MODE_MODE_Bypass</initializer>
+          <briefdescription>
+<para>Bypass mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>HSFLL clock control operating mode settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="181" column="1" bodyfile="hal/nrf_hsfll.h" bodystart="182" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga9dddcf75c0f04862a06387fe606edd88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_hsfll_task_address_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_task_t task)</argsstring>
+        <name>nrf_hsfll_task_address_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__hsfll__hal_1gaaf63c801dadc3cc404e66e2288ecdd70" kindref="member">nrf_hsfll_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HSFLL task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the requested task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="453" column="28" bodyfile="hal/nrf_hsfll.h" bodystart="453" bodyend="457" declfile="hal/nrf_hsfll.h" declline="235" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gad25640261347cb07eb76941a2368e09c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_task_trigger</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_task_t task)</argsstring>
+        <name>nrf_hsfll_task_trigger</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__hsfll__hal_1gaaf63c801dadc3cc404e66e2288ecdd70" kindref="member">nrf_hsfll_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for triggering the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="459" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="459" bodyend="462" declfile="hal/nrf_hsfll.h" declline="244" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga19d1e811d34aee962e02e8fb979fafbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_hsfll_event_address_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_event_t event)</argsstring>
+        <name>nrf_hsfll_event_address_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__hsfll__hal_1ga67c57226bb78f8858844566d3c89b500" kindref="member">nrf_hsfll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HSFLL event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="464" column="28" bodyfile="hal/nrf_hsfll.h" bodystart="464" bodyend="468" declfile="hal/nrf_hsfll.h" declline="254" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga3eaaa073b59ea26da9b23dcb22c73e00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_event_clear</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_event_t event)</argsstring>
+        <name>nrf_hsfll_event_clear</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__hsfll__hal_1ga67c57226bb78f8858844566d3c89b500" kindref="member">nrf_hsfll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="470" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="470" bodyend="474" declfile="hal/nrf_hsfll.h" declline="263" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gae60378a605af57564f44e359b7d2043b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_hsfll_event_check</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_event_t event)</argsstring>
+        <name>nrf_hsfll_event_check</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__hsfll__hal_1ga67c57226bb78f8858844566d3c89b500" kindref="member">nrf_hsfll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="476" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="476" bodyend="480" declfile="hal/nrf_hsfll.h" declline="274" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gadac31e8d57d71c6b4186f59db8f1340e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_status_clk_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_status_clk_t *p_status)</argsstring>
+        <name>nrf_hsfll_status_clk_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__status__clk__t" kindref="compound">nrf_hsfll_status_clk_t</ref> *</type>
+          <declname>p_status</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the HSFLL status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with the HSFLL status. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="482" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="482" bodyend="501" declfile="hal/nrf_hsfll.h" declline="283" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gaa7adafcaa53407dc41099e5d74155d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_hsfll_freqm_done_check</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg)</argsstring>
+        <name>nrf_hsfll_freqm_done_check</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the HSFLL frequency measurement is completed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frequency measurement is completed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frequency measurement is in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="504" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="504" bodyend="508" declfile="hal/nrf_hsfll.h" declline="295" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga1c70443d909e28515ece4bc694bd5277" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_freqm_error_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_freqm_error_t *p_error)</argsstring>
+        <name>nrf_hsfll_freqm_error_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__freqm__error__t" kindref="compound">nrf_hsfll_freqm_error_t</ref> *</type>
+          <declname>p_error</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL frequency measurement errors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with HSFLL frequency measurement errors. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="510" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="510" bodyend="523" declfile="hal/nrf_hsfll.h" declline="304" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga05d00a41e4e025418a0b54875bf03864" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_hsfll_freqm_meas_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg)</argsstring>
+        <name>nrf_hsfll_freqm_meas_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL frequency measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The last frequency measurement value. Measures the number of reference clock cycles. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="525" column="28" bodyfile="hal/nrf_hsfll.h" bodystart="525" bodyend="528" declfile="hal/nrf_hsfll.h" declline="314" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gacd78b204be22175d34bb81942ccaa8cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_mode_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_clkctrl_t const *p_clkctrl)</argsstring>
+        <name>nrf_hsfll_clkctrl_mode_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__clkctrl__t" kindref="compound">nrf_hsfll_clkctrl_t</ref> const *</type>
+          <declname>p_clkctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting HSFLL clock control mode settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_clkctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with new HSFLL clock control mode settings. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="532" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="532" bodyend="543" declfile="hal/nrf_hsfll.h" declline="324" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga98ef21e04eb98689965abb5a129b3066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_mode_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_clkctrl_t *p_clkctrl)</argsstring>
+        <name>nrf_hsfll_clkctrl_mode_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__clkctrl__t" kindref="compound">nrf_hsfll_clkctrl_t</ref> *</type>
+          <declname>p_clkctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL clock control mode settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_clkctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with HSFLL clock control settings. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="545" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="545" bodyend="557" declfile="hal/nrf_hsfll.h" declline="333" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gaa8613335cda9ae2024187c716f9cfc36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_dithering_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_dithering_t const *p_config)</argsstring>
+        <name>nrf_hsfll_clkctrl_dithering_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__dithering__t" kindref="compound">nrf_hsfll_dithering_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting HSFLL clock dithering configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with new HSFLL clock dithering configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="560" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="560" bodyend="577" declfile="hal/nrf_hsfll.h" declline="342" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gae9621d76a7feb65ac1ded46406f12bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_dithering_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_dithering_t *p_config)</argsstring>
+        <name>nrf_hsfll_clkctrl_dithering_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__dithering__t" kindref="compound">nrf_hsfll_dithering_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL clock dithering configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with HSFLL clock dithering configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="579" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="579" bodyend="594" declfile="hal/nrf_hsfll.h" declline="352" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga8128f0a55ca09443c6156bbb7b18406f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_mult_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, uint32_t multiplier)</argsstring>
+        <name>nrf_hsfll_clkctrl_mult_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>multiplier</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting HSFLL frequency multiplier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">multiplier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of new multiplier. Valid <computeroutput>multiplier</computeroutput> range is from 4 to 25. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="596" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="596" bodyend="601" declfile="hal/nrf_hsfll.h" declline="361" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga16416adfeb7ad9ce1f7ba5284a86c085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_hsfll_clkctrl_mult_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg)</argsstring>
+        <name>nrf_hsfll_clkctrl_mult_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL frequency multiplier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Current value of frequency multiplier used by HSFLL. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="603" column="28" bodyfile="hal/nrf_hsfll.h" bodystart="603" bodyend="606" declfile="hal/nrf_hsfll.h" declline="370" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga2b2da2ee38c67145860f9ef0a593f2ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_sleep_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_sleep_t const *p_config)</argsstring>
+        <name>nrf_hsfll_clkctrl_sleep_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__sleep__t" kindref="compound">nrf_hsfll_sleep_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting HSFLL clock sleep configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with new HSFLL clock sleep configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="609" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="609" bodyend="623" declfile="hal/nrf_hsfll.h" declline="379" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga3f5f1222dffd22bee5b1b863f65f8d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_sleep_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_sleep_t *p_config)</argsstring>
+        <name>nrf_hsfll_clkctrl_sleep_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__sleep__t" kindref="compound">nrf_hsfll_sleep_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting HSFLL clock sleep configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with HSFLL clock sleep configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="625" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="625" bodyend="634" declfile="hal/nrf_hsfll.h" declline="388" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gaaf9a3a9f0bc7019d955ed88d82fa0684" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_retainfinetrim_enable_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, bool retain)</argsstring>
+        <name>nrf_hsfll_clkctrl_retainfinetrim_enable_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>retain</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the retention of HSFLL fine trim control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">retain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the fine trim control is to be retained when HSFLL goes to open-loop mode, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="638" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="638" bodyend="646" declfile="hal/nrf_hsfll.h" declline="400" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga60dc7710809a136d150ffd4fa1f9c085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_overridelocked_enable_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, bool override)</argsstring>
+        <name>nrf_hsfll_clkctrl_overridelocked_enable_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>override</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the override of the HSFLL LOCKED signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">override</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the override is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="650" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="650" bodyend="658" declfile="hal/nrf_hsfll.h" declline="411" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gaa8da86a746b26811c0c29681653c9085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_clkctrl_dither_init_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, uint32_t seed)</argsstring>
+        <name>nrf_hsfll_clkctrl_dither_init_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>seed</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the configurable seed of HSFLL clock dithering. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>32-bit initial value for the PRBS. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="662" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="662" bodyend="666" declfile="hal/nrf_hsfll.h" declline="422" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga20306b5cda469bc8cfd0e86b26984507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_mirror_lock_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_hsfll_mirror_lock_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling lock for mirrored registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the lock is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="670" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="670" bodyend="674" declfile="hal/nrf_hsfll.h" declline="431" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1gaf927798c0f1c728d9dfbab02b337ad9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_trim_set</definition>
+        <argsstring>(NRF_HSFLL_Type *p_reg, nrf_hsfll_trim_t const *p_trim)</argsstring>
+        <name>nrf_hsfll_trim_set</name>
+        <param>
+          <type>NRF_HSFLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__trim__t" kindref="compound">nrf_hsfll_trim_t</ref> const *</type>
+          <declname>p_trim</declname>
+        </param>
+        <briefdescription>
+<para>Function to setup trims configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with new HSFLL trim configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="676" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="676" bodyend="690" declfile="hal/nrf_hsfll.h" declline="439" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__hsfll__hal_1ga6a0b3a01f766199a67d2ca7473a764b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_hsfll_trim_get</definition>
+        <argsstring>(NRF_HSFLL_Type const *p_reg, nrf_hsfll_trim_t *p_trim)</argsstring>
+        <name>nrf_hsfll_trim_get</name>
+        <param>
+          <type>NRF_HSFLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__hsfll__trim__t" kindref="compound">nrf_hsfll_trim_t</ref> *</type>
+          <declname>p_trim</declname>
+        </param>
+        <briefdescription>
+<para>Function to getting trims configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with HSFLL trim configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="692" column="24" bodyfile="hal/nrf_hsfll.h" bodystart="692" bodyend="703" declfile="hal/nrf_hsfll.h" declline="448" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga8a46b0d61ca2d324682b76884330e549" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_DITHERING_INITVALUE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether initial value for clock dithering configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="52" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga319d84caea05a82fe36f5a717e12d354" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_DITHERINIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether initial value for clock dithering seed configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="59" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1gad1192bff4ea4f143be800a05f180e708" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_TCOEF_TRIM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has temperature coefficient trimming. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="66" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga8a0231295f99bd81d430d922b3446132" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_TASKS_FREQMEAS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has TASKS_FREQMEAS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="73" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga38c2daf292f6f34e159ccbbe2c15b0e5" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_TASK_START_STOP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has START and STOP tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="80" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga6b5e95d1df02df94ee27baabd0585c91" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKCTRL_MODE_OVERRIDE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKCTRL_MODE_OVERRIDE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="87" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga9859f58c6c03b398529781f67a83724b" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKSTATUS_OVERRIDE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKSTATUS_OVERRIDE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="94" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga78e5dd4f4e7b9bed5cf99f9f9885f2e2" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKCTRL_SLEEP_MODE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKCTRL_SLEEP_MODE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="101" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga23b616487440388024d1c1b7cace004c" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKCTRL_RETAINFINETRIM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKCTRL_RETAINFINETRIM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="108" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1ga61cc91a4f855e68836181cad609cfdf8" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKCTRL_OVERRIDELOCKED</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKCTRL_OVERRIDELOCKED. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="115" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__hsfll__hal_1gaa9aa1f41c0000b5ebe4bd45df3ce67e6" prot="public" static="no">
+        <name>NRF_HSFLL_HAS_CLOCKSTATUS_MODE_BYPASS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether HSFLL has CLOCKSTATUS_MODE_BYPASS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_hsfll.h" line="122" column="9" bodyfile="hal/nrf_hsfll.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the High Speed Frequency Locked Loop (HSFLL). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

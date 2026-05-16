@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__cracen__cm__dma_8h" kind="file" language="C++">
+    <compoundname>nrf_cracen_cm_dma.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>helpers/nrf_cracen_cm_dma.h</label>
+        <link refid="nrf__cracen__cm__dma_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrf__cracen__cm__dma__desc" prot="public">nrf_cracen_cm_dma_desc</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1ga1962508d8272314f6d350a8a7a14e24c" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_DESC_STOP</name>
+        <initializer>((struct <ref refid="structnrf__cracen__cm__dma__desc" kindref="compound">nrf_cracen_cm_dma_desc</ref> *)0x1)</initializer>
+        <briefdescription>
+<para>This value can be used as a DMA descriptor next address to indicate there is no next descriptor, and therefore the DMA should stop with current one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="62" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1ga24833ca72fbdfa574f33ea81d562e856" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_DESC_LENGTH_REALIGN</name>
+        <initializer>(1UL &lt;&lt; 29)</initializer>
+        <briefdescription>
+<para>When this value is OR&apos;ed with a descriptor length field, the DMA will read from/write into the FIFO extra dummy bytes so the operation will finish at a FIFO word boundary. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="68" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1ga7b4f25fb59275173b8f76ba5cda0bd2a" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_TAG_CONFIG</name>
+        <initializer>0x10UL</initializer>
+        <briefdescription>
+<para>When this value is OR&apos;ed into the DMA tag, the data will be routed to the selected crypto engine configuration interface, otherwise the data is routed to its data interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="74" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1gaa0d34eae9439cb2ccd607ffabbafc1f8" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_TAG_LAST</name>
+        <initializer>0x20UL</initializer>
+        <briefdescription>
+<para>This can value can be OR&apos;ed into the DMA tag. It will be passed as the &quot;last&quot; side signal to the selected crypto engine with the data block. It is up to each crypto engine how to interpret it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="81" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</name>
+        <initializer>6</initializer>
+        <briefdescription>
+<para>Offset of the DataType field in data tags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="84" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1gabf4e5b539e102cf46cf0d7a9ecce8625" prot="public" static="no">
+        <name>NRF_CRACEN_CM_DMA_TAG_AES_CONFIG</name>
+        <param><defname>reg_off</defname></param>
+        <initializer>	(<ref refid="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aad97b08980f4528e04baf166974e96a75" kindref="member">NRF_CRACEN_CM_DMA_TAG_ENGINE_AES</ref> | <ref refid="group__nrf__cracen__cm__dma__hal_1ga7b4f25fb59275173b8f76ba5cda0bd2a" kindref="member">NRF_CRACEN_CM_DMA_TAG_CONFIG</ref> | (reg_off &lt;&lt; 8))</initializer>
+        <briefdescription>
+<para>Generate a tag targeting a configuration register in the the AES crypto engine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">reg_off</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register offset, one of <ref refid="group__nrf__cracen__cm__dma__hal_1gad452490f465db2a7165821fea3afb5ee" kindref="member">nrf_cracen_cm_aes_reg_offset_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="110" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__cm__dma__hal_1ga17936926435aa35656509135cd16cc6c" prot="public" static="no">
+        <name>NRF_CRACEN_CM_AES_CONFIG</name>
+        <param><defname>mode_of_operation</defname></param>
+        <param><defname>key_sel</defname></param>
+        <param><defname>context_save</defname></param>
+        <param><defname>context_load</defname></param>
+        <param><defname>decrypt</defname></param>
+        <initializer>    (  (((key_sel &gt;&gt; 2) &amp; 0x7) &lt;&lt; 28)     \
+     | ((mode_of_operation &amp; 0x1FF) &lt;&lt; 8) \
+     | ((key_sel &amp; 0x3) &lt;&lt; 6)             \
+     | ((context_save ? 1 : 0) &lt;&lt; 5 )     \
+     | ((context_load ? 1 : 0) &lt;&lt; 4 )     \
+     | (decrypt ? 1 : 0)                  \
+    )</initializer>
+        <briefdescription>
+<para>Generate the value to be written in the AES crypto engine configuration register given its parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mode_of_operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>AES mode of operation, one of <ref refid="group__nrf__cracen__cm__dma__hal_1ga68922e3034757a60cf7bce9a6a6e2793" kindref="member">nrf_cracen_cm_aes_config_mode_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">key_sel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SW or HW key selection, one of <ref refid="group__nrf__cracen__cm__dma__hal_1ga15361d297dcfc9dbbd26353a16363bf7" kindref="member">nrf_cracen_cm_aes_config_key_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context_save</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if operation in AES mode is not final and the engine will return the context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">context_load</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if operation in AES mode is not initial and the context is provided as input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">decrypt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if decryption is to be executed, false if encryption.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This configuration register can only be written using the cryptomaster DMA engine. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="157" column="9" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__cracen__cm__dma__hal_1gaf176cc92fa1fe1ff9228bed3ec7e3c1a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_cm_dma_tag_engine_t</name>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aad97b08980f4528e04baf166974e96a75" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_ENGINE_AES</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+<para>Select the AES engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aa22330522860f8cb1f1f62e9b005a2ef8" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_ENGINE_HASH</name>
+          <initializer>= 0x3</initializer>
+          <briefdescription>
+<para>Select the Hash engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aacf8c9cb3bf2f1f739975094826b40b55" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_ENGINE_BYPASS</name>
+          <initializer>= 0xF</initializer>
+          <briefdescription>
+<para>Select the engine bypass. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN CM DMA tag engine selection values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="87" column="1" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="88" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__cm__dma__hal_1gaff6fc75ecbc6a6142ddc356d9ae6bac2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_cm_dma_tag_datatype_t</name>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a37a9454ed2bc44709c684a1d89e3a2c2" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_AES_PAYLOAD</name>
+          <initializer>= (0 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for AES engine) Payload (encrypted). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a7c3868ac18b0398e5de294144025d997" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_AES_HEADER</name>
+          <initializer>= (1 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for AES engine) Header (not encrypted, but authenticated). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a2ee15feaec0104f364e098f689110a2d" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_MESSAGE</name>
+          <initializer>= (0 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for Hash engine) Message. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a1eb31e776e901a3e2b3af3d2eb2ee737" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_INIT_DATA</name>
+          <initializer>= (1 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for Hash engine) Initialization data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a582a30aabe07d25e3cd16b3d2be573b7" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_HMAC_KEY</name>
+          <initializer>= (2 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for Hash engine) HMAC Key. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a53b12f34eadc950b98bf42e2c5ea5df1" prot="public">
+          <name>NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_HMAC_REF_HASH</name>
+          <initializer>= (3 &lt;&lt;  6 )</initializer>
+          <briefdescription>
+<para>(for Hash engine) Reference hash. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN CM DMA tag data type selection values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="95" column="1" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="96" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__cm__dma__hal_1gad452490f465db2a7165821fea3afb5ee" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_cm_aes_reg_offset_t</name>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea7b618ce61d1e42501739c582b25a4411" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_CONFIG</name>
+          <initializer>= 0x0</initializer>
+          <briefdescription>
+<para>Config register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eeaece73512ee9c9d773c3d878031f4e6ac" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_KEY</name>
+          <initializer>= 0x8</initializer>
+          <briefdescription>
+<para>AES key (up to 32 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eeaa28dc303d8a0c14c16c82b39ab1450b4" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_IV</name>
+          <initializer>= 0x28</initializer>
+          <briefdescription>
+<para>AES initialization vector (16 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea14bf08b3ac196fb5f16ba7ad47978330" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_IV2</name>
+          <initializer>= 0x38</initializer>
+          <briefdescription>
+<para>AES initialization vector, used for context switching (16 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea811732b8da15e07638d95e0df7886c34" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_KEY2</name>
+          <initializer>= 0x48</initializer>
+          <briefdescription>
+<para>AES tweak key (for XTS only) (up to 32 bytes). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea42376c8e07922a75cd6d0286756d9019" prot="public">
+          <name>NRF_CRACEN_CM_AES_REG_OFFSET_MASK</name>
+          <initializer>= 0x68</initializer>
+          <briefdescription>
+<para>Initial value for LFSR (used for countermeasure). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN CM AES crypto engine configuration interface registers offsets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="114" column="1" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__cm__dma__hal_1ga68922e3034757a60cf7bce9a6a6e2793" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_cm_aes_config_mode_t</name>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a4ee063fb75ec3a7895d1450496f581a6" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_ECB</name>
+          <initializer>= 0x001</initializer>
+          <briefdescription>
+<para>ECB mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a5fb6b9939d19d3032da8f696b8f7de22" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_CBC</name>
+          <initializer>= 0x002</initializer>
+          <briefdescription>
+<para>CBC mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a433073a7812bdc3ebf11cbac416029b8" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_CTR</name>
+          <initializer>= 0x004</initializer>
+          <briefdescription>
+<para>CTR mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793aa1741d708105e6636cfd658037e18ee1" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_CFB</name>
+          <initializer>= 0x008</initializer>
+          <briefdescription>
+<para>CFB mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a5054d7e9775ea5cd3bd6a2e950482661" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_OFB</name>
+          <initializer>= 0x010</initializer>
+          <briefdescription>
+<para>OFB mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a30b63f619691c2fe75eaed5c8fe819ae" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_CCM</name>
+          <initializer>= 0x020</initializer>
+          <briefdescription>
+<para>CCM mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793adccfb9d1b911eec9a2af4d53bbd9e47a" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_GMC_GMAC</name>
+          <initializer>= 0x040</initializer>
+          <briefdescription>
+<para>GMC/GMAC mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793ade2c2fe1898d7826b0428ba1b4fe58b9" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_XTS</name>
+          <initializer>= 0x080</initializer>
+          <briefdescription>
+<para>XTS mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a99f902eae463140e567c0a18a01e4eeb" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_MODE_CMAC</name>
+          <initializer>= 0x100</initializer>
+          <briefdescription>
+<para>CMAC mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN CM AES crypto engine configuration modes of operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="125" column="1" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="126" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__cm__dma__hal_1ga15361d297dcfc9dbbd26353a16363bf7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_cm_aes_config_key_t</name>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga15361d297dcfc9dbbd26353a16363bf7ace29d9f3612094a214137320e703d29a" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_KEY_SW_PROGRAMMED</name>
+          <initializer>= 0x0</initializer>
+          <briefdescription>
+<para>Use key programmed by CPU (normal mode). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__cm__dma__hal_1gga15361d297dcfc9dbbd26353a16363bf7a96e61c440d77688a3db6de2adfb0b2ac" prot="public">
+          <name>NRF_CRACEN_CM_AES_CONFIG_KEY_AESKEY</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+<para>Use special HW input key AESKey[255:0]. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN CM AES crypto engine configuration key selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="139" column="1" bodyfile="helpers/nrf_cracen_cm_dma.h" bodystart="140" bodyend="143"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__cracen__cm__dma__hal_1ga5be5996f4a31451d7c43f6413562833a" prot="public" static="no">
+        <type>struct <ref refid="structnrf__cracen__cm__dma__desc" kindref="compound">nrf_cracen_cm_dma_desc</ref></type>
+        <definition>typedef struct nrf_cracen_cm_dma_desc nrf_cracen_cm_dma_desc_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_cracen_cm_dma_desc_t</name>
+        <briefdescription>
+<para>CRACEN CryptoMaster DMA descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrf_cracen_cm_dma.h" line="56" column="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2025<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_CRACEN_CM_DMA_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_cracen_cm_dma_hal<sp/>CRACEN<sp/>CryptoMaster<sp/>DMA<sp/>layer.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_cracen</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Helper<sp/>layer<sp/>that<sp/>provides<sp/>common<sp/>functionality<sp/>for<sp/>the<sp/>CRACEN<sp/>Cryptmaster<sp/>DMA.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CryptoMaster<sp/>DMA<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="structnrf__cracen__cm__dma__desc" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">__PACKED<sp/>__ALIGN(4)<sp/><ref refid="structnrf__cracen__cm__dma__desc" kindref="compound">nrf_cracen_cm_dma_desc</ref><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_addr;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Address<sp/>of<sp/>the<sp/>data<sp/>block.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structnrf__cracen__cm__dma__desc" kindref="compound">nrf_cracen_cm_dma_desc</ref><sp/>*<sp/>p_next;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>a<sp/>possibly<sp/>chained<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>length;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Number<sp/>of<sp/>bytes<sp/>in<sp/>the<sp/>data<sp/>block.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dmatag;<sp/></highlight><highlight class="comment">/**&lt;<sp/>User<sp/>tag<sp/>(only<sp/>used<sp/>for<sp/>fetch).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ga5be5996f4a31451d7c43f6413562833a" kindref="member">nrf_cracen_cm_dma_desc_t</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>@brief<sp/>This<sp/>value<sp/>can<sp/>be<sp/>used<sp/>as<sp/>a<sp/>DMA<sp/>descriptor<sp/>next<sp/>address<sp/>to<sp/>indicate<sp/>there<sp/>is<sp/>no<sp/>next</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>descriptor,<sp/>and<sp/>therefore<sp/>the<sp/>DMA<sp/>should<sp/>stop<sp/>with<sp/>current<sp/>one.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_DESC_STOP<sp/>((struct<sp/>nrf_cracen_cm_dma_desc<sp/>*)0x1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>@brief<sp/>When<sp/>this<sp/>value<sp/>is<sp/>OR&apos;ed<sp/>with<sp/>a<sp/>descriptor<sp/>length<sp/>field,<sp/>the<sp/>DMA<sp/>will<sp/>read<sp/>from/write<sp/>into</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>FIFO<sp/>extra<sp/>dummy<sp/>bytes<sp/>so<sp/>the<sp/>operation<sp/>will<sp/>finish<sp/>at<sp/>a<sp/>FIFO<sp/>word<sp/>boundary.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_DESC_LENGTH_REALIGN<sp/>(1UL<sp/>&lt;&lt;<sp/>29)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@brief<sp/>When<sp/>this<sp/>value<sp/>is<sp/>OR&apos;ed<sp/>into<sp/>the<sp/>DMA<sp/>tag,<sp/>the<sp/>data<sp/>will<sp/>be<sp/>routed<sp/>to<sp/>the<sp/>selected<sp/>crypto</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>engine<sp/>configuration<sp/>interface,<sp/>otherwise<sp/>the<sp/>data<sp/>is<sp/>routed<sp/>to<sp/>its<sp/>data<sp/>interface.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_TAG_CONFIG<sp/>0x10UL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>@brief<sp/>This<sp/>can<sp/>value<sp/>can<sp/>be<sp/>OR&apos;ed<sp/>into<sp/>the<sp/>DMA<sp/>tag.<sp/>It<sp/>will<sp/>be<sp/>passed<sp/>as<sp/>the<sp/>&quot;last&quot;<sp/>side<sp/>signal</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>the<sp/>selected<sp/>crypto<sp/>engine<sp/>with<sp/>the<sp/>data<sp/>block.<sp/>It<sp/>is<sp/>up<sp/>to<sp/>each<sp/>crypto<sp/>engine<sp/>how<sp/>to</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interpret<sp/>it.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_TAG_LAST<sp/>0x20UL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="83"><highlight class="comment">/**<sp/>@brief<sp/>Offset<sp/>of<sp/>the<sp/>DataType<sp/>field<sp/>in<sp/>data<sp/>tags<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CM<sp/>DMA<sp/>tag<sp/>engine<sp/>selection<sp/>values.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aad97b08980f4528e04baf166974e96a75" kindref="member">NRF_CRACEN_CM_DMA_TAG_ENGINE_AES</ref><sp/><sp/><sp/><sp/>=<sp/>0x1,<sp/></highlight><highlight class="comment">///&lt;<sp/>Select<sp/>the<sp/>AES<sp/>engine.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aa22330522860f8cb1f1f62e9b005a2ef8" kindref="member">NRF_CRACEN_CM_DMA_TAG_ENGINE_HASH</ref><sp/><sp/><sp/>=<sp/>0x3,<sp/></highlight><highlight class="comment">///&lt;<sp/>Select<sp/>the<sp/>Hash<sp/>engine.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaf176cc92fa1fe1ff9228bed3ec7e3c1aacf8c9cb3bf2f1f739975094826b40b55" kindref="member">NRF_CRACEN_CM_DMA_TAG_ENGINE_BYPASS</ref><sp/>=<sp/>0xF,<sp/></highlight><highlight class="comment">///&lt;<sp/>Select<sp/>the<sp/>engine<sp/>bypass.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gaf176cc92fa1fe1ff9228bed3ec7e3c1a" kindref="member">nrf_cracen_cm_dma_tag_engine_t</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CM<sp/>DMA<sp/>tag<sp/>data<sp/>type<sp/>selection<sp/>values.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a37a9454ed2bc44709c684a1d89e3a2c2" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_AES_PAYLOAD</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(0<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>AES<sp/>engine)<sp/>Payload<sp/>(encrypted).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a7c3868ac18b0398e5de294144025d997" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_AES_HEADER</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(1<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>AES<sp/>engine)<sp/>Header<sp/>(not<sp/>encrypted,<sp/>but<sp/>authenticated).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a2ee15feaec0104f364e098f689110a2d" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_MESSAGE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(0<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>Hash<sp/>engine)<sp/>Message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a1eb31e776e901a3e2b3af3d2eb2ee737" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_INIT_DATA</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>(1<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>Hash<sp/>engine)<sp/>Initialization<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a582a30aabe07d25e3cd16b3d2be573b7" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_HMAC_KEY</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(2<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>Hash<sp/>engine)<sp/>HMAC<sp/>Key.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggaff6fc75ecbc6a6142ddc356d9ae6bac2a53b12f34eadc950b98bf42e2c5ea5df1" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_HASH_HMAC_REF_HASH</ref><sp/>=<sp/>(3<sp/>&lt;&lt;<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad048eea47bf1657c1a2170d5b5dc080f" kindref="member">NRF_CRACEN_CM_DMA_TAG_DATATYPE_OFFSET</ref>),<sp/></highlight><highlight class="comment">///&lt;<sp/>(for<sp/>Hash<sp/>engine)<sp/>Reference<sp/>hash.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gaff6fc75ecbc6a6142ddc356d9ae6bac2" kindref="member">nrf_cracen_cm_dma_tag_datatype_t</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Generate<sp/>a<sp/>tag<sp/>targeting<sp/>a<sp/>configuration<sp/>register<sp/>in<sp/>the<sp/>the<sp/>AES<sp/>crypto<sp/>engine.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>reg_off<sp/>Register<sp/>offset,<sp/>one<sp/>of<sp/>@ref<sp/>nrf_cracen_cm_aes_reg_offset_t.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_DMA_TAG_AES_CONFIG(reg_off)<sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(NRF_CRACEN_CM_DMA_TAG_ENGINE_AES<sp/>|<sp/>NRF_CRACEN_CM_DMA_TAG_CONFIG<sp/>|<sp/>(reg_off<sp/>&lt;&lt;<sp/>8))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CM<sp/>AES<sp/>crypto<sp/>engine<sp/>configuration<sp/>interface<sp/>registers<sp/>offsets.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea7b618ce61d1e42501739c582b25a4411" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_CONFIG</ref><sp/>=<sp/>0x0,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Config<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eeaece73512ee9c9d773c3d878031f4e6ac" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_KEY</ref><sp/><sp/><sp/><sp/>=<sp/>0x8,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>AES<sp/>key<sp/>(up<sp/>to<sp/>32<sp/>bytes).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eeaa28dc303d8a0c14c16c82b39ab1450b4" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_IV</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0x28,<sp/></highlight><highlight class="comment">///&lt;<sp/>AES<sp/>initialization<sp/>vector<sp/>(16<sp/>bytes).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea14bf08b3ac196fb5f16ba7ad47978330" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_IV2</ref><sp/><sp/><sp/><sp/>=<sp/>0x38,<sp/></highlight><highlight class="comment">///&lt;<sp/>AES<sp/>initialization<sp/>vector,<sp/>used<sp/>for<sp/>context<sp/>switching<sp/>(16<sp/>bytes).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea811732b8da15e07638d95e0df7886c34" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_KEY2</ref><sp/><sp/><sp/>=<sp/>0x48,<sp/></highlight><highlight class="comment">///&lt;<sp/>AES<sp/>tweak<sp/>key<sp/>(for<sp/>XTS<sp/>only)<sp/>(up<sp/>to<sp/>32<sp/>bytes).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ggad452490f465db2a7165821fea3afb5eea42376c8e07922a75cd6d0286756d9019" kindref="member">NRF_CRACEN_CM_AES_REG_OFFSET_MASK</ref><sp/><sp/><sp/>=<sp/>0x68,<sp/></highlight><highlight class="comment">///&lt;<sp/>Initial<sp/>value<sp/>for<sp/>LFSR<sp/>(used<sp/>for<sp/>countermeasure).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gad452490f465db2a7165821fea3afb5ee" kindref="member">nrf_cracen_cm_aes_reg_offset_t</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CM<sp/>AES<sp/>crypto<sp/>engine<sp/>configuration<sp/>modes<sp/>of<sp/>operation.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a4ee063fb75ec3a7895d1450496f581a6" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_ECB</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x001,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>ECB<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a5fb6b9939d19d3032da8f696b8f7de22" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_CBC</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x002,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CBC<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a433073a7812bdc3ebf11cbac416029b8" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_CTR</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x004,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CTR<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793aa1741d708105e6636cfd658037e18ee1" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_CFB</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x008,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CFB<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a5054d7e9775ea5cd3bd6a2e950482661" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_OFB</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x010,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>OFB<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a30b63f619691c2fe75eaed5c8fe819ae" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_CCM</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x020,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CCM<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793adccfb9d1b911eec9a2af4d53bbd9e47a" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_GMC_GMAC</ref><sp/>=<sp/>0x040,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>GMC/GMAC<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793ade2c2fe1898d7826b0428ba1b4fe58b9" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_XTS</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x080,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>XTS<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga68922e3034757a60cf7bce9a6a6e2793a99f902eae463140e567c0a18a01e4eeb" kindref="member">NRF_CRACEN_CM_AES_CONFIG_MODE_CMAC</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0x100,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CMAC<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ga68922e3034757a60cf7bce9a6a6e2793" kindref="member">nrf_cracen_cm_aes_config_mode_t</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="138"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>CM<sp/>AES<sp/>crypto<sp/>engine<sp/>configuration<sp/>key<sp/>selection.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga15361d297dcfc9dbbd26353a16363bf7ace29d9f3612094a214137320e703d29a" kindref="member">NRF_CRACEN_CM_AES_CONFIG_KEY_SW_PROGRAMMED</ref><sp/>=<sp/>0x0,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Use<sp/>key<sp/>programmed<sp/>by<sp/>CPU<sp/>(normal<sp/>mode).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__cm__dma__hal_1gga15361d297dcfc9dbbd26353a16363bf7a96e61c440d77688a3db6de2adfb0b2ac" kindref="member">NRF_CRACEN_CM_AES_CONFIG_KEY_AESKEY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x1,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Use<sp/>special<sp/>HW<sp/>input<sp/>key<sp/>AESKey[255:0].</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__cm__dma__hal_1ga15361d297dcfc9dbbd26353a16363bf7" kindref="member">nrf_cracen_cm_aes_config_key_t</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="145"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Generate<sp/>the<sp/>value<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>AES<sp/>crypto<sp/>engine<sp/>configuration<sp/>register<sp/>given<sp/>its</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameters.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mode_of_operation<sp/>AES<sp/>mode<sp/>of<sp/>operation,<sp/>one<sp/>of<sp/>@ref<sp/>nrf_cracen_cm_aes_config_mode_t.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>key_sel<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SW<sp/>or<sp/>HW<sp/>key<sp/>selection,<sp/>one<sp/>of<sp/>@ref<sp/>nrf_cracen_cm_aes_config_key_t.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>context_save<sp/><sp/><sp/><sp/><sp/><sp/>True<sp/>if<sp/>operation<sp/>in<sp/>AES<sp/>mode<sp/>is<sp/>not<sp/>final<sp/>and<sp/>the<sp/>engine<sp/>will<sp/>return<sp/>the<sp/>context.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>context_load<sp/><sp/><sp/><sp/><sp/><sp/>True<sp/>if<sp/>operation<sp/>in<sp/>AES<sp/>mode<sp/>is<sp/>not<sp/>initial<sp/>and<sp/>the<sp/>context<sp/>is<sp/>provided<sp/>as<sp/>input.</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>decrypt<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>True<sp/>if<sp/>decryption<sp/>is<sp/>to<sp/>be<sp/>executed,<sp/>false<sp/>if<sp/>encryption.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>configuration<sp/>register<sp/>can<sp/>only<sp/>be<sp/>written<sp/>using<sp/>the<sp/>cryptomaster<sp/>DMA<sp/>engine.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_CM_AES_CONFIG(mode_of_operation,<sp/>key_sel,<sp/>context_save,<sp/>context_load,<sp/>decrypt)<sp/>\</highlight></codeline>
+<codeline lineno="158"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(<sp/><sp/>(((key_sel<sp/>&gt;&gt;<sp/>2)<sp/>&amp;<sp/>0x7)<sp/>&lt;&lt;<sp/>28)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>|<sp/>((mode_of_operation<sp/>&amp;<sp/>0x1FF)<sp/>&lt;&lt;<sp/>8)<sp/>\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>|<sp/>((key_sel<sp/>&amp;<sp/>0x3)<sp/>&lt;&lt;<sp/>6)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>|<sp/>((context_save<sp/>?<sp/>1<sp/>:<sp/>0)<sp/>&lt;&lt;<sp/>5<sp/>)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>|<sp/>((context_load<sp/>?<sp/>1<sp/>:<sp/>0)<sp/>&lt;&lt;<sp/>4<sp/>)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>|<sp/>(decrypt<sp/>?<sp/>1<sp/>:<sp/>0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_CRACEN_CM_DMA_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="helpers/nrf_cracen_cm_dma.h"/>
+  </compounddef>
+</doxygen>

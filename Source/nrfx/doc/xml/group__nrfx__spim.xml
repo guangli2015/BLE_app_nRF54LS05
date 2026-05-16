@@ -1,0 +1,875 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__spim" kind="group">
+    <compoundname>nrfx_spim</compoundname>
+    <title>SPIM driver</title>
+    <innerclass refid="structnrfx__spim__event__t" prot="public">nrfx_spim_event_t</innerclass>
+    <innerclass refid="structnrfx__spim__t" prot="public">nrfx_spim_t</innerclass>
+    <innerclass refid="structnrfx__spim__config__t" prot="public">nrfx_spim_config_t</innerclass>
+    <innergroup refid="group__nrfx__spim__config">SPIM peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__spim_1ga31aebf8324c7c802c31d62d5f6ff3716" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_spim_event_type_t</name>
+        <enumvalue id="group__nrfx__spim_1gga31aebf8324c7c802c31d62d5f6ff3716aca844950ebdc170a5f74382958389e72" prot="public">
+          <name>NRFX_SPIM_EVENT_DONE</name>
+          <briefdescription>
+<para>Transfer done. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SPIM master driver event types, passed to the handler routine provided during initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="60" column="1" bodyfile="drivers/include/nrfx_spim.h" bodystart="61" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__spim_1ga0075064a7f6a85bf2b185f0b2174505d" prot="public" static="no">
+        <type><ref refid="structnrfy__spim__xfer__desc__t" kindref="compound">nrfy_spim_xfer_desc_t</ref></type>
+        <definition>typedef nrfy_spim_xfer_desc_t nrfx_spim_xfer_desc_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_spim_xfer_desc_t</name>
+        <briefdescription>
+<para>Single transfer descriptor structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="66" column="31" bodyfile="drivers/include/nrfx_spim.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__spim_1gac2318a10b08b0aee2cb3812c048e4101" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_spim_event_handler_t) (nrfx_spim_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_spim_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_spim_event_handler_t</name>
+        <briefdescription>
+<para>SPIM event handler type for user-defined callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="76" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__spim_1ga780f6b324c7f2243935db7cd7739f290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spim_init</definition>
+        <argsstring>(nrfx_spim_t *p_instance, nrfx_spim_config_t const *p_config, nrfx_spim_event_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_spim_init</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__spim__config__t" kindref="compound">nrfx_spim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__spim_1gac2318a10b08b0aee2cb3812c048e4101" kindref="member">nrfx_spim_event_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the SPIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function configures and enables the specified peripheral.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. NULL if configuration is to be skipped and will be done later using <ref refid="group__nrfx__spim_1gadcfdfaf7d2a0925e3d05d985f37add5a" kindref="member">nrfx_spim_reconfigure</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, transfers will be performed in blocking mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>On nRF5340, 32 MHz setting for SPIM4 peripheral instance is supported only on the dedicated pins with <ref refid="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbda25ad710070f7054e93f8296e8c56acb0" kindref="member">NRF_GPIO_PIN_SEL_PERIPHERAL</ref> configuration. See the chapter <ulink url="https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf5340%2Fchapters%2Fpin.html">Pin assignments</ulink> in the Product Specification.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested configuration is not supported by the SPIM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified driver instance or pins. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="302" column="5" declfile="drivers/include/nrfx_spim.h" declline="302" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1gadcfdfaf7d2a0925e3d05d985f37add5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spim_reconfigure</definition>
+        <argsstring>(nrfx_spim_t *p_instance, nrfx_spim_config_t const *p_config)</argsstring>
+        <name>nrfx_spim_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__spim__config__t" kindref="compound">nrfx_spim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the SPIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function can not be called during transmission.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested configuration is not supported by the SPIM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified driver instance or pins. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Software-controlled Slave Select and hardware-controlled Slave Select cannot be active at the same time. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="323" column="5" declfile="drivers/include/nrfx_spim.h" declline="323" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga4bbf3724adf8711a953e0f8bc0ac5f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spim_uninit</definition>
+        <argsstring>(nrfx_spim_t *p_instance)</argsstring>
+        <name>nrfx_spim_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the SPIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="331" column="6" declfile="drivers/include/nrfx_spim.h" declline="331" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga3db815d64e71bd87a2fa8f463988eccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_spim_init_check</definition>
+        <argsstring>(nrfx_spim_t const *p_instance)</argsstring>
+        <name>nrfx_spim_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the SPIM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="341" column="6" declfile="drivers/include/nrfx_spim.h" declline="341" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga90d5bf464ff29e91696d92347039b71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spim_xfer</definition>
+        <argsstring>(nrfx_spim_t *p_instance, nrfx_spim_xfer_desc_t const *p_xfer_desc, uint32_t flags)</argsstring>
+        <name>nrfx_spim_xfer</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__spim_1ga0075064a7f6a85bf2b185f0b2174505d" kindref="member">nrfx_spim_xfer_desc_t</ref> const *</type>
+          <declname>p_xfer_desc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the SPIM data transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Additional options are provided using the <computeroutput>flags</computeroutput> parameter:</para>
+<para><itemizedlist>
+<listitem><para><ref refid="group__nrfx__spim_1gac924e4bc03624cf27cd384fc51bafcf9" kindref="member">NRFX_SPIM_FLAG_TX_POSTINC</ref> and <ref refid="group__nrfx__spim_1ga63c1dbb8a983afb0b6a04e3d6565138a" kindref="member">NRFX_SPIM_FLAG_RX_POSTINC</ref> - Post-incrementation of buffer addresses.</para>
+</listitem><listitem><para><ref refid="group__nrfx__spim_1gaff6489390a782991804a0da7215385c4" kindref="member">NRFX_SPIM_FLAG_HOLD_XFER</ref> - Driver is not starting the transfer. Use this flag if the transfer is triggered externally by PPI. Use <ref refid="group__nrfx__spim_1gafe5948ebde6cb0bef3788412dc8b6bd9" kindref="member">nrfx_spim_start_task_address_get</ref> to get the address of the start task. Chip select must be configured to <ref refid="group__nrf__spim__hal_1ga818eb2c4164cd8f9422c3a8a0a626e2a" kindref="member">NRF_SPIM_PIN_NOT_CONNECTED</ref> and managed outside the driver. If you do not expect more transfers, you should call <ref refid="group__nrfx__spim_1ga8915ccf6ffab914bc991089f783bbc02" kindref="member">nrfx_spim_abort</ref> to inform the driver that the peripheral can be put into a low power state.</para>
+</listitem><listitem><para><ref refid="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" kindref="member">NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</ref> - No user event handler after transfer completion. This also means no interrupt at the end of the transfer. If <ref refid="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" kindref="member">NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</ref> is used, the driver does not set the instance into busy state, so you must ensure that the next transfers are set up when SPIM is not active. Additionally, you should call <ref refid="group__nrfx__spim_1ga8915ccf6ffab914bc991089f783bbc02" kindref="member">nrfx_spim_abort</ref> to inform the driver that no more transfers will occur. <ref refid="group__nrfx__spim_1ga986a18b3ae6e3ca07388f6bc71d72ad8" kindref="member">nrfx_spim_end_event_address_get</ref> function can be used to detect end of transfer. Option can be used together with <ref refid="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" kindref="member">NRFX_SPIM_FLAG_REPEATED_XFER</ref> to prepare a sequence of SPI transfers without interruptions. If you do not expect more transfers, you should call <ref refid="group__nrfx__spim_1ga8915ccf6ffab914bc991089f783bbc02" kindref="member">nrfx_spim_abort</ref> to inform the driver that the peripheral can be put into a low power state.</para>
+</listitem><listitem><para><ref refid="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" kindref="member">NRFX_SPIM_FLAG_REPEATED_XFER</ref> - Prepare for repeated transfers. You can set up a number of transfers that will be triggered externally (for example by PPI). An example is a TXRX transfer with the options <ref refid="group__nrfx__spim_1ga63c1dbb8a983afb0b6a04e3d6565138a" kindref="member">NRFX_SPIM_FLAG_RX_POSTINC</ref>, <ref refid="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" kindref="member">NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</ref>, and <ref refid="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" kindref="member">NRFX_SPIM_FLAG_REPEATED_XFER</ref>. After the transfer is set up, a set of transfers can be triggered by PPI that will read, for example, the same register of an external component and put it into a RAM buffer without any interrupts. <ref refid="group__nrfx__spim_1ga986a18b3ae6e3ca07388f6bc71d72ad8" kindref="member">nrfx_spim_end_event_address_get</ref> can be used to get the address of the END event, which can be used to count the number of transfers. If <ref refid="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" kindref="member">NRFX_SPIM_FLAG_REPEATED_XFER</ref> is used, the driver does not set the instance into busy state, so you must ensure that the next transfers are set up when SPIM is not active. If you do not expect more transfers, you should call <ref refid="group__nrfx__spim_1ga8915ccf6ffab914bc991089f783bbc02" kindref="member">nrfx_spim_abort</ref> to inform the driver that the peripheral can be put into a low power state.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including SPIM) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p_xfer_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transfer descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided parameters are not supported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="390" column="5" declfile="drivers/include/nrfx_spim.h" declline="390" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1gafe5948ebde6cb0bef3788412dc8b6bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_spim_start_task_address_get</definition>
+        <argsstring>(nrfx_spim_t const *p_instance)</argsstring>
+        <name>nrfx_spim_start_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a SPIM start task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is to be used if <ref refid="group__nrfx__spim_1ga90d5bf464ff29e91696d92347039b71d" kindref="member">nrfx_spim_xfer</ref> was called with the flag <ref refid="group__nrfx__spim_1gaff6489390a782991804a0da7215385c4" kindref="member">NRFX_SPIM_FLAG_HOLD_XFER</ref>. In that case, the transfer is not started by the driver, but it must be started externally by PPI.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="485" column="29" bodyfile="drivers/include/nrfx_spim.h" bodystart="485" bodyend="488" declfile="drivers/include/nrfx_spim.h" declline="438" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga986a18b3ae6e3ca07388f6bc71d72ad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_spim_end_event_address_get</definition>
+        <argsstring>(nrfx_spim_t const *p_instance)</argsstring>
+        <name>nrfx_spim_end_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a END SPIM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The END event can be used to detect the end of a transfer if the <ref refid="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" kindref="member">NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</ref> option is used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>END event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="490" column="29" bodyfile="drivers/include/nrfx_spim.h" bodystart="490" bodyend="493" declfile="drivers/include/nrfx_spim.h" declline="450" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga8915ccf6ffab914bc991089f783bbc02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spim_abort</definition>
+        <argsstring>(nrfx_spim_t *p_instance)</argsstring>
+        <name>nrfx_spim_abort</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for aborting ongoing transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>You should call the function if the first transfer has been started with one or more of the following options: <ref refid="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" kindref="member">NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</ref>, <ref refid="group__nrfx__spim_1gaff6489390a782991804a0da7215385c4" kindref="member">NRFX_SPIM_FLAG_HOLD_XFER</ref>, and <ref refid="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" kindref="member">NRFX_SPIM_FLAG_REPEATED_XFER</ref>. When you do not expect more transfers, use this function so that the driver can put the peripheral into a low power state.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="463" column="6" declfile="drivers/include/nrfx_spim.h" declline="463" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga74a585d3fdd1cd2ddfbd624905c312ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spim_irq_handler</definition>
+        <argsstring>(nrfx_spim_t *p_instance)</argsstring>
+        <name>nrfx_spim_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="470" column="6" declfile="drivers/include/nrfx_spim.h" declline="470" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spim_1ga6c0de23c956a599c3f1279c3582f6daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spim_nrf52_anomaly_58_init</definition>
+        <argsstring>(nrfx_spim_t *p_instance, nrfx_gpiote_t *p_gpiote_inst)</argsstring>
+        <name>nrfx_spim_nrf52_anomaly_58_init</name>
+        <param>
+          <type><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__gpiote__t" kindref="compound">nrfx_gpiote_t</ref> *</type>
+          <declname>p_gpiote_inst</declname>
+        </param>
+        <briefdescription>
+<para>Function for providing GPIOTE driver instance for the nRF52 Anomaly 58 workaround. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Must be called before <ref refid="group__nrfx__spim_1ga90d5bf464ff29e91696d92347039b71d" kindref="member">nrfx_spim_xfer</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_gpiote_inst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the GPIOTE driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="481" column="6" declfile="drivers/include/nrfx_spim.h" declline="481" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__spim_1ga8c78414e6726d3a53b8e9afbacba6baa" prot="public" static="no">
+        <name>NRFX_SPIM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                  \
+    .p_reg = (NRF_SPIM_Type *)reg, \
+    .cb    = {0},                  \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the SPIM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="114" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga71176205047248ee16aea98208af0537" prot="public" static="no">
+        <name>NRFX_SPIM_DEFAULT_CONFIG</name>
+        <param><defname>_pin_sck</defname></param>
+        <param><defname>_pin_mosi</defname></param>
+        <param><defname>_pin_miso</defname></param>
+        <param><defname>_pin_ss</defname></param>
+        <initializer>{                                                                                        \
+    .sck_pin        = _pin_sck,                                                          \
+    .mosi_pin       = _pin_mosi,                                                         \
+    .miso_pin       = _pin_miso,                                                         \
+    .ss_pin         = _pin_ss,                                                           \
+    .ss_active_high = false,                                                             \
+    .irq_priority   = <ref refid="group__nrfx__spim__config_1ga427692dc4b3b102d675b7453805838ab" kindref="member">NRFX_SPIM_DEFAULT_CONFIG_IRQ_PRIORITY</ref>,                             \
+    .orc            = 0xFF,                                                              \
+    .frequency      = <ref refid="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" kindref="member">NRFX_MHZ_TO_HZ</ref>(4),                                                 \
+    .mode           = <ref refid="group__nrf__spim__hal_1ggaf6ad2321f2fd4a896c097b5d4040ff94a6107c880e9b97cfc936071cc1d4ba27f" kindref="member">NRF_SPIM_MODE_0</ref>,                                                   \
+    .bit_order      = <ref refid="group__nrf__spim__hal_1gga37c6bc10f199291b31990254df1b7e21a4e6b4f768edb02728f27c0dd8f7f749b" kindref="member">NRF_SPIM_BIT_ORDER_MSB_FIRST</ref>,                                      \
+    .miso_pull      = <ref refid="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca13ffcb94eb78be866c66b5f5b516af65" kindref="member">NRF_GPIO_PIN_NOPULL</ref>,                                               \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__spim__hal_1ga049b3c81d0630a45eedcd285eab5990c" kindref="member">NRF_SPIM_HAS_DCX</ref>, (.dcx_pin = <ref refid="group__nrf__spim__hal_1gafc87efad6fcd4de8307cf0393146a077" kindref="member">NRF_SPIM_DCX_DEFAULT</ref>,), ())           \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__spim__hal_1ga85bcdb0401e83ebeff629c4c2aa4000c" kindref="member">NRF_SPIM_HAS_RXDELAY</ref>, (.rx_delay = <ref refid="group__nrf__spim__hal_1ga474c64f11f2b61d6eb555b0783d14826" kindref="member">NRF_SPIM_RXDELAY_DEFAULT</ref>,), ())  \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__spim__hal_1gab5a624869149f7b68b6fe32d5e444a2b" kindref="member">NRF_SPIM_HAS_HW_CSN</ref>, (.use_hw_ss = false,                           \
+                                           .ss_duration = <ref refid="group__nrf__spim__hal_1ga49153da0c7f2220819862eb8638e9872" kindref="member">NRF_SPIM_CSNDUR_DEFAULT</ref>,), ()) \
+}</initializer>
+        <briefdescription>
+<para>SPIM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up SPIM with the following options:<itemizedlist>
+<listitem><para>SS pin active low</para>
+</listitem><listitem><para>over-run character set to 0xFF</para>
+</listitem><listitem><para>clock frequency: 4 MHz</para>
+</listitem><listitem><para>mode: 0 (SCK active high, sample on leading edge of the clock signal)</para>
+</listitem><listitem><para>MSB shifted out first</para>
+</listitem><listitem><para>MISO pull-up disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_mosi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MOSI pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_miso</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MISO pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_ss</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave select pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="200" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga818b926c4fafd23c95d5ab0eb01fca2d" prot="public" static="no">
+        <name>NRFX_SPIM_FREQUENCY_STATIC_CHECK</name>
+        <param><defname>id</defname></param>
+        <param><defname>frequency</defname></param>
+        <initializer>         <ref refid="group__nrf__spim__hal_1gaec072f07fdb0e485dcafdbbf6805dfe8" kindref="member">NRF_SPIM_FREQUENCY_STATIC_CHECK</ref>(<ref refid="group__nrf__spim__hal_1gaf4e8372d6c5a7a48e5dcb1e4181f271e" kindref="member">NRF_SPIM_INST_GET</ref>(id), frequency)</initializer>
+        <briefdescription>
+<para>Macro for checking whether specified frequency can be achieved for a given SPIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This macro uses a compile-time assertion.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the specified SPIM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired frequency value in Hz. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="227" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1gafa2358c95db53a39d280a9a10c024cf9" prot="public" static="no">
+        <name>NRFX_SPIM_BASE_FREQUENCY_GET</name>
+        <param><defname>p_instance</defname></param>
+        <initializer>        <ref refid="group__nrf__spim__hal_1ga12099b84c235e36086a62c120246d2f9" kindref="member">NRF_SPIM_BASE_FREQUENCY_GET</ref>((p_instance)-&gt;p_reg)</initializer>
+        <briefdescription>
+<para>Macro for getting base frequency value in Hz for a given SPIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="235" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1gac924e4bc03624cf27cd384fc51bafcf9" prot="public" static="no">
+        <name>NRFX_SPIM_FLAG_TX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Flag indicating that TX buffer address will be incremented after transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="239" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga63c1dbb8a983afb0b6a04e3d6565138a" prot="public" static="no">
+        <name>NRFX_SPIM_FLAG_RX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Flag indicating that RX buffer address will be incremented after transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="242" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1gae3122132d45c2e85dd2a18e314bf0ba0" prot="public" static="no">
+        <name>NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER</name>
+        <initializer>(1UL &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>Flag indicating that the interrupt after each transfer will be suppressed, and the event handler will not be called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="245" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1gaff6489390a782991804a0da7215385c4" prot="public" static="no">
+        <name>NRFX_SPIM_FLAG_HOLD_XFER</name>
+        <initializer>(1UL &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be set up, but not started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="248" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga582305a07eb303a39d50a6740b0adf02" prot="public" static="no">
+        <name>NRFX_SPIM_FLAG_REPEATED_XFER</name>
+        <initializer>(1UL &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be executed multiple times. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="251" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1gaa4739f0c3e5b1cc5fcc9bf2d2b011285" prot="public" static="no">
+        <name>NRFX_SPIM_SINGLE_XFER</name>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_rx</defname></param>
+        <param><defname>rx_len</defname></param>
+        <initializer>    {                                                     \
+    .p_tx_buffer = (uint8_t const *)(p_tx),               \
+    .tx_length = (tx_len),                                \
+    .p_rx_buffer = (p_rx),                                \
+    .rx_length = (rx_len),                                \
+    }</initializer>
+        <briefdescription>
+<para>Macro for setting up single transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro is for internal use only. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="258" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga7f2d7e8002bd636b07b606530a67e7a9" prot="public" static="no">
+        <name>NRFX_SPIM_XFER_TRX</name>
+        <param><defname>p_tx_buf</defname></param>
+        <param><defname>tx_length</defname></param>
+        <param><defname>p_rx_buf</defname></param>
+        <param><defname>rx_length</defname></param>
+        <initializer>        <ref refid="group__nrfx__spim_1gaa4739f0c3e5b1cc5fcc9bf2d2b011285" kindref="member">NRFX_SPIM_SINGLE_XFER</ref>(p_tx_buf, tx_length, p_rx_buf, rx_length)</initializer>
+        <briefdescription>
+<para>Macro for setting the duplex TX RX transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="267" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga34e7eb860ea9bec2e76a5c7dfc694cbf" prot="public" static="no">
+        <name>NRFX_SPIM_XFER_TX</name>
+        <param><defname>p_buf</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__spim_1gaa4739f0c3e5b1cc5fcc9bf2d2b011285" kindref="member">NRFX_SPIM_SINGLE_XFER</ref>(p_buf, length, NULL, 0)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="271" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spim_1ga727a6df44fa2f3f6b1999340a8e52430" prot="public" static="no">
+        <name>NRFX_SPIM_XFER_RX</name>
+        <param><defname>p_buf</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__spim_1gaa4739f0c3e5b1cc5fcc9bf2d2b011285" kindref="member">NRFX_SPIM_SINGLE_XFER</ref>(NULL, 0, p_buf, length)</initializer>
+        <briefdescription>
+<para>Macro for setting the RX transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spim.h" line="275" column="9" bodyfile="drivers/include/nrfx_spim.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Serial Peripheral Interface Master with EasyDMA (SPIM) driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

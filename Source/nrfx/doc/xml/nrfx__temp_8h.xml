@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__temp_8h" kind="file" language="C++">
+    <compoundname>nrfx_temp.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__temp_8h" local="no">haly/nrfy_temp.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_temp.h</label>
+        <link refid="nrfx__temp_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__temp__config__t" prot="public">nrfx_temp_config_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__temp_1ga7189e64c47d44bbea8297651d960d32f" prot="public" static="no">
+        <name>NRFX_TEMP_DEFAULT_CONFIG</name>
+        <initializer>    {                                                                   \
+        .interrupt_priority = NRFX_TEMP_DEFAULT_CONFIG_IRQ_PRIORITY,    \
+    }</initializer>
+        <briefdescription>
+<para>TEMP default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="58" column="9" bodyfile="drivers/include/nrfx_temp.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_temp_data_handler_t) (int32_t temperature)</definition>
+        <argsstring>)(int32_t temperature)</argsstring>
+        <name>nrfx_temp_data_handler_t</name>
+        <briefdescription>
+<para>TEMP driver data ready handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>temperature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw temperature in a 2&apos;s complement signed value representation. This value can be converted to Celsius scale using the <ref refid="group__nrfx__temp_1ga9c99e430d526913f0bbb93afff9617ae" kindref="member">nrfx_temp_calculate()</ref> function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="70" column="9" bodyfile="drivers/include/nrfx_temp.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__temp_1ga072824b066c170856b3413cdb8381f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_temp_init</definition>
+        <argsstring>(nrfx_temp_config_t const *p_config, nrfx_temp_data_handler_t handler)</argsstring>
+        <name>nrfx_temp_init</name>
+        <param>
+          <type><ref refid="structnrfx__temp__config__t" kindref="compound">nrfx_temp_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" kindref="member">nrfx_temp_data_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TEMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data handler provided by the user. If not provided, the driver is initialized in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was successfully initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="82" column="5" declfile="drivers/include/nrfx_temp.h" declline="82" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga59ec603263d649ac4303bc5db4d24cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_temp_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TEMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="85" column="6" declfile="drivers/include/nrfx_temp.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga8fe7031791dc3db4d1b9695d0d9d1579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_temp_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TEMP driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="93" column="6" declfile="drivers/include/nrfx_temp.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int32_t</type>
+        <definition>NRFX_STATIC_INLINE int32_t nrfx_temp_result_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_result_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the temperature measurement in a 2&apos;s complement signed value representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns the last value prepared by the TEMP peripheral. In blocking mode, it should be used after calling the <ref refid="group__nrfx__temp_1ga5889c06cb3cd22f8bddb36d3f8b285a2" kindref="member">nrfx_temp_measure()</ref> function. In non-blocking mode, it is called internally by the driver, and the value it returns is passed to the data handler.</para>
+<para><simplesect kind="return"><para>Temperature measurement result in a 2&apos;s complement signed value representation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="144" column="28" bodyfile="drivers/include/nrfx_temp.h" bodystart="144" bodyend="147" declfile="drivers/include/nrfx_temp.h" declline="107" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga9c99e430d526913f0bbb93afff9617ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t nrfx_temp_calculate</definition>
+        <argsstring>(int32_t raw_measurement)</argsstring>
+        <name>nrfx_temp_calculate</name>
+        <param>
+          <type>int32_t</type>
+          <declname>raw_measurement</declname>
+        </param>
+        <briefdescription>
+<para>Function for calculating the temperature value in Celsius scale from raw data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The returned temperature value is in Celsius scale, multiplied by 100 For example, the actual temperature of 25.75[C] will be returned as a 2575 signed integer. Measurement accuracy is 0.25[C].</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">raw_measurement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Temperature value in a 2&apos;s complement signed value representation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Temperature measurement result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="121" column="9" declfile="drivers/include/nrfx_temp.h" declline="121" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga5889c06cb3cd22f8bddb36d3f8b285a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_temp_measure</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_measure</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the temperature measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Non-blocking mode: This function returns immediately. After a measurement, the handler specified during initialization is called, with measurement result as the parameter.</para>
+<para>Blocking mode: This function waits until the measurement is finished. The value should be read using the <ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get()</ref> function.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In non-blocking mode: Measurement was started. An interrupt will be generated soon. <linebreak/>
+ In blocking mode: Measurement was started and finished. Data can be read using the <ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get()</ref> function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In non-blocking mode: Not applicable. <linebreak/>
+ In blocking mode: Measurement data ready event did not occur. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="141" column="5" declfile="drivers/include/nrfx_temp.h" declline="141" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__temp_8h_1a06988597410046ff24e40b9a32ef89e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_temp_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="152" column="6" declfile="drivers/include/nrfx_temp.h" declline="152" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2019<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_temp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_temp<sp/>TEMP<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_temp</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Temperature<sp/>sensor<sp/>(TEMP)<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>TEMP<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structnrfx__temp__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>interrupt_priority;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Interrupt<sp/>priority.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="structnrfx__temp__config__t" kindref="compound">nrfx_temp_config_t</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment">/**<sp/>@brief<sp/>TEMP<sp/>default<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TEMP_DEFAULT_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_TEMP_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@brief<sp/>TEMP<sp/>driver<sp/>data<sp/>ready<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@param<sp/>temperature<sp/><sp/>Raw<sp/>temperature<sp/>in<sp/>a<sp/>2&apos;s<sp/>complement<sp/>signed<sp/>value</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>representation.<sp/>This<sp/>value<sp/>can<sp/>be<sp/>converted<sp/>to<sp/>Celsius</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scale<sp/>using<sp/>the<sp/>@ref<sp/>nrfx_temp_calculate()<sp/>function.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" kindref="member">nrfx_temp_data_handler_t</ref>)(int32_t<sp/>temperature);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>TEMP<sp/>driver.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>handler<sp/><sp/><sp/>Data<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>If<sp/>not<sp/>provided,</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>driver<sp/>is<sp/>initialized<sp/>in<sp/>blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Driver<sp/>was<sp/>successfully<sp/>initialized.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>Driver<sp/>was<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__temp_1ga072824b066c170856b3413cdb8381f67" kindref="member">nrfx_temp_init</ref>(<ref refid="structnrfx__temp__config__t" kindref="compound">nrfx_temp_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,<sp/><ref refid="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" kindref="member">nrfx_temp_data_handler_t</ref><sp/>handler);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>TEMP<sp/>driver.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__temp_1ga59ec603263d649ac4303bc5db4d24cff" kindref="member">nrfx_temp_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>TEMP<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__temp_1ga8fe7031791dc3db4d1b9695d0d9d1579" kindref="member">nrfx_temp_init_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="95"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>temperature<sp/>measurement<sp/>in<sp/>a<sp/>2&apos;s<sp/>complement</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>signed<sp/>value<sp/>representation.</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>returns<sp/>the<sp/>last<sp/>value<sp/>prepared<sp/>by<sp/>the<sp/>TEMP<sp/>peripheral.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>In<sp/>blocking<sp/>mode,<sp/>it<sp/>should<sp/>be<sp/>used<sp/>after<sp/>calling<sp/>the<sp/>@ref<sp/>nrfx_temp_measure()</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>function.<sp/>In<sp/>non-blocking<sp/>mode,<sp/>it<sp/>is<sp/>called<sp/>internally<sp/>by<sp/>the<sp/>driver,</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>and<sp/>the<sp/>value<sp/>it<sp/>returns<sp/>is<sp/>passed<sp/>to<sp/>the<sp/>data<sp/>handler.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/>@return<sp/>Temperature<sp/>measurement<sp/>result<sp/>in<sp/>a<sp/>2&apos;s<sp/>complement<sp/>signed<sp/>value</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>representation.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">NRFX_STATIC_INLINE<sp/>int32_t<sp/><ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="109"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>calculating<sp/>the<sp/>temperature<sp/>value<sp/>in<sp/>Celsius<sp/>scale<sp/>from<sp/>raw<sp/>data.</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*<sp/>The<sp/>returned<sp/>temperature<sp/>value<sp/>is<sp/>in<sp/>Celsius<sp/>scale,<sp/>multiplied<sp/>by<sp/>100</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>For<sp/>example,<sp/>the<sp/>actual<sp/>temperature<sp/>of<sp/>25.75[C]<sp/>will<sp/>be<sp/>returned<sp/>as<sp/>a<sp/>2575<sp/>signed<sp/>integer.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>Measurement<sp/>accuracy<sp/>is<sp/>0.25[C].</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>raw_measurement<sp/>Temperature<sp/>value<sp/>in<sp/>a<sp/>2&apos;s<sp/>complement<sp/>signed</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value<sp/>representation.</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>@return<sp/>Temperature<sp/>measurement<sp/>result.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">int32_t<sp/><ref refid="group__nrfx__temp_1ga9c99e430d526913f0bbb93afff9617ae" kindref="member">nrfx_temp_calculate</ref>(int32_t<sp/>raw_measurement);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>the<sp/>temperature<sp/>measurement.</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>Non-blocking<sp/>mode:</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>returns<sp/>immediately.<sp/>After<sp/>a<sp/>measurement,<sp/>the<sp/>handler<sp/>specified</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/>during<sp/>initialization<sp/>is<sp/>called,<sp/>with<sp/>measurement<sp/>result<sp/>as<sp/>the<sp/>parameter.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>Blocking<sp/>mode:</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>waits<sp/>until<sp/>the<sp/>measurement<sp/>is<sp/>finished.<sp/>The<sp/>value<sp/>should<sp/>be<sp/>read</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>using<sp/>the<sp/>@ref<sp/>nrfx_temp_result_get()<sp/>function.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>In<sp/>non-blocking<sp/>mode:<sp/>Measurement<sp/>was<sp/>started.</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>An<sp/>interrupt<sp/>will<sp/>be<sp/>generated<sp/>soon.<sp/>&lt;br&gt;</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>In<sp/>blocking<sp/>mode:<sp/>Measurement<sp/>was<sp/>started<sp/>and<sp/>finished.<sp/>Data<sp/>can</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>be<sp/>read<sp/>using<sp/>the<sp/>@ref<sp/>nrfx_temp_result_get()<sp/>function.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ECANCELED<sp/>In<sp/>non-blocking<sp/>mode:<sp/>Not<sp/>applicable.<sp/>&lt;br&gt;</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>In<sp/>blocking<sp/>mode:<sp/>Measurement<sp/>data<sp/>ready<sp/>event<sp/>did<sp/>not<sp/>occur.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__temp_1ga5889c06cb3cd22f8bddb36d3f8b285a2" kindref="member">nrfx_temp_measure</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal">NRFX_STATIC_INLINE<sp/>int32_t<sp/><ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__temp_1ga17c132d9b96c9d3ec74f39ae81f5a676" kindref="member">nrfy_temp_result_get</ref>(NRF_TEMP);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="150"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_temp_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_TEMP_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_temp.h"/>
+  </compounddef>
+</doxygen>

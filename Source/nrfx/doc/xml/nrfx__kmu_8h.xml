@@ -1,0 +1,1079 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__kmu_8h" kind="file" language="C++">
+    <compoundname>nrfx_kmu.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__kmu_8h" local="no">hal/nrf_kmu.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_kmu.h</label>
+        <link refid="nrfx__kmu_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__kmu__key__slot__metadata__t" prot="public">nrfx_kmu_key_slot_metadata_t</innerclass>
+    <innerclass refid="structnrfx__kmu__key__slot__data__t" prot="public">nrfx_kmu_key_slot_data_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__kmu_1ga062602ac8166daa05ed4f9529ccf02a1" prot="public" static="no">
+        <name>KEY_SLOT_WORDS_COUNT</name>
+        <initializer>((KMU_KEYSLOTBITS) / 32)</initializer>
+        <briefdescription>
+<para>Macro for calculating how many 32-bit words can be placed in one key slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="52" column="9" bodyfile="drivers/include/nrfx_kmu.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__kmu_1ga8aa51fb4d5e8ee1847df298f857284d1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_kmu_rpolicy_t</name>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a46296b85286cb80861f5afde228fa6c7" prot="public">
+          <name>NRFX_KMU_RPOLICY_LOCKED</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Locked</initializer>
+          <briefdescription>
+<para>Locked revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a8d13a96f9d34ec9d502489a999b1f36d" prot="public">
+          <name>NRFX_KMU_RPOLICY_ROTATING</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Rotating</initializer>
+          <briefdescription>
+<para>Rotating revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a470d97e0f17d5a204bee2343ea42aed9" prot="public">
+          <name>NRFX_KMU_RPOLICY_REVOKED</name>
+          <initializer>= KMU_TASKS_REVOKE_POLICY_Revoked</initializer>
+          <briefdescription>
+<para>Revoked revoke policy. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU revoke policy type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="56" column="1" bodyfile="drivers/include/nrfx_kmu.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_kmu_event_handler_t) (nrf_kmu_event_t event_type)</definition>
+        <argsstring>)(nrf_kmu_event_t event_type)</argsstring>
+        <name>nrfx_kmu_event_handler_t</name>
+        <briefdescription>
+<para>KMU driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="95" column="9" bodyfile="drivers/include/nrfx_kmu.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__kmu_1gaa9dbffc7b0378376a66bab61b98eb410" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_init</definition>
+        <argsstring>(nrfx_kmu_event_handler_t *handler)</argsstring>
+        <name>nrfx_kmu_init</name>
+        <param>
+          <type><ref refid="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" kindref="member">nrfx_kmu_event_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing KMU driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler. Used only if KMU interrupts are present on a device (can be checked with <ref refid="group__nrf__kmu__hal_1ga4c6ae62693cf3dfbf360b1a959882fc0" kindref="member">NRF_KMU_HAS_INTEN</ref>)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="106" column="5" declfile="drivers/include/nrfx_kmu.h" declline="106" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gae245e635ea50854a97936ce719cf63b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_kmu_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_kmu_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing KMU driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="109" column="6" declfile="drivers/include/nrfx_kmu.h" declline="109" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gac7f2ff23a990e54988df6d763208f269" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slot_provision</definition>
+        <argsstring>(nrfx_kmu_key_slot_data_t const *p_key_slot_data, uint32_t slot_id)</argsstring>
+        <name>nrfx_kmu_key_slot_provision</name>
+        <param>
+          <type><ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref> const *</type>
+          <declname>p_key_slot_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for provisioning data to given key slot in KMU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Requires enabled writing to non-volatile memory.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_key_slot_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the key slot data structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provisioning was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when provisioning the key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="124" column="5" declfile="drivers/include/nrfx_kmu.h" declline="124" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga2e0bc363e662b8ae4c0267e19bb6dbf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_push</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_push</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for pushing <computeroutput>num_slots</computeroutput> consecutive key slots from KMU to address specified in <computeroutput>keyslot_dest</computeroutput> field in <ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref> at provisioning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to push.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pushing was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is revoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after pushing only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when pushing the key slot (slot is bloked or empty). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="140" column="5" declfile="drivers/include/nrfx_kmu.h" declline="140" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga25faa081e13274c096bdb670f9be38e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_push_block</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_push_block</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for blocking <computeroutput>num_slots</computeroutput> consecutive key slots from being pushed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to block from being pushed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Blocking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after blocking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when push blocking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="155" column="5" declfile="drivers/include/nrfx_kmu.h" declline="155" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gaf3e3eb69c562f02118788d1477697814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_block</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_block</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for blocking <computeroutput>num_slots</computeroutput> consecutive key slots from being pushed or revoked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Blocking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after blocking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when blocking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="171" column="5" declfile="drivers/include/nrfx_kmu.h" declline="171" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga34f945eb4b610ff8708a7614ff2c0d60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_revoke</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_key_slots_revoke</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for revoking <computeroutput>num_slots</computeroutput> consecutive key slots. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to revoke.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Revoking was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. Can also happen after revoking only a part of the given keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured when revoking the key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="186" column="5" declfile="drivers/include/nrfx_kmu.h" declline="186" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gac45e702474e30c8ae71eedb96fa642c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slot_metadata_read</definition>
+        <argsstring>(uint32_t slot_id, nrfx_kmu_key_slot_metadata_t *p_metadata)</argsstring>
+        <name>nrfx_kmu_key_slot_metadata_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__kmu__key__slot__metadata__t" kindref="compound">nrfx_kmu_key_slot_metadata_t</ref> *</type>
+          <declname>p_metadata</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading metadata from a key slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a metadata structure to be filled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is revoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key slot is empty. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="201" column="5" declfile="drivers/include/nrfx_kmu.h" declline="201" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga65fe2e0d137bc1da59f94e5011849a92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_empty_check</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots, bool *p_is_empty)</argsstring>
+        <name>nrfx_kmu_key_slots_empty_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>p_is_empty</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given <computeroutput>num_slots</computeroutput> consecutive key slots can be written to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_is_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable determining if <computeroutput>num_slots</computeroutput> consecutive key slots are empty. If at least one of the <computeroutput>num_slots</computeroutput> key slots is occupied or revoked (non-rotating policy), <computeroutput>p_is_empty</computeroutput> is equal to false.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="217" column="5" declfile="drivers/include/nrfx_kmu.h" declline="217" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1gab8e07c85953a84eca781d14dd6106a8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_key_slots_revoked_check</definition>
+        <argsstring>(uint32_t slot_id, uint32_t num_slots, bool *p_is_revoked)</argsstring>
+        <name>nrfx_kmu_key_slots_revoked_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>slot_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>p_is_revoked</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given <computeroutput>num_slots</computeroutput> consecutive key slots are revoked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">slot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a slot to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive keys slots to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_is_revoked</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable determining if <computeroutput>num_slots</computeroutput> consecutive key slots are revoked. If at least one of the <computeroutput>num_slots</computeroutput> key slots is empty or occupied, <computeroutput>p_is_empty</computeroutput> is equal to false.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata was read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KMU is currently busy with the previous operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout occured when waiting for result event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="232" column="5" declfile="drivers/include/nrfx_kmu.h" declline="232" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__kmu_1ga73be89ebaec97a4de2173a2be95a7bf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_kmu_next_available_key_slots_find</definition>
+        <argsstring>(uint32_t num_slots)</argsstring>
+        <name>nrfx_kmu_next_available_key_slots_find</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_slots</declname>
+        </param>
+        <briefdescription>
+<para>Function for finding first <computeroutput>num_slots</computeroutput> consecutive available key slots. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">num_slots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of consecutive key slots to find.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slot ID of the first available key slot. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>num_slots consecutive empty key slots were not found, too many occupied and/or revoked key slots. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_kmu.h" line="243" column="5" declfile="drivers/include/nrfx_kmu.h" declline="243" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_KMU_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_KMU_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_kmu.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_kmu<sp/>KMU<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_kmu</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Key<sp/>Management<sp/>Unit<sp/>(KMU)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>calculating<sp/>how<sp/>many<sp/>32-bit<sp/>words<sp/>can<sp/>be<sp/>placed<sp/>in<sp/>one<sp/>key<sp/>slot.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>KEY_SLOT_WORDS_COUNT<sp/>((KMU_KEYSLOTBITS)<sp/>/<sp/>32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_REVOKE_POLICY<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="55"><highlight class="comment">/**<sp/>@brief<sp/>KMU<sp/>revoke<sp/>policy<sp/>type.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a46296b85286cb80861f5afde228fa6c7" kindref="member">NRFX_KMU_RPOLICY_LOCKED</ref><sp/><sp/><sp/>=<sp/>KMU_TASKS_REVOKE_POLICY_Locked,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Locked<sp/>revoke<sp/>policy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a8d13a96f9d34ec9d502489a999b1f36d" kindref="member">NRFX_KMU_RPOLICY_ROTATING</ref><sp/>=<sp/>KMU_TASKS_REVOKE_POLICY_Rotating,<sp/></highlight><highlight class="comment">///&lt;<sp/>Rotating<sp/>revoke<sp/>policy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__kmu_1gga8aa51fb4d5e8ee1847df298f857284d1a470d97e0f17d5a204bee2343ea42aed9" kindref="member">NRFX_KMU_RPOLICY_REVOKED</ref><sp/><sp/>=<sp/>KMU_TASKS_REVOKE_POLICY_Revoked,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Revoked<sp/>revoke<sp/>policy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="group__nrfx__kmu_1ga8aa51fb4d5e8ee1847df298f857284d1" kindref="member">nrfx_kmu_rpolicy_t</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_METADATA<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**<sp/>@brief<sp/>KMU<sp/>metadata<sp/>struct<sp/>type.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="structnrfx__kmu__key__slot__metadata__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>metadata;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Metadata<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_METADATAEXT<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>metadata_ext;<sp/></highlight><highlight class="comment">///&lt;<sp/>Metadata<sp/>extended<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/><ref refid="structnrfx__kmu__key__slot__metadata__t" kindref="compound">nrfx_kmu_key_slot_metadata_t</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment">/**<sp/>@brief<sp/>Key<sp/>slot<sp/>data<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structnrfx__kmu__key__slot__data__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">__PACKED</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyslot_value[<ref refid="group__nrfx__kmu_1ga062602ac8166daa05ed4f9529ccf02a1" kindref="member">KEY_SLOT_WORDS_COUNT</ref>];<sp/></highlight><highlight class="comment">///&lt;<sp/>Key<sp/>data<sp/>to<sp/>be<sp/>provisioned.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_REVOKE_POLICY<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>revoke_policy;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Key<sp/>revoke<sp/>policy.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>@ref<sp/>nrfx_kmu_rpolicy_t</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>holds<sp/>possible<sp/>values.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyslot_dest;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Key<sp/>slot<sp/>destination<sp/>when</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>performing<sp/>key<sp/>push.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_METADATA<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfx__kmu__key__slot__metadata__t" kindref="compound">nrfx_kmu_key_slot_metadata_t</ref><sp/>metadata;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Metadata<sp/>to<sp/>write<sp/>to<sp/>keyslot.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}<sp/><ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@brief<sp/>KMU<sp/>driver<sp/>event<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_type<sp/>KMU<sp/>event.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" kindref="member">nrfx_kmu_event_handler_t</ref>)(<ref refid="group__nrf__kmu__hal_1gaa800125501a5feb22d26659d8a7bd0e2" kindref="member">nrf_kmu_event_t</ref><sp/>event_type);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>KMU<sp/>driver.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>handler<sp/>Event<sp/>handler.<sp/>Used<sp/>only<sp/>if<sp/>KMU<sp/>interrupts<sp/>are<sp/>present<sp/>on<sp/>a<sp/>device<sp/>(can<sp/>be</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checked<sp/>with<sp/>@ref<sp/>NRF_KMU_HAS_INTEN)</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>successful.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gaa9dbffc7b0378376a66bab61b98eb410" kindref="member">nrfx_kmu_init</ref>(<ref refid="group__nrfx__kmu_1ga7613a17dd3246ae8d9d03577e1b150bc" kindref="member">nrfx_kmu_event_handler_t</ref><sp/>*<sp/>handler);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="108"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>KMU<sp/>driver.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gae245e635ea50854a97936ce719cf63b6" kindref="member">nrfx_kmu_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>provisioning<sp/>data<sp/>to<sp/>given<sp/>key<sp/>slot<sp/>in<sp/>KMU.</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@note<sp/>Requires<sp/>enabled<sp/>writing<sp/>to<sp/>non-volatile<sp/>memory.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_key_slot_data<sp/>Pointer<sp/>to<sp/>the<sp/>key<sp/>slot<sp/>data<sp/>structure.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>slot_id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Provisioning<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>An<sp/>error<sp/>occured<sp/>when<sp/>provisioning<sp/>the<sp/>key.</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gac7f2ff23a990e54988df6d763208f269" kindref="member">nrfx_kmu_key_slot_provision</ref>(<ref refid="structnrfx__kmu__key__slot__data__t" kindref="compound">nrfx_kmu_key_slot_data_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_key_slot_data,<sp/>uint32_t<sp/>slot_id);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="126"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>pushing<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots<sp/>from<sp/>KMU<sp/>to<sp/>address<sp/>specified<sp/>in</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@p<sp/>keyslot_dest<sp/>field<sp/>in<sp/>@ref<sp/>nrfx_kmu_key_slot_data_t<sp/>at<sp/>provisioning.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>slot_id<sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_slots<sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>push.</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pushing<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/>The<sp/>key<sp/>slot<sp/>is<sp/>revoked.</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.<sp/>Can<sp/>also<sp/>happen<sp/>after</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pushing<sp/>only<sp/>a<sp/>part<sp/>of<sp/>the<sp/>given<sp/>keys.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>An<sp/>error<sp/>occured<sp/>when<sp/>pushing<sp/>the<sp/>key<sp/>slot<sp/>(slot<sp/>is<sp/>bloked<sp/>or<sp/>empty).</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1ga2e0bc363e662b8ae4c0267e19bb6dbf3" kindref="member">nrfx_kmu_key_slots_push</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_PUSH_BLOCK<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>blocking<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots<sp/>from<sp/>being<sp/>pushed.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>slot_id<sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_slots<sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>block<sp/>from<sp/>being<sp/>pushed.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Blocking<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.<sp/>Can<sp/>also<sp/>happen<sp/>after</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocking<sp/>only<sp/>a<sp/>part<sp/>of<sp/>the<sp/>given<sp/>keys.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>An<sp/>error<sp/>occured<sp/>when<sp/>push<sp/>blocking<sp/>the<sp/>key<sp/>slot.</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1ga25faa081e13274c096bdb670f9be38e6" kindref="member">nrfx_kmu_key_slots_push_block</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_BLOCK<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="159"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>blocking<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots<sp/>from<sp/>being<sp/>pushed<sp/>or<sp/>revoked.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>slot_id<sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_slots<sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>block.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Blocking<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.<sp/>Can<sp/>also<sp/>happen<sp/>after</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>blocking<sp/>only<sp/>a<sp/>part<sp/>of<sp/>the<sp/>given<sp/>keys.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>An<sp/>error<sp/>occured<sp/>when<sp/>blocking<sp/>the<sp/>key<sp/>slot.</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gaf3e3eb69c562f02118788d1477697814" kindref="member">nrfx_kmu_key_slots_block</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>revoking<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>slot_id<sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_slots<sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>revoke.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Revoking<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.<sp/>Can<sp/>also<sp/>happen<sp/>after</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>revoking<sp/>only<sp/>a<sp/>part<sp/>of<sp/>the<sp/>given<sp/>keys.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>An<sp/>error<sp/>occured<sp/>when<sp/>revoking<sp/>the<sp/>key<sp/>slot.</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1ga34f945eb4b610ff8708a7614ff2c0d60" kindref="member">nrfx_kmu_key_slots_revoke</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_KMU_HAS_METADATA<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="189"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>metadata<sp/>from<sp/>a<sp/>key<sp/>slot.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>slot_id<sp/><sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_metadata<sp/>Pointer<sp/>to<sp/>a<sp/>metadata<sp/>structure<sp/>to<sp/>be<sp/>filled.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Metadata<sp/>was<sp/>read.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/>The<sp/>key<sp/>slot<sp/>is<sp/>revoked.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>The<sp/>key<sp/>slot<sp/>is<sp/>empty.</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gac45e702474e30c8ae71eedb96fa642c7" kindref="member">nrfx_kmu_key_slot_metadata_read</ref>(uint32_t<sp/>slot_id,<sp/><ref refid="structnrfx__kmu__key__slot__metadata__t" kindref="compound">nrfx_kmu_key_slot_metadata_t</ref><sp/>*<sp/>p_metadata);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="204"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>given<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots<sp/>can<sp/>be<sp/>written<sp/>to.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>slot_id<sp/><sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>check.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>num_slots<sp/><sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>check.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_is_empty<sp/>Pointer<sp/>to<sp/>a<sp/>variable<sp/>determining<sp/>if<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>are<sp/>empty.<sp/>If<sp/>at<sp/>least<sp/>one<sp/>of<sp/>the<sp/>@p<sp/>num_slots<sp/>key<sp/>slots<sp/>is<sp/>occupied</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>or<sp/>revoked<sp/>(non-rotating<sp/>policy),<sp/>@p<sp/>p_is_empty<sp/>is<sp/>equal<sp/>to<sp/>false.</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Metadata<sp/>was<sp/>read.</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1ga65fe2e0d137bc1da59f94e5011849a92" kindref="member">nrfx_kmu_key_slots_empty_check</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*<sp/>p_is_empty);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="219"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>given<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots<sp/>are<sp/>revoked.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>slot_id<sp/><sp/><sp/><sp/><sp/><sp/>ID<sp/>of<sp/>a<sp/>slot<sp/>to<sp/>check.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>num_slots<sp/><sp/><sp/><sp/>Number<sp/>of<sp/>consecutive<sp/>keys<sp/>slots<sp/>to<sp/>check.</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_is_revoked<sp/>Pointer<sp/>to<sp/>a<sp/>variable<sp/>determining<sp/>if<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>key<sp/>slots</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>are<sp/>revoked.<sp/>If<sp/>at<sp/>least<sp/>one<sp/>of<sp/>the<sp/>@p<sp/>num_slots<sp/>key<sp/>slots<sp/>is<sp/>empty</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>or<sp/>occupied,<sp/>@p<sp/>p_is_empty<sp/>is<sp/>equal<sp/>to<sp/>false.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Metadata<sp/>was<sp/>read.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>KMU<sp/>is<sp/>currently<sp/>busy<sp/>with<sp/>the<sp/>previous<sp/>operation.</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ETIMEDOUT<sp/>Timeout<sp/>occured<sp/>when<sp/>waiting<sp/>for<sp/>result<sp/>event.</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1gab8e07c85953a84eca781d14dd6106a8e" kindref="member">nrfx_kmu_key_slots_revoked_check</ref>(uint32_t<sp/>slot_id,<sp/>uint32_t<sp/>num_slots,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*<sp/>p_is_revoked);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="234"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>finding<sp/>first<sp/>@p<sp/>num_slots<sp/>consecutive<sp/>available<sp/>key<sp/>slots.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_slots<sp/>Number<sp/>of<sp/>consecutive<sp/>key<sp/>slots<sp/>to<sp/>find.</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/>*<sp/>@retval<sp/>non-negative<sp/>Slot<sp/>ID<sp/>of<sp/>the<sp/>first<sp/>available<sp/>key<sp/>slot.</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOMEM<sp/><sp/><sp/><sp/><sp/><sp/>num_slots<sp/>consecutive<sp/>empty<sp/>key<sp/>slots<sp/>were<sp/>not<sp/>found,<sp/>too<sp/>many<sp/>occupied</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and/or<sp/>revoked<sp/>key<sp/>slots.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__kmu_1ga73be89ebaec97a4de2173a2be95a7bf7" kindref="member">nrfx_kmu_next_available_key_slots_find</ref>(uint32_t<sp/>num_slots);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="245"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_KMU_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_kmu.h"/>
+  </compounddef>
+</doxygen>

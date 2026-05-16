@@ -1,0 +1,2558 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__qspi__hal" kind="group">
+    <compoundname>nrf_qspi_hal</compoundname>
+    <title>QSPI HAL</title>
+    <innerclass refid="structnrf__qspi__pins__t" prot="public">nrf_qspi_pins_t</innerclass>
+    <innerclass refid="structnrf__qspi__cinstr__conf__t" prot="public">nrf_qspi_cinstr_conf_t</innerclass>
+    <innerclass refid="structnrf__qspi__addrconfig__conf__t" prot="public">nrf_qspi_addrconfig_conf_t</innerclass>
+    <innerclass refid="structnrf__qspi__prot__conf__t" prot="public">nrf_qspi_prot_conf_t</innerclass>
+    <innerclass refid="structnrf__qspi__phy__conf__t" prot="public">nrf_qspi_phy_conf_t</innerclass>
+    <innerclass refid="structnrf__qspi__encryption__t" prot="public">nrf_qspi_encryption_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga100c85f9414b8353ce63b2449853aff0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_task_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0a448b67068efa81145f3363ca76d140c1" prot="public">
+          <name>NRF_QSPI_TASK_ACTIVATE</name>
+          <initializer>= offsetof(NRF_QSPI_Type, TASKS_ACTIVATE)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Activate the QSPI interface. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0a7afebeac9a7887c1e48a3906a5d63946" prot="public">
+          <name>NRF_QSPI_TASK_READSTART</name>
+          <initializer>= offsetof(NRF_QSPI_Type, TASKS_READSTART)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start transfer from external flash memory to internal RAM. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0ae30409be73b2edc1ca4c5fa751d3135d" prot="public">
+          <name>NRF_QSPI_TASK_WRITESTART</name>
+          <initializer>= offsetof(NRF_QSPI_Type, TASKS_WRITESTART)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start transfer from internal RAM to external flash memory. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0a990ec1517c14ac6929b1b2f4deb4c536" prot="public">
+          <name>NRF_QSPI_TASK_ERASESTART</name>
+          <initializer>= offsetof(NRF_QSPI_Type, TASKS_ERASESTART)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start external flash memory erase operation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0ab18b66e8a88d49c3d29c7619db460808" prot="public">
+          <name>NRF_QSPI_TASK_DEACTIVATE</name>
+          <initializer>= offsetof(NRF_QSPI_Type, TASKS_DEACTIVATE)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Deactivate the QSPI interface. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="93" column="1" bodyfile="hal/nrf_qspi.h" bodystart="94" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1gab0289d6ded4986b5a9d7fa5482ec7c58" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_event_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1ggab0289d6ded4986b5a9d7fa5482ec7c58ab76226b454ca766d24e2ef9eaccabf5f" prot="public">
+          <name>NRF_QSPI_EVENT_READY</name>
+          <initializer>= offsetof(NRF_QSPI_Type, EVENTS_READY)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>QSPI peripheral is ready after it executes any task. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="103" column="1" bodyfile="hal/nrf_qspi.h" bodystart="104" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga1684994cd9ffaaf2ff5db0e71b65166e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_int_mask_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga1684994cd9ffaaf2ff5db0e71b65166ea66a224c1b3f4aba6bd9b170dcc1cab47" prot="public">
+          <name>NRF_QSPI_INT_READY_MASK</name>
+          <initializer>= QSPI_INTENSET_READY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on READY event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="109" column="1" bodyfile="hal/nrf_qspi.h" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga2195660aadd2cb2848efa1cbaa0acafe" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_frequency_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea60a0141816635c64132196aea3ee5f00" prot="public">
+          <name>NRF_QSPI_FREQ_DIV1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea0d8a12f7a0c01511eeb7779dccf489f7" prot="public">
+          <name>NRF_QSPI_FREQ_DIV2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafead55f349f24e885a6594077a6ac5eab49" prot="public">
+          <name>NRF_QSPI_FREQ_DIV3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea79ae913b6f0ddef45b550dc2cfbb7860" prot="public">
+          <name>NRF_QSPI_FREQ_DIV4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea5b503aa82c7782022892f545aa3a25ba" prot="public">
+          <name>NRF_QSPI_FREQ_DIV5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea89db4bfabd270b247c87b7c7bf8eef34" prot="public">
+          <name>NRF_QSPI_FREQ_DIV6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea9bcb262f905f30180e3ee095f0b66ce8" prot="public">
+          <name>NRF_QSPI_FREQ_DIV7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea00afb89c1e704b63cbd8ce17f9d39414" prot="public">
+          <name>NRF_QSPI_FREQ_DIV8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 8. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafeaddf8690fb50832755fd6f5d1ad8287a3" prot="public">
+          <name>NRF_QSPI_FREQ_DIV9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 9. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea1a430699f9fd14d0f158cac956b9df08" prot="public">
+          <name>NRF_QSPI_FREQ_DIV10</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 10. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea7d048b2aaa0dab9a4d472d5a2ad3be65" prot="public">
+          <name>NRF_QSPI_FREQ_DIV11</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 11. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafead7ff003829d5b9e1de90268917bf3330" prot="public">
+          <name>NRF_QSPI_FREQ_DIV12</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 12. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea41405363ce10e4e284ac03fc691655be" prot="public">
+          <name>NRF_QSPI_FREQ_DIV13</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 13. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea2bcc8cbec7d357f05162587e85462911" prot="public">
+          <name>NRF_QSPI_FREQ_DIV14</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 14. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafea6ab6a13834687ac3326e74decdb50730" prot="public">
+          <name>NRF_QSPI_FREQ_DIV15</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 15. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafeaca2c21c800a9dbd55f810dd04b5574fa" prot="public">
+          <name>NRF_QSPI_FREQ_DIV16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 16. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI base clock frequency divider values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="115" column="1" bodyfile="hal/nrf_qspi.h" bodystart="116" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga2d6cc751e309c837399d85a845ef38ab" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_readoc_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38abad5623b15f12bef8209a20f5cc6306db2" prot="public">
+          <name>NRF_QSPI_READOC_FASTREAD</name>
+          <initializer>= QSPI_IFCONFIG0_READOC_FASTREAD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Single data line SPI. FAST_READ (opcode 0x0B). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38abaae12384580e64daadf753edd2f035e77" prot="public">
+          <name>NRF_QSPI_READOC_READ2O</name>
+          <initializer>= QSPI_IFCONFIG0_READOC_READ2O</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Dual data line SPI. READ2O (opcode 0x3B). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38abadb16b155d18f73aa4526e506a8a98030" prot="public">
+          <name>NRF_QSPI_READOC_READ2IO</name>
+          <initializer>= QSPI_IFCONFIG0_READOC_READ2IO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Dual data line SPI. READ2IO (opcode 0xBB). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38abab1c77b1a56bc5054815e6d95e23f43be" prot="public">
+          <name>NRF_QSPI_READOC_READ4O</name>
+          <initializer>= QSPI_IFCONFIG0_READOC_READ4O</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Quad data line SPI. READ4O (opcode 0x6B). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38aba231043e6d93ee80364a23173f7dfa709" prot="public">
+          <name>NRF_QSPI_READOC_READ4IO</name>
+          <initializer>= QSPI_IFCONFIG0_READOC_READ4IO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Quad data line SPI. READ4IO (opcode 0xEB). </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interface configuration for a read operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="136" column="1" bodyfile="hal/nrf_qspi.h" bodystart="137" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1gaf5a6e1f18309cab07c2e0660a2ac2b14" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_writeoc_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1ggaf5a6e1f18309cab07c2e0660a2ac2b14affb8d8e409f6b52c74339d963ef4e232" prot="public">
+          <name>NRF_QSPI_WRITEOC_PP</name>
+          <initializer>= QSPI_IFCONFIG0_WRITEOC_PP</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Single data line SPI. PP (opcode 0x02). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggaf5a6e1f18309cab07c2e0660a2ac2b14a6c5508e25b9e384d5ef2bd7772708e6b" prot="public">
+          <name>NRF_QSPI_WRITEOC_PP2O</name>
+          <initializer>= QSPI_IFCONFIG0_WRITEOC_PP2O</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Dual data line SPI. PP2O (opcode 0xA2). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggaf5a6e1f18309cab07c2e0660a2ac2b14a37f1725b3a4ea9ad7201842b6da5c876" prot="public">
+          <name>NRF_QSPI_WRITEOC_PP4O</name>
+          <initializer>= QSPI_IFCONFIG0_WRITEOC_PP4O</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Quad data line SPI. PP4O (opcode 0x32). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggaf5a6e1f18309cab07c2e0660a2ac2b14a384340d29c90b9280a6e48b0e7f38d29" prot="public">
+          <name>NRF_QSPI_WRITEOC_PP4IO</name>
+          <initializer>= QSPI_IFCONFIG0_WRITEOC_PP4IO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Quad data line SPI. READ4O (opcode 0x38). </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interface configuration for a write operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="146" column="1" bodyfile="hal/nrf_qspi.h" bodystart="147" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga109220a04cdf9219946e350b5994b8b6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_addrmode_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga109220a04cdf9219946e350b5994b8b6ab90a9f3860871e10f0a9ead5d4b39407" prot="public">
+          <name>NRF_QSPI_ADDRMODE_24BIT</name>
+          <initializer>= QSPI_IFCONFIG0_ADDRMODE_24BIT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>24-bit addressing. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga109220a04cdf9219946e350b5994b8b6a4ac3e13c8172451fc9130a5db5b07bb5" prot="public">
+          <name>NRF_QSPI_ADDRMODE_32BIT</name>
+          <initializer>= QSPI_IFCONFIG0_ADDRMODE_32BIT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>32-bit addressing. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interface configuration for addressing mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="155" column="1" bodyfile="hal/nrf_qspi.h" bodystart="156" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga464bd46344c43950af93b861c874b96c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_spi_mode_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga464bd46344c43950af93b861c874b96cac6077c8ac72cb5944c9570c557f9477e" prot="public">
+          <name>NRF_QSPI_MODE_0</name>
+          <initializer>= QSPI_IFCONFIG1_SPIMODE_MODE0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mode 0 (CPOL=0, CPHA=0). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga464bd46344c43950af93b861c874b96cae26476580c7f83ee08c1e4e833c0c933" prot="public">
+          <name>NRF_QSPI_MODE_1</name>
+          <initializer>= QSPI_IFCONFIG1_SPIMODE_MODE3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mode 1 (CPOL=1, CPHA=1). </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI SPI mode. Polarization and phase configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="162" column="1" bodyfile="hal/nrf_qspi.h" bodystart="163" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1gae261b449793627d95f71735e2388799d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_addrconfig_mode_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1ggae261b449793627d95f71735e2388799da28f1a534a0099ae5d98809b1adb0ceee" prot="public">
+          <name>NRF_QSPI_ADDRCONF_MODE_NOINSTR</name>
+          <initializer>= QSPI_ADDRCONF_MODE_NoInstr</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Do not send any instruction. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggae261b449793627d95f71735e2388799da8e8ce0fe6427cda547205363d0890fea" prot="public">
+          <name>NRF_QSPI_ADDRCONF_MODE_OPCODE</name>
+          <initializer>= QSPI_ADDRCONF_MODE_Opcode</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggae261b449793627d95f71735e2388799dad06956329d4ef860b1e9d209b00c15bc" prot="public">
+          <name>NRF_QSPI_ADDRCONF_MODE_OPBYTE0</name>
+          <initializer>= QSPI_ADDRCONF_MODE_OpByte0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, byte0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggae261b449793627d95f71735e2388799dadd64893d54237b1a8869ad60c9c70275" prot="public">
+          <name>NRF_QSPI_ADDRCONF_MODE_ALL</name>
+          <initializer>= QSPI_ADDRCONF_MODE_All</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, byte0, byte1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Addressing configuration mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="171" column="1" bodyfile="hal/nrf_qspi.h" bodystart="172" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1gabe68b50d3c5f07a5c946916eac125ebc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_erase_len_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1ggabe68b50d3c5f07a5c946916eac125ebca391c2a4922cc2fbd9dc0e61828991c07" prot="public">
+          <name>NRF_QSPI_ERASE_LEN_4KB</name>
+          <initializer>= QSPI_ERASE_LEN_LEN_4KB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Erase 4 kB block (flash command 0x20). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggabe68b50d3c5f07a5c946916eac125ebca3565157eea175ea6895caca485781634" prot="public">
+          <name>NRF_QSPI_ERASE_LEN_64KB</name>
+          <initializer>= QSPI_ERASE_LEN_LEN_64KB</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Erase 64 kB block (flash command 0xD8). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1ggabe68b50d3c5f07a5c946916eac125ebca50da339603485015b2f92d8efded0ead" prot="public">
+          <name>NRF_QSPI_ERASE_LEN_ALL</name>
+          <initializer>= QSPI_ERASE_LEN_LEN_All</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Erase all (flash command 0xC7). </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Erasing data length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="180" column="1" bodyfile="hal/nrf_qspi.h" bodystart="181" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_qspi_cinstr_len_t</name>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a5bf21927cf310039c4277d1e73f6be18" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_1B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_1B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode only. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a53fe71dcd5a830ef892f31a8ccf60be7" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_2B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_2B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a166eb02321878105454c66e1ab662792" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_3B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_3B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a86a8bfcb78afb426d5b2c416d827894b" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_4B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_4B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a40b9fb3006a5ec6a61be73e989c573ab" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_5B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_5B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180ac9c7a6ee9bea0c9800b145614311c197" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_6B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_6B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a0b781fa0afbdd7f75604b325c0d00037" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_7B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_7B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180ae1edb917cfb65800c8b855637ea502f2" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_8B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_8B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a71914e96398f6a34c9c1b8a85dfb2efa" prot="public">
+          <name>NRF_QSPI_CINSTR_LEN_9B</name>
+          <initializer>= QSPI_CINSTRCONF_LENGTH_9B</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Custom instruction length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="188" column="1" bodyfile="hal/nrf_qspi.h" bodystart="189" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaf47bc34ddf2bf33d21529684b0494433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_task_trigger</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_task_t task)</argsstring>
+        <name>nrf_qspi_task_trigger</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga100c85f9414b8353ce63b2449853aff0" kindref="member">nrf_qspi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified QSPI task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="720" column="24" bodyfile="hal/nrf_qspi.h" bodystart="720" bodyend="723" declfile="hal/nrf_qspi.h" declline="280" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga7b21880236e8a5a60d0a379f485290dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_task_address_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, nrf_qspi_task_t task)</argsstring>
+        <name>nrf_qspi_task_address_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga100c85f9414b8353ce63b2449853aff0" kindref="member">nrf_qspi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified QSPI task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QSPI task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="725" column="28" bodyfile="hal/nrf_qspi.h" bodystart="725" bodyend="729" declfile="hal/nrf_qspi.h" declline="290" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gab39e7c9d995de1d53dd0148ff6ca841d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_event_clear</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_event_t event)</argsstring>
+        <name>nrf_qspi_event_clear</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1gab0289d6ded4986b5a9d7fa5482ec7c58" kindref="member">nrf_qspi_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified QSPI event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="731" column="24" bodyfile="hal/nrf_qspi.h" bodystart="731" bodyend="734" declfile="hal/nrf_qspi.h" declline="299" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga7f664371cba4585d58b335a3ab96541b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_qspi_event_check</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, nrf_qspi_event_t event)</argsstring>
+        <name>nrf_qspi_event_check</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1gab0289d6ded4986b5a9d7fa5482ec7c58" kindref="member">nrf_qspi_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the QSPI event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="736" column="24" bodyfile="hal/nrf_qspi.h" bodystart="736" bodyend="739" declfile="hal/nrf_qspi.h" declline="310" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga54d6938d98fd603fbe469b38db492f82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_event_address_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, nrf_qspi_event_t event)</argsstring>
+        <name>nrf_qspi_event_address_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1gab0289d6ded4986b5a9d7fa5482ec7c58" kindref="member">nrf_qspi_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified QSPI event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="741" column="28" bodyfile="hal/nrf_qspi.h" bodystart="741" bodyend="745" declfile="hal/nrf_qspi.h" declline="320" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaf426ec3d5708fadbdb4ea1ddd79c3994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_int_enable</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_qspi_int_enable</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__qspi__hal_1ga1684994cd9ffaaf2ff5db0e71b65166e" kindref="member">nrf_qspi_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="747" column="24" bodyfile="hal/nrf_qspi.h" bodystart="747" bodyend="750" declfile="hal/nrf_qspi.h" declline="330" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga2d9df0df73bf5d3c4b8c9418901fbde5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_int_disable</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_qspi_int_disable</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__qspi__hal_1ga1684994cd9ffaaf2ff5db0e71b65166e" kindref="member">nrf_qspi_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="752" column="24" bodyfile="hal/nrf_qspi.h" bodystart="752" bodyend="755" declfile="hal/nrf_qspi.h" declline="339" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga249e408c95898cbb944102aea82c79b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_int_enable_check</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_qspi_int_enable_check</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__qspi__hal_1ga1684994cd9ffaaf2ff5db0e71b65166e" kindref="member">nrf_qspi_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="757" column="28" bodyfile="hal/nrf_qspi.h" bodystart="757" bodyend="760" declfile="hal/nrf_qspi.h" declline="350" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga75dd08e2bf9831f4cdb3ba130893ddce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_enable</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg)</argsstring>
+        <name>nrf_qspi_enable</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the QSPI peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="762" column="24" bodyfile="hal/nrf_qspi.h" bodystart="762" bodyend="765" declfile="hal/nrf_qspi.h" declline="357" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gafe6d42e14135f4cd05271518ed657cbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_disable</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg)</argsstring>
+        <name>nrf_qspi_disable</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the QSPI peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="767" column="24" bodyfile="hal/nrf_qspi.h" bodystart="767" bodyend="774" declfile="hal/nrf_qspi.h" declline="364" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gae3d08224467245db637f575a7798c8fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pins_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_pins_t const *p_pins)</argsstring>
+        <name>nrf_qspi_pins_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__pins__t" kindref="compound">nrf_qspi_pins_t</ref> const *</type>
+          <declname>p_pins</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring QSPI pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a given signal is not needed, pass the <ref refid="group__nrf__qspi__hal_1gac7e35ddaf91c5138b626d9a07871a0ce" kindref="member">NRF_QSPI_PIN_NOT_CONNECTED</ref> value instead of its pin number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the pins configuration structure. See <ref refid="structnrf__qspi__pins__t" kindref="compound">nrf_qspi_pins_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="776" column="24" bodyfile="hal/nrf_qspi.h" bodystart="776" bodyend="784" declfile="hal/nrf_qspi.h" declline="375" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga139dcbf7e7530dbcb48dad93c227f783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_sck_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_sck_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SCK pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="786" column="24" bodyfile="hal/nrf_qspi.h" bodystart="786" bodyend="789" declfile="hal/nrf_qspi.h" declline="384" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gae92c4cb6b2d68fd6a22ed619f75b434f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_csn_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_csn_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the CSN pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="791" column="24" bodyfile="hal/nrf_qspi.h" bodystart="791" bodyend="794" declfile="hal/nrf_qspi.h" declline="392" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga4b3bbded4259ce4ff6785818c925baf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_io0_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_io0_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the IO0 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IO0 pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="796" column="24" bodyfile="hal/nrf_qspi.h" bodystart="796" bodyend="799" declfile="hal/nrf_qspi.h" declline="400" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga237a5cd803fedb6c833112ed4465b90d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_io1_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_io1_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the IO1 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IO1 pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="801" column="24" bodyfile="hal/nrf_qspi.h" bodystart="801" bodyend="804" declfile="hal/nrf_qspi.h" declline="408" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga81b17d9f31b89d302ebc25d4a082628c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_io2_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_io2_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the IO2 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IO2 pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="806" column="24" bodyfile="hal/nrf_qspi.h" bodystart="806" bodyend="809" declfile="hal/nrf_qspi.h" declline="416" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga571543074284cf60394b9b53c552cda5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pin_io3_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_qspi_pin_io3_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the IO3 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IO3 pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="811" column="24" bodyfile="hal/nrf_qspi.h" bodystart="811" bodyend="814" declfile="hal/nrf_qspi.h" declline="424" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaf84db82e3c59b7ae77328f6dcd426942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_pins_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, nrf_qspi_pins_t *p_pins)</argsstring>
+        <name>nrf_qspi_pins_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__pins__t" kindref="compound">nrf_qspi_pins_t</ref> *</type>
+          <declname>p_pins</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the currently configured QSPI pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the pins configuration structure to be filled with QSPI pins. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="816" column="24" bodyfile="hal/nrf_qspi.h" bodystart="816" bodyend="825" declfile="hal/nrf_qspi.h" declline="432" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga0e304ef55925297fc4fb0644524653ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_xip_offset_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t xip_offset)</argsstring>
+        <name>nrf_qspi_xip_offset_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>xip_offset</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the QSPI XIPOFFSET register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">xip_offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address offset in the external memory for Execute in Place operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="827" column="24" bodyfile="hal/nrf_qspi.h" bodystart="827" bodyend="831" declfile="hal/nrf_qspi.h" declline="441" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga39717ad48125b6506d5b8e4614604e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_ifconfig0_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_prot_conf_t const *p_config)</argsstring>
+        <name>nrf_qspi_ifconfig0_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__prot__conf__t" kindref="compound">nrf_qspi_prot_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the QSPI IFCONFIG0 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the QSPI protocol interface configuration structure. See <ref refid="structnrf__qspi__prot__conf__t" kindref="compound">nrf_qspi_prot_conf_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="833" column="24" bodyfile="hal/nrf_qspi.h" bodystart="833" bodyend="842" declfile="hal/nrf_qspi.h" declline="451" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaa98f3b0e3bf7f355cdab8ba419143c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_ifconfig0_raw_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t regval)</argsstring>
+        <name>nrf_qspi_ifconfig0_raw_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>regval</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the explicit value of the QSPI IFCONFIG0 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">regval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="844" column="24" bodyfile="hal/nrf_qspi.h" bodystart="844" bodyend="847" declfile="hal/nrf_qspi.h" declline="460" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaad58e5fdb18d725d057f71588907116d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_ifconfig0_raw_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_ifconfig0_raw_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the explicit value of the QSPI IFCONFIG0 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of IFCONFIG0 register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="849" column="28" bodyfile="hal/nrf_qspi.h" bodystart="849" bodyend="852" declfile="hal/nrf_qspi.h" declline="469" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gacf2cfc3ebd7d3d25f75ced22867d8072" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_ifconfig1_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_phy_conf_t const *p_config)</argsstring>
+        <name>nrf_qspi_ifconfig1_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__phy__conf__t" kindref="compound">nrf_qspi_phy_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the QSPI IFCONFIG1 register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the QSPI physical interface configuration structure. See <ref refid="structnrf__qspi__phy__conf__t" kindref="compound">nrf_qspi_phy_conf_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="854" column="24" bodyfile="hal/nrf_qspi.h" bodystart="854" bodyend="865" declfile="hal/nrf_qspi.h" declline="478" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga1e668d12e7bd464c2f493c08aa5141c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_addrconfig_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_addrconfig_conf_t const *p_config)</argsstring>
+        <name>nrf_qspi_addrconfig_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__addrconfig__conf__t" kindref="compound">nrf_qspi_addrconfig_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the QSPI ADDRCONF register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function must be executed before sending task NRF_QSPI_TASK_ACTIVATE. Data stored in the structure is sent during the start of the peripheral. Remember that the reset instruction can set addressing mode to default in the memory device. If memory reset is necessary before configuring the addressing mode, use custom instruction feature instead of this function. Case with reset: Enable the peripheral without setting ADDRCONF register, send reset instructions using a custom instruction feature (reset enable and then reset), set proper addressing mode using the custom instruction feature.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the addressing mode configuration structure. See <ref refid="structnrf__qspi__addrconfig__conf__t" kindref="compound">nrf_qspi_addrconfig_conf_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="867" column="24" bodyfile="hal/nrf_qspi.h" bodystart="867" bodyend="878" declfile="hal/nrf_qspi.h" declline="496" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga0ef34305d49c451fa8a12d21a6c0adc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_write_buffer_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, void const *p_buffer, uint32_t length, uint32_t dest_addr)</argsstring>
+        <name>nrf_qspi_write_buffer_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>dest_addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting write data into the peripheral register (without starting the process). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the writing buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lenght of the writing data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dest_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address in memory to write to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="880" column="24" bodyfile="hal/nrf_qspi.h" bodystart="880" bodyend="888" declfile="hal/nrf_qspi.h" declline="507" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga08f5dabe6572fa84344f7ba00cdd3353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_read_buffer_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, void *p_buffer, uint32_t length, uint32_t src_addr)</argsstring>
+        <name>nrf_qspi_read_buffer_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>src_addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting read data into the peripheral register (without starting the process). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the reading buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the read data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address in memory to read from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="890" column="24" bodyfile="hal/nrf_qspi.h" bodystart="890" bodyend="898" declfile="hal/nrf_qspi.h" declline="520" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaa749f360b574b95bfd768cb7ec0a31f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_erase_ptr_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint32_t erase_addr, nrf_qspi_erase_len_t len)</argsstring>
+        <name>nrf_qspi_erase_ptr_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>erase_addr</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1gabe68b50d3c5f07a5c946916eac125ebc" kindref="member">nrf_qspi_erase_len_t</ref></type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting erase data into the peripheral register (without starting the process). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">erase_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Start address to erase. Address must have padding set to 4 bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of erasing area. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="900" column="24" bodyfile="hal/nrf_qspi.h" bodystart="900" bodyend="906" declfile="hal/nrf_qspi.h" declline="532" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaa9b1c1962520d1c974b3b070f13cfa7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_erase_ptr_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_erase_ptr_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the currently configured erase pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Erase pointer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="908" column="28" bodyfile="hal/nrf_qspi.h" bodystart="908" bodyend="911" declfile="hal/nrf_qspi.h" declline="543" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga3a25b106830dd855be39383e4a4b432c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__qspi__hal_1gabe68b50d3c5f07a5c946916eac125ebc" kindref="member">nrf_qspi_erase_len_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_qspi_erase_len_t nrf_qspi_erase_len_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_erase_len_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the currently configured erase length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Erase length. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="913" column="40" bodyfile="hal/nrf_qspi.h" bodystart="913" bodyend="916" declfile="hal/nrf_qspi.h" declline="552" declcolumn="40"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga4ae65a740c1c17508fb72cbe54bc0bf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_qspi_status_reg_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_status_reg_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the peripheral status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Peripheral status register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="918" column="28" bodyfile="hal/nrf_qspi.h" bodystart="918" bodyend="921" declfile="hal/nrf_qspi.h" declline="561" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga9672989a6a2d4f1cb1b9bb1b315bf0e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_qspi_sreg_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_sreg_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the device status register stored in the peripheral status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Device status register (lower byte). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="923" column="27" bodyfile="hal/nrf_qspi.h" bodystart="923" bodyend="926" declfile="hal/nrf_qspi.h" declline="570" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga934b17a7ab98e1cd9d6a3a08fabb058b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_qspi_busy_check</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_busy_check</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the peripheral is busy or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The QSPI is busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The QSPI is ready. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="928" column="24" bodyfile="hal/nrf_qspi.h" bodystart="928" bodyend="932" declfile="hal/nrf_qspi.h" declline="580" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaa4f1a4c85c69335f8764693e4d7f9153" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_cinstrdata_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_cinstr_len_t length, void const *p_tx_data)</argsstring>
+        <name>nrf_qspi_cinstrdata_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" kindref="member">nrf_qspi_cinstr_len_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_tx_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting registers sending with custom instruction transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be ommited when using NRF_QSPI_CINSTR_LEN_1B as the length argument (sending only opcode without data).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the custom instruction data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the data to send with the custom instruction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="934" column="24" bodyfile="hal/nrf_qspi.h" bodystart="934" bodyend="977" declfile="hal/nrf_qspi.h" declline="592" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga18d2bf58bdaeb284fa0bcc5b84d397f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_cinstrdata_get</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg, nrf_qspi_cinstr_len_t length, void *p_rx_data)</argsstring>
+        <name>nrf_qspi_cinstrdata_get</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" kindref="member">nrf_qspi_cinstr_len_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_rx_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting data from register after custom instruction transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the custom instruction data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_rx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the reading buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="979" column="24" bodyfile="hal/nrf_qspi.h" bodystart="979" bodyend="1019" declfile="hal/nrf_qspi.h" declline="603" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga1abc53437cf85194e4d239600e67321f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_cinstr_transfer_start</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_cinstr_conf_t const *p_config)</argsstring>
+        <name>nrf_qspi_cinstr_transfer_start</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for sending custom instruction to external memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the custom instruction configuration structure. See <ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1021" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1021" bodyend="1030" declfile="hal/nrf_qspi.h" declline="614" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga1e5568c28d5e92abedc4904f73ee639f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_cinstr_long_transfer_start</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_cinstr_conf_t const *p_config)</argsstring>
+        <name>nrf_qspi_cinstr_long_transfer_start</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting a custom instruction long transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the custom instruction configuration structure. See <ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1032" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1032" bodyend="1042" declfile="hal/nrf_qspi.h" declline="624" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga83f0a976c5d1b7694186ac5e575bbb42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_qspi_cinstr_long_transfer_is_ongoing</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_cinstr_long_transfer_is_ongoing</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether a custom instruction long transfer is ongoing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Custom instruction long transfer is ongoing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Custom instruction long transfer is not ongoing. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1044" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1044" bodyend="1048" declfile="hal/nrf_qspi.h" declline="635" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga592ca0370403b99862c5212d46b46ac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_cinstr_long_transfer_continue</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_cinstr_len_t length, bool finalize)</argsstring>
+        <name>nrf_qspi_cinstr_long_transfer_continue</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" kindref="member">nrf_qspi_cinstr_len_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>finalize</declname>
+        </param>
+        <briefdescription>
+<para>Function for continuing a custom instruction long transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the custom instruction data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">finalize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the custom instruction long transfer is to be finalized. False if the custom instruction long transfer is to be continued. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1050" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1050" bodyend="1058" declfile="hal/nrf_qspi.h" declline="645" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaabf69606afa7753c03ca5555abbe1741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_xip_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_qspi_xip_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling Execute in Place (XIP) operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>XIP can be enabled after reset. See Product Specification.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if XIP is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1061" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1061" bodyend="1065" declfile="hal/nrf_qspi.h" declline="658" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga8127f6a30aaa0cf62f715e9345acd581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_qspi_xip_check</definition>
+        <argsstring>(NRF_QSPI_Type const *p_reg)</argsstring>
+        <name>nrf_qspi_xip_check</name>
+        <param>
+          <type>NRF_QSPI_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether Execute in Place (XIP) operation is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>XIP is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>XIP is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1067" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1067" bodyend="1070" declfile="hal/nrf_qspi.h" declline="668" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga64b7138fa30f03935b1824138405c4cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_xip_encryption_configure</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_encryption_t const *p_cfg)</argsstring>
+        <name>nrf_qspi_xip_encryption_configure</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__encryption__t" kindref="compound">nrf_qspi_encryption_t</ref> const *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring the XIP encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to encryption configuration structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1074" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1074" bodyend="1084" declfile="hal/nrf_qspi.h" declline="678" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gadde1e48d01f1c2c908c8dd0d68674ef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_xip_encryption_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_qspi_xip_encryption_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the XIP encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if XIP encryption is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1086" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1086" bodyend="1091" declfile="hal/nrf_qspi.h" declline="687" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga432a8504c558244eb0ec0956a3122bd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_dma_encryption_configure</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, nrf_qspi_encryption_t const *p_cfg)</argsstring>
+        <name>nrf_qspi_dma_encryption_configure</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__qspi__encryption__t" kindref="compound">nrf_qspi_encryption_t</ref> const *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring the EasyDMA encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to encryption configuration structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1095" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1095" bodyend="1105" declfile="hal/nrf_qspi.h" declline="697" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1ga1d7b95b36402b460fe5abd4cbbc7fcd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_dma_encryption_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_qspi_dma_encryption_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the EasyDMA encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if EasyDMA encryption is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1107" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1107" bodyend="1112" declfile="hal/nrf_qspi.h" declline="706" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__qspi__hal_1gaf8ab06442e0afdbaeda89996f69d1236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_qspi_iftiming_set</definition>
+        <argsstring>(NRF_QSPI_Type *p_reg, uint8_t rxdelay)</argsstring>
+        <name>nrf_qspi_iftiming_set</name>
+        <param>
+          <type>NRF_QSPI_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>rxdelay</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the timing related to sampling of the input serial data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rxdelay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of 64 MHz cycles (15.625 ns) delay from the the rising edge of the clock until the input serial data is sampled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="1115" column="24" bodyfile="hal/nrf_qspi.h" bodystart="1115" bodyend="1118" declfile="hal/nrf_qspi.h" declline="716" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__qspi__hal_1ga2197a72f5359fd1233b77ca5d5babba7" prot="public" static="no">
+        <name>NRF_QSPI_HAS_XIPEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether XIP can be explicitly enabled or disabled via XIPEN register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="52" column="9" bodyfile="hal/nrf_qspi.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1ga1b250d2406ccb12dbad7e43978c5ce41" prot="public" static="no">
+        <name>NRF_QSPI_HAS_XIP_ENC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether encryption for XIP is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="59" column="9" bodyfile="hal/nrf_qspi.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1ga13263e5f8fc74cecc85d099ae91ccb93" prot="public" static="no">
+        <name>NRF_QSPI_HAS_DMA_ENC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether encryption for EasyDMA is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="66" column="9" bodyfile="hal/nrf_qspi.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1ga39bd7ed54dc81c10da953e545e61da9c" prot="public" static="no">
+        <name>NRF_QSPI_HAS_MODE_1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether support for QSPI mode 1 is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="73" column="9" bodyfile="hal/nrf_qspi.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1gaf36cb88a01d8b4f7c79429b448d9759a" prot="public" static="no">
+        <name>NRF_QSPI_BASE_CLOCK_FREQ</name>
+        <initializer>QSPI_BASE_CLOCK_FREQ</initializer>
+        <briefdescription>
+<para>Value representing QSPI base clock frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="79" column="9" bodyfile="hal/nrf_qspi.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1gac7e35ddaf91c5138b626d9a07871a0ce" prot="public" static="no">
+        <name>NRF_QSPI_PIN_NOT_CONNECTED</name>
+        <initializer>0xFF</initializer>
+        <briefdescription>
+<para>This value can be used as a parameter for the <ref refid="group__nrf__qspi__hal_1gae3d08224467245db637f575a7798c8fd" kindref="member">nrf_qspi_pins_set</ref> function to specify that a given QSPI signal (SCK, CSN, IO0, IO1, IO2, or IO3) will not be connected to a physical pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="86" column="9" bodyfile="hal/nrf_qspi.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__qspi__hal_1gac45347f4a2f684c70cb6179452598fe2" prot="public" static="no">
+        <name>NRF_QSPI_PIN_VAL</name>
+        <param><defname>pin</defname></param>
+        <initializer>(pin) == <ref refid="group__nrf__qspi__hal_1gac7e35ddaf91c5138b626d9a07871a0ce" kindref="member">NRF_QSPI_PIN_NOT_CONNECTED</ref> ? 0xFFFFFFFF : (pin)</initializer>
+        <briefdescription>
+<para>Macro for setting proper values to pin registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_qspi.h" line="89" column="9" bodyfile="hal/nrf_qspi.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the QSPI peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

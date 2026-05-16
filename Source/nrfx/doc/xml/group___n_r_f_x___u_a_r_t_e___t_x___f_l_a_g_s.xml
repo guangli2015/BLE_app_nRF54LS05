@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s" kind="group">
+    <compoundname>NRFX_UARTE_TX_FLAGS</compoundname>
+    <title>Flags used for TX.</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1ga4d9af21d3808277166b6c910ce0e2d69" prot="public" static="no">
+        <name>NRFX_UARTE_TX_BLOCKING</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(0)</initializer>
+        <briefdescription>
+<para>Flag indicating blocking transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When the flag is set, the transfer is synchronous even if the driver is configured to non-blocking operation. If UARTE is transmitting when the user requests blocking transfer, -EBUSY is returned. A driver state is determined by hardware, thus it is accepted to poll the driver and continuously request blocking transfer until it is accepted. It can be done from any priority context. Blocking transfer returns when the buffer is transferred or when the user buffer is no longer in use (see <ref refid="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1gab185df30fa5d41904ab380ee4158db81" kindref="member">NRFX_UARTE_TX_EARLY_RETURN</ref>). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="233" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1gab185df30fa5d41904ab380ee4158db81" prot="public" static="no">
+        <name>NRFX_UARTE_TX_EARLY_RETURN</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(1)</initializer>
+        <briefdescription>
+<para>Flag indicating to return from blocking transfer not waiting for the last transmit event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The flag indicates a blocking transfer just like <ref refid="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1ga4d9af21d3808277166b6c910ce0e2d69" kindref="member">NRFX_UARTE_TX_BLOCKING</ref>. However, when the flag is set, if the transfer is still ongoing and if the transfer of the last byte already has started, <ref refid="group__nrfx__uarte_1gaa58388bb50df65a37e994ad759f654e8" kindref="member">nrfx_uarte_tx</ref> returns instead of waiting for the transfer to end. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="242" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1ga030575ba323f8d432e6d070d0af96774" prot="public" static="no">
+        <name>NRFX_UARTE_TX_LINK</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(2)</initializer>
+        <briefdescription>
+<para>Flag indicating that the <ref refid="group__nrfx__uarte_1gaa58388bb50df65a37e994ad759f654e8" kindref="member">nrfx_uarte_tx</ref> call will be linked to an active transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>UARTE DMA registers are buffered which means that once transfer is started, registers with transfer details (pointer and length) can be overwritten. If that is combined with the (D)PPI connection between ENDTX and STARTTX events, then two transfers are linked together and bytes are transferred without any gap allowing to utilize the maximum bandwidth.</para>
+<para>When the flag is set, it indicates that the user can set up an ENDTX-STARTTX (D)PPI connection and wants to perform linked transfers. It is the user&apos;s responsibility to disable the (D)PPI connection when the last transfer is started. If the user does not set up an ENDTX-STARTTX (D)PPI connection, then the transfer is restarted from the context of ENDTX event handling which is earlier than context of the <ref refid="group__nrfx__uarte_1gga3c10c6b4c886f35413624f9887479073a45e67c5ce7924b80c49c65ed142191b8" kindref="member">NRFX_UARTE_EVT_TX_DONE</ref>. The flag has no impact if used while there is no ongoing transfer.</para>
+<para>For example, if a sequence consists of three transfers, then the first <ref refid="group__nrfx__uarte_1gaa58388bb50df65a37e994ad759f654e8" kindref="member">nrfx_uarte_tx</ref> can be called with or without the flag and the following two transfers must have the flag set. The second <ref refid="group__nrfx__uarte_1gaa58388bb50df65a37e994ad759f654e8" kindref="member">nrfx_uarte_tx</ref> can be called immediately after the first one and the third one after the first <ref refid="group__nrfx__uarte_1gga3c10c6b4c886f35413624f9887479073a45e67c5ce7924b80c49c65ed142191b8" kindref="member">NRFX_UARTE_EVT_TX_DONE</ref> event. After the second <ref refid="group__nrfx__uarte_1gga3c10c6b4c886f35413624f9887479073a45e67c5ce7924b80c49c65ed142191b8" kindref="member">NRFX_UARTE_EVT_TX_DONE</ref> event is received, the (D)PPI connection must be disabled (if it was used).</para>
+<para>When (D)PPI connection is used, then it is critical that (D)PPI connection is disabled on time, before the last transfer is completed. Otherwise, the transfer will be repeated, and unwanted data will be transferred. Hence, it is recommended to use longer buffers. Time needed to send the buffer must be longer than the maximum system latency.</para>
+<para>When the flag is used, then the driver instance must not use the ENDTX-STOPTX (D)PPI connection.</para>
+<para>When linked transfers are used, then blocking transfers (see <ref refid="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1ga4d9af21d3808277166b6c910ce0e2d69" kindref="member">NRFX_UARTE_TX_BLOCKING</ref> and <ref refid="group___n_r_f_x___u_a_r_t_e___t_x___f_l_a_g_s_1gab185df30fa5d41904ab380ee4158db81" kindref="member">NRFX_UARTE_TX_EARLY_RETURN</ref>) cannot be performed. An error is returned when the flag is set and the <ref refid="group__nrfx__uarte_1gaa58388bb50df65a37e994ad759f654e8" kindref="member">nrfx_uarte_tx</ref> is called during ongoing blocking transfer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="277" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Flags apply only if an instance is initialized with a user handler. Otherwise flags are ignored and all transfers are blocking. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

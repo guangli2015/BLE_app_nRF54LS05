@@ -1,0 +1,894 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__qdec_8h" kind="file" language="C++">
+    <compoundname>nrfx_qdec.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__qdec_8h" local="no">haly/nrfy_qdec.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_qdec.h</label>
+        <link refid="nrfx__qdec_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__qdec__config__t" prot="public">nrfx_qdec_config_t</innerclass>
+    <innerclass refid="structnrfx__qdec__sample__data__evt__t" prot="public">nrfx_qdec_sample_data_evt_t</innerclass>
+    <innerclass refid="structnrfx__qdec__report__data__evt__t" prot="public">nrfx_qdec_report_data_evt_t</innerclass>
+    <innerclass refid="structnrfx__qdec__event__t" prot="public">nrfx_qdec_event_t</innerclass>
+    <innerclass refid="structnrfx__qdec__t" prot="public">nrfx_qdec_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__qdec_1ga1fea8e0ef3500f7f65758083ec30fe7c" prot="public" static="no">
+        <name>NRFX_QDEC_DEFAULT_CONFIG</name>
+        <param><defname>_pin_a</defname></param>
+        <param><defname>_pin_b</defname></param>
+        <param><defname>_pin_led</defname></param>
+        <initializer>{                                                                \
+    .reportper          = <ref refid="group__nrf__qdec__hal_1ggae6e5e701c319afebe0117d4ec868b0bca01778bd2208621da40f5cf43fa5dbe2b" kindref="member">NRF_QDEC_REPORTPER_10</ref>,                 \
+    .sampleper          = <ref refid="group__nrf__qdec__hal_1ggacc2b3f0fab27a73d628dcb64b7d6ee48abadf210e80ff9f5b0c131cc91e6d8c4f" kindref="member">NRF_QDEC_SAMPLEPER_16384US</ref>,            \
+    .psela              = _pin_a,                                \
+    .pselb              = _pin_b,                                \
+    .pselled            = _pin_led,                              \
+    .ledpre             = 500,                                   \
+    .ledpol             = <ref refid="group__nrf__qdec__hal_1gga46dc0c4003ff86c492e0e28d6a2c5ae5aadef855450bc04335300c88f77ac17df" kindref="member">NRF_QDEC_LEPOL_ACTIVE_HIGH</ref>,            \
+    .dbfen              = <ref refid="group__nrf__qdec__hal_1gga7050e63cd770970f389de07c6fb3cdeaabc2439c5bd1c52ee7621f5d9dbe7613a" kindref="member">NRF_QDEC_DBFEN_DISABLE</ref>,                \
+    .sample_inten       = false,                                 \
+    .reportper_inten    = true,                                  \
+    .interrupt_priority = NRFX_QDEC_DEFAULT_CONFIG_IRQ_PRIORITY, \
+}</initializer>
+        <briefdescription>
+<para>QDEC driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up QDEC with the following options:<itemizedlist>
+<listitem><para>report period: 10 samples</para>
+</listitem><listitem><para>sampling period: 16384 us</para>
+</listitem><listitem><para>LED enabled for 500 us before sampling</para>
+</listitem><listitem><para>LED polarity: active high</para>
+</listitem><listitem><para>debouncing filter disabled</para>
+</listitem><listitem><para>sample ready interrupt disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for A encoder channel input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for B encoder channel input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_led</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for LED output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="96" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__qdec_1gabf314c38bfb95788b4a124f1e8a17f9b" prot="public" static="no">
+        <name>NRFX_QDEC_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                  \
+    .p_reg = (NRF_QDEC_Type *)reg, \
+    .cb = {0},                     \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a QDEC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="162" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_qdec_event_handler_t) (nrfx_qdec_event_t event, void *p_context)</definition>
+        <argsstring>)(nrfx_qdec_event_t event, void *p_context)</argsstring>
+        <name>nrfx_qdec_event_handler_t</name>
+        <briefdescription>
+<para>QDEC event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC event structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="141" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__qdec_1ga98b3b8bba8d84a7e475b9f8aa47f02dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qdec_init</definition>
+        <argsstring>(nrfx_qdec_t *p_instance, nrfx_qdec_config_t const *p_config, nrfx_qdec_event_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_qdec_init</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" kindref="member">nrfx_qdec_event_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="179" column="5" declfile="drivers/include/nrfx_qdec.h" declline="179" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga83618ccee8ef80ffe31971300759abc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qdec_reconfigure</definition>
+        <argsstring>(nrfx_qdec_t *p_instance, nrfx_qdec_config_t const *p_config)</argsstring>
+        <name>nrfx_qdec_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is enabled and cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="194" column="5" declfile="drivers/include/nrfx_qdec.h" declline="194" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga3bbc6356849d32e9775f40d65f3af002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_uninit</definition>
+        <argsstring>(nrfx_qdec_t *p_instance)</argsstring>
+        <name>nrfx_qdec_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="204" column="6" declfile="drivers/include/nrfx_qdec.h" declline="204" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gadda1286ee501f8313d05018164f7f2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_qdec_init_check</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance)</argsstring>
+        <name>nrfx_qdec_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the QDEC driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="214" column="6" declfile="drivers/include/nrfx_qdec.h" declline="214" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gaa18db8c2d586dd523b4e8f8f53ed235d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_enable</definition>
+        <argsstring>(nrfx_qdec_t *p_instance)</argsstring>
+        <name>nrfx_qdec_enable</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized or enabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="223" column="6" declfile="drivers/include/nrfx_qdec.h" declline="223" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gaf69fc40589b0fc1dd409a43ce9d26903" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_disable</definition>
+        <argsstring>(nrfx_qdec_t *p_instance)</argsstring>
+        <name>nrfx_qdec_disable</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized or disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="232" column="6" declfile="drivers/include/nrfx_qdec.h" declline="232" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga1b6c67c544f564ffe63877b3e2466904" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_accumulators_read</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, int32_t *p_acc, uint32_t *p_accdbl)</argsstring>
+        <name>nrfx_qdec_accumulators_read</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>int32_t *</type>
+          <declname>p_acc</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_accdbl</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading accumulated transitions from the QDEC peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is not enabled. </para>
+</simplesect>
+<simplesect kind="note"><para>Accumulators are cleared after reading.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the accumulated transitions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_accdbl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the accumulated double transitions. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="244" column="6" declfile="drivers/include/nrfx_qdec.h" declline="244" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gaefc9f5be950ff81704a8198cf4168d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_qdec_task_address_get</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrf_qdec_task_t task)</argsstring>
+        <name>nrfx_qdec_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qdec__hal_1ga0dcaa13487193b622caad861a5f4cf31" kindref="member">nrf_qdec_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified QDEC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="271" column="29" bodyfile="drivers/include/nrfx_qdec.h" bodystart="271" bodyend="275" declfile="drivers/include/nrfx_qdec.h" declline="256" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga211791cab0e8b6d15da6300157e399f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_qdec_event_address_get</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrf_qdec_event_t event)</argsstring>
+        <name>nrfx_qdec_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qdec__hal_1gae87c0c925cac2e5e1833534e51e7d1e4" kindref="member">nrf_qdec_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified QDEC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="277" column="29" bodyfile="drivers/include/nrfx_qdec.h" bodystart="277" bodyend="281" declfile="drivers/include/nrfx_qdec.h" declline="267" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga19b967d96f3261c19b2a6dfbc6e4f9c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_irq_handler</definition>
+        <argsstring>(nrfx_qdec_t *p_instance)</argsstring>
+        <name>nrfx_qdec_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="290" column="6" declfile="drivers/include/nrfx_qdec.h" declline="290" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_QDEC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_QDEC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_qdec.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_qdec<sp/>QDEC<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_qdec</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Quadrature<sp/>Decoder<sp/>(QDEC)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>QDEC<sp/>driver<sp/>instance<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structnrfx__qdec__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1gae6e5e701c319afebe0117d4ec868b0bc" kindref="member">nrf_qdec_reportper_t</ref><sp/>reportper;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Report<sp/>period<sp/>in<sp/>samples.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1gacc2b3f0fab27a73d628dcb64b7d6ee48" kindref="member">nrf_qdec_sampleper_t</ref><sp/>sampleper;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Sampling<sp/>period<sp/>in<sp/>microseconds.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>psela;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pin<sp/>number<sp/>for<sp/>A<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pselb;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pin<sp/>number<sp/>for<sp/>B<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pselled;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pin<sp/>number<sp/>for<sp/>LED<sp/>output.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ledpre;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Time<sp/>(in<sp/>microseconds)<sp/>how<sp/>long<sp/>LED<sp/>is<sp/>switched<sp/>on<sp/>before<sp/>sampling.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1ga46dc0c4003ff86c492e0e28d6a2c5ae5" kindref="member">nrf_qdec_ledpol_t</ref><sp/><sp/><sp/><sp/>ledpol;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Active<sp/>LED<sp/>polarity.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dbfen;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>State<sp/>of<sp/>debouncing<sp/>filter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample_inten;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Enabling<sp/>sample<sp/>ready<sp/>interrupt.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reportper_inten;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Enabling<sp/>report<sp/>ready<sp/>interrupt.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>QDEC<sp/>interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>GPIO<sp/>configuration<sp/>of<sp/>pins.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>any<sp/>GPIO<sp/>parameters<sp/>of<sp/>the<sp/>used<sp/>pins.<sp/>Those</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>parameters<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>configured</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_psel_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>pin<sp/>selection<sp/>configuration.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>pin<sp/>select<sp/>registers<sp/>in<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>Those<sp/>registers<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>set<sp/>up</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>@note<sp/>When<sp/>both<sp/>GPIO<sp/>configuration<sp/>and<sp/>pin</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>selection<sp/>are<sp/>to<sp/>be<sp/>skipped,<sp/>the<sp/>structure</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>fields<sp/>that<sp/>specify<sp/>pins<sp/>can<sp/>be<sp/>omitted,</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>as<sp/>they<sp/>are<sp/>ignored<sp/>anyway.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}<sp/><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="81"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>@brief<sp/>QDEC<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>QDEC<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/>-<sp/>report<sp/>period:<sp/>10<sp/>samples</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/>-<sp/>sampling<sp/>period:<sp/>16384<sp/>us</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>-<sp/>LED<sp/>enabled<sp/>for<sp/>500<sp/>us<sp/>before<sp/>sampling</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>-<sp/>LED<sp/>polarity:<sp/>active<sp/>high</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>-<sp/>debouncing<sp/>filter<sp/>disabled</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>-<sp/>sample<sp/>ready<sp/>interrupt<sp/>disabled</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_a<sp/><sp/><sp/>Pin<sp/>for<sp/>A<sp/>encoder<sp/>channel<sp/>input.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_b<sp/><sp/><sp/>Pin<sp/>for<sp/>B<sp/>encoder<sp/>channel<sp/>input.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_led<sp/>Pin<sp/>for<sp/>LED<sp/>output.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_QDEC_DEFAULT_CONFIG(_pin_a,<sp/>_pin_b,<sp/>_pin_led)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.reportper<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_QDEC_REPORTPER_10,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sampleper<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_QDEC_SAMPLEPER_16384US,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.psela<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_a,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pselb<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_b,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.pselled<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_led,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.ledpre<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>500,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.ledpol<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_QDEC_LEPOL_ACTIVE_HIGH,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.dbfen<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_QDEC_DBFEN_DISABLE,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sample_inten<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>false,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.reportper_inten<sp/><sp/><sp/><sp/>=<sp/>true,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_QDEC_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**<sp/>@brief<sp/>QDEC<sp/>sample<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="structnrfx__qdec__sample__data__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/>value;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Sample<sp/>value.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}<sp/><ref refid="structnrfx__qdec__sample__data__evt__t" kindref="compound">nrfx_qdec_sample_data_evt_t</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="117"><highlight class="comment">/**<sp/>@brief<sp/>QDEC<sp/>report<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="structnrfx__qdec__report__data__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><sp/>acc;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Accumulated<sp/>transitions.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>accdbl;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Accumulated<sp/>double<sp/>transitions.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}<sp/><ref refid="structnrfx__qdec__report__data__evt__t" kindref="compound">nrfx_qdec_report_data_evt_t</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment">/**<sp/>@brief<sp/>QDEC<sp/>event<sp/>handler<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="structnrfx__qdec__event__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1gae87c0c925cac2e5e1833534e51e7d1e4" kindref="member">nrf_qdec_event_t</ref><sp/><sp/>type;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Event<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">union</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__qdec__sample__data__evt__t" kindref="compound">nrfx_qdec_sample_data_evt_t</ref><sp/>sample;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Sample<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__qdec__report__data__evt__t" kindref="compound">nrfx_qdec_report_data_evt_t</ref><sp/>report;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Report<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>data;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Union<sp/>to<sp/>store<sp/>event<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}<sp/><ref refid="structnrfx__qdec__event__t" kindref="compound">nrfx_qdec_event_t</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@brief<sp/>QDEC<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/><sp/><sp/><sp/><sp/>QDEC<sp/>event<sp/>structure.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/>Context<sp/>passed<sp/>to<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" kindref="member">nrfx_qdec_event_handler_t</ref>)(<ref refid="structnrfx__qdec__event__t" kindref="compound">nrfx_qdec_event_t</ref><sp/>event,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_context);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" kindref="member">nrfx_qdec_event_handler_t</ref><sp/>handler;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}<sp/>nrfx_qdec_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="152"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**<sp/>@brief<sp/>PWM<sp/>driver<sp/>instance<sp/>data<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="structnrfx__qdec__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_QDEC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_qdec_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}<sp/><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="161"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>a<sp/>QDEC<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_QDEC_INSTANCE(reg)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_reg<sp/>=<sp/>(NRF_QDEC_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/>=<sp/>{0},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="168"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>QDEC.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>handler<sp/><sp/><sp/><sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Must<sp/>not<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/>Context<sp/>passed<sp/>to<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1ga98b3b8bba8d84a7e475b9f8aa47f02dd" kindref="member">nrfx_qdec_init</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" kindref="member">nrfx_qdec_event_handler_t</ref><sp/><sp/>handler,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>QDEC.</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>enabled<sp/>and<sp/>cannot<sp/>be<sp/>reconfigured.</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1ga83618ccee8ef80ffe31971300759abc5" kindref="member">nrfx_qdec_reconfigure</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="197"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>QDEC.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>asserts<sp/>if<sp/>module<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1ga3bbc6356849d32e9775f40d65f3af002" kindref="member">nrfx_qdec_uninit</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="206"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>QDEC<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Instance<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Instance<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1gadda1286ee501f8313d05018164f7f2ed" kindref="member">nrfx_qdec_init_check</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="216"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>QDEC.</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>asserts<sp/>if<sp/>module<sp/>is<sp/>uninitialized<sp/>or<sp/>enabled.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1gaa18db8c2d586dd523b4e8f8f53ed235d" kindref="member">nrfx_qdec_enable</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="225"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>QDEC.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>asserts<sp/>if<sp/>module<sp/>is<sp/>uninitialized<sp/>or<sp/>disabled.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1gaf69fc40589b0fc1dd409a43ce9d26903" kindref="member">nrfx_qdec_disable</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="234"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>accumulated<sp/>transitions<sp/>from<sp/>the<sp/>QDEC<sp/>peripheral.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>asserts<sp/>if<sp/>module<sp/>is<sp/>not<sp/>enabled.</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*<sp/>@note<sp/>Accumulators<sp/>are<sp/>cleared<sp/>after<sp/>reading.</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_acc<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>store<sp/>the<sp/>accumulated<sp/>transitions.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_accdbl<sp/><sp/><sp/>Pointer<sp/>to<sp/>store<sp/>the<sp/>accumulated<sp/>double<sp/>transitions.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1ga1b6c67c544f564ffe63877b3e2466904" kindref="member">nrfx_qdec_accumulators_read</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_acc,</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_accdbl);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="248"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>QDEC<sp/>task.</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDEC<sp/>task.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@return<sp/>Task<sp/>address.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__qdec_1gaefc9f5be950ff81704a8198cf4168d6d" kindref="member">nrfx_qdec_task_address_get</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1ga0dcaa13487193b622caad861a5f4cf31" kindref="member">nrf_qdec_task_t</ref><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="259"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>QDEC<sp/>event.</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/><sp/><sp/><sp/><sp/><sp/>QDEC<sp/>event.</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/>@return<sp/>Event<sp/>address.</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__qdec_1ga211791cab0e8b6d15da6300157e399f8" kindref="member">nrfx_qdec_event_address_get</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1gae87c0c925cac2e5e1833534e51e7d1e4" kindref="member">nrf_qdec_event_t</ref><sp/><sp/><sp/><sp/>event);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__qdec_1gaefc9f5be950ff81704a8198cf4168d6d" kindref="member">nrfx_qdec_task_address_get</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1ga0dcaa13487193b622caad861a5f4cf31" kindref="member">nrf_qdec_task_t</ref><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__qdec_1ga02dab09c39e1c614073aa243f7061b92" kindref="member">nrfy_qdec_task_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__qdec__t_1aa4a5c4a88832671d1677a261cadece51" kindref="member">p_reg</ref>,<sp/>task);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__qdec_1ga211791cab0e8b6d15da6300157e399f8" kindref="member">nrfx_qdec_event_address_get</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__qdec__hal_1gae87c0c925cac2e5e1833534e51e7d1e4" kindref="member">nrf_qdec_event_t</ref><sp/><sp/><sp/><sp/>event)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__qdec_1gab6133621340b82ba6106f268f1dc8996" kindref="member">nrfy_qdec_event_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__qdec__t_1aa4a5c4a88832671d1677a261cadece51" kindref="member">p_reg</ref>,<sp/>event);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="284"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__qdec_1ga19b967d96f3261c19b2a6dfbc6e4f9c6" kindref="member">nrfx_qdec_irq_handler</ref>(<ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="292"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_QDEC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_qdec.h"/>
+  </compounddef>
+</doxygen>

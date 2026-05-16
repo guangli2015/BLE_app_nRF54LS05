@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__comp" kind="group">
+    <compoundname>nrfx_comp</compoundname>
+    <title>COMP driver</title>
+    <innerclass refid="structnrfx__comp__config__t" prot="public">nrfx_comp_config_t</innerclass>
+    <innergroup refid="group__nrfx__comp__config">COMP peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__comp_1ga722c3568601fb8c784b743db3cd6d5df" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_comp_event_handler_t) (nrf_comp_event_t event)</definition>
+        <argsstring>)(nrf_comp_event_t event)</argsstring>
+        <name>nrfx_comp_event_handler_t</name>
+        <briefdescription>
+<para>COMP event handler function type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>COMP event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="68" column="9" bodyfile="drivers/include/nrfx_comp.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__comp_1ga858d9024b77add8f9dcd8e46b77432e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_comp_init</definition>
+        <argsstring>(nrfx_comp_config_t const *p_config, nrfx_comp_event_handler_t event_handler)</argsstring>
+        <name>nrfx_comp_init</name>
+        <param>
+          <type><ref refid="structnrfx__comp__config__t" kindref="compound">nrfx_comp_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__comp_1ga722c3568601fb8c784b743db3cd6d5df" kindref="member">nrfx_comp_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the COMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function initializes the COMP driver, but does not enable the peripheral or any interrupts. To start the driver, call the function <ref refid="group__nrfx__comp_1ga0cdf4de1646d2edd59b7bafa550d525b" kindref="member">nrfx_comp_start()</ref> after initialization.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The LPCOMP peripheral is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog input pin or external reference is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="135" column="5" declfile="drivers/include/nrfx_comp.h" declline="135" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga6b84aa044dd303b448252f4c4275aab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_comp_reconfigure</definition>
+        <argsstring>(nrfx_comp_config_t const *p_config)</argsstring>
+        <name>nrfx_comp_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__comp__config__t" kindref="compound">nrfx_comp_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the COMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is running and cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog input pin or external reference is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="148" column="5" declfile="drivers/include/nrfx_comp.h" declline="148" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1gaa0fd36c985fb6bd3d9e969734f8248f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_comp_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_comp_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the COMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function uninitializes the COMP driver. The COMP peripheral and its interrupts are disabled, and local variables are cleaned. After this call, you must initialize the driver again by calling <ref refid="group__nrfx__comp_1ga858d9024b77add8f9dcd8e46b77432e0" kindref="member">nrfx_comp_init()</ref> if you want to use it.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__comp_1gae778ebd92531a679ca3b1839325da18a" kindref="member">nrfx_comp_stop</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="159" column="6" declfile="drivers/include/nrfx_comp.h" declline="159" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga1ac49649b27e57713cc3a68b9acd3b64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_comp_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_comp_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the COMP driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="167" column="6" declfile="drivers/include/nrfx_comp.h" declline="167" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga2246c34f3f867c0499e8940864d9336f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_comp_pin_select</definition>
+        <argsstring>(nrfx_analog_input_t psel)</argsstring>
+        <name>nrfx_comp_pin_select</name>
+        <param>
+          <type><ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref></type>
+          <declname>psel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the analog input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">psel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Generic analog pin selection.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Setting the pin was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog input pin is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="177" column="5" declfile="drivers/include/nrfx_comp.h" declline="177" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga0cdf4de1646d2edd59b7bafa550d525b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_comp_start</definition>
+        <argsstring>(uint32_t comp_evt_en_mask, uint32_t comp_shorts_mask)</argsstring>
+        <name>nrfx_comp_start</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>comp_evt_en_mask</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>comp_shorts_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the COMP peripheral and interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Before calling this function, the driver must be initialized. This function enables the COMP peripheral and its interrupts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">comp_evt_en_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of events to be enabled. This parameter is to be built as an OR of elements from <ref refid="group__nrf__comp__hal_1gab671bf5df533600ad4538f8ca2005a43" kindref="member">nrf_comp_int_mask_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">comp_shorts_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts to be enabled. This parameter is to be built as an OR of elements from <ref refid="group__nrf__comp__hal_1gac21bbfe9589f7dfa639396957d2f2d79" kindref="member">nrf_comp_short_mask_t</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__comp_1ga858d9024b77add8f9dcd8e46b77432e0" kindref="member">nrfx_comp_init</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="192" column="6" declfile="drivers/include/nrfx_comp.h" declline="192" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1gae778ebd92531a679ca3b1839325da18a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_comp_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_comp_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the COMP peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Before calling this function, the driver must be enabled. This function disables the COMP peripheral and its interrupts.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__comp_1gaa0fd36c985fb6bd3d9e969734f8248f9" kindref="member">nrfx_comp_uninit</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="202" column="6" declfile="drivers/include/nrfx_comp.h" declline="202" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga262fc4093be0326cdf610d5ca038c2b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_comp_sample</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_comp_sample</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for copying the current state of the comparator result to the RESULT register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input voltage is below the threshold (VIN+ &lt; VIN-). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input voltage is above the threshold (VIN+ &gt; VIN-). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="210" column="10" declfile="drivers/include/nrfx_comp.h" declline="210" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1ga1307fbe9500f4bacc75c5369957cd18e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_comp_task_address_get</definition>
+        <argsstring>(nrf_comp_task_t task)</argsstring>
+        <name>nrfx_comp_task_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__comp__hal_1ga0a587fcb0646329cb6d9700f555787f8" kindref="member">nrf_comp_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a COMP task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>COMP task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the given COMP task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="231" column="29" bodyfile="drivers/include/nrfx_comp.h" bodystart="231" bodyend="234" declfile="drivers/include/nrfx_comp.h" declline="219" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp_1gaed9c03c22f56e836fc82a56a3fc4f40b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_comp_event_address_get</definition>
+        <argsstring>(nrf_comp_event_t event)</argsstring>
+        <name>nrfx_comp_event_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__comp__hal_1ga17ffea3865f2db28127bae9411bce036" kindref="member">nrf_comp_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a COMP event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>COMP event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the given COMP event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="236" column="29" bodyfile="drivers/include/nrfx_comp.h" bodystart="236" bodyend="239" declfile="drivers/include/nrfx_comp.h" declline="228" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__comp_1gacdf2ab36ea0b8f8dedf50dcda346e6de" prot="public" static="no">
+        <name>NRFX_COMP_VOLTAGE_THRESHOLD_TO_INT</name>
+        <param><defname>vol</defname></param>
+        <param><defname>ref</defname></param>
+        <initializer>    (uint8_t)(((vol) &gt; ((ref) / 64)) ? (<ref refid="group__nrfx__utils_1gace8c98e2beb5dae71ccd6da8a5c50f93" kindref="member">NRFX_ROUNDED_DIV</ref>((vol) * 64,(ref)) - 1) : 0)</initializer>
+        <briefdescription>
+<para>Macro for converting the threshold voltage to an integer value (needed by the COMP_TH register). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">vol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Voltage to be changed to COMP_TH register value. This value must not be smaller than reference voltage divided by 64. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference voltage. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="60" column="9" bodyfile="drivers/include/nrfx_comp.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__comp_1ga098f0c155f948ee596e123ec2d31af66" prot="public" static="no">
+        <name>NRFX_COMP_CONFIG_TH</name>
+        <initializer>{                                                            \
+    .th_down = <ref refid="group__nrfx__comp_1gacdf2ab36ea0b8f8dedf50dcda346e6de" kindref="member">NRFX_COMP_VOLTAGE_THRESHOLD_TO_INT</ref>(0.5, 1.2), \
+    .th_up   = <ref refid="group__nrfx__comp_1gacdf2ab36ea0b8f8dedf50dcda346e6de" kindref="member">NRFX_COMP_VOLTAGE_THRESHOLD_TO_INT</ref>(1.0, 1.2)  \
+}</initializer>
+        <briefdescription>
+<para>COMP threshold default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="87" column="9" bodyfile="drivers/include/nrfx_comp.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__comp_1gac36fe635c9ce63e229e5221676c58d39" prot="public" static="no">
+        <name>NRFX_COMP_DEFAULT_CONFIG</name>
+        <param><defname>_input</defname></param>
+        <initializer>{                                                                                  \
+    .reference          = <ref refid="group__nrf__comp__hal_1gga2cb45b32907064f8b15ae54d91ca7470a683a97562633fe24b117a2ccbc0faa90" kindref="member">NRF_COMP_REF_INT_1V2</ref>,                                    \
+    .main_mode          = <ref refid="group__nrf__comp__hal_1gga501c4187cafe59f88ed8e98c7de2bfe6ac957c24d7ddc8c5ed4ff64430d2965db" kindref="member">NRF_COMP_MAIN_MODE_SE</ref>,                                   \
+    .threshold          = <ref refid="group__nrfx__comp_1ga098f0c155f948ee596e123ec2d31af66" kindref="member">NRFX_COMP_CONFIG_TH</ref>,                                     \
+    .speed_mode         = <ref refid="group__nrf__comp__hal_1ggab73023f0b42ab46c65312f9ea9419e05ab112225d17bad73d2ab7729a8a1d76de" kindref="member">NRF_COMP_SP_MODE_HIGH</ref>,                                   \
+    .hyst               = <ref refid="group__nrf__comp__hal_1ggaad279eda81a34c4cc4534f2603ab2717a83a04f019cc200d74e481e644420b6fe" kindref="member">NRF_COMP_HYST_NO_HYST</ref>,                                   \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__comp__hal_1gae7541cca597fceac27d9155082b16248" kindref="member">NRF_COMP_HAS_ISOURCE</ref>, (.isource = <ref refid="group__nrf__comp__hal_1gga2ea3d7f18db9bb9bf1155485fdd720faad24db8d5831ad607e770c5a426131710" kindref="member">NRF_COMP_ISOURCE_OFF</ref>,), ()) \
+    .input              = (<ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref>)_input,                             \
+    .interrupt_priority = NRFX_COMP_DEFAULT_CONFIG_IRQ_PRIORITY                    \
+}</initializer>
+        <briefdescription>
+<para>COMP driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up COMP with the following options:<itemizedlist>
+<listitem><para>single-ended mode</para>
+</listitem><listitem><para>reference voltage: internal 1.2 V</para>
+</listitem><listitem><para>lower threshold: 0.5 V</para>
+</listitem><listitem><para>upper threshold: 1.0 V</para>
+</listitem><listitem><para>high speed mode</para>
+</listitem><listitem><para>hysteresis disabled</para>
+</listitem><listitem><para>current source disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Analog input. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_comp.h" line="107" column="9" bodyfile="drivers/include/nrfx_comp.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Comparator (COMP) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

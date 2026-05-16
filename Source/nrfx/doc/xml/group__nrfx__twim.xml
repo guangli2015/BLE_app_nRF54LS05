@@ -1,0 +1,1151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__twim" kind="group">
+    <compoundname>nrfx_twim</compoundname>
+    <title>TWIM driver</title>
+    <innerclass refid="structnrfx__twim__xfer__desc__t" prot="public">nrfx_twim_xfer_desc_t</innerclass>
+    <innerclass refid="structnrfx__twim__event__t" prot="public">nrfx_twim_event_t</innerclass>
+    <innerclass refid="structnrfx__twim__t" prot="public">nrfx_twim_t</innerclass>
+    <innerclass refid="structnrfx__twim__config__t" prot="public">nrfx_twim_config_t</innerclass>
+    <innergroup refid="group__nrfx__twim__config">TWIM peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twim_xfer_type_t</name>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" prot="public">
+          <name>NRFX_TWIM_XFER_TX</name>
+          <briefdescription>
+<para>TX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" prot="public">
+          <name>NRFX_TWIM_XFER_RX</name>
+          <briefdescription>
+<para>RX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" prot="public">
+          <name>NRFX_TWIM_XFER_TXRX</name>
+          <briefdescription>
+<para>TX transfer followed by RX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" prot="public">
+          <name>NRFX_TWIM_XFER_TXTX</name>
+          <briefdescription>
+<para>TX transfer followed by TX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIM driver transfer types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="53" column="1" bodyfile="drivers/include/nrfx_twim.h" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__twim_1ga8d672a982a44e419b47eb62025c7d2a0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twim_event_type_t</name>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a0c3da05dd0c1c9ba975bbb09da691888" prot="public">
+          <name>NRFX_TWIM_EVT_DONE</name>
+          <briefdescription>
+<para>Transfer completed event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0aa979e5ea226b037863482cfb19c87f7e" prot="public">
+          <name>NRFX_TWIM_EVT_ADDRESS_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending the address. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a38763e24f6695893eca916025267864c" prot="public">
+          <name>NRFX_TWIM_EVT_DATA_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending a data byte. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a9c9e873cf41ad070a6438806a391ff9f" prot="public">
+          <name>NRFX_TWIM_EVT_OVERRUN</name>
+          <briefdescription>
+<para>Error event: The unread data is replaced by new data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0ad0c96945b3c8c3904602ee34c0561cb3" prot="public">
+          <name>NRFX_TWIM_EVT_BUS_ERROR</name>
+          <briefdescription>
+<para>Error event: An unexpected transition occurred on the bus. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIM driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="62" column="1" bodyfile="drivers/include/nrfx_twim.h" bodystart="63" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_twim_event_handler_t) (nrfx_twim_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_twim_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_twim_event_handler_t</name>
+        <briefdescription>
+<para>TWIM driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="90" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_init</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_config_t const *p_config, nrfx_twim_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_twim_init</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TWIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, blocking mode is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>On nRF5340, 1 MHz setting is supported only on the dedicated pins. See the chapter <ulink url="https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf5340%2Fchapters%2Fpin.html">Pin assignments</ulink> in the Product Specification.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified pins. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="234" column="5" declfile="drivers/include/nrfx_twim.h" declline="234" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga16a0ae17e6a54307ef4e4bf0785cf56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_reconfigure</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_config_t const *p_config)</argsstring>
+        <name>nrfx_twim_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified pins. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="250" column="5" declfile="drivers/include/nrfx_twim.h" declline="250" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga2b030ae0602501afc12ff1154d25b390" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_callback_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance, nrfx_twim_event_handler_t *p_event_handler, void **pp_context)</argsstring>
+        <name>nrfx_twim_callback_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref> *</type>
+          <declname>p_event_handler</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>pp_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting current TWIM event handler and associated context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to be filled with the current event handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pp_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to be filled with a pointer to the current event handler context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="260" column="6" declfile="drivers/include/nrfx_twim.h" declline="260" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga171ef1967ffb946962a56e1dd164c301" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_callback_set</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_twim_callback_set</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting event handler of a TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function overwrites the internally stored values of <computeroutput>event_handler</computeroutput> and <computeroutput>p_context</computeroutput> parameters passed to the <ref refid="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" kindref="member">nrfx_twim_init</ref> function. To be able to restore previous event handler you can use the <ref refid="group__nrfx__twim_1ga2b030ae0602501afc12ff1154d25b390" kindref="member">nrfx_twim_callback_get</ref> .</para>
+<para><simplesect kind="warning"><para>This function can be used only for reconfiguring handler in the non-blocking mode. Use <ref refid="group__nrfx__twim_1gad6ee10f61e8095cf874595d8fcbc2f26" kindref="member">nrfx_twim_uninit</ref> and <ref refid="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" kindref="member">nrfx_twim_init</ref> to reconfigure driver in the blocking mode.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Cannot be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is performing transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is configured in blocking mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="282" column="5" declfile="drivers/include/nrfx_twim.h" declline="282" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gad6ee10f61e8095cf874595d8fcbc2f26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_uninit</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="291" column="6" declfile="drivers/include/nrfx_twim.h" declline="291" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1926b246ae2a852859d4599940783b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twim_init_check</definition>
+        <argsstring>(nrfx_twim_t const *p_instance)</argsstring>
+        <name>nrfx_twim_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TWIM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="301" column="6" declfile="drivers/include/nrfx_twim.h" declline="301" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga3f40061fa4ebb768655b2188b5bbd2b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_enable</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_enable</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="308" column="6" declfile="drivers/include/nrfx_twim.h" declline="308" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1c5f6cf18a86a2f2b0cb14c1073d33a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_disable</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_disable</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="315" column="6" declfile="drivers/include/nrfx_twim.h" declline="315" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_xfer</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_xfer_desc_t const *p_xfer_desc, uint32_t flags)</argsstring>
+        <name>nrfx_twim_xfer</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__xfer__desc__t" kindref="compound">nrfx_twim_xfer_desc_t</ref> const *</type>
+          <declname>p_xfer_desc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing a TWIM transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The following transfer types can be configured (<ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref>):<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" kindref="member">NRFX_TWIM_XFER_TXRX</ref> - Write operation followed by a read operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref> - Write operation followed by a write operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref> - Write operation (with or without STOP condition).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" kindref="member">NRFX_TWIM_XFER_RX</ref> - Read operation (with STOP condition).</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>TX-RX and TX-TX transfers are supported only in non-blocking mode.</para>
+</simplesect>
+Additional options are provided using the flags parameter:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1ga202fb0746fddcaa65b2a53aaac223268" kindref="member">NRFX_TWIM_FLAG_TX_POSTINC</ref> and <ref refid="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" kindref="member">NRFX_TWIM_FLAG_RX_POSTINC</ref> - Post-incrementation of buffer addresses.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> - No user event handler after the transfer completion. In most cases, this also means no interrupt at the end of the transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" kindref="member">NRFX_TWIM_FLAG_HOLD_XFER</ref> - Driver is not starting the transfer. Use this flag if the transfer is triggered externally by PPI. Use <ref refid="group__nrfx__twim_1gab2b131cedfc031575c868bb0f8e2bd21" kindref="member">nrfx_twim_start_task_address_get</ref> to get the address of the start task.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> - Prepare for repeated transfers. You can set up a number of transfers that will be triggered externally (for example by PPI). An example is a TXRX transfer with the options <ref refid="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" kindref="member">NRFX_TWIM_FLAG_RX_POSTINC</ref>, <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref>, and <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref>. After the transfer is set up, a set of transfers can be triggered by PPI that will read, for example, the same register of an external component and put it into a RAM buffer without any interrupts. <ref refid="group__nrfx__twim_1ga1a839b5aedb9390ad881baedb49ace2b" kindref="member">nrfx_twim_stopped_event_address_get</ref> can be used to get the address of the STOPPED event, which can be used to count the number of transfers. If <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> is used, the driver does not set the driver instance into busy state, so you must ensure that the next transfers are set up when TWIM is not active.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> - No stop condition after the TX transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga38391ab98a2ca3095ad4648e7b11c95b" kindref="member">NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK</ref> - Checks for spurious STOP conditions are disabled. Used together with <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> can result in lower power consumption when transfers are triggered externally and CPU is sleeping. Use only with I2C standard-compliant slave devices.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Some flag combinations are invalid:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> with <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> different than <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> with <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> set to <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref></para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+If <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> is set to <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref> and the <ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> and <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> flags are set, two tasks must be used to trigger a transfer: TASKS_RESUME followed by TASKS_STARTTX. If no stop condition is generated, TWIM is in SUSPENDED state. Therefore, it must be resumed before the transfer can be started.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including TWIM) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_xfer_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transfer descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided parameters are not supported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unexpected transition occurred on the bus. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EOVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unread data is replaced by new data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NACK is received after sending the address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NACK is received after sending a data byte. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="372" column="5" declfile="drivers/include/nrfx_twim.h" declline="372" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga93130cda80db8e32afb4c7a4531ac7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twim_is_busy</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_is_busy</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the TWIM driver state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TWIM instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIM driver is currently busy performing a transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIM driver is ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="384" column="6" declfile="drivers/include/nrfx_twim.h" declline="384" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gab2b131cedfc031575c868bb0f8e2bd21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twim_start_task_address_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance, nrfx_twim_xfer_type_t xfer_type)</argsstring>
+        <name>nrfx_twim_start_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref></type>
+          <declname>xfer_type</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a TWIM start task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is to be used if <ref refid="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" kindref="member">nrfx_twim_xfer</ref> was called with the flag <ref refid="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" kindref="member">NRFX_TWIM_FLAG_HOLD_XFER</ref>. In that case, the transfer is not started by the driver, but it must be started externally by PPI.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">xfer_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer type used in the last call of the <ref refid="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" kindref="member">nrfx_twim_xfer</ref> function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start task address (TX or RX) depending on the value of xfer_type. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="398" column="10" declfile="drivers/include/nrfx_twim.h" declline="398" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1a839b5aedb9390ad881baedb49ace2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twim_stopped_event_address_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance)</argsstring>
+        <name>nrfx_twim_stopped_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a STOPPED TWIM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A STOPPED event can be used to detect the end of a transfer if the <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> option is used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>STOPPED event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="411" column="10" declfile="drivers/include/nrfx_twim.h" declline="411" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga5dc0edc41ca3acdde15d39c8985e8df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_twim_bus_recover</definition>
+        <argsstring>(uint32_t scl_pin, uint32_t sda_pin)</argsstring>
+        <name>nrfx_twim_bus_recover</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>scl_pin</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sda_pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for recovering the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks if the bus is not stuck because of a slave holding the SDA line in the low state, and if needed it performs required number of pulses on the SCL line to make the slave release the SDA line. Finally, the function generates a STOP condition on the bus to put it into a known state.</para>
+<para><simplesect kind="note"><para>This function can be used only if the TWIM driver is uninitialized.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scl_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sda_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="438" column="24" bodyfile="drivers/include/nrfx_twim.h" bodystart="438" bodyend="441" declfile="drivers/include/nrfx_twim.h" declline="428" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gad9526f8916a96ee9eb3f6ca4b242e2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_irq_handler</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="435" column="6" declfile="drivers/include/nrfx_twim.h" declline="435" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__twim_1ga6ad635a5c2d12275c08cb79ecc63bdb2" prot="public" static="no">
+        <name>NRFX_TWIM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                   \
+    .p_twim = (NRF_TWIM_Type *)reg, \
+    .cb    = {0},                   \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a TWIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="124" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga9b6909a16a98da94492b0d7329f34c01" prot="public" static="no">
+        <name>NRFX_TWIM_DEFAULT_CONFIG</name>
+        <param><defname>_pin_scl</defname></param>
+        <param><defname>_pin_sda</defname></param>
+        <initializer>{                                                                \
+    .scl_pin            = _pin_scl,                              \
+    .sda_pin            = _pin_sda,                              \
+    .frequency          = <ref refid="group__nrf__twim__hal_1gga63248331964302df70fdc0fbd85ce6b7a85f5bb1285c0b1f13513aa3e056c1473" kindref="member">NRF_TWIM_FREQ_100K</ref>,                    \
+    .interrupt_priority = <ref refid="group__nrfx__twim__config_1ga0f95d997b9650fce333fd3729ef1863e" kindref="member">NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY</ref>, \
+    .hold_bus_uninit    = false,                                 \
+}</initializer>
+        <briefdescription>
+<para>TWIM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TWIM with the following options:<itemizedlist>
+<listitem><para>clock frequency: 100 kHz</para>
+</listitem><listitem><para>disable bus holding after uninit</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_scl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="164" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga202fb0746fddcaa65b2a53aaac223268" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_TX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Flag indicating that TX buffer address will be incremented after the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="174" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_RX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Flag indicating that RX buffer address will be incremented after the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="176" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</name>
+        <initializer>(1UL &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>Flag indicating that the interrupt after each transfer will be suppressed, and the event handler will not be called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="178" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_HOLD_XFER</name>
+        <initializer>(1UL &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be set up, but not started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="180" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_REPEATED_XFER</name>
+        <initializer>(1UL &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be executed multiple times. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="182" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_TX_NO_STOP</name>
+        <initializer>(1UL &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>Flag indicating that the TX transfer will not end with a stop condition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="184" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga38391ab98a2ca3095ad4648e7b11c95b" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK</name>
+        <initializer>(1UL &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Flag indicating that checks for spurious STOP condition will not be performed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="186" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC</name>
+        <param><defname>transfer</defname></param>
+        <param><defname>addr</defname></param>
+        <param><defname>p_buf1</defname></param>
+        <param><defname>buf_len1</defname></param>
+        <param><defname>p_buf2</defname></param>
+        <param><defname>buf_len2</defname></param>
+        <initializer>{                                                                               \
+    .type             = (transfer),                                             \
+    .address          = (addr),                                                 \
+    .primary_length   = (buf_len1),                                             \
+    .secondary_length = (buf_len2),                                             \
+    .p_primary_buf    = (p_buf1),                                               \
+    .p_secondary_buf  = (p_buf2)                                                \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="189" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf5c6310cff2a4288810f066a8d56d1a2" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref>, addr, p_data, length, NULL, 0)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="200" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaa87a3de9c2092f6d20c6d41bbfafd168" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_RX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" kindref="member">NRFX_TWIM_XFER_RX</ref>, addr, p_data, length, NULL, 0)</initializer>
+        <briefdescription>
+<para>Macro for setting the RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="204" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga07a7b732d1b87b714338fccce09996bc" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TXRX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_rx</defname></param>
+        <param><defname>rx_len</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" kindref="member">NRFX_TWIM_XFER_TXRX</ref>, addr, p_tx, tx_len, p_rx, rx_len)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="208" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf9f42bc0fd9d26a9516ff2de689d320f" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TXTX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_tx2</defname></param>
+        <param><defname>tx_len2</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref>, addr, p_tx, tx_len, p_tx2, tx_len2)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="212" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Two Wire Interface Master with EasyDMA (TWIM) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

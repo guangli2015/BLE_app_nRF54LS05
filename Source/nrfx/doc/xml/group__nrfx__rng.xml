@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__rng" kind="group">
+    <compoundname>nrfx_rng</compoundname>
+    <title>RNG driver</title>
+    <innerclass refid="structnrfx__rng__config__t" prot="public">nrfx_rng_config_t</innerclass>
+    <innergroup refid="group__nrfx__rng__config">RNG peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__rng_1gaf44528b4080ef74af001fb19e591b692" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_rng_evt_handler_t) (uint8_t rng_data)</definition>
+        <argsstring>)(uint8_t rng_data)</argsstring>
+        <name>nrfx_rng_evt_handler_t</name>
+        <briefdescription>
+<para>RNG driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="76" column="9" bodyfile="drivers/include/nrfx_rng.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__rng_1gafc19cd73b15961a238e6ae1d48fa5e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_rng_init</definition>
+        <argsstring>(nrfx_rng_config_t const *p_config, nrfx_rng_evt_handler_t handler)</argsstring>
+        <name>nrfx_rng_init</name>
+        <param>
+          <type><ref refid="structnrfx__rng__config__t" kindref="compound">nrfx_rng_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__rng_1gaf44528b4080ef74af001fb19e591b692" kindref="member">nrfx_rng_evt_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the nrfx_rng module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was successfully initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="87" column="5" declfile="drivers/include/nrfx_rng.h" declline="87" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rng_1gaafc00ff97916214aa7c447d641442758" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rng_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rng_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the generation of random values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>New data should be handled by handler passed to the <ref refid="group__nrfx__rng_1gafc19cd73b15961a238e6ae1d48fa5e2c" kindref="member">nrfx_rng_init()</ref> function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="94" column="6" declfile="drivers/include/nrfx_rng.h" declline="94" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rng_1gae41b773c74952a9cdb6703c45fdee288" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rng_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rng_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the generation of random values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function disables interrupts in peripheral and stops the generation of new random values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="101" column="6" declfile="drivers/include/nrfx_rng.h" declline="101" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rng_1gaade30f4ec977acf619ba650627b6337a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rng_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rng_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the nrfx_rng module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="104" column="6" declfile="drivers/include/nrfx_rng.h" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rng_1gaecacff967b88dcaf19725571b7fa7e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_rng_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rng_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the RNG driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="112" column="6" declfile="drivers/include/nrfx_rng.h" declline="112" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__rng_1ga549a642d376b931c7d743702001bc07d" prot="public" static="no">
+        <name>NRFX_RNG_DEFAULT_CONFIG</name>
+        <initializer>{                                                                \
+    .error_correction   = true,                                  \
+    .interrupt_priority = NRFX_RNG_DEFAULT_CONFIG_IRQ_PRIORITY,  \
+}</initializer>
+        <briefdescription>
+<para>RNG default configuration. Basic usage: </para>
+        </briefdescription>
+        <detaileddescription>
+<para><programlisting><codeline><highlight class="normal">nrfx_rng_config_t<sp/>config<sp/>=<sp/>NRFX_RNG_DEFAULT_CONFIG;</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(nrfx_rng_init(&amp;config,<sp/>handler)</highlight></codeline>
+<codeline><highlight class="normal">{<sp/>...</highlight></codeline>
+</programlisting></para>
+<para>This configuration sets up randon number generator with the following options:<itemizedlist>
+<listitem><para>error correction enabled </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rng.h" line="69" column="9" bodyfile="drivers/include/nrfx_rng.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Random Number Generator (RNG) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

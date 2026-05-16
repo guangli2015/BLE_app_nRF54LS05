@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__flag32__allocator" kind="group">
+    <compoundname>nrfx_flag32_allocator</compoundname>
+    <title>Generic flag allocator</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1gaebd91e5627e7740abbbe92d856cbbbe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrfx_flag32_init</definition>
+        <argsstring>(nrfx_atomic_t *p_mask, uint32_t init_mask)</argsstring>
+        <name>nrfx_flag32_init</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>init_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing allocator mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialization value contains mask where each bit indicates availablility of a given flag, e.g. init value 0x0000000A indicates that flag 3 and 1 (counting from 0) can be allocated.</para>
+<para>Alternatively, mask can be set to init value by direct assignment.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask to be initilized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">init_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with pool of available flags where bit being set means that flag is free and can be allocated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="63" column="22" bodyfile="helpers/nrfx_flag32_allocator.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1ga647b0e35383ba490e6e781349ebe9b53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_flag32_is_allocated</definition>
+        <argsstring>(nrfx_atomic_t mask, uint8_t bitpos)</argsstring>
+        <name>nrfx_flag32_is_allocated</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref></type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given flag is allocated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This check may not be valid if context is preempted and state is changed.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bitpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag bit position.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if specified flag is allocated, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="78" column="6" declfile="helpers/nrfx_flag32_allocator.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_flag32_alloc</definition>
+        <argsstring>(nrfx_atomic_t *p_mask)</argsstring>
+        <name>nrfx_flag32_alloc</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a flag in the mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe, it uses <ref refid="group__nrfx__glue_1ga11dea9855bb80c01a3cff42e8543b228" kindref="member">NRFX_ATOMIC_CAS</ref> macro. No further synchronization mechanism is needed, provided the macro is properly implemented (see <ref refid="group__nrfx__glue" kindref="compound">nrfx_glue.h</ref>).</para>
+</simplesect>
+Mask must be initialized before first allocation. Flags are allocated from the highest bit position, e.g. if mask is set to 0x0000000A, 3 is returned and bit 3 is cleared in the mask. Mask is set to 0x00000002 on return after successful allocation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with available flags set. On successful allocation flag is cleared.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the allocated flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No resource available. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="96" column="5" declfile="helpers/nrfx_flag32_allocator.h" declline="96" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1ga67e05348a66fed2ffde5357680da8110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_flag32_free</definition>
+        <argsstring>(nrfx_atomic_t *p_mask, uint8_t flag)</argsstring>
+        <name>nrfx_flag32_free</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a flag allocated with <ref refid="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" kindref="member">nrfx_flag32_alloc</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe, it uses <ref refid="group__nrfx__glue_1ga11dea9855bb80c01a3cff42e8543b228" kindref="member">NRFX_ATOMIC_CAS</ref> macro. No further synchronization mechanism is needed, provided the macro is properly implemented (see <ref refid="group__nrfx__glue" kindref="compound">nrfx_glue.h</ref>).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with available flags set. On successful allocation flag is set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Freeing was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag was not allocated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="111" column="5" declfile="helpers/nrfx_flag32_allocator.h" declline="111" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic flag allocator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

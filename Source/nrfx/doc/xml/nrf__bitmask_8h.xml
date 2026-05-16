@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__bitmask_8h" kind="file" language="C++">
+    <compoundname>nrf_bitmask.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includedby refid="nrf__mramc_8h" local="no">hal/nrf_mramc.h</includedby>
+    <includedby refid="nrf__rramc_8h" local="no">hal/nrf_rramc.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrf_bitmask.h</label>
+        <link refid="nrf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__bitmask_1ga7afaa07612e7d586158a62b1c2cb68da" prot="public" static="no">
+        <name>BITMASK_BYTES_CALCULATE</name>
+        <param><defname>bits_count</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1gac6eb065c273d30e60564b323d2cabd21" kindref="member">NRFX_CEIL_DIV</ref>(bits_count, 8)</initializer>
+        <briefdescription>
+<para>Get number of bytes needed to store the given bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bits_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits in the bitmask.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes to store requested bit mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="57" column="9" bodyfile="drivers/include/nrf_bitmask.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__bitmask_1ga6ab97d89146c76f3ebb7d38f0b07c5b9" prot="public" static="no">
+        <name>BITMASK_BYTE_GET</name>
+        <param><defname>abs_bit</defname></param>
+        <initializer>((abs_bit)/8)</initializer>
+        <briefdescription>
+<para>Macro for getting index of byte in byte stream where <computeroutput>abs_bit</computeroutput> is put. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="60" column="9" bodyfile="drivers/include/nrf_bitmask.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__bitmask_1gaef00d32b746b071df5080aad96048da0" prot="public" static="no">
+        <name>BITMASK_RELBIT_GET</name>
+        <param><defname>abs_bit</defname></param>
+        <initializer>((abs_bit) &amp; 0x7UL)</initializer>
+        <briefdescription>
+<para>Macro for getting relative index of bit in byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="63" column="9" bodyfile="drivers/include/nrf_bitmask.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__bitmask_1ga8e02f26a5f831bff5cd591ba64a6669d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE bool</type>
+        <definition>__STATIC_INLINE bool nrf_bitmask_bit_is_set</definition>
+        <argsstring>(uint32_t bit, void const *p_mask)</argsstring>
+        <name>nrf_bitmask_bit_is_set</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>bit</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if bit in the multi-byte bit mask is set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to mask with bit fields.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the specified bit is set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the specified bit is cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="74" column="22" bodyfile="drivers/include/nrf_bitmask.h" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__bitmask_1ga9b69b38eccfc0150e1e28f906f8331f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_bitmask_bit_set</definition>
+        <argsstring>(uint32_t bit, void *p_mask)</argsstring>
+        <name>nrf_bitmask_bit_set</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>bit</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting a bit in the multi-byte bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to mask with bit fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="88" column="22" bodyfile="drivers/include/nrf_bitmask.h" bodystart="88" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__bitmask_1ga74bc5dbd9b03d8e9f93535f6e12da7dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_bitmask_bit_clear</definition>
+        <argsstring>(uint32_t bit, void *p_mask)</argsstring>
+        <name>nrf_bitmask_bit_clear</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>bit</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a bit in the multi-byte bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to mask with bit fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="102" column="22" bodyfile="drivers/include/nrf_bitmask.h" bodystart="102" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__bitmask_1ga344566181ffd75d86044511e1d45fe58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_bitmask_masks_or</definition>
+        <argsstring>(void const *p_mask1, void const *p_mask2, void *p_out_mask, size_t length)</argsstring>
+        <name>nrf_bitmask_masks_or</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_mask1</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_mask2</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_out_mask</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing bitwise OR operation on two multi-byte bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_mask1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the first bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_mask2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the second bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_out_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of output mask in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="118" column="22" bodyfile="drivers/include/nrf_bitmask.h" bodystart="118" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__bitmask_1ga1fb72b9ad16a2610591e5e165b9a6853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrf_bitmask_masks_and</definition>
+        <argsstring>(void const *p_mask1, void const *p_mask2, void *p_out_mask, size_t length)</argsstring>
+        <name>nrf_bitmask_masks_and</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_mask1</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_mask2</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_out_mask</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing bitwise AND operation on two multi-byte bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_mask1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the first bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_mask2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the second bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_out_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output bit mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of output mask in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrf_bitmask.h" line="140" column="22" bodyfile="drivers/include/nrf_bitmask.h" bodystart="140" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2016<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_BITMASK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_BITMASK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_bitmask<sp/>Bitmask<sp/>module</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrfx</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Bitmask<sp/>managing<sp/>module.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Get<sp/>number<sp/>of<sp/>bytes<sp/>needed<sp/>to<sp/>store<sp/>the<sp/>given<sp/>bitmask.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>bits_count<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>the<sp/>bitmask.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>store<sp/>requested<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BITMASK_BYTES_CALCULATE(bits_count)<sp/>NRFX_CEIL_DIV(bits_count,<sp/>8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>getting<sp/>index<sp/>of<sp/>byte<sp/>in<sp/>byte<sp/>stream<sp/>where<sp/>@c<sp/>abs_bit<sp/>is<sp/>put.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BITMASK_BYTE_GET(abs_bit)<sp/>((abs_bit)/8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>getting<sp/>relative<sp/>index<sp/>of<sp/>bit<sp/>in<sp/>byte.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BITMASK_RELBIT_GET(abs_bit)<sp/>((abs_bit)<sp/>&amp;<sp/>0x7UL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>bit<sp/>in<sp/>the<sp/>multi-byte<sp/>bit<sp/>mask<sp/>is<sp/>set.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>bit<sp/><sp/><sp/><sp/>Bit<sp/>index.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_mask<sp/>Pointer<sp/>to<sp/>mask<sp/>with<sp/>bit<sp/>fields.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>If<sp/>the<sp/>specified<sp/>bit<sp/>is<sp/>set.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>If<sp/>the<sp/>specified<sp/>bit<sp/>is<sp/>cleared.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__bitmask_1ga8e02f26a5f831bff5cd591ba64a6669d" kindref="member">nrf_bitmask_bit_is_set</ref>(uint32_t<sp/>bit,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask8<sp/>=<sp/>(uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)p_mask;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>byte_idx<sp/>=<sp/><ref refid="group__nrf__bitmask_1ga6ab97d89146c76f3ebb7d38f0b07c5b9" kindref="member">BITMASK_BYTE_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>=<sp/><ref refid="group__nrf__bitmask_1gaef00d32b746b071df5080aad96048da0" kindref="member">BITMASK_RELBIT_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((1U<sp/>&lt;&lt;<sp/>bit)<sp/>&amp;<sp/>p_mask8[byte_idx])<sp/>!=<sp/>0U;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>a<sp/>bit<sp/>in<sp/>the<sp/>multi-byte<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/><sp/><sp/><sp/>bit<sp/><sp/><sp/><sp/>Bit<sp/>index.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*<sp/>@param[in,out]<sp/>p_mask<sp/>Pointer<sp/>to<sp/>mask<sp/>with<sp/>bit<sp/>fields.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__bitmask_1ga9b69b38eccfc0150e1e28f906f8331f3" kindref="member">nrf_bitmask_bit_set</ref>(uint32_t<sp/>bit,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_mask)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/>p_mask8<sp/>=<sp/>(uint8_t<sp/>*)p_mask;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>byte_idx<sp/>=<sp/><ref refid="group__nrf__bitmask_1ga6ab97d89146c76f3ebb7d38f0b07c5b9" kindref="member">BITMASK_BYTE_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>=<sp/><ref refid="group__nrf__bitmask_1gaef00d32b746b071df5080aad96048da0" kindref="member">BITMASK_RELBIT_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>p_mask8[byte_idx]<sp/>|=<sp/>(uint8_t)(1U<sp/>&lt;&lt;<sp/>bit);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>a<sp/>bit<sp/>in<sp/>the<sp/>multi-byte<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/><sp/><sp/><sp/>bit<sp/><sp/><sp/><sp/>Bit<sp/>index.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@param[in,out]<sp/>p_mask<sp/>Pointer<sp/>to<sp/>mask<sp/>with<sp/>bit<sp/>fields.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__bitmask_1ga74bc5dbd9b03d8e9f93535f6e12da7dc" kindref="member">nrf_bitmask_bit_clear</ref>(uint32_t<sp/>bit,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_mask)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/>p_mask8<sp/>=<sp/>(uint8_t<sp/>*)p_mask;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>byte_idx<sp/>=<sp/><ref refid="group__nrf__bitmask_1ga6ab97d89146c76f3ebb7d38f0b07c5b9" kindref="member">BITMASK_BYTE_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>bit<sp/>=<sp/><ref refid="group__nrf__bitmask_1gaef00d32b746b071df5080aad96048da0" kindref="member">BITMASK_RELBIT_GET</ref>(bit);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>p_mask8[byte_idx]<sp/>&amp;=<sp/>(uint8_t)~(1U<sp/>&lt;&lt;<sp/>bit);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="110"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>performing<sp/>bitwise<sp/>OR<sp/>operation<sp/>on<sp/>two<sp/>multi-byte<sp/>bit<sp/>masks.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_mask1<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>first<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_mask2<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>second<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_out_mask<sp/>Pointer<sp/>to<sp/>the<sp/>output<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>length<sp/><sp/><sp/><sp/><sp/>Length<sp/>of<sp/>output<sp/>mask<sp/>in<sp/>bytes.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__bitmask_1ga344566181ffd75d86044511e1d45fe58" kindref="member">nrf_bitmask_masks_or</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask1,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask2,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_out_mask,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>length)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask8_1<sp/>=<sp/>(uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)p_mask1;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask8_2<sp/>=<sp/>(uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)p_mask2;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/>p_mask8_out<sp/>=<sp/>(uint8_t<sp/>*)p_out_mask;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>length;<sp/>i++)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_mask8_out[i]<sp/>=<sp/>p_mask8_1[i]<sp/>|<sp/>p_mask8_2[i];</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>performing<sp/>bitwise<sp/>AND<sp/>operation<sp/>on<sp/>two<sp/>multi-byte<sp/>bit<sp/>masks.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_mask1<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>first<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_mask2<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>second<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_out_mask<sp/>Pointer<sp/>to<sp/>the<sp/>output<sp/>bit<sp/>mask.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>length<sp/><sp/><sp/><sp/><sp/>Length<sp/>of<sp/>output<sp/>mask<sp/>in<sp/>bytes.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__bitmask_1ga1fb72b9ad16a2610591e5e165b9a6853" kindref="member">nrf_bitmask_masks_and</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask1,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask2,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_out_mask,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>length)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask8_1<sp/>=<sp/>(uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)p_mask1;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_mask8_2<sp/>=<sp/>(uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)p_mask2;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/>p_mask8_out<sp/>=<sp/>(uint8_t<sp/>*)p_out_mask;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>length;<sp/>i++)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_mask8_out[i]<sp/>=<sp/>p_mask8_1[i]<sp/>&amp;<sp/>p_mask8_2[i];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_BITMASK_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrf_bitmask.h"/>
+  </compounddef>
+</doxygen>

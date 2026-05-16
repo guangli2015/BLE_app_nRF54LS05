@@ -1,0 +1,1734 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__dppi_8h" kind="file" language="C++">
+    <compoundname>nrf_dppi.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includedby refid="nrfy__dppi_8h" local="no">haly/nrfy_dppi.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>hal/nrf_dppi.h</label>
+        <link refid="nrf__dppi_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="nrf__dppi_8h_1abdb9a70399defd0a2b8368aef9657938" prot="public" static="no">
+        <name>NRF_INTERNAL_DPPI_CHAN_NUM_EXTRACT</name>
+        <param><defname>chan_num</defname></param>
+        <param><defname>p_reg</defname></param>
+        <initializer>    if (0) {}                                                                                     \
+    <ref refid="group__nrfx__utils_1ga0b8fc2ee054d67089fabbccc4fd30386" kindref="member">NRFX_FOREACH_PRESENT</ref>(DPPIC, NRF_INTERNAL_ELSE_IF_EXTRACT_1, (), (), chan_num, _CH_NUM, p_reg) \
+    else                                                                                          \
+    {                                                                                             \
+        chan_num = 0;                                                                             \
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="61" column="9" bodyfile="hal/nrf_dppi.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="nrf__dppi_8h_1a0bb4c7ad8d7cf0cc324d9a61faa48cf3" prot="public" static="no">
+        <name>NRF_INTERNAL_DPPI_GROUP_NUM_EXTRACT</name>
+        <param><defname>group_num</defname></param>
+        <param><defname>p_reg</defname></param>
+        <initializer>    if (0) {}                                                                                         \
+    <ref refid="group__nrfx__utils_1ga0b8fc2ee054d67089fabbccc4fd30386" kindref="member">NRFX_FOREACH_PRESENT</ref>(DPPIC, NRF_INTERNAL_ELSE_IF_EXTRACT_1, (), (), group_num, _GROUP_NUM, p_reg) \
+    else                                                                                              \
+    {                                                                                                 \
+        group_num = 0;                                                                                \
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="73" column="9" bodyfile="hal/nrf_dppi.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="nrf__dppi_8h_1aac59aab7bdcb810147ac6e22bc445bee" prot="public" static="no">
+        <name>NRF_DPPI_CH_NUM_MAX</name>
+        <initializer>    <ref refid="group__nrfx__utils_1ga7558c8c1390a9256f39a82da2087c8df" kindref="member">NRFX_MAX_N</ref>(<ref refid="group__nrfx__utils_1ga0b8fc2ee054d67089fabbccc4fd30386" kindref="member">NRFX_FOREACH_PRESENT</ref>(DPPIC, NRFX_INTERNAL_CHAN_NUM, (), (), _) 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="82" column="9" bodyfile="hal/nrf_dppi.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="nrf__dppi_8h_1a7afa357a6dcf9342c90e64c19cd6fd97" prot="public" static="no">
+        <name>NRF_DPPI_GROUP_NUM_MAX</name>
+        <initializer>    <ref refid="group__nrfx__utils_1ga7558c8c1390a9256f39a82da2087c8df" kindref="member">NRFX_MAX_N</ref>(<ref refid="group__nrfx__utils_1ga0b8fc2ee054d67089fabbccc4fd30386" kindref="member">NRFX_FOREACH_PRESENT</ref>(DPPIC, NRFX_INTERNAL_GROUP_NUM, (), (), _) 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="86" column="9" bodyfile="hal/nrf_dppi.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1ga65e388a4fd04bd115f126969d344b9a3" prot="public" static="no">
+        <name>NRF_DPPI_ENDPOINT_SETUP</name>
+        <param><defname>task_or_event</defname></param>
+        <param><defname>dppi_chan</defname></param>
+        <initializer>        (*((volatile uint32_t *)(task_or_event + NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event))) = \
+            ((uint32_t)dppi_chan | NRF_SUBSCRIBE_PUBLISH_ENABLE))</initializer>
+        <briefdescription>
+<para>Macro for setting publish/subscribe register corresponding to specified event/task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task_or_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the event or task for which publish/subscribe register is to be set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dppi_chan</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DPPIC channel number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="105" column="9" bodyfile="hal/nrf_dppi.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1gad2f1b92db52201561e28e95ca56e252a" prot="public" static="no">
+        <name>NRF_DPPI_ENDPOINT_CLEAR</name>
+        <param><defname>task_or_event</defname></param>
+        <initializer>        (*((volatile uint32_t *)(task_or_event + NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event))) = 0)</initializer>
+        <briefdescription>
+<para>Macro for clearing publish/subscribe register corresponding to specified event/task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task_or_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the event or task for which publish/subscribe register is to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="117" column="9" bodyfile="hal/nrf_dppi.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1ga0e6f37ca7a082a5e68d54c97e38f63ef" prot="public" static="no">
+        <name>NRF_DPPI_ENDPOINT_ENABLE</name>
+        <param><defname>task_or_event</defname></param>
+        <initializer>        (*((volatile uint32_t *)(task_or_event + NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event))) |= \
+            NRF_SUBSCRIBE_PUBLISH_ENABLE)</initializer>
+        <briefdescription>
+<para>Macro for enabling publish/subscribe register corresponding to specified event/task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task_or_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the event or task for which publish/subscribe register is to be used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="128" column="9" bodyfile="hal/nrf_dppi.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1gafb517c3cd80d142f6fe0fe75af9e7309" prot="public" static="no">
+        <name>NRF_DPPI_ENDPOINT_DISABLE</name>
+        <param><defname>task_or_event</defname></param>
+        <initializer>        (*((volatile uint32_t *)(task_or_event + NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event))) &amp;= \
+            ~NRF_SUBSCRIBE_PUBLISH_ENABLE)</initializer>
+        <briefdescription>
+<para>Macro for disabling publish/subscribe register corresponding to specified event/task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task_or_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the event or task for which publish/subscribe register is to be used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="140" column="9" bodyfile="hal/nrf_dppi.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1ga788fc32a474d05b3f5954a0bbddca016" prot="public" static="no">
+        <name>NRF_DPPI_HAS_APB_MAPPING</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether DPPI instance can be mapped to a peripheral based on common APB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="147" column="9" bodyfile="hal/nrf_dppi.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__dppi__hal_1ga155977e14ed24ce17ec307c36c274e00" prot="public" static="no">
+        <name>NRF_DPPI_APB_MASK</name>
+        <initializer>0x10000UL</initializer>
+        <briefdescription>
+<para>Symbol specifying bitmask for mapping specific DPPIC to a respective APB it belongs to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="154" column="9" bodyfile="hal/nrf_dppi.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_dppi_channel_group_t</name>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba76acffde92bf5869105a1400dcc028a0" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP0</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45bab969442bcbbee36b4b5106621bbf5ebe" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP1</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba3094b53619d62a716edfd7fcdd711bf0" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP2</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba6b5dd5dca2a0186182b1818b1020e30a" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP3</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45bafecf8decdc8210e8045d3ca70b85e837" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP4</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba96b6fefd92bb53e63316438f287f197f" prot="public">
+          <name>NRF_DPPI_CHANNEL_GROUP5</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Channel group 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>DPPI channel groups. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="158" column="1" bodyfile="hal/nrf_dppi.h" bodystart="159" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_dppi_task_t</name>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a89fd661c5c55cf657f3e9f45b0d53aea" prot="public">
+          <name>NRF_DPPI_TASK_CHG0_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[0].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a453cbaef0a284056a4f8038a89b0a7cb" prot="public">
+          <name>NRF_DPPI_TASK_CHG0_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[0].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a127739bdf9177d1ed7785936c60feca1" prot="public">
+          <name>NRF_DPPI_TASK_CHG1_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[1].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a3cce7b30e1c997cb726a8ec1e00b83e5" prot="public">
+          <name>NRF_DPPI_TASK_CHG1_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[1].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122ac8b88685da0b716822f0ebe3b960c394" prot="public">
+          <name>NRF_DPPI_TASK_CHG2_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[2].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122af01c5dfa4050a6cc95d832b82c7f772f" prot="public">
+          <name>NRF_DPPI_TASK_CHG2_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[2].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122acd68fa79f63e3b25d52cb169a3334077" prot="public">
+          <name>NRF_DPPI_TASK_CHG3_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[3].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a5dd4d20687152fc9f86266cae1652345" prot="public">
+          <name>NRF_DPPI_TASK_CHG3_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[3].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a868549acc018df9be8ae8b7518964c63" prot="public">
+          <name>NRF_DPPI_TASK_CHG4_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[4].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a3e6b250d942f65dfa4e6d81cd62286d1" prot="public">
+          <name>NRF_DPPI_TASK_CHG4_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[4].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122abaacbc2ba02afd55a451837e9aeb9f7c" prot="public">
+          <name>NRF_DPPI_TASK_CHG5_EN</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[5].EN)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable channel group 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122af795d8cc01b7147a0310c7a98bc7b49e" prot="public">
+          <name>NRF_DPPI_TASK_CHG5_DIS</name>
+          <initializer>= offsetof(NRF_DPPIC_Type, TASKS_CHG[5].DIS)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Disable channel group 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>DPPI tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="173" column="1" bodyfile="hal/nrf_dppi.h" bodystart="174" bodyend="191"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga3bb93d0787f2d0d5ee9bd6aaaa3f71f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_dppi_channel_number_get</definition>
+        <argsstring>(NRF_DPPIC_Type const *p_reg)</argsstring>
+        <name>nrf_dppi_channel_number_get</name>
+        <param>
+          <type>NRF_DPPIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the total number of available channels for the given DPPIC instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of available channels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="412" column="27" bodyfile="hal/nrf_dppi.h" bodystart="412" bodyend="417" declfile="hal/nrf_dppi.h" declline="200" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gab882acff39c1f6dcb2bafa5d4e4ded67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_dppi_group_number_get</definition>
+        <argsstring>(NRF_DPPIC_Type const *p_reg)</argsstring>
+        <name>nrf_dppi_group_number_get</name>
+        <param>
+          <type>NRF_DPPIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the total number of available groups for the given DPPIC instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of available groups. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="419" column="27" bodyfile="hal/nrf_dppi.h" bodystart="419" bodyend="424" declfile="hal/nrf_dppi.h" declline="209" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga66161914f3ff04ef023cc1df763ac5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_task_trigger</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_task_t dppi_task)</argsstring>
+        <name>nrf_dppi_task_trigger</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+          <declname>dppi_task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating a DPPI task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dppi_task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="426" column="24" bodyfile="hal/nrf_dppi.h" bodystart="426" bodyend="429" declfile="hal/nrf_dppi.h" declline="217" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gadf7c6dc3ccdf4d0b086db084e601b76c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_dppi_task_address_get</definition>
+        <argsstring>(NRF_DPPIC_Type const *p_reg, nrf_dppi_task_t task)</argsstring>
+        <name>nrf_dppi_task_address_get</name>
+        <param>
+          <type>NRF_DPPIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified DPPI task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="431" column="28" bodyfile="hal/nrf_dppi.h" bodystart="431" bodyend="435" declfile="hal/nrf_dppi.h" declline="227" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gacf7986a1c7a765d6c9ca48cc6ac3498a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_dppi_channel_check</definition>
+        <argsstring>(NRF_DPPIC_Type const *p_reg, uint8_t channel)</argsstring>
+        <name>nrf_dppi_channel_check</name>
+        <param>
+          <type>NRF_DPPIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the state of a specific DPPI channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="437" column="24" bodyfile="hal/nrf_dppi.h" bodystart="437" bodyend="441" declfile="hal/nrf_dppi.h" declline="239" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga1e8cc3ec8ff1fe30f49aaffefc53f2ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_enable</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_dppi_channels_enable</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling multiple DPPI channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bits in <computeroutput>mask</computeroutput> value correspond to particular channels. It means that writing 1 to bit 0 enables channel 0, writing 1 to bit 1 enables channel 1 etc.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="448" column="24" bodyfile="hal/nrf_dppi.h" bodystart="448" bodyend="451" declfile="hal/nrf_dppi.h" declline="250" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga2a39053147a8325daf9cb589f280d409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_disable</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_dppi_channels_disable</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling multiple DPPI channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bits in <computeroutput>mask</computeroutput> value correspond to particular channels. It means that writing 1 to bit 0 disables channel 0, writing 1 to bit 1 disables channel 1 etc.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="453" column="24" bodyfile="hal/nrf_dppi.h" bodystart="453" bodyend="456" declfile="hal/nrf_dppi.h" declline="261" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gaa7da76961b76caadccc805cd16a18774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_disable_all</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg)</argsstring>
+        <name>nrf_dppi_channels_disable_all</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling all DPPI channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="443" column="24" bodyfile="hal/nrf_dppi.h" bodystart="443" bodyend="446" declfile="hal/nrf_dppi.h" declline="268" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga2c23a914c75199ffd1e9366bfa138a4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_subscribe_set</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_dppi_subscribe_set</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given DPPI task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>After setting the subscription for a given task, channel group configuration associated with this task cannot be modified until <ref refid="group__nrf__dppi__hal_1ga6163d2d97a58fbb406a498e0bb8870e6" kindref="member">nrf_dppi_subscribe_clear</ref> is used.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="458" column="24" bodyfile="hal/nrf_dppi.h" bodystart="458" bodyend="465" declfile="hal/nrf_dppi.h" declline="281" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga6163d2d97a58fbb406a498e0bb8870e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_subscribe_clear</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_task_t task)</argsstring>
+        <name>nrf_dppi_subscribe_clear</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given DPPI task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="473" column="24" bodyfile="hal/nrf_dppi.h" bodystart="473" bodyend="476" declfile="hal/nrf_dppi.h" declline="292" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gae9d86410761889b585e5cfb641768280" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_dppi_subscribe_get</definition>
+        <argsstring>(NRF_DPPIC_Type const *p_reg, nrf_dppi_task_t task)</argsstring>
+        <name>nrf_dppi_subscribe_get</name>
+        <param>
+          <type>NRF_DPPIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given DPPI task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>DPPI subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="467" column="28" bodyfile="hal/nrf_dppi.h" bodystart="467" bodyend="471" declfile="hal/nrf_dppi.h" declline="303" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gacc707e5a7c20ecf1225df84f5d00a882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_group_set</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, uint32_t channel_mask, nrf_dppi_channel_group_t channel_group)</argsstring>
+        <name>nrf_dppi_channels_group_set</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>channel_group</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting multiple DPPI channels in a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function assigns all specified channels to the group. The bits in <computeroutput>channel_mask</computeroutput> value correspond to particular channels. It means that writing 1 to bit 0 includes channel 0, writing 1 to bit 1 includes channel 1, and so on.</para>
+<para><simplesect kind="warning"><para>All channels included previously will be overwritten.</para>
+</simplesect>
+<simplesect kind="warning"><para>Channel group configuration can be modified only if subscriptions for tasks associated with this group are disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channels to be assigned in the group. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="478" column="24" bodyfile="hal/nrf_dppi.h" bodystart="478" bodyend="483" declfile="hal/nrf_dppi.h" declline="322" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga7c94430c35fd213889e8530e35a64e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_include_in_group</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, uint32_t channel_mask, nrf_dppi_channel_group_t channel_group)</argsstring>
+        <name>nrf_dppi_channels_include_in_group</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>channel_group</declname>
+        </param>
+        <briefdescription>
+<para>Function for including multiple DPPI channels in a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function adds all specified channels to the group. The bits in <computeroutput>channel_mask</computeroutput> value correspond to particular channels. It means that writing 1 to bit 0 includes channel 0, writing 1 to bit 1 includes channel 1 etc.</para>
+<para><simplesect kind="warning"><para>Channel group configuration can be modified only if subscriptions for tasks associated with this group are disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channels to be included in the group. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="485" column="24" bodyfile="hal/nrf_dppi.h" bodystart="485" bodyend="491" declfile="hal/nrf_dppi.h" declline="340" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga742f7c1d6568a2000efb9864b387908f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_channels_remove_from_group</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, uint32_t channel_mask, nrf_dppi_channel_group_t channel_group)</argsstring>
+        <name>nrf_dppi_channels_remove_from_group</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_mask</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>channel_group</declname>
+        </param>
+        <briefdescription>
+<para>Function for removing multiple DPPI channels from a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function removes all specified channels from the group. The bits in <computeroutput>channel_mask</computeroutput> value correspond to particular channels. It means that writing 1 to bit 0 removes channel 0, writing 1 to bit 1 removes channel 1 etc.</para>
+<para><simplesect kind="warning"><para>Channel group configuration can be modified only if subscriptions for tasks associated with this group are disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channels to be removed from the group. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="493" column="24" bodyfile="hal/nrf_dppi.h" bodystart="493" bodyend="499" declfile="hal/nrf_dppi.h" declline="358" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga6e8136564ba991409f2a35125d75bad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_group_clear</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_channel_group_t group)</argsstring>
+        <name>nrf_dppi_group_clear</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Function for removing all DPPI channels from a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Channel group configuration can be modified only if subscriptions for tasks associated with this group are disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="501" column="24" bodyfile="hal/nrf_dppi.h" bodystart="501" bodyend="505" declfile="hal/nrf_dppi.h" declline="371" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1gac104471e7b75b92150d3c29ae7ac3f79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_group_enable</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_channel_group_t group)</argsstring>
+        <name>nrf_dppi_group_enable</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="507" column="24" bodyfile="hal/nrf_dppi.h" bodystart="507" bodyend="510" declfile="hal/nrf_dppi.h" declline="380" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga47f9246d3323433bd15b3f2592103d6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_dppi_group_disable</definition>
+        <argsstring>(NRF_DPPIC_Type *p_reg, nrf_dppi_channel_group_t group)</argsstring>
+        <name>nrf_dppi_group_disable</name>
+        <param>
+          <type>NRF_DPPIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref></type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="512" column="24" bodyfile="hal/nrf_dppi.h" bodystart="512" bodyend="516" declfile="hal/nrf_dppi.h" declline="389" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga51033ebfa0736491df389fd16a2a57b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_dppi_task_t nrf_dppi_group_enable_task_get</definition>
+        <argsstring>(uint8_t index)</argsstring>
+        <name>nrf_dppi_group_enable_task_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the ENABLE task associated with the specified channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Requested ENABLE task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="518" column="35" bodyfile="hal/nrf_dppi.h" bodystart="518" bodyend="521" declfile="hal/nrf_dppi.h" declline="399" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__dppi__hal_1ga343f21926fb7a91d2e38040d27f0fce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_dppi_task_t nrf_dppi_group_disable_task_get</definition>
+        <argsstring>(uint8_t index)</argsstring>
+        <name>nrf_dppi_group_disable_task_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the DISABLE task associated with the specified channel group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel group index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Requested DISABLE task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_dppi.h" line="523" column="35" bodyfile="hal/nrf_dppi.h" bodystart="523" bodyend="526" declfile="hal/nrf_dppi.h" declline="408" declcolumn="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2018<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DPPI_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NRF_DPPIC0)<sp/>&amp;&amp;<sp/>defined(NRF_DPPIC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPIC0<sp/>NRF_DPPIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(DPPIC0_CH_NUM)<sp/>&amp;&amp;<sp/>defined(DPPIC_CH_NUM)<sp/>&amp;&amp;<sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(defined(NRF_DPPIC)<sp/>||<sp/>defined(NRF_DPPIC0))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DPPIC0_CH_NUM<sp/>DPPIC_CH_NUM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(DPPIC0_GROUP_NUM)<sp/>&amp;&amp;<sp/>defined(DPPIC_GROUP_NUM)<sp/>&amp;&amp;<sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(defined(NRF_DPPIC)<sp/>||<sp/>defined(NRF_DPPIC0))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DPPIC0_GROUP_NUM<sp/>DPPIC_GROUP_NUM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Macro<sp/>for<sp/>generating<sp/>if<sp/>statement<sp/>code<sp/>blocks<sp/>that<sp/>allow<sp/>extracting</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>the<sp/>number<sp/>of<sp/>channels<sp/>associated<sp/>with<sp/>the<sp/>specific<sp/>DPPIC<sp/>instance.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_INTERNAL_DPPI_CHAN_NUM_EXTRACT(chan_num,<sp/>p_reg)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(0)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_FOREACH_PRESENT(DPPIC,<sp/>NRF_INTERNAL_ELSE_IF_EXTRACT_1,<sp/>(),<sp/>(),<sp/>chan_num,<sp/>_CH_NUM,<sp/>p_reg)<sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>else<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chan_num<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>Macro<sp/>for<sp/>generating<sp/>if<sp/>statement<sp/>code<sp/>blocks<sp/>that<sp/>allow<sp/>extracting</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>the<sp/>number<sp/>of<sp/>groups<sp/>associated<sp/>with<sp/>the<sp/>specific<sp/>DPPIC<sp/>instance.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_INTERNAL_DPPI_GROUP_NUM_EXTRACT(group_num,<sp/>p_reg)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="74"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(0)<sp/>{}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_FOREACH_PRESENT(DPPIC,<sp/>NRF_INTERNAL_ELSE_IF_EXTRACT_1,<sp/>(),<sp/>(),<sp/>group_num,<sp/>_GROUP_NUM,<sp/>p_reg)<sp/>\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>else<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>group_num<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Symbol<sp/>specifying<sp/>the<sp/>maximal<sp/>number<sp/>of<sp/>channels<sp/>associated<sp/>with<sp/>the<sp/>DPPIC<sp/>instances.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_CH_NUM_MAX<sp/>\</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_MAX_N(NRFX_FOREACH_PRESENT(DPPIC,<sp/>NRFX_INTERNAL_CHAN_NUM,<sp/>(),<sp/>(),<sp/>_)<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Symbol<sp/>specifying<sp/>the<sp/>maximal<sp/>number<sp/>of<sp/>groups<sp/>associated<sp/>with<sp/>the<sp/>DPPIC<sp/>instances.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_GROUP_NUM_MAX<sp/>\</highlight></codeline>
+<codeline lineno="87"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_MAX_N(NRFX_FOREACH_PRESENT(DPPIC,<sp/>NRFX_INTERNAL_GROUP_NUM,<sp/>(),<sp/>(),<sp/>_)<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_dppi_hal<sp/>DPPI<sp/>Controller<sp/>HAL</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_dppi</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Hardware<sp/>access<sp/>layer<sp/>for<sp/>managing<sp/>the<sp/>Distributed<sp/>Programmable<sp/>Peripheral</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Interconnect<sp/>Controller<sp/>(DPPIC).</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>publish/subscribe<sp/>register<sp/>corresponding<sp/>to<sp/>specified<sp/>event/task.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task_or_event<sp/>Address<sp/>of<sp/>the<sp/>event<sp/>or<sp/>task<sp/>for<sp/>which<sp/>publish/subscribe</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>register<sp/>is<sp/>to<sp/>be<sp/>set.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>dppi_chan<sp/><sp/><sp/><sp/><sp/>DPPIC<sp/>channel<sp/>number.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NRF_DPPI_ENDPOINT_SETUP)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_ENDPOINT_SETUP(task_or_event,<sp/>dppi_chan)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*((volatile<sp/>uint32_t<sp/>*)(task_or_event<sp/>+<sp/>NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event)))<sp/>=<sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)dppi_chan<sp/>|<sp/>NRF_SUBSCRIBE_PUBLISH_ENABLE))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="110"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>clearing<sp/>publish/subscribe<sp/>register<sp/>corresponding<sp/>to<sp/>specified<sp/>event/task.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task_or_event<sp/>Address<sp/>of<sp/>the<sp/>event<sp/>or<sp/>task<sp/>for<sp/>which<sp/>publish/subscribe</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>register<sp/>is<sp/>to<sp/>be<sp/>cleared.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NRF_DPPI_ENDPOINT_CLEAR)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_ENDPOINT_CLEAR(task_or_event)<sp/>\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*((volatile<sp/>uint32_t<sp/>*)(task_or_event<sp/>+<sp/>NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event)))<sp/>=<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>enabling<sp/>publish/subscribe<sp/>register<sp/>corresponding<sp/>to<sp/>specified<sp/>event/task.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task_or_event<sp/>Address<sp/>of<sp/>the<sp/>event<sp/>or<sp/>task<sp/>for<sp/>which<sp/>publish/subscribe</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>register<sp/>is<sp/>to<sp/>be<sp/>used.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NRF_DPPI_ENDPOINT_ENABLE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_ENDPOINT_ENABLE(task_or_event)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*((volatile<sp/>uint32_t<sp/>*)(task_or_event<sp/>+<sp/>NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event)))<sp/>|=<sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRF_SUBSCRIBE_PUBLISH_ENABLE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="133"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Macro<sp/>for<sp/>disabling<sp/>publish/subscribe<sp/>register<sp/>corresponding<sp/>to<sp/>specified<sp/>event/task.</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task_or_event<sp/>Address<sp/>of<sp/>the<sp/>event<sp/>or<sp/>task<sp/>for<sp/>which<sp/>publish/subscribe</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>register<sp/>is<sp/>to<sp/>be<sp/>used.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NRF_DPPI_ENDPOINT_DISABLE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_ENDPOINT_DISABLE(task_or_event)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*((volatile<sp/>uint32_t<sp/>*)(task_or_event<sp/>+<sp/>NRF_SUBSCRIBE_PUBLISH_OFFSET(task_or_event)))<sp/>&amp;=<sp/>\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>~NRF_SUBSCRIBE_PUBLISH_ENABLE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ADDRESS_BUS_Msk)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="146"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>indicating<sp/>whether<sp/>DPPI<sp/>instance<sp/>can<sp/>be<sp/>mapped<sp/>to<sp/>a<sp/>peripheral<sp/>based<sp/>on<sp/>common<sp/>APB.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_HAS_APB_MAPPING<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_HAS_APB_MAPPING<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_DPPI_HAS_APB_MAPPING</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="153"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>specifying<sp/>bitmask<sp/>for<sp/>mapping<sp/>specific<sp/>DPPIC<sp/>to<sp/>a<sp/>respective<sp/>APB<sp/>it<sp/>belongs<sp/>to.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_DPPI_APB_MASK<sp/>0x10000UL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="157"><highlight class="comment">/**<sp/>@brief<sp/>DPPI<sp/>channel<sp/>groups.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba76acffde92bf5869105a1400dcc028a0" kindref="member">NRF_DPPI_CHANNEL_GROUP0</ref><sp/>=<sp/>0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45bab969442bcbbee36b4b5106621bbf5ebe" kindref="member">NRF_DPPI_CHANNEL_GROUP1</ref><sp/>=<sp/>1,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_DPPI_GROUP_NUM_MAX<sp/>&gt;<sp/>2<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba3094b53619d62a716edfd7fcdd711bf0" kindref="member">NRF_DPPI_CHANNEL_GROUP2</ref><sp/>=<sp/>2,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>2.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba6b5dd5dca2a0186182b1818b1020e30a" kindref="member">NRF_DPPI_CHANNEL_GROUP3</ref><sp/>=<sp/>3,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>3.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_DPPI_GROUP_NUM_MAX<sp/>&gt;<sp/>4<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45bafecf8decdc8210e8045d3ca70b85e837" kindref="member">NRF_DPPI_CHANNEL_GROUP4</ref><sp/>=<sp/>4,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>4.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga3378ea28f33874ce35b843cf92e8f45ba96b6fefd92bb53e63316438f287f197f" kindref="member">NRF_DPPI_CHANNEL_GROUP5</ref><sp/>=<sp/>5<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Channel<sp/>group<sp/>5.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}<sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="172"><highlight class="comment">/**<sp/>@brief<sp/>DPPI<sp/>tasks.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a89fd661c5c55cf657f3e9f45b0d53aea" kindref="member">NRF_DPPI_TASK_CHG0_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[0].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a453cbaef0a284056a4f8038a89b0a7cb" kindref="member">NRF_DPPI_TASK_CHG0_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[0].DIS),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a127739bdf9177d1ed7785936c60feca1" kindref="member">NRF_DPPI_TASK_CHG1_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[1].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a3cce7b30e1c997cb726a8ec1e00b83e5" kindref="member">NRF_DPPI_TASK_CHG1_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[1].DIS),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_DPPI_GROUP_NUM_MAX<sp/>&gt;<sp/>2<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122ac8b88685da0b716822f0ebe3b960c394" kindref="member">NRF_DPPI_TASK_CHG2_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[2].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>2.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122af01c5dfa4050a6cc95d832b82c7f772f" kindref="member">NRF_DPPI_TASK_CHG2_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[2].DIS),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>2.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122acd68fa79f63e3b25d52cb169a3334077" kindref="member">NRF_DPPI_TASK_CHG3_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[3].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>3.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a5dd4d20687152fc9f86266cae1652345" kindref="member">NRF_DPPI_TASK_CHG3_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[3].DIS),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>3.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_DPPI_GROUP_NUM_MAX<sp/>&gt;<sp/>4<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a868549acc018df9be8ae8b7518964c63" kindref="member">NRF_DPPI_TASK_CHG4_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[4].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>4.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122a3e6b250d942f65dfa4e6d81cd62286d1" kindref="member">NRF_DPPI_TASK_CHG4_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[4].DIS),<sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>4.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122abaacbc2ba02afd55a451837e9aeb9f7c" kindref="member">NRF_DPPI_TASK_CHG5_EN</ref><sp/><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[5].EN),<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>channel<sp/>group<sp/>5.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1gga00d050252ff713dd61f3ff7499819122af795d8cc01b7147a0310c7a98bc7b49e" kindref="member">NRF_DPPI_TASK_CHG5_DIS</ref><sp/>=<sp/>offsetof(NRF_DPPIC_Type,<sp/>TASKS_CHG[5].DIS)<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Disable<sp/>channel<sp/>group<sp/>5.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="193"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>total<sp/>number<sp/>of<sp/>available<sp/>channels<sp/>for<sp/>the<sp/>given<sp/>DPPIC<sp/>instance.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>available<sp/>channels.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrf__dppi__hal_1ga3bb93d0787f2d0d5ee9bd6aaaa3f71f3" kindref="member">nrf_dppi_channel_number_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="202"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>total<sp/>number<sp/>of<sp/>available<sp/>groups<sp/>for<sp/>the<sp/>given<sp/>DPPIC<sp/>instance.</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>available<sp/>groups.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrf__dppi__hal_1gab882acff39c1f6dcb2bafa5d4e4ded67" kindref="member">nrf_dppi_group_number_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="211"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>activating<sp/>a<sp/>DPPI<sp/>task.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>dppi_task<sp/>Task<sp/>to<sp/>be<sp/>activated.</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga66161914f3ff04ef023cc1df763ac5cd" kindref="member">nrf_dppi_task_trigger</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/>dppi_task);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="219"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>the<sp/>specified<sp/>DPPI<sp/>task<sp/>register.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Requested<sp/>task.</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/>@return<sp/>Address<sp/>of<sp/>the<sp/>specified<sp/>task<sp/>register.</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__dppi__hal_1gadf7c6dc3ccdf4d0b086db084e601b76c" kindref="member">nrf_dppi_task_address_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="230"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>the<sp/>state<sp/>of<sp/>a<sp/>specific<sp/>DPPI<sp/>channel.</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/>Channel<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>channel<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>channel<sp/>is<sp/>not<sp/>enabled.</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gacf7986a1c7a765d6c9ca48cc6ac3498a" kindref="member">nrf_dppi_channel_check</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint8_t<sp/>channel);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="241"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>multiple<sp/>DPPI<sp/>channels.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>The<sp/>bits<sp/>in<sp/>@c<sp/>mask<sp/>value<sp/>correspond<sp/>to<sp/>particular<sp/>channels.<sp/>It<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>0<sp/>enables<sp/>channel<sp/>0,<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>1<sp/>enables<sp/>channel<sp/>1<sp/>etc.</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Channel<sp/>mask.</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga1e8cc3ec8ff1fe30f49aaffefc53f2ca" kindref="member">nrf_dppi_channels_enable</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="252"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>multiple<sp/>DPPI<sp/>channels.</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>The<sp/>bits<sp/>in<sp/>@c<sp/>mask<sp/>value<sp/>correspond<sp/>to<sp/>particular<sp/>channels.<sp/>It<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>0<sp/>disables<sp/>channel<sp/>0,<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>1<sp/>disables<sp/>channel<sp/>1<sp/>etc.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/>Channel<sp/>mask.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga2a39053147a8325daf9cb589f280d409" kindref="member">nrf_dppi_channels_disable</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="263"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>all<sp/>DPPI<sp/>channels.</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gaa7da76961b76caadccc805cd16a18774" kindref="member">nrf_dppi_channels_disable_all</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="270"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DPPI<sp/>task.</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*<sp/>@warning<sp/>After<sp/>setting<sp/>the<sp/>subscription<sp/>for<sp/>a<sp/>given<sp/>task,<sp/>channel<sp/>group<sp/>configuration</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated<sp/>with<sp/>this<sp/>task<sp/>cannot<sp/>be<sp/>modified<sp/>until<sp/>@ref<sp/>nrf_dppi_subscribe_clear<sp/>is<sp/>used.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/><sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>set<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel<sp/>Channel<sp/>through<sp/>which<sp/>to<sp/>subscribe<sp/>events.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga2c23a914c75199ffd1e9366bfa138a4b" kindref="member">nrf_dppi_subscribe_set</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/>task,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="285"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DPPI<sp/>task.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>clear<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga6163d2d97a58fbb406a498e0bb8870e6" kindref="member">nrf_dppi_subscribe_clear</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/>task);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="294"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>subscribe<sp/>configuration<sp/>for<sp/>a<sp/>given</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DPPI<sp/>task.</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/>Task<sp/>for<sp/>which<sp/>to<sp/>read<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*<sp/>@return<sp/>DPPI<sp/>subscribe<sp/>configuration.</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__dppi__hal_1gae9d86410761889b585e5cfb641768280" kindref="member">nrf_dppi_subscribe_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="306"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="307"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>multiple<sp/>DPPI<sp/>channels<sp/>in<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="308"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*<sp/>@details<sp/>This<sp/>function<sp/>assigns<sp/>all<sp/>specified<sp/>channels<sp/>to<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/>*<sp/>The<sp/>bits<sp/>in<sp/>@p<sp/>channel_mask<sp/>value<sp/>correspond<sp/>to<sp/>particular<sp/>channels.<sp/>It<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>0<sp/>includes<sp/>channel<sp/>0,<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>1<sp/>includes<sp/>channel<sp/>1,<sp/>and<sp/>so<sp/>on.</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*<sp/>@warning<sp/>All<sp/>channels<sp/>included<sp/>previously<sp/>will<sp/>be<sp/>overwritten.</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Channel<sp/>group<sp/>configuration<sp/>can<sp/>be<sp/>modified<sp/>only<sp/>if<sp/>subscriptions<sp/>for<sp/>tasks</highlight></codeline>
+<codeline lineno="316"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated<sp/>with<sp/>this<sp/>group<sp/>are<sp/>disabled.</highlight></codeline>
+<codeline lineno="317"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/><sp/>Channels<sp/>to<sp/>be<sp/>assigned<sp/>in<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gacc707e5a7c20ecf1225df84f5d00a882" kindref="member">nrf_dppi_channels_group_set</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="326"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>including<sp/>multiple<sp/>DPPI<sp/>channels<sp/>in<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/>*<sp/>@details<sp/>This<sp/>function<sp/>adds<sp/>all<sp/>specified<sp/>channels<sp/>to<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/>*<sp/>The<sp/>bits<sp/>in<sp/>@p<sp/>channel_mask<sp/>value<sp/>correspond<sp/>to<sp/>particular<sp/>channels.<sp/>It<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/>*<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>0<sp/>includes<sp/>channel<sp/>0,<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>1<sp/>includes<sp/>channel<sp/>1<sp/>etc.</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Channel<sp/>group<sp/>configuration<sp/>can<sp/>be<sp/>modified<sp/>only<sp/>if<sp/>subscriptions<sp/>for<sp/>tasks</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated<sp/>with<sp/>this<sp/>group<sp/>are<sp/>disabled.</highlight></codeline>
+<codeline lineno="335"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="336"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="337"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/><sp/>Channels<sp/>to<sp/>be<sp/>included<sp/>in<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="338"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga7c94430c35fd213889e8530e35a64e0a" kindref="member">nrf_dppi_channels_include_in_group</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="344"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>removing<sp/>multiple<sp/>DPPI<sp/>channels<sp/>from<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/>*<sp/>@details<sp/>This<sp/>function<sp/>removes<sp/>all<sp/>specified<sp/>channels<sp/>from<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/>*<sp/>The<sp/>bits<sp/>in<sp/>@c<sp/>channel_mask<sp/>value<sp/>correspond<sp/>to<sp/>particular<sp/>channels.<sp/>It<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="349"><highlight class="comment"><sp/>*<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>0<sp/>removes<sp/>channel<sp/>0,<sp/>writing<sp/>1<sp/>to<sp/>bit<sp/>1<sp/>removes<sp/>channel<sp/>1<sp/>etc.</highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Channel<sp/>group<sp/>configuration<sp/>can<sp/>be<sp/>modified<sp/>only<sp/>if<sp/>subscriptions<sp/>for<sp/>tasks</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated<sp/>with<sp/>this<sp/>group<sp/>are<sp/>disabled.</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="354"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="355"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_mask<sp/><sp/>Channels<sp/>to<sp/>be<sp/>removed<sp/>from<sp/>the<sp/>group.</highlight></codeline>
+<codeline lineno="356"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="358"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga742f7c1d6568a2000efb9864b387908f" kindref="member">nrf_dppi_channels_remove_from_group</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="362"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="363"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>removing<sp/>all<sp/>DPPI<sp/>channels<sp/>from<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="364"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="365"><highlight class="comment"><sp/>*<sp/>@warning<sp/>Channel<sp/>group<sp/>configuration<sp/>can<sp/>be<sp/>modified<sp/>only<sp/>if<sp/>subscriptions<sp/>for<sp/>tasks</highlight></codeline>
+<codeline lineno="366"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated<sp/>with<sp/>this<sp/>group<sp/>are<sp/>disabled.</highlight></codeline>
+<codeline lineno="367"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="370"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga6e8136564ba991409f2a35125d75bad1" kindref="member">nrf_dppi_group_clear</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="374"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="375"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="376"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="377"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="378"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="379"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gac104471e7b75b92150d3c29ae7ac3f79" kindref="member">nrf_dppi_group_enable</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group);</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="383"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="384"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>a<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="385"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="386"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="387"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>group<sp/>Channel<sp/>group.</highlight></codeline>
+<codeline lineno="388"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga47f9246d3323433bd15b3f2592103d6c" kindref="member">nrf_dppi_group_disable</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group);</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="392"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="393"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>ENABLE<sp/>task<sp/>associated<sp/>with<sp/>the<sp/>specified<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="394"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="395"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>index<sp/>Channel<sp/>group<sp/>index.</highlight></codeline>
+<codeline lineno="396"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="397"><highlight class="comment"><sp/>*<sp/>@return<sp/>Requested<sp/>ENABLE<sp/>task.</highlight></codeline>
+<codeline lineno="398"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><ref refid="group__nrf__dppi__hal_1ga51033ebfa0736491df389fd16a2a57b5" kindref="member">nrf_dppi_group_enable_task_get</ref>(uint8_t<sp/>index);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="401"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="402"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>DISABLE<sp/>task<sp/>associated<sp/>with<sp/>the<sp/>specified<sp/>channel<sp/>group.</highlight></codeline>
+<codeline lineno="403"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="404"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>index<sp/>Channel<sp/>group<sp/>index.</highlight></codeline>
+<codeline lineno="405"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="406"><highlight class="comment"><sp/>*<sp/>@return<sp/>Requested<sp/>DISABLE<sp/>task.</highlight></codeline>
+<codeline lineno="407"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><ref refid="group__nrf__dppi__hal_1ga343f21926fb7a91d2e38040d27f0fce0" kindref="member">nrf_dppi_group_disable_task_get</ref>(uint8_t<sp/>index);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrf__dppi__hal_1ga3bb93d0787f2d0d5ee9bd6aaaa3f71f3" kindref="member">nrf_dppi_channel_number_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="413"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>chan_num<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_INTERNAL_DPPI_CHAN_NUM_EXTRACT(chan_num,<sp/>p_reg);</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>chan_num;</highlight></codeline>
+<codeline lineno="417"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrf__dppi__hal_1gab882acff39c1f6dcb2bafa5d4e4ded67" kindref="member">nrf_dppi_group_number_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="420"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>group_num<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_INTERNAL_DPPI_GROUP_NUM_EXTRACT(group_num,<sp/>p_reg);</highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>group_num;</highlight></codeline>
+<codeline lineno="424"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga66161914f3ff04ef023cc1df763ac5cd" kindref="member">nrf_dppi_task_trigger</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/>dppi_task)</highlight></codeline>
+<codeline lineno="427"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>dppi_task))<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="429"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"></highlight></codeline>
+<codeline lineno="431"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__dppi__hal_1gadf7c6dc3ccdf4d0b086db084e601b76c" kindref="member">nrf_dppi_task_address_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="433"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrf_task_event_address_get(p_reg,<sp/>task);</highlight></codeline>
+<codeline lineno="435"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gacf7986a1c7a765d6c9ca48cc6ac3498a" kindref="member">nrf_dppi_channel_check</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint8_t<sp/>channel)</highlight></codeline>
+<codeline lineno="438"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(channel<sp/>&lt;<sp/><ref refid="group__nrf__dppi__hal_1ga3bb93d0787f2d0d5ee9bd6aaaa3f71f3" kindref="member">nrf_dppi_channel_number_get</ref>(p_reg));</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((p_reg-&gt;CHEN<sp/>&amp;<sp/>(DPPIC_CHEN_CH0_Enabled<sp/>&lt;&lt;<sp/>(DPPIC_CHEN_CH0_Pos<sp/>+<sp/>channel)))<sp/>!=<sp/>0);</highlight></codeline>
+<codeline lineno="441"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"></highlight></codeline>
+<codeline lineno="443"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gaa7da76961b76caadccc805cd16a18774" kindref="member">nrf_dppi_channels_disable_all</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="444"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHENCLR<sp/>=<sp/>0xFFFFFFFFuL;</highlight></codeline>
+<codeline lineno="446"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga1e8cc3ec8ff1fe30f49aaffefc53f2ca" kindref="member">nrf_dppi_channels_enable</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="449"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHENSET<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="451"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"></highlight></codeline>
+<codeline lineno="453"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga2a39053147a8325daf9cb589f280d409" kindref="member">nrf_dppi_channels_disable</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>mask)</highlight></codeline>
+<codeline lineno="454"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHENCLR<sp/>=<sp/>mask;</highlight></codeline>
+<codeline lineno="456"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"></highlight></codeline>
+<codeline lineno="458"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga2c23a914c75199ffd1e9366bfa138a4b" kindref="member">nrf_dppi_subscribe_set</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/>task,</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel)</highlight></codeline>
+<codeline lineno="461"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(channel<sp/>&lt;<sp/><ref refid="group__nrf__dppi__hal_1ga3bb93d0787f2d0d5ee9bd6aaaa3f71f3" kindref="member">nrf_dppi_channel_number_get</ref>(p_reg));</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL))<sp/>=</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t)channel<sp/>|<sp/>NRF_SUBSCRIBE_PUBLISH_ENABLE);</highlight></codeline>
+<codeline lineno="465"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__dppi__hal_1gae9d86410761889b585e5cfb641768280" kindref="member">nrf_dppi_subscribe_get</ref>(NRF_DPPIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="469"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>((uint8_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL));</highlight></codeline>
+<codeline lineno="471"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"></highlight></codeline>
+<codeline lineno="473"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga6163d2d97a58fbb406a498e0bb8870e6" kindref="member">nrf_dppi_subscribe_clear</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/>task)</highlight></codeline>
+<codeline lineno="474"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>((uint8_t<sp/>*)<sp/>p_reg<sp/>+<sp/>(uint32_t)<sp/>task<sp/>+<sp/>0x80uL))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="476"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"></highlight></codeline>
+<codeline lineno="478"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gacc707e5a7c20ecf1225df84f5d00a882" kindref="member">nrf_dppi_channels_group_set</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group)</highlight></codeline>
+<codeline lineno="481"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>channel_group]<sp/>=<sp/>channel_mask;</highlight></codeline>
+<codeline lineno="483"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"></highlight></codeline>
+<codeline lineno="485"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga7c94430c35fd213889e8530e35a64e0a" kindref="member">nrf_dppi_channels_include_in_group</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group)</highlight></codeline>
+<codeline lineno="488"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>channel_group]<sp/>=</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>channel_group]<sp/>|<sp/>(channel_mask);</highlight></codeline>
+<codeline lineno="491"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"></highlight></codeline>
+<codeline lineno="493"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga742f7c1d6568a2000efb9864b387908f" kindref="member">nrf_dppi_channels_remove_from_group</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_mask,</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>channel_group)</highlight></codeline>
+<codeline lineno="496"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>channel_group]<sp/>=</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>channel_group]<sp/>&amp;<sp/>~(channel_mask);</highlight></codeline>
+<codeline lineno="499"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"></highlight></codeline>
+<codeline lineno="501"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga6e8136564ba991409f2a35125d75bad1" kindref="member">nrf_dppi_group_clear</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group)</highlight></codeline>
+<codeline lineno="503"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CHG[(uint32_t)<sp/>group]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="505"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1gac104471e7b75b92150d3c29ae7ac3f79" kindref="member">nrf_dppi_group_enable</ref>(NRF_DPPIC_Type<sp/>*<sp/>p_reg,<sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group)</highlight></codeline>
+<codeline lineno="508"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;TASKS_CHG[(uint32_t)<sp/>group].EN<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="510"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"></highlight></codeline>
+<codeline lineno="512"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__dppi__hal_1ga47f9246d3323433bd15b3f2592103d6c" kindref="member">nrf_dppi_group_disable</ref>(NRF_DPPIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__dppi__hal_1ga3378ea28f33874ce35b843cf92e8f45b" kindref="member">nrf_dppi_channel_group_t</ref><sp/>group)</highlight></codeline>
+<codeline lineno="514"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;TASKS_CHG[(uint32_t)<sp/>group].DIS<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="516"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="517"><highlight class="normal"></highlight></codeline>
+<codeline lineno="518"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><ref refid="group__nrf__dppi__hal_1ga51033ebfa0736491df389fd16a2a57b5" kindref="member">nrf_dppi_group_enable_task_get</ref>(uint8_t<sp/>index)</highlight></codeline>
+<codeline lineno="519"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref>)<ref refid="group__nrfx__utils_1gaf356c97c2527d9ac57b04dd9f12fc9d3" kindref="member">NRFX_OFFSETOF</ref>(NRF_DPPIC_Type,<sp/>TASKS_CHG[index].EN);</highlight></codeline>
+<codeline lineno="521"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="522"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="normal">NRF_STATIC_INLINE<sp/><ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref><sp/><ref refid="group__nrf__dppi__hal_1ga343f21926fb7a91d2e38040d27f0fce0" kindref="member">nrf_dppi_group_disable_task_get</ref>(uint8_t<sp/>index)</highlight></codeline>
+<codeline lineno="524"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="group__nrf__dppi__hal_1ga00d050252ff713dd61f3ff7499819122" kindref="member">nrf_dppi_task_t</ref>)<ref refid="group__nrfx__utils_1gaf356c97c2527d9ac57b04dd9f12fc9d3" kindref="member">NRFX_OFFSETOF</ref>(NRF_DPPIC_Type,<sp/>TASKS_CHG[index].DIS);</highlight></codeline>
+<codeline lineno="526"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"></highlight></codeline>
+<codeline lineno="528"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="529"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="530"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="531"><highlight class="normal"></highlight></codeline>
+<codeline lineno="532"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="533"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="535"><highlight class="normal"></highlight></codeline>
+<codeline lineno="536"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DPPIC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="hal/nrf_dppi.h"/>
+  </compounddef>
+</doxygen>

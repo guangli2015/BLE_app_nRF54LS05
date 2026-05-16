@@ -1,0 +1,1108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__pdm_8h" kind="file" language="C++">
+    <compoundname>nrfx_pdm.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__pdm_8h" local="no">haly/nrfy_pdm.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_pdm.h</label>
+        <link refid="nrfx__pdm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__pdm__evt__t" prot="public">nrfx_pdm_evt_t</innerclass>
+    <innerclass refid="structnrfx__pdm__prescalers__t" prot="public">nrfx_pdm_prescalers_t</innerclass>
+    <innerclass refid="structnrfx__pdm__config__t" prot="public">nrfx_pdm_config_t</innerclass>
+    <innerclass refid="structnrfx__pdm__output__t" prot="public">nrfx_pdm_output_t</innerclass>
+    <innerclass refid="structnrfx__pdm__t" prot="public">nrfx_pdm_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__pdm_1ga7a3a3c0637a11c96fec6657741474790" prot="public" static="no">
+        <name>NRFX_PDM_MAX_BUFFER_SIZE</name>
+        <initializer>32767</initializer>
+        <briefdescription>
+<para>Maximum supported PDM buffer size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="52" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__pdm_1gaf135d07d0d96e8c7b7f743284acc2465" prot="public" static="no">
+        <name>NRFX_PDM_DEFAULT_CONFIG</name>
+        <param><defname>_pin_clk</defname></param>
+        <param><defname>_pin_din</defname></param>
+        <initializer>{                                                               \
+    .mode               = <ref refid="group__nrf__pdm__hal_1ggadc5bd87887dfb140a868d6ba14df0a42a4958b92efb70f1debb0147cea68eb459" kindref="member">NRF_PDM_MODE_MONO</ref>,                    \
+    .edge               = <ref refid="group__nrf__pdm__hal_1ggacf1325c08d54c6953c2446dacf835217a0b89e686051d527a7e5f2f9fe10072fb" kindref="member">NRF_PDM_EDGE_LEFTFALLING</ref>,             \
+    .clk_pin            = _pin_clk,                             \
+    .din_pin            = _pin_din,                             \
+    .gain_l             = <ref refid="group__nrf__pdm__hal_1gaf2dbf0024fadb324a3575bdce121b720" kindref="member">NRF_PDM_GAIN_DEFAULT</ref>,                 \
+    .gain_r             = <ref refid="group__nrf__pdm__hal_1gaf2dbf0024fadb324a3575bdce121b720" kindref="member">NRF_PDM_GAIN_DEFAULT</ref>,                 \
+    .interrupt_priority = NRFX_PDM_DEFAULT_CONFIG_IRQ_PRIORITY, \
+    .prescalers         =                                       \
+    {                                                           \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1ga1214d1abe6bb5f15d21bd0dc5d844c1d" kindref="member">NRF_PDM_HAS_PDMCLKCTRL</ref>,                \
+                     (.clock_freq = <ref refid="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da93c505a45c079de603a778e538f916c2" kindref="member">NRF_PDM_FREQ_1032K</ref>,), ())   \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1ga30e2ea5a74de32ae9c604241fadc3ad9" kindref="member">NRF_PDM_HAS_PRESCALER</ref>,                 \
+                     (.prescaler = 4,), ())                     \
+        <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1gaa83396f4675042ff22c8b3cf2f72a4da" kindref="member">NRF_PDM_HAS_RATIO_CONFIG</ref>,              \
+                     (.ratio = <ref refid="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088aa165fd177221dc7be65cf727fd8be40a" kindref="member">NRF_PDM_RATIO_64X</ref>,), ())         \
+    },                                                          \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1ga00d04b4cdd15689a96509eac4e8b8b1d" kindref="member">NRF_PDM_HAS_SELECTABLE_CLOCK</ref>,              \
+                     (.mclksrc = <ref refid="group__nrf__pdm__hal_1gga2de024db84f169477a537aef3f1a0a92a2a5d19fc35b24eee2d2f7a6e71c99638" kindref="member">NRF_PDM_MCLKSRC_PCLK32M</ref>,), ()) \
+}</initializer>
+        <briefdescription>
+<para>PDM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up PDM with the following options:<itemizedlist>
+<listitem><para>mono mode</para>
+</listitem><listitem><para>data sampled on the clock falling edge</para>
+</listitem><listitem><para>frequency: 1.032 MHz</para>
+</listitem><listitem><para>standard gain</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_clk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CLK output pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_din</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DIN input pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="125" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__pdm_1ga7aa707033bbc985be4624ec0ddaddff2" prot="public" static="no">
+        <name>NRFX_PDM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_PDM_Type *)reg, \
+    .cb = {0}                     \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the PDM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="197" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__pdm_1ga1af0465836194329a34d4d4c96a4ae91" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_pdm_error_t</name>
+        <enumvalue id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91ac5a21e69633247017ebba68fa41c655f" prot="public">
+          <name>NRFX_PDM_NO_ERROR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91a7199474b0f4f36346ac05f59cc91ca8c" prot="public">
+          <name>NRFX_PDM_ERROR_OVERFLOW</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Overflow error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM error type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="55" column="1" bodyfile="drivers/include/nrfx_pdm.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_pdm_event_handler_t) (nrfx_pdm_evt_t const *p_evt)</definition>
+        <argsstring>)(nrfx_pdm_evt_t const *p_evt)</argsstring>
+        <name>nrfx_pdm_event_handler_t</name>
+        <briefdescription>
+<para>Handler for the PDM interface ready events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This event handler is called on a buffer request, an error or when a buffer is full and ready to be processed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_evt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the PDM event structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="164" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__pdm_1ga36220e0dc298bf37cb89af1396f6bb25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_init</definition>
+        <argsstring>(nrfx_pdm_t *p_instance, nrfx_pdm_config_t const *p_config, nrfx_pdm_event_handler_t event_handler)</argsstring>
+        <name>nrfx_pdm_init</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" kindref="member">nrfx_pdm_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the PDM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Cannot be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration was specified. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="214" column="5" declfile="drivers/include/nrfx_pdm.h" declline="214" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga5c6a088a4c5d53038e81ec31c5c227a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_reconfigure</definition>
+        <argsstring>(nrfx_pdm_t *p_instance, nrfx_pdm_config_t const *p_config)</argsstring>
+        <name>nrfx_pdm_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the PDM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is ongoing sampling and driver cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration was specified. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="229" column="5" declfile="drivers/include/nrfx_pdm.h" declline="229" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1gadb61aa33e24472f8474ce3895ac8881e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_pdm_uninit</definition>
+        <argsstring>(nrfx_pdm_t *p_instance)</argsstring>
+        <name>nrfx_pdm_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the PDM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This function stops PDM sampling, if it is in progress. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="239" column="6" declfile="drivers/include/nrfx_pdm.h" declline="239" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga0f0d498458d87d02effe1f311542bb4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_pdm_init_check</definition>
+        <argsstring>(nrfx_pdm_t const *p_instance)</argsstring>
+        <name>nrfx_pdm_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PDM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interface is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interface is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="249" column="6" declfile="drivers/include/nrfx_pdm.h" declline="249" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1gad90f2f342109b10cd9131b987c21384d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_pdm_task_address_get</definition>
+        <argsstring>(nrfx_pdm_t const *p_instance, nrf_pdm_task_t task)</argsstring>
+        <name>nrfx_pdm_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a PDM driver instance task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="330" column="29" bodyfile="drivers/include/nrfx_pdm.h" bodystart="330" bodyend="334" declfile="drivers/include/nrfx_pdm.h" declline="259" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga4777a88cd424a44b0f76625409d78144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_pdm_enable_check</definition>
+        <argsstring>(nrfx_pdm_t const *p_instance)</argsstring>
+        <name>nrfx_pdm_enable_check</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of the PDM drivers instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM interface is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM interface is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="336" column="25" bodyfile="drivers/include/nrfx_pdm.h" bodystart="336" bodyend="339" declfile="drivers/include/nrfx_pdm.h" declline="270" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga2d73a2429dfa648ac74c58a076143690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_start</definition>
+        <argsstring>(nrfx_pdm_t *p_instance)</argsstring>
+        <name>nrfx_pdm_start</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the PDM sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling was started successfully or was already in progress. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous start/stop operation is in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="280" column="5" declfile="drivers/include/nrfx_pdm.h" declline="280" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1gaf9e91421f859bbaca8488092870fd098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_stop</definition>
+        <argsstring>(nrfx_pdm_t *p_instance)</argsstring>
+        <name>nrfx_pdm_stop</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the PDM sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When this function is called, the PDM driver instance is stopped after finishing the current frame. The event handler function might be called once more after calling this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling was stopped successfully or was already stopped before. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous start/stop operation is in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="294" column="5" declfile="drivers/include/nrfx_pdm.h" declline="294" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga0f1b29b171916202646d3f25fce2db3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_buffer_set</definition>
+        <argsstring>(nrfx_pdm_t *p_instance, int16_t *buffer, uint16_t buffer_length)</argsstring>
+        <name>nrfx_pdm_buffer_set</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>int16_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>buffer_length</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function after every buffer request event.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. Cannot be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the receive buffer in 16-bit words.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was applied successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was already supplied or the peripheral is currently being stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid parameters were provided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="310" column="5" declfile="drivers/include/nrfx_pdm.h" declline="310" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga369ba4abe7f5b7d3b2a723dbc4fe4e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pdm_prescalers_calc</definition>
+        <argsstring>(nrfx_pdm_output_t const *output_config, nrfx_pdm_prescalers_t *prescalers)</argsstring>
+        <name>nrfx_pdm_prescalers_calc</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__output__t" kindref="compound">nrfx_pdm_output_t</ref> const *</type>
+          <declname>output_config</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref> *</type>
+          <declname>prescalers</declname>
+        </param>
+        <briefdescription>
+<para>Function for calculating PDM clock prescaler values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function to find suitable value for prescalers in <ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref> structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">output_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expected output frequencies. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">prescalers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Prescaler structure pointer to be filled with prescaler values.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="326" column="5" declfile="drivers/include/nrfx_pdm.h" declline="326" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga8eff492546e1e29a3531a1b888819472" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_pdm_irq_handler</definition>
+        <argsstring>(nrfx_pdm_t *p_instance)</argsstring>
+        <name>nrfx_pdm_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="347" column="6" declfile="drivers/include/nrfx_pdm.h" declline="347" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_PDM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_PDM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_pdm.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_pdm<sp/>PDM<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_pdm</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Pulse<sp/>Density<sp/>Modulation<sp/>(PDM)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Maximum<sp/>supported<sp/>PDM<sp/>buffer<sp/>size.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_PDM_MAX_BUFFER_SIZE<sp/>32767</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="54"><highlight class="comment">/**<sp/>@brief<sp/>PDM<sp/>error<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91ac5a21e69633247017ebba68fa41c655f" kindref="member">NRFX_PDM_NO_ERROR</ref><sp/>=<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>No<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91a7199474b0f4f36346ac05f59cc91ca8c" kindref="member">NRFX_PDM_ERROR_OVERFLOW</ref><sp/>=<sp/>1<sp/></highlight><highlight class="comment">///&lt;<sp/>Overflow<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/><ref refid="group__nrfx__pdm_1ga1af0465836194329a34d4d4c96a4ae91" kindref="member">nrfx_pdm_error_t</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment">/**<sp/>@brief<sp/>PDM<sp/>event<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="structnrfx__pdm__evt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_requested;<sp/></highlight><highlight class="comment">///&lt;<sp/>Buffer<sp/>request<sp/>flag.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_released;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>released<sp/>buffer.<sp/>Can<sp/>be<sp/>NULL.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__pdm_1ga1af0465836194329a34d4d4c96a4ae91" kindref="member">nrfx_pdm_error_t</ref><sp/>error;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Error<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}<sp/><ref refid="structnrfx__pdm__evt__t" kindref="compound">nrfx_pdm_evt_t</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment">/**<sp/>@brief<sp/>PDM<sp/>prescalers<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structnrfx__pdm__prescalers__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_PDM_HAS_PDMCLKCTRL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga6703930305da65cc2f258ad1f68f863d" kindref="member">nrf_pdm_freq_t</ref><sp/><sp/><sp/><sp/>clock_freq;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Selectable<sp/>clock<sp/>frequency.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>NRF_PDM_HAS_PRESCALER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prescaler;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Prescaler<sp/>divisor.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_PDM_HAS_RATIO_CONFIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1gaa440ffa5a57cc209736e6d66ff1b9088" kindref="member">nrf_pdm_ratio_t</ref><sp/><sp/><sp/>ratio;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Ratio<sp/>between<sp/>PDM_CLK<sp/>and<sp/>output<sp/>sample<sp/>rate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="83"><highlight class="comment">/**<sp/>@brief<sp/>PDM<sp/>interface<sp/>driver<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structnrfx__pdm__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1gadc5bd87887dfb140a868d6ba14df0a42" kindref="member">nrf_pdm_mode_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Interface<sp/>operation<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1gacf1325c08d54c6953c2446dacf835217" kindref="member">nrf_pdm_edge_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>edge;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Sampling<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>clk_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>CLK<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>din_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>DIN<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gain_l;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Left<sp/>channel<sp/>gain.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga6471d331b5f11a8a1df6c563713f5710" kindref="member">nrf_pdm_gain_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gain_r;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Right<sp/>channel<sp/>gain.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>Interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref><sp/>prescalers;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Clock<sp/>prescalers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_PDM_HAS_SELECTABLE_CLOCK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga2de024db84f169477a537aef3f1a0a92" kindref="member">nrf_pdm_mclksrc_t</ref><sp/><sp/><sp/><sp/><sp/>mclksrc;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Clock<sp/>source<sp/>selection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>GPIO<sp/>configuration<sp/>of<sp/>pins.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>any<sp/>GPIO<sp/>parameters<sp/>of<sp/>the<sp/>used<sp/>pins.<sp/>Those</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>parameters<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>configured</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_psel_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>pin<sp/>selection<sp/>configuration.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>pin<sp/>select<sp/>registers<sp/>in<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>Those<sp/>registers<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>set<sp/>up</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>@note<sp/>When<sp/>both<sp/>GPIO<sp/>configuration<sp/>and<sp/>pin</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>selection<sp/>are<sp/>to<sp/>be<sp/>skipped,<sp/>the<sp/>structure</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>fields<sp/>that<sp/>specify<sp/>pins<sp/>can<sp/>be<sp/>omitted,</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>as<sp/>they<sp/>are<sp/>ignored<sp/>anyway.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}<sp/><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@brief<sp/>PDM<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>PDM<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>-<sp/>mono<sp/>mode</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>-<sp/>data<sp/>sampled<sp/>on<sp/>the<sp/>clock<sp/>falling<sp/>edge</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>-<sp/>frequency:<sp/>1.032<sp/>MHz</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>-<sp/>standard<sp/>gain</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_clk<sp/>CLK<sp/>output<sp/>pin.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_din<sp/>DIN<sp/>input<sp/>pin.</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_PDM_DEFAULT_CONFIG(_pin_clk,<sp/>_pin_din)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_PDM_MODE_MONO,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.edge<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_PDM_EDGE_LEFTFALLING,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.clk_pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_clk,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.din_pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_din,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.gain_l<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_PDM_GAIN_DEFAULT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.gain_r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_PDM_GAIN_DEFAULT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_PDM_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/>\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.prescalers<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="136"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_PDM_HAS_PDMCLKCTRL,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="137"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.clock_freq<sp/>=<sp/>NRF_PDM_FREQ_1032K,),<sp/>())<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="138"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_PDM_HAS_PRESCALER,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="139"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.prescaler<sp/>=<sp/>4,),<sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_PDM_HAS_RATIO_CONFIG,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="141"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.ratio<sp/>=<sp/>NRF_PDM_RATIO_64X,),<sp/>())<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="142"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="143"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_COND_CODE_1(NRF_PDM_HAS_SELECTABLE_CLOCK,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(.mclksrc<sp/>=<sp/>NRF_PDM_MCLKSRC_PCLK32M,),<sp/>())<sp/>\</highlight></codeline>
+<codeline lineno="145"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**<sp/>@brief<sp/>PDM<sp/>output<sp/>frequency<sp/>and<sp/>sampling<sp/>rate<sp/>values.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="structnrfx__pdm__output__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>base_clock_freq;<sp/></highlight><highlight class="comment">///&lt;<sp/>Freqency<sp/>of<sp/>the<sp/>PDM<sp/>base<sp/>clock<sp/>source.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>sampling_rate;<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Desired<sp/>PDM<sp/>sampling<sp/>rate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>output_freq_min;<sp/></highlight><highlight class="comment">///&lt;<sp/>Minimal<sp/>value<sp/>of<sp/>PDM<sp/>output<sp/>frequency.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>output_freq_max;<sp/></highlight><highlight class="comment">///&lt;<sp/>Maximum<sp/>value<sp/>of<sp/>PDM<sp/>output<sp/>frequency.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}<sp/><ref refid="structnrfx__pdm__output__t" kindref="compound">nrfx_pdm_output_t</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="156"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Handler<sp/>for<sp/>the<sp/>PDM<sp/>interface<sp/>ready<sp/>events.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>This<sp/>event<sp/>handler<sp/>is<sp/>called<sp/>on<sp/>a<sp/>buffer<sp/>request,<sp/>an<sp/>error<sp/>or<sp/>when<sp/>a<sp/>buffer</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>is<sp/>full<sp/>and<sp/>ready<sp/>to<sp/>be<sp/>processed.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_evt<sp/>Pointer<sp/>to<sp/>the<sp/>PDM<sp/>event<sp/>structure.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" kindref="member">nrfx_pdm_event_handler_t</ref>)(<ref refid="structnrfx__pdm__evt__t" kindref="compound">nrfx_pdm_evt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_evt);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>NRFX_PDM_STATE_IDLE,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>NRFX_PDM_STATE_RUNNING,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>NRFX_PDM_STATE_STARTING,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>NRFX_PDM_STATE_STOPPING</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}<sp/>nrfx_pdm_state_t;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" kindref="member">nrfx_pdm_event_handler_t</ref><sp/><sp/>event_handler;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>handler<sp/>function<sp/>pointer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buff_address[2];<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Sample<sp/>buffers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buff_length[2];<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Length<sp/>of<sp/>the<sp/>sample<sp/>buffers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>drv_state;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>nrfx_pdm_state_t<sp/>op_state;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>PDM<sp/>peripheral<sp/>operation<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active_buffer;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Number<sp/>of<sp/>currently<sp/>active<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>error<sp/>flag.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_buff_request;<sp/></highlight><highlight class="comment">///&lt;<sp/>Request<sp/>the<sp/>next<sp/>buffer<sp/>in<sp/>the<sp/>ISR.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Do<sp/>not<sp/>touch<sp/>GPIO<sp/>configuration<sp/>of<sp/>used<sp/>pins.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}<sp/>nrfx_pdm_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="187"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="189"><highlight class="comment">/**<sp/>@brief<sp/>Data<sp/>structure<sp/>of<sp/>the<sp/>Pulse<sp/>Density<sp/>Modulation<sp/>(PDM)<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="structnrfx__pdm__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_PDM_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>with<sp/>PDM<sp/>instance<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_pdm_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}<sp/><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="196"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>an<sp/>instance<sp/>of<sp/>the<sp/>PDM<sp/>driver.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_PDM_INSTANCE(reg)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="198"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="199"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_reg<sp/>=<sp/>(NRF_PDM_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="200"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/>=<sp/>{0}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="203"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>PDM<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Cannot<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/>Invalid<sp/>configuration<sp/>was<sp/>specified.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga36220e0dc298bf37cb89af1396f6bb25" kindref="member">nrfx_pdm_init</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" kindref="member">nrfx_pdm_event_handler_t</ref><sp/><sp/>event_handler);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="218"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>the<sp/>PDM<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>There<sp/>is<sp/>ongoing<sp/>sampling<sp/>and<sp/>driver<sp/>cannot<sp/>be<sp/>reconfigured.</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/><sp/><sp/><sp/>Invalid<sp/>configuration<sp/>was<sp/>specified.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga5c6a088a4c5d53038e81ec31c5c227a4" kindref="member">nrfx_pdm_reconfigure</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="232"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>PDM<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>stops<sp/>PDM<sp/>sampling,<sp/>if<sp/>it<sp/>is<sp/>in<sp/>progress.</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1gadb61aa33e24472f8474ce3895ac8881e" kindref="member">nrfx_pdm_uninit</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="241"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>PDM<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Interface<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Interface<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga0f0d498458d87d02effe1f311542bb4c" kindref="member">nrfx_pdm_init_check</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="251"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>address<sp/>of<sp/>a<sp/>PDM<sp/>driver<sp/>instance<sp/>task.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/>Task.</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*<sp/>@return<sp/>Task<sp/>address.</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__pdm_1gad90f2f342109b10cd9131b987c21384d" kindref="member">nrfx_pdm_task_address_get</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="262"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>state<sp/>of<sp/>the<sp/>PDM<sp/>drivers<sp/>instance.</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>PDM<sp/>interface<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>PDM<sp/>interface<sp/>is<sp/>disabled.</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga4777a88cd424a44b0f76625409d78144" kindref="member">nrfx_pdm_enable_check</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="272"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>the<sp/>PDM<sp/>sampling.</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Sampling<sp/>was<sp/>started<sp/>successfully<sp/>or<sp/>was<sp/>already<sp/>in<sp/>progress.</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>Previous<sp/>start/stop<sp/>operation<sp/>is<sp/>in<sp/>progress.</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga2d73a2429dfa648ac74c58a076143690" kindref="member">nrfx_pdm_start</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="282"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>stopping<sp/>the<sp/>PDM<sp/>sampling.</highlight></codeline>
+<codeline lineno="284"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*<sp/>When<sp/>this<sp/>function<sp/>is<sp/>called,<sp/>the<sp/>PDM<sp/>driver<sp/>instance<sp/>is<sp/>stopped<sp/>after<sp/>finishing</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*<sp/>the<sp/>current<sp/>frame.</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>The<sp/>event<sp/>handler<sp/>function<sp/>might<sp/>be<sp/>called<sp/>once<sp/>more<sp/>after<sp/>calling<sp/>this<sp/>function.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Sampling<sp/>was<sp/>stopped<sp/>successfully<sp/>or<sp/>was<sp/>already<sp/>stopped<sp/>before.</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/>Previous<sp/>start/stop<sp/>operation<sp/>is<sp/>in<sp/>progress.</highlight></codeline>
+<codeline lineno="293"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1gaf9e91421f859bbaca8488092870fd098" kindref="member">nrfx_pdm_stop</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="296"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>supplying<sp/>the<sp/>sample<sp/>buffer.</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*<sp/>Call<sp/>this<sp/>function<sp/>after<sp/>every<sp/>buffer<sp/>request<sp/>event.</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="302"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>buffer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>receive<sp/>buffer.<sp/>Cannot<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="303"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>buffer_length<sp/>Length<sp/>of<sp/>the<sp/>receive<sp/>buffer<sp/>in<sp/>16-bit<sp/>words.</highlight></codeline>
+<codeline lineno="304"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="305"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>buffer<sp/>was<sp/>applied<sp/>successfully.</highlight></codeline>
+<codeline lineno="306"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>buffer<sp/>was<sp/>already<sp/>supplied<sp/>or<sp/>the<sp/>peripheral<sp/>is<sp/>currently<sp/>being<sp/>stopped.</highlight></codeline>
+<codeline lineno="307"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>was<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="308"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/><sp/><sp/><sp/>Invalid<sp/>parameters<sp/>were<sp/>provided.</highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga0f1b29b171916202646d3f25fce2db3f" kindref="member">nrfx_pdm_buffer_set</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>*<sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/>buffer_length);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="314"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>calculating<sp/>PDM<sp/>clock<sp/>prescaler<sp/>values.</highlight></codeline>
+<codeline lineno="316"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="317"><highlight class="comment"><sp/>*<sp/>Call<sp/>this<sp/>function<sp/>to<sp/>find<sp/>suitable<sp/>value<sp/>for<sp/>prescalers<sp/>in</highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/>*<sp/>@ref<sp/>nrfx_pdm_config_t<sp/>structure.</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>output_config<sp/>Expected<sp/>output<sp/>frequencies.</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>prescalers<sp/><sp/><sp/><sp/>Prescaler<sp/>structure<sp/>pointer<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>prescaler<sp/>values.</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Suitable<sp/>prescaler<sp/>values<sp/>were<sp/>found.</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/>No<sp/>suitable<sp/>prescaler<sp/>values<sp/>were<sp/>found.</highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga369ba4abe7f5b7d3b2a723dbc4fe4e05" kindref="member">nrfx_pdm_prescalers_calc</ref>(<ref refid="structnrfx__pdm__output__t" kindref="compound">nrfx_pdm_output_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>output_config,</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref><sp/>*<sp/><sp/><sp/>prescalers);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__pdm_1gad90f2f342109b10cd9131b987c21384d" kindref="member">nrfx_pdm_task_address_get</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="332"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrf__pdm__hal_1gad68d6c8d5185c9bda1b5d3f2d4b6f7df" kindref="member">nrf_pdm_task_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__pdm__t_1a716e3741bd32d6dc5ede8a0e4cfb4d0b" kindref="member">p_reg</ref>,<sp/>task);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga4777a88cd424a44b0f76625409d78144" kindref="member">nrfx_pdm_enable_check</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrf__pdm__hal_1ga3032c46804835e95b644307c7c5504f4" kindref="member">nrf_pdm_enable_check</ref>(p_instance-&gt;<ref refid="structnrfx__pdm__t_1a716e3741bd32d6dc5ede8a0e4cfb4d0b" kindref="member">p_reg</ref>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="342"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="343"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="344"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__pdm_1ga8eff492546e1e29a3531a1b888819472" kindref="member">nrfx_pdm_irq_handler</ref>(<ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="349"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_PDM_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_pdm.h"/>
+  </compounddef>
+</doxygen>

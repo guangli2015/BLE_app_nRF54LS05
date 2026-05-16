@@ -1,0 +1,35 @@
+var group__nrfx__analog__common =
+[
+    [ "NRFX_ANALOG_AIN_INTERNAL_OFFSET", "group__nrfx__analog__common.html#ga27c0d6b6b373682ad27650971333cf5b", null ],
+    [ "NRFX_ANALOG_REF_INTERNAL_VAL", "group__nrfx__analog__common.html#gab1cc9461ece789e2d07cc093f2a930d5", null ],
+    [ "nrfx_analog_input_t", "group__nrfx__analog__common.html#gaf727a59cfc5495ba282cefc8e06da3cf", [
+      [ "NRFX_ANALOG_EXTERNAL_AIN0", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa9bcfe4d8d62e6b06f41b5f64e4110f3b", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN1", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa0892c1fb2990923092c3577e53c16a87", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN2", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfad9349d01fa0def3e4f6eb6de04440a1d", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN3", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaffad48a9868b559dcf02ed25bd52e674", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN4", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaf51788c21d99924bb661d82489409e09", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN5", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfacd516b602155fd055b393909feab860c", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN6", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfac33591ac312f6688edfa7431c2a81bba", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN7", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfada838ec89d46a75477179a45b2bed24e", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN8", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa4d7d1d441586131c940e5213a6ec955b", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN9", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaea54877dbea749ea3e48c6a8e96ca85a", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN10", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa423a8cd0f2937da1e4b68210cb7af1a0", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN11", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa8996b84c6d23ca1653bb68d9b835c585", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN12", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa4cbb726671ac00f715b5c715c4c5f95c", null ],
+      [ "NRFX_ANALOG_EXTERNAL_AIN13", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa953f564894fb89aca584f250eee28973", null ],
+      [ "NRFX_ANALOG_INTERNAL_VDD", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfae0de62f20a10b8112770b434b2c86eb2", null ],
+      [ "NRFX_ANALOG_INTERNAL_VDDDIV2", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfae240e8b6f9d87fb279128950b248c200", null ],
+      [ "NRFX_ANALOG_INTERNAL_AVDD", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfafd37ae728812bc08efa9cd7d31e51a18", null ],
+      [ "NRFX_ANALOG_INTERNAL_DVDD", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfadf14c01bccaeaaf73d1eaf0ee23b63d6", null ],
+      [ "NRFX_ANALOG_INTERNAL_VDDHDIV5", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaf8bc8608dcee5e484a4c7e691dba4451", null ],
+      [ "NRFX_ANALOG_INTERNAL_VDDL", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa15f1d8d5bf25243e98cae44672385531", null ],
+      [ "NRFX_ANALOG_INTERNAL_DECB", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa0b77ad3d3c7318e7654e9c9b3b485688", null ],
+      [ "NRFX_ANALOG_INTERNAL_VSS", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaa5e079b221c1d787dd2a119c81b0f85c", null ],
+      [ "NRFX_ANALOG_INTERNAL_VDDAO3V0", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa01b75be88a6842ba971eb5b920c3c4e6", null ],
+      [ "NRFX_ANALOG_INTERNAL0", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa247f46eab255ef447995068884320700", null ],
+      [ "NRFX_ANALOG_INTERNAL1", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaf0a412eb2fee7e9ce23d18e4a4779f5d", null ],
+      [ "NRFX_ANALOG_INTERNAL2", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfaafd4033e5efec7ff4166d7e8f875f5b0", null ],
+      [ "NRFX_ANALOG_INTERNAL3", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfab287d0e3d6782b24285aecc8a2e54b51", null ],
+      [ "NRFX_ANALOG_INPUT_DISABLED", "group__nrfx__analog__common.html#ggaf727a59cfc5495ba282cefc8e06da3cfa5e266b8d06780edc8a4d74f92613f282", null ]
+    ] ]
+];

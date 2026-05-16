@@ -1,0 +1,2241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__twis__hal" kind="group">
+    <compoundname>nrf_twis_hal</compoundname>
+    <title>TWIS HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_task_t</name>
+        <enumvalue id="group__nrf__twis__hal_1gga0f9a066f20fa56a413dc549242f56360ad8226f2f3aabcc2dd3b115b58b9e6893" prot="public">
+          <name>NRF_TWIS_TASK_STOP</name>
+          <initializer>= offsetof(NRF_TWIS_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stop TWIS transaction. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1gga0f9a066f20fa56a413dc549242f56360a40ead6ea32c105084090aad204c180d3" prot="public">
+          <name>NRF_TWIS_TASK_SUSPEND</name>
+          <initializer>= offsetof(NRF_TWIS_Type, TASKS_SUSPEND)</initializer>
+          <briefdescription>
+<para>Suspend TWIS transaction. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1gga0f9a066f20fa56a413dc549242f56360a1d1d07bc8f5bed82b967bd525f8500b6" prot="public">
+          <name>NRF_TWIS_TASK_RESUME</name>
+          <initializer>= offsetof(NRF_TWIS_Type, TASKS_RESUME)</initializer>
+          <briefdescription>
+<para>Resume TWIS transaction. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1gga0f9a066f20fa56a413dc549242f56360aeb0d738dfe3ce8e4b5381ded3175eebd" prot="public">
+          <name>NRF_TWIS_TASK_PREPARERX</name>
+          <initializer>= offsetof(NRF_TWIS_Type, TASKS_PREPARERX)</initializer>
+          <briefdescription>
+<para>Prepare the TWIS slave to respond to a write command. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1gga0f9a066f20fa56a413dc549242f56360a6af25e21181c33b78253d061d110d59c" prot="public">
+          <name>NRF_TWIS_TASK_PREPARETX</name>
+          <initializer>= offsetof(NRF_TWIS_Type, TASKS_PREPARETX)</initializer>
+          <briefdescription>
+<para>Prepare the TWIS slave to respond to a read command. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="102" column="1" bodyfile="hal/nrf_twis.h" bodystart="103" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_event_t</name>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345afc19278c27f421341e0b95010bbe945e" prot="public">
+          <name>NRF_TWIS_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>TWIS stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345a3ec6c73558c76372ed1b9fa60d4b9422" prot="public">
+          <name>NRF_TWIS_EVENT_ERROR</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_ERROR)</initializer>
+          <briefdescription>
+<para>TWIS error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345a69c227318aadc97d9cd70a291d62514d" prot="public">
+          <name>NRF_TWIS_EVENT_RXSTARTED</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_DMA.RX.READY)</initializer>
+          <briefdescription>
+<para>Receive sequence started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345a47aadecc4e1015f96d75158d5baf4947" prot="public">
+          <name>NRF_TWIS_EVENT_TXSTARTED</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_DMA.TX.READY)</initializer>
+          <briefdescription>
+<para>Transmit sequence started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345ab742a449e915ccbefac6111bdc4d81b2" prot="public">
+          <name>NRF_TWIS_EVENT_WRITE</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_WRITE)</initializer>
+          <briefdescription>
+<para>Write command received. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa095872e374917692717a6088e5b6345a99914aa6f41e99dde790fd0e43562f38" prot="public">
+          <name>NRF_TWIS_EVENT_READ</name>
+          <initializer>= offsetof(NRF_TWIS_Type, EVENTS_READ)</initializer>
+          <briefdescription>
+<para>Read command received. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="112" column="1" bodyfile="hal/nrf_twis.h" bodystart="113" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__twis__hal_1gacfde7f6e58a79a94f6c6d82d6b04009e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_short_mask_t</name>
+        <enumvalue id="group__nrf__twis__hal_1ggacfde7f6e58a79a94f6c6d82d6b04009eacaa3c31e85541513eb8d0aac5bf7e7f9" prot="public">
+          <name>NRF_TWIS_SHORT_WRITE_SUSPEND_MASK</name>
+          <initializer>= TWIS_SHORTS_WRITE_SUSPEND_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between WRITE event and SUSPEND task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggacfde7f6e58a79a94f6c6d82d6b04009eaf6a887d8f0180ed20473026f952083c9" prot="public">
+          <name>NRF_TWIS_SHORT_READ_SUSPEND_MASK</name>
+          <initializer>= TWIS_SHORTS_READ_SUSPEND_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between READ event and SUSPEND task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="128" column="1" bodyfile="hal/nrf_twis.h" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__twis__hal_1gaa212f1487a7c97c857a3f7a5e735fe66" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_int_mask_t</name>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66a16079e93d11db458ba6b9fcb7b206836" prot="public">
+          <name>NRF_TWIS_INT_STOPPED_MASK</name>
+          <initializer>= TWIS_INTEN_STOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on STOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66afef4a53ae8e1c0264f187398b6be8182" prot="public">
+          <name>NRF_TWIS_INT_ERROR_MASK</name>
+          <initializer>= TWIS_INTEN_ERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66acd420d5a6766e11feca20958f6d164d8" prot="public">
+          <name>NRF_TWIS_INT_RXSTARTED_MASK</name>
+          <initializer>= TWIS_INTEN_DMARXREADY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXSTARTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66ae96612387979bb74863fb9aab93d4b82" prot="public">
+          <name>NRF_TWIS_INT_TXSTARTED_MASK</name>
+          <initializer>= TWIS_INTEN_DMATXREADY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXSTARTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66a51532ee1b18f64514c27c4806a35b1eb" prot="public">
+          <name>NRF_TWIS_INT_WRITE_MASK</name>
+          <initializer>= TWIS_INTEN_WRITE_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on WRITE event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggaa212f1487a7c97c857a3f7a5e735fe66aedd94bc12333fc2af428721e4a87b1cb" prot="public">
+          <name>NRF_TWIS_INT_READ_MASK</name>
+          <initializer>= TWIS_INTEN_READ_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on READ event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="135" column="1" bodyfile="hal/nrf_twis.h" bodystart="136" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__twis__hal_1gabc33e3d9a58851106ef1654c2aefa72d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_error_t</name>
+        <enumvalue id="group__nrf__twis__hal_1ggabc33e3d9a58851106ef1654c2aefa72da0b6341d2c4508eede27dd0f644732845" prot="public">
+          <name>NRF_TWIS_ERROR_OVERFLOW</name>
+          <initializer>= TWIS_ERRORSRC_OVERFLOW_Msk</initializer>
+          <briefdescription>
+<para>RX buffer overflow detected, and prevented. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggabc33e3d9a58851106ef1654c2aefa72da90bf770179754d7e71301f262e22d279" prot="public">
+          <name>NRF_TWIS_ERROR_DATA_NACK</name>
+          <initializer>= TWIS_ERRORSRC_DNACK_Msk</initializer>
+          <briefdescription>
+<para>NACK sent after receiving a data byte. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggabc33e3d9a58851106ef1654c2aefa72dafbc85d896157a7c1819cf94150237775" prot="public">
+          <name>NRF_TWIS_ERROR_OVERREAD</name>
+          <initializer>= TWIS_ERRORSRC_OVERREAD_Msk</initializer>
+          <briefdescription>
+<para>TX buffer over-read detected, and prevented. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS error source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="151" column="1" bodyfile="hal/nrf_twis.h" bodystart="152" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__twis__hal_1gae8b5a6d6e1ae57daec594f73b19092b1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_twis_config_addr_mask_t</name>
+        <enumvalue id="group__nrf__twis__hal_1ggae8b5a6d6e1ae57daec594f73b19092b1ab5e00ae6e5692af5f642d3a3168334c2" prot="public">
+          <name>NRF_TWIS_CONFIG_ADDRESS0_MASK</name>
+          <initializer>= TWIS_CONFIG_ADDRESS0_Msk</initializer>
+          <briefdescription>
+<para>Enable or disable address matching on ADDRESS[0]. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggae8b5a6d6e1ae57daec594f73b19092b1aa6b26ebdb8233f171baf7ef0e0df0088" prot="public">
+          <name>NRF_TWIS_CONFIG_ADDRESS1_MASK</name>
+          <initializer>= TWIS_CONFIG_ADDRESS1_Msk</initializer>
+          <briefdescription>
+<para>Enable or disable address matching on ADDRESS[1]. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__twis__hal_1ggae8b5a6d6e1ae57daec594f73b19092b1affbb86eb76e4d96a629fc47931933e4f" prot="public">
+          <name>NRF_TWIS_CONFIG_ADDRESS01_MASK</name>
+          <initializer>= TWIS_CONFIG_ADDRESS0_Msk |
+                                     TWIS_CONFIG_ADDRESS1_Msk</initializer>
+          <briefdescription>
+<para>Enable both address matching. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIS address matching configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="159" column="1" bodyfile="hal/nrf_twis.h" bodystart="160" bodyend="165"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__twis__hal_1gab3ec17f227b682bb63a6ca3b8bf78d8f" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>typedef uint8_t nrf_twis_address_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_twis_address_t</name>
+        <briefdescription>
+<para>Smallest variable type to hold the TWI address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Variable of the minimum size that can hold a single TWI address.</para>
+<para><simplesect kind="note"><para>Defined to make it simple to change if the new TWI supports for example 10 bit addressing mode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="175" column="17" bodyfile="hal/nrf_twis.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__twis__hal_1gac6a70173d85ce7823437ba9f1c8164a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_task_trigger</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_task_t task)</argsstring>
+        <name>nrf_twis_task_trigger</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" kindref="member">nrf_twis_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified TWIS task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="675" column="24" bodyfile="hal/nrf_twis.h" bodystart="675" bodyend="678" declfile="hal/nrf_twis.h" declline="183" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaa7cb188303fca30b566bcc33128fac21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_task_address_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, nrf_twis_task_t task)</argsstring>
+        <name>nrf_twis_task_address_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" kindref="member">nrf_twis_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified TWIS task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="680" column="28" bodyfile="hal/nrf_twis.h" bodystart="680" bodyend="684" declfile="hal/nrf_twis.h" declline="193" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga9b3471028011828ee2df2ff6f053eee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_event_clear</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_event_clear</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="686" column="24" bodyfile="hal/nrf_twis.h" bodystart="686" bodyend="690" declfile="hal/nrf_twis.h" declline="202" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga37232c7135fbe0f4681f6578ea3f5d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_twis_event_check</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_event_check</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the TWIS event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="692" column="24" bodyfile="hal/nrf_twis.h" bodystart="692" bodyend="695" declfile="hal/nrf_twis.h" declline="213" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga4f849f84aa26c795773c12b40db861ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_twis_event_get_and_clear</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_event_get_and_clear</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting and clearing the state of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks the state of the event and clears it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event was set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event was not set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="697" column="24" bodyfile="hal/nrf_twis.h" bodystart="697" bodyend="705" declfile="hal/nrf_twis.h" declline="226" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaa361feaa2f23dd4b9fe417ff095ae490" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_event_address_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_event_address_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified TWIS event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="707" column="28" bodyfile="hal/nrf_twis.h" bodystart="707" bodyend="711" declfile="hal/nrf_twis.h" declline="236" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga3c6ff3552ca042c8593bef12db83caac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_shorts_enable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_twis_shorts_enable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting a shortcut. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="713" column="24" bodyfile="hal/nrf_twis.h" bodystart="713" bodyend="716" declfile="hal/nrf_twis.h" declline="245" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gac8764a8233f598003357fef2cf098e93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_shorts_disable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_twis_shorts_disable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="718" column="24" bodyfile="hal/nrf_twis.h" bodystart="718" bodyend="729" declfile="hal/nrf_twis.h" declline="253" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga5a5229e9bff44a29450e7d5672665959" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_shorts_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_shorts_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the shorts mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function returns shorts register.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Flags of currently enabled shortcuts </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="731" column="28" bodyfile="hal/nrf_twis.h" bodystart="731" bodyend="734" declfile="hal/nrf_twis.h" declline="264" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga70d9f76988e880d6052d128bd095dcd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_int_enable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_twis_int_enable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__twis__hal_1gaa212f1487a7c97c857a3f7a5e735fe66" kindref="member">nrf_twis_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="736" column="24" bodyfile="hal/nrf_twis.h" bodystart="736" bodyend="739" declfile="hal/nrf_twis.h" declline="273" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga20806c89a383c02c930a1e287448fad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_int_enable_check</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_twis_int_enable_check</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__twis__hal_1gaa212f1487a7c97c857a3f7a5e735fe66" kindref="member">nrf_twis_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="741" column="28" bodyfile="hal/nrf_twis.h" bodystart="741" bodyend="744" declfile="hal/nrf_twis.h" declline="284" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gae0c61580bd4494d3362271d8f8221251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_int_disable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_twis_int_disable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__twis__hal_1gaa212f1487a7c97c857a3f7a5e735fe66" kindref="member">nrf_twis_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="746" column="24" bodyfile="hal/nrf_twis.h" bodystart="746" bodyend="749" declfile="hal/nrf_twis.h" declline="293" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga5f21afcd20b58e1c21fd40bee3cabb29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_subscribe_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_twis_subscribe_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" kindref="member">nrf_twis_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given TWIS task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="303" column="24" declfile="hal/nrf_twis.h" declline="303" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga552aad914921d00de2b8cf8f620f76c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_subscribe_clear</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_task_t task)</argsstring>
+        <name>nrf_twis_subscribe_clear</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" kindref="member">nrf_twis_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given TWIS task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="314" column="24" declfile="hal/nrf_twis.h" declline="314" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga41a37f060fd73b44482d41fe61c6076e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_subscribe_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, nrf_twis_task_t task)</argsstring>
+        <name>nrf_twis_subscribe_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1ga0f9a066f20fa56a413dc549242f56360" kindref="member">nrf_twis_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given TWIS task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TWIS subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="325" column="28" declfile="hal/nrf_twis.h" declline="325" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gacc5d93169ccb759bdbe5c8bd59f0535a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_publish_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_twis_publish_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given TWIS event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="335" column="24" declfile="hal/nrf_twis.h" declline="335" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga4dee0d30ccd6eaf35e1697d377412faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_publish_clear</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_publish_clear</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given TWIS event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="345" column="24" declfile="hal/nrf_twis.h" declline="345" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gac16722a08c130427e68c7bc3b858aba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_publish_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, nrf_twis_event_t event)</argsstring>
+        <name>nrf_twis_publish_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gaa095872e374917692717a6088e5b6345" kindref="member">nrf_twis_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given TWIS event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TWIS publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="356" column="28" declfile="hal/nrf_twis.h" declline="356" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga68fb9a7b57216e06b539fc005680b7a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_error_source_get_and_clear</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_error_source_get_and_clear</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving and clearing the TWIS error source. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Error sources are cleared after read.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Error source mask with values from <ref refid="group__nrf__twis__hal_1gabc33e3d9a58851106ef1654c2aefa72d" kindref="member">nrf_twis_error_t</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="791" column="28" bodyfile="hal/nrf_twis.h" bodystart="791" bodyend="796" declfile="hal/nrf_twis.h" declline="369" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga88e0ff8d10b77aecba37cfebea94c53e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint_fast8_t</type>
+        <definition>NRF_STATIC_INLINE uint_fast8_t nrf_twis_match_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_match_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting information about which of the addresses matched. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function returns index in the address table that points to the address that already matched.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Index of matched address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="798" column="32" bodyfile="hal/nrf_twis.h" bodystart="798" bodyend="801" declfile="hal/nrf_twis.h" declline="381" declcolumn="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga2b0bbdafe4f64c476912e3bd0f881bce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_enable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_enable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling TWIS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="803" column="24" bodyfile="hal/nrf_twis.h" bodystart="803" bodyend="806" declfile="hal/nrf_twis.h" declline="388" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga6afc41963c1635025887963df5686b7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_disable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_disable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling TWIS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="808" column="24" bodyfile="hal/nrf_twis.h" bodystart="808" bodyend="811" declfile="hal/nrf_twis.h" declline="395" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga406ef3faf583d755d93d8f4e3107afaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_twis_enable_check</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_enable_check</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TWIS is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIS is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIS is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="813" column="24" bodyfile="hal/nrf_twis.h" bodystart="813" bodyend="816" declfile="hal/nrf_twis.h" declline="405" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga58f400b99e68a50ea3470c092f756cb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_pins_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t scl, uint32_t sda)</argsstring>
+        <name>nrf_twis_pins_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>scl</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sda</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TWIS pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">scl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="818" column="24" bodyfile="hal/nrf_twis.h" bodystart="818" bodyend="822" declfile="hal/nrf_twis.h" declline="414" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga20247814c9b90274e2fdb0279217763b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_scl_pin_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_twis_scl_pin_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SCL pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="824" column="24" bodyfile="hal/nrf_twis.h" bodystart="824" bodyend="827" declfile="hal/nrf_twis.h" declline="422" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga2f6521bb50827c7c4336e407ae5c8dfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_scl_pin_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_scl_pin_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the SCL pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SCL pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="829" column="28" bodyfile="hal/nrf_twis.h" bodystart="829" bodyend="832" declfile="hal/nrf_twis.h" declline="431" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gafdb3af7c667a79226ded469645762493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_sda_pin_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_twis_sda_pin_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SDA pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="834" column="24" bodyfile="hal/nrf_twis.h" bodystart="834" bodyend="837" declfile="hal/nrf_twis.h" declline="439" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga4cd0fdd60688f23dfc339fcd85fadeeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_twis_sda_pin_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_sda_pin_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the SDA pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SDA pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="839" column="28" bodyfile="hal/nrf_twis.h" bodystart="839" bodyend="842" declfile="hal/nrf_twis.h" declline="448" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga2e2fdc81514fe8291222f092a636ec83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_rx_buffer_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint8_t *p_buf, size_t length)</argsstring>
+        <name>nrf_twis_rx_buffer_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer for received data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to receive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="844" column="24" bodyfile="hal/nrf_twis.h" bodystart="844" bodyend="853" declfile="hal/nrf_twis.h" declline="457" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaf0bf02ca4afb34709ddcc926a11bf4c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t *</type>
+        <definition>NRF_STATIC_INLINE uint8_t * nrf_twis_rx_buffer_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_rx_buffer_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the receive buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="855" column="28" bodyfile="hal/nrf_twis.h" bodystart="855" bodyend="862" declfile="hal/nrf_twis.h" declline="468" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga72e9082fa44f6fc4d063c344d95c54b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_rx_prepare</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint8_t *p_buf, size_t length)</argsstring>
+        <name>nrf_twis_rx_prepare</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function that prepares TWIS for receiving. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function sets receive buffer and then sets NRF_TWIS_TASK_PREPARERX task.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer for received data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to receive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="864" column="24" bodyfile="hal/nrf_twis.h" bodystart="864" bodyend="868" declfile="hal/nrf_twis.h" declline="479" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga5c9844a79451f11104fafd5dd8159317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE size_t</type>
+        <definition>NRF_STATIC_INLINE size_t nrf_twis_rx_amount_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_rx_amount_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting number of bytes received in the last transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TWIS instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Amount of received bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="870" column="26" bodyfile="hal/nrf_twis.h" bodystart="870" bodyend="877" declfile="hal/nrf_twis.h" declline="488" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga9f1c52a92ce23ad9653bb0476c859630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_tx_buffer_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint8_t const *p_buf, size_t length)</argsstring>
+        <name>nrf_twis_tx_buffer_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer with data to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="879" column="24" bodyfile="hal/nrf_twis.h" bodystart="879" bodyend="890" declfile="hal/nrf_twis.h" declline="497" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaeca28e06a53158a07262f5c83fb1eb61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t *</type>
+        <definition>NRF_STATIC_INLINE uint8_t * nrf_twis_tx_buffer_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_tx_buffer_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the transmit buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="892" column="28" bodyfile="hal/nrf_twis.h" bodystart="892" bodyend="899" declfile="hal/nrf_twis.h" declline="508" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gadd3057b0a9b02a00e0c6fa15697bbf26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_tx_prepare</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint8_t const *p_buf, size_t length)</argsstring>
+        <name>nrf_twis_tx_prepare</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for preparing TWIS for transmitting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function sets transmit buffer and then sets NRF_TWIS_TASK_PREPARETX task.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer with data to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of data bytes to transmit. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="901" column="24" bodyfile="hal/nrf_twis.h" bodystart="901" bodyend="907" declfile="hal/nrf_twis.h" declline="519" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga686637d3b10e2df8cbeda813ff649c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE size_t</type>
+        <definition>NRF_STATIC_INLINE size_t nrf_twis_tx_amount_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_tx_amount_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of bytes transmitted in the last transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Amount of bytes transmitted. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="909" column="26" bodyfile="hal/nrf_twis.h" bodystart="909" bodyend="916" declfile="hal/nrf_twis.h" declline="530" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga197d0cf5d35cd5ecaf8303fd979278d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_address_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint_fast8_t n, nrf_twis_address_t addr)</argsstring>
+        <name>nrf_twis_address_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint_fast8_t</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gab3ec17f227b682bb63a6ca3b8bf78d8f" kindref="member">nrf_twis_address_t</ref></type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the slave address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function sets the selected address for this TWI interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of address to be set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Addres to be set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrf__twis__hal_1ga6651956e1198c3efc3fe692f4e242e3e" kindref="member">nrf_twis_config_address_set</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__twis__hal_1ga097263f9bee26541a91ea928d39f3fc7" kindref="member">nrf_twis_config_address_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="918" column="24" bodyfile="hal/nrf_twis.h" bodystart="918" bodyend="924" declfile="hal/nrf_twis.h" declline="544" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gabe997aa5bae79862961e60fc49a9ffa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__twis__hal_1gab3ec17f227b682bb63a6ca3b8bf78d8f" kindref="member">nrf_twis_address_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_twis_address_t nrf_twis_address_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg, uint_fast8_t n)</argsstring>
+        <name>nrf_twis_address_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint_fast8_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving configured slave address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function gets the selected address for this TWI interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of address to get.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configured slave address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="926" column="38" bodyfile="hal/nrf_twis.h" bodystart="926" bodyend="930" declfile="hal/nrf_twis.h" declline="558" declcolumn="38"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga6651956e1198c3efc3fe692f4e242e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_config_address_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, nrf_twis_config_addr_mask_t addr_mask)</argsstring>
+        <name>nrf_twis_config_address_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__twis__hal_1gae8b5a6d6e1ae57daec594f73b19092b1" kindref="member">nrf_twis_config_addr_mask_t</ref></type>
+          <declname>addr_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the device address configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">addr_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of address indexes of what device should answer to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrf__twis__hal_1ga197d0cf5d35cd5ecaf8303fd979278d1" kindref="member">nrf_twis_address_set</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="932" column="24" bodyfile="hal/nrf_twis.h" bodystart="932" bodyend="937" declfile="hal/nrf_twis.h" declline="569" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga097263f9bee26541a91ea928d39f3fc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__twis__hal_1gae8b5a6d6e1ae57daec594f73b19092b1" kindref="member">nrf_twis_config_addr_mask_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_twis_config_addr_mask_t nrf_twis_config_address_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_config_address_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the device address configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of address indexes of what device should answer to. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="940" column="29" bodyfile="hal/nrf_twis.h" bodystart="940" bodyend="943" declfile="hal/nrf_twis.h" declline="580" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga61982ea97228eadbd76475eb8ee3817d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_orc_set</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg, uint8_t orc)</argsstring>
+        <name>nrf_twis_orc_set</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>orc</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the over-read character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">orc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Over-read character. Character clocked out in case of over-read of the TXD buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="945" column="24" bodyfile="hal/nrf_twis.h" bodystart="945" bodyend="948" declfile="hal/nrf_twis.h" declline="589" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga2641893e0f099994aa21c8c6591087e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_twis_orc_get</definition>
+        <argsstring>(NRF_TWIS_Type const *p_reg)</argsstring>
+        <name>nrf_twis_orc_get</name>
+        <param>
+          <type>NRF_TWIS_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the over-read character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Over-read character configured for selected instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="950" column="27" bodyfile="hal/nrf_twis.h" bodystart="950" bodyend="953" declfile="hal/nrf_twis.h" declline="598" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga97194ea3b9da36122bb7b4c49916ab53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_tx_list_enable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_tx_list_enable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TX list feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="956" column="24" bodyfile="hal/nrf_twis.h" bodystart="956" bodyend="959" declfile="hal/nrf_twis.h" declline="606" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaa1f3a75c8c3ba7c65dc6407b8e462328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_tx_list_disable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_tx_list_disable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TX list feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="961" column="24" bodyfile="hal/nrf_twis.h" bodystart="961" bodyend="964" declfile="hal/nrf_twis.h" declline="613" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1ga04b21362f997c16d1f636b219d8dad3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_rx_list_enable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_rx_list_enable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the RX list feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="966" column="24" bodyfile="hal/nrf_twis.h" bodystart="966" bodyend="969" declfile="hal/nrf_twis.h" declline="620" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__twis__hal_1gaae7e48f099010a8c6e6f3c234f157bc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_twis_rx_list_disable</definition>
+        <argsstring>(NRF_TWIS_Type *p_reg)</argsstring>
+        <name>nrf_twis_rx_list_disable</name>
+        <param>
+          <type>NRF_TWIS_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the RX list feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="971" column="24" bodyfile="hal/nrf_twis.h" bodystart="971" bodyend="974" declfile="hal/nrf_twis.h" declline="627" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__twis__hal_1ga520afb8a5e2c91d381325db7147b7482" prot="public" static="no">
+        <name>NRF_TWIS_HAS_DMA_REG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether dedicated DMA register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="61" column="9" bodyfile="hal/nrf_twis.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__twis__hal_1ga9eaff6ad9f15c4b6acce47b40696181b" prot="public" static="no">
+        <name>NRF_TWIS_HAS_DMA_TASKS_EVENTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TWIS DMA tasks and events are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="70" column="9" bodyfile="hal/nrf_twis.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__twis__hal_1ga166fe4f1e5f72674224b67aa38d5627d" prot="public" static="no">
+        <name>NRF_TWIS_HAS_LIST_REG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether TX or RX LIST is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="77" column="9" bodyfile="hal/nrf_twis.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__twis__hal_1ga365a3ad8153c5678ae91aa7247dbeddc" prot="public" static="no">
+        <name>NRF_TWIS_TX_MAX_COUNT_SIZE</name>
+        <initializer>TWIS_DMA_TX_MAXCNT_MAXCNT_Max</initializer>
+        <briefdescription>
+<para>Symbol specifying maximum possible size of the TX channel buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="84" column="9" bodyfile="hal/nrf_twis.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__twis__hal_1gaf806829f02bef016ff107f290c832ff2" prot="public" static="no">
+        <name>NRF_TWIS_RX_MAX_COUNT_SIZE</name>
+        <initializer>TWIS_DMA_RX_MAXCNT_MAXCNT_Max</initializer>
+        <briefdescription>
+<para>Symbol specifying maximum possible size of the RX channel buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="86" column="9" bodyfile="hal/nrf_twis.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__twis__hal_1gacdbe13a5e6552848d0e4fddd3b310b4c" prot="public" static="no">
+        <name>NRF_TWIS_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, TWIS, idx)</initializer>
+        <briefdescription>
+<para>Macro getting pointer to the structure of registers of the TWIS peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TWIS instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the TWIS peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_twis.h" line="99" column="9" bodyfile="hal/nrf_twis.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Two Wire Interface Slave with EasyDMA (TWIS) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2035 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__usbd" kind="group">
+    <compoundname>nrfx_usbd</compoundname>
+    <title>USBD driver</title>
+    <innerclass refid="structnrfx__usbd__evt__t" prot="public">nrfx_usbd_evt_t</innerclass>
+    <innerclass refid="unionnrfx__usbd__data__ptr__t" prot="public">nrfx_usbd_data_ptr_t</innerclass>
+    <innerclass refid="structnrfx__usbd__ep__transfer__t" prot="public">nrfx_usbd_ep_transfer_t</innerclass>
+    <innerclass refid="structnrfx__usbd__transfer__t" prot="public">nrfx_usbd_transfer_t</innerclass>
+    <innerclass refid="unionnrfx__usbd__handler__t" prot="public">nrfx_usbd_handler_t</innerclass>
+    <innerclass refid="structnrfx__usbd__handler__desc__t" prot="public">nrfx_usbd_handler_desc_t</innerclass>
+    <innerclass refid="structnrfx__usbd__setup__t" prot="public">nrfx_usbd_setup_t</innerclass>
+    <innergroup refid="group__nrfx__usbd__config">USBD peripheral driver configuration</innergroup>
+      <sectiondef kind="user-defined">
+      <header>Macros for creating endpoint identifiers.</header>
+      <description><para>Auxiliary macros for creating endpoint identifiers compatible with the USB specification. </para>
+</description>
+      <memberdef kind="define" id="group__nrfx__usbd_1ga718401d7cec894b8d88e30a7fd3f3f8d" prot="public" static="no">
+        <name>NRFX_USBD_EPIN</name>
+        <param><defname>n</defname></param>
+        <initializer>((<ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref>)<ref refid="group__nrf__usbd__hal_1ga9be1e5cf3c38d21e1116c2771ab86bcf" kindref="member">NRF_USBD_EPIN</ref>(n))</initializer>
+        <briefdescription>
+<para>Create identifier for IN endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Simple macro to create IN endpoint identifier for given endpoint number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Endpoint identifier that connects endpoint number and endpoint direction. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="90" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__usbd_1ga28acdd595eaf85c85312b78a56127f66" prot="public" static="no">
+        <name>NRFX_USBD_EPOUT</name>
+        <param><defname>n</defname></param>
+        <initializer>((<ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref>)<ref refid="group__nrf__usbd__hal_1ga8b6d96a8d69d5283919896d6f5b54b01" kindref="member">NRF_USBD_EPOUT</ref>(n))</initializer>
+        <briefdescription>
+<para>Create identifier for OUT endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Simple macro to create OUT endpoint identifier for given endpoint number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Endpoint identifier that connects endpoint number and endpoint direction. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="100" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbd_ep_t</name>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148adc8f72e6e81008be3a6de419f44cc4d2" prot="public">
+          <name>NRFX_USBD_EPOUT0</name>
+          <initializer>= NRF_USBD_EPOUT(0)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 0 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148ad3b89b5d220e1f61c80dffac804d2290" prot="public">
+          <name>NRFX_USBD_EPOUT1</name>
+          <initializer>= NRF_USBD_EPOUT(1)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 1 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148af73f91886da7fe11d4f5016c4027d954" prot="public">
+          <name>NRFX_USBD_EPOUT2</name>
+          <initializer>= NRF_USBD_EPOUT(2)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 2 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a793f6cc6a94aea74738995732c54a111" prot="public">
+          <name>NRFX_USBD_EPOUT3</name>
+          <initializer>= NRF_USBD_EPOUT(3)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 3 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a1a9eec22421f5e331027ce87561f85b3" prot="public">
+          <name>NRFX_USBD_EPOUT4</name>
+          <initializer>= NRF_USBD_EPOUT(4)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 4 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148aa8965afd84fc64953ca2296ab3c8a734" prot="public">
+          <name>NRFX_USBD_EPOUT5</name>
+          <initializer>= NRF_USBD_EPOUT(5)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 5 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148ae31820d95335d84d5530e2df37a291e1" prot="public">
+          <name>NRFX_USBD_EPOUT6</name>
+          <initializer>= NRF_USBD_EPOUT(6)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 6 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148ada52c9dddd8a61503960ed0a7e275132" prot="public">
+          <name>NRFX_USBD_EPOUT7</name>
+          <initializer>= NRF_USBD_EPOUT(7)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 7 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a1e65a7a09da7f5f9fecff57048950d61" prot="public">
+          <name>NRFX_USBD_EPOUT8</name>
+          <initializer>= NRF_USBD_EPOUT(8)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint OUT 8 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a7516c5d15acca7875867bfb85e3ef24d" prot="public">
+          <name>NRFX_USBD_EPIN0</name>
+          <initializer>= NRF_USBD_EPIN(0)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 0 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148ae4797a651686de4dc7e99e478e27ab17" prot="public">
+          <name>NRFX_USBD_EPIN1</name>
+          <initializer>= NRF_USBD_EPIN(1)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 1 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148addd6f0eed01de9bd7875b04cdef3b011" prot="public">
+          <name>NRFX_USBD_EPIN2</name>
+          <initializer>= NRF_USBD_EPIN(2)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 2 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a930cbb0769b23a56995f730b47f926fd" prot="public">
+          <name>NRFX_USBD_EPIN3</name>
+          <initializer>= NRF_USBD_EPIN(3)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 3 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a60ea8b534066b933ee94ff12e0242633" prot="public">
+          <name>NRFX_USBD_EPIN4</name>
+          <initializer>= NRF_USBD_EPIN(4)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 4 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a6f4ee82c7045eacaf8733f481b9aeb00" prot="public">
+          <name>NRFX_USBD_EPIN5</name>
+          <initializer>= NRF_USBD_EPIN(5)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 5 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148aacb746fb0e4934905475d370b86e3006" prot="public">
+          <name>NRFX_USBD_EPIN6</name>
+          <initializer>= NRF_USBD_EPIN(6)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 6 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148a92a149e1674a72fa8e09c98755073e59" prot="public">
+          <name>NRFX_USBD_EPIN7</name>
+          <initializer>= NRF_USBD_EPIN(7)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 7 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga46bdf8fe1cd3f46fbfac2ccbbba4c148aba9b580b982c91e781afce93bd34f521" prot="public">
+          <name>NRFX_USBD_EPIN8</name>
+          <initializer>= NRF_USBD_EPIN(8)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Endpoint IN 8 </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Endpoint identifier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Endpoint identifier used in the driver. This endpoint number is consistent with USB 2.0 specification. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="109" column="1" bodyfile="drivers/include/nrfx_usbd.h" bodystart="110" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__usbd_1ga75f9c1027d02af1063f90857241d8201" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbd_event_type_t</name>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a5749bc50faa178c1d49a1653304723d8" prot="public">
+          <name>NRFX_USBD_EVT_SOF</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start Of Frame event on USB bus detected. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a95328b495861d14be813227f22540cf8" prot="public">
+          <name>NRFX_USBD_EVT_RESET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reset condition on USB bus detected. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a0cd4cc092598cf39e36386e7cf40c151" prot="public">
+          <name>NRFX_USBD_EVT_SUSPEND</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>This device should go to suspend mode now. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a247a0c1374e8d883d6bd4d3f248f2b64" prot="public">
+          <name>NRFX_USBD_EVT_RESUME</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>This device should resume from suspend now. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ae9023a2686758d1aaaf59f3997115152" prot="public">
+          <name>NRFX_USBD_EVT_WUREQ</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Wakeup request - the USBD peripheral is ready to generate WAKEUP signal after exiting low power mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a20055dd418def81120deaae466766db9" prot="public">
+          <name>NRFX_USBD_EVT_SETUP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Setup frame received and decoded. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ae803c2fea10aa7c3d4ab135fce990480" prot="public">
+          <name>NRFX_USBD_EVT_EPTRANSFER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>For Rx (OUT: Host-&gt;Device):<orderedlist>
+<listitem><para>The packet has been received but there is no buffer prepared for transfer already.</para>
+</listitem><listitem><para>Whole transfer has been finished.</para>
+</listitem></orderedlist>
+</para>
+<para>For Tx (IN: Device-&gt;Host): The last packet from requested transfer has been transfered over USB bus and acknowledged. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ad8f5b29acfb95d1882a3255e62b4f0d9" prot="public">
+          <name>NRFX_USBD_EVT_CNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Number of defined events. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Events generated by the driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Enumeration of possible events that may be generated by the driver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="137" column="1" bodyfile="drivers/include/nrfx_usbd.h" bodystart="138" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__usbd_1ga8321eebdacbf34b1196e79c30f94ea18" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbd_ep_status_t</name>
+        <enumvalue id="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18adebd6fd359f8117e5d43f5c3f2f639e2" prot="public">
+          <name>NRFX_USBD_EP_OK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No error occured. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18a2bb73c15d36045aa540910c6d608257f" prot="public">
+          <name>NRFX_USBD_EP_WAITING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Data received, no buffer prepared already - waiting for configured transfer. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18a3f7fb746099c7229f6694f5b20c9862d" prot="public">
+          <name>NRFX_USBD_EP_OVERLOAD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Received number of bytes cannot fit given buffer. This error would also be returned when next_transfer function has been defined but currently received data cannot fit completely in current buffer. No data split from single endpoint transmission is supported.</para>
+<para>When this error is reported - data is left inside endpoint buffer. Clear endpoint or prepare new buffer and read it. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18ad13c191b36468f115ba4451347a57af4" prot="public">
+          <name>NRFX_USBD_EP_ABORTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>EP0 transfer can be aborted when new setup comes. Any other transfer can be aborted by USB reset or driver stopping. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18ac83b909c7691bd7e6d53e56c9d577775" prot="public">
+          <name>NRFX_USBD_EP_BUSY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Transfer is in progress. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Endpoint status codes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Status codes that may be returned by <ref refid="group__nrfx__usbd_1ga463020cf49d654d9fe6f7224a0344b36" kindref="member">nrfx_usbd_ep_status_get</ref> or, except for <ref refid="group__nrfx__usbd_1gga8321eebdacbf34b1196e79c30f94ea18ac83b909c7691bd7e6d53e56c9d577775" kindref="member">NRFX_USBD_EP_BUSY</ref>, reported together with <ref refid="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ae803c2fea10aa7c3d4ab135fce990480" kindref="member">NRFX_USBD_EVT_EPTRANSFER</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="162" column="1" bodyfile="drivers/include/nrfx_usbd.h" bodystart="163" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__usbd_1ga8fcbad2dc26c11641c3a2f0b890aa075" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_usbd_transfer_flags_t</name>
+        <enumvalue id="group__nrfx__usbd_1gga8fcbad2dc26c11641c3a2f0b890aa075acc20ec6088e54399a389ee1f8462816e" prot="public">
+          <name>NRFX_USBD_TRANSFER_ZLP_FLAG</name>
+          <initializer>= 1U &lt;&lt; 0</initializer>
+          <briefdescription>
+<para>Add a zero-length packet. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Flags for the current transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Flags configured for the transfer that can be merged using the bitwise &apos;or&apos; operator (|). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="240" column="1" bodyfile="drivers/include/nrfx_usbd.h" bodystart="241" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__usbd_1ga84cf3037a69f53365f561a1b67c9565f" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_usbd_event_handler_t) (nrfx_usbd_evt_t const *p_event)</definition>
+        <argsstring>)(nrfx_usbd_evt_t const *p_event)</argsstring>
+        <name>nrfx_usbd_event_handler_t</name>
+        <briefdescription>
+<para>USBD event callback function type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event information structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="208" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__usbd_1ga65dd0fcfecc7962979f11dfa82a291c9" prot="public" static="no">
+        <type>bool(*</type>
+        <definition>typedef bool(* nrfx_usbd_feeder_t) (nrfx_usbd_ep_transfer_t *p_next, void *p_context, size_t ep_size)</definition>
+        <argsstring>)(nrfx_usbd_ep_transfer_t *p_next, void *p_context, size_t ep_size)</argsstring>
+        <name>nrfx_usbd_feeder_t</name>
+        <briefdescription>
+<para>USBD transfer feeder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer for a transfer feeder. Transfer feeder is a feedback function used to prepare a single TX (Device-&gt;Host) endpoint transfer.</para>
+<para>The transfers provided by the feeder must be simple:<itemizedlist>
+<listitem><para>The size of the transfer provided by this function is limited to a single endpoint buffer. Bigger transfers are not handled automatically in this case.</para>
+</listitem><listitem><para>Flash transfers are not automatically supported- you must copy them to the RAM buffer before.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>This function may use <ref refid="group__nrfx__usbd_1ga4bc28673b0f55fac769f88d1538ae0f9" kindref="member">nrfx_usbd_feeder_buffer_get</ref> to gain a temporary buffer that can be used to prepare transfer.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure with the data for the next transfer to be filled. Required only if the function returns true. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context variable configured with the transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ep_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current transfer is the last one - you do not need to call the function again. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is more data to be prepared and when the current transfer finishes, the feeder function is expected to be called again. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="318" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__usbd_1ga361ccc105f5090193441627be336c369" prot="public" static="no">
+        <type>bool(*</type>
+        <definition>typedef bool(* nrfx_usbd_consumer_t) (nrfx_usbd_ep_transfer_t *p_next, void *p_context, size_t ep_size, size_t data_size)</definition>
+        <argsstring>)(nrfx_usbd_ep_transfer_t *p_next, void *p_context, size_t ep_size, size_t data_size)</argsstring>
+        <name>nrfx_usbd_consumer_t</name>
+        <briefdescription>
+<para>USBD transfer consumer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer for a transfer consumer. Transfer consumer is a feedback function used to prepare a single RX (Host-&gt;Device) endpoint transfer.</para>
+<para>The transfer must provide a buffer big enough to fit the whole data from the endpoint. Otherwise, the NRFX_USBD_EP_OVERLOAD event is generated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure with the data for the next transfer to be filled. Required only if the function returns true. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context variable configured with the transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ep_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of received bytes in the endpoint buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current transfer is the last one - you do not need to call the function again. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is more data to be prepared and when current transfer finishes, the feeder function is expected to be called again. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="343" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__usbd_1gac53920fca0038960191aa429edca9b3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_usbd_init</definition>
+        <argsstring>(nrfx_usbd_event_handler_t event_handler)</argsstring>
+        <name>nrfx_usbd_init</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga84cf3037a69f53365f561a1b67c9565f" kindref="member">nrfx_usbd_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Driver initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Cannot be null.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="393" column="5" declfile="drivers/include/nrfx_usbd.h" declline="393" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gad3132a08929a4decd1425c2872b4d8df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Driver deinitialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="398" column="6" declfile="drivers/include/nrfx_usbd.h" declline="398" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gad81d504dd83e4fb4ec2f424424434238" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the USBD driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="406" column="6" declfile="drivers/include/nrfx_usbd.h" declline="406" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga54a3fe0fca1d8089819717fe12fb5bb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Enable the USBD port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After calling this function USBD peripheral would be enabled. The USB LDO would be enabled. Enabled USBD peripheral would request HFCLK. This function does not enable external oscillator, so if it is not enabled by other part of the program after enabling USBD driver HFINT would be used for the USBD peripheral. It is perfectly fine until USBD is started. See <ref refid="group__nrfx__usbd_1gab2528aa8dfa9b3a505c9ae31c73b010a" kindref="member">nrfx_usbd_start</ref>.</para>
+<para>In normal situation this function should be called in reaction to USBDETECTED event from POWER peripheral.</para>
+<para>Interrupts and USB pins pull-up would stay disabled until <ref refid="group__nrfx__usbd_1gab2528aa8dfa9b3a505c9ae31c73b010a" kindref="member">nrfx_usbd_start</ref> function is called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="424" column="6" declfile="drivers/include/nrfx_usbd.h" declline="424" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga2a1c39491d9549f72f3cf1d7340a7065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disable the USBD port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After calling this function USBD peripheral would be disabled. No events would be detected or processed by the driver. Clock for the peripheral would be disconnected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="433" column="6" declfile="drivers/include/nrfx_usbd.h" declline="433" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gab2528aa8dfa9b3a505c9ae31c73b010a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_start</definition>
+        <argsstring>(bool enable_sof)</argsstring>
+        <name>nrfx_usbd_start</name>
+        <param>
+          <type>bool</type>
+          <declname>enable_sof</declname>
+        </param>
+        <briefdescription>
+<para>Start USB functionality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After calling this function USBD peripheral should be fully functional and all new incoming events / interrupts would be processed by the driver.</para>
+<para>Also only after calling this function host sees new connected device.</para>
+<para>Call this function when USBD power LDO regulator is ready - on USBPWRRDY event from POWER peripheral.</para>
+<para>Before USBD interrupts are enabled, external HFXO is requested.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>enable_sof</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flag that is used to enable SOF processing. If it is false, SOF interrupt is left disabled and will not be generated. This improves power saving if SOF is not required.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>If the isochronous endpoints are going to be used, it is required to enable the SOF. In other case any isochronous endpoint would stay busy after first transmission. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="457" column="6" declfile="drivers/include/nrfx_usbd.h" declline="457" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga492b998bea7fe8039276185b67060ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stop USB functionality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function disables USBD pull-up and interrupts.</para>
+<para>The HFXO request is released in this function.</para>
+<para><simplesect kind="note"><para>This function can also be used to logically disconnect USB from the HOST that would force it to enumerate device after calling <ref refid="group__nrfx__usbd_1gab2528aa8dfa9b3a505c9ae31c73b010a" kindref="member">nrfx_usbd_start</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="470" column="6" declfile="drivers/include/nrfx_usbd.h" declline="470" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga1311648bc62e78bbdf545ceea84b3231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_is_initialized</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_is_initialized</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="478" column="6" declfile="drivers/include/nrfx_usbd.h" declline="478" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga59446d376d11f93754d05af70a7bb617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_is_enabled</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_is_enabled</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if driver is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is disabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="486" column="6" declfile="drivers/include/nrfx_usbd.h" declline="486" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga29c54f1b82c4589b4d96c00a7965255b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_is_started</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_is_started</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if driver is started. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is started (fully functional). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The USBD peripheral interrupt state is checked. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="495" column="6" declfile="drivers/include/nrfx_usbd.h" declline="495" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga0ff7b7a0e130141337683a541c9f4b6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_suspend</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_suspend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Suspend USBD operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The USBD peripheral is forced to go into the low power mode. The function has to be called in the reaction to <ref refid="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a0cd4cc092598cf39e36386e7cf40c151" kindref="member">NRFX_USBD_EVT_SUSPEND</ref> event when the firmware is ready.</para>
+<para>After successful call of this function most of the USBD registers would be unavailable.</para>
+<para><simplesect kind="note"><para>Check returned value for the feedback if suspending was successful.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD peripheral successfully suspended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD peripheral was not suspended due to resume detection. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="511" column="6" declfile="drivers/include/nrfx_usbd.h" declline="511" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga51e7f83fb64d45218c5ffad6c2ab8276" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_wakeup_req</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_wakeup_req</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Start wake up procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The USBD peripheral is forced to quit the low power mode. After calling this function all the USBD registers would be available.</para>
+<para>The hardware starts measuring time when wake up is possible. This may take 0-5<nonbreakablespace/>ms depending on how long the SUSPEND state was kept on the USB line.</para>
+<para>When NRFX_USBD_EVT_WUREQ event is generated it means that Wake Up signaling has just been started on the USB lines.</para>
+<para><simplesect kind="note"><para>Do not expect only <ref refid="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ae9023a2686758d1aaaf59f3997115152" kindref="member">NRFX_USBD_EVT_WUREQ</ref> event. There always may appear <ref refid="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201a247a0c1374e8d883d6bd4d3f248f2b64" kindref="member">NRFX_USBD_EVT_RESUME</ref> event. </para>
+</simplesect>
+<simplesect kind="note"><para>NRFX_USBD_EVT_WUREQ event means that Remote WakeUp signal has just begun to be generated. This may take up to 20<nonbreakablespace/>ms for the bus to become active.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>WakeUp procedure started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No WakeUp procedure started - bus is already active. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="534" column="6" declfile="drivers/include/nrfx_usbd.h" declline="534" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga8c06d21bc3f5ed0055e6fa5277cd3a55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_suspend_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_suspend_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if USBD is in SUSPEND mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This is the information about peripheral itself, not about the bus state.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD peripheral is suspended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD peripheral is active. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="544" column="6" declfile="drivers/include/nrfx_usbd.h" declline="544" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga0a339e7737ebe70dd564046442b2f2f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_suspend_irq_config</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_suspend_irq_config</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Enable only interrupts that should be processed in SUSPEND mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliary function to help with SUSPEND mode integration. It enables only the interrupts that can be properly processed without stable HFCLK.</para>
+<para>Normally all the interrupts are enabled. Use this function to suspend interrupt processing that may require stable HFCLK until the clock is enabled.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga35d0233f66f17c966fb03285d548b153" kindref="member">nrfx_usbd_active_irq_config</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="558" column="6" declfile="drivers/include/nrfx_usbd.h" declline="558" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga35d0233f66f17c966fb03285d548b153" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_active_irq_config</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_active_irq_config</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Default active interrupt configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Default interrupt configuration. Use in a pair with <ref refid="group__nrfx__usbd_1ga35d0233f66f17c966fb03285d548b153" kindref="member">nrfx_usbd_active_irq_config</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga0a339e7737ebe70dd564046442b2f2f6" kindref="member">nrfx_usbd_suspend_irq_config</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="568" column="6" declfile="drivers/include/nrfx_usbd.h" declline="568" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga9970f7f93dc5870846d5ab83c745d9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_bus_suspend_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_bus_suspend_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check the bus state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks if the bus state is suspended.</para>
+<para><simplesect kind="note"><para>The value returned by this function changes on SUSPEND and RESUME event processing.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD bus is suspended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>USBD bus is active. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="580" column="6" declfile="drivers/include/nrfx_usbd.h" declline="580" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gaa0a5c6f39fe75d49238a11bf55fe5f04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_force_bus_wakeup</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_force_bus_wakeup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Force the bus state to active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="585" column="6" declfile="drivers/include/nrfx_usbd.h" declline="585" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga2a10e08cf17577836767a70ae2a0a414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_max_packet_size_set</definition>
+        <argsstring>(nrfx_usbd_ep_t ep, uint16_t size)</argsstring>
+        <name>nrfx_usbd_ep_max_packet_size_set</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Configure packet size that should be supported by the endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The real endpoint buffer size is always the same. This value sets max packet size that would be transmitted over the endpoint. This is required by the driver.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Required maximum packet size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Endpoint size is always set to <ref refid="group__nrfx__usbd_1ga2625ff8679116ca292e690d7bffa6bcb" kindref="member">NRFX_USBD_EPSIZE</ref> or <ref refid="group__nrfx__usbd_1ga3ae235cdea092ce5fe31201d5f861570" kindref="member">NRFX_USBD_ISOSIZE</ref> / 2 when <ref refid="group__nrfx__usbd_1gaa8650837ab8c03ab5b443530c3da8a55" kindref="member">nrfx_usbd_ep_enable</ref> function is called. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="600" column="6" declfile="drivers/include/nrfx_usbd.h" declline="600" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gac9951e55f3a5c25a0dc15a7def3d530c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t nrfx_usbd_ep_max_packet_size_get</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_max_packet_size_get</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Get configured endpoint packet size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to get configured endpoint size on the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Maximum pocket size configured on selected endpoint. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="611" column="10" declfile="drivers/include/nrfx_usbd.h" declline="611" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gaf3bd2adfc1aaf4f22118b53650fc3f88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_ep_enable_check</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_enable_check</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Check if the selected endpoint is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to check.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="621" column="6" declfile="drivers/include/nrfx_usbd.h" declline="621" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gaa8650837ab8c03ab5b443530c3da8a55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_enable</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Enable selected endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function enables endpoint itself and its interrupts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to enable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Max packet size is set to endpoint default maximum value.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga2a10e08cf17577836767a70ae2a0a414" kindref="member">nrfx_usbd_ep_max_packet_size_set</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="635" column="6" declfile="drivers/include/nrfx_usbd.h" declline="635" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga0b4fd41362f29483cfc3621611b0c883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_disable</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_disable</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Disable selected endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function disables endpoint itself and its interrupts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to disable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="644" column="6" declfile="drivers/include/nrfx_usbd.h" declline="644" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga2ded88dc213de241589304ad1c5805fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_default_config</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_ep_default_config</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disable all endpoints except for EP0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Disable all endpoints that can be disabled in USB device while it is still active. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="651" column="6" declfile="drivers/include/nrfx_usbd.h" declline="651" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gabbe3dab5d8db46b74cd005349d670df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_usbd_ep_transfer</definition>
+        <argsstring>(nrfx_usbd_ep_t ep, nrfx_usbd_transfer_t const *p_transfer)</argsstring>
+        <name>nrfx_usbd_ep_transfer</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__usbd__transfer__t" kindref="compound">nrfx_usbd_transfer_t</ref> const *</type>
+          <declname>p_transfer</declname>
+        </param>
+        <briefdescription>
+<para>Start sending data over endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function initializes endpoint transmission. This is asynchronous function - it finishes immediately after configuration for transmission is prepared.</para>
+<para><simplesect kind="note"><para>Data buffer pointed by p_data have to be kept active till <ref refid="group__nrfx__usbd_1gga75f9c1027d02af1063f90857241d8201ae803c2fea10aa7c3d4ab135fce990480" kindref="member">NRFX_USBD_EVT_EPTRANSFER</ref> event is generated.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. For IN endpoint sending would be initiated. For OUT endpoint receiving would be initiated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_transfer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer parameters.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer queued or started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Selected endpoint is pending. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unexpected transfer on EPIN0 or EPOUT0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="672" column="5" declfile="drivers/include/nrfx_usbd.h" declline="672" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga3b338102f9b0a4bfe1d93f8e0f73b696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_usbd_ep_handled_transfer</definition>
+        <argsstring>(nrfx_usbd_ep_t ep, nrfx_usbd_handler_desc_t const *p_handler)</argsstring>
+        <name>nrfx_usbd_ep_handled_transfer</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__usbd__handler__desc__t" kindref="compound">nrfx_usbd_handler_desc_t</ref> const *</type>
+          <declname>p_handler</declname>
+        </param>
+        <briefdescription>
+<para>Start sending data over the endpoint using the transfer handler function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function initializes an endpoint transmission. Just before data is transmitted, the transfer handler is called and it prepares a data chunk.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. For an IN endpoint, sending is initiated. For an OUT endpoint, receiving is initiated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer handler - feeder for IN direction and consumer for OUT direction.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer queued or started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Selected endpoint is pending. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unexpected transfer on EPIN0 or EPOUT0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="692" column="5" declfile="drivers/include/nrfx_usbd.h" declline="692" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga4bc28673b0f55fac769f88d1538ae0f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * nrfx_usbd_feeder_buffer_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_feeder_buffer_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the temporary buffer to be used by the feeder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This buffer is used for TX transfers and it can be reused automatically when the transfer is finished. Use it for transfer preparation.</para>
+<para>May be used inside the feeder configured in <ref refid="group__nrfx__usbd_1ga3b338102f9b0a4bfe1d93f8e0f73b696" kindref="member">nrfx_usbd_ep_handled_transfer</ref>.</para>
+<para><simplesect kind="return"><para>Pointer to the buffer that can be used temporarily.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__usbd_1gabbdfcdc78a578ab57278cd1b92eca710" kindref="member">NRFX_USBD_FEEDER_BUFFER_SIZE</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="708" column="7" declfile="drivers/include/nrfx_usbd.h" declline="708" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga463020cf49d654d9fe6f7224a0344b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__usbd_1ga8321eebdacbf34b1196e79c30f94ea18" kindref="member">nrfx_usbd_ep_status_t</ref></type>
+        <definition>nrfx_usbd_ep_status_t nrfx_usbd_ep_status_get</definition>
+        <argsstring>(nrfx_usbd_ep_t ep, size_t *p_size)</argsstring>
+        <name>nrfx_usbd_ep_status_get</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>p_size</declname>
+        </param>
+        <briefdescription>
+<para>Get the information about last finished or current transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function returns the status of the last buffer set for transfer on selected endpoint. The status considers last buffer set by <ref refid="group__nrfx__usbd_1gabbe3dab5d8db46b74cd005349d670df3" kindref="member">nrfx_usbd_ep_transfer</ref> function or by transfer callback function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Information about the current/last transfer size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Endpoint status.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga8321eebdacbf34b1196e79c30f94ea18" kindref="member">nrfx_usbd_ep_status_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="724" column="23" declfile="drivers/include/nrfx_usbd.h" declline="724" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga40761c82315419d6bb84bd2510d63fb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t nrfx_usbd_epout_size_get</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_epout_size_get</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Get number of received bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the number of received bytes. The function behavior is undefined when called on IN endpoint.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of received bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="736" column="8" declfile="drivers/include/nrfx_usbd.h" declline="736" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga3ba29b3d92bf8e5f66dd6ee116c51450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_ep_is_busy</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_is_busy</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Check if endpoint buffer is ready or is under USB IP control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function to test if endpoint is busy. Endpoint that is busy cannot be accessed by MCU. It means that:<itemizedlist>
+<listitem><para>OUT (TX) endpoint: Last uploaded data is still in endpoint and is waiting to be received by the host.</para>
+</listitem><listitem><para>IN (RX) endpoint: Endpoint is ready to receive data from the host and the endpoint does not have any data. When endpoint is not busy:</para>
+</listitem><listitem><para>OUT (TX) endpoint: New data can be uploaded.</para>
+</listitem><listitem><para>IN (RX) endpoint: New data can be downloaded using <ref refid="group__nrfx__usbd_1gabbe3dab5d8db46b74cd005349d670df3" kindref="member">nrfx_usbd_ep_transfer</ref> function.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is not busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="758" column="6" declfile="drivers/include/nrfx_usbd.h" declline="758" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga435b32494aba899c4be6738e4fb48a46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_stall</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_stall</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Stall endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Stall endpoit to send error information during next transfer request from the host.</para>
+<para><simplesect kind="note"><para>To stall endpoint it is safer to use <ref refid="group__nrfx__usbd_1ga29634a4d8875adb216b2819e1d4e4dbf" kindref="member">nrfx_usbd_setup_stall</ref> </para>
+</simplesect>
+<simplesect kind="note"><para>Stalled endpoint would not be cleared when DMA transfer finishes.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to stall. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="771" column="6" declfile="drivers/include/nrfx_usbd.h" declline="771" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gafd0d0683dd53be96aeee2855dc8c7a2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_stall_clear</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_stall_clear</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Clear stall flag on endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function clears endpoint that is stalled. <simplesect kind="note"><para>If it is OUT endpoint (receiving) it would be also prepared for reception. It means that busy flag would be set. </para>
+</simplesect>
+<simplesect kind="note"><para>In endpoint (transmitting) would not be cleared - it gives possibility to write new data before transmitting.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="786" column="6" declfile="drivers/include/nrfx_usbd.h" declline="786" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga50457bbb0d31342ca97a2c65e1ca6f46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_usbd_ep_stall_check</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_stall_check</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Check if endpoint is stalled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function gets stall state of selected endpoint.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to check.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is not stalled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint is stalled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="798" column="6" declfile="drivers/include/nrfx_usbd.h" declline="798" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga1a3b6167024d2698c877fb215188b0b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_dtoggle_clear</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_dtoggle_clear</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Clear current endpoint data toggle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="805" column="6" declfile="drivers/include/nrfx_usbd.h" declline="805" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga9c8b54ecb6558873610c31ff2c0763e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_setup_get</definition>
+        <argsstring>(nrfx_usbd_setup_t *p_setup)</argsstring>
+        <name>nrfx_usbd_setup_get</name>
+        <param>
+          <type><ref refid="structnrfx__usbd__setup__t" kindref="compound">nrfx_usbd_setup_t</ref> *</type>
+          <declname>p_setup</declname>
+        </param>
+        <briefdescription>
+<para>Get parsed setup data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function fills the parsed setup data structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_setup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data structure that would be filled by parsed data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="815" column="6" declfile="drivers/include/nrfx_usbd.h" declline="815" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga159ec14bc25b6d201f865b3497fec492" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_setup_data_clear</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_setup_data_clear</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear the control endpoint for packet reception during DATA stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function may be called if any more data in control write transfer is expected. Clears only OUT endpoint to be able to take another OUT data token. It does not allow STATUS stage. <simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga54121ddc4e52efd2d4ef7f086676a285" kindref="member">nrfx_usbd_setup_clear</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="825" column="6" declfile="drivers/include/nrfx_usbd.h" declline="825" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga54121ddc4e52efd2d4ef7f086676a285" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_setup_clear</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_setup_clear</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear setup endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function acknowledges setup when SETUP command was received and processed. It has to be called if no data respond for the SETUP command is sent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="833" column="6" declfile="drivers/include/nrfx_usbd.h" declline="833" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga29634a4d8875adb216b2819e1d4e4dbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_setup_stall</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_setup_stall</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stall setup endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Mark an error on setup endpoint. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="840" column="6" declfile="drivers/include/nrfx_usbd.h" declline="840" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gadafd6472946e0286fda573a1ea293932" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_ep_abort</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_ep_abort</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Abort pending transfer on selected endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="847" column="6" declfile="drivers/include/nrfx_usbd.h" declline="847" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1gadfc4ffcf32a0bedffd5301a7136d6dbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+        <definition>nrfx_usbd_ep_t nrfx_usbd_last_setup_dir_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_usbd_last_setup_dir_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the information about expected transfer SETUP data direction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function returns the information about last expected transfer direction.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_USBD_EPOUT0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expecting OUT (Host-&gt;Device) direction or no data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_USBD_EPIN0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expecting IN (Device-&gt;Host) direction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="857" column="16" declfile="drivers/include/nrfx_usbd.h" declline="857" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__usbd_1ga4737f776cef98900a2391923660b65ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_usbd_transfer_out_drop</definition>
+        <argsstring>(nrfx_usbd_ep_t ep)</argsstring>
+        <name>nrfx_usbd_transfer_out_drop</name>
+        <param>
+          <type><ref refid="group__nrfx__usbd_1ga46bdf8fe1cd3f46fbfac2ccbbba4c148" kindref="member">nrfx_usbd_ep_t</ref></type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Drop transfer on OUT endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>OUT endpoint ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="864" column="6" declfile="drivers/include/nrfx_usbd.h" declline="864" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__usbd_1ga2625ff8679116ca292e690d7bffa6bcb" prot="public" static="no">
+        <name>NRFX_USBD_EPSIZE</name>
+        <initializer>64</initializer>
+        <briefdescription>
+<para>Number of bytes in the endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="54" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__usbd_1ga3ae235cdea092ce5fe31201d5f861570" prot="public" static="no">
+        <name>NRFX_USBD_ISOSIZE</name>
+        <initializer>1023</initializer>
+        <briefdescription>
+<para>Number of bytes for isochronous endpoints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of bytes for isochronous endpoints in total. This number would be shared between IN and OUT endpoint. It may be also assigned totaly to one endpoint. <simplesect kind="see"><para><ref refid="group__nrf__usbd__hal_1ga012c9fa1b3ef65862f6a37184f5cce33" kindref="member">nrf_usbd_isosplit_set</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrf__usbd__hal_1ga3fae989351d356e8e77227861f6ecdd5" kindref="member">nrf_usbd_isosplit_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="65" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__usbd_1gabbdfcdc78a578ab57278cd1b92eca710" prot="public" static="no">
+        <name>NRFX_USBD_FEEDER_BUFFER_SIZE</name>
+        <initializer><ref refid="group__nrfx__usbd_1ga2625ff8679116ca292e690d7bffa6bcb" kindref="member">NRFX_USBD_EPSIZE</ref></initializer>
+        <briefdescription>
+<para>The size of internal feeder buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__usbd_1ga4bc28673b0f55fac769f88d1538ae0f9" kindref="member">nrfx_usbd_feeder_buffer_get</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="72" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__usbd_1gafeb6c2ba40f03c63e04afc856b09b499" prot="public" static="no">
+        <name>NRFX_USBD_TRANSFER_IN</name>
+        <param><defname>name</defname></param>
+        <param><defname>tx_buff</defname></param>
+        <param><defname>tx_size</defname></param>
+        <param><defname>tx_flags</defname></param>
+        <initializer>    const <ref refid="structnrfx__usbd__transfer__t" kindref="compound">nrfx_usbd_transfer_t</ref> name = {                         \
+       .p_data = { .tx = (tx_buff)  },                          \
+       .size = (tx_size),                                       \
+       .flags = (tx_flags)                                      \
+    }</initializer>
+        <briefdescription>
+<para>Auxiliary macro for declaring IN transfer description with optional flags. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The base macro for creating transfers with any configuration option.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tx_buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tx_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tx_flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags for the transfer (see <ref refid="group__nrfx__usbd_1ga8fcbad2dc26c11641c3a2f0b890aa075" kindref="member">nrfx_usbd_transfer_flags_t</ref>).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Configured variable with total transfer description. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="271" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__usbd_1gaac5eb8f5b4d2970fd3807449a551af1a" prot="public" static="no">
+        <name>NRFX_USBD_TRANSFER_OUT</name>
+        <param><defname>name</defname></param>
+        <param><defname>rx_buff</defname></param>
+        <param><defname>rx_size</defname></param>
+        <initializer>    const <ref refid="structnrfx__usbd__transfer__t" kindref="compound">nrfx_usbd_transfer_t</ref> name = {                \
+       .p_data = { .rx = (rx_buff)  },                 \
+       .size = (rx_size),                              \
+       .flags = 0                                      \
+    }</initializer>
+        <briefdescription>
+<para>Helper macro for declaring OUT transfer item (<ref refid="structnrfx__usbd__transfer__t" kindref="compound">nrfx_usbd_transfer_t</ref>). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rx_buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rx_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer size. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_usbd.h" line="285" column="9" bodyfile="drivers/include/nrfx_usbd.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Universal Serial Bus Device (USBD) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

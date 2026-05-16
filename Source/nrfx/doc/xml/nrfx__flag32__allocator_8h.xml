@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__flag32__allocator_8h" kind="file" language="C++">
+    <compoundname>nrfx_flag32_allocator.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>helpers/nrfx_flag32_allocator.h</label>
+        <link refid="nrfx__flag32__allocator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1gaebd91e5627e7740abbbe92d856cbbbe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE void</type>
+        <definition>__STATIC_INLINE void nrfx_flag32_init</definition>
+        <argsstring>(nrfx_atomic_t *p_mask, uint32_t init_mask)</argsstring>
+        <name>nrfx_flag32_init</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>init_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing allocator mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialization value contains mask where each bit indicates availablility of a given flag, e.g. init value 0x0000000A indicates that flag 3 and 1 (counting from 0) can be allocated.</para>
+<para>Alternatively, mask can be set to init value by direct assignment.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask to be initilized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">init_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with pool of available flags where bit being set means that flag is free and can be allocated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="63" column="22" bodyfile="helpers/nrfx_flag32_allocator.h" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1ga647b0e35383ba490e6e781349ebe9b53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_flag32_is_allocated</definition>
+        <argsstring>(nrfx_atomic_t mask, uint8_t bitpos)</argsstring>
+        <name>nrfx_flag32_is_allocated</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref></type>
+          <declname>mask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bitpos</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if given flag is allocated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This check may not be valid if context is preempted and state is changed.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bitpos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag bit position.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if specified flag is allocated, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="78" column="6" declfile="helpers/nrfx_flag32_allocator.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_flag32_alloc</definition>
+        <argsstring>(nrfx_atomic_t *p_mask)</argsstring>
+        <name>nrfx_flag32_alloc</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a flag in the mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe, it uses <ref refid="group__nrfx__glue_1ga11dea9855bb80c01a3cff42e8543b228" kindref="member">NRFX_ATOMIC_CAS</ref> macro. No further synchronization mechanism is needed, provided the macro is properly implemented (see <ref refid="group__nrfx__glue" kindref="compound">nrfx_glue.h</ref>).</para>
+</simplesect>
+Mask must be initialized before first allocation. Flags are allocated from the highest bit position, e.g. if mask is set to 0x0000000A, 3 is returned and bit 3 is cleared in the mask. Mask is set to 0x00000002 on return after successful allocation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with available flags set. On successful allocation flag is cleared.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the allocated flag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No resource available. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="96" column="5" declfile="helpers/nrfx_flag32_allocator.h" declline="96" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__flag32__allocator_1ga67e05348a66fed2ffde5357680da8110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_flag32_free</definition>
+        <argsstring>(nrfx_atomic_t *p_mask, uint8_t flag)</argsstring>
+        <name>nrfx_flag32_free</name>
+        <param>
+          <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref> *</type>
+          <declname>p_mask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a flag allocated with <ref refid="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" kindref="member">nrfx_flag32_alloc</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe, it uses <ref refid="group__nrfx__glue_1ga11dea9855bb80c01a3cff42e8543b228" kindref="member">NRFX_ATOMIC_CAS</ref> macro. No further synchronization mechanism is needed, provided the macro is properly implemented (see <ref refid="group__nrfx__glue" kindref="compound">nrfx_glue.h</ref>).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask with available flags set. On successful allocation flag is set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Freeing was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag was not allocated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_flag32_allocator.h" line="111" column="5" declfile="helpers/nrfx_flag32_allocator.h" declline="111" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2021<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_FLAG32_ALLOCATOR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_FLAG32_ALLOCATOR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_flag32_allocator<sp/>Generic<sp/>flag<sp/>allocator</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrfx</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Generic<sp/>flag<sp/>allocator.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>allocator<sp/>mask.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Initialization<sp/>value<sp/>contains<sp/>mask<sp/>where<sp/>each<sp/>bit<sp/>indicates<sp/>availablility<sp/>of</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>a<sp/>given<sp/>flag,<sp/>e.g.<sp/>init<sp/>value<sp/>0x0000000A<sp/>indicates<sp/>that<sp/>flag<sp/>3<sp/>and<sp/>1<sp/>(counting</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>from<sp/>0)<sp/>can<sp/>be<sp/>allocated.</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>Alternatively,<sp/>mask<sp/>can<sp/>be<sp/>set<sp/>to<sp/>init<sp/>value<sp/>by<sp/>direct<sp/>assignment.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_mask<sp/><sp/><sp/><sp/>Mask<sp/>to<sp/>be<sp/>initilized.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>init_mask<sp/>Mask<sp/>with<sp/>pool<sp/>of<sp/>available<sp/>flags<sp/>where<sp/>bit<sp/>being<sp/>set<sp/>means<sp/>that</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flag<sp/>is<sp/>free<sp/>and<sp/>can<sp/>be<sp/>allocated.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">__STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__flag32__allocator_1gaebd91e5627e7740abbbe92d856cbbbe4" kindref="member">nrfx_flag32_init</ref>(<ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref><sp/>*<sp/>p_mask,<sp/>uint32_t<sp/>init_mask)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>*p_mask<sp/>=<sp/>init_mask;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>given<sp/>flag<sp/>is<sp/>allocated.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>check<sp/>may<sp/>not<sp/>be<sp/>valid<sp/>if<sp/>context<sp/>is<sp/>preempted<sp/>and<sp/>state<sp/>is<sp/>changed.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>mask<sp/><sp/><sp/>Mask.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>bitpos<sp/>Flag<sp/>bit<sp/>position.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>specified<sp/>flag<sp/>is<sp/>allocated,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__flag32__allocator_1ga647b0e35383ba490e6e781349ebe9b53" kindref="member">nrfx_flag32_is_allocated</ref>(<ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref><sp/>mask,<sp/>uint8_t<sp/>bitpos);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>allocating<sp/>a<sp/>flag<sp/>in<sp/>the<sp/>mask.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>is<sp/>thread<sp/>safe,<sp/>it<sp/>uses<sp/>@ref<sp/>NRFX_ATOMIC_CAS<sp/>macro.<sp/>No<sp/>further</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>synchronization<sp/>mechanism<sp/>is<sp/>needed,<sp/>provided<sp/>the<sp/>macro<sp/>is<sp/>properly<sp/>implemented</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(see<sp/>@ref<sp/>nrfx_glue).</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>Mask<sp/>must<sp/>be<sp/>initialized<sp/>before<sp/>first<sp/>allocation.<sp/>Flags<sp/>are<sp/>allocated<sp/>from<sp/>the</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>highest<sp/>bit<sp/>position,<sp/>e.g.<sp/>if<sp/>mask<sp/>is<sp/>set<sp/>to<sp/>0x0000000A,<sp/>3<sp/>is<sp/>returned<sp/>and<sp/>bit<sp/>3</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>is<sp/>cleared<sp/>in<sp/>the<sp/>mask.<sp/>Mask<sp/>is<sp/>set<sp/>to<sp/>0x00000002<sp/>on<sp/>return<sp/>after<sp/>successful<sp/>allocation.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@param[in,out]<sp/>p_mask<sp/>Mask<sp/>with<sp/>available<sp/>flags<sp/>set.<sp/>On<sp/>successful<sp/>allocation<sp/>flag<sp/>is<sp/>cleared.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@retval<sp/>non-negative<sp/>Index<sp/>of<sp/>the<sp/>allocated<sp/>flag.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOMEM<sp/><sp/><sp/><sp/><sp/><sp/>No<sp/>resource<sp/>available.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" kindref="member">nrfx_flag32_alloc</ref>(<ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref><sp/>*<sp/>p_mask);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>freeing<sp/>a<sp/>flag<sp/>allocated<sp/>with<sp/>@ref<sp/>nrfx_flag32_alloc.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>@note<sp/>Function<sp/>is<sp/>thread<sp/>safe,<sp/>it<sp/>uses<sp/>@ref<sp/>NRFX_ATOMIC_CAS<sp/>macro.<sp/>No<sp/>further</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>synchronization<sp/>mechanism<sp/>is<sp/>needed,<sp/>provided<sp/>the<sp/>macro<sp/>is<sp/>properly<sp/>implemented</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(see<sp/>@ref<sp/>nrfx_glue).</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@param[in,out]<sp/>p_mask<sp/>Mask<sp/>with<sp/>available<sp/>flags<sp/>set.<sp/>On<sp/>successful<sp/>allocation<sp/>flag<sp/>is<sp/>set.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/><sp/><sp/><sp/>flag<sp/><sp/><sp/>Flag<sp/>index.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Freeing<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/>Flag<sp/>was<sp/>not<sp/>allocated.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__flag32__allocator_1ga67e05348a66fed2ffde5357680da8110" kindref="member">nrfx_flag32_free</ref>(<ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref><sp/>*<sp/>p_mask,<sp/>uint8_t<sp/>flag);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_FLAG32_ALLOCATOR_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="helpers/nrfx_flag32_allocator.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,93 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="app_54ls05b" target="8" version="2">
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+  <configuration
+    LIBRARY_HEAP_TYPE="Minimal"
+    LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+    LIBRARY_LOCALES="Minimal"
+    Name="Release_MinSize"
+    arm_library_optimization="Small"
+    c_preprocessor_definitions="NDEBUG;__OPTIMIZATION_SMALL"
+    cpp_enable_exceptions="No"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 for size"
+    gcc_short_enum="Minimal Container Size"
+    libcxx="Yes (No Exceptions)"
+    link_dedupe_code="Yes"
+    link_dedupe_data="Yes"
+    link_merge_strings="Yes"
+    link_time_optimization="Yes"
+    linker_printf_fmt_level="int"
+    linker_printf_fp_enabled="No"
+    linker_printf_width_precision_supported="No" />
+  <project Name="app_54ls05b">
+    <configuration
+      LIBRARY_IO_TYPE="RTT"
+      Name="Common"
+      arm_architecture="v8M_Mainline"
+      arm_compiler_variant="gcc"
+      arm_core_type="Cortex-M33"
+      arm_endian="Little"
+      arm_fpu_type="FPv5-SP-D16"
+      arm_linker_heap_size="2048"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="GNU"
+      arm_target_device_name="nRF54LS05B_M33"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="NRF54LS05B_XXAA;NRF_APPLICATION;__STARTUP_CLEAR_BSS"
+      c_user_include_directories=".;Source/nrfx/drivers;Source/nrfx/drivers/include;Source/nrfx/bsp/stable/mdk;Source/nrfx/hal;Source/nrfx/haly;Source/nrfx/drivers/src;Source/nrfx/helpers;Source/nrfx/bsp/stable/soc;Source/nrfx/bsp/stable/soc/irqs;Source/nrfx/bsp/stable;Source;Source/nrfx;Source/cmsis/include;Source/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure;Source/FreeRTOS/include;Source/section_vars;Source/softdevice_handler;Source/softdevice/s115/s115_API/include;Source/ble_adv;Source/ble_conn_params;Source/bm_buttons;Source/bluetooth_services/ble_dis;Source/bluetooth_services/ble_lbs;Source/bluetooth_services;Source/rtt"
+      debug_stack_pointer_start="__stack_end__"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_dedupe_code="Yes"
+      link_linker_script_file="$(ProjectDir)/Setup/nrf54ls05b_xxaa_application.ld"
+      link_use_linker_script_file="Yes"
+      linker_output_format="hex"
+      linker_section_placement_file="Setup/flash_placement.xml"
+      linker_section_placements_segments="FLASH1 RX 0x00ffd000 0x00000a00;FLASH2 RX 0x00000000 0x0007f000;RAM1 RWX 0x20000000 0x00018000;"
+      project_directory=""
+      project_type="Executable" />
+    <configuration
+      Name="Debug"
+      link_linker_script_file="Setup/nrf54ls05b_xxaa_application.ld"
+      link_use_linker_script_file="Yes" />
+    <configuration
+      LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+      Name="Release_MinSize" />
+    <folder Name="Setup">
+      <file file_name="Setup/nrf54ls05b_xxaa_application.ld" />
+    </folder>
+    <folder Name="softdevice_handler">
+      <configuration Name="Debug" build_exclude_from_build="No" />
+      <file file_name="Source/softdevice_handler/irq_connect.c" />
+      <file file_name="Source/softdevice_handler/irq_forward.s" />
+      <file file_name="Source/softdevice_handler/nrf_sdh.c">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+      <file file_name="Source/softdevice_handler/nrf_sdh_ble.c" />
+      <file file_name="Source/softdevice_handler/nrf_sdh_soc.c" />
+      <file file_name="Source/section_vars/nrf_section_iter.c" />
+    </folder>
+    <folder Name="Source">
+      <file file_name="Source/nrfx/bsp/stable/mdk/gcc_startup_nrf54ls05b_application.S" />
+      <file file_name="Source/main.c" />
+      <file file_name="Source/rtt/SEGGER_RTT_printf.c" />
+      <file file_name="Source/nrfx/bsp/stable/mdk/system_nrf54l.c">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+    </folder>
+  </project>
+</solution>

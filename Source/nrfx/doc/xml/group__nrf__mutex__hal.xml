@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__mutex__hal" kind="group">
+    <compoundname>nrf_mutex_hal</compoundname>
+    <title>MUTEX HAL</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__mutex__hal_1ga1df89e49d01ffc3f48524c90d0901ddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_mutex_lock</definition>
+        <argsstring>(NRF_MUTEX_Type *p_reg, uint8_t mutex)</argsstring>
+        <name>nrf_mutex_lock</name>
+        <param>
+          <type>NRF_MUTEX_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>mutex</declname>
+        </param>
+        <briefdescription>
+<para>Function for locking the specified mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the specified mutex is already locked, its state remains unchanged.</para>
+<para><simplesect kind="note"><para>Faults are not managed by the MUTEX peripheral. One consequence is that if a mutex is locked and a fault happens, it is the responsibility of the fault handler to release the mutex. If a fault handler is not managing the mutex release, the mutex will remain locked.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mutex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the mutex to be locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mutex is successfully locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mutex was already locked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mutex.h" line="80" column="24" bodyfile="hal/nrf_mutex.h" bodystart="80" bodyend="83" declfile="hal/nrf_mutex.h" declline="66" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mutex__hal_1ga8e37679345bb843fe8c4db5746c80b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mutex_unlock</definition>
+        <argsstring>(NRF_MUTEX_Type *p_reg, uint8_t mutex)</argsstring>
+        <name>nrf_mutex_unlock</name>
+        <param>
+          <type>NRF_MUTEX_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>mutex</declname>
+        </param>
+        <briefdescription>
+<para>Function for unlocking the specified mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the specified mutex is already unlocked, its state remains unchanged.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mutex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the mutex to be locked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mutex.h" line="85" column="24" bodyfile="hal/nrf_mutex.h" bodystart="85" bodyend="88" declfile="hal/nrf_mutex.h" declline="76" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the MUTEX peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

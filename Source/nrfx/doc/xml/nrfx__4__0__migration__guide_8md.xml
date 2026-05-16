@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__4__0__migration__guide_8md" kind="file" language="Markdown">
+    <compoundname>nrfx_4_0_migration_guide.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>nrfx<sp/>4.0<sp/>migration<sp/>notes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx<sp/>4.0<sp/>introduces<sp/>API<sp/>and<sp/>structure<sp/>changes.<sp/>This<sp/>guide<sp/>lists<sp/>actions<sp/>required<sp/>to<sp/>make<sp/>your<sp/>code<sp/>compatible<sp/>with<sp/>these<sp/>changes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>BSP<sp/>(Board<sp/>Support<sp/>Package)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>new<sp/>directory<sp/>that<sp/>contains:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>MDK</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>SoC-specific<sp/>templates</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>SoC-specific<sp/>defines<sp/>from<sp/>nrfx<sp/>drivers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Soc-specific<sp/>files<sp/>from<sp/>soc/<sp/>directory<sp/>(IRQ<sp/>handlers<sp/>and<sp/>interconnect)</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Action<sp/>:<sp/>Always<sp/>include<sp/>`nrfx.h`<sp/>header<sp/>globally,<sp/>do<sp/>not<sp/>include<sp/>sub-headers<sp/>like:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrf.h`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrf_erratas.h`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrf_mem.h`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrf_peripherals.h`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Errata</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Reworked<sp/>the<sp/>errata<sp/>system.<sp/>The<sp/>workarounds<sp/>for<sp/>unsupported<sp/>SoCs<sp/>were<sp/>removed.<sp/>Summary<sp/>table<sp/>[Doxygen<sp/>file](https://github.com/NordicSemiconductor/nrfx/blob/master/doc/errata.dox)<sp/>was<sp/>created,<sp/>which<sp/>presents<sp/>the<sp/>currently<sp/>implemented<sp/>workarounds<sp/>in<sp/>nrfx.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Added<sp/>the<sp/>following<sp/>errata<sp/>workarounds:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF52<sp/>Series:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>58,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>173,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>174,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>214,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF53<sp/>Series:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>65,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>119,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF91<sp/>Series:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>7<sp/>(added<sp/>nrfx_nvmc_uicr_word_write()<sp/>and<sp/>fixed<sp/>nrfx_nvmc_otp_halfword_read())</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Action<sp/>:<sp/>Remove<sp/>fixes<sp/>for<sp/>errata<sp/>now<sp/>handled<sp/>internally<sp/>by<sp/>the<sp/>nrfx.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>errata<sp/>are<sp/>now<sp/>disabled<sp/>by<sp/>default,<sp/>even<sp/>if<sp/>the<sp/>chip<sp/>should<sp/>apply<sp/>them.<sp/>They<sp/>should<sp/>be<sp/>carefully<sp/>enabled<sp/>by<sp/>the<sp/>user<sp/>on<sp/>a<sp/>case-by-case<sp/>manner.<sp/>The<sp/>list<sp/>includes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF52<sp/>Series<sp/>erratum<sp/>58,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF52<sp/>Series<sp/>erratum<sp/>109.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>nRF54H<sp/>Series<sp/>erratum<sp/>62.</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Actions<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>If<sp/>required,<sp/>explicitly<sp/>enable<sp/>nRF52<sp/>Series<sp/>erratum<sp/>58<sp/>workaround,<sp/>by<sp/>defining<sp/>`NRF52_ERRATA_58_ENABLE_WORKAROUND`<sp/>to<sp/>`1`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>If<sp/>required,<sp/>explicitly<sp/>enable<sp/>nRF52<sp/>Series<sp/>erratum<sp/>109<sp/>workaround,<sp/>by<sp/>defining<sp/>`NRF52_ERRATA_109_ENABLE_WORKAROUND`<sp/>to<sp/>`1`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>If<sp/>required,<sp/>explicitly<sp/>enable<sp/>nRF54H<sp/>Series<sp/>erratum<sp/>62<sp/>workaround,<sp/>by<sp/>defining<sp/>`NRF54H_ERRATA_62_ENABLE_WORKAROUND`<sp/>to<sp/>`1`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Error<sp/>codes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>nrfx<sp/>drivers<sp/>and<sp/>helpers<sp/>now<sp/>return<sp/>int<sp/>errno<sp/>values.<sp/>Failed<sp/>function<sp/>execution<sp/>is<sp/>indicated<sp/>by<sp/>negative<sp/>return<sp/>value.<sp/>`nrfx_err_t`<sp/>type<sp/>is<sp/>deprecated.<sp/>Expressions<sp/>like<sp/>`NRFX_ASSERT(err<sp/>==<sp/>NRFX_SUCCESS)`<sp/>will<sp/>no<sp/>longer<sp/>work<sp/>as<sp/>expected.</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.<sp/>Update<sp/>implementation<sp/>of<sp/>`NRFX_LOG_ERROR_STRING_GET`<sp/>macro<sp/>to<sp/>new<sp/>error<sp/>type.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Instance<sp/>interrupt<sp/>handlers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Some<sp/>nrfx<sp/>drivers<sp/>now<sp/>expect<sp/>instance<sp/>specific<sp/>interrupt<sp/>handlers<sp/>to<sp/>be<sp/>defined<sp/>by<sp/>users<sp/>using<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.<sp/>Macro<sp/>expects<sp/>three<sp/>parameters<sp/>-<sp/>lowercase<sp/>peripheral<sp/>name,<sp/>instance<sp/>index<sp/>and<sp/>address<sp/>of<sp/>peripheral<sp/>instance.</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Action<sp/>:<sp/>Define<sp/>instance<sp/>specific<sp/>interrupt<sp/>handler<sp/>for<sp/>affected<sp/>drivers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>instance<sp/>specific<sp/>driver<sp/>enablement<sp/>configs,<sp/>eg.<sp/>`NRFX_SPIM20_ENABLED`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Do<sp/>not<sp/>redefine<sp/>these<sp/>symbols,<sp/>nrfx<sp/>now<sp/>considers<sp/>all<sp/>present<sp/>peripheral<sp/>instances<sp/>to<sp/>be<sp/>enabled.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Drivers<sp/>are<sp/>no<sp/>longer<sp/>dependent<sp/>on<sp/>driver<sp/>enablement<sp/>configs,<sp/>eg.<sp/>`NRFX_SPIM_ENABLED`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Adjust<sp/>build<sp/>system<sp/>to<sp/>add<sp/>appropriate<sp/>driver<sp/>source<sp/>files<sp/>to<sp/>compilation<sp/>accordingly,<sp/>rather<sp/>that<sp/>relying<sp/>on<sp/>preprocessor<sp/>symbols<sp/>to<sp/>disable<sp/>driver<sp/>source<sp/>file<sp/>contents.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>HALYs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">HALY<sp/>is<sp/>now<sp/>deprecated<sp/>for<sp/>all<sp/>peripherals.</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;Action<sp/>:<sp/>Use<sp/>respective<sp/>HAL<sp/>functions<sp/>instead<sp/>or<sp/>migrate<sp/>to<sp/>driver.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Drivers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>CLOCK</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Split<sp/>`nrfx_clock`<sp/>driver<sp/>into<sp/>separate<sp/>drivers<sp/>for<sp/>each<sp/>clock<sp/>type<sp/>:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_hfclk`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_hfclk192m`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_hfclkaudio`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_lfclk`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_xo`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`nrfx_clock_xo24m`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>&lt;br&gt;Action<sp/>:<sp/>Adjust<sp/>build<sp/>system<sp/>to<sp/>add<sp/>appropriate<sp/>clock<sp/>driver<sp/>source<sp/>files<sp/>to<sp/>compilation.<sp/>Do<sp/>not<sp/>include<sp/>specific<sp/>clock<sp/>driver<sp/>headers<sp/>separately.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_clock_hfclk_start`,<sp/>`nrfx_clock_hfclk_stop`,<sp/>`nrfx_clock_lfclk_start`<sp/>and<sp/>`nrfx_clock_lfclk_stop`<sp/>functions<sp/>are<sp/>no<sp/>longer<sp/>deprecated.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>No<sp/>action<sp/>required<sp/>from<sp/>user.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_clock_hfclk_is_running`<sp/>function<sp/>has<sp/>been<sp/>renamed<sp/>to<sp/>`nrfx_clock_hfclk_running_check`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_clock_lfclk_is_running`<sp/>function<sp/>has<sp/>been<sp/>renamed<sp/>to<sp/>`nrfx_clock_lfclk_running_check`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>COMP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_comp_short_mask_t`<sp/>enumerator.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrf_comp_short_mask_t`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_comp_evt_en_mask_t`<sp/>enumerator.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrf_comp_int_mask_t`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Changed<sp/>type<sp/>of<sp/>`ext_ref`<sp/>and<sp/>`input`<sp/>fields<sp/>in<sp/>`nrfx_comp_config_t`<sp/>type<sp/>to<sp/>`nrfx_analog_input_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_comp_pin_select`<sp/>now<sp/>expects<sp/>`nrfx_analog_input_t`<sp/>parameter<sp/>and<sp/>returns<sp/>`int`<sp/>error<sp/>value.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>DPPI</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>DPPI<sp/>driver.<sp/>Use<sp/>GPPI<sp/>helper<sp/>layer<sp/>instead.<sp/>If<sp/>GPPI<sp/>connection<sp/>API<sp/>is<sp/>used<sp/>then<sp/>DPPI<sp/>channels<sp/>are<sp/>handled<sp/>internally.<sp/>However,<sp/>it<sp/>is<sp/>possible<sp/>to<sp/>allocate<sp/>a<sp/>specific<sp/>group<sp/>or<sp/>channel<sp/>and<sp/>handle<sp/>it<sp/>outside<sp/>of<sp/>the<sp/>GPPI<sp/>driver,<sp/>e.g.<sp/>using<sp/>HAL.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Each<sp/>domain<sp/>has<sp/>one<sp/>unique<sp/>DPPI<sp/>instance<sp/>and<sp/>domain<sp/>ID<sp/>can<sp/>be<sp/>used<sp/>to<sp/>identify<sp/>which<sp/>DPPI<sp/>instance<sp/>shall<sp/>be<sp/>used<sp/>to<sp/>allocate<sp/>resources.<sp/>`nrfx_gppi_domain_id_get(addr)`<sp/>is<sp/>used<sp/>to<sp/>derive<sp/>the<sp/>domain<sp/>ID<sp/>from<sp/>a<sp/>peripheral<sp/>register<sp/>address.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Replace<sp/>following<sp/>template<sp/>code<sp/>to<sp/>allocate<sp/>a<sp/>specific<sp/>DPPI<sp/>channels</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">nrfx_dppi_t<sp/>dppi<sp/>=<sp/>NRFX_DPPI_INSTANCE(20);</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>chan;</highlight></codeline>
+<codeline><highlight class="normal">nrf_dppi_channel_group_t<sp/>group_chan;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_err_t<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_dppi_channel_alloc(&amp;dppi,<sp/>&amp;chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_dppi_group_alloc(&amp;dppi,<sp/>&amp;group_chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_free(&amp;dppi,<sp/>chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_dppi_group_free(&amp;dppi,<sp/>group_chan);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">with</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">uint32_t<sp/>domain_id<sp/>=<sp/>nrfx_gppi_domain_id_get(NRF_DPPIC20);</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(domain_id);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>group_chan<sp/>=<sp/>nrfx_gppi_group_channel_alloc(domain_id);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(domain_id,<sp/>(uint8_t)chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_channel_free(domain_id,<sp/>(uint8_t)group_chan);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>EGU</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_EGU_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_egu_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_EGU_INSTANCE(20)`<sp/>to<sp/>`NRFX_EGU_INSTANCE(NRF_EGU20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_egu_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_egu_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_EGU_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>GPIOTE</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_gpiote_input_config_t`<sp/>type<sp/>and<sp/>single<sp/>instance<sp/>API<sp/>variant.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>multi-instance<sp/>API<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_GPIOTE_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_gpiote_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_GPIOTE_INSTANCE(20)`<sp/>to<sp/>`NRFX_GPIOTE_INSTANCE(NRF_GPIOTE20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_gpiote_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_gpiote_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_GPIOTE_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>GRTC</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_grtc_syscounter_get`<sp/>takes<sp/>no<sp/>arguments,<sp/>it<sp/>now<sp/>returns<sp/>`uint64_t`<sp/>syscounter<sp/>value<sp/>instead<sp/>of<sp/>error<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>I2S</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Encapsulated<sp/>`mck_setup`,<sp/>`ratio`<sp/>and<sp/>`enable_bypass`<sp/>fields<sp/>from<sp/>`nrfx_i2s_config_t`<sp/>type<sp/>into<sp/>separate<sp/>`nrfx_i2s_prescalers_t`<sp/>type<sp/>substructure.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.<sp/>Content<sp/>of<sp/>`nrfx_i2s_prescalers_t`<sp/>substructure<sp/>can<sp/>now<sp/>be<sp/>acquired<sp/>using<sp/>`nrfx_i2s_prescalers_calc`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_I2S_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_i2s_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_I2S_INSTANCE(20)`<sp/>to<sp/>`NRFX_I2S_INSTANCE(NRF_I2S20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_i2s_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_i2s_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_I2S_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>LPCOMP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`config`<sp/>field<sp/>in<sp/>`nrfx_lpcomp_config_t`<sp/>type.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`reference`,<sp/>`ext_ref`,<sp/>`detection`<sp/>and<sp/>`hyst`<sp/>fields.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Changed<sp/>type<sp/>of<sp/>`ext_ref`<sp/>and<sp/>`input`<sp/>fields<sp/>in<sp/>`nrfx_lpcomp_config_t`<sp/>type<sp/>to<sp/>`nrfx_analog_input_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_lpcomp_enable`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrfx_lpcomp_start`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_lpcomp_disable`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrfx_lpcomp_stop`<sp/>instead.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>PDM</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>single<sp/>instance<sp/>API<sp/>variant.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>multi-instance<sp/>API<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Encapsulated<sp/>`clock_freq`,<sp/>`prescaler`<sp/>and<sp/>`ratio`<sp/>fields<sp/>from<sp/>`nrfx_pdm_config_t`<sp/>type<sp/>into<sp/>separate<sp/>`nrfx_pdm_prescalers_t`<sp/>type<sp/>substructure.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.<sp/>Content<sp/>of<sp/>`nrfx_pdm_prescalers_t`<sp/>substructure<sp/>can<sp/>now<sp/>be<sp/>acquired<sp/>using<sp/>`nrfx_pdm_prescalers_calc`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_PDM_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_pdm_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_PDM_INSTANCE(20)`<sp/>to<sp/>`NRFX_PDM_INSTANCE(NRF_PDM20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_pdm_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_pdm_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_PDM_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>PPI</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>PPI<sp/>driver.<sp/>Use<sp/>GPPI<sp/>helper<sp/>layer<sp/>instead.<sp/>If<sp/>GPPI<sp/>connection<sp/>API<sp/>is<sp/>used<sp/>then<sp/>PPI<sp/>channel<sp/>is<sp/>handled<sp/>internally.<sp/>However,<sp/>it<sp/>is<sp/>possible<sp/>to<sp/>allocate<sp/>a<sp/>specific<sp/>group<sp/>or<sp/>channel<sp/>and<sp/>handle<sp/>it<sp/>outside<sp/>of<sp/>the<sp/>GPPI<sp/>driver,<sp/>e.g.<sp/>using<sp/>HAL.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Replace<sp/>following<sp/>template<sp/>code<sp/>to<sp/>allocate<sp/>a<sp/>specific<sp/>PPI<sp/>channel</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>chan;</highlight></codeline>
+<codeline><highlight class="normal">nrf_ppi_channel_group_t<sp/>group_chan;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_err_t<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_ppi_channel_alloc(&amp;chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_ppi_group_alloc(&amp;group_chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_ppi_channel_free(chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_ppi_group_free(group_chan);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">with</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(0);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>group_chan<sp/>=<sp/>nrfx_gppi_group_channel_alloc(0);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(group_chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(0,<sp/>(uint8_t)chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_channel_free(0,<sp/>(uint8_t)group_chan);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>PPIB</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>PPIB<sp/>driver.<sp/>Use<sp/>GPPI<sp/>helper<sp/>layer<sp/>instead.<sp/>If<sp/>GPPI<sp/>connection<sp/>API<sp/>is<sp/>used<sp/>then<sp/>PPIB<sp/>are<sp/>handled<sp/>internally.<sp/>However,<sp/>it<sp/>is<sp/>possible<sp/>to<sp/>allocate<sp/>a<sp/>channel<sp/>in<sp/>a<sp/>SoC<sp/>specific<sp/>pair<sp/>of<sp/>PPIB<sp/>instances<sp/>and<sp/>handle<sp/>it<sp/>outside<sp/>of<sp/>the<sp/>GPPI<sp/>driver,<sp/>e.g.<sp/>using<sp/>HAL.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>following<sp/>code<sp/>to<sp/>allocate<sp/>a<sp/>PPIB<sp/>channel</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;soc/interconnect/nrfx_gppi_lumos.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(NRFX_GPPI_NODE_PPIB01_20);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(NRFX_GPPI_NODE_PPIB01_20,<sp/>(uint8_t)chan);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>PWM</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>symbols<sp/>in<sp/>`nrfx_pwm_event_t`<sp/>from<sp/>`NRFX_PWM_EVT_`<sp/>to<sp/>`NRFX_PWM_EVENT_`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_pwm_handler_t`<sp/>to<sp/>`nrfx_pwm_event_handler_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_pwm_evt_type_t`<sp/>to<sp/>`nrfx_pwm_event_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_PWM_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_pwm_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_PWM_INSTANCE(20)`<sp/>to<sp/>`NRFX_PWM_INSTANCE(NRF_PWM20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_pwm_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_PWM_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_pwm_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>QDEC</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_QDEC_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_qdec_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_QDEC_INSTANCE(20)`<sp/>to<sp/>`NRFX_QDEC_INSTANCE(NRF_QDEC20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_qdec_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_qdec_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_QDEC_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SAADC</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Changed<sp/>type<sp/>of<sp/>`pin_p`<sp/>and<sp/>`pin_n`<sp/>fields<sp/>in<sp/>`nrfx_saadc_channel_t`<sp/>type<sp/>to<sp/>`nrfx_analog_input_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPIM</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_spim_evt_type_t`<sp/>to<sp/>`nrfx_spim_event_type_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_spim_evt_t`<sp/>to<sp/>`nrfx_spim_event_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_spim_evt_handler_t`<sp/>to<sp/>`nrfx_spim_event_handler_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>no<sp/>longer<sp/>validates<sp/>whether<sp/>an<sp/>instance<sp/>supports<sp/>SPIM<sp/>extended<sp/>features.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Provide<sp/>proper<sp/>configuration<sp/>in<sp/>`nrfx_spim_config_t`<sp/>based<sp/>on<sp/>hardware<sp/>capabilities<sp/>of<sp/>an<sp/>instance.<sp/>Refer<sp/>to<sp/>Product<sp/>Specification<sp/>for<sp/>details.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_SPIM_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_spim_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_SPIM_INSTANCE(20)`<sp/>to<sp/>`NRFX_SPIM_INSTANCE(NRF_SPIM20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_spim_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_spim_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_SPIM_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SPIS</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_spis_evt_type_t`<sp/>to<sp/>`nrfx_spis_event_type_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_spis_evt_t`<sp/>to<sp/>`nrfx_spis_event_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_SPIS_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_spis_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_SPIS_INSTANCE(20)`<sp/>to<sp/>`NRFX_SPIS_INSTANCE(NRF_SPIS20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_spis_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_spis_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_SPIS_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>TIMER</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_TIMER_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_timer_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_TIMER_INSTANCE(20)`<sp/>to<sp/>`NRFX_TIMER_INSTANCE(NRF_TIMER20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_timer_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_timer_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_TIMER_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>TWIM</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_twim_evt_type_t`<sp/>to<sp/>`nrfx_twim_event_type_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_twim_evt_t`<sp/>to<sp/>`nrfx_twim_event_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_twim_evt_handler_t`<sp/>to<sp/>`nrfx_twim_event_handler_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_TWIM_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_twim_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_TWIM_INSTANCE(20)`<sp/>to<sp/>`NRFX_TWIM_INSTANCE(NRF_TWIM20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_twim_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_twim_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_TWIM_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>TWIS</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_twis_evt_type_t`<sp/>to<sp/>`nrfx_twis_event_type_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_twis_evt_t`<sp/>to<sp/>`nrfx_twis_event_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_TWIS_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_twis_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_TWIS_INSTANCE(20)`<sp/>to<sp/>`NRFX_TWIS_INSTANCE(NRF_TWIS20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_twis_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_twis_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_TWIS_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>UARTE</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrfx_uarte_evt_type_t`<sp/>to<sp/>`nrfx_uarte_event_type_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrfx_uarte_rx`<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrfx_uarte_rx_enable`<sp/>and<sp/>`nrfx_uarte_rx_buffer_set`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_UARTE_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_uarte_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_UARTE_INSTANCE(20)`<sp/>to<sp/>`NRFX_UARTE_INSTANCE(NRF_UARTE20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_uarte_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_uarte_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_UARTE_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>WDT</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>event<sp/>handler<sp/>type<sp/>expecting<sp/>single<sp/>parameter.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>new<sp/>variant<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>variant<sp/>of<sp/>`nrfx_wdt_init`<sp/>taking<sp/>3<sp/>parameters.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>new<sp/>variant<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NRFX_WDT_INSTANCE`<sp/>macro<sp/>for<sp/>creating<sp/>`nrfx_wdt_t`<sp/>driver<sp/>instance<sp/>now<sp/>expects<sp/>peripheral&apos;s<sp/>base<sp/>address<sp/>instead<sp/>of<sp/>instance<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>e.g.<sp/>from<sp/>`NRFX_WDT_INSTANCE(20)`<sp/>to<sp/>`NRFX_WDT_INSTANCE(NRF_WDT20)`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>internal<sp/>state<sp/>is<sp/>now<sp/>kept<sp/>within<sp/>driver&apos;s<sp/>instance<sp/>object.<sp/>Driver<sp/>instance<sp/>object<sp/>must<sp/>have<sp/>static<sp/>storage<sp/>to<sp/>remain<sp/>valid<sp/>throughout<sp/>application<sp/>runtime.<sp/>Creating<sp/>multiple<sp/>driver<sp/>instances<sp/>associated<sp/>with<sp/>same<sp/>hardware<sp/>peripheral<sp/>instance<sp/>will<sp/>not<sp/>share<sp/>peripheral<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Declare<sp/>single<sp/>driver<sp/>instance<sp/>within<sp/>the<sp/>system<sp/>and<sp/>share<sp/>it<sp/>among<sp/>dependent<sp/>software<sp/>components,<sp/>e.g.<sp/>by<sp/>using<sp/>global<sp/>scope.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>driver<sp/>functions<sp/>expect<sp/>`nrfx_wdt_t`<sp/>parameter<sp/>to<sp/>be<sp/>mutable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Driver<sp/>instance<sp/>interrupt<sp/>handler<sp/>now<sp/>has<sp/>to<sp/>be<sp/>explicitly<sp/>defined<sp/>by<sp/>user<sp/>and<sp/>call<sp/>`nrfx_wdt_irq_handler`<sp/>with<sp/>pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>as<sp/>an<sp/>argument.<sp/>Removed<sp/>`NRFX_WDT_INST_HANDLER_GET`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRFX_INSTANCE_IRQ_HANDLER_DEFINE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Helpers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>GPPI</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">GPPI<sp/>has<sp/>been<sp/>reworked<sp/>to<sp/>accommodate<sp/>for<sp/>a<sp/>multi-instance<sp/>DPPI<sp/>architecture<sp/>present<sp/>in<sp/>the<sp/>newest<sp/>SoC,<sp/>e.g.<sp/>nRF54<sp/>famlily.<sp/>GPPI<sp/>focuses<sp/>on<sp/>establishing<sp/>and<sp/>managing<sp/>connections<sp/>between<sp/>endpoints<sp/>or<sp/>domains<sp/>rather<sp/>than<sp/>a<sp/>particular<sp/>channels.<sp/>Connection<sp/>can<sp/>spread<sp/>across<sp/>multiple<sp/>and<sp/>consists<sp/>of<sp/>resources<sp/>in<sp/>mutliple<sp/>DPPIC<sp/>and<sp/>PPIB<sp/>instances.<sp/>Legacy<sp/>architecture<sp/>with<sp/>a<sp/>single<sp/>PPI<sp/>or<sp/>DPPIC<sp/>instance<sp/>can<sp/>be<sp/>seen<sp/>as<sp/>the<sp/>simplest<sp/>example.<sp/>GPPI<sp/>API<sp/>provides<sp/>API<sp/>for<sp/>a<sp/>basic<sp/>one-to-one<sp/>connection<sp/>and<sp/>API<sp/>that<sp/>allows<sp/>to<sp/>setup<sp/>more<sp/>complex<sp/>many-to-many,<sp/>spreading<sp/>across<sp/>multiple<sp/>domains,<sp/>connections.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>New<sp/>GPPI<sp/>API<sp/>has<sp/>limited<sp/>support<sp/>on<sp/>nRF54H20.<sp/>Full<sp/>support<sp/>requires<sp/>a<sp/>dedicated<sp/>Ironside<sp/>service<sp/>which<sp/>is<sp/>planned<sp/>in<sp/>the<sp/>near<sp/>future.<sp/>Support<sp/>is<sp/>limited<sp/>to<sp/>one-to-one<sp/>connections:<sp/>`nrfx_gppi_conn_alloc`,<sp/>`nrfx_gppi_conn_free`,<sp/>`nrfx_gppi_conn_enable`,<sp/>`nrfx_gppi_conn_disable`.<sp/>It<sp/>is<sp/>using<sp/>legacy<sp/>GPPI<sp/>implementation<sp/>underneath.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Contrary<sp/>to<sp/>the<sp/>legacy<sp/>solution,<sp/>GPPI<sp/>needs<sp/>to<sp/>be<sp/>initialized<sp/>prior<sp/>to<sp/>using<sp/>the<sp/>GPPI<sp/>API.<sp/>Ensure</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>that<sp/>`nrfx_gppi_init`<sp/>is<sp/>called<sp/>before<sp/>calling<sp/>any<sp/>GPPI<sp/>API.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>`nrfx_gppi_channel_group_t`<sp/>and<sp/>`nrfx_gppi_task_t`<sp/>enumerators<sp/>and<sp/>`nrfx_gppi_channel_check`,<sp/>`nrfx_gppi_channels_disable_all`,<sp/>`nrfx_gppi_task_endpoint_setup`,<sp/>`nrfx_gppi_channel_endpoints_setup`,<sp/>`nrfx_gppi_channel_endpoints_clear`,<sp/>`nrfx_gppi_task_endpoint_clear`,<sp/>`nrfx_gppi_fork_endpoint_setup`,<sp/>`nrfx_gppi_fork_endpoint_clear`,<sp/>`nrfx_gppi_fork_endpoint_clear`<sp/>,<sp/>`nrfx_gppi_task_trigger`,<sp/>`nrfx_gppi_task_address_get`,<sp/>`nrfx_gppi_group_disable_task_get`,<sp/>`nrfx_gppi_group_enable_task_get`<sp/>and<sp/>`nrfx_gppi_edge_connection_setup`<sp/>functions.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>new<sp/>API.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>`nrfx_gppi_event_endpoint_setup`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrfx_gppi_ep_attach`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>`nrfx_gppi_event_endpoint_clear`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>nrfx_gppi_ep_clear.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`nrfx_gppi_channels_enable`<sp/>and<sp/>`nrfx_gppi_channels_enable`<sp/>functions<sp/>now<sp/>expects<sp/>additional<sp/>`domain_id`<sp/>parameter<sp/>which<sp/>enables<sp/>a<sp/>particular<sp/>channel<sp/>in<sp/>a<sp/>specific<sp/>domain.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.<sp/>Use<sp/>domain<sp/>ID<sp/>returned<sp/>by<sp/>`nrfx_gppi_domain_id_get`.<sp/>For<sp/>controlling<sp/>all<sp/>channels<sp/>within<sp/>a<sp/>connection,<sp/>use<sp/>`nrfx_gppi_conn_enable`<sp/>and<sp/>`nrfx_gppi_conn_disable`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Some<sp/>API<sp/>accepts<sp/>domain<sp/>ID<sp/>as<sp/>a<sp/>parameter.<sp/>Each<sp/>domain<sp/>has<sp/>one<sp/>unique<sp/>DPPI<sp/>instance<sp/>and<sp/>domain<sp/>ID<sp/>can<sp/>be<sp/>used<sp/>to<sp/>identify<sp/>which<sp/>DPPI<sp/>instance<sp/>shall<sp/>be<sp/>used<sp/>to<sp/>allocate<sp/>resources.<sp/>`nrfx_gppi_domain_id_get(addr)`<sp/>is<sp/>used<sp/>to<sp/>derive<sp/>the<sp/>domain<sp/>ID<sp/>from<sp/>a<sp/>peripheral<sp/>register<sp/>address.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Reworked<sp/>connection<sp/>workflow<sp/>using<sp/>DPPI.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Replace<sp/>following<sp/>template<sp/>code</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>uint8_t<sp/>dppi_channel;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_dppi_t<sp/>dppi<sp/>=<sp/>NRFX_DPPI_INSTANCE(0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_alloc(&amp;dppi,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrf_&lt;a&gt;_subscribe_set(p_reg_a,<sp/>A_TASK,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">nrf_&lt;b&gt;_publish_set(p_reg_b,<sp/>B_EVENT,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_enable(&amp;dppi,<sp/>dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_disable(&amp;dppi,<sp/>dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">with</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">uint32_t<sp/>eep,<sp/>tep;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_handle_t<sp/>gppi_handle;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">tep_a<sp/>=<sp/>nrf_&lt;a&gt;_task_address_get(p_reg_a,<sp/>A_TASK);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_a,<sp/>tep_b,<sp/>&amp;gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Reworked<sp/>multiple<sp/>endpoints<sp/>workflow<sp/>using<sp/>DPPI.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Replace<sp/>following<sp/>template<sp/>code</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">nrf_&lt;c&gt;_subscribe_set(p_reg_c,<sp/>C_TASK,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">with</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_attach(tep_c,<sp/>gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Reworked<sp/>channel<sp/>grouping<sp/>using<sp/>GPPI.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Replace<sp/>following<sp/>template<sp/>code</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>chan_a,<sp/>chan_b;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_alloc(&amp;chan_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_alloc(&amp;chan_b);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">eep_a<sp/>=<sp/>nrf_&lt;a&gt;_event_address_get(p_reg_a,<sp/>A_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_clear(NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_disable(NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_include_in_group(BIT(chan_a)<sp/>|<sp/>BIT(chan_b),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_setup(chan_a,<sp/>eep_a,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_EN));</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_setup(chan_b,<sp/>eep_b,<sp/>tep_c);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_fork_endpoint_setup(chan_b,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_DIS));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_enable(BIT(chan_a)<sp/>|<sp/>BIT(chan_b));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_disable_all(BIT(chan_a)<sp/>|<sp/>BIT(chan_b));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_remove_from_group(BIT(chan_a)<sp/>|<sp/>BIT(chan_b),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_fork_endpoint_clear(chan_b,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_DIS));</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_clear(chan_b,<sp/>eep_b,<sp/>tep_c);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_clear(chan_a,<sp/>eep_a,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_EN));</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">with</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_handle_t<sp/>gppi_handle,<sp/>gppi_handle2;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_handle_t<sp/>gppi_group;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">eep_a<sp/>=<sp/>nrf_&lt;a&gt;_event_address_get(p_reg_a,<sp/>A_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_alloc(nrfx_gppi_domain_id_get(eep_a),<sp/>&amp;gppi_group);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_a,<sp/>nrfx_gppi_group_task_en_addr(gppi_group),<sp/>&amp;gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_b,<sp/>tep_c,<sp/>&amp;gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_attach(nrfx_gppi_group_task_dis_addr(gppi_group),<sp/>gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_ep_add(gppi_group,<sp/>eep_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_ap_add(gppi_group,<sp/>eep_b);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handl2);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(eep_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(eep_b);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(tep_c);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>HALs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>CACHE</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`nrf_cache_data_get`,<sp/>`nrf_cache_tag_get`,<sp/>`nrf_cache_line_validity_check`,<sp/>`nrf_cache_mru_get`,<sp/>`nrf_cache_data_unit_validity_check`<sp/>and<sp/>`nrf_cache_is_data_unit_dirty_check`<sp/>now<sp/>expect<sp/>`NRF_CACHE_Type`<sp/>as<sp/>their<sp/>first<sp/>parameter.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code<sp/>by<sp/>using<sp/>`NRF_CACHE`,<sp/>`NRF_DCACHE`<sp/>or<sp/>`NRF_ICACHE`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>CLOCK</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_clock_lf_actv_src_get`,<sp/>`nrf_clock_lf_is_running`<sp/>and<sp/>`nrf_clock_hf_is_running`<sp/>functions<sp/>and<sp/>`nrf_clock_start_task_status_t`<sp/>enumerator.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action:<sp/>Use<sp/>`nrf_clock_is_running`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_clock_lf_start_task_status_get`<sp/>and<sp/>`nrf_clock_hf_start_task_status_get`<sp/>functions.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrf_clock_start_task_check`<sp/>instead.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>COMP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Renamed<sp/>`nrf_isource_t`<sp/>type<sp/>to<sp/>`nrf_comp_isource_t`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>LPCOMP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`NRF_LPCOMP_REF_EXT_REF0`<sp/>and<sp/>`NRF_LPCOMP_REF_EXT_REF1`<sp/>symbols<sp/>from<sp/>`nrf_lpcomp_ref_t`<sp/>enumerator.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRF_LPCOMP_EXT_REF_REF0`<sp/>or<sp/>`NRF_LPCOMP_EXT_REF_REF1`<sp/>symbols<sp/>from<sp/>`nrf_lpcomp_ext_ref_t`<sp/>enumerator<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_lpcomp_configure`<sp/>function<sp/>and<sp/>`nrf_lpcomp_config_t`<sp/>type.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>dedicated<sp/>functions<sp/>to<sp/>configure<sp/>specific<sp/>parameters.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>POWER</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_power_rampower_t`<sp/>enumerator.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`NRF_POWER_RAMPOWER_S0POWER_POS`<sp/>or<sp/>`NRF_POWER_RAMPOWER_S0RETENTION_POS`<sp/>symbols<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_power_vreg_enable`<sp/>and<sp/>`nrf_power_vreg_disable`<sp/>functions.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrf_power_vreg_set`<sp/>instead.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`nrf_power_vreg_enable_check`<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Use<sp/>`nrf_power_vreg_get`<sp/>instead.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>RESET</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>`NRF_RESET_HAS_APPLICATION`<sp/>symbol.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>SAADC</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Removed<sp/>deprecated<sp/>`NRF_SAADC_8BIT_SAMPLE_WIDTH`<sp/>symbol.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code,<sp/>all<sp/>SAADC<sp/>samples<sp/>are<sp/>16<sp/>bits<sp/>wide<sp/>now.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Defined<sp/>`nrf_saadc_value_t`<sp/>type<sp/>as<sp/>`int16_t`.<sp/>`nrf_saadc_value_min_get`,<sp/>`nrf_saadc_value_max_get`,<sp/>`nrf_saadc_value_min_get`<sp/>and<sp/>`nrf_saadc_value_max_get`<sp/>functions<sp/>now<sp/>return<sp/>`nrf_saadc_value_t`<sp/>type.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>affected<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Others</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>nrfx_coredep</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Moved<sp/>from<sp/>`soc`<sp/>directory<sp/>to<sp/>`lib`<sp/>directory.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;br&gt;Action<sp/>:<sp/>Update<sp/>the<sp/>inclusion<sp/>paths.</highlight></codeline>
+    </programlisting>
+    <location file="doc/nrfx_4_0_migration_guide.md"/>
+  </compounddef>
+</doxygen>

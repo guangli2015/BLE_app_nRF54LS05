@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__mramc" kind="group">
+    <compoundname>nrfx_mramc</compoundname>
+    <title>MRAMC driver</title>
+    <innerclass refid="structnrfx__mramc__config__t" prot="public">nrfx_mramc_config_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__mramc_1ga8c06d0410319b6a3e3778def306e1954" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_mramc_evt_handler_t) (nrf_mramc_event_t const event_type)</definition>
+        <argsstring>)(nrf_mramc_event_t const event_type)</argsstring>
+        <name>nrfx_mramc_evt_handler_t</name>
+        <briefdescription>
+<para>MRAMC driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MRAMC event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="119" column="9" bodyfile="drivers/include/nrfx_mramc.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__mramc_1gab85e6d19a672e35d2e7bd10c38371f7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_mramc_valid_address_check</definition>
+        <argsstring>(uint32_t addr, bool uicr_allowed)</argsstring>
+        <name>nrfx_mramc_valid_address_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uicr_allowed</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the address is valid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">uicr_allowed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, the UICR area is considered valid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address is valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="130" column="6" declfile="drivers/include/nrfx_mramc.h" declline="130" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gabce22abacfae1b895f961bdc051343e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_mramc_fits_memory_check</definition>
+        <argsstring>(uint32_t addr, bool uicr_allowed, uint32_t bytes)</argsstring>
+        <name>nrfx_mramc_fits_memory_check</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uicr_allowed</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the address and size fit in MRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">uicr_allowed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, the UICR area is considered valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address and size fit in memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address and size not fitting in memory. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="142" column="6" declfile="drivers/include/nrfx_mramc.h" declline="142" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga3099c43f768feaf3d70c6ca1a92ed27a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_all_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_mramc_all_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for erasing the whole MRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>All user code and UICR will be erased. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="149" column="6" declfile="drivers/include/nrfx_mramc.h" declline="149" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gad1a510f692e819e39de625a2ed0b227e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_word_write</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrfx_mramc_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word to MRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="161" column="6" declfile="drivers/include/nrfx_mramc.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga49576308acb3c9f290c295aca378b85a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_words_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_words)</argsstring>
+        <name>nrfx_mramc_words_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_words</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive 32-bit words to MRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function uses direct write mode to write to MRAM directly.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be copied. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_words</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of words to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="176" column="6" declfile="drivers/include/nrfx_mramc.h" declline="176" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga501ff8d9d07a4f3516c4e27a31833036" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_buffer_read</definition>
+        <argsstring>(void *dst, uint32_t address, uint32_t num_bytes)</argsstring>
+        <name>nrfx_mramc_buffer_read</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading consecutive bytes from MRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to store the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first byte to be read. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="185" column="6" declfile="drivers/include/nrfx_mramc.h" declline="185" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga86a356f5e8042ec7c91a116fc0b8807f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_config_write_mode_set</definition>
+        <argsstring>(nrf_mramc_mode_write_t write_mode)</argsstring>
+        <name>nrfx_mramc_config_write_mode_set</name>
+        <param>
+          <type><ref refid="group__nrf__mramc__hal_1gafbe868265abcbe3e74fbbaf1477e016c" kindref="member">nrf_mramc_mode_write_t</ref></type>
+          <declname>write_mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the MRAMC write mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">write_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the enum in <ref refid="group__nrf__mramc__hal_1gafbe868265abcbe3e74fbbaf1477e016c" kindref="member">nrf_mramc_mode_write_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="192" column="6" declfile="drivers/include/nrfx_mramc.h" declline="192" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga26b38d54572b209479b6107b00bc0475" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_config_erase_mode_set</definition>
+        <argsstring>(nrf_mramc_mode_erase_t erase_mode)</argsstring>
+        <name>nrfx_mramc_config_erase_mode_set</name>
+        <param>
+          <type><ref refid="group__nrf__mramc__hal_1ga82033ae4cba325abf24fb413622799ac" kindref="member">nrf_mramc_mode_erase_t</ref></type>
+          <declname>erase_mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the MRAMC erase mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">erase_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the enum in <ref refid="group__nrf__mramc__hal_1ga82033ae4cba325abf24fb413622799ac" kindref="member">nrf_mramc_mode_erase_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="199" column="6" declfile="drivers/include/nrfx_mramc.h" declline="199" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gac20a88f4ab3f49f26845a058e3ef86c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_confignvr_perm_set</definition>
+        <argsstring>(bool enable, uint8_t page)</argsstring>
+        <name>nrfx_mramc_confignvr_perm_set</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>page</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the MRAMC NVR page write and erase permission,. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>: Setting enable allows <ref refid="structnrf__mramc__readynext__timeout__t" kindref="compound">nrf_mramc_readynext_timeout_t</ref> diret_write and preload_timeout to minimum, <ref refid="structnrf__mramc__config__nvr__t" kindref="compound">nrf_mramc_config_nvr_t</ref> PAGE[n] to be writtable and erasable.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True to enable write and erase permission of CONFIGNVR.PAGE[n], false to disable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">page</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Page number of CONFIGNVR.PAGE[0...n]. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="212" column="6" declfile="drivers/include/nrfx_mramc.h" declline="212" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga9e91c0d9dada957df21cc78e81cf6f8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_mramc_init</definition>
+        <argsstring>(nrfx_mramc_config_t const *p_config, nrfx_mramc_evt_handler_t handler)</argsstring>
+        <name>nrfx_mramc_init</name>
+        <param>
+          <type><ref refid="structnrfx__mramc__config__t" kindref="compound">nrfx_mramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__mramc_1ga8c06d0410319b6a3e3778def306e1954" kindref="member">nrfx_mramc_evt_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the MRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver has already been initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="223" column="5" declfile="drivers/include/nrfx_mramc.h" declline="223" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gaac7bb6df9cff3c7a2f3b59283fe4725f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_mramc_reconfigure</definition>
+        <argsstring>(nrfx_mramc_config_t const *p_config)</argsstring>
+        <name>nrfx_mramc_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__mramc__config__t" kindref="compound">nrfx_mramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the MRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="234" column="5" declfile="drivers/include/nrfx_mramc.h" declline="234" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga0491d15648428252e25d8497a48b7bf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_mramc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the MRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="237" column="6" declfile="drivers/include/nrfx_mramc.h" declline="237" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gae65170596a36f43eb246c811d1a08985" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_mramc_memory_size_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_mramc_memory_size_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the total MRAM size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The function will return <computeroutput>FICR_INFO_MRAM_MRAM_Unspecified</computeroutput> value if the total MRAM size cannot be determined based on the FICR data.</para>
+</simplesect>
+<simplesect kind="return"><para>MRAM total size in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="247" column="10" declfile="drivers/include/nrfx_mramc.h" declline="247" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga38b599d02b496527d9ffa14145d8e32c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_mramc_area_erase</definition>
+        <argsstring>(uint32_t address, uint32_t size)</argsstring>
+        <name>nrfx_mramc_area_erase</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for erasing area in MRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be erased. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size to erase in number of words. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="255" column="6" declfile="drivers/include/nrfx_mramc.h" declline="255" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1ga927c4fbfdcdf7e53bc573dde357de1d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_mramc_word_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_mramc_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a 32-bit word from the MRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function in case accessing the MRAM gives the possibility to run the code in an environment where the MRAM is simulated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the word to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from MRAM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="281" column="29" bodyfile="drivers/include/nrfx_mramc.h" bodystart="281" bodyend="284" declfile="drivers/include/nrfx_mramc.h" declline="267" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__mramc_1gae425bdd29bcbeff81c76b3b801d0ffa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_mramc_ready_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_mramc_ready_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking current MRAMC operation status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status is updated for all MRAMC operations.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current operation is completed, and MRAMC is ready. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MRAMC is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="286" column="25" bodyfile="drivers/include/nrfx_mramc.h" bodystart="286" bodyend="289" declfile="drivers/include/nrfx_mramc.h" declline="277" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__mramc_1gafbebc19516a3f3c4bf43ca41e07cf8c8" prot="public" static="no">
+        <name>NRFX_MRAMC_MAP_TO_ADDR</name>
+        <param><defname>offset</defname></param>
+        <initializer>(<ref refid="group__nrfy__mramc_1gab0e231b0db128c77464d599ce156062f" kindref="member">NRFY_MRAMC_MRAM_BASE_ADDRESS</ref> + (offset))</initializer>
+        <briefdescription>
+<para>Macro for mapping relative MRAMC offset to absolute address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset to map. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="56" column="9" bodyfile="drivers/include/nrfx_mramc.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__mramc_1ga80cf48a9200bc82b98bb1c6de60365fc" prot="public" static="no">
+        <name>NRFX_MRAMC_CONFIG_DISABLEECC</name>
+        <initializer>.disable_ecc = true,</initializer>
+        <briefdescription>
+<para>Symbol to set DISABLEECC default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="71" column="9" bodyfile="drivers/include/nrfx_mramc.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__mramc_1ga5bcf327b23a009101cdb32195b79bb39" prot="public" static="no">
+        <name>NRFX_MRAMC_DEFAULT_CONFIG</name>
+        <param></param>
+        <initializer>{                                                                     \
+    .config                 = {                                       \
+        .mode_write         = <ref refid="group__nrf__mramc__hal_1ggafbe868265abcbe3e74fbbaf1477e016ca8f3948831bb21716d652ed3172722669" kindref="member">NRF_MRAMC_MODE_WRITE_DISABLE</ref>,           \
+        .mode_erase         = <ref refid="group__nrf__mramc__hal_1gga82033ae4cba325abf24fb413622799aca7c981150e9f49e2882dc2c4758aac927" kindref="member">NRF_MRAMC_MODE_ERASE_DISABLE</ref>,           \
+        <ref refid="group__nrfx__mramc_1ga80cf48a9200bc82b98bb1c6de60365fc" kindref="member">NRFX_MRAMC_CONFIG_DISABLEECC</ref>                                  \
+    },                                                                \
+    .preload_timeout        = {                                       \
+        .value              = <ref refid="group__nrf__mramc__hal_1gae3fe1a97527efb5a1625108c52a39dda" kindref="member">NRF_MRAMC_READYNEXTTIMEOUT_DEFAULT</ref>,     \
+        .direct_write       = true,                                   \
+    },                                                                \
+    .powerdown              = {                                       \
+        .enable             = false,                                  \
+        .power_down_cfg     = false,                                  \
+        .timeout_value      = <ref refid="group__nrf__mramc__hal_1ga1c48756f6c5e9cb76ffb483fbc0649f9" kindref="member">NRF_MRAMC_AUTOPOWERDOWN_TIMEOUT_MIN</ref>,    \
+    },                                                                \
+    .lowavgcurr            = {                                        \
+        .read               = <ref refid="group__nrf__mramc__hal_1ga95bc9ae5fc3962bb2aea9815811fee2b" kindref="member">NRF_MRAMC_LOWAVGCURR_READ_MIN</ref>,          \
+        .write              = <ref refid="group__nrf__mramc__hal_1ga0e530a9af834276962e64be53ea3ba14" kindref="member">NRF_MRAMC_LOWAVGCURR_WRITE_MIN</ref>,         \
+        .erase              = <ref refid="group__nrf__mramc__hal_1gab848f07cae4e87d7fb1a89fa08787ffb" kindref="member">NRF_MRAMC_LOWAVGCURR_ERASE_MIN</ref>,         \
+    },                                                                \
+    .irq_priority           = NRFX_MRAMC_DEFAULT_CONFIG_IRQ_PRIORITY, \
+}</initializer>
+        <briefdescription>
+<para>MRAMC driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up MRAMC with the following options:<itemizedlist>
+<listitem><para>Write mode disabled</para>
+</listitem><listitem><para>Erase mode disabled</para>
+</listitem><listitem><para>ECC enabled (if present)</para>
+</listitem><listitem><para>Preload timeout value: 0x0</para>
+</listitem><listitem><para>Write to the MRAM backed-to-backed on the next preload timeout in direct mode enabled</para>
+</listitem><listitem><para>Automatic power-down feature disabled</para>
+</listitem><listitem><para>Entering power-down mode when the timeout happens disabled</para>
+</listitem><listitem><para>Access timeout: 0x0</para>
+</listitem><listitem><para>Low average current read, write, and erase preload timeout values: 0x0 </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_mramc.h" line="90" column="9" bodyfile="drivers/include/nrfx_mramc.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Magnetoresistive Random Access Memory Controller (MRAMC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

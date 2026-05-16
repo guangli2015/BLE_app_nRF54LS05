@@ -1,0 +1,788 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__power" kind="group">
+    <compoundname>nrfx_power</compoundname>
+    <title>POWER driver</title>
+    <innerclass refid="structnrfx__power__config__t" prot="public">nrfx_power_config_t</innerclass>
+    <innerclass refid="structnrfx__power__pofwarn__config__t" prot="public">nrfx_power_pofwarn_config_t</innerclass>
+    <innerclass refid="structnrfx__power__sleepevt__config__t" prot="public">nrfx_power_sleepevt_config_t</innerclass>
+    <innerclass refid="structnrfx__power__usbevt__config__t" prot="public">nrfx_power_usbevt_config_t</innerclass>
+    <innergroup refid="group__nrfx__power__config">POWER peripheral driver configuration</innergroup>
+      <sectiondef kind="user-defined">
+      <header>Callback types</header>
+      <description><para>Defined types of callback functions. </para>
+</description>
+      <memberdef kind="typedef" id="group__nrfx__power_1gacc06e3cd7cda7129d7f2b91b91612429" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_power_pofwarn_event_handler_t) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>nrfx_power_pofwarn_event_handler_t</name>
+        <briefdescription>
+<para>Event handler for power failure warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="145" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__power_1gac10947f96f220031b3ec62a4e6d1b1df" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_power_sleep_event_handler_t) (nrfx_power_sleep_evt_t event)</definition>
+        <argsstring>)(nrfx_power_sleep_evt_t event)</argsstring>
+        <name>nrfx_power_sleep_event_handler_t</name>
+        <briefdescription>
+<para>Event handler for the sleep events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="153" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__power_1ga69bf52289b405109af0446afc637b3dc" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_power_usb_event_handler_t) (nrfx_power_usb_evt_t event)</definition>
+        <argsstring>)(nrfx_power_usb_evt_t event)</argsstring>
+        <name>nrfx_power_usb_event_handler_t</name>
+        <briefdescription>
+<para>Event handler for the USB-related power events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="162" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__power_1gadfb32284ef08fd29988dfcbb9346d685" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_power_mode_t</name>
+        <enumvalue id="group__nrfx__power_1ggadfb32284ef08fd29988dfcbb9346d685a3ff1c797592ef7a364c7b70ceb8114b3" prot="public">
+          <name>NRFX_POWER_MODE_CONSTLAT</name>
+          <briefdescription>
+<para>Constant Latency mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1ggadfb32284ef08fd29988dfcbb9346d685a15889ea478a58ea264712a340d21e7f2" prot="public">
+          <name>NRFX_POWER_MODE_LOWPWR</name>
+          <briefdescription>
+<para>Low Power mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Sub-power mode possible configurations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="84" column="1" bodyfile="drivers/include/nrfx_power.h" bodystart="85" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__power_1gaed02770d03b96ab4faec66d284a891c0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_power_sleep_evt_t</name>
+        <enumvalue id="group__nrfx__power_1ggaed02770d03b96ab4faec66d284a891c0a659991783a41491bef4e8a8888a5bf97" prot="public">
+          <name>NRFX_POWER_SLEEP_EVT_ENTER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>CPU entered WFI/WFE sleep <verbatim>                        Keep in mind that if this interrupt is enabled,
+                        it means that CPU was waken up just after WFI by this interrupt.
+</verbatim> </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1ggaed02770d03b96ab4faec66d284a891c0ae8e94573af23499237eee4556e178243" prot="public">
+          <name>NRFX_POWER_SLEEP_EVT_EXIT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>CPU exited WFI/WFE sleep </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Events from power system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="98" column="1" bodyfile="drivers/include/nrfx_power.h" bodystart="99" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__power_1gacba1e11720cb05342ac8b0f255db6c8a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_power_usb_evt_t</name>
+        <enumvalue id="group__nrfx__power_1ggacba1e11720cb05342ac8b0f255db6c8aa51365fb5b09f757a2a8e3b0e6c2cff33" prot="public">
+          <name>NRFX_POWER_USB_EVT_DETECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power detected on the connector (plugged in). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1ggacba1e11720cb05342ac8b0f255db6c8aa137dd2b72e6b94d2586f3f0b246ea260" prot="public">
+          <name>NRFX_POWER_USB_EVT_REMOVED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power removed from the connector. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1ggacba1e11720cb05342ac8b0f255db6c8aa1849049525874a39a6da918560fb0b93" prot="public">
+          <name>NRFX_POWER_USB_EVT_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>USB power regulator ready. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Events from USB power system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="113" column="1" bodyfile="drivers/include/nrfx_power.h" bodystart="114" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__power_1ga234637366f2b21ad80468fa0eea8e266" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_power_usb_state_t</name>
+        <enumvalue id="group__nrfx__power_1gga234637366f2b21ad80468fa0eea8e266a33459a0632fef535e23edb7750a3cefe" prot="public">
+          <name>NRFX_POWER_USB_STATE_DISCONNECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No power on USB lines detected. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1gga234637366f2b21ad80468fa0eea8e266a7944a6357aa64856a14cffba68ccd7c9" prot="public">
+          <name>NRFX_POWER_USB_STATE_CONNECTED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The USB power is detected, but USB power regulator is not ready. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__power_1gga234637366f2b21ad80468fa0eea8e266a8cd03c27f125aafede399cfb0434142c" prot="public">
+          <name>NRFX_POWER_USB_STATE_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>From the power viewpoint, USB is ready for working. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>USB power state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The single enumerator that holds all data about current state of USB related POWER.</para>
+<para>Organized this way that higher power state has higher numeric value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="128" column="1" bodyfile="drivers/include/nrfx_power.h" bodystart="129" bodyend="133"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__power_1ga952633fb74ff48a15b316ef8740a3887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__power_1gacc06e3cd7cda7129d7f2b91b91612429" kindref="member">nrfx_power_pofwarn_event_handler_t</ref></type>
+        <definition>nrfx_power_pofwarn_event_handler_t nrfx_power_pof_handler_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_pof_handler_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the handler of the power failure comparator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Handler of the power failure comparator. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="242" column="36" declfile="drivers/include/nrfx_power.h" declline="242" declcolumn="36"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga5c9153a39a12433c4f3e88b6f85c66be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__power_1ga69bf52289b405109af0446afc637b3dc" kindref="member">nrfx_power_usb_event_handler_t</ref></type>
+        <definition>nrfx_power_usb_event_handler_t nrfx_power_usb_handler_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_usb_handler_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the handler of the USB power. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Handler of the USB power. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="249" column="32" declfile="drivers/include/nrfx_power.h" declline="249" declcolumn="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga57cbfda337f50c43eb7a53abab57e680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_power_init</definition>
+        <argsstring>(nrfx_power_config_t const *p_config)</argsstring>
+        <name>nrfx_power_init</name>
+        <param>
+          <type><ref refid="structnrfx__power__config__t" kindref="compound">nrfx_power_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the power module driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Enabled power module driver processes all the interrupts from the power system.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successfully initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Module was already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="262" column="5" declfile="drivers/include/nrfx_power.h" declline="262" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1gaaec95ffd3ac4b9922c4a8ffbb77b56da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for unintializing the power module driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Disables all the interrupt handling in the module.</para>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__power_1ga57cbfda337f50c43eb7a53abab57e680" kindref="member">nrfx_power_init</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="271" column="6" declfile="drivers/include/nrfx_power.h" declline="271" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga2154052a0e88a71e4da4b5882cfd7735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_power_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the power module driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="279" column="6" declfile="drivers/include/nrfx_power.h" declline="279" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga1e534bf1bef879d811e25d197b33e32d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_pof_init</definition>
+        <argsstring>(nrfx_power_pofwarn_config_t const *p_config)</argsstring>
+        <name>nrfx_power_pof_init</name>
+        <param>
+          <type><ref refid="structnrfx__power__pofwarn__config__t" kindref="compound">nrfx_power_pofwarn_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the power failure comparator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the power failure comparator. This function does not set it up and enable it. These steps can be done with functions <ref refid="group__nrfx__power_1ga8f7fa0add340035f5c873b77ae4aea3e" kindref="member">nrfx_power_pof_enable</ref> and <ref refid="group__nrfx__power_1ga7673168386b8832d6ac633b163118844" kindref="member">nrfx_power_pof_disable</ref> or with the SoftDevice API (when in use).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration with values and event handler. If event handler is set to NULL, the interrupt will be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="292" column="6" declfile="drivers/include/nrfx_power.h" declline="292" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga8f7fa0add340035f5c873b77ae4aea3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_pof_enable</definition>
+        <argsstring>(nrfx_power_pofwarn_config_t const *p_config)</argsstring>
+        <name>nrfx_power_pof_enable</name>
+        <param>
+          <type><ref refid="structnrfx__power__pofwarn__config__t" kindref="compound">nrfx_power_pofwarn_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the power failure comparator. Sets and enables the interrupt of the power failure comparator. This function cannot be in use when SoftDevice is enabled. If the event handler set in the init function is set to NULL, the interrupt will be disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration with values and event handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="302" column="6" declfile="drivers/include/nrfx_power.h" declline="302" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga7673168386b8832d6ac633b163118844" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_pof_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_pof_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the power failure comparator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Disables the power failure comparator interrupt. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="309" column="6" declfile="drivers/include/nrfx_power.h" declline="309" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga583aa2c1149d0775b51a020e5bc4f837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_pof_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_pof_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for clearing the power failure comparator settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the settings of the power failure comparator. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="316" column="6" declfile="drivers/include/nrfx_power.h" declline="316" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga19ebe294c60c77f74bfd2a7c3e82bf1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_sleepevt_init</definition>
+        <argsstring>(nrfx_power_sleepevt_config_t const *p_config)</argsstring>
+        <name>nrfx_power_sleepevt_init</name>
+        <param>
+          <type><ref refid="structnrfx__power__sleepevt__config__t" kindref="compound">nrfx_power_sleepevt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the processing of the sleep events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures and sets up the sleep event processing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration with values and event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__power_1gafe18a94d6a63545f3000b3a8da936e68" kindref="member">nrfx_power_sleepevt_uninit</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="330" column="6" declfile="drivers/include/nrfx_power.h" declline="330" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga17c1cd923bfdaa4fc6eec96b510dd60c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_sleepevt_enable</definition>
+        <argsstring>(nrfx_power_sleepevt_config_t const *p_config)</argsstring>
+        <name>nrfx_power_sleepevt_enable</name>
+        <param>
+          <type><ref refid="structnrfx__power__sleepevt__config__t" kindref="compound">nrfx_power_sleepevt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the processing of the sleep events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration with values and event handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="337" column="6" declfile="drivers/include/nrfx_power.h" declline="337" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1gab21e1f7dee9e84f18b1c59d734670e02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_sleepevt_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_sleepevt_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the processing of the sleep events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="340" column="6" declfile="drivers/include/nrfx_power.h" declline="340" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1gafe18a94d6a63545f3000b3a8da936e68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_sleepevt_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_sleepevt_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the processing of the sleep events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__power_1ga19ebe294c60c77f74bfd2a7c3e82bf1e" kindref="member">nrfx_power_sleepevt_init</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="347" column="6" declfile="drivers/include/nrfx_power.h" declline="347" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga16c1172e66f0fccea8007d537ced4727" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_power_constlat_mode_request</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_constlat_mode_request</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for requesting Constant Latency sub-power mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function uses a reference counter. As a result, if it is called more than once, the function <ref refid="group__nrfx__power_1ga1bcf0b17b41744dab266a31fcfbdad1d" kindref="member">nrfx_power_constlat_mode_free()</ref> needs to be called the same number of times to change the mode to Low Power.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sub-power mode was successfully changed to Constant Latency. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant Latency mode was already requested and it is the current sub-power mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="361" column="5" declfile="drivers/include/nrfx_power.h" declline="361" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga1bcf0b17b41744dab266a31fcfbdad1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_power_constlat_mode_free</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_constlat_mode_free</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for freeing Constant Latency sub-power mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function uses a reference counter. As a result, it needs to be called the same number of times as the <ref refid="group__nrfx__power_1ga16c1172e66f0fccea8007d537ced4727" kindref="member">nrfx_power_constlat_mode_request()</ref> function to change the mode back to Low Power.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sub-power mode was successfully changed to Low Power. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sub-power mode was not changed due to multiple calls to <ref refid="group__nrfx__power_1ga16c1172e66f0fccea8007d537ced4727" kindref="member">nrfx_power_constlat_mode_request</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="373" column="5" declfile="drivers/include/nrfx_power.h" declline="373" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga539bbdbe63988f685670e3b368d7461e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__power_1gadfb32284ef08fd29988dfcbb9346d685" kindref="member">nrfx_power_mode_t</ref></type>
+        <definition>nrfx_power_mode_t nrfx_power_mode_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_mode_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the current sub-power mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current sub-power mode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="380" column="19" declfile="drivers/include/nrfx_power.h" declline="380" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga7f8ca5e0d2df45b5a23da922579e7227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_usbevt_init</definition>
+        <argsstring>(nrfx_power_usbevt_config_t const *p_config)</argsstring>
+        <name>nrfx_power_usbevt_init</name>
+        <param>
+          <type><ref refid="structnrfx__power__usbevt__config__t" kindref="compound">nrfx_power_usbevt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the processing of USB power event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures and sets up the USB power event processing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration with values and event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__power_1ga2f7d74353199bb4416495d16c49d9d0b" kindref="member">nrfx_power_usbevt_uninit</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="393" column="6" declfile="drivers/include/nrfx_power.h" declline="393" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga493692ebc3299ad68b99ce30576e7f24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_usbevt_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_usbevt_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for enabling the processing of USB power event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="396" column="6" declfile="drivers/include/nrfx_power.h" declline="396" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1gacd73c1fe8d8173131871f53124952657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_usbevt_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_usbevt_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the processing of USB power event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="399" column="6" declfile="drivers/include/nrfx_power.h" declline="399" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1ga2f7d74353199bb4416495d16c49d9d0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_power_usbevt_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_usbevt_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitalizing the processing of USB power event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__nrfx__power_1ga7f8ca5e0d2df45b5a23da922579e7227" kindref="member">nrfx_power_usbevt_init</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="406" column="6" declfile="drivers/include/nrfx_power.h" declline="406" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__power_1gaead4605524f3db0915f607d2ee0a949a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE <ref refid="group__nrfx__power_1ga234637366f2b21ad80468fa0eea8e266" kindref="member">nrfx_power_usb_state_t</ref></type>
+        <definition>NRFX_STATIC_INLINE nrfx_power_usb_state_t nrfx_power_usbstatus_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_power_usbstatus_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the status of USB power. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current USB power status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="413" column="43" declfile="drivers/include/nrfx_power.h" declline="413" declcolumn="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__power_1ga2acf2fafd265aac2d99de206cb07439f" prot="public" static="no">
+        <name>NRFX_POWER_SUPPORTS_POFCON</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the power failure comparator is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="60" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__power_1gac832596ee735ad30608b0a850969a3b3" prot="public" static="no">
+        <name>NRFX_POWER_SUPPORTS_POFCON_VDDH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the power failure comparator for VDDH is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="68" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__power_1gab8ac55092dbce6b0a4c2ee995c72281d" prot="public" static="no">
+        <name>NRFX_POWER_SUPPORTS_DCDCEN_VDDH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the VDDH regulator is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_power.h" line="76" column="9" bodyfile="drivers/include/nrfx_power.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>POWER peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

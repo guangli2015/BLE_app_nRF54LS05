@@ -1,0 +1,75 @@
+var group__nrfx__grtc =
+[
+    [ "nrfx_grtc_channel_t", "structnrfx__grtc__channel__t.html", [
+      [ "channel", "structnrfx__grtc__channel__t.html#a3cf9d3c7e7ce695a4b88fee42a2c44a8", null ],
+      [ "handler", "structnrfx__grtc__channel__t.html#a7bb491b1eee155662238eeb1e166b13b", null ],
+      [ "p_context", "structnrfx__grtc__channel__t.html#a2d1054d8eb3fbba862e62da2e15eff62", null ]
+    ] ],
+    [ "nrfx_grtc_rtcounter_handler_data_t", "structnrfx__grtc__rtcounter__handler__data__t.html", [
+      [ "handler", "structnrfx__grtc__rtcounter__handler__data__t.html#a71d22ed43717b42a511ee35607805b1d", null ],
+      [ "p_context", "structnrfx__grtc__rtcounter__handler__data__t.html#a8d33776e17133cc33c65dce532cc98b6", null ]
+    ] ],
+    [ "nrfx_grtc_sleep_config_t", "structnrfx__grtc__sleep__config__t.html", [
+      [ "auto_mode", "structnrfx__grtc__sleep__config__t.html#a32bd645bfa680dd00a507ed369f31639", null ],
+      [ "timeout", "structnrfx__grtc__sleep__config__t.html#aa1260cfae97f1c2e795c4c5f9d6907bd", null ],
+      [ "waketime", "structnrfx__grtc__sleep__config__t.html#a4dc2a184e5cd414d83aa17ac4e70acb1", null ]
+    ] ],
+    [ "NRFX_GRTC_SLEEP_DEFAULT_CONFIG", "group__nrfx__grtc.html#gaa4a67d16b2613731f8d76bbcd9719ce5", null ],
+    [ "nrfx_grtc_cc_handler_t", "group__nrfx__grtc.html#ga13eef8185e245f5514bebd28c09b7c2b", null ],
+    [ "nrfx_grtc_rtcomparesync_handler_t", "group__nrfx__grtc.html#gace6c484271309dc59f66989380334a0f", null ],
+    [ "nrfx_grtc_syscountervalid_handler_t", "group__nrfx__grtc.html#ga602066a9929545ca4989e75e9381540e", null ],
+    [ "nrfx_grtc_action_t", "group__nrfx__grtc.html#ga919f661781afaec8b40729a9cbe9c910", [
+      [ "NRFX_GRTC_ACTION_START", "group__nrfx__grtc.html#gga919f661781afaec8b40729a9cbe9c910ab7539d56231ab81f2356cd7c82cd17dd", null ],
+      [ "NRFX_GRTC_ACTION_STOP", "group__nrfx__grtc.html#gga919f661781afaec8b40729a9cbe9c910afe572c706ca850d5e033ed4e13603ec0", null ],
+      [ "NRFX_GRTC_ACTION_CLEAR", "group__nrfx__grtc.html#gga919f661781afaec8b40729a9cbe9c910ac0e9562ce180d5420c686cfbcac4e5b7", null ]
+    ] ],
+    [ "nrfx_grtc_cc_relative_reference_t", "group__nrfx__grtc.html#gaafe9cdf921f6648745b5aedc466cefa2", [
+      [ "NRFX_GRTC_CC_RELATIVE_SYSCOUNTER", "group__nrfx__grtc.html#ggaafe9cdf921f6648745b5aedc466cefa2a2afd144de90f24cc7e9e256295e01416", null ],
+      [ "NRFX_GRTC_CC_RELATIVE_COMPARE", "group__nrfx__grtc.html#ggaafe9cdf921f6648745b5aedc466cefa2ad8762f37ebbf24fb4855d79feed6db25", null ]
+    ] ],
+    [ "nrfx_grtc_action_perform", "group__nrfx__grtc.html#ga77a5cc87e98195848dbfbf58b09aa50d", null ],
+    [ "nrfx_grtc_active_request_check", "group__nrfx__grtc.html#gaca670ab8f661556cf080343ebacf0a94", null ],
+    [ "nrfx_grtc_active_request_set", "group__nrfx__grtc.html#gaa1aa072f72ff7dcdd78eee8b3035f404", null ],
+    [ "nrfx_grtc_capture_task_address_get", "group__nrfx__grtc.html#ga30e1de2ea5e6ccc0058b64a6a92e9211", null ],
+    [ "nrfx_grtc_channel_alloc", "group__nrfx__grtc.html#gabcee1db1ec8ed92152b7149cedc0b53e", null ],
+    [ "nrfx_grtc_channel_callback_set", "group__nrfx__grtc.html#gadacf03be60f115556d5f354bf57332be", null ],
+    [ "nrfx_grtc_channel_free", "group__nrfx__grtc.html#gaf5d9217e1bafbd5cc651d73840e3af57", null ],
+    [ "nrfx_grtc_clock_source_set", "group__nrfx__grtc.html#ga801b49a867c2fc1517fe12ea8ebbed0a", null ],
+    [ "nrfx_grtc_event_address_get", "group__nrfx__grtc.html#ga433c2b91747b2830881ed6fcd3089a5f", null ],
+    [ "nrfx_grtc_event_compare_address_get", "group__nrfx__grtc.html#gafc0ce7d1e745fc900cc3b2d40e86305c", null ],
+    [ "nrfx_grtc_extended_channel_alloc", "group__nrfx__grtc.html#ga973f11e0f5eef607992f1066c46bd62a", null ],
+    [ "nrfx_grtc_init", "group__nrfx__grtc.html#ga986348f802c1420e3e938e4df03b5bcc", null ],
+    [ "nrfx_grtc_init_check", "group__nrfx__grtc.html#ga92242c7abb125bf46caa826c7b845af1", null ],
+    [ "nrfx_grtc_is_channel_used", "group__nrfx__grtc.html#ga254f4896562f25472fbbc7b43c430917", null ],
+    [ "nrfx_grtc_ready_check", "group__nrfx__grtc.html#ga21471e565334c8aec4bfe3366c1e8f51", null ],
+    [ "nrfx_grtc_rtcomparesync_int_disable", "group__nrfx__grtc.html#ga56344b0f586ff303652d534216f57d85", null ],
+    [ "nrfx_grtc_rtcomparesync_int_enable", "group__nrfx__grtc.html#gaf91c540afe49d02845289cf302f2b616", null ],
+    [ "nrfx_grtc_rtcounter_cc_absolute_set", "group__nrfx__grtc.html#ga1fb0ba249e1cd4d4e46bc3d3bc79c844", null ],
+    [ "nrfx_grtc_rtcounter_cc_disable", "group__nrfx__grtc.html#gaa5d64ab654b35af0a1bbaf7d4e297105", null ],
+    [ "nrfx_grtc_rtcounter_cc_int_disable", "group__nrfx__grtc.html#ga4814419fb2996ea6112e4d8f2c03874e", null ],
+    [ "nrfx_grtc_rtcounter_cc_int_enable", "group__nrfx__grtc.html#ga92df8956ec610050a39fae63210dd8ac", null ],
+    [ "nrfx_grtc_rtcounter_get", "group__nrfx__grtc.html#gadef8dbc36e525c40de1f531f752542a1", null ],
+    [ "nrfx_grtc_sleep_configuration_get", "group__nrfx__grtc.html#gabfd081e7ae8ad742d7b5939c83690068", null ],
+    [ "nrfx_grtc_sleep_configure", "group__nrfx__grtc.html#ga2b62aaf020abf1c0e1c9532e263e1263", null ],
+    [ "nrfx_grtc_sys_counter_cc_enable_check", "group__nrfx__grtc.html#ga8b824eec07ef0d37d664612c28a5a855", null ],
+    [ "nrfx_grtc_sys_counter_cc_get", "group__nrfx__grtc.html#ga1c24f6160b8538711dd3047a0531635e", null ],
+    [ "nrfx_grtc_syscounter_capture", "group__nrfx__grtc.html#ga9dedaad81a7e838b5b44eeb0b16baeae", null ],
+    [ "nrfx_grtc_syscounter_cc_abs_set", "group__nrfx__grtc.html#ga07f743ffbf480a78c186b1d7b9a788cd", null ],
+    [ "nrfx_grtc_syscounter_cc_absolute_set", "group__nrfx__grtc.html#ga5440988c805df0ab2083f9148aacafb4", null ],
+    [ "nrfx_grtc_syscounter_cc_disable", "group__nrfx__grtc.html#ga41cb1d37ec2247ef621629e8a0d03ec8", null ],
+    [ "nrfx_grtc_syscounter_cc_int_disable", "group__nrfx__grtc.html#ga32c00f7ac6343b5c4459c352f716766b", null ],
+    [ "nrfx_grtc_syscounter_cc_int_enable", "group__nrfx__grtc.html#ga4fae1fee7b9604e680a7858b59bdd100", null ],
+    [ "nrfx_grtc_syscounter_cc_int_enable_check", "group__nrfx__grtc.html#ga3f64f947670999383730a4d0f09413fa", null ],
+    [ "nrfx_grtc_syscounter_cc_interval_reset", "group__nrfx__grtc.html#gaddd721963bba323924d43e1c91ee65b7", null ],
+    [ "nrfx_grtc_syscounter_cc_interval_set", "group__nrfx__grtc.html#ga003976a482233d8fa24956cb283866ee", null ],
+    [ "nrfx_grtc_syscounter_cc_rel_set", "group__nrfx__grtc.html#ga05b2e298d63eed7d815007b714e27ced", null ],
+    [ "nrfx_grtc_syscounter_cc_relative_set", "group__nrfx__grtc.html#ga385ff196e3c36934309f0a4c879a1c0c", null ],
+    [ "nrfx_grtc_syscounter_cc_value_read", "group__nrfx__grtc.html#ga395557709f1359e2b59b6ecae6ee03cb", null ],
+    [ "nrfx_grtc_syscounter_compare_event_check", "group__nrfx__grtc.html#ga0040edf972220add9845a3ae9604f12e", null ],
+    [ "nrfx_grtc_syscounter_get", "group__nrfx__grtc.html#gafc2bd4c06734224387be75ce380eace8", null ],
+    [ "nrfx_grtc_syscounter_start", "group__nrfx__grtc.html#gada17e9463b919b043676e5c30377f26d", null ],
+    [ "nrfx_grtc_syscountervalid_int_disable", "group__nrfx__grtc.html#ga203853658564baf7d04df3b0d53711c0", null ],
+    [ "nrfx_grtc_syscountervalid_int_enable", "group__nrfx__grtc.html#ga1f86f9f67ff5dce0e5c573e125b05d81", null ],
+    [ "nrfx_grtc_task_address_get", "group__nrfx__grtc.html#ga41058d0dc6e01890485ebf29c10de8b6", null ],
+    [ "nrfx_grtc_uninit", "group__nrfx__grtc.html#ga5e051bae4aff202f56c6232c675877aa", null ]
+];

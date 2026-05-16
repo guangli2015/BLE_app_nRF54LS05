@@ -1,0 +1,914 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__pwm" kind="group">
+    <compoundname>nrfx_pwm</compoundname>
+    <title>PWM driver</title>
+    <innerclass refid="structnrfx__pwm__config__t" prot="public">nrfx_pwm_config_t</innerclass>
+    <innerclass refid="structnrfx__pwm__t" prot="public">nrfx_pwm_t</innerclass>
+    <innergroup refid="group__nrfx__pwm__config">PWM peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__pwm_1ga68ffb6414b8b5e07ddb4e14431b2bd1f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_pwm_flag_t</name>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa4b95e8b694bd8ccea5732ecdb50dcc18" prot="public">
+          <name>NRFX_PWM_FLAG_STOP</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>When the requested playback is finished, the peripheral will be stopped. <simplesect kind="note"><para>The STOP task is triggered when the last value of the final sequence is loaded from RAM, and the peripheral stops at the end of the current PWM period. For sequences with configured repeating of duty cycle values, this might result in less than the requested number of repeats of the last value. </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa4ce524255d29bb74352584be77ac3bad" prot="public">
+          <name>NRFX_PWM_FLAG_LOOP</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>When the requested playback is finished, it will be started from the beginning. This flag is ignored if used together with <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa4b95e8b694bd8ccea5732ecdb50dcc18" kindref="member">NRFX_PWM_FLAG_STOP</ref>. <simplesect kind="note"><para>The playback restart is done via a shortcut configured in the PWM peripheral. This shortcut triggers the proper starting task when the final value of previous playback is read from RAM and applied to the pulse generator counter. When this mechanism is used together with the <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" kindref="member">NRF_PWM_STEP_TRIGGERED</ref> mode, the playback restart will occur right after switching to the final value (this final value will be played only once). </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa36819eabef2acc3106b48f0069a57213" prot="public">
+          <name>NRFX_PWM_FLAG_SIGNAL_END_SEQ0</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The event handler is to be called when the last value from sequence 0 is loaded. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6eff2306ea081e9c520c5a07548791fa" prot="public">
+          <name>NRFX_PWM_FLAG_SIGNAL_END_SEQ1</name>
+          <initializer>= 0x08</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The event handler is to be called when the last value from sequence 1 is loaded. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa4971c619bfc960e43ae4ac4a790a8465" prot="public">
+          <name>NRFX_PWM_FLAG_NO_EVT_FINISHED</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The playback finished event (enabled by default) is to be suppressed. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6c737217548bc0e09197db28b1a4f6ec" prot="public">
+          <name>NRFX_PWM_FLAG_START_VIA_TASK</name>
+          <initializer>= 0x80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The playback must not be started directly by the called function. Instead, the function must only prepare it and return the address of the task to be triggered to start the playback. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM flags providing additional playback options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="118" column="1" bodyfile="drivers/include/nrfx_pwm.h" bodystart="119" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__pwm_1ga387ddc5bae746bd3a24ef2bf85f6b376" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_pwm_event_type_t</name>
+        <enumvalue id="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376a98bdfc4dd1dc71c3be3399a7dad204e0" prot="public">
+          <name>NRFX_PWM_EVENT_FINISHED</name>
+          <briefdescription>
+<para>Sequence playback finished. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376a106a0617fa633a623509029ea7dad470" prot="public">
+          <name>NRFX_PWM_EVENT_END_SEQ0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>End of sequence 0 reached. Its data can be safely modified now. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376abd7e751026f0131b93ce99debcd2b819" prot="public">
+          <name>NRFX_PWM_EVENT_END_SEQ1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>End of sequence 1 reached. Its data can be safely modified now. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376a928b0d12c26c691283fbbb31f2f9edc1" prot="public">
+          <name>NRFX_PWM_EVENT_STOPPED</name>
+          <briefdescription>
+<para>The PWM peripheral has been stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM driver event type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="164" column="1" bodyfile="drivers/include/nrfx_pwm.h" bodystart="165" bodyend="172"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__pwm_1ga93bce6de12a95ae478ea4dab8aa6e921" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_pwm_event_handler_t) (nrfx_pwm_event_type_t event_type, void *p_context)</definition>
+        <argsstring>)(nrfx_pwm_event_type_t event_type, void *p_context)</argsstring>
+        <name>nrfx_pwm_event_handler_t</name>
+        <briefdescription>
+<para>PWM event handler type for user-defined callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="175" column="9" bodyfile="drivers/include/nrfx_pwm.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__pwm_1gaa20e93f84028bd5b04f25db21f13e088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pwm_init</definition>
+        <argsstring>(nrfx_pwm_t *p_instance, nrfx_pwm_config_t const *p_config, nrfx_pwm_event_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_pwm_init</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__pwm__config__t" kindref="compound">nrfx_pwm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__pwm_1ga93bce6de12a95ae478ea4dab8aa6e921" kindref="member">nrfx_pwm_event_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the PWM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. NULL if configuration is to be skipped and will be done later using <ref refid="group__nrfx__pwm_1ga2b1d1b40f1c44804af9442bdc5af3f64" kindref="member">nrfx_pwm_reconfigure</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL is passed instead, event notifications are not done and PWM interrupts are disabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="221" column="5" declfile="drivers/include/nrfx_pwm.h" declline="221" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga2b1d1b40f1c44804af9442bdc5af3f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_pwm_reconfigure</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance, nrfx_pwm_config_t const *p_config)</argsstring>
+        <name>nrfx_pwm_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__pwm__config__t" kindref="compound">nrfx_pwm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the PWM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during playback. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="236" column="5" declfile="drivers/include/nrfx_pwm.h" declline="236" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga2377660b7e9232c6767efb7545b07d00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_pwm_uninit</definition>
+        <argsstring>(nrfx_pwm_t *p_instance)</argsstring>
+        <name>nrfx_pwm_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the PWM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If any sequence playback is in progress, it is stopped immediately.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="245" column="6" declfile="drivers/include/nrfx_pwm.h" declline="245" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga05355c9c7b2295fb9409dc937bef522e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_pwm_init_check</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance)</argsstring>
+        <name>nrfx_pwm_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PWM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="255" column="6" declfile="drivers/include/nrfx_pwm.h" declline="255" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gac7a83fc5d3cc4a5f99e3cb5d70f5ea22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_pwm_simple_playback</definition>
+        <argsstring>(nrfx_pwm_t *p_instance, nrf_pwm_sequence_t const *p_sequence, uint16_t playback_count, uint32_t flags)</argsstring>
+        <name>nrfx_pwm_simple_playback</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref> const *</type>
+          <declname>p_sequence</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>playback_count</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting a single sequence playback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To take advantage of the looping mechanism in the PWM peripheral, both sequences must be used (single sequence can be played back only once by the peripheral). Therefore, the provided sequence is internally set and played back as both sequence 0 and sequence 1. Consequently, if the end of sequence notifications are required, events for both sequences must be used (that is, both the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa36819eabef2acc3106b48f0069a57213" kindref="member">NRFX_PWM_FLAG_SIGNAL_END_SEQ0</ref> flag and the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6eff2306ea081e9c520c5a07548791fa" kindref="member">NRFX_PWM_FLAG_SIGNAL_END_SEQ1</ref> flag must be specified, and the <ref refid="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376a106a0617fa633a623509029ea7dad470" kindref="member">NRFX_PWM_EVENT_END_SEQ0</ref> event and the <ref refid="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376abd7e751026f0131b93ce99debcd2b819" kindref="member">NRFX_PWM_EVENT_END_SEQ1</ref> event must be handled in the same way).</para>
+<para>Use the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6c737217548bc0e09197db28b1a4f6ec" kindref="member">NRFX_PWM_FLAG_START_VIA_TASK</ref> flag if you want the playback to be only prepared by this function, and you want to start it later by triggering a task (for example, by using PPI). The function will then return the address of the task to be triggered.</para>
+<para><simplesect kind="note"><para>The array containing the duty cycle values for the specified sequence must be in RAM and cannot be allocated on the stack. For detailed information, see <ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence to be played back. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">playback_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of playbacks to be performed (must not be 0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional options. Pass any combination of <ref refid="group__nrfx__pwm_1ga68ffb6414b8b5e07ddb4e14431b2bd1f" kindref="member">playback flags</ref>, or 0 for default settings.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the task to be triggered to start the playback if the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6c737217548bc0e09197db28b1a4f6ec" kindref="member">NRFX_PWM_FLAG_START_VIA_TASK</ref> flag was used, 0 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="289" column="10" declfile="drivers/include/nrfx_pwm.h" declline="289" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gaa81c9d8294223c62bfd479934fa0f011" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_pwm_complex_playback</definition>
+        <argsstring>(nrfx_pwm_t *p_instance, nrf_pwm_sequence_t const *p_sequence_0, nrf_pwm_sequence_t const *p_sequence_1, uint16_t playback_count, uint32_t flags)</argsstring>
+        <name>nrfx_pwm_complex_playback</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref> const *</type>
+          <declname>p_sequence_0</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref> const *</type>
+          <declname>p_sequence_1</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>playback_count</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting a two-sequence playback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6c737217548bc0e09197db28b1a4f6ec" kindref="member">NRFX_PWM_FLAG_START_VIA_TASK</ref> flag if you want the playback to be only prepared by this function, and you want to start it later by triggering a task (using PPI for instance). The function will then return the address of the task to be triggered.</para>
+<para><simplesect kind="note"><para>The array containing the duty cycle values for the specified sequence must be in RAM and cannot be allocated on the stack. For detailed information, see <ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_sequence_0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First sequence to be played back. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_sequence_1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second sequence to be played back. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">playback_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of playbacks to be performed (must not be 0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional options. Pass any combination of <ref refid="group__nrfx__pwm_1ga68ffb6414b8b5e07ddb4e14431b2bd1f" kindref="member">playback flags</ref>, or 0 for default settings.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the task to be triggered to start the playback if the <ref refid="group__nrfx__pwm_1gga68ffb6414b8b5e07ddb4e14431b2bd1fa6c737217548bc0e09197db28b1a4f6ec" kindref="member">NRFX_PWM_FLAG_START_VIA_TASK</ref> flag was used, 0 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="317" column="10" declfile="drivers/include/nrfx_pwm.h" declline="317" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gacfb5b014424ec8f6fda40f55da6ff1f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_pwm_step</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance)</argsstring>
+        <name>nrfx_pwm_step</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for advancing the active sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function only applies to <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" kindref="member">NRF_PWM_STEP_TRIGGERED</ref> mode.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="422" column="25" bodyfile="drivers/include/nrfx_pwm.h" bodystart="422" bodyend="425" declfile="drivers/include/nrfx_pwm.h" declline="330" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga848d5cd8789eb995f654d9e4ebc481f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_pwm_stop</definition>
+        <argsstring>(nrfx_pwm_t *p_instance, bool wait_until_stopped)</argsstring>
+        <name>nrfx_pwm_stop</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>wait_until_stopped</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the sequence playback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The playback is stopped at the end of the current PWM period. This means that if the active sequence is configured to repeat each duty cycle value for a certain number of PWM periods, the last played value might appear on the output less times than requested.</para>
+<para><simplesect kind="note"><para>This function can be instructed to wait until the playback is stopped (by setting <computeroutput>wait_until_stopped</computeroutput> to true). Depending on the length of the PMW period, this might take a significant amount of time. Alternatively, the <ref refid="group__nrfx__pwm_1gab21cb056e1dc9b38c0a3abe7886e46c9" kindref="member">nrfx_pwm_stopped_check</ref> function can be used to poll the status, or the <ref refid="group__nrfx__pwm_1gga387ddc5bae746bd3a24ef2bf85f6b376a928b0d12c26c691283fbbb31f2f9edc1" kindref="member">NRFX_PWM_EVENT_STOPPED</ref> event can be used to get the notification when the playback is stopped, provided the event handler is defined.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">wait_until_stopped</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, the function will not return until the playback is stopped.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM peripheral is stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM peripheral is not stopped. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="355" column="6" declfile="drivers/include/nrfx_pwm.h" declline="355" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gab21cb056e1dc9b38c0a3abe7886e46c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_pwm_stopped_check</definition>
+        <argsstring>(nrfx_pwm_t *p_instance)</argsstring>
+        <name>nrfx_pwm_stopped_check</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the status of the PWM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM peripheral is stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM peripheral is not stopped. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="365" column="6" declfile="drivers/include/nrfx_pwm.h" declline="365" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gaa269f9e0b8a8bba6bc94599bf2ceab2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_pwm_irq_handler</definition>
+        <argsstring>(nrfx_pwm_t *p_instance)</argsstring>
+        <name>nrfx_pwm_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="372" column="6" declfile="drivers/include/nrfx_pwm.h" declline="372" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga749917a72aaee584a76427021980098d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_pwm_sequence_update</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance, uint8_t seq_id, nrf_pwm_sequence_t const *p_sequence)</argsstring>
+        <name>nrfx_pwm_sequence_update</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref> const *</type>
+          <declname>p_sequence</declname>
+        </param>
+        <briefdescription>
+<para>Function for updating the sequence data during playback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_sequence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the new sequence definition. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="427" column="25" bodyfile="drivers/include/nrfx_pwm.h" bodystart="427" bodyend="432" declfile="drivers/include/nrfx_pwm.h" declline="393" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1gab6355991cc62d20dff3e6d8c97af43b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_pwm_task_address_get</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance, nrf_pwm_task_t task)</argsstring>
+        <name>nrfx_pwm_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specified PWM task that can be used in PPI module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="434" column="29" bodyfile="drivers/include/nrfx_pwm.h" bodystart="434" bodyend="438" declfile="drivers/include/nrfx_pwm.h" declline="406" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pwm_1ga092229079f29535058054026a97501e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_pwm_event_address_get</definition>
+        <argsstring>(nrfx_pwm_t const *p_instance, nrf_pwm_event_t event)</argsstring>
+        <name>nrfx_pwm_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a specified PWM event that can be used in PPI module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="440" column="29" bodyfile="drivers/include/nrfx_pwm.h" bodystart="440" bodyend="444" declfile="drivers/include/nrfx_pwm.h" declline="418" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__pwm_1gabc78a6d1474cbf684932a84e06567321" prot="public" static="no">
+        <name>NRFX_PWM_DEFAULT_CONFIG</name>
+        <param><defname>_out_0</defname></param>
+        <param><defname>_out_1</defname></param>
+        <param><defname>_out_2</defname></param>
+        <param><defname>_out_3</defname></param>
+        <initializer>{                                                               \
+    .output_pins   = {                                          \
+        _out_0,                                                 \
+        _out_1,                                                 \
+        _out_2,                                                 \
+        _out_3,                                                 \
+    },                                                          \
+    .pin_inverted  = {                                          \
+        false,                                                  \
+        false,                                                  \
+        false,                                                  \
+        false,                                                  \
+    },                                                          \
+    .irq_priority  = <ref refid="group__nrfx__pwm__config_1ga097ff5d073d1266dde45fbe2b0dbddc9" kindref="member">NRFX_PWM_DEFAULT_CONFIG_IRQ_PRIORITY</ref>,      \
+    .base_clock    = <ref refid="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a30e595429e6787e18df7ca04b897bb11" kindref="member">NRF_PWM_CLK_1MHz</ref>,                          \
+    .count_mode    = <ref refid="group__nrf__pwm__hal_1gga1f29b190ff13c52895d249e07ebe92cba0b9d394af2cbadb2fd430f73e6b2a28c" kindref="member">NRF_PWM_MODE_UP</ref>,                           \
+    .top_value     = 1000,                                      \
+    .load_mode     = <ref refid="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2a23a17dad88a8dff161e09c5057e70362" kindref="member">NRF_PWM_LOAD_COMMON</ref>,                       \
+    .step_mode     = <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aec7f52e96da457170f1a516ea78357a1" kindref="member">NRF_PWM_STEP_AUTO</ref>,                         \
+    .skip_gpio_cfg = false                                      \
+}</initializer>
+        <briefdescription>
+<para>PWM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up PWM with the following options:<itemizedlist>
+<listitem><para>clock frequency: 1 MHz</para>
+</listitem><listitem><para>count up</para>
+</listitem><listitem><para>top value: 1000 clock ticks</para>
+</listitem><listitem><para>load mode: common</para>
+</listitem><listitem><para>step mode: auto</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_out_0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output 0 pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_out_1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output 1 pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_out_2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output 2 pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_out_3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output 3 pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="94" column="9" bodyfile="drivers/include/nrfx_pwm.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__pwm_1ga07d95c9cbb7b0f0890b5d1a0264419bd" prot="public" static="no">
+        <name>NRFX_PWM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_PWM_Type *)reg, \
+    .cb    = {0},                 \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a PWM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pwm.h" line="200" column="9" bodyfile="drivers/include/nrfx_pwm.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Pulse Width Modulation (PWM) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

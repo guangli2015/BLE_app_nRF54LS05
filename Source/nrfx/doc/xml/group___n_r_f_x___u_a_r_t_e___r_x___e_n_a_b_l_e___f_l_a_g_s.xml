@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group___n_r_f_x___u_a_r_t_e___r_x___e_n_a_b_l_e___f_l_a_g_s" kind="group">
+    <compoundname>NRFX_UARTE_RX_ENABLE_FLAGS</compoundname>
+    <title>Flags used for RX.</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___r_x___e_n_a_b_l_e___f_l_a_g_s_1gab50f6b46af7921b0c4428ee1ed0b364a" prot="public" static="no">
+        <name>NRFX_UARTE_RX_ENABLE_CONT</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(0)</initializer>
+        <briefdescription>
+<para>Flag for configuring continuous reception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When the flag is set, the ENDRX event is shortened with the STARTRX task. The flag should not be used together with short buffers in case there is a risk that a new buffer is not provided on time. If the flag is set and a new buffer is not provided on time, a receiver starts to overwrite the current buffer. If not set and a new buffer has been provided on time, a new transfer will be triggered from the ENDRX interrupt handler. This flag is recommended to be used with longer buffers to ensure lossless reception without HWFC detection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="187" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___r_x___e_n_a_b_l_e___f_l_a_g_s_1gacd61db01bc163f09bcccc8b1a4ab790d" prot="public" static="no">
+        <name>NRFX_UARTE_RX_ENABLE_STOP_ON_END</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(1)</initializer>
+        <briefdescription>
+<para>Flag indicating that receiver is stopped when new buffer is not provided. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting a flag changes the behavior of the UARTE driver when receiving to the buffer is completed and a new buffer is not provided. When the flag is set, stopping is initiated. Since the stopping takes time, this operation can still be revoked by providing a new buffer (<ref refid="group__nrfx__uarte_1ga4ae42cda643f578e94e2a060ebe5277c" kindref="member">nrfx_uarte_rx_buffer_set</ref>). When the flag is not set, then the receiver is kept enabled, and incoming data is put in the hardware FIFO (if HWFC is disabled) until FIFO is full and bytes are dropped. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="199" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___n_r_f_x___u_a_r_t_e___r_x___e_n_a_b_l_e___f_l_a_g_s_1ga90322c1798880cb2327496d11567f475" prot="public" static="no">
+        <name>NRFX_UARTE_RX_ENABLE_KEEP_FIFO_CONTENT</name>
+        <initializer><ref refid="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" kindref="member">NRFX_BIT</ref>(2)</initializer>
+        <briefdescription>
+<para>Flag indicating that FIFO content that was flushed after the last stopping shall be kept. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When a receiver is stopped, it is possible that there is some data in the hardware FIFO that was not stored in the user buffer due to the lack of capacity. As a result, that data is flushed to an internal buffer. If the flag is set, the flushed data is kept and copied into the user buffer.</para>
+<para>Using the flag makes the user to provide their buffer for flushed data during the initialization. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uarte.h" line="211" column="9" bodyfile="drivers/include/nrfx_uarte.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

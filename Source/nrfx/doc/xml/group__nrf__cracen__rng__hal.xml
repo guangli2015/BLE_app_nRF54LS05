@@ -1,0 +1,475 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__cracen__rng__hal" kind="group">
+    <compoundname>nrf_cracen_rng_hal</compoundname>
+    <title>CRACEN RNG HAL</title>
+    <innerclass refid="structnrf__cracen__rng__control__t" prot="public">nrf_cracen_rng_control_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__cracen__rng__hal_1ga3e92013ccedde551b8d3609107a07da1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_rng_blending_t</name>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a0eae9c766b7c1afcd6846a99e266c2a0" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_CONCATENATION</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_CONCATENATION</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Collate all rings oscillators outputs </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1abeab41a11ecc43ca57795159efe66211" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_1</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>XOR bits inside each ring oscillator set </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1adabd5b90518658f4eef16a45d28ce8da" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_2</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Also XOR bits in-between ring oscillator sets </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a54c4be1a54ab6dff67388d2076efd2b4" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_VONNEUMANN</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_VONNEUMANN</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>On top of XOR_LEVEL_2 apply VON-NEUMANN debiasing </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN entropy blending methods. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="67" column="1" bodyfile="hal/nrf_cracen_rng.h" bodystart="68" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_rng_fsm_state_t</name>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a99ee5c45ad0e493a297e4def8a4bcd21" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_RESET</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_RESET</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is not started </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01acbf5daeb67a22d461f5e907dc6b3496a" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_STARTUP</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_STARTUP</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is starting </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01af30c513c498c1f7e071f1997f48a9a55" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_IDLE_READY</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_IDLERON</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is idle, and ready to produce more data </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a3a8e5205119be806b5ce8cb1d0677d55" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_IDLE_STANDBY</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_IDLEROFF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is idle, with the ring oscillators off </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a7e13b27e12fecd196bd269ffae8bf915" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_FILL_FIFO</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_FILLFIFO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is filling the FIFO with entropy </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a255179441bd607d5a723cb04aff27b9f" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_ERROR</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_ERROR</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG has halted on an error. Reset is needed </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN random generator FSM state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="89" column="1" bodyfile="hal/nrf_cracen_rng.h" bodystart="90" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gaac01a118d401c19500338c40876cb843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_control_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, nrf_cracen_rng_control_t const *p_config)</argsstring>
+        <name>nrf_cracen_rng_control_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__cracen__rng__control__t" kindref="compound">nrf_cracen_rng_control_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the control register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="188" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="188" bodyend="204" declfile="hal/nrf_cracen_rng.h" declline="110" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_cracen_rng_fifo_level_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fifo_level_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the FIFO level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of random data words ready in the FIFO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="206" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="206" bodyend="209" declfile="hal/nrf_cracen_rng.h" declline="120" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga20a23b8d51bcd8f303e84fd8aa5b9fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_key_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint8_t index, uint32_t value)</argsstring>
+        <name>nrf_cracen_rng_key_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AES conditioning KEY registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the key register to be written (0..3) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="211" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="211" bodyend="215" declfile="hal/nrf_cracen_rng.h" declline="129" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gafc514a7615e7a44f07fa071e66e45043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_cracen_rng_fsm_state_t nrf_cracen_rng_fsm_state_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fsm_state_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the RNG FSM state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>State of the FSM, one of <ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref> values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="218" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="218" bodyend="223" declfile="hal/nrf_cracen_rng.h" declline="141" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gab0b798b0471592dc1df0a20c698b0ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_init_wait_val_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_init_wait_val_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the initialization wait counter value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="225" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="225" bodyend="233" declfile="hal/nrf_cracen_rng.h" declline="149" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga5f9555ace65b67d3761d14493fcc9d87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_off_timer_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_off_timer_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the switch off timer value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="236" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="236" bodyend="240" declfile="hal/nrf_cracen_rng.h" declline="159" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga0db2c1a61641683756cebd0220f4babf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_clk_div_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_clk_div_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the entropy subsampling rate register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The ring oscillators output is sampled at Fs=Fpclk/(ClkDiv+1)</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="243" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="243" bodyend="251" declfile="hal/nrf_cracen_rng.h" declline="171" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gafb995c02339a0cc9288a64e7a52186cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_cracen_rng_fifo_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fifo_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting a word from the entropy FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The caller must ensure there is enough data by calling <ref refid="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" kindref="member">nrf_cracen_rng_fifo_level_get</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Entropy word read from the FIFO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="253" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="253" bodyend="256" declfile="hal/nrf_cracen_rng.h" declline="184" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gaba872e9d763adafe5cf26afc783ecf6f" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_HAS_IDLE_TIMER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the TRNG FSM has an idle timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="53" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gaca076e044dc8e1ec26ef0239cc9c962f" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_HAS_BLENDING</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the TRNG has entropy blending. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="60" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gafab0466d3d8544a0ebc767ea2814e537" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_FIFO_SIZE</name>
+        <initializer>((CRACENCORE_RNGCONTROL_FIFOTHRESHOLD_ResetValue + 1) * 16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of the RNG FIFO in bytes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="102" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Crypto Accelerator Engine (CRACEN) Random Generator (RNG) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

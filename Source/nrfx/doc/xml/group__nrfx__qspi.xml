@@ -1,0 +1,1401 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__qspi" kind="group">
+    <compoundname>nrfx_qspi</compoundname>
+    <title>QSPI driver</title>
+    <innerclass refid="structnrfx__qspi__config__t" prot="public">nrfx_qspi_config_t</innerclass>
+    <innerclass refid="structnrfx__qspi__evt__ext__erase__t" prot="public">nrfx_qspi_evt_ext_erase_t</innerclass>
+    <innerclass refid="structnrfx__qspi__evt__ext__xfer__t" prot="public">nrfx_qspi_evt_ext_xfer_t</innerclass>
+    <innerclass refid="structnrfx__qspi__evt__ext__t" prot="public">nrfx_qspi_evt_ext_t</innerclass>
+    <innergroup refid="group__nrfx__qspi__config">QSPI peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__qspi_1ga13eb7a06004d5d36cda6f9ac8259f998" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_qspi_evt_t</name>
+        <enumvalue id="group__nrfx__qspi_1gga13eb7a06004d5d36cda6f9ac8259f998a0d62c9ef3578862c42b3bb67485df8e9" prot="public">
+          <name>NRFX_QSPI_EVENT_DONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Transfer done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI master driver event types, passed to the handler routine provided during initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="141" column="1" bodyfile="drivers/include/nrfx_qspi.h" bodystart="142" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__qspi_1ga8afc1c96a12262cdb5930f90f759e39f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_qspi_evt_ext_type_t</name>
+        <enumvalue id="group__nrfx__qspi_1gga8afc1c96a12262cdb5930f90f759e39fa13d433329e6e9adcdd0254b00b977481" prot="public">
+          <name>NRFX_QSPI_EVENT_NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No event occurence. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__qspi_1gga8afc1c96a12262cdb5930f90f759e39fa72f2fd4c749088144ffbccdf71a742a4" prot="public">
+          <name>NRFX_QSPI_EVENT_WRITE_DONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Write done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__qspi_1gga8afc1c96a12262cdb5930f90f759e39fab3dcb59235b22989c531c8db2ac85ee5" prot="public">
+          <name>NRFX_QSPI_EVENT_READ_DONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Read done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__qspi_1gga8afc1c96a12262cdb5930f90f759e39fa3d7605a778e2ccf4fec6ddfbcf2d1f7f" prot="public">
+          <name>NRFX_QSPI_EVENT_ERASE_DONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Erase done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>QSPI master driver extended event types, obtained using <ref refid="group__nrfx__qspi_1ga9f3efd91e4aa402821c45f73967055a1" kindref="member">nrfx_qspi_event_extended_get()</ref> function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="150" column="1" bodyfile="drivers/include/nrfx_qspi.h" bodystart="151" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__qspi_1ga322cd06365cc1acc40bb7e3a08aaa147" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_qspi_handler_t) (nrfx_qspi_evt_t event, void *p_context)</definition>
+        <argsstring>)(nrfx_qspi_evt_t event, void *p_context)</argsstring>
+        <name>nrfx_qspi_handler_t</name>
+        <briefdescription>
+<para>QSPI driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="185" column="9" bodyfile="drivers/include/nrfx_qspi.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__qspi_1gaa889b8cf9058dc3034af34121b4b2faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_init</definition>
+        <argsstring>(nrfx_qspi_config_t const *p_config, nrfx_qspi_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_qspi_init</name>
+        <param>
+          <type><ref refid="structnrfx__qspi__config__t" kindref="compound">nrfx_qspi_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__qspi_1ga322cd06365cc1acc40bb7e3a08aaa147" kindref="member">nrfx_qspi_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the QSPI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function configures the peripheral and its interrupts.</para>
+<para><simplesect kind="note"><para>The function does not activate the peripheral instance. The activation is done during the first transfer after initialization or when calling <ref refid="group__nrfx__qspi_1ga4aebf07b0675b476c076f4db96bb3d5d" kindref="member">nrfx_qspi_activate</ref> function. The activation process starts the internal clocks, and the QSPI peripheral tries to read the status byte to check the busy bit. Reading the status byte is done in a simple poll and wait mechanism. If the busy bit is set, this indicates issues with the external memory device. As a result, transfer functions return -ETIMEDOUT.</para>
+</simplesect>
+In case of issues:<itemizedlist>
+<listitem><para>Check the connection.</para>
+</listitem><listitem><para>Make sure that the memory device does not perform other operations like erasing or writing.</para>
+</listitem><listitem><para>Check if there is a short circuit.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, transfers will be performed in blocking mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to context. Use in the interrupt handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>On nRF5340, only the dedicated pins with <ref refid="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbda25ad710070f7054e93f8296e8c56acb0" kindref="member">NRF_GPIO_PIN_SEL_PERIPHERAL</ref> configuration are supported. See the chapter <ulink url="https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf5340%2Fchapters%2Fpin.html">Pin assignments</ulink> in the Product Specification.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin configuration was incorrect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="217" column="5" declfile="drivers/include/nrfx_qspi.h" declline="217" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gabcc8738aee75b542a6a178b1bba14201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_reconfigure</definition>
+        <argsstring>(nrfx_qspi_config_t const *p_config)</argsstring>
+        <name>nrfx_qspi_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__qspi__config__t" kindref="compound">nrfx_qspi_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the QSPI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>The function deactivates the peripheral instance. The activation is done during the first transfer after reconfiguration or when calling <ref refid="group__nrfx__qspi_1ga4aebf07b0675b476c076f4db96bb3d5d" kindref="member">nrfx_qspi_activate</ref> function.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>External memory is busy or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin configuration was incorrect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="235" column="5" declfile="drivers/include/nrfx_qspi.h" declline="235" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga1aa6a46d845abee88daf2f12b44baa88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qspi_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the QSPI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If a custom instruction long transfer is ongoing when the function is called, the transfer will be interrupted. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="243" column="6" declfile="drivers/include/nrfx_qspi.h" declline="243" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga4aebf07b0675b476c076f4db96bb3d5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_activate</definition>
+        <argsstring>(bool wait)</argsstring>
+        <name>nrfx_qspi_activate</name>
+        <param>
+          <type>bool</type>
+          <declname>wait</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the QSPI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">wait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if activation is to be in blocking mode, false otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver instance has been activated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already activated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>External memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="254" column="5" declfile="drivers/include/nrfx_qspi.h" declline="254" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gaef8d222c8e1753bce6025ea579776920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_deactivate</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_deactivate</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for deactivating the QSPI driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If a custom instruction long transfer is ongoing when the function is called, the transfer will be interrupted.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver instance has been activated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="265" column="5" declfile="drivers/include/nrfx_qspi.h" declline="265" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga04b516f6ca1443d6d33cd568a20dd1c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_qspi_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the QSPI driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="273" column="6" declfile="drivers/include/nrfx_qspi.h" declline="273" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_read</definition>
+        <argsstring>(void *p_rx_buffer, size_t rx_buffer_length, uint32_t src_address)</argsstring>
+        <name>nrfx_qspi_read</name>
+        <param>
+          <type>void *</type>
+          <declname>p_rx_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>rx_buffer_length</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>src_address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading data from the QSPI memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If that is the first operation after activation of driver initialization has been triggered, the activation process starts the internal clocks and the QSPI peripheral tries to read the status byte to check the busy bit. Reading the status byte is done in a simple poll and wait mechanism. If the busy bit is set, this indicates that the memory may not be ready yet. As a result, the function returns -ETIMEDOUT.</para>
+</simplesect>
+Write, read, and erase operations check memory device busy state before starting the operation. If the memory is busy, the resulting action depends on the mode in which the read operation is used:<itemizedlist>
+<listitem><para>blocking mode (without handler) - a delay occurs until the last operation runs and until the operation data is being read.</para>
+</listitem><listitem><para>interrupt mode (with handler) - event emission occurs after the last operation and reading of data are finished. In interrupt mode read operations can be double-buffered by calling the function again. To utilize double-buffering feature, <ref refid="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0a7afebeac9a7887c1e48a3906a5d63946" kindref="member">NRF_QSPI_TASK_READSTART</ref> needs to be triggered on <ref refid="group__nrf__qspi__hal_1ggab0289d6ded4986b5a9d7fa5482ec7c58ab76226b454ca766d24e2ef9eaccabf5f" kindref="member">NRF_QSPI_EVENT_READY</ref> externally (for example by using the PPI/DPPI).</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_rx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rx_buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the data to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address in memory to read from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful (blocking mode) or commissioned (handler mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently handles another operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffer is not placed in the Data RAM region or its address is not aligned to a 32-bit word. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="306" column="5" declfile="drivers/include/nrfx_qspi.h" declline="306" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gaa647abddc3190a004fb14ef52aa5edac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_write</definition>
+        <argsstring>(void const *p_tx_buffer, size_t tx_buffer_length, uint32_t dst_address)</argsstring>
+        <name>nrfx_qspi_write</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>tx_buffer_length</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>dst_address</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing data to QSPI memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+Write, read, and erase operations check memory device busy state before starting the operation. If the memory is busy, the resulting action depends on the mode in which the write operation is used:<itemizedlist>
+<listitem><para>blocking mode (without handler) - a delay occurs until the last operation runs or until the operation data is being sent.</para>
+</listitem><listitem><para>interrupt mode (with handler) - event emission occurs after the last operation and sending of operation data are finished. To manually control operation execution in the memory device, use <ref refid="group__nrfx__qspi_1ga43c6913c50106dfedd201c892ed3b900" kindref="member">nrfx_qspi_mem_busy_check</ref> after executing the write function. Remember that an incoming event signalizes only that data was sent to the memory device and the peripheral before the write operation checked if memory was busy. In interrupt mode write operations can be double-buffered by calling the function again. To utilize double-buffering feature, <ref refid="group__nrf__qspi__hal_1gga100c85f9414b8353ce63b2449853aff0ae30409be73b2edc1ca4c5fa751d3135d" kindref="member">NRF_QSPI_TASK_WRITESTART</ref> needs to be triggered on <ref refid="group__nrf__qspi__hal_1ggab0289d6ded4986b5a9d7fa5482ec7c58ab76226b454ca766d24e2ef9eaccabf5f" kindref="member">NRF_QSPI_EVENT_READY</ref> externally (for example by using the PPI/DPPI).</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the writing buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tx_buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the data to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dst_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address in memory to write to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful (blocking mode) or commissioned (handler mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently handles other operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffer is not placed in the Data RAM region or its address is not aligned to a 32-bit word. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="341" column="5" declfile="drivers/include/nrfx_qspi.h" declline="341" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga130c410ec2447082abdd03e86d373ff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_erase</definition>
+        <argsstring>(nrf_qspi_erase_len_t length, uint32_t start_address)</argsstring>
+        <name>nrfx_qspi_erase</name>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1gabe68b50d3c5f07a5c946916eac125ebc" kindref="member">nrf_qspi_erase_len_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>start_address</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting erasing of one memory block - 4KB, 64KB, or the whole chip. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+Write, read, and erase operations check memory device busy state before starting the operation. If the memory is busy, the resulting action depends on the mode in which the erase operation is used:<itemizedlist>
+<listitem><para>blocking mode (without handler) - a delay occurs until the last operation runs or until the operation data is being sent.</para>
+</listitem><listitem><para>interrupt mode (with handler) - event emission occurs after the last operation and sending of operation data are finished. To manually control operation execution in the memory device, use <ref refid="group__nrfx__qspi_1ga43c6913c50106dfedd201c892ed3b900" kindref="member">nrfx_qspi_mem_busy_check</ref> after executing the erase function. Remember that an incoming event signalizes only that data was sent to the memory device and the periheral before the erase operation checked if memory was busy.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of data to erase. See <ref refid="group__nrf__qspi__hal_1gabe68b50d3c5f07a5c946916eac125ebc" kindref="member">nrf_qspi_erase_len_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory address to start erasing. If chip erase is performed, address field is ommited.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful (blocking mode) or commissioned (handler mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently handles another operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided start address is not aligned to a 32-bit word. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="372" column="5" declfile="drivers/include/nrfx_qspi.h" declline="372" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga548e732f108ace80b7d187ecd9404f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_chip_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_chip_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting an erase operation of the whole chip. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful (blocking mode) or commissioned (handler mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently is handling another operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="386" column="5" declfile="drivers/include/nrfx_qspi.h" declline="386" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga9f3efd91e4aa402821c45f73967055a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__qspi__evt__ext__t" kindref="compound">nrfx_qspi_evt_ext_t</ref> const *</type>
+        <definition>nrfx_qspi_evt_ext_t const  * nrfx_qspi_event_extended_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_event_extended_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the extended event associated with finished operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Pointer to the extended event associated with finished operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="393" column="28" declfile="drivers/include/nrfx_qspi.h" declline="393" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gacc5be2fffd55311a3a4aa5a68db04da2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_qspi_xfer_buffered_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_xfer_buffered_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking whether any write or read data transfer is buffered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if there is a transfer buffered, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="400" column="6" declfile="drivers/include/nrfx_qspi.h" declline="400" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga43c6913c50106dfedd201c892ed3b900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_mem_busy_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_mem_busy_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the current driver status and status byte of memory device with testing WIP (write in progress) bit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver and memory are ready to handle a new operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently is handling another operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="411" column="5" declfile="drivers/include/nrfx_qspi.h" declline="411" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga11de63ddbbdb98105a91bd1aca9e6e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qspi_timeout_signal</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_qspi_timeout_signal</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for signaling premature operation timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function provides a mechanism that can cause premature timeout when the driver is waiting for the READY event. This allows to use external source of the timeout. If the driver is initialized with a handler, it will not process the event generated for the transfer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="420" column="6" declfile="drivers/include/nrfx_qspi.h" declline="420" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga2536e103fec7a624f9a8036c150cb4c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_cinstr_xfer</definition>
+        <argsstring>(nrf_qspi_cinstr_conf_t const *p_config, void const *p_tx_buffer, void *p_rx_buffer)</argsstring>
+        <name>nrfx_qspi_cinstr_xfer</name>
+        <param>
+          <type><ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_rx_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for sending operation code, sending data, and receiving data from the memory device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+Use this function to transfer configuration data to memory and to receive data from memory. Pointers can be addresses from flash memory. This function is a synchronous function and should be used only if necessary.</para>
+<para><simplesect kind="note"><para>Please note that the <ref refid="group__nrfx__qspi_1gac8dfc8e747474e8a5e03069448b32955" kindref="member">NRFX_QSPI_DEFAULT_CINSTR</ref> macro provides default values for the <computeroutput>io2_level</computeroutput> and <computeroutput>io3_level</computeroutput> fields that cause the IO2 and IO3 lines to be kept low during the custom instruction transfer. Such configuration may not be suitable in certain circumstances and memory devices can interpret such levels of those lines as active WP# and HOLD#/RESET# signals, respectively. Hence, it is safer to use a configuration that will keep the lines high during the transfer.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with opcode and transfer configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array with data to send. Can be NULL if only opcode is transmitted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_rx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array for data to receive. Can be NULL if there is nothing to receive.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently handles other operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="448" column="5" declfile="drivers/include/nrfx_qspi.h" declline="448" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga2af55b56e86ac8db32d68228351b08e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_cinstr_quick_send</definition>
+        <argsstring>(uint8_t opcode, nrf_qspi_cinstr_len_t length, void const *p_tx_buffer)</argsstring>
+        <name>nrfx_qspi_cinstr_quick_send</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>opcode</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" kindref="member">nrf_qspi_cinstr_len_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for sending operation code and data to the memory device with simpler configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+Use this function to transfer configuration data to memory and to receive data from memory. This function is a synchronous function and should be used only if necessary.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">opcode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation code. Sending first. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the data to send and opcode. See <ref refid="group__nrf__qspi__hal_1ga290902bf6e6edc2202de3fc9a91fb180" kindref="member">nrf_qspi_cinstr_len_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to input data array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver currently handles another operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="470" column="5" declfile="drivers/include/nrfx_qspi.h" declline="470" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gadd2701db0c5d9e12b587c49f52b0e592" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_lfm_start</definition>
+        <argsstring>(nrf_qspi_cinstr_conf_t const *p_config)</argsstring>
+        <name>nrfx_qspi_lfm_start</name>
+        <param>
+          <type><ref refid="structnrf__qspi__cinstr__conf__t" kindref="compound">nrf_qspi_cinstr_conf_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the custom instruction long frame mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+The long frame mode is a mechanism that allows for arbitrary byte length custom instructions. Use this function to initiate a custom transaction by sending custom instruction opcode. To send and receive data, use <ref refid="group__nrfx__qspi_1gafc45cef011f525ac98164afc5e2758c8" kindref="member">nrfx_qspi_lfm_xfer</ref>.</para>
+<para><simplesect kind="note"><para>Please note that the <ref refid="group__nrfx__qspi_1gac8dfc8e747474e8a5e03069448b32955" kindref="member">NRFX_QSPI_DEFAULT_CINSTR</ref> macro provides default values for the <computeroutput>io2_level</computeroutput> and <computeroutput>io3_level</computeroutput> fields that cause the IO2 and IO3 lines to be kept low during the custom instruction transfer. Such configuration may not be suitable in certain circumstances and memory devices can interpret such levels of those lines as active WP# and HOLD#/RESET# signals, respectively. Hence, it is safer to use a configuration that will keep the lines high during the transfer.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with custom instruction opcode and transfer configuration. Transfer length must be set to <ref refid="group__nrf__qspi__hal_1gga290902bf6e6edc2202de3fc9a91fb180a5bf21927cf310039c4277d1e73f6be18" kindref="member">NRF_QSPI_CINSTR_LEN_1B</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver currently handles other operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The external memory is busy, or there are connection issues. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="499" column="5" declfile="drivers/include/nrfx_qspi.h" declline="499" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gafc45cef011f525ac98164afc5e2758c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_lfm_xfer</definition>
+        <argsstring>(void const *p_tx_buffer, void *p_rx_buffer, size_t transfer_length, bool finalize)</argsstring>
+        <name>nrfx_qspi_lfm_xfer</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_rx_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>transfer_length</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>finalize</declname>
+        </param>
+        <briefdescription>
+<para>Function for sending and receiving data in the custom instruction long frame mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Refer to the note for <ref refid="group__nrfx__qspi_1ga3919f02daadcda8737a2f126009beaa0" kindref="member">nrfx_qspi_read</ref>.</para>
+</simplesect>
+Both specified buffers must be at least <computeroutput>transfer_length</computeroutput> bytes in size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array with data to send. Can be NULL if there is nothing to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_rx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array for receiving data. Can be NULL if there is nothing to receive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">transfer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to send and receive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">finalize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if custom instruction long frame mode is to be finalized after this transfer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>External memory is busy or there are connection issues. Long frame mode becomes deactivated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation could trigger nRF5340 anomaly 159 due to the current configuration of clocks. Refer to the errata document for more information. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="522" column="5" declfile="drivers/include/nrfx_qspi.h" declline="522" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1gab0ef650fa5d91ec41982bf237b37db06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_xip_encrypt</definition>
+        <argsstring>(nrf_qspi_encryption_t const *p_config)</argsstring>
+        <name>nrfx_qspi_xip_encrypt</name>
+        <param>
+          <type><ref refid="structnrf__qspi__encryption__t" kindref="compound">nrf_qspi_encryption_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the XIP encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>XIP encryption configuration structure. To disable encryption, pass NULL pointer as argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver currently handles other operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="537" column="5" declfile="drivers/include/nrfx_qspi.h" declline="537" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qspi_1ga8d6dce1efb1e777f89be4a219af5d6a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_qspi_dma_encrypt</definition>
+        <argsstring>(nrf_qspi_encryption_t const *p_config)</argsstring>
+        <name>nrfx_qspi_dma_encrypt</name>
+        <param>
+          <type><ref refid="structnrf__qspi__encryption__t" kindref="compound">nrf_qspi_encryption_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the EasyDMA encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DMA encryption configuration structure. To disable encryption, pass NULL pointer as argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver currently handles other operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="550" column="5" declfile="drivers/include/nrfx_qspi.h" declline="550" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__qspi_1gaf7a77a3663927deca9502028fca618c6" prot="public" static="no">
+        <name>NRFX_QSPI_DEFAULT_CONFIG</name>
+        <param><defname>_pin_sck</defname></param>
+        <param><defname>_pin_csn</defname></param>
+        <param><defname>_pin_io0</defname></param>
+        <param><defname>_pin_io1</defname></param>
+        <param><defname>_pin_io2</defname></param>
+        <param><defname>_pin_io3</defname></param>
+        <initializer>{                                                                      \
+    .xip_offset    = 0,                                                \
+    .pins = {                                                          \
+       .sck_pin    = _pin_sck,                                         \
+       .csn_pin    = _pin_csn,                                         \
+       .io0_pin    = _pin_io0,                                         \
+       .io1_pin    = _pin_io1,                                         \
+       .io2_pin    = _pin_io2,                                         \
+       .io3_pin    = _pin_io3                                          \
+    },                                                                 \
+    .prot_if = {                                                       \
+        .readoc    = <ref refid="group__nrf__qspi__hal_1gga2d6cc751e309c837399d85a845ef38abad5623b15f12bef8209a20f5cc6306db2" kindref="member">NRF_QSPI_READOC_FASTREAD</ref>,                         \
+        .writeoc   = <ref refid="group__nrf__qspi__hal_1ggaf5a6e1f18309cab07c2e0660a2ac2b14affb8d8e409f6b52c74339d963ef4e232" kindref="member">NRF_QSPI_WRITEOC_PP</ref>,                              \
+        .addrmode  = <ref refid="group__nrf__qspi__hal_1gga109220a04cdf9219946e350b5994b8b6ab90a9f3860871e10f0a9ead5d4b39407" kindref="member">NRF_QSPI_ADDRMODE_24BIT</ref>,                          \
+        .dpmconfig = false,                                            \
+    },                                                                 \
+    .phy_if = {                                                        \
+        .sck_delay = 0x05,                                             \
+        .dpmen     = false,                                            \
+        .spi_mode  = <ref refid="group__nrf__qspi__hal_1gga464bd46344c43950af93b861c874b96cac6077c8ac72cb5944c9570c557f9477e" kindref="member">NRF_QSPI_MODE_0</ref>,                                  \
+        .sck_freq  = <ref refid="group__nrf__qspi__hal_1gga2195660aadd2cb2848efa1cbaa0acafeaca2c21c800a9dbd55f810dd04b5574fa" kindref="member">NRF_QSPI_FREQ_DIV16</ref>,                              \
+    },                                                                 \
+    .timeout       = 500,                                              \
+    .irq_priority  = (uint8_t)NRFX_QSPI_DEFAULT_CONFIG_IRQ_PRIORITY,   \
+}</initializer>
+        <briefdescription>
+<para>QSPI instance default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up QSPI with the following options:<itemizedlist>
+<listitem><para>no offset for address in the external memory for Execute in Place operation</para>
+</listitem><listitem><para>single data line</para>
+</listitem><listitem><para>FAST_READ opcode for reading</para>
+</listitem><listitem><para>PP opcode for writing</para>
+</listitem><listitem><para>24 bit addressing mode</para>
+</listitem><listitem><para>Deep Power-down disabled</para>
+</listitem><listitem><para>clock frequency: 2 MHz for nRF52 Series, 6 MHz for nRF53 Series</para>
+</listitem><listitem><para>SCK delay 5 clock ticks</para>
+</listitem><listitem><para>500 milliseconds operation timeout</para>
+</listitem><listitem><para>mode 0 (data captured on the clock rising edge and transmitted on a falling edge. Clock base level is &apos;0&apos;)</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for clock signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_csn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for chip select signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_io0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin 0 for I/O data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_io1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin 1 for I/O data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_io2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin 2 for I/O data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_io3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin 3 for I/O data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="99" column="9" bodyfile="drivers/include/nrfx_qspi.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__qspi_1gac8dfc8e747474e8a5e03069448b32955" prot="public" static="no">
+        <name>NRFX_QSPI_DEFAULT_CINSTR</name>
+        <param><defname>opc</defname></param>
+        <param><defname>len</defname></param>
+        <initializer>{                                          \
+    .opcode    = (opc),                    \
+    .length    = (len),                    \
+    .io2_level = false,                    \
+    .io3_level = false,                    \
+    .wipwait   = false,                    \
+    .wren      = false                     \
+}</initializer>
+        <briefdescription>
+<para>QSPI custom instruction helper with the default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qspi.h" line="127" column="9" bodyfile="drivers/include/nrfx_qspi.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Quad Serial Peripheral Interface (QSPI) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

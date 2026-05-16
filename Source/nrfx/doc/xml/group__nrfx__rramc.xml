@@ -1,0 +1,814 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__rramc" kind="group">
+    <compoundname>nrfx_rramc</compoundname>
+    <title>RRAMC driver</title>
+    <innerclass refid="structnrfx__rramc__config__t" prot="public">nrfx_rramc_config_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_rramc_evt_handler_t) (nrf_rramc_event_t const event_type)</definition>
+        <argsstring>)(nrf_rramc_event_t const event_type)</argsstring>
+        <name>nrfx_rramc_evt_handler_t</name>
+        <briefdescription>
+<para>RRAMC driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="91" column="9" bodyfile="drivers/include/nrfx_rramc.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__rramc_1gae9764a17fd1df06f1546def8e50c93bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_all_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_all_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for erasing the whole RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>All user code and UICR will be erased. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="98" column="6" declfile="drivers/include/nrfx_rramc.h" declline="98" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaec063e3cfb090e111cdab61c7a5d6c59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_byte_write</definition>
+        <argsstring>(uint32_t address, uint8_t value)</argsstring>
+        <name>nrfx_rramc_byte_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a single byte to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="113" column="6" declfile="drivers/include/nrfx_rramc.h" declline="113" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga64e5c2a7b3b8064adb47191ed1c9ef83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_bytes_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_bytes)</argsstring>
+        <name>nrfx_rramc_bytes_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive bytes to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="129" column="6" declfile="drivers/include/nrfx_rramc.h" declline="129" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga2fe3ec9970ab4c6bc3d97311763aa6e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_word_write</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrfx_rramc_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="144" column="6" declfile="drivers/include/nrfx_rramc.h" declline="144" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga8798ba574ca1cc546a0964cc1b6fc255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_words_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_words)</argsstring>
+        <name>nrfx_rramc_words_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_words</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive 32-bit words to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be copied. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_words</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of words to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="160" column="6" declfile="drivers/include/nrfx_rramc.h" declline="160" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga68e1f8dcc25cfbe846d5b58e59db6c92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_write_enable_set</definition>
+        <argsstring>(bool enable, uint32_t write_buff_size)</argsstring>
+        <name>nrfx_rramc_write_enable_set</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>write_buff_size</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling write mode and setting size of write buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if write mode is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">write_buff_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of write buffer. If set to 0, buffering is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="168" column="6" declfile="drivers/include/nrfx_rramc.h" declline="168" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaf63670fb4b3f3c19d1dddfd60b960fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_rramc_write_enable_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_enable_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if write mode is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if write mode is enabled, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="175" column="6" declfile="drivers/include/nrfx_rramc.h" declline="175" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaf7143d14bf418c55dec47a6253247d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_rramc_init</definition>
+        <argsstring>(nrfx_rramc_config_t const *p_config, nrfx_rramc_evt_handler_t handler)</argsstring>
+        <name>nrfx_rramc_init</name>
+        <param>
+          <type><ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" kindref="member">nrfx_rramc_evt_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver has already been initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="186" column="5" declfile="drivers/include/nrfx_rramc.h" declline="186" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga055295264be2d8a3a3c54f93b42bec26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_rramc_reconfigure</definition>
+        <argsstring>(nrfx_rramc_config_t const *p_config)</argsstring>
+        <name>nrfx_rramc_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="197" column="5" declfile="drivers/include/nrfx_rramc.h" declline="197" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gac62410c59ef2f70c9fc2a6c24911f993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="200" column="6" declfile="drivers/include/nrfx_rramc.h" declline="200" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaa13c7eeb3ca6bfc608771fd56d6f2355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_rramc_memory_size_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_memory_size_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the total RRAM size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The function will return <computeroutput>FICR_INFO_RRAM_RRAM_Unspecified</computeroutput> value if the total RRAM size cannot be determined based on the FICR data.</para>
+</simplesect>
+<simplesect kind="return"><para>RRAM total size in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="210" column="10" declfile="drivers/include/nrfx_rramc.h" declline="210" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga4330181ffbe15dcc454887fa47eb76fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_write_buffer_commit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_buffer_commit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for committing write buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="213" column="6" declfile="drivers/include/nrfx_rramc.h" declline="213" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaa60d2cc06aed61caf03364c99246f192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_wake_up</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_wake_up</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for waking up the RRAMC. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="216" column="6" declfile="drivers/include/nrfx_rramc.h" declline="216" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga700deece4d7d7d8b09176dcf2c8973ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_rramc_write_buffer_empty_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_buffer_empty_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if RRAMC write buffer is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer is empty. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer is not empty. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="224" column="6" declfile="drivers/include/nrfx_rramc.h" declline="224" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga5eb8a91121d45064f40a8012030c29c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_rramc_otp_word_read</definition>
+        <argsstring>(uint32_t index)</argsstring>
+        <name>nrfx_rramc_otp_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a word from the OTP in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>OTP is a region of the UICR present in some chips. This function must be used to read word data from this region since unaligned accesses are not available on the OTP RRAM area.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address (index) in OTP table from which a word is to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contents at <computeroutput>index</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="301" column="29" bodyfile="drivers/include/nrfx_rramc.h" bodystart="301" bodyend="304" declfile="drivers/include/nrfx_rramc.h" declline="237" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga037f9f7abb5b51e07a61005ab57dd14c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_rramc_otp_word_write</definition>
+        <argsstring>(uint32_t index, uint32_t value)</argsstring>
+        <name>nrfx_rramc_otp_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word at index position to OTP region in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The OTP can only be written once after each Erase All is performed. This function checks if the value currently residing at the specified index can be transformed to the desired value. If yes, then performs the write operation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address (index) in OTP table to which a word it to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word can be written into the specified OTP index address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word cannot be written into the specified OTP index address. Erase UICR or change index address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="306" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="306" bodyend="309" declfile="drivers/include/nrfx_rramc.h" declline="253" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga310b17606c9a6020b1ae805ed6b16e9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint8_t</type>
+        <definition>NRFX_STATIC_INLINE uint8_t nrfx_rramc_byte_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_rramc_byte_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a byte from the RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function in case accessing the RRAM gives the possibility to run the code in an environment where the flash is simulated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the byte to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="311" column="28" bodyfile="drivers/include/nrfx_rramc.h" bodystart="311" bodyend="314" declfile="drivers/include/nrfx_rramc.h" declline="265" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga4fad7b64c1b7fc32b756aa0831ee6762" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_rramc_word_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_rramc_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a 32-bit word from the RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function in case accessing the RRAM gives the possibility to run the code in an environment where the flash is simulated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the word to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="316" column="29" bodyfile="drivers/include/nrfx_rramc.h" bodystart="316" bodyend="319" declfile="drivers/include/nrfx_rramc.h" declline="277" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gace17df940cb023b091cf6f4532387a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_rramc_buffer_read</definition>
+        <argsstring>(void *dst, uint32_t address, uint32_t num_bytes)</argsstring>
+        <name>nrfx_rramc_buffer_read</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a given number of bytes from the RRAM into the specified buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to store the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first byte to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="321" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="321" bodyend="324" declfile="drivers/include/nrfx_rramc.h" declline="287" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_rramc_ready_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_ready_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking current RRAMC operation status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status is updated for all RRAMC operations except during read and writes to write-buffer.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current operation is completed, and RRAMC is ready. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="326" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="326" bodyend="329" declfile="drivers/include/nrfx_rramc.h" declline="297" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__rramc_1ga23367938d26b0f95f93ede51c958ab6e" prot="public" static="no">
+        <name>NRFX_RRAMC_DEFAULT_CONFIG</name>
+        <param><defname>_write_buff_size</defname></param>
+        <initializer>{                                                                     \
+    .mode_write             = false,                                  \
+    .write_buff_size        = _write_buff_size,                       \
+    .preload_timeout        = 0x80,                                   \
+    .preload_timeout_enable = true,                                   \
+    .access_timeout         = 0x100,                                  \
+    .abort_on_pof           = true,                                   \
+    .irq_priority           = NRFX_RRAMC_DEFAULT_CONFIG_IRQ_PRIORITY, \
+}</initializer>
+        <briefdescription>
+<para>RRAMC driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up RRAMC with the following options:<itemizedlist>
+<listitem><para>Write mode disabled</para>
+</listitem><listitem><para>Preload timeout value: 0x80</para>
+</listitem><listitem><para>Write to the RRAM on the next timeout enabled</para>
+</listitem><listitem><para>Access timeout: 0x100</para>
+</listitem><listitem><para>Write operation is to be aborted on the power failure</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_write_buff_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of write buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="75" column="9" bodyfile="drivers/include/nrfx_rramc.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Resistive Random Access Memory Controller (RRAMC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

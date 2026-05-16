@@ -1,0 +1,1095 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__twis" kind="group">
+    <compoundname>nrfx_twis</compoundname>
+    <title>TWIS driver</title>
+    <innerclass refid="structnrfx__twis__event__t" prot="public">nrfx_twis_event_t</innerclass>
+    <innerclass refid="structnrfx__twis__t" prot="public">nrfx_twis_t</innerclass>
+    <innerclass refid="structnrfx__twis__config__t" prot="public">nrfx_twis_config_t</innerclass>
+    <innergroup refid="group__nrfx__twis__config">TWIS peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__twis_1ga70be60356d3f77a4780c5c278020e568" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twis_substate_t</name>
+        <enumvalue id="group__nrfx__twis_1gga70be60356d3f77a4780c5c278020e568ad19e492e6d092aae351d028f89bb91b5" prot="public">
+          <name>NRFX_TWIS_SUBSTATE_IDLE</name>
+          <briefdescription>
+<para>No ongoing transmission. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga70be60356d3f77a4780c5c278020e568a4facbbb8599e4cc9a5962829d6b8d26f" prot="public">
+          <name>NRFX_TWIS_SUBSTATE_READ_WAITING</name>
+          <briefdescription>
+<para>Read request received, waiting for data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga70be60356d3f77a4780c5c278020e568a62655a785584fa49acc66acdd288e918" prot="public">
+          <name>NRFX_TWIS_SUBSTATE_READ_PENDING</name>
+          <briefdescription>
+<para>Reading is actually pending (data sending) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga70be60356d3f77a4780c5c278020e568a869c34caec0c903da381a882d87a6104" prot="public">
+          <name>NRFX_TWIS_SUBSTATE_WRITE_WAITING</name>
+          <briefdescription>
+<para>Write request received, waiting for data buffer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga70be60356d3f77a4780c5c278020e568a970bf56346538852d707169c710abbbb" prot="public">
+          <name>NRFX_TWIS_SUBSTATE_WRITE_PENDING</name>
+          <briefdescription>
+<para>Writing is actually pending (data receiving) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Actual state of internal state machine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Current substate of powered on state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="57" column="1" bodyfile="drivers/include/nrfx_twis.h" bodystart="58" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__twis_1ga29d53e0a4e189acb02480289b26627a1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twis_event_type_t</name>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1ad397b1332106627eedf9513248241845" prot="public">
+          <name>NRFX_TWIS_EVT_READ_REQ</name>
+          <briefdescription>
+<para>Read request detected. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>If there is no buffer prepared, buf_req flag in the even will be set. Call then <ref refid="group__nrfx__twis_1ga90b68039c30b392b532f90f744d1ba7f" kindref="member">nrfx_twis_tx_prepare</ref> to give parameters for buffer. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1af9d0e51ce334c53446739418aaa3e1d4" prot="public">
+          <name>NRFX_TWIS_EVT_READ_DONE</name>
+          <briefdescription>
+<para>Read request finished - free any data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a758cef050ed18e7afb532337d9e5ae0f" prot="public">
+          <name>NRFX_TWIS_EVT_READ_ERROR</name>
+          <briefdescription>
+<para>Read request finished with error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a9259a99945dd7ed43dc67a7d9fa41dcb" prot="public">
+          <name>NRFX_TWIS_EVT_WRITE_REQ</name>
+          <briefdescription>
+<para>Write request detected. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>If there is no buffer prepared, buf_req flag in the even will be set. Call then <ref refid="group__nrfx__twis_1gae1ea96bbd595709f17ecf3f6007f6bd3" kindref="member">nrfx_twis_rx_prepare</ref> to give parameters for buffer. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a8252fae5b70a9a0189d93bbdfc8c5ec7" prot="public">
+          <name>NRFX_TWIS_EVT_WRITE_DONE</name>
+          <briefdescription>
+<para>Write request finished - process data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1aaec14b4e2209d093ed43ba9c1cb3be5b" prot="public">
+          <name>NRFX_TWIS_EVT_WRITE_ERROR</name>
+          <briefdescription>
+<para>Write request finished with error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a04f758a7a46bca512b05a6817ea7f845" prot="public">
+          <name>NRFX_TWIS_EVT_GENERAL_ERROR</name>
+          <briefdescription>
+<para>Error that happens not inside WRITE or READ transaction. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Event callback function event definitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="67" column="1" bodyfile="drivers/include/nrfx_twis.h" bodystart="68" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__twis_1ga22e3f400a95e5724c727190b4e23dbbc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twis_error_t</name>
+        <enumvalue id="group__nrfx__twis_1gga22e3f400a95e5724c727190b4e23dbbca18c22552716502b74f4f0bd365827a83" prot="public">
+          <name>NRFX_TWIS_ERROR_OVERFLOW</name>
+          <initializer>= NRF_TWIS_ERROR_OVERFLOW</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RX buffer overflow detected, and prevented. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga22e3f400a95e5724c727190b4e23dbbca100229c2c1f70211a37d28ef0e614708" prot="public">
+          <name>NRFX_TWIS_ERROR_DATA_NACK</name>
+          <initializer>= NRF_TWIS_ERROR_DATA_NACK</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>NACK sent after receiving a data byte. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga22e3f400a95e5724c727190b4e23dbbca511fc5fe104bf1af384bd58c079f0f4b" prot="public">
+          <name>NRFX_TWIS_ERROR_OVERREAD</name>
+          <initializer>= NRF_TWIS_ERROR_OVERREAD</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>TX buffer over-read detected, and prevented. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twis_1gga22e3f400a95e5724c727190b4e23dbbca255b00d9e4c8feac8824a563e4142d06" prot="public">
+          <name>NRFX_TWIS_ERROR_UNEXPECTED_EVENT</name>
+          <initializer>= 1 &lt;&lt; 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Unexpected event detected by state machine. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Possible error sources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is flag enum - values from this enum can be connected using logical or operator. <simplesect kind="note"><para>You can use directly <ref refid="group__nrf__twis__hal_1gabc33e3d9a58851106ef1654c2aefa72d" kindref="member">nrf_twis_error_t</ref>. Error type enum is redefined here because of possible future extension (eg. supporting timeouts and synchronous mode). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="135" column="1" bodyfile="drivers/include/nrfx_twis.h" bodystart="136" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__twis_1gabe870e2dc2fd4eb88db3c32032a6af5c" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_twis_event_handler_t) (nrfx_twis_event_t const *p_event)</definition>
+        <argsstring>)(nrfx_twis_event_t const *p_event)</argsstring>
+        <name>nrfx_twis_event_handler_t</name>
+        <briefdescription>
+<para>TWIS driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="99" column="9" bodyfile="drivers/include/nrfx_twis.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__twis_1gacaa9cfa03d64b4d22ff83005e8fda646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twis_init</definition>
+        <argsstring>(nrfx_twis_t *p_instance, nrfx_twis_config_t const *p_config, nrfx_twis_event_handler_t event_handler)</argsstring>
+        <name>nrfx_twis_init</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twis__config__t" kindref="compound">nrfx_twis_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twis_1gabe870e2dc2fd4eb88db3c32032a6af5c" kindref="member">nrfx_twis_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TWIS driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function initializes and enables the TWIS driver. <simplesect kind="attention"><para>After driver initialization enable it with <ref refid="group__nrfx__twis_1ga3e47f1412be69974c15eec997fc0ee1a" kindref="member">nrfx_twis_enable</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="attention"><para><emphasis>p_instance</emphasis> has to be global object. It will be used by interrupts so make it sure that object is not destroyed when function is leaving. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, blocking mode is enabled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if NRFX_PRS_ENABLED is set to a value other than zero. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="210" column="5" declfile="drivers/include/nrfx_twis.h" declline="210" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga3df11fb5eb2874204b785a1ff4c58484" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twis_reconfigure</definition>
+        <argsstring>(nrfx_twis_t *p_instance, nrfx_twis_config_t const *p_config)</argsstring>
+        <name>nrfx_twis_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twis__config__t" kindref="compound">nrfx_twis_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the TWIS driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="224" column="5" declfile="drivers/include/nrfx_twis.h" declline="224" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga2f0eaab710730ffbaba3b594b486c30e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twis_uninit</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TWIS driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function uninitializes the peripheral and resets all registers to default values.</para>
+<para><simplesect kind="note"><para>It is safe to call nrfx_twis_uninit even before initialization. Actually, <ref refid="group__nrfx__twis_1gacaa9cfa03d64b4d22ff83005e8fda646" kindref="member">nrfx_twis_init</ref> function calls this function to make sure that TWIS state is known. </para>
+</simplesect>
+<simplesect kind="note"><para>If TWIS driver was in uninitialized state before calling this function, the selected pins would not be reset to default configuration.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="242" column="6" declfile="drivers/include/nrfx_twis.h" declline="242" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga3995a4040a2d868b633342cfd24fdb4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_init_check</definition>
+        <argsstring>(nrfx_twis_t const *p_instance)</argsstring>
+        <name>nrfx_twis_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TWIS driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="252" column="6" declfile="drivers/include/nrfx_twis.h" declline="252" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga3e47f1412be69974c15eec997fc0ee1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twis_enable</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_enable</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TWIS instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function enables the TWIS instance. Function defined if there is need for dynamically enabling and disabling the peripheral. Use <ref refid="group__nrfx__twis_1ga3e47f1412be69974c15eec997fc0ee1a" kindref="member">nrfx_twis_enable</ref> and <ref refid="group__nrfx__twis_1ga6c253cf6c92b7b4021d9a2084dd4a56d" kindref="member">nrfx_twis_disable</ref> functions. They do not change any configuration registers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="264" column="6" declfile="drivers/include/nrfx_twis.h" declline="264" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga6c253cf6c92b7b4021d9a2084dd4a56d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twis_disable</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_disable</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TWIS instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function disables the TWIS instance, which gives possibility to turn off the TWIS while holding configuration done by <ref refid="group__nrfx__twis_1gacaa9cfa03d64b4d22ff83005e8fda646" kindref="member">nrfx_twis_init</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="274" column="6" declfile="drivers/include/nrfx_twis.h" declline="274" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1gac88b13d05eea81be5f106f6c65519541" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twis_error_get_and_clear</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_error_get_and_clear</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting and clearing the last error flags. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function gets the information about errors. This is also the only possibility to exit from the error substate of the internal state machine. <simplesect kind="attention"><para>This function clears error state and flags.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Error flags defined in <ref refid="group__nrfx__twis_1ga22e3f400a95e5724c727190b4e23dbbc" kindref="member">nrfx_twis_error_t</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="288" column="10" declfile="drivers/include/nrfx_twis.h" declline="288" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga90b68039c30b392b532f90f744d1ba7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twis_tx_prepare</definition>
+        <argsstring>(nrfx_twis_t *p_instance, void const *p_buf, size_t size)</argsstring>
+        <name>nrfx_twis_tx_prepare</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for preparing the data for sending. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is to be used in response to the <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1ad397b1332106627eedf9513248241845" kindref="member">NRFX_TWIS_EVT_READ_REQ</ref> event.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including TWIS) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EINVAL. </para>
+</simplesect>
+<simplesect kind="attention"><para>Transmission buffer must be placed in RAM.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transmission buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of bytes that master may read from buffer given.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The preparation finished properly. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The given <emphasis>p_buf</emphasis> is not placed inside the RAM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a wrong value in the <emphasis>size</emphasis> parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The module is not initialized or not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="309" column="5" declfile="drivers/include/nrfx_twis.h" declline="309" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga2fb3c04f7aad8bf7fbd4829f6648a696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE size_t</type>
+        <definition>NRFX_STATIC_INLINE size_t nrfx_twis_tx_amount</definition>
+        <argsstring>(nrfx_twis_t const *p_instance)</argsstring>
+        <name>nrfx_twis_tx_amount</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of transmitted bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns the number of bytes sent. This function can be called after <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1af9d0e51ce334c53446739418aaa3e1d4" kindref="member">NRFX_TWIS_EVT_READ_DONE</ref> or <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a758cef050ed18e7afb532337d9e5ae0f" kindref="member">NRFX_TWIS_EVT_READ_ERROR</ref> events.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes sent. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="423" column="27" bodyfile="drivers/include/nrfx_twis.h" bodystart="423" bodyend="426" declfile="drivers/include/nrfx_twis.h" declline="323" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1gae1ea96bbd595709f17ecf3f6007f6bd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twis_rx_prepare</definition>
+        <argsstring>(nrfx_twis_t *p_instance, void *p_buf, size_t size)</argsstring>
+        <name>nrfx_twis_rx_prepare</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for preparing the data for receiving. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function must be used in response to the <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a9259a99945dd7ed43dc67a7d9fa41dcb" kindref="member">NRFX_TWIS_EVT_WRITE_REQ</ref> event.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including TWIS) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function fails with the error code -EINVAL.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer that is to be filled with received data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer (maximum amount of data to receive).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The preparation finished properly. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The given <emphasis>p_buf</emphasis> is not placed inside the RAM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is a wrong value in the <emphasis>size</emphasis> parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The module is not initialized or not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="343" column="5" declfile="drivers/include/nrfx_twis.h" declline="343" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga7116782fd84dcaf937f1a42dd406a985" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE size_t</type>
+        <definition>NRFX_STATIC_INLINE size_t nrfx_twis_rx_amount</definition>
+        <argsstring>(nrfx_twis_t const *p_instance)</argsstring>
+        <name>nrfx_twis_rx_amount</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of received bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns number of bytes received. It can be called after <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1a8252fae5b70a9a0189d93bbdfc8c5ec7" kindref="member">NRFX_TWIS_EVT_WRITE_DONE</ref> or <ref refid="group__nrfx__twis_1gga29d53e0a4e189acb02480289b26627a1aaec14b4e2209d093ed43ba9c1cb3be5b" kindref="member">NRFX_TWIS_EVT_WRITE_ERROR</ref> events.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes received. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="428" column="27" bodyfile="drivers/include/nrfx_twis.h" bodystart="428" bodyend="431" declfile="drivers/include/nrfx_twis.h" declline="357" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1gad9551065ea8446b812222745ab676d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_is_busy</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_is_busy</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the driver is busy right now. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function tests the actual driver substate. If the driver is in any other state than IDLE or ERROR, this function returns true.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is in state other than ERROR or IDLE. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is no transmission pending. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="370" column="6" declfile="drivers/include/nrfx_twis.h" declline="370" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga7718066485d4f173a98f436344a94b93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_is_waiting_tx_buff</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_is_waiting_tx_buff</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the driver is waiting for a TX buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this function returns true, the driver is stalled expecting of the <ref refid="group__nrfx__twis_1ga90b68039c30b392b532f90f744d1ba7f" kindref="member">nrfx_twis_tx_prepare</ref> function call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is waiting for <ref refid="group__nrfx__twis_1ga90b68039c30b392b532f90f744d1ba7f" kindref="member">nrfx_twis_tx_prepare</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not in the state where it is waiting for preparing a TX buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="383" column="6" declfile="drivers/include/nrfx_twis.h" declline="383" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga1f78b70969afb7f7e1b9d7c4f82872af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_is_waiting_rx_buff</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_is_waiting_rx_buff</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the driver is waiting for an RX buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this function returns true, the driver is stalled expecting of the <ref refid="group__nrfx__twis_1gae1ea96bbd595709f17ecf3f6007f6bd3" kindref="member">nrfx_twis_rx_prepare</ref> function call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is waiting for <ref refid="group__nrfx__twis_1gae1ea96bbd595709f17ecf3f6007f6bd3" kindref="member">nrfx_twis_rx_prepare</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not in the state where it is waiting for preparing an RX buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="396" column="6" declfile="drivers/include/nrfx_twis.h" declline="396" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga5319fa2807b0f7d6a6d7727faa4a5754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_is_pending_tx</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_is_pending_tx</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the driver is sending data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this function returns true, there is an ongoing output transmission.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is an ongoing output transmission. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is in other state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="408" column="6" declfile="drivers/include/nrfx_twis.h" declline="408" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1ga1bc44133a163ee82284214515e23b3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twis_is_pending_rx</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_is_pending_rx</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the driver is receiving data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this function returns true, there is an ongoing input transmission.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is an ongoing input transmission. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is in other state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="420" column="6" declfile="drivers/include/nrfx_twis.h" declline="420" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twis_1gab95133105001919bbec01ff885afe022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twis_irq_handler</definition>
+        <argsstring>(nrfx_twis_t *p_instance)</argsstring>
+        <name>nrfx_twis_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="439" column="6" declfile="drivers/include/nrfx_twis.h" declline="439" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__twis_1ga9497865b453ad388395de189f8be695f" prot="public" static="no">
+        <name>NRFX_TWIS_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                  \
+    .p_reg = (NRF_TWIS_Type *)reg, \
+    .cb    = {0},                  \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a TWIS driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="121" column="9" bodyfile="drivers/include/nrfx_twis.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twis_1gad32b78bf3b806c7e124d725bd22e2275" prot="public" static="no">
+        <name>NRFX_TWIS_DEFAULT_CONFIG</name>
+        <param><defname>_pin_scl</defname></param>
+        <param><defname>_pin_sda</defname></param>
+        <param><defname>_addr</defname></param>
+        <initializer>{                                                                \
+    .addr               = { _addr, 0x00 },                       \
+    .scl_pin            = _pin_scl,                              \
+    .sda_pin            = _pin_sda,                              \
+    .scl_pull           = <ref refid="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca13ffcb94eb78be866c66b5f5b516af65" kindref="member">NRF_GPIO_PIN_NOPULL</ref>,                   \
+    .sda_pull           = <ref refid="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca13ffcb94eb78be866c66b5f5b516af65" kindref="member">NRF_GPIO_PIN_NOPULL</ref>,                   \
+    .interrupt_priority = <ref refid="group__nrfx__twis__config_1ga517b813c0cf6d7192e031a3c070fde78" kindref="member">NRFX_TWIS_DEFAULT_CONFIG_IRQ_PRIORITY</ref>  \
+}</initializer>
+        <briefdescription>
+<para>TWIS driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TWIS with the following options:<itemizedlist>
+<listitem><para>second slave address disabled</para>
+</listitem><listitem><para>SCL pull-up disabled</para>
+</listitem><listitem><para>SDA pull-up disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_scl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave address on TWI bus. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twis.h" line="180" column="9" bodyfile="drivers/include/nrfx_twis.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Two Wire Interface Slave with EasyDMA (TWIS) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

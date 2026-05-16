@@ -1,0 +1,976 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__kmu__hal" kind="group">
+    <compoundname>nrf_kmu_hal</compoundname>
+    <title>KMU HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__kmu__hal_1ga7e61fc45d10f6da05562e38f98487419" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_kmu_task_t</name>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419aa96cd6c6f82f7ea1e39b304d989beb63" prot="public">
+          <name>NRF_KMU_TASK_PROVISION_KEYSLOT</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_PROVISION)</initializer>
+          <briefdescription>
+<para>Provision key slot. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419aa77cea684ccbcc072a00f086ea8b7783" prot="public">
+          <name>NRF_KMU_TASK_PUSH_KEYSLOT</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_PUSH_KEYSLOT)</initializer>
+          <briefdescription>
+<para>Push a key slot over secure APB. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419a7f32792543e03fbf33c7fd50cfca342d" prot="public">
+          <name>NRF_KMU_TASK_REVOKE_KEYSLOT</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_REVOKE)</initializer>
+          <briefdescription>
+<para>Revoke key slot. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419a47fd73f8fcff85f2041a9048e6dea6be" prot="public">
+          <name>NRF_KMU_TASK_READ_METADATA</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_READMETADATA)</initializer>
+          <briefdescription>
+<para>Read key slot metedata into METADATA register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419a58c4b2f263a8d49a2f1fd1d726ab5b95" prot="public">
+          <name>NRF_KMU_TASK_PUSH_BLOCK</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_PUSHBLOCK)</initializer>
+          <briefdescription>
+<para>Block the PUSH operation of key slot, preventing the key slot being PUSH until next reset. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419abe27609096c434f628ed519c1c92c1f0" prot="public">
+          <name>NRF_KMU_TASK_BLOCK</name>
+          <initializer>= offsetof(NRF_KMU_Type, TASKS_BLOCK)</initializer>
+          <briefdescription>
+<para>Block the PUSH, PROVISION and REVOKE operations of key slot until next reset. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="121" column="1" bodyfile="hal/nrf_kmu.h" bodystart="122" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__kmu__hal_1gaa800125501a5feb22d26659d8a7bd0e2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_kmu_event_t</name>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2ae7026c0ea0c240115603b5599926a4cd" prot="public">
+          <name>NRF_KMU_EVENT_EVENTS_PROVISIONED</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_PROVISIONED)</initializer>
+          <briefdescription>
+<para>Key slot successfully provisioned. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a4a75ad0b63ed8ab02877ef26f29c3116" prot="public">
+          <name>NRF_KMU_EVENT_KEYSLOT_PUSHED</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_KEYSLOT_PUSHED)</initializer>
+          <briefdescription>
+<para>Key successfully pushed over secure APB. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a549dc2ec3efd1f0712f940527a98e060" prot="public">
+          <name>NRF_KMU_EVENT_KEYSLOT_REVOKED</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_KEYSLOT_REVOKED)</initializer>
+          <briefdescription>
+<para>Key has been revoked and cannot be tasked for selection. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2af8f2151d852e7a898d4c9a9670691a5e" prot="public">
+          <name>NRF_KMU_EVENT_KEYSLOT_ERROR</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_KEYSLOT_ERROR)</initializer>
+          <briefdescription>
+<para>No key slot selected or no destination address defined or error during push mechanism. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a3a9f0608d53e00338a0ad793b669f792" prot="public">
+          <name>NRF_KMU_EVENT_EVENTS_EVENTS_METADATA_READ</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_METADATAREAD)</initializer>
+          <briefdescription>
+<para>Key slot metedata has been read into METADATA register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a4c9f96852751210d2e7557def391de7f" prot="public">
+          <name>NRF_KMU_EVENT_EVENTS_EVENTS_PUSHBLOCKED</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_PUSHBLOCKED)</initializer>
+          <briefdescription>
+<para>The PUSHBLOCK operation was succesful. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a4da990aea76ca8afbc1e0d750da8e5ea" prot="public">
+          <name>NRF_KMU_EVENT_EVENTS_EVENTS_BLOCKED</name>
+          <initializer>= offsetof(NRF_KMU_Type, EVENTS_BLOCKED)</initializer>
+          <briefdescription>
+<para>The BLOCK operation was succesful. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="146" column="1" bodyfile="hal/nrf_kmu.h" bodystart="147" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__kmu__hal_1ga49d62df2da9ac41f7401d7ff090bdefb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_kmu_int_mask_t</name>
+        <enumvalue id="group__nrf__kmu__hal_1gga49d62df2da9ac41f7401d7ff090bdefbadc2ff73c6f5f4557b7c1325a9edae6de" prot="public">
+          <name>NRF_KMU_INT_PUSHED_MASK</name>
+          <initializer>= KMU_INTEN_KEYSLOT_PUSHED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on KEYSLOT_PUSHED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga49d62df2da9ac41f7401d7ff090bdefbaa4868aad3e8966e04d3f2dd2e1ee226b" prot="public">
+          <name>NRF_KMU_INT_REVOKED_MASK</name>
+          <initializer>= KMU_INTEN_KEYSLOT_REVOKED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on KEYSLOT_REVOKED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga49d62df2da9ac41f7401d7ff090bdefbae17ba28c9f79f1322b7864e6e97c1e54" prot="public">
+          <name>NRF_KMU_INT_ERROR_MASK</name>
+          <initializer>= KMU_INTEN_KEYSLOT_ERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on KEYSLOT_ERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="185" column="1" bodyfile="hal/nrf_kmu.h" bodystart="186" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__kmu__hal_1ga1067f1b218ef89e9545754206ee9069a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_kmu_status_t</name>
+        <enumvalue id="group__nrf__kmu__hal_1gga1067f1b218ef89e9545754206ee9069aa7c3bdeea3f076a79b19b774567308440" prot="public">
+          <name>NRF_KMU_STATUS_BLOCKED_MASK</name>
+          <initializer>= KMU_STATUS_BLOCKED_Msk</initializer>
+          <briefdescription>
+<para>Access violation detected and blocked. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga1067f1b218ef89e9545754206ee9069aa2935f8104197beb21a9c4edadbf0fa95" prot="public">
+          <name>NRF_KMU_STATUS_SELECTED_MASK</name>
+          <initializer>= KMU_STATUS_SELECTED_Msk</initializer>
+          <briefdescription>
+<para>Key slot ID successfully selected by KMU. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga1067f1b218ef89e9545754206ee9069aa404110986924c1a71b89f9f2b5cc934b" prot="public">
+          <name>NRF_KMU_STATUS_READY</name>
+          <initializer>= KMU_STATUS_STATUS_Ready</initializer>
+          <briefdescription>
+<para>KMU is ready for a new operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__kmu__hal_1gga1067f1b218ef89e9545754206ee9069aa4239ec1e5138110db27cb89a1a8bb985" prot="public">
+          <name>NRF_KMU_STATUS_BUSY</name>
+          <initializer>= KMU_STATUS_STATUS_Busy</initializer>
+          <briefdescription>
+<para>KMU is busy, an operation is in progress. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>KMU operation status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="194" column="1" bodyfile="hal/nrf_kmu.h" bodystart="195" bodyend="206"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga67b942b827b4eefa2d8e6a20228696ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_task_trigger</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, nrf_kmu_task_t task)</argsstring>
+        <name>nrf_kmu_task_trigger</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__kmu__hal_1ga7e61fc45d10f6da05562e38f98487419" kindref="member">nrf_kmu_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating a specific KMU task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="379" column="24" bodyfile="hal/nrf_kmu.h" bodystart="379" bodyend="382" declfile="hal/nrf_kmu.h" declline="214" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gab142edba5d1654cc627b9304808773dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_task_address_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg, nrf_kmu_task_t task)</argsstring>
+        <name>nrf_kmu_task_address_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__kmu__hal_1ga7e61fc45d10f6da05562e38f98487419" kindref="member">nrf_kmu_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a specific KMU task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="384" column="28" bodyfile="hal/nrf_kmu.h" bodystart="384" bodyend="388" declfile="hal/nrf_kmu.h" declline="224" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gaf403ae43509e68779aff884e94ef2447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_event_clear</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, nrf_kmu_event_t event)</argsstring>
+        <name>nrf_kmu_event_clear</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__kmu__hal_1gaa800125501a5feb22d26659d8a7bd0e2" kindref="member">nrf_kmu_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing a specific KMU event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="390" column="24" bodyfile="hal/nrf_kmu.h" bodystart="390" bodyend="394" declfile="hal/nrf_kmu.h" declline="233" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gacd2a6acf83a5c1247d22c7309e8823c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_kmu_event_check</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg, nrf_kmu_event_t event)</argsstring>
+        <name>nrf_kmu_event_check</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__kmu__hal_1gaa800125501a5feb22d26659d8a7bd0e2" kindref="member">nrf_kmu_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the KMU event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="396" column="24" bodyfile="hal/nrf_kmu.h" bodystart="396" bodyend="399" declfile="hal/nrf_kmu.h" declline="244" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gaf619eea1eb0396c04d8956511dbe8116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_event_address_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg, nrf_kmu_event_t event)</argsstring>
+        <name>nrf_kmu_event_address_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__kmu__hal_1gaa800125501a5feb22d26659d8a7bd0e2" kindref="member">nrf_kmu_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a specific KMU event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="401" column="28" bodyfile="hal/nrf_kmu.h" bodystart="401" bodyend="405" declfile="hal/nrf_kmu.h" declline="254" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga82ffac09604b647a92869001b9915548" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_int_enable</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_kmu_int_enable</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__kmu__hal_1ga49d62df2da9ac41f7401d7ff090bdefb" kindref="member">nrf_kmu_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="408" column="24" bodyfile="hal/nrf_kmu.h" bodystart="408" bodyend="411" declfile="hal/nrf_kmu.h" declline="265" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga4b5b5430cd283f01cbaac7a90fab0537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_int_disable</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_kmu_int_disable</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__kmu__hal_1ga49d62df2da9ac41f7401d7ff090bdefb" kindref="member">nrf_kmu_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="413" column="24" bodyfile="hal/nrf_kmu.h" bodystart="413" bodyend="416" declfile="hal/nrf_kmu.h" declline="274" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gae76ae50feb04d611950d0626b824f163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_int_enable_check</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_kmu_int_enable_check</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__kmu__hal_1ga49d62df2da9ac41f7401d7ff090bdefb" kindref="member">nrf_kmu_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="418" column="28" bodyfile="hal/nrf_kmu.h" bodystart="418" bodyend="421" declfile="hal/nrf_kmu.h" declline="285" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gaad37fa04102f6a481c851c0ba7925d5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_intpend_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_intpend_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of pending interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bitmask with information about pending interrupts. Use <ref refid="group__nrf__kmu__hal_1ga49d62df2da9ac41f7401d7ff090bdefb" kindref="member">nrf_kmu_int_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="423" column="28" bodyfile="hal/nrf_kmu.h" bodystart="423" bodyend="426" declfile="hal/nrf_kmu.h" declline="298" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga24b15664713c804b53aa747cd8baacb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_status_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_status_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting status bits of the KMU operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Please use <ref refid="group__nrf__kmu__hal_1ga1067f1b218ef89e9545754206ee9069a" kindref="member">nrf_kmu_status_t</ref> to check operations status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Operation status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="429" column="28" bodyfile="hal/nrf_kmu.h" bodystart="429" bodyend="432" declfile="hal/nrf_kmu.h" declline="310" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga1489a596f1aaaa730880392c5c8289be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_keyslot_set</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, uint32_t keyslot_id)</argsstring>
+        <name>nrf_kmu_keyslot_set</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyslot_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for selecting the key slot ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">keyslot_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key slot ID to be read over AHB or pushed over secure APB when TASKS_PUSH_KEYSLOT is started. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="434" column="24" bodyfile="hal/nrf_kmu.h" bodystart="434" bodyend="444" declfile="hal/nrf_kmu.h" declline="319" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gae73eb381584f2afbc1efc71afa9ace3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_kmu_keyslot_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_keyslot_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the key slot ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Key slot ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="446" column="27" bodyfile="hal/nrf_kmu.h" bodystart="446" bodyend="455" declfile="hal/nrf_kmu.h" declline="328" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga1c0320973ef3562ec82161df52fb4f73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_kmu_src_set</definition>
+        <argsstring>(NRF_KMU_Type *p_reg, uint32_t src)</argsstring>
+        <name>nrf_kmu_src_set</name>
+        <param>
+          <type>NRF_KMU_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the source address for provisioning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source address to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="458" column="24" bodyfile="hal/nrf_kmu.h" bodystart="458" bodyend="461" declfile="hal/nrf_kmu.h" declline="337" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1gab3538c9e1b35a50c672278a1cdf78168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_src_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_src_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the source address for provisioning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Source address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="463" column="28" bodyfile="hal/nrf_kmu.h" bodystart="463" bodyend="466" declfile="hal/nrf_kmu.h" declline="346" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga4b397e0bef35cbe3703431d424386eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_metadata_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_metadata_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the key slot metadata. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The register value will only be valid after triggering <ref refid="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419a47fd73f8fcff85f2041a9048e6dea6be" kindref="member">NRF_KMU_TASK_READ_METADATA</ref> task for selected key slot and receiving <ref refid="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a3a9f0608d53e00338a0ad793b669f792" kindref="member">NRF_KMU_EVENT_EVENTS_EVENTS_METADATA_READ</ref> event.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Key slot metadata. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="470" column="28" bodyfile="hal/nrf_kmu.h" bodystart="470" bodyend="473" declfile="hal/nrf_kmu.h" declline="360" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__kmu__hal_1ga45c39d2c6966e9abdb87bd8dca838610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_kmu_metadataext_get</definition>
+        <argsstring>(NRF_KMU_Type const *p_reg)</argsstring>
+        <name>nrf_kmu_metadataext_get</name>
+        <param>
+          <type>NRF_KMU_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the extended metadata of a key slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The register value will only be valid after triggering <ref refid="group__nrf__kmu__hal_1gga7e61fc45d10f6da05562e38f98487419a47fd73f8fcff85f2041a9048e6dea6be" kindref="member">NRF_KMU_TASK_READ_METADATA</ref> task for selected key slot and receiving <ref refid="group__nrf__kmu__hal_1ggaa800125501a5feb22d26659d8a7bd0e2a3a9f0608d53e00338a0ad793b669f792" kindref="member">NRF_KMU_EVENT_EVENTS_EVENTS_METADATA_READ</ref> event.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Key slot metadata. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="477" column="28" bodyfile="hal/nrf_kmu.h" bodystart="477" bodyend="480" declfile="hal/nrf_kmu.h" declline="374" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__kmu__hal_1ga4c6ae62693cf3dfbf360b1a959882fc0" prot="public" static="no">
+        <name>NRF_KMU_HAS_INTEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether INTEN register is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="52" column="9" bodyfile="hal/nrf_kmu.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1gafa71ae3526b1687f1c1291861a73f689" prot="public" static="no">
+        <name>NRF_KMU_HAS_PROVISION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has PROVISION registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="59" column="9" bodyfile="hal/nrf_kmu.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1ga71c29ac44172f7b757e289d703a3743d" prot="public" static="no">
+        <name>NRF_KMU_HAS_REVOKE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has REVOKE registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="66" column="9" bodyfile="hal/nrf_kmu.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1gae5ebd8c17e8988f6222015aa47e8e0d7" prot="public" static="no">
+        <name>NRF_KMU_HAS_READ_METADATA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has READMETADATA registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="73" column="9" bodyfile="hal/nrf_kmu.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1ga56173995277809b3d19a75684d0b4be5" prot="public" static="no">
+        <name>NRF_KMU_HAS_PUSH_BLOCK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has PUSHBLOCK registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="80" column="9" bodyfile="hal/nrf_kmu.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1gace5fb39b5cc1832a2612e1cf56ed4d03" prot="public" static="no">
+        <name>NRF_KMU_HAS_BLOCK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has BLOCK registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="87" column="9" bodyfile="hal/nrf_kmu.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1gab997bed656ee13ef0f2a7f0444c8bdd9" prot="public" static="no">
+        <name>NRF_KMU_HAS_SRC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has SRC registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="94" column="9" bodyfile="hal/nrf_kmu.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1ga350747638863ff717762daf305213bb8" prot="public" static="no">
+        <name>NRF_KMU_HAS_METADATA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has METADATA registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="101" column="9" bodyfile="hal/nrf_kmu.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1gacaa5278b5f40fa0b286c30a9f3244ff9" prot="public" static="no">
+        <name>NRF_KMU_HAS_METADATAEXT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether KMU has METADATAEXT registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="108" column="9" bodyfile="hal/nrf_kmu.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__kmu__hal_1ga04e62403aebdad43bfddfba11595b336" prot="public" static="no">
+        <name>NRF_KMU_HAS_REVOKE_POLICY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether revoke policy option is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_kmu.h" line="115" column="9" bodyfile="hal/nrf_kmu.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Key Management Unit (KMU) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

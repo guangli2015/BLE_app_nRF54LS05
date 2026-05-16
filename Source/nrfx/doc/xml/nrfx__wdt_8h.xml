@@ -1,0 +1,1014 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__wdt_8h" kind="file" language="C++">
+    <compoundname>nrfx_wdt.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__wdt_8h" local="no">haly/nrfy_wdt.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_wdt.h</label>
+        <link refid="nrfx__wdt_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__wdt__t" prot="public">nrfx_wdt_t</innerclass>
+    <innerclass refid="structnrfx__wdt__config__t" prot="public">nrfx_wdt_config_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__wdt_1ga8b331b25b00f861346afd4216094446c" prot="public" static="no">
+        <name>NRFX_WDT_HAS_STOP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether watchdog stopping is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="53" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1gaa03a46f38b798aab8635682a15a986e9" prot="public" static="no">
+        <name>NRFX_WDT_IRQ_CONFIG</name>
+        <initializer>.interrupt_priority = NRFX_WDT_DEFAULT_CONFIG_IRQ_PRIORITY</initializer>
+        <briefdescription>
+<para>WDT instance interrupt priority configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="60" column="13" bodyfile="drivers/include/nrfx_wdt.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1gad25549c618d6baef297141806fd66966" prot="public" static="no">
+        <name>NRFX_WDT_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_WDT_Type *)reg, \
+    .cb    = {0},                 \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the WDT driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="105" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__wdt_1ga4ff5c769b9eb5eb19789bfebdb617640" prot="public" static="no">
+        <name>NRFX_WDT_DEFAULT_CONFIG</name>
+        <initializer>{                                                           \
+    .behaviour          = <ref refid="group__nrf__wdt__hal_1gga51ff75754f3358c7f822eed5e925ec11a239ddadb4006aaa013a77a6750b816f5" kindref="member">NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK</ref>, \
+    .reload_value       = 2000,                             \
+    <ref refid="group__nrfx__wdt_1gaa03a46f38b798aab8635682a15a986e9" kindref="member">NRFX_WDT_IRQ_CONFIG</ref>                                     \
+}</initializer>
+        <briefdescription>
+<para>WDT driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up WDT with the following options:<itemizedlist>
+<listitem><para>run when CPU is in SLEEP mode, pause when in HALT mode</para>
+</listitem><listitem><para>reload value: 2000 ms </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="128" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_wdt_event_handler_t) (nrf_wdt_event_t event_type, uint32_t requests, void *p_context)</definition>
+        <argsstring>)(nrf_wdt_event_t event_type, uint32_t requests, void *p_context)</argsstring>
+        <name>nrfx_wdt_event_handler_t</name>
+        <briefdescription>
+<para>WDT event handler function type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>WDT event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">requests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of the request status register. Bits that have been set can be used to determine which RR (Reload Request) register was the reason for timeout event. Valid only when <ref refid="group__nrf__wdt__hal_1ggadca2b19e3bb4c0b4e1b3372ade1112eead466fd1643e86d6e541a468fd8e9d05d" kindref="member">NRF_WDT_EVENT_TIMEOUT</ref> is passed in <computeroutput>event_type</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="75" column="9" bodyfile="drivers/include/nrfx_wdt.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__wdt_1gad16fe63f0b930b063a839a3b52462289" prot="public" static="no">
+        <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref></type>
+        <definition>typedef nrf_wdt_rr_register_t nrfx_wdt_channel_id</definition>
+        <argsstring></argsstring>
+        <name>nrfx_wdt_channel_id</name>
+        <briefdescription>
+<para>WDT channel ID type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="80" column="31" bodyfile="drivers/include/nrfx_wdt.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__wdt_1ga82b4215747413e3369fb2be472f2a195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_init</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_config_t const *p_config, nrfx_wdt_event_handler_t wdt_event_handler, void *p_context)</argsstring>
+        <name>nrfx_wdt_init</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" kindref="member">nrfx_wdt_event_handler_t</ref></type>
+          <declname>wdt_event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the WDT driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. NULL if configuration is to be skipped and will be done later using <ref refid="group__nrfx__wdt_1ga4f00564c2a80d90c816d55db80a02785" kindref="member">nrfx_wdt_reconfigure</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">wdt_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Ignored when <ref refid="group__nrfx__wdt__config_1gaeeb2020e1775bb931a298862d7fec64a" kindref="member">NRFX_WDT_CONFIG_NO_IRQ</ref> option is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context passed in event handler. Ignored when <ref refid="group__nrfx__wdt__config_1gaeeb2020e1775bb931a298862d7fec64a" kindref="member">NRFX_WDT_CONFIG_NO_IRQ</ref> option is enabled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="150" column="5" declfile="drivers/include/nrfx_wdt.h" declline="150" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga3ddf48b90195061146fd512162bfd041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_uninit</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the WDT driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The instance can be uninitialized only when not running.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="162" column="6" declfile="drivers/include/nrfx_wdt.h" declline="162" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga3615901b329f75a09c0eb0f3135b247f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_wdt_init_check</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance)</argsstring>
+        <name>nrfx_wdt_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the WDT driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="172" column="6" declfile="drivers/include/nrfx_wdt.h" declline="172" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga4f00564c2a80d90c816d55db80a02785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_reconfigure</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_config_t const *p_config)</argsstring>
+        <name>nrfx_wdt_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is already active. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The watchdog is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="184" column="5" declfile="drivers/include/nrfx_wdt.h" declline="184" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga227f0484cad96cff81d28f92d10d8d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_channel_alloc</definition>
+        <argsstring>(nrfx_wdt_t *p_instance, nrfx_wdt_channel_id *p_channel_id)</argsstring>
+        <name>nrfx_wdt_channel_alloc</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref> *</type>
+          <declname>p_channel_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a watchdog channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function can not be called after <ref refid="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" kindref="member">nrfx_wdt_enable</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_channel_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of granted channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel was successfully allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is no available channel to be used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="198" column="5" declfile="drivers/include/nrfx_wdt.h" declline="198" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga2ff531bf4faf6eb152f3098c12d22fc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_channels_free</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_channels_free</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for deallocating all previously allocated watchdog channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function can be called when watchdog is stopped, that is before <ref refid="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" kindref="member">nrfx_wdt_enable()</ref> or after <ref refid="group__nrfx__wdt_1ga6d711363740b8f0eed3f2419c3fc5c01" kindref="member">nrfx_wdt_stop()</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="209" column="6" declfile="drivers/include/nrfx_wdt.h" declline="209" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_enable</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_enable</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>After calling this function the watchdog is started, so the user needs to feed all allocated watchdog channels to avoid reset. At least one watchdog channel must be allocated.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="220" column="6" declfile="drivers/include/nrfx_wdt.h" declline="220" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1gacbde935f7b304a960d1200051c5907d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_feed</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance)</argsstring>
+        <name>nrfx_wdt_feed</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for feeding the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function feeds all allocated watchdog channels.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="229" column="6" declfile="drivers/include/nrfx_wdt.h" declline="229" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga96ac2c146bdff157a899a35902efee3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_channel_feed</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrfx_wdt_channel_id channel_id)</argsstring>
+        <name>nrfx_wdt_channel_feed</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref></type>
+          <declname>channel_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for feeding an individual watchdog channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of watchdog channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="237" column="6" declfile="drivers/include/nrfx_wdt.h" declline="237" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga6d711363740b8f0eed3f2419c3fc5c01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_wdt_stop</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_stop</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Watchdog has been successfully stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration does not allow for stopping the watchdog. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="248" column="5" declfile="drivers/include/nrfx_wdt.h" declline="248" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga1c0c06815b586fe43452c03888bd81a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_wdt_irq_handler</definition>
+        <argsstring>(nrfx_wdt_t *p_instance)</argsstring>
+        <name>nrfx_wdt_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="256" column="6" declfile="drivers/include/nrfx_wdt.h" declline="256" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1ga821b5c25a136a4ce867bd1b0468196d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_wdt_task_address_get</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrf_wdt_task_t task)</argsstring>
+        <name>nrfx_wdt_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested task address for the WDT driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the WDT tasks.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="281" column="29" bodyfile="drivers/include/nrfx_wdt.h" bodystart="281" bodyend="285" declfile="drivers/include/nrfx_wdt.h" declline="266" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__wdt_1gabf551ee135ebfdc7f4f317410969fd0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_wdt_event_address_get</definition>
+        <argsstring>(nrfx_wdt_t const *p_instance, nrf_wdt_event_t event)</argsstring>
+        <name>nrfx_wdt_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested event address for the WDT driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the WDT events.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_wdt.h" line="287" column="29" bodyfile="drivers/include/nrfx_wdt.h" bodystart="287" bodyend="291" declfile="drivers/include/nrfx_wdt.h" declline="277" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2014<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_WDT_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_WDT_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_wdt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_wdt<sp/>WDT<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_wdt</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Watchdog<sp/>Timer<sp/>(WDT)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_WDT_HAS_STOP<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>indicating<sp/>whether<sp/>watchdog<sp/>stopping<sp/>is<sp/>supported.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_WDT_HAS_STOP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_WDT_HAS_STOP<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!NRFX_CHECK(NRFX_WDT_CONFIG_NO_IRQ)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">/**<sp/>@brief<sp/>WDT<sp/>instance<sp/>interrupt<sp/>priority<sp/>configuration.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>NRFX_WDT_IRQ_CONFIG<sp/>.interrupt_priority<sp/>=<sp/>NRFX_WDT_DEFAULT_CONFIG_IRQ_PRIORITY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>NRFX_WDT_IRQ_CONFIG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@brief<sp/>WDT<sp/>event<sp/>handler<sp/>function<sp/>type.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_type<sp/>WDT<sp/>event.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>requests<sp/><sp/><sp/>Value<sp/>of<sp/>the<sp/>request<sp/>status<sp/>register.<sp/>Bits<sp/>that<sp/>have<sp/>been<sp/>set<sp/>can<sp/>be</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>used<sp/>to<sp/>determine<sp/>which<sp/>RR<sp/>(Reload<sp/>Request)<sp/>register<sp/>was<sp/>the<sp/>reason</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>timeout<sp/>event.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Valid<sp/>only<sp/>when<sp/>@ref<sp/>NRF_WDT_EVENT_TIMEOUT<sp/>is<sp/>passed<sp/>in<sp/>@p<sp/>event_type.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/>User<sp/>context.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" kindref="member">nrfx_wdt_event_handler_t</ref>)(<ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref><sp/>event_type,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>requests,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**<sp/>@brief<sp/>WDT<sp/>channel<sp/>ID<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrf_wdt_rr_register_t</ref><sp/><ref refid="group__nrfx__wdt_1gad16fe63f0b930b063a839a3b52462289" kindref="member">nrfx_wdt_channel_id</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alloc_index;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!NRFX_CHECK(NRFX_WDT_CONFIG_NO_IRQ)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" kindref="member">nrfx_wdt_event_handler_t</ref><sp/>wdt_event_handler;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRFX_WDT_HAS_STOP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stoppable;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}<sp/>nrfx_wdt_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="95"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment">/**<sp/>@brief<sp/>Data<sp/>structure<sp/>of<sp/>the<sp/>Watchdog<sp/>(WDT)<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="structnrfx__wdt__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_WDT_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>with<sp/>WDT<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_wdt_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}<sp/><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>an<sp/>instance<sp/>of<sp/>the<sp/>WDT<sp/>driver.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_WDT_INSTANCE(reg)<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_reg<sp/>=<sp/>(NRF_WDT_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/><sp/><sp/><sp/>=<sp/>{0},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>WDT<sp/>initialization.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="structnrfx__wdt__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>behaviour;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>WDT<sp/>behavior<sp/>flags<sp/>bitmask,<sp/>constructed<sp/>from<sp/>@ref<sp/>nrf_wdt_behaviour_mask_t.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>reload_value;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>WDT<sp/>reload<sp/>value<sp/>in<sp/>milliseconds.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!NRFX_CHECK(NRFX_WDT_CONFIG_NO_IRQ)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>WDT<sp/>interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}<sp/><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="121"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>@brief<sp/>WDT<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>WDT<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>-<sp/>run<sp/>when<sp/>CPU<sp/>is<sp/>in<sp/>SLEEP<sp/>mode,<sp/>pause<sp/>when<sp/>in<sp/>HALT<sp/>mode</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>-<sp/>reload<sp/>value:<sp/>2000<sp/>ms</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_WDT_DEFAULT_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.behaviour<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_WDT_BEHAVIOUR_RUN_SLEEP_MASK,<sp/>\</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.reload_value<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2000,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>NRFX_WDT_IRQ_CONFIG<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>WDT<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NULL<sp/>if<sp/>configuration<sp/>is<sp/>to<sp/>be<sp/>skipped<sp/>and<sp/>will<sp/>be<sp/>done<sp/>later</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>using<sp/>@ref<sp/>nrfx_wdt_reconfigure.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>wdt_event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Ignored<sp/>when</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>NRFX_WDT_CONFIG_NO_IRQ<sp/>option<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>User<sp/>context<sp/>passed<sp/>in<sp/>event<sp/>handler.<sp/>Ignored<sp/>when</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>NRFX_WDT_CONFIG_NO_IRQ<sp/>option<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga82b4215747413e3369fb2be472f2a195" kindref="member">nrfx_wdt_init</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__wdt_1ga76d75e6518993815bfd99b2604844c45" kindref="member">nrfx_wdt_event_handler_t</ref><sp/><sp/>wdt_event_handler,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="155"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>WDT<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>The<sp/>instance<sp/>can<sp/>be<sp/>uninitialized<sp/>only<sp/>when<sp/>not<sp/>running.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga3ddf48b90195061146fd512162bfd041" kindref="member">nrfx_wdt_uninit</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="164"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>WDT<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Instance<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Instance<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga3615901b329f75a09c0eb0f3135b247f" kindref="member">nrfx_wdt_init_check</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>the<sp/>watchdog.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>watchdog<sp/>is<sp/>already<sp/>active.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>watchdog<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga4f00564c2a80d90c816d55db80a02785" kindref="member">nrfx_wdt_reconfigure</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__wdt__config__t" kindref="compound">nrfx_wdt_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="187"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>allocating<sp/>a<sp/>watchdog<sp/>channel.</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>function<sp/>can<sp/>not<sp/>be<sp/>called<sp/>after<sp/>@ref<sp/>nrfx_wdt_enable.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_instance<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_channel_id<sp/>ID<sp/>of<sp/>granted<sp/>channel.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>channel<sp/>was<sp/>successfully<sp/>allocated.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOMEM<sp/>There<sp/>is<sp/>no<sp/>available<sp/>channel<sp/>to<sp/>be<sp/>used.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga227f0484cad96cff81d28f92d10d8d6d" kindref="member">nrfx_wdt_channel_alloc</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref><sp/>*<sp/>p_channel_id);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="201"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>deallocating<sp/>all<sp/>previously<sp/>allocated<sp/>watchdog<sp/>channels.</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>function<sp/>can<sp/>be<sp/>called<sp/>when<sp/>watchdog<sp/>is<sp/>stopped,</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>that<sp/>is<sp/>before<sp/>@ref<sp/>nrfx_wdt_enable()<sp/>or<sp/>after<sp/>@ref<sp/>nrfx_wdt_stop().</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga2ff531bf4faf6eb152f3098c12d22fc7" kindref="member">nrfx_wdt_channels_free</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="211"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>starting<sp/>the<sp/>watchdog.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>@note<sp/>After<sp/>calling<sp/>this<sp/>function<sp/>the<sp/>watchdog<sp/>is<sp/>started,<sp/>so<sp/>the<sp/>user<sp/>needs<sp/>to<sp/>feed</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>all<sp/>allocated<sp/>watchdog<sp/>channels<sp/>to<sp/>avoid<sp/>reset.<sp/>At<sp/>least<sp/>one<sp/>watchdog<sp/>channel</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>must<sp/>be<sp/>allocated.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga5bd5959240f1f9aa4334c6369e9de083" kindref="member">nrfx_wdt_enable</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="222"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>feeding<sp/>the<sp/>watchdog.</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*<sp/>@details<sp/>Function<sp/>feeds<sp/>all<sp/>allocated<sp/>watchdog<sp/>channels.</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1gacbde935f7b304a960d1200051c5907d6" kindref="member">nrfx_wdt_feed</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="231"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>feeding<sp/>an<sp/>individual<sp/>watchdog<sp/>channel.</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>channel_id<sp/>ID<sp/>of<sp/>watchdog<sp/>channel.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga96ac2c146bdff157a899a35902efee3e" kindref="member">nrfx_wdt_channel_feed</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,<sp/><ref refid="group__nrf__wdt__hal_1gad49f6a91acfd021376d8fe9281768682" kindref="member">nrfx_wdt_channel_id</ref><sp/>channel_id);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRFX_WDT_HAS_STOP</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="240"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>stopping<sp/>the<sp/>watchdog.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>Watchdog<sp/>has<sp/>been<sp/>successfully<sp/>stopped.</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EPERM<sp/>Configuration<sp/>does<sp/>not<sp/>allow<sp/>for<sp/>stopping<sp/>the<sp/>watchdog.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga6d711363740b8f0eed3f2419c3fc5c01" kindref="member">nrfx_wdt_stop</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="251"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__wdt_1ga1c0c06815b586fe43452c03888bd81a8" kindref="member">nrfx_wdt_irq_handler</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="258"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>a<sp/>requested<sp/>task<sp/>address<sp/>for<sp/>the<sp/>WDT<sp/>driver<sp/>module.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>task<sp/><sp/><sp/><sp/><sp/><sp/><sp/>One<sp/>of<sp/>the<sp/>WDT<sp/>tasks.</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/>@return<sp/>Task<sp/>address.</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__wdt_1ga821b5c25a136a4ce867bd1b0468196d6" kindref="member">nrfx_wdt_task_address_get</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref><sp/><sp/><sp/><sp/><sp/>task);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="269"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>a<sp/>requested<sp/>event<sp/>address<sp/>for<sp/>the<sp/>WDT<sp/>driver<sp/>module.</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event<sp/><sp/><sp/><sp/><sp/><sp/>One<sp/>of<sp/>the<sp/>WDT<sp/>events.</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@return<sp/>Event<sp/>address.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__wdt_1gabf551ee135ebfdc7f4f317410969fd0d" kindref="member">nrfx_wdt_event_address_get</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref><sp/><sp/><sp/><sp/>event);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__wdt_1ga821b5c25a136a4ce867bd1b0468196d6" kindref="member">nrfx_wdt_task_address_get</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__wdt__hal_1ga4e5aac87484fc059e81f79023c6676a3" kindref="member">nrf_wdt_task_t</ref><sp/><sp/><sp/><sp/><sp/>task)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__wdt_1gab7f6d612c8bf70197f0afd8b3381c916" kindref="member">nrfy_wdt_task_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__wdt__t_1a54f8ea0c8da70e28174b8f08662b9e2b" kindref="member">p_reg</ref>,<sp/>task);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__wdt_1gabf551ee135ebfdc7f4f317410969fd0d" kindref="member">nrfx_wdt_event_address_get</ref>(<ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__wdt__hal_1gadca2b19e3bb4c0b4e1b3372ade1112ee" kindref="member">nrf_wdt_event_t</ref><sp/><sp/><sp/><sp/>event)</highlight></codeline>
+<codeline lineno="289"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__wdt_1ga926e56fbb9a7550c1c433341ed54c2cd" kindref="member">nrfy_wdt_event_address_get</ref>(p_instance-&gt;<ref refid="structnrfx__wdt__t_1a54f8ea0c8da70e28174b8f08662b9e2b" kindref="member">p_reg</ref>,<sp/>event);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="294"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_wdt.h"/>
+  </compounddef>
+</doxygen>

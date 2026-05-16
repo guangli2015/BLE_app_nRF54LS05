@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__tdm" kind="group">
+    <compoundname>nrfx_tdm</compoundname>
+    <title>TDM driver</title>
+    <innerclass refid="structnrfx__tdm__clk__params__t" prot="public">nrfx_tdm_clk_params_t</innerclass>
+    <innerclass refid="structnrfx__tdm__prescalers__t" prot="public">nrfx_tdm_prescalers_t</innerclass>
+    <innerclass refid="structnrfx__tdm__buffers__t" prot="public">nrfx_tdm_buffers_t</innerclass>
+    <innerclass refid="structnrfx__tdm__config__t" prot="public">nrfx_tdm_config_t</innerclass>
+    <innerclass refid="structnrfx__tdm__t" prot="public">nrfx_tdm_t</innerclass>
+    <innergroup refid="group__nrfx__tdm__config">TDM peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__tdm_1ga8989d32aa90f581b962bc7a4b42ad7cd" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_tdm_data_handler_t) (nrfx_tdm_buffers_t const *p_released, uint32_t status)</definition>
+        <argsstring>)(nrfx_tdm_buffers_t const *p_released, uint32_t status)</argsstring>
+        <name>nrfx_tdm_data_handler_t</name>
+        <briefdescription>
+<para>TDM driver data handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A data handling function of this type must be specified during the initialization of the driver. The driver will call this function when it finishes transfer using buffers passed to it by the application, and when it needs to be provided with buffers for the next part of the transfer.</para>
+<para><simplesect kind="note"><para>The <computeroutput>p_released</computeroutput> pointer passed to this function is temporary and will be invalid after the function returns, hence it cannot be stored and used later. If needed, the pointed content (that is, buffers pointers) must be copied instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_released</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure with pointers to buffers passed previously to the driver that will no longer be accessed by it (they can be now safely released or used for another purpose, in particular for a next part of the transfer). This pointer will be NULL if the application did not supply the buffers for the next part of the transfer (via a call to <ref refid="group__nrfx__tdm_1gaa740c9005ff267f285034ffb55ce84ae" kindref="member">nrfx_tdm_next_buffers_set</ref>) since the previous time the data handler signaled such need. This means that data corruption occurred (the previous buffers are used for the second time) and no buffers can be released at the moment. Both pointers in this structure are NULL when the handler is called for the first time after a transfer is started, because no data has been transferred yet at this point. In all successive calls, the pointers specify what has been sent (TX) and what has been received (RX) in the part of the transfer that has just been completed (provided that a given direction is enabled, see <ref refid="group__nrfx__tdm_1ga0e267099d6cb657aa5317be46e7fcb19" kindref="member">nrfx_tdm_start</ref>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Since the peripheral is stopped asynchronously, buffers that are released after the call to <ref refid="group__nrfx__tdm_1ga0eaf85ad572bd79aa54c5a6679fc9925" kindref="member">nrfx_tdm_stop</ref> are not used entirely. In this case, only a part (if any) of the TX buffer has been actually transmitted and only a part (if any) of the RX buffer is filled with received data. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit field describing the current status of the transfer. It can be 0 or a combination of the following flags:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__tdm_1gac3b0d39e7e440a82b0c6f439ba583d61" kindref="member">NRFX_TDM_STATUS_NEXT_BUFFERS_NEEDED</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__tdm_1ga76c123c8d83d0ce50e45edb7ab12b148" kindref="member">NRFX_TDM_STATUS_TRANSFER_STOPPED</ref> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="231" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__tdm_1ga49d7fc4a27d3036f2ee1022fdf9d50f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_tdm_init</definition>
+        <argsstring>(nrfx_tdm_t *p_instance, nrfx_tdm_config_t const *p_config, nrfx_tdm_data_handler_t handler)</argsstring>
+        <name>nrfx_tdm_init</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__tdm__config__t" kindref="compound">nrfx_tdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__tdm_1ga8989d32aa90f581b962bc7a4b42ad7cd" kindref="member">nrfx_tdm_data_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TDM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data handler provided by the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested combination of configuration options is not allowed by the TDM peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="277" column="5" declfile="drivers/include/nrfx_tdm.h" declline="277" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1gaaa81492d28ebe3793c49fd29748a17e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_tdm_uninit</definition>
+        <argsstring>(nrfx_tdm_t *p_instance)</argsstring>
+        <name>nrfx_tdm_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TDM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="286" column="6" declfile="drivers/include/nrfx_tdm.h" declline="286" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1ga3e2ccef05d09a3458902e63d98ebefb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_tdm_init_check</definition>
+        <argsstring>(nrfx_tdm_t const *p_instance)</argsstring>
+        <name>nrfx_tdm_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TDM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="296" column="6" declfile="drivers/include/nrfx_tdm.h" declline="296" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1gabf2120042f8abf1ba6c945d0837bd74a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_tdm_reconfigure</definition>
+        <argsstring>(nrfx_tdm_t *p_instance, nrfx_tdm_config_t const *p_config)</argsstring>
+        <name>nrfx_tdm_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__tdm__config__t" kindref="compound">nrfx_tdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the TDM driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested combination of configuration options is not allowed by the TDM peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="309" column="5" declfile="drivers/include/nrfx_tdm.h" declline="309" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1ga0e267099d6cb657aa5317be46e7fcb19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_tdm_start</definition>
+        <argsstring>(nrfx_tdm_t *p_instance, nrfx_tdm_buffers_t const *p_initial_buffers)</argsstring>
+        <name>nrfx_tdm_start</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__tdm__buffers__t" kindref="compound">nrfx_tdm_buffers_t</ref> const *</type>
+          <declname>p_initial_buffers</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the continuous TDM transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The TDM data transfer can be performed in one of three modes: RX (reception) only, TX (transmission) only, or in both directions simultaneously. The mode is selected by specifying a proper buffer for a given direction in the call to this function or by passing NULL instead if this direction is to be disabled.</para>
+<para>The length of the buffer (which is a common value for RX and TX if both directions are enabled) is specified in 32-bit words. One 32-bit memory word can either contain four 8-bit samples, two 16-bit samples, or one right-aligned 24-bit sample sign-extended to a 32-bit value. For a detailed memory mapping for different supported configurations, see the Product Specification.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including TDM) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_initial_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the initial part of the transfer (buffers for all consecutive parts are provided through the data handler).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver has not been initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer has already been already started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No buffers were provided or the provided transfer length is too short. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="344" column="5" declfile="drivers/include/nrfx_tdm.h" declline="344" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1gaa740c9005ff267f285034ffb55ce84ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_tdm_next_buffers_set</definition>
+        <argsstring>(nrfx_tdm_t *p_instance, nrfx_tdm_buffers_t const *p_buffers)</argsstring>
+        <name>nrfx_tdm_next_buffers_set</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__tdm__buffers__t" kindref="compound">nrfx_tdm_buffers_t</ref> const *</type>
+          <declname>p_buffers</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the buffers to be used in the next part of the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application must call this function when the data handler receives <ref refid="group__nrfx__tdm_1gac3b0d39e7e440a82b0c6f439ba583d61" kindref="member">NRFX_TDM_STATUS_NEXT_BUFFERS_NEEDED</ref> in the <computeroutput>status</computeroutput> parameter. The call can be done immediately from the data handler function or later, but it has to be done before the TDM peripheral finishes processing the buffers supplied previously. Otherwise, data corruption will occur.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the upcoming part of the transfer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the buffers were already supplied or the peripheral is currently being stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Required buffers were not provided or the provided transfer length is too short. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="368" column="5" declfile="drivers/include/nrfx_tdm.h" declline="368" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1ga0eaf85ad572bd79aa54c5a6679fc9925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_tdm_stop</definition>
+        <argsstring>(nrfx_tdm_t *p_instance, bool abort)</argsstring>
+        <name>nrfx_tdm_stop</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>abort</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the TDM transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">abort</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if transfer is to be stopped immediately, false if transfer is to be stopped only after currently processed buffers are filled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="379" column="6" declfile="drivers/include/nrfx_tdm.h" declline="379" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1gab0bc2cadc9dde30aaff6190d5258e601" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_tdm_prescalers_calc</definition>
+        <argsstring>(nrfx_tdm_clk_params_t const *clk_params, nrfx_tdm_prescalers_t *prescalers)</argsstring>
+        <name>nrfx_tdm_prescalers_calc</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__clk__params__t" kindref="compound">nrfx_tdm_clk_params_t</ref> const *</type>
+          <declname>clk_params</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__tdm__prescalers__t" kindref="compound">nrfx_tdm_prescalers_t</ref> *</type>
+          <declname>prescalers</declname>
+        </param>
+        <briefdescription>
+<para>Function for calculating TDM clock prescaler values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function to find suitable value for prescalers in <ref refid="structnrfx__tdm__config__t" kindref="compound">nrfx_tdm_config_t</ref> structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">clk_params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters used to describe clock prescaling. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">prescalers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Prescaler structure pointer to be filled with prescaler values.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No suitable prescaler values were found. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="393" column="5" declfile="drivers/include/nrfx_tdm.h" declline="393" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__tdm_1ga8aa82da76f8ded41d61bf10b8ff3c99f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_tdm_irq_handler</definition>
+        <argsstring>(nrfx_tdm_t *p_instance)</argsstring>
+        <name>nrfx_tdm_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__tdm__t" kindref="compound">nrfx_tdm_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="401" column="6" declfile="drivers/include/nrfx_tdm.h" declline="401" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__tdm_1gaa463008384bd132fa9c7b9e26f6e1524" prot="public" static="no">
+        <name>NRFX_TDM_DEFAULT_CONFIG</name>
+        <param><defname>_sck_pin</defname></param>
+        <param><defname>_fsync_pin</defname></param>
+        <param><defname>_mck_pin</defname></param>
+        <param><defname>_sdout_pin</defname></param>
+        <param><defname>_sdin_pin</defname></param>
+        <initializer>{                                                                                      \
+    .sck_pin         = _sck_pin,                                                       \
+    .fsync_pin       = _fsync_pin,                                                     \
+    .mck_pin         = _mck_pin,                                                       \
+    .sdout_pin       = _sdout_pin,                                                     \
+    .sdin_pin        = _sdin_pin,                                                      \
+    .irq_priority    = NRFX_TDM_DEFAULT_CONFIG_IRQ_PRIORITY,                           \
+    .mode            = <ref refid="group__nrf__tdm__hal_1gga3be5f370705bf71041cda43df0b53bb5ac5bd0e872a719775b9b8a30855f9f3d2" kindref="member">NRF_TDM_MODE_MASTER</ref>,                                            \
+    .alignment       = <ref refid="group__nrf__tdm__hal_1gga75960ff2f5a41a6708af0ca30849c2eba6c8a3cdc6ab878d64c857d10dabbcb70" kindref="member">NRF_TDM_ALIGN_LEFT</ref>,                                             \
+    .sample_width    = <ref refid="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9bace087fbba5de0b5d269efd6506052fab" kindref="member">NRF_TDM_SWIDTH_16BIT</ref>,                                           \
+    .rx_channel_mask = <ref refid="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a1f824edf8aed1257131d4347df74e081" kindref="member">NRF_TDM_CHANNEL_RX0_MASK</ref>,                                       \
+    .tx_channel_mask = <ref refid="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a5f5e4fd1c1bb1bb51d4110d3470600f1" kindref="member">NRF_TDM_CHANNEL_TX0_MASK</ref>,                                       \
+    .channel_number  = 2,                                                              \
+    .channel_delay   = <ref refid="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea2877879b1d3b4723895ee2f807afce5f" kindref="member">NRF_TDM_CHANNEL_DELAY_1CK</ref>,                                      \
+    .sck_polarity    = <ref refid="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5eba794ce754ef416f4fcda62d494adae618" kindref="member">NRF_TDM_POLARITY_POSEDGE</ref>,                                       \
+    .fsync_polarity  = <ref refid="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5ebac3361c0d19366e95e8c5cf8b56a56353" kindref="member">NRF_TDM_POLARITY_NEGEDGE</ref>,                                       \
+    .fsync_duration  = <ref refid="group__nrf__tdm__hal_1gga97d81ae839402941bdb26c30ba11118baa91fd69423a457cf4de2320beb902999" kindref="member">NRF_TDM_FSYNC_DURATION_CHANNEL</ref>,                                 \
+    .ors             = 0,                                                              \
+    .mck_src         = <ref refid="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18a7d5f0e760d90c85a340a1c78b63d4384" kindref="member">NRF_TDM_SRC_PCLK32M</ref>,                                            \
+    .sck_src         = <ref refid="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18a7d5f0e760d90c85a340a1c78b63d4384" kindref="member">NRF_TDM_SRC_PCLK32M</ref>,                                            \
+    .prescalers      =                                                                 \
+    {                                                                                  \
+        .mck_div     = <ref refid="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a5a16a6bf41de2cc0f4d77dd47594a716" kindref="member">NRF_TDM_MCK_DIV_8</ref>,                                              \
+        .sck_div     = <ref refid="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aee37b23f50695606e1d834d70576e031" kindref="member">NRF_TDM_SCK_DIV_8</ref>,                                              \
+    },                                                                                 \
+}</initializer>
+        <briefdescription>
+<para>TDM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TDM with the following options:<itemizedlist>
+<listitem><para>Master mode</para>
+</listitem><listitem><para>Left alignment</para>
+</listitem><listitem><para>16 bit sample width</para>
+</listitem><listitem><para>One RX channel enabled</para>
+</listitem><listitem><para>One TX channel enabled</para>
+</listitem><listitem><para>Delay of one clock pulse</para>
+</listitem><listitem><para>TX on the falling edge of SCK, RX on the rising edge of SCK</para>
+</listitem><listitem><para>Frame starts at falling edge of FSYNC.</para>
+</listitem><listitem><para>Zeros sent as over-read</para>
+</listitem><listitem><para>PCLK32M clock source</para>
+</listitem><listitem><para>MCK frequency divider equal to 8</para>
+</listitem><listitem><para>SCK frequency divider equal to 8</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_sck_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Serial clock pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_fsync_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame Synchronization pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_mck_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Master clock pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_sdout_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Serial Data Output pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_sdin_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Serial Data Input pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="139" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__tdm_1ga6d788251d816d47eb6e96601ef5d42d2" prot="public" static="no">
+        <name>NRFX_TDM_NUM_OF_CHANNELS</name>
+        <initializer>(TDM_CONFIG_CHANNEL_NUM_NUM_Max + 1)</initializer>
+        <briefdescription>
+<para>Maximum number of TDM channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="168" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__tdm_1gaf9c7349f3ba66e8cf7f04508e7215788" prot="public" static="no">
+        <name>NRFX_TDM_MIN_TRANSFER_SIZE</name>
+        <initializer>TDM_MIN_TRANSFER_SIZE</initializer>
+        <briefdescription>
+<para>Minimum TDM transfer size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="171" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__tdm_1gac3b0d39e7e440a82b0c6f439ba583d61" prot="public" static="no">
+        <name>NRFX_TDM_STATUS_NEXT_BUFFERS_NEEDED</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>TDM status flag indicating that the application must provide buffers that are to be used in the next part of the transfer. A call to <ref refid="group__nrfx__tdm_1gaa740c9005ff267f285034ffb55ce84ae" kindref="member">nrfx_tdm_next_buffers_set</ref> must be done before the currently used buffers are completely processed (that is, the time remaining for supplying the next buffers depends on the used size of the buffers). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="179" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__tdm_1ga76c123c8d83d0ce50e45edb7ab12b148" prot="public" static="no">
+        <name>NRFX_TDM_STATUS_TRANSFER_STOPPED</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>TDM status flag indicating that The peripheral has been stopped and all buffers that were passed to the driver have been released. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="184" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__tdm_1gab0fc8b6da8f7bacaa8f0047995ce146b" prot="public" static="no">
+        <name>NRFX_TDM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                 \
+    .p_reg = (NRF_TDM_Type *)reg, \
+    .cb = {0},                    \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a TDM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_tdm.h" line="259" column="9" bodyfile="drivers/include/nrfx_tdm.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Time Division Multiplexed Audio Interface (TDM) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__prs" kind="group">
+    <compoundname>nrfx_prs</compoundname>
+    <title>Peripheral Resource Sharing (PRS)</title>
+    <innergroup refid="group__nrfx__prs__config">Peripheral Resource Sharing module configuration</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__prs_1ga112b4b3bda2602776c5942e9c8c4624e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_prs_acquire</definition>
+        <argsstring>(void const *p_base_addr, nrfx_irq_handler_t irq_handler, void *p_instance)</argsstring>
+        <name>nrfx_prs_acquire</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_base_addr</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__common_1ga8a376a2034709d3d824de72d0f791145" kindref="member">nrfx_irq_handler_t</ref></type>
+          <declname>irq_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for acquiring shared peripheral resources associated with the specified peripheral using instance pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Certain resources and registers are shared among peripherals that have the same ID (for example: SPI0, SPIM0, SPIS0, TWI0, TWIM0, and TWIS0 in nRF52832). Only one of them can be utilized at a given time. This function reserves proper resources to be used by the specified peripheral. If NRFX_PRS_ENABLED is set to a non-zero value, IRQ handlers for peripherals that are sharing resources with others are invoked by the <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module instead of the user code. The drivers must then specify their interrupt handling routines with instance pointer and register them by using this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested peripheral base pointer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt handler to register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to shared peripheral instance structure used in interrupt handling.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If resources were acquired successfully or the specified peripheral is not handled by the PRS subsystem and there is no need to acquire resources for it. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If resources were already acquired. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/prs/nrfx_prs.h" line="71" column="5" declfile="drivers/src/prs/nrfx_prs.h" declline="71" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__prs_1gad6d2a989afdfd94c72396e995d41451a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_prs_release</definition>
+        <argsstring>(void const *p_base_addr)</argsstring>
+        <name>nrfx_prs_release</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_base_addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for releasing shared resources reserved previously by <ref refid="group__nrfx__prs_1ga112b4b3bda2602776c5942e9c8c4624e" kindref="member">nrfx_prs_acquire()</ref> for the specified peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Released peripheral base pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/prs/nrfx_prs.h" line="81" column="6" declfile="drivers/src/prs/nrfx_prs.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Peripheral Resource Sharing interface (PRS). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

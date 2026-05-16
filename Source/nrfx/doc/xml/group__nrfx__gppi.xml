@@ -1,0 +1,1807 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__gppi" kind="group">
+    <compoundname>nrfx_gppi</compoundname>
+    <title>Generic PPI layer</title>
+    <innerclass refid="structnrfx__gppi__t" prot="public">nrfx_gppi_t</innerclass>
+    <innerclass refid="structnrfx__gppi__resource__t" prot="public">nrfx_gppi_resource_t</innerclass>
+    <innergroup refid="group__nrfx__gppiv1">Generic PPI layer (legacy)</innergroup>
+    <innergroup refid="group__nrfx__gppi__routes">GPPI Routes</innergroup>
+    <innergroup refid="group__nrfx__gppi__d2ppi">GPPI structures specific to  Distributed (across multiple domains) DPPI (D2PPI) architecture.</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t nrfx_gppi_handle_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_gppi_handle_t</name>
+        <briefdescription>
+<para>Handle used for PPI connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="79" column="18" bodyfile="helpers/nrfx_gppi.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t nrfx_gppi_group_handle_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_gppi_group_handle_t</name>
+        <briefdescription>
+<para>Handle used for PPI group resource. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="81" column="18" bodyfile="helpers/nrfx_gppi.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__gppi_1gab7ba8900cccdb6f85201328a8d7b57c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_init</definition>
+        <argsstring>(nrfx_gppi_t *p_instance)</argsstring>
+        <name>nrfx_gppi_init</name>
+        <param>
+          <type><ref refid="structnrfx__gppi__t" kindref="compound">nrfx_gppi_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing GPPI with a structure with resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function shall be called as early as possible to allow resource allocation. <computeroutput>p_instance</computeroutput> contains channel resources which need to be initialized before calling that function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="112" column="6" declfile="helpers/nrfx_gppi.h" declline="112" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga1c0f65495a3a5d0c20b7bea3889b0ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_gppi_group_domain_id_get</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_domain_id_get</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the domain ID from the group handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Domain ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="591" column="29" bodyfile="helpers/nrfx_gppi.h" bodystart="591" bodyend="595" declfile="helpers/nrfx_gppi.h" declline="124" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_gppi_domain_id_get</definition>
+        <argsstring>(uint32_t addr)</argsstring>
+        <name>nrfx_gppi_domain_id_get</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the domain ID from the peripheral register address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Domain ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="597" column="29" bodyfile="helpers/nrfx_gppi.h" bodystart="597" bodyend="600" declfile="helpers/nrfx_gppi.h" declline="137" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga3f6e4f8a6d0fd3d33809582738423754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_ep_channel_get</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_channel_get</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the channel that is used for an endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configured channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint does not have channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="604" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="604" bodyend="611" declfile="helpers/nrfx_gppi.h" declline="151" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga68848b6adf63a310a453ab6fe8a5fdf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_domain_channel_get</definition>
+        <argsstring>(nrfx_gppi_handle_t handle, uint32_t node_id)</argsstring>
+        <name>nrfx_gppi_domain_channel_get</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting one of a channels that is used in a connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A connection may consists of a number of nodes which are domains with a unique DPPI or PPIB nodes. <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> can be used to get the domain ID for a given peripheral. Node ID for PPIB is target-specific and can be found in a target-specific header file (see <ref refid="group__nrfx__gppi__d2ppi_1ga7a1abdd8d8359eddcf00325d7b498fb8" kindref="member">nrfx_gppi_node_id_t</ref>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">node_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain or PPIB node ID.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configured channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid input arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="168" column="5" declfile="helpers/nrfx_gppi.h" declline="168" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga98b601d7a11553b7d16d9a4bda92c1ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_domain_conn_alloc</definition>
+        <argsstring>(uint32_t producer, uint32_t consumer, nrfx_gppi_handle_t *p_handle)</argsstring>
+        <name>nrfx_gppi_domain_conn_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>producer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>consumer</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref> *</type>
+          <declname>p_handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating and setup a connection between two domains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In case of a multi domain DPPI, function is allocating all needed resources and configures PPIB bridges. For single domain cases (PPI or DPPI) only a channel is allocated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">producer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain that will produce (publish) events. Not used in single domain case. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">consumer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain that will consume (subsribe to) events. Not used in single domain case. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle used to control the connection.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>On successful connection allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is not enough resources to allocate the connection. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="183" column="5" declfile="helpers/nrfx_gppi.h" declline="183" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gac6d617711759bcf7ddcb125cdbd7058f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_ep_attach</definition>
+        <argsstring>(uint32_t ep, nrfx_gppi_handle_t handle)</argsstring>
+        <name>nrfx_gppi_ep_attach</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for attaching an endpoint to the connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Endpoint can be task, event, publish or subscribe register address. In order to allow attaching the endpoint it must belong to the route that connection is using. On SoC with PPI there are limitations regarding how many endpoints can be attached to a handle (channel) - 1 event and 2 tasks (1 if FORK is not present).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint attached. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint cannot be attached, i.e. it does not belong to the route. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="200" column="5" declfile="helpers/nrfx_gppi.h" declline="200" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gaf878024a4babd417d17d243d08d94471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_ep_to_ch_attach</definition>
+        <argsstring>(uint32_t ep, uint8_t channel)</argsstring>
+        <name>nrfx_gppi_ep_to_ch_attach</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for attaching an endpoint to the channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Endpoint can be task, event, publish or subscribe register address.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint attached. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint cannot be attached, i.e. endpoints already configured in case of PPI. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="213" column="5" declfile="helpers/nrfx_gppi.h" declline="213" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gab2fd85c0a3a3c0eaf9e5a01f53ca3955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_conn_alloc</definition>
+        <argsstring>(uint32_t eep, uint32_t tep, nrfx_gppi_handle_t *p_handle)</argsstring>
+        <name>nrfx_gppi_conn_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>eep</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>tep</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref> *</type>
+          <declname>p_handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a connection between Task and Event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function performs <ref refid="group__nrfx__gppi_1ga98b601d7a11553b7d16d9a4bda92c1ef" kindref="member">nrfx_gppi_domain_conn_alloc</ref> followed by the configuration of endpoints.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">eep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event endpoint address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task endpoint address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle used to control the connection.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful connection allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is not enough resources to allocate the connection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>eep</computeroutput> or <computeroutput>tep</computeroutput> is already configured to be used by the DPPI. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="228" column="5" declfile="helpers/nrfx_gppi.h" declline="228" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga7e65c633341cfdde219d1fe1eee54eb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_domain_conn_free</definition>
+        <argsstring>(nrfx_gppi_handle_t handle)</argsstring>
+        <name>nrfx_gppi_domain_conn_free</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a connection between domains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For connection within a single domain a channel is freed. For cross-domain connection channels in bridges (PPIB) are cleared and all used resources are freed.. Connection shall be disabled prior to clearing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="239" column="6" declfile="helpers/nrfx_gppi.h" declline="239" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga1bb9e2e3049ae49fda57ed0dcec540fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_ep_clear</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_clear</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing an endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove endpoint from DPPI channel. For PPI it searches all channel configurations and clears the first configuration where the endpoint was used. For PPI it is more time consuming so in PPI specific code <ref refid="group__nrfx__gppi_1ga3c8d8d781b511caa171977c863d60a0e" kindref="member">nrfx_gppi_ep_ch_clear</ref> can be used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="250" column="6" declfile="helpers/nrfx_gppi.h" declline="250" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga3c8d8d781b511caa171977c863d60a0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_ep_ch_clear</definition>
+        <argsstring>(uint32_t ep, uint8_t channel)</argsstring>
+        <name>nrfx_gppi_ep_ch_clear</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing an endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For DPPI it is the same as <ref refid="group__nrfx__gppi_1ga1bb9e2e3049ae49fda57ed0dcec540fe" kindref="member">nrfx_gppi_ep_clear</ref>. For PPI it clears <computeroutput>channel</computeroutput> configuration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="260" column="6" declfile="helpers/nrfx_gppi.h" declline="260" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gab2d5322e666cce90b7cf77dfd0c4008f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_ep_enable</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_enable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling an endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In case of PPI function enables the channel which is used by the endpoint. In case of DPPI, function is only enabling an endpoint and does not control the channel to which the endpoint is attached.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="271" column="6" declfile="helpers/nrfx_gppi.h" declline="271" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga9f126b1d08dfcf52fd44f066e3642841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_ep_disable</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_disable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling an endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In case of PPI function disables the channel which is used by the endpoint. In case of DPPI, function is only disabling the endpoint and does not control the channel to which the endpoint is attached.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="282" column="6" declfile="helpers/nrfx_gppi.h" declline="282" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gad66ba695afaab349afb29af945456b2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_conn_free</definition>
+        <argsstring>(uint32_t eep, uint32_t tep, nrfx_gppi_handle_t handle)</argsstring>
+        <name>nrfx_gppi_conn_free</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>eep</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>tep</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing and freeing a connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function performs <ref refid="group__nrfx__gppi_1ga7e65c633341cfdde219d1fe1eee54eb0" kindref="member">nrfx_gppi_domain_conn_free</ref> followed by clearing of endpoints.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">eep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event endpoint. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task endpoint. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="293" column="6" declfile="helpers/nrfx_gppi.h" declline="293" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gaf8c86af5c3fab815683d343643a12af8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_conn_enable</definition>
+        <argsstring>(nrfx_gppi_handle_t handle)</argsstring>
+        <name>nrfx_gppi_conn_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling a connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function enables channels in every DPPI instance which belongs to the connection.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="302" column="6" declfile="helpers/nrfx_gppi.h" declline="302" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gab9a46c2135737e1daaae4fee5caba057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_conn_disable</definition>
+        <argsstring>(nrfx_gppi_handle_t handle)</argsstring>
+        <name>nrfx_gppi_conn_disable</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function disables channels in every DPPI instance which belongs to the connection.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Connection handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="311" column="6" declfile="helpers/nrfx_gppi.h" declline="311" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga0071f549ee1f0ea55d57c2096504abbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_channels_enable</definition>
+        <argsstring>(uint32_t domain_id, uint32_t ch_mask)</argsstring>
+        <name>nrfx_gppi_channels_enable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ch_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling channels in a domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain ID. <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> can be used to get <computeroutput>domain_id</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ch_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="319" column="6" declfile="helpers/nrfx_gppi.h" declline="319" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga1548d3b0c974970ceccc778b0cf86411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_channels_disable</definition>
+        <argsstring>(uint32_t domain_id, uint32_t ch_mask)</argsstring>
+        <name>nrfx_gppi_channels_disable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ch_mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling channels in a domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain ID. <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> can be used to get <computeroutput>domain_id</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ch_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel mask. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="327" column="6" declfile="helpers/nrfx_gppi.h" declline="327" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga19a1861b9f877ede12b0028561940033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_gppi_chan_is_enabled</definition>
+        <argsstring>(uint32_t domain_id, uint32_t ch)</argsstring>
+        <name>nrfx_gppi_chan_is_enabled</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if a channel is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain ID. <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> can be used to get <computeroutput>domain_id</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ch</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="338" column="6" declfile="helpers/nrfx_gppi.h" declline="338" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga531d04e839b0bee4ead05846db80ef74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_ep_chan_enable</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_chan_enable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling a channel used by the endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint has no channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="615" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="615" bodyend="625" declfile="helpers/nrfx_gppi.h" declline="348" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga1d68ea94b258fe3122752eeaf515a0e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_ep_is_enabled</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_is_enabled</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if a channel assigned to the endpoint is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint has no channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="627" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="627" bodyend="643" declfile="helpers/nrfx_gppi.h" declline="359" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga396fe257436faff62f79fb734ce799da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_ep_chan_disable</definition>
+        <argsstring>(uint32_t ep)</argsstring>
+        <name>nrfx_gppi_ep_chan_disable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a channel used by the endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint has no channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="645" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="645" bodyend="655" declfile="helpers/nrfx_gppi.h" declline="369" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga98a0ad4d59b4890718a7ac82fa10a119" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_group_alloc</definition>
+        <argsstring>(uint32_t domain_id, nrfx_gppi_group_handle_t *p_handle)</argsstring>
+        <name>nrfx_gppi_group_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref> *</type>
+          <declname>p_handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a group for given set of endpoints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Group can only enable or disable channels in a single DPPI so all endpoints must belong to a single domain. Use <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> with one of the endpoints that is intended to be added to that group to get <computeroutput>domain_id</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain ID for the group. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Location where handle is written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful allocation of a group. <computeroutput>handle</computeroutput> can be used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoints are not from the same domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to allocate a free group channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="385" column="5" declfile="helpers/nrfx_gppi.h" declline="385" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga2fa91589120c79af2c077d075ea7cae2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_free</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_free</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="392" column="6" declfile="helpers/nrfx_gppi.h" declline="392" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga37d946ec8bbd4f649a6d3ffbb1acbfae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_ch_add</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle, uint32_t channel)</argsstring>
+        <name>nrfx_gppi_group_ch_add</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for adding a channel to a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="group__nrfx__gppi_1ga3f6e4f8a6d0fd3d33809582738423754" kindref="member">nrfx_gppi_ep_channel_get</ref> can be used on a configured endpoint to retrieve the channel that shall be added to the group.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="403" column="6" declfile="helpers/nrfx_gppi.h" declline="403" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga0963bd036d6d877117d96d0de5cb457a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_ch_remove</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle, uint32_t channel)</argsstring>
+        <name>nrfx_gppi_group_ch_remove</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for removing a channel from a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="group__nrfx__gppi_1ga3f6e4f8a6d0fd3d33809582738423754" kindref="member">nrfx_gppi_ep_channel_get</ref> can be used on a configured endpoint to retrieve the channel that shall be added to the group.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="414" column="6" declfile="helpers/nrfx_gppi.h" declline="414" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gafff499607693ddf0ba061ad1f71ce505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_group_ep_add</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle, uint32_t ep)</argsstring>
+        <name>nrfx_gppi_group_ep_add</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for adding a configured endpoint to a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Endpoint must be from the same domain as group and it must already be configured to use a channel.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to extend the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="657" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="657" bodyend="672" declfile="helpers/nrfx_gppi.h" declline="428" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga4e3d7cb4d39d9d3c72da7d3e45929c6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_group_ep_remove</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle, uint32_t ep)</argsstring>
+        <name>nrfx_gppi_group_ep_remove</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ep</declname>
+        </param>
+        <briefdescription>
+<para>Function for removing a configured endpoint from a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Endpoint must be added to the group and it must be configured to use a channel.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Endpoint address (task or event register).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to remove from the group. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="674" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="674" bodyend="689" declfile="helpers/nrfx_gppi.h" declline="441" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gabbbc17bdcac4cf0bfe06ed3b837c38e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_gppi_group_channels_get</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_channels_get</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting a mask with channels which are assigned to the group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask with bits set for channels that belong to a group. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="450" column="10" declfile="helpers/nrfx_gppi.h" declline="450" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gad114430fcb6ac7cdb729e19f42f9de60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_enable</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="457" column="6" declfile="helpers/nrfx_gppi.h" declline="457" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gaa8c2ca8e1b6bb791ef51d8cc48374f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_disable</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_disable</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling a group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="464" column="6" declfile="helpers/nrfx_gppi.h" declline="464" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga03f9866a7bb8aa58e54df052f3728469" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_gppi_group_task_en_addr</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_task_en_addr</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the enable group task address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the task register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="473" column="10" declfile="helpers/nrfx_gppi.h" declline="473" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga4bc283e1235a2123f49856e91193e735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_gppi_group_task_dis_addr</definition>
+        <argsstring>(nrfx_gppi_group_handle_t handle)</argsstring>
+        <name>nrfx_gppi_group_task_dis_addr</name>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1gab8dcff224e1d99eae6961aef7f15418d" kindref="member">nrfx_gppi_group_handle_t</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the disable group task address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group handle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of the task register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="481" column="10" declfile="helpers/nrfx_gppi.h" declline="481" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gae86fba34bc17b99bc167988076dc4d3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_channel_alloc</definition>
+        <argsstring>(uint32_t node_id)</argsstring>
+        <name>nrfx_gppi_channel_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a group channel in a specific node of the DPPI system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function can be used to allocate a resource and use it outside of this driver.</para>
+<para><simplesect kind="note"><para><computeroutput>node_id</computeroutput> parameter is used only in the system with multiple domains. <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> or target-specific header can be used to get the node ID (see <ref refid="group__nrfx__gppi__d2ppi_1ga7a1abdd8d8359eddcf00325d7b498fb8" kindref="member">nrfx_gppi_node_id_t</ref>).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">node_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target-specific identifier of the DPPI system node (DPPIC or PPIB).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocated channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to allocate a channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="497" column="5" declfile="helpers/nrfx_gppi.h" declline="497" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gae61a7081d6f11898b29c66990a43fcfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_channel_free</definition>
+        <argsstring>(uint32_t node_id, uint8_t channel)</argsstring>
+        <name>nrfx_gppi_channel_free</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a channel in a specific node of the DPPI system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>channel</computeroutput> must be allocated earlier using <ref refid="group__nrfx__gppi_1gae86fba34bc17b99bc167988076dc4d3a" kindref="member">nrfx_gppi_channel_alloc</ref>. <computeroutput>node_id</computeroutput> must be the same as the one used in <ref refid="group__nrfx__gppi_1gae86fba34bc17b99bc167988076dc4d3a" kindref="member">nrfx_gppi_channel_alloc</ref> for allocating that resource.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">node_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target-specific identifier of the DPPI system node (DPPIC or PPIB). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="508" column="6" declfile="helpers/nrfx_gppi.h" declline="508" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1ga4910446ba0c630218bfe0a1ec554b6fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_gppi_group_channel_alloc</definition>
+        <argsstring>(uint32_t domain_id)</argsstring>
+        <name>nrfx_gppi_group_channel_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating a group channel in a specific node of the DPPI system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function can be used to allocate a resource and use it outside of this driver.</para>
+<para><simplesect kind="note"><para><computeroutput>domain_id</computeroutput> parameter is used only in the system with multiple domains. Use <ref refid="group__nrfx__gppi_1ga9fefaf1f9f9d5fb20ddf0c6908e8d5b7" kindref="member">nrfx_gppi_domain_id_get</ref> to get the ID.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target-specific identifier of the DPPI system node.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>non-negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocated channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to allocate a channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="523" column="5" declfile="helpers/nrfx_gppi.h" declline="523" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gaea2edfb9b30648bf3f860503a84746cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_gppi_group_channel_free</definition>
+        <argsstring>(uint32_t domain_id, uint8_t channel)</argsstring>
+        <name>nrfx_gppi_group_channel_free</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>domain_id</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing a group channel in a specific node of the DPPI system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>channel</computeroutput> must be allocated earlier using <ref refid="group__nrfx__gppi_1ga4910446ba0c630218bfe0a1ec554b6fa" kindref="member">nrfx_gppi_group_channel_alloc</ref>. <computeroutput>domain_id</computeroutput> must be the same as the one used in <ref refid="group__nrfx__gppi_1ga4910446ba0c630218bfe0a1ec554b6fa" kindref="member">nrfx_gppi_group_channel_alloc</ref> for allocating that resource.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target-specific identifier of the DPPI system node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="534" column="6" declfile="helpers/nrfx_gppi.h" declline="534" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__gppi_1gab2924ccfb152d9273d877d9caacf939a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_gppi_ext_conn_alloc</definition>
+        <argsstring>(uint32_t producer, uint32_t consumer, nrfx_gppi_handle_t *p_handle, nrfx_gppi_resource_t *p_resource)</argsstring>
+        <name>nrfx_gppi_ext_conn_alloc</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>producer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>consumer</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__gppi_1ga43758db0947843bbc1de4417074f4a6e" kindref="member">nrfx_gppi_handle_t</ref> *</type>
+          <declname>p_handle</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__gppi__resource__t" kindref="compound">nrfx_gppi_resource_t</ref> *</type>
+          <declname>p_resource</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating and setting up a connection using an external resource. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If DPPI resource is provided then it is used in the connection and additional channel in that domain is not allocated. If connection was set up with an external resource then functions for enabling and disabling the connection are only changing state of channels that were allocated for that connection. If p is null then function is equivalent of <ref refid="group__nrfx__gppi_1ga98b601d7a11553b7d16d9a4bda92c1ef" kindref="member">nrfx_gppi_domain_conn_alloc</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">producer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain that will produce (publish) events. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">consumer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain that will consume (subsribe to) events. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle used to control the connection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_resource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional external DPPI resource.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Successful connection allocation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is not enough resources to allocate the connection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not supported. Supported only on multi domain system. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="691" column="24" bodyfile="helpers/nrfx_gppi.h" bodystart="691" bodyend="700" declfile="helpers/nrfx_gppi.h" declline="563" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__gppi_1ga0d6fd2e9c6a26a0424af16a8c2fb6b13" prot="public" static="no">
+        <name>NRFX_GPPI_MULTI_DOMAIN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Flag indicating that DPPI system consists of multiple domains (instances). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="68" column="9" bodyfile="helpers/nrfx_gppi.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__gppi_1gad8acae15c8e464658e224d39c0f1d06e" prot="public" static="no">
+        <name>NRFX_GPPI_FIXED_CONNECTIONS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Flag indicating that there are fixed connections between PPIB and DPPI channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi.h" line="73" column="9" bodyfile="helpers/nrfx_gppi.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Helper layer that provides the common functionality of PPI system. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the only place where PPI system resources are managed.</para>
+<para>There are 4 types of peripheral interconnection systems:<itemizedlist>
+<listitem><para>PPI - nRF51, nRF52 - Simple one-to-one with fork (one-to-two) feature added in nRF52.</para>
+</listitem><listitem><para>DPPI - nRF53, nRF91 - Distributed PPI allowing many-to-many connections.</para>
+</listitem><listitem><para>D2PPI - nRF54L, nRF71 - Distributed DPPI, multiple instances of DPPI in each domain. Domains connected through PPIB.</para>
+</listitem><listitem><para>SD2PPI - nRF54H - Secure D2PPI. Similar to nRF54L solution but only secure core can configure PPIB directions and DPPI channel ownership. PPIB connects buses in the same domain and domains are conencted using IPCT. However cross-domain connection can be seen as set of 2 connections DomainAEndpoint-to-IPCT and DomainBEndpoint-to-IPCT. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

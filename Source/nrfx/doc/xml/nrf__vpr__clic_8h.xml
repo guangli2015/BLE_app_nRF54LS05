@@ -1,0 +1,969 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__vpr__clic_8h" kind="file" language="C++">
+    <compoundname>nrf_vpr_clic.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includedby refid="nrfx__vevif_8h" local="no">drivers/include/nrfx_vevif.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>hal/nrf_vpr_clic.h</label>
+        <link refid="nrf__vpr__clic_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrf__vpr__clic__config__t" prot="public">nrf_vpr_clic_config_t</innerclass>
+    <innerclass refid="structnrf__vpr__clic__info__t" prot="public">nrf_vpr_clic_info_t</innerclass>
+    <innerclass refid="structnrf__vpr__clic__attr__t" prot="public">nrf_vpr_clic_attr_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" prot="public" static="no">
+        <name>NRF_VPR_CLIC_IRQ_COUNT</name>
+        <initializer>CLIC_CLIC_CLICINT_MaxCount</initializer>
+        <briefdescription>
+<para>Interrupts count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="51" column="9" bodyfile="hal/nrf_vpr_clic.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__vpr__clic__hal_1gaaaacb184c7568418c6bb877512d94546" prot="public" static="no">
+        <name>NRF_VPR_CLIC_INT_TO_PRIO</name>
+        <param><defname>x</defname></param>
+        <initializer>                                    ((x) == 0 ? <ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a6c9f40b0a64d881aa586209962269dd4" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL0</ref> : \
+                                    ((x) == 1 ? <ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab4bb519ec34c120486381850cf57c674" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL1</ref> : \
+                                    ((x) == 2 ? <ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a4626dc51445a02324a06881d3981bfb6" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL2</ref> : \
+                                    ((x) == 3 ? <ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab3ce148c0b7b219643fd5abb625d9ad8" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL3</ref> : 0))))</initializer>
+        <briefdescription>
+<para>Macro for converting integer priority level to <ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="69" column="9" bodyfile="hal/nrf_vpr_clic.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__vpr__clic__hal_1gae20ee55e8880c41e1d55ddaf8e92ed0d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vpr_clic_mode_t</name>
+        <enumvalue id="group__nrf__vpr__clic__hal_1ggae20ee55e8880c41e1d55ddaf8e92ed0da59efb2774f3c5de1ead41e270aaa751c" prot="public">
+          <name>NRF_VPR_CLIC_MODE_M</name>
+          <initializer>= CLIC_CLIC_CLICCFG_NMBITS_ModeM</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>All interrupts are M-mode only. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interrupt privilege modes available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="54" column="1" bodyfile="hal/nrf_vpr_clic.h" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vpr_clic_priority_t</name>
+        <enumvalue id="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a6c9f40b0a64d881aa586209962269dd4" prot="public">
+          <name>NRF_VPR_CLIC_PRIORITY_LEVEL0</name>
+          <initializer>= CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Priority level 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab4bb519ec34c120486381850cf57c674" prot="public">
+          <name>NRF_VPR_CLIC_PRIORITY_LEVEL1</name>
+          <initializer>= CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Priority level 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a4626dc51445a02324a06881d3981bfb6" prot="public">
+          <name>NRF_VPR_CLIC_PRIORITY_LEVEL2</name>
+          <initializer>= CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Priority level 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab3ce148c0b7b219643fd5abb625d9ad8" prot="public">
+          <name>NRF_VPR_CLIC_PRIORITY_LEVEL3</name>
+          <initializer>= CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Priority level 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interrupt priority level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="60" column="1" bodyfile="hal/nrf_vpr_clic.h" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__vpr__clic__hal_1ga11d0573c9e01b97821f576e8964b8b8d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vpr_clic_trigger_t</name>
+        <enumvalue id="group__nrf__vpr__clic__hal_1gga11d0573c9e01b97821f576e8964b8b8da015541c160f29fa4b7ce49716dfa4321" prot="public">
+          <name>NRF_VPR_CLIC_TRIGGER_EDGE_POS</name>
+          <initializer>= CLIC_CLIC_CLICINT_TRIG_EdgeTriggered</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupts are positive edge-triggered. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interrupt trigger and polarity types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="91" column="1" bodyfile="hal/nrf_vpr_clic.h" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__vpr__clic__hal_1gac883d5344573e44a7a8d301d57012da3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_vpr_clic_priv_t</name>
+        <enumvalue id="group__nrf__vpr__clic__hal_1ggac883d5344573e44a7a8d301d57012da3a19fd80adacdfd5729769bbcadd0a4997" prot="public">
+          <name>NRF_VPR_CLIC_PRIV_MACHINE</name>
+          <initializer>= CLIC_CLIC_CLICINT_MODE_MachineMode</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Machine mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Interrupt privilege. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="97" column="1" bodyfile="hal/nrf_vpr_clic.h" bodystart="98" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga80984aefc2a3002efac4f6ef72b5e45a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_config_get</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, nrf_vpr_clic_config_t *p_config)</argsstring>
+        <name>nrf_vpr_clic_config_get</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vpr__clic__config__t" kindref="compound">nrf_vpr_clic_config_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the CLIC configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the VPR CLIC configuration structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="213" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="213" bodyend="223" declfile="hal/nrf_vpr_clic.h" declline="116" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1gaa8d9fd2c057335b2bbd81a3595b8630c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_info_get</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, nrf_vpr_clic_info_t *p_info)</argsstring>
+        <name>nrf_vpr_clic_info_get</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vpr__clic__info__t" kindref="compound">nrf_vpr_clic_info_t</ref> *</type>
+          <declname>p_info</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the CLIC information. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the VPR CLIC information structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="225" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="225" bodyend="237" declfile="hal/nrf_vpr_clic.h" declline="125" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1gae77613b4e83d3cd8b185820938e737ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_int_pending_set</definition>
+        <argsstring>(NRF_CLIC_Type *p_reg, uint32_t irq_num)</argsstring>
+        <name>nrf_vpr_clic_int_pending_set</name>
+        <param>
+          <type>NRF_CLIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the specified interrupt to be pending. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt to be triggered. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="239" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="239" bodyend="244" declfile="hal/nrf_vpr_clic.h" declline="134" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga25d2043cf2777484b821c925b9601bb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_int_pending_clear</definition>
+        <argsstring>(NRF_CLIC_Type *p_reg, uint32_t irq_num)</argsstring>
+        <name>nrf_vpr_clic_int_pending_clear</name>
+        <param>
+          <type>NRF_CLIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the pending status for the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="246" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="246" bodyend="251" declfile="hal/nrf_vpr_clic.h" declline="142" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga385059927a59cff795c4147ed1fca8b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_vpr_clic_int_pending_check</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, uint32_t irq_num)</argsstring>
+        <name>nrf_vpr_clic_int_pending_check</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupt is pending. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt is pending. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt is not pending. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="253" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="253" bodyend="260" declfile="hal/nrf_vpr_clic.h" declline="153" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga5ab8aa74d64cd0b2e541affec926ad73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_int_enable_set</definition>
+        <argsstring>(NRF_CLIC_Type *p_reg, uint32_t irq_num, bool enable)</argsstring>
+        <name>nrf_vpr_clic_int_enable_set</name>
+        <param>
+          <type>NRF_CLIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling or disabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt to be enabled or disabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if interrupt is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="262" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="262" bodyend="271" declfile="hal/nrf_vpr_clic.h" declline="162" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga5462d721d4825f79bd4a4a50940986f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_vpr_clic_int_enable_check</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, uint32_t irq_num)</argsstring>
+        <name>nrf_vpr_clic_int_enable_check</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupt is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="273" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="273" bodyend="279" declfile="hal/nrf_vpr_clic.h" declline="175" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga571e1a361883349c4a339a709653bd92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_int_priority_set</definition>
+        <argsstring>(NRF_CLIC_Type *p_reg, uint32_t irq_num, nrf_vpr_clic_priority_t priority)</argsstring>
+        <name>nrf_vpr_clic_int_priority_set</name>
+        <param>
+          <type>NRF_CLIC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref></type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the priority of the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Priority to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="281" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="281" bodyend="289" declfile="hal/nrf_vpr_clic.h" declline="184" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga0f1f330ed3962bb7d9f9dab00ff9674b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_vpr_clic_priority_t nrf_vpr_clic_int_priority_get</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, uint32_t irq_num)</argsstring>
+        <name>nrf_vpr_clic_int_priority_get</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the priority of the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Priority of the specified interrupt. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="292" column="25" bodyfile="hal/nrf_vpr_clic.h" bodystart="292" bodyend="299" declfile="hal/nrf_vpr_clic.h" declline="197" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__vpr__clic__hal_1ga9b689222911bdbe13a8bb19578313d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_vpr_clic_int_attr_get</definition>
+        <argsstring>(NRF_CLIC_Type const *p_reg, uint32_t irq_num, nrf_vpr_clic_attr_t *p_attr)</argsstring>
+        <name>nrf_vpr_clic_int_attr_get</name>
+        <param>
+          <type>NRF_CLIC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>irq_num</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__vpr__clic__attr__t" kindref="compound">nrf_vpr_clic_attr_t</ref> *</type>
+          <declname>p_attr</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the CLIC attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">irq_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of interrupt. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with VPR CLIC attributes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_vpr_clic.h" line="301" column="24" bodyfile="hal/nrf_vpr_clic.h" bodystart="301" bodyend="313" declfile="hal/nrf_vpr_clic.h" declline="207" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2023<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_VPR_CLIC_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_VPR_CLIC_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_vpr_clic_hal<sp/>VPR<sp/>CLIC<sp/>HAL</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_vpr</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Hardware<sp/>access<sp/>layer<sp/>for<sp/>managing<sp/>the<sp/>VPR<sp/>RISC-V<sp/>CPU<sp/>Interrupt<sp/>Controller<sp/>(VPR<sp/>CLIC).</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**<sp/>@brief<sp/>Interrupts<sp/>count.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_VPR_CLIC_IRQ_COUNT<sp/>CLIC_CLIC_CLICINT_MaxCount</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>privilege<sp/>modes<sp/>available.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1ggae20ee55e8880c41e1d55ddaf8e92ed0da59efb2774f3c5de1ead41e270aaa751c" kindref="member">NRF_VPR_CLIC_MODE_M</ref><sp/><sp/><sp/>=<sp/>CLIC_CLIC_CLICCFG_NMBITS_ModeM,<sp/></highlight><highlight class="comment">/**&lt;<sp/>All<sp/>interrupts<sp/>are<sp/>M-mode<sp/>only.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="group__nrf__vpr__clic__hal_1gae20ee55e8880c41e1d55ddaf8e92ed0d" kindref="member">nrf_vpr_clic_mode_t</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>priority<sp/>level.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a6c9f40b0a64d881aa586209962269dd4" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL0</ref><sp/>=<sp/>CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Priority<sp/>level<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab4bb519ec34c120486381850cf57c674" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL1</ref><sp/>=<sp/>CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL1,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Priority<sp/>level<sp/>1.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91a4626dc51445a02324a06881d3981bfb6" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL2</ref><sp/>=<sp/>CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL2,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Priority<sp/>level<sp/>2.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gga5739d2853a003877de03fd8bac7c8a91ab3ce148c0b7b219643fd5abb625d9ad8" kindref="member">NRF_VPR_CLIC_PRIORITY_LEVEL3</ref><sp/>=<sp/>CLIC_CLIC_CLICINT_PRIORITY_PRIOLEVEL3,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Priority<sp/>level<sp/>3.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}<sp/><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>converting<sp/>integer<sp/>priority<sp/>level<sp/>to<sp/>@ref<sp/>nrf_vpr_clic_priority_t.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_VPR_CLIC_INT_TO_PRIO(x)<sp/>((x)<sp/>==<sp/>0<sp/>?<sp/>NRF_VPR_CLIC_PRIORITY_LEVEL0<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>==<sp/>1<sp/>?<sp/>NRF_VPR_CLIC_PRIORITY_LEVEL1<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>==<sp/>2<sp/>?<sp/>NRF_VPR_CLIC_PRIORITY_LEVEL2<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>==<sp/>3<sp/>?<sp/>NRF_VPR_CLIC_PRIORITY_LEVEL3<sp/>:<sp/>0))))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment">/**<sp/>@brief<sp/>VPR<sp/>CLIC<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structnrf__vpr__clic__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hw_vectoring;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Selective<sp/>interrupt<sp/>hardware<sp/>vectoring.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>level_encoding;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Interrupt<sp/>level<sp/>encoding.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gae20ee55e8880c41e1d55ddaf8e92ed0d" kindref="member">nrf_vpr_clic_mode_t</ref><sp/>privilege_mode;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Interrupt<sp/>privilege<sp/>mode.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="structnrf__vpr__clic__config__t" kindref="compound">nrf_vpr_clic_config_t</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment">/**<sp/>@brief<sp/>VPR<sp/>CLIC<sp/>information<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="structnrf__vpr__clic__info__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>interrupt_count;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Maximum<sp/>number<sp/>of<sp/>interrupts<sp/>supported.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>version;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Version<sp/>of<sp/>CLIC.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>trigger_count;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Number<sp/>of<sp/>maximum<sp/>interrupt<sp/>triggers<sp/>supported.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}<sp/><ref refid="structnrf__vpr__clic__info__t" kindref="compound">nrf_vpr_clic_info_t</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>trigger<sp/>and<sp/>polarity<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gga11d0573c9e01b97821f576e8964b8b8da015541c160f29fa4b7ce49716dfa4321" kindref="member">NRF_VPR_CLIC_TRIGGER_EDGE_POS</ref><sp/><sp/>=<sp/>CLIC_CLIC_CLICINT_TRIG_EdgeTriggered,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Interrupts<sp/>are<sp/>positive<sp/>edge-triggered.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}<sp/><ref refid="group__nrf__vpr__clic__hal_1ga11d0573c9e01b97821f576e8964b8b8d" kindref="member">nrf_vpr_clic_trigger_t</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>privilege.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1ggac883d5344573e44a7a8d301d57012da3a19fd80adacdfd5729769bbcadd0a4997" kindref="member">NRF_VPR_CLIC_PRIV_MACHINE</ref><sp/><sp/><sp/><sp/>=<sp/>CLIC_CLIC_CLICINT_MODE_MachineMode,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Machine<sp/>mode.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}<sp/><ref refid="group__nrf__vpr__clic__hal_1gac883d5344573e44a7a8d301d57012da3" kindref="member">nrf_vpr_clic_priv_t</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="102"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>attributes<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="structnrf__vpr__clic__attr__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hw_vectoring;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Selective<sp/>interrupt<sp/>hardware<sp/>vectoring.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1ga11d0573c9e01b97821f576e8964b8b8d" kindref="member">nrf_vpr_clic_trigger_t</ref><sp/>trigger;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Trigger<sp/>type<sp/>and<sp/>polarity<sp/>for<sp/>the<sp/>interrupt.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1gac883d5344573e44a7a8d301d57012da3" kindref="member">nrf_vpr_clic_priv_t</ref><sp/><sp/><sp/><sp/>privilege;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Privilege<sp/>mode.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}<sp/><ref refid="structnrf__vpr__clic__attr__t" kindref="compound">nrf_vpr_clic_attr_t</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="110"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>CLIC<sp/>configuration.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_reg<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_config<sp/>Pointer<sp/>to<sp/>the<sp/>VPR<sp/>CLIC<sp/>configuration<sp/>structure.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga80984aefc2a3002efac4f6ef72b5e45a" kindref="member">nrf_vpr_clic_config_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__config__t" kindref="compound">nrf_vpr_clic_config_t</ref><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="119"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>CLIC<sp/>information.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_reg<sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_info<sp/>Pointer<sp/>to<sp/>the<sp/>VPR<sp/>CLIC<sp/>information<sp/>structure.</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1gaa8d9fd2c057335b2bbd81a3595b8630c" kindref="member">nrf_vpr_clic_info_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__info__t" kindref="compound">nrf_vpr_clic_info_t</ref><sp/>*<sp/>p_info);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="128"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>specified<sp/>interrupt<sp/>to<sp/>be<sp/>pending.</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt<sp/>to<sp/>be<sp/>triggered.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1gae77613b4e83d3cd8b185820938e737ea" kindref="member">nrf_vpr_clic_int_pending_set</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="136"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>clearing<sp/>the<sp/>pending<sp/>status<sp/>for<sp/>the<sp/>specified<sp/>interrupt.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt<sp/>to<sp/>be<sp/>cleared.</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga25d2043cf2777484b821c925b9601bb6" kindref="member">nrf_vpr_clic_int_pending_clear</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="144"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>specified<sp/>interrupt<sp/>is<sp/>pending.</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Interrupt<sp/>is<sp/>pending.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Interrupt<sp/>is<sp/>not<sp/>pending.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga385059927a59cff795c4147ed1fca8b9" kindref="member">nrf_vpr_clic_int_pending_check</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="155"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>or<sp/>disabling<sp/>the<sp/>specified<sp/>interrupt.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt<sp/>to<sp/>be<sp/>enabled<sp/>or<sp/>disabled.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>enable<sp/><sp/>True<sp/>if<sp/>interrupt<sp/>is<sp/>to<sp/>be<sp/>enabled,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5ab8aa74d64cd0b2e541affec926ad73" kindref="member">nrf_vpr_clic_int_enable_set</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>specified<sp/>interrupt<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt<sp/>to<sp/>be<sp/>checked.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Interrupt<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Interrupt<sp/>is<sp/>disabled.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5462d721d4825f79bd4a4a50940986f5" kindref="member">nrf_vpr_clic_int_enable_check</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="177"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>priority<sp/>of<sp/>the<sp/>specified<sp/>interrupt.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/><sp/>Number<sp/>of<sp/>interrupt.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>priority<sp/>Priority<sp/>to<sp/>be<sp/>set.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga571e1a361883349c4a339a709653bd92" kindref="member">nrf_vpr_clic_int_priority_set</ref>(NRF_CLIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref><sp/>priority);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="188"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>priority<sp/>of<sp/>the<sp/>specified<sp/>interrupt.</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>@return<sp/>Priority<sp/>of<sp/>the<sp/>specified<sp/>interrupt.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">NRF_STATIC_INLINE</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref><sp/><ref refid="group__nrf__vpr__clic__hal_1ga0f1f330ed3962bb7d9f9dab00ff9674b" kindref="member">nrf_vpr_clic_int_priority_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="200"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>CLIC<sp/>attributes.</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_reg<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>irq_num<sp/>Number<sp/>of<sp/>interrupt.</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_attr<sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>VPR<sp/>CLIC<sp/>attributes.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga9b689222911bdbe13a8bb19578313d90" kindref="member">nrf_vpr_clic_int_attr_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__attr__t" kindref="compound">nrf_vpr_clic_attr_t</ref><sp/>*<sp/><sp/>p_attr);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga80984aefc2a3002efac4f6ef72b5e45a" kindref="member">nrf_vpr_clic_config_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__config__t" kindref="compound">nrf_vpr_clic_config_t</ref><sp/>*<sp/>p_config)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(p_config);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>cfg<sp/>=<sp/>p_reg-&gt;CLIC.CLICCFG;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>p_config-&gt;<ref refid="structnrf__vpr__clic__config__t_1af1d99929bbb449922a0197dbf099ca7a" kindref="member">hw_vectoring</ref><sp/><sp/><sp/>=<sp/>(cfg<sp/>&amp;<sp/>CLIC_CLIC_CLICCFG_NVBITS_Msk)<sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICCFG_NVBITS_Pos;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>p_config-&gt;<ref refid="structnrf__vpr__clic__config__t_1abe7cc088a7e4ec81974d88065bb6445c" kindref="member">level_encoding</ref><sp/>=<sp/>(cfg<sp/>&amp;<sp/>CLIC_CLIC_CLICCFG_NLBITS_Msk)<sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICCFG_NLBITS_Pos;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>p_config-&gt;<ref refid="structnrf__vpr__clic__config__t_1a8d696c989e5fb2a6fdbdde27ebce07ec" kindref="member">privilege_mode</ref><sp/>=<sp/>(<ref refid="group__nrf__vpr__clic__hal_1gae20ee55e8880c41e1d55ddaf8e92ed0d" kindref="member">nrf_vpr_clic_mode_t</ref>)((cfg<sp/>&amp;<sp/>CLIC_CLIC_CLICCFG_NMBITS_Msk)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICCFG_NMBITS_Pos);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1gaa8d9fd2c057335b2bbd81a3595b8630c" kindref="member">nrf_vpr_clic_info_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__info__t" kindref="compound">nrf_vpr_clic_info_t</ref><sp/>*<sp/>p_info)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(p_info);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>inf<sp/>=<sp/>p_reg-&gt;CLIC.CLICINFO;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>p_info-&gt;<ref refid="structnrf__vpr__clic__info__t_1ac69ca32c687fe2833046c0b1d085092f" kindref="member">interrupt_count</ref><sp/>=<sp/>(inf<sp/>&amp;<sp/>CLIC_CLIC_CLICINFO_NUMINTERRUPTS_Msk)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINFO_NUMINTERRUPTS_Pos;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>p_info-&gt;<ref refid="structnrf__vpr__clic__info__t_1a9de85038e2ff53938fde591f0c155036" kindref="member">version</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(inf<sp/>&amp;<sp/>CLIC_CLIC_CLICINFO_VERSION_Msk)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINFO_VERSION_Pos;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>p_info-&gt;<ref refid="structnrf__vpr__clic__info__t_1a019aab27c14dce8082bd1024af6aaf74" kindref="member">trigger_count</ref><sp/><sp/><sp/>=<sp/>(inf<sp/>&amp;<sp/>CLIC_CLIC_CLICINFO_NUMTRIGGER_Msk)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINFO_NUMTRIGGER_Pos;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1gae77613b4e83d3cd8b185820938e737ea" kindref="member">nrf_vpr_clic_int_pending_set</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num)</highlight></codeline>
+<codeline lineno="240"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>=<sp/>(p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>~CLIC_CLIC_CLICINT_IP_Msk)<sp/>|</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(CLIC_CLIC_CLICINT_IP_Pending<sp/>&lt;&lt;<sp/>CLIC_CLIC_CLICINT_IP_Pos);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga25d2043cf2777484b821c925b9601bb6" kindref="member">nrf_vpr_clic_int_pending_clear</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>=<sp/>(p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>~CLIC_CLIC_CLICINT_IP_Msk)<sp/>|</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(CLIC_CLIC_CLICINT_IP_NotPending<sp/>&lt;&lt;<sp/>CLIC_CLIC_CLICINT_IP_Pos);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga385059927a59cff795c4147ed1fca8b9" kindref="member">nrf_vpr_clic_int_pending_check</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num)</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_IP_Msk)<sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_IP_Pos)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>==</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CLIC_CLIC_CLICINT_IP_Pending<sp/>?<sp/>true<sp/>:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5ab8aa74d64cd0b2e541affec926ad73" kindref="member">nrf_vpr_clic_int_enable_set</ref>(NRF_CLIC_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable)</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>=<sp/>(p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>~CLIC_CLIC_CLICINT_IE_Msk)<sp/>|</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((enable<sp/>?<sp/>CLIC_CLIC_CLICINT_IE_Enabled<sp/>:</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CLIC_CLIC_CLICINT_IE_Disabled)</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>CLIC_CLIC_CLICINT_IE_Pos);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5462d721d4825f79bd4a4a50940986f5" kindref="member">nrf_vpr_clic_int_enable_check</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,<sp/>uint32_t<sp/>irq_num)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>((p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_IE_Msk)<sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_IE_Pos)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>==<sp/>CLIC_CLIC_CLICINT_IE_Enabled<sp/>?<sp/>true<sp/>:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga571e1a361883349c4a339a709653bd92" kindref="member">nrf_vpr_clic_int_priority_set</ref>(NRF_CLIC_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref><sp/>priority)</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>((irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>)<sp/>&amp;&amp;<sp/>(priority<sp/>!=<sp/>0));</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>=<sp/>(p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>~CLIC_CLIC_CLICINT_PRIORITY_Msk)</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>(priority<sp/>&lt;&lt;<sp/>CLIC_CLIC_CLICINT_PRIORITY_Pos);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal">NRF_STATIC_INLINE</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref><sp/><ref refid="group__nrf__vpr__clic__hal_1ga0f1f330ed3962bb7d9f9dab00ff9674b" kindref="member">nrf_vpr_clic_int_priority_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="group__nrf__vpr__clic__hal_1ga5739d2853a003877de03fd8bac7c8a91" kindref="member">nrf_vpr_clic_priority_t</ref>)((p_reg-&gt;CLIC.CLICINT[irq_num]<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_PRIORITY_Msk)</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_PRIORITY_Pos);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__vpr__clic__hal_1ga9b689222911bdbe13a8bb19578313d90" kindref="member">nrf_vpr_clic_int_attr_get</ref>(NRF_CLIC_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irq_num,</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__vpr__clic__attr__t" kindref="compound">nrf_vpr_clic_attr_t</ref><sp/>*<sp/><sp/>p_attr)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>((irq_num<sp/>&lt;<sp/><ref refid="group__nrf__vpr__clic__hal_1gab19e2008b4635ed5071e3fc452b6d0a7" kindref="member">NRF_VPR_CLIC_IRQ_COUNT</ref>)<sp/>&amp;&amp;<sp/>p_attr);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>att<sp/>=<sp/>p_reg-&gt;CLIC.CLICINT[irq_num];</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>p_attr-&gt;<ref refid="structnrf__vpr__clic__attr__t_1ab459c688d72754ef5f46508c4613af1c" kindref="member">hw_vectoring</ref><sp/>=<sp/>(att<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_SHV_Msk)<sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_SHV_Pos;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>p_attr-&gt;<ref refid="structnrf__vpr__clic__attr__t_1ad5e1d8935fdc5e90268e4742e32a51dc" kindref="member">trigger</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(<ref refid="group__nrf__vpr__clic__hal_1ga11d0573c9e01b97821f576e8964b8b8d" kindref="member">nrf_vpr_clic_trigger_t</ref>)((att<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_TRIG_Msk)</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_TRIG_Pos);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>p_attr-&gt;<ref refid="structnrf__vpr__clic__attr__t_1a1d2a7f94df5447b1afd55e6177eab849" kindref="member">privilege</ref><sp/><sp/><sp/><sp/>=<sp/>(<ref refid="group__nrf__vpr__clic__hal_1gac883d5344573e44a7a8d301d57012da3" kindref="member">nrf_vpr_clic_priv_t</ref>)((att<sp/>&amp;<sp/>CLIC_CLIC_CLICINT_MODE_Msk)</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CLIC_CLIC_CLICINT_MODE_Pos);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="317"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>NRF_VPR_CLIC_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="hal/nrf_vpr_clic.h"/>
+  </compounddef>
+</doxygen>

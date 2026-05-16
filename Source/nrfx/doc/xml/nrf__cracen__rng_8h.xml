@@ -1,0 +1,754 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrf__cracen__rng_8h" kind="file" language="C++">
+    <compoundname>nrf_cracen_rng.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>hal/nrf_cracen_rng.h</label>
+        <link refid="nrf__cracen__rng_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrf__cracen__rng__control__t" prot="public">nrf_cracen_rng_control_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gaba872e9d763adafe5cf26afc783ecf6f" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_HAS_IDLE_TIMER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the TRNG FSM has an idle timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="53" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gaca076e044dc8e1ec26ef0239cc9c962f" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_HAS_BLENDING</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the TRNG has entropy blending. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="60" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__cracen__rng__hal_1gafab0466d3d8544a0ebc767ea2814e537" prot="public" static="no">
+        <name>NRF_CRACEN_RNG_FIFO_SIZE</name>
+        <initializer>((CRACENCORE_RNGCONTROL_FIFOTHRESHOLD_ResetValue + 1) * 16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of the RNG FIFO in bytes </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="102" column="9" bodyfile="hal/nrf_cracen_rng.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__cracen__rng__hal_1ga3e92013ccedde551b8d3609107a07da1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_rng_blending_t</name>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a0eae9c766b7c1afcd6846a99e266c2a0" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_CONCATENATION</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_CONCATENATION</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Collate all rings oscillators outputs </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1abeab41a11ecc43ca57795159efe66211" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_1</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>XOR bits inside each ring oscillator set </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1adabd5b90518658f4eef16a45d28ce8da" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_2</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Also XOR bits in-between ring oscillator sets </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a54c4be1a54ab6dff67388d2076efd2b4" prot="public">
+          <name>NRF_CRACEN_RNG_BLENDING_VONNEUMANN</name>
+          <initializer>= CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_VONNEUMANN</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>On top of XOR_LEVEL_2 apply VON-NEUMANN debiasing </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN entropy blending methods. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="67" column="1" bodyfile="hal/nrf_cracen_rng.h" bodystart="68" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_cracen_rng_fsm_state_t</name>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a99ee5c45ad0e493a297e4def8a4bcd21" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_RESET</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_RESET</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is not started </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01acbf5daeb67a22d461f5e907dc6b3496a" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_STARTUP</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_STARTUP</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is starting </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01af30c513c498c1f7e071f1997f48a9a55" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_IDLE_READY</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_IDLERON</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is idle, and ready to produce more data </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a3a8e5205119be806b5ce8cb1d0677d55" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_IDLE_STANDBY</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_IDLEROFF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is idle, with the ring oscillators off </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a7e13b27e12fecd196bd269ffae8bf915" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_FILL_FIFO</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_FILLFIFO</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG is filling the FIFO with entropy </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a255179441bd607d5a723cb04aff27b9f" prot="public">
+          <name>NRF_CRACEN_RNG_FSM_STATE_ERROR</name>
+          <initializer>= CRACENCORE_RNGCONTROL_STATUS_STATE_ERROR</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>RNG has halted on an error. Reset is needed </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CRACEN random generator FSM state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="89" column="1" bodyfile="hal/nrf_cracen_rng.h" bodystart="90" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gaac01a118d401c19500338c40876cb843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_control_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, nrf_cracen_rng_control_t const *p_config)</argsstring>
+        <name>nrf_cracen_rng_control_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__cracen__rng__control__t" kindref="compound">nrf_cracen_rng_control_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the control register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="188" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="188" bodyend="204" declfile="hal/nrf_cracen_rng.h" declline="110" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_cracen_rng_fifo_level_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fifo_level_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the FIFO level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of random data words ready in the FIFO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="206" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="206" bodyend="209" declfile="hal/nrf_cracen_rng.h" declline="120" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga20a23b8d51bcd8f303e84fd8aa5b9fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_key_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint8_t index, uint32_t value)</argsstring>
+        <name>nrf_cracen_rng_key_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AES conditioning KEY registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the key register to be written (0..3) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="211" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="211" bodyend="215" declfile="hal/nrf_cracen_rng.h" declline="129" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gafc514a7615e7a44f07fa071e66e45043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_cracen_rng_fsm_state_t nrf_cracen_rng_fsm_state_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fsm_state_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the RNG FSM state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>State of the FSM, one of <ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref> values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="218" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="218" bodyend="223" declfile="hal/nrf_cracen_rng.h" declline="141" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gab0b798b0471592dc1df0a20c698b0ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_init_wait_val_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_init_wait_val_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the initialization wait counter value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="225" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="225" bodyend="233" declfile="hal/nrf_cracen_rng.h" declline="149" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga5f9555ace65b67d3761d14493fcc9d87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_off_timer_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_off_timer_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the switch off timer value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="236" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="236" bodyend="240" declfile="hal/nrf_cracen_rng.h" declline="159" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1ga0db2c1a61641683756cebd0220f4babf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_cracen_rng_clk_div_set</definition>
+        <argsstring>(NRF_CRACENCORE_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_cracen_rng_clk_div_set</name>
+        <param>
+          <type>NRF_CRACENCORE_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the entropy subsampling rate register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The ring oscillators output is sampled at Fs=Fpclk/(ClkDiv+1)</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written in the register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="243" column="24" bodyfile="hal/nrf_cracen_rng.h" bodystart="243" bodyend="251" declfile="hal/nrf_cracen_rng.h" declline="171" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__cracen__rng__hal_1gafb995c02339a0cc9288a64e7a52186cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_cracen_rng_fifo_get</definition>
+        <argsstring>(NRF_CRACENCORE_Type const *p_reg)</argsstring>
+        <name>nrf_cracen_rng_fifo_get</name>
+        <param>
+          <type>NRF_CRACENCORE_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting a word from the entropy FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The caller must ensure there is enough data by calling <ref refid="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" kindref="member">nrf_cracen_rng_fifo_level_get</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the RNG peripheral</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Entropy word read from the FIFO </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_cracen_rng.h" line="253" column="28" bodyfile="hal/nrf_cracen_rng.h" bodystart="253" bodyend="256" declfile="hal/nrf_cracen_rng.h" declline="184" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2024<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_CRACEN_RNG_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrf_cracen_rng_hal<sp/>CRACEN<sp/>RNG<sp/>HAL</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_cracen</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Hardware<sp/>access<sp/>layer<sp/>for<sp/>managing<sp/>the<sp/>Crypto<sp/>Accelerator<sp/>Engine<sp/>(CRACEN)</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Random<sp/>Generator<sp/>(RNG)<sp/>peripheral.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(CRACENCORE_RNGCONTROL_SWOFFTMRVAL_ResetValue)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>indicating<sp/>whether<sp/>the<sp/>TRNG<sp/>FSM<sp/>has<sp/>an<sp/>idle<sp/>timer<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_HAS_IDLE_TIMER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_HAS_IDLE_TIMER<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_Pos)<sp/>||<sp/>defined(__NRFX_DOXYGEN__)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment">/**<sp/>@brief<sp/>Symbol<sp/>indicating<sp/>whether<sp/>the<sp/>TRNG<sp/>has<sp/>entropy<sp/>blending<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_HAS_BLENDING<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_HAS_BLENDING<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_BLENDING</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="66"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>entropy<sp/>blending<sp/>methods<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a0eae9c766b7c1afcd6846a99e266c2a0" kindref="member">NRF_CRACEN_RNG_BLENDING_CONCATENATION</ref><sp/>=<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_CONCATENATION,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Collate<sp/>all<sp/>rings<sp/>oscillators<sp/>outputs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1abeab41a11ecc43ca57795159efe66211" kindref="member">NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_1</ref><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL1,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>XOR<sp/>bits<sp/>inside<sp/>each<sp/>ring<sp/>oscillator<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1adabd5b90518658f4eef16a45d28ce8da" kindref="member">NRF_CRACEN_RNG_BLENDING_XOR_LEVEL_2</ref><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_XORLEVEL2,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Also<sp/>XOR<sp/>bits<sp/>in-between<sp/>ring<sp/>oscillator<sp/>sets<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1gga3e92013ccedde551b8d3609107a07da1a54c4be1a54ab6dff67388d2076efd2b4" kindref="member">NRF_CRACEN_RNG_BLENDING_VONNEUMANN</ref><sp/><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_VONNEUMANN,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>On<sp/>top<sp/>of<sp/>XOR_LEVEL_2<sp/>apply<sp/>VON-NEUMANN<sp/>debiasing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__rng__hal_1ga3e92013ccedde551b8d3609107a07da1" kindref="member">nrf_cracen_rng_blending_t</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>random<sp/>generator<sp/>configuration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="structnrf__cracen__rng__control__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enable;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>the<sp/>RNG<sp/>peripheral<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fifo_full_int_en;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Enable<sp/>FIFO<sp/>full<sp/>interrupt<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>soft_reset;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Soft<sp/>reset<sp/>the<sp/>RNG<sp/>peripheral<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number_128_blocks;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Number<sp/>of<sp/>128bit<sp/>blocks<sp/>used<sp/>for<sp/>AES<sp/>conditioning.<sp/>Must<sp/>be<sp/>at<sp/>least<sp/>1<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_BLENDING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ga3e92013ccedde551b8d3609107a07da1" kindref="member">nrf_cracen_rng_blending_t</ref><sp/>blending_method;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Which<sp/>blending<sp/>method<sp/>to<sp/>use<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}<sp/><ref refid="structnrf__cracen__rng__control__t" kindref="compound">nrf_cracen_rng_control_t</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="88"><highlight class="comment">/**<sp/>@brief<sp/>CRACEN<sp/>random<sp/>generator<sp/>FSM<sp/>state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a99ee5c45ad0e493a297e4def8a4bcd21" kindref="member">NRF_CRACEN_RNG_FSM_STATE_RESET</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_RESET,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>is<sp/>not<sp/>started<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01acbf5daeb67a22d461f5e907dc6b3496a" kindref="member">NRF_CRACEN_RNG_FSM_STATE_STARTUP</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_STARTUP,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>is<sp/>starting<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01af30c513c498c1f7e071f1997f48a9a55" kindref="member">NRF_CRACEN_RNG_FSM_STATE_IDLE_READY</ref><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_IDLERON,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>is<sp/>idle,<sp/>and<sp/>ready<sp/>to<sp/>produce<sp/>more<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_IDLE_TIMER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a3a8e5205119be806b5ce8cb1d0677d55" kindref="member">NRF_CRACEN_RNG_FSM_STATE_IDLE_STANDBY</ref><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_IDLEROFF,<sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>is<sp/>idle,<sp/>with<sp/>the<sp/>ring<sp/>oscillators<sp/>off<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a7e13b27e12fecd196bd269ffae8bf915" kindref="member">NRF_CRACEN_RNG_FSM_STATE_FILL_FIFO</ref><sp/><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_FILLFIFO,<sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>is<sp/>filling<sp/>the<sp/>FIFO<sp/>with<sp/>entropy<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__cracen__rng__hal_1ggaca131b8f1dfd9c9784a48620836d6e01a255179441bd607d5a723cb04aff27b9f" kindref="member">NRF_CRACEN_RNG_FSM_STATE_ERROR</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_ERROR,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>RNG<sp/>has<sp/>halted<sp/>on<sp/>an<sp/>error.<sp/>Reset<sp/>is<sp/>needed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}<sp/><ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="101"><highlight class="comment">/**<sp/>Size<sp/>of<sp/>the<sp/>RNG<sp/>FIFO<sp/>in<sp/>bytes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRF_CRACEN_RNG_FIFO_SIZE<sp/>((CRACENCORE_RNGCONTROL_FIFOTHRESHOLD_ResetValue<sp/>+<sp/>1)<sp/>*<sp/>16)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>control<sp/>register</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/>Configuration<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>register.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1gaac01a118d401c19500338c40876cb843" kindref="member">nrf_cracen_rng_control_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__cracen__rng__control__t" kindref="compound">nrf_cracen_rng_control_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>FIFO<sp/>level</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>random<sp/>data<sp/>words<sp/>ready<sp/>in<sp/>the<sp/>FIFO</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" kindref="member">nrf_cracen_rng_fifo_level_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>AES<sp/>conditioning<sp/>KEY<sp/>registers</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>index<sp/>Index<sp/>of<sp/>the<sp/>key<sp/>register<sp/>to<sp/>be<sp/>written<sp/>(0..3)</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/>Value<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>register.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga20a23b8d51bcd8f303e84fd8aa5b9fea" kindref="member">nrf_cracen_rng_key_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>index,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="133"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>RNG<sp/>FSM<sp/>state</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/>@return<sp/>State<sp/>of<sp/>the<sp/>FSM,<sp/>one<sp/>of<sp/>@ref<sp/>nrf_cracen_rng_fsm_state_t<sp/>values.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">NRF_STATIC_INLINE</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref><sp/><ref refid="group__nrf__cracen__rng__hal_1gafc514a7615e7a44f07fa071e66e45043" kindref="member">nrf_cracen_rng_fsm_state_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>initialization<sp/>wait<sp/>counter<sp/>value</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/>Value<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>register.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1gab0b798b0471592dc1df0a20c698b0ab6" kindref="member">nrf_cracen_rng_init_wait_val_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_IDLE_TIMER</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="153"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>switch<sp/>off<sp/>timer<sp/>value</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/>Value<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>register.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga5f9555ace65b67d3761d14493fcc9d87" kindref="member">nrf_cracen_rng_off_timer_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>the<sp/>entropy<sp/>subsampling<sp/>rate<sp/>register</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>ring<sp/>oscillators<sp/>output<sp/>is<sp/>sampled<sp/>at<sp/>Fs=Fpclk/(ClkDiv+1)</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral.</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/>Value<sp/>to<sp/>be<sp/>written<sp/>in<sp/>the<sp/>register.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga0db2c1a61641683756cebd0220f4babf" kindref="member">nrf_cracen_rng_clk_div_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>a<sp/>word<sp/>from<sp/>the<sp/>entropy<sp/>FIFO</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>caller<sp/>must<sp/>ensure<sp/>there<sp/>is<sp/>enough<sp/>data<sp/>by<sp/>calling</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>@ref<sp/>nrf_cracen_rng_fifo_level_get</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_reg<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>of<sp/>registers<sp/>of<sp/>the<sp/>RNG<sp/>peripheral</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*<sp/>@return<sp/>Entropy<sp/>word<sp/>read<sp/>from<sp/>the<sp/>FIFO</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__cracen__rng__hal_1gafb995c02339a0cc9288a64e7a52186cd" kindref="member">nrf_cracen_rng_fifo_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1gaac01a118d401c19500338c40876cb843" kindref="member">nrf_cracen_rng_control_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_reg,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrf__cracen__rng__control__t" kindref="compound">nrf_cracen_rng_control_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.CONTROL<sp/>=</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((p_config-&gt;<ref refid="structnrf__cracen__rng__control__t_1a1a03416bd5a4eec980aac7fabda1eac4" kindref="member">enable</ref><sp/>&lt;&lt;<sp/>CRACENCORE_RNGCONTROL_CONTROL_ENABLE_Pos)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_CONTROL_ENABLE_Msk)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>((p_config-&gt;<ref refid="structnrf__cracen__rng__control__t_1a7a819f4f043763011657602f42b5ad65" kindref="member">fifo_full_int_en</ref><sp/>&lt;&lt;<sp/>CRACENCORE_RNGCONTROL_CONTROL_INTENFULL_Pos)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_CONTROL_INTENFULL_Msk)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>((p_config-&gt;<ref refid="structnrf__cracen__rng__control__t_1aed1654e94b724739288f6a5a1e2b36a5" kindref="member">soft_reset</ref><sp/>&lt;&lt;<sp/>CRACENCORE_RNGCONTROL_CONTROL_SOFTRST_Pos)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_CONTROL_SOFTRST_Msk)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_BLENDING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>((p_config-&gt;<ref refid="structnrf__cracen__rng__control__t_1aa29608efd0f7a7ae7bb31756ac7ca81e" kindref="member">blending_method</ref><sp/>&lt;&lt;<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_Pos)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_CONTROL_BLENDINGMETHOD_Msk)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>((p_config-&gt;<ref refid="structnrf__cracen__rng__control__t_1a5f1f1f5c0a7f233adb02dd7fc524137c" kindref="member">number_128_blocks</ref><sp/>&lt;&lt;<sp/>CRACENCORE_RNGCONTROL_CONTROL_NB128BITBLOCKS_Pos)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_CONTROL_NB128BITBLOCKS_Msk);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__cracen__rng__hal_1ga9e904096899b33458776cd4c92a52362" kindref="member">nrf_cracen_rng_fifo_level_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;RNGCONTROL.FIFOLEVEL;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga20a23b8d51bcd8f303e84fd8aa5b9fea" kindref="member">nrf_cracen_rng_key_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>index,<sp/>uint32_t<sp/>value)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.KEY[index]<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">NRF_STATIC_INLINE</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref><sp/><ref refid="group__nrf__cracen__rng__hal_1gafc514a7615e7a44f07fa071e66e45043" kindref="member">nrf_cracen_rng_fsm_state_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="group__nrf__cracen__rng__hal_1gaca131b8f1dfd9c9784a48620836d6e01" kindref="member">nrf_cracen_rng_fsm_state_t</ref>)</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((p_reg-&gt;RNGCONTROL.STATUS<sp/>&amp;<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_Msk)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;&gt;<sp/>CRACENCORE_RNGCONTROL_STATUS_STATE_Pos);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1gab0b798b0471592dc1df0a20c698b0ab6" kindref="member">nrf_cracen_rng_init_wait_val_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(CRACENCORE_RNGCONTROL_INITWAITVAL_ResetValue)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.INITWAITVAL<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.WARMUPPERIOD<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_CRACEN_RNG_HAS_IDLE_TIMER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga5f9555ace65b67d3761d14493fcc9d87" kindref="member">nrf_cracen_rng_off_timer_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>value)</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.SWOFFTMRVAL<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal">NRF_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrf__cracen__rng__hal_1ga0db2c1a61641683756cebd0220f4babf" kindref="member">nrf_cracen_rng_clk_div_set</ref>(NRF_CRACENCORE_Type<sp/>*<sp/>p_reg,</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>value)</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(CRACENCORE_RNGCONTROL_CLKDIV_ResetValue)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.CLKDIV<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>p_reg-&gt;RNGCONTROL.SAMPLINGPERIOD<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal">NRF_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrf__cracen__rng__hal_1gafb995c02339a0cc9288a64e7a52186cd" kindref="member">nrf_cracen_rng_fifo_get</ref>(NRF_CRACENCORE_Type<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_reg)</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p_reg-&gt;RNGCONTROL.FIFO[0];</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="260"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRF_CRACEN_RNG_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="hal/nrf_cracen_rng.h"/>
+  </compounddef>
+</doxygen>

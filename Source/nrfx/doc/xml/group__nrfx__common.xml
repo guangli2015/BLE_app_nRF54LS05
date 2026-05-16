@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__common" kind="group">
+    <compoundname>nrfx_common</compoundname>
+    <title>Common module</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_drv_state_t</name>
+        <enumvalue id="group__nrfx__common_1ggae09c4084ccd60f0b39742ce7e5c85794a818be090e62d11f6fefe03de41c87027" prot="public">
+          <name>NRFX_DRV_STATE_UNINITIALIZED</name>
+          <briefdescription>
+<para>Uninitialized. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__common_1ggae09c4084ccd60f0b39742ce7e5c85794a9c8b17faf6d1c8823c0dfde4f2d30e53" prot="public">
+          <name>NRFX_DRV_STATE_INITIALIZED</name>
+          <briefdescription>
+<para>Initialized but powered off. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__common_1ggae09c4084ccd60f0b39742ce7e5c85794aa54676bc3a4aff29a96570856b3a4e4c" prot="public">
+          <name>NRFX_DRV_STATE_POWERED_ON</name>
+          <briefdescription>
+<para>Initialized and powered on. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Driver state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="107" column="1" bodyfile="drivers/nrfx_common.h" bodystart="108" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__common_1ga8a376a2034709d3d824de72d0f791145" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_irq_handler_t) (void *p_context)</definition>
+        <argsstring>)(void *p_context)</argsstring>
+        <name>nrfx_irq_handler_t</name>
+        <briefdescription>
+<para>IRQ handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the interrupt handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="104" column="9" bodyfile="drivers/nrfx_common.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__common_1ga95a38945a06d6759d49f3c7d245253fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE bool</type>
+        <definition>__STATIC_INLINE bool nrfx_is_in_ram</definition>
+        <argsstring>(void const *p_object)</argsstring>
+        <name>nrfx_is_in_ram</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_object</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if an object is placed in the Data RAM region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Several peripherals (the ones using EasyDMA) require the transfer buffers to be placed in the Data RAM region. This function can be used to check if this condition is met.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an object whose location is to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointed object is located in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointed object is not located in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="187" column="24" bodyfile="drivers/nrfx_common.h" bodystart="187" bodyend="190" declfile="drivers/nrfx_common.h" declline="126" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__common_1gae7d3e75c56537708646ecf2e1ddde335" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE bool</type>
+        <definition>__STATIC_INLINE bool nrfx_is_word_aligned</definition>
+        <argsstring>(void const *p_object)</argsstring>
+        <name>nrfx_is_word_aligned</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_object</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if an object is aligned to a 32-bit word. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Several peripherals (the ones using EasyDMA) require the transfer buffers to be aligned to a 32-bit word. This function can be used to check if this condition is met.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_object</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an object whose location is to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointed object is aligned to a 32-bit word. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointed object is not aligned to a 32-bit word. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="192" column="24" bodyfile="drivers/nrfx_common.h" bodystart="192" bodyend="195" declfile="drivers/nrfx_common.h" declline="140" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__common_1ga99320a533545d814f480ee108a6b61ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE IRQn_Type</type>
+        <definition>__STATIC_INLINE IRQn_Type nrfx_get_irq_number</definition>
+        <argsstring>(void const *p_reg)</argsstring>
+        <name>nrfx_get_irq_number</name>
+        <param>
+          <type>void const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the interrupt number for the specified peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>This function is valid only for peripherals with a single interrupt line.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral base pointer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Interrupt number associated with the pointed peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="197" column="29" bodyfile="drivers/nrfx_common.h" bodystart="197" bodyend="200" declfile="drivers/nrfx_common.h" declline="151" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__common_1gaba57956ebbf00ae1d7a28f047478aa1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE uint32_t</type>
+        <definition>__STATIC_INLINE uint32_t nrfx_bitpos_to_event</definition>
+        <argsstring>(uint32_t bit)</argsstring>
+        <name>nrfx_bitpos_to_event</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>bit</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting an INTEN register bit position to the corresponding event identifier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The event identifier is the offset between the event register address and the peripheral base address, and is equal (thus, can be directly cast) to the corresponding value of the enumerated type from HAL (nrf_*_event_t).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>INTEN register bit position.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event identifier.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__common_1gab995afe99539062db99e98bbef6a27ad" kindref="member">nrfx_event_to_bitpos</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="202" column="28" bodyfile="drivers/nrfx_common.h" bodystart="202" bodyend="206" declfile="drivers/nrfx_common.h" declline="167" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__common_1gab995afe99539062db99e98bbef6a27ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__STATIC_INLINE uint32_t</type>
+        <definition>__STATIC_INLINE uint32_t nrfx_event_to_bitpos</definition>
+        <argsstring>(uint32_t event)</argsstring>
+        <name>nrfx_event_to_bitpos</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for converting an event identifier to the corresponding INTEN register bit position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The event identifier is the offset between the event register address and the peripheral base address, and is equal (thus, can be directly cast) to the corresponding value of the enumerated type from HAL (nrf_*_event_t).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event identifier.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>INTEN register bit position.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__common_1gaba57956ebbf00ae1d7a28f047478aa1d" kindref="member">nrfx_bitpos_to_event</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="208" column="28" bodyfile="drivers/nrfx_common.h" bodystart="208" bodyend="212" declfile="drivers/nrfx_common.h" declline="183" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__common_1ga189498e7f2291e95ba383069e73041c9" prot="public" static="no">
+        <name>NRFX_RELEASE_VER_MAJOR</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>Symbol specifying major number of the current nrfx version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="91" column="9" bodyfile="drivers/nrfx_common.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__common_1ga38f29ab153aebdc6f59034511f456794" prot="public" static="no">
+        <name>NRFX_RELEASE_VER_MINOR</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Symbol specifying minor number of the current nrfx version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="94" column="9" bodyfile="drivers/nrfx_common.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__common_1gacc8bdfc868847f4c04b0727f7793f7c9" prot="public" static="no">
+        <name>NRFX_RELEASE_VER_MICRO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol specifying micro number of the current nrfx version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_common.h" line="97" column="9" bodyfile="drivers/nrfx_common.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Common module. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

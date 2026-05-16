@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__gppi__routes" kind="group">
+    <compoundname>nrfx_gppi_routes</compoundname>
+    <title>GPPI Routes</title>
+    <innerclass refid="structnrfx__gppi__node__ppib__t" prot="public">nrfx_gppi_node_ppib_t</innerclass>
+    <innerclass refid="structnrfx__gppi__node__dppi__t" prot="public">nrfx_gppi_node_dppi_t</innerclass>
+    <innerclass refid="structnrfx__gppi__node__generic__t" prot="public">nrfx_gppi_node_generic_t</innerclass>
+    <innerclass refid="structnrfx__gppi__node__t" prot="public">nrfx_gppi_node_t</innerclass>
+    <innerclass refid="structnrfx__gppi__route__t" prot="public">nrfx_gppi_route_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__gppi__routes_1ga7132804d8f2b608d83bd019302b13cb3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_gppi_node_type_t</name>
+        <enumvalue id="group__nrfx__gppi__routes_1gga7132804d8f2b608d83bd019302b13cb3a42c44c6f631a6b0c42bfbd60fe272ceb" prot="public">
+          <name>NRFX_GPPI_NODE_DPPI</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__gppi__routes_1gga7132804d8f2b608d83bd019302b13cb3a792f2d723e8790de9292283ca71ca372" prot="public">
+          <name>NRFX_GPPI_NODE_PPIB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Node types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi_routes.h" line="77" column="1" bodyfile="helpers/nrfx_gppi_routes.h" bodystart="77" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__gppi__routes_1gabf4ae1828ef1897fd411c26389d4677c" prot="public" static="no">
+        <name>NRFX_GPPI_DPPI_NODE_DEFINE</name>
+        <param><defname>_id</defname></param>
+        <param><defname>_domain_id</defname></param>
+        <initializer>[NRFX_GPPI_NODE_DPPIC##_id] = {                                             \
+		.type = NRFX_GPPI_NODE_DPPI,                                        \
+		.domain_id = _domain_id,                                            \
+		.dppi = {                                                           \
+			.p_channels = &amp;channels[NRFX_GPPI_NODE_DPPIC##_id],             \
+			.p_group_channels = &amp;group_channels[NRFX_GPPI_NODE_DPPIC##_id], \
+			.p_reg = NRF_DPPIC##_id                                         \
+		}                                                                   \
+	}</initializer>
+        <briefdescription>
+<para>Macro for defining a DPPI node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_domain_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi_routes.h" line="113" column="9" bodyfile="helpers/nrfx_gppi_routes.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__gppi__routes_1gafbaa0acc00f7e075efd56f4eaedc0de3" prot="public" static="no">
+        <name>NRFX_GPPI_PPIB_NODE_DEFINE</name>
+        <param><defname>_id1</defname></param>
+        <param><defname>_id2</defname></param>
+        <initializer>[NRFX_GPPI_NODE_PPIB##_id1##_##_id2] = {                                    \
+		.type = NRFX_GPPI_NODE_PPIB,                                        \
+		.domain_id = NRFX_GPPI_NODE_PPIB##_id1##_##_id2,                    \
+		.ppib = {                                                           \
+			.p_channels = &amp;channels[NRFX_GPPI_NODE_PPIB##_id1##_##_id2],    \
+			.p_reg = {NRF_PPIB##_id1, NRF_PPIB##_id2}                       \
+		}                                                                   \
+	}</initializer>
+        <briefdescription>
+<para>Macro for defining a PPIB node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_id1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PPIB ID of the first PPIB. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_id2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PPIB ID of the second PPIB. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi_routes.h" line="129" column="9" bodyfile="helpers/nrfx_gppi_routes.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__gppi__routes_1ga04d06a175ffb872c5f4fafe62f3f097a" prot="public" static="no">
+        <name>NRFX_GPPI_ROUTE_DEFINE</name>
+        <param><defname>_name</defname></param>
+        <param><defname>_nodes</defname></param>
+        <initializer>{                                                                           \
+	.p_nodes = (const <ref refid="structnrfx__gppi__node__t" kindref="compound">nrfx_gppi_node_t</ref> * const[]){ NRFX_DEBRACKET _nodes},  \
+	.len = 1 + <ref refid="group__nrfx__utils_1ga9b4880ee0671521522e81f00f8229fb5" kindref="member">NRFX_NUM_VA_ARGS_LESS_1</ref> _nodes,                              \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a route. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Route name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_nodes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of nodes in parenthesis. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helpers/nrfx_gppi_routes.h" line="144" column="9" bodyfile="helpers/nrfx_gppi_routes.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structures and macros for handling GPPI routes in multi-domain DPPI system. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

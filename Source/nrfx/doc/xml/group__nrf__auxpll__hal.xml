@@ -1,0 +1,1578 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__auxpll__hal" kind="group">
+    <compoundname>nrf_auxpll_hal</compoundname>
+    <title>Auxiliary PLL HAL</title>
+    <innerclass refid="structnrf__auxpll__config__t" prot="public">nrf_auxpll_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga00833a2371cfb56ad8392461a153a653" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_task_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a3b6fe6b7b0b11c19bdc26efa5aff628b" prot="public">
+          <name>NRF_AUXPLL_TASK_START</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_START)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start the AUXPLL. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653aa382be4b6b65e33b874833db020f96a1" prot="public">
+          <name>NRF_AUXPLL_TASK_STOP</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Stop the AUXPLL. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653aedc2e6778a964e9f224772ba3665a861" prot="public">
+          <name>NRF_AUXPLL_TASK_FREQ_NEW_FINE</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_NEWFINEFREQ)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Change fine frequency. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a9a601d4cf882b804b3ce1163385015f4" prot="public">
+          <name>NRF_AUXPLL_TASK_FREQ_NEW_BASE</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_NEWBASEFREQ)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Change base frequency. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a5f796cfaf2591a10c3905887376fe1f2" prot="public">
+          <name>NRF_AUXPLL_TASK_FREQ_INC_START</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTART)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start automated frequency increment. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a073e29219a3c4b61574615550322b2a9" prot="public">
+          <name>NRF_AUXPLL_TASK_FREQ_INC_STOP</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, TASKS_FREQINCSTOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Stop automated frequency increment. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="52" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="53" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga139a93ec776aed9979a96f249af7a7eb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_event_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba60727d2a8ba4ef7e24223d3d4c3c59cd" prot="public">
+          <name>NRF_AUXPLL_EVENT_STARTED</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, EVENTS_STARTED)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event indicating that AUXPLL started. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba4eb448c77a1249e3a7587fb531231557" prot="public">
+          <name>NRF_AUXPLL_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event indicating that AUXPLL stopped. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba10b3a66f4e4b99953dc87324d893100e" prot="public">
+          <name>NRF_AUXPLL_EVENT_LOCKED</name>
+          <initializer>= offsetof(NRF_AUXPLL_Type, EVENTS_LOCKED)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Event indicating that AUXPLL locked. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="63" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_int_mask_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4a41a2aad86c95d96b7ba672d38f7f8e26" prot="public">
+          <name>NRF_AUXPLL_INT_STARTED_MASK</name>
+          <initializer>= AUXPLL_INTEN_STARTED_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUXPLL interrupt for STARTED event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4a9ce7de1f8dce973007adc5941202535b" prot="public">
+          <name>NRF_AUXPLL_INT_STOPPED_MASK</name>
+          <initializer>= AUXPLL_INTEN_STOPPED_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUXPLL interrupt for STOPPED event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4aab3640b376bcbe3da83764e9e4fe6c8e" prot="public">
+          <name>NRF_AUXPLL_INT_LOCKED_MASK</name>
+          <initializer>= AUXPLL_INTEN_LOCKED_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUXPLL interrupt for LOCKED event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="71" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="72" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga89d83049d7868404bb730cb84cfe1007" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_status_mask_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007ab41bf07aeecd2e53d3e70ba7d89409ff" prot="public">
+          <name>NRF_AUXPLL_STATUS_MODE_MASK</name>
+          <initializer>= AUXPLL_STATUS_MODE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUXPLL mode indication. 1 - Locked mode, 0 - Freerunning mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007aa947d04dc88ec6ed6c5091d50815933e" prot="public">
+          <name>NRF_AUXPLL_STATUS_PLL_RUNNING_MASK</name>
+          <initializer>= AUXPLL_STATUS_PLLRUNNING_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>AUXPLL running indication. 1 - PLL running, 0 - PLL not running. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007a170a2eacf65dea78acca8e8f610d82ee" prot="public">
+          <name>MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK</name>
+          <initializer>= AUXPLL_STATUS_FREQUENCYACTUAL_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Actual fractional PLL divider ratio. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL STATUS register bit masks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="79" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga110addb039fdde0e61dca7ac7e65c8bf" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_ctrl_outsel_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfaf3d10cf09ba00de6e13198551923c1d6" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_DivDisabled</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divider disabled. Bypassed external clock still supported. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa787893926c3c1966a884777ae90686fc" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_1</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 1 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa5ad90e060fd2c30f515995d4099bc75f" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_2</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 2 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7cf4e8eff8b232d793fb8f3cf1262655" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_3</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 3 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7e84123fc81645b61627b4b56772e51e" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_4</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 4 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa9252a43e35dc24a55a33ca5be359266e" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_6</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 6 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfaa4f6cc99f06d587a8c228ef525cf0f08" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_8</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 8 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfac9ba4b25748f74b9ae4d30d22bc17a8c" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_12</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 12 </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7e41547471066b52a7009c3510e579bb" prot="public">
+          <name>NRF_AUXPLL_CTRL_OUTSEL_DIV_16</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_OUTSEL_OUTSEL_Div16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Divide by 16 </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL output prescaler ratio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="87" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="88" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga4dbf54a08320cdb915cce469bb2a3833" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_ctrl_mode_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833ac6acd4f21176bad110aa67d5832d5c92" prot="public">
+          <name>NRF_AUXPLL_CTRL_MODE_AUTO</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Auto</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Automatically handled by the AUXPLL peripheral. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833ac37c4825cf045045b2f09b5dae796f7f" prot="public">
+          <name>NRF_AUXPLL_CTRL_MODE_FREERUN</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Freerun</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep AUXPLL in freerunning mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833a1917965bad039b4dae780fb2a400e005" prot="public">
+          <name>NRF_AUXPLL_CTRL_MODE_LOCKED</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_MODE_MODECTRL_Locked</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Keep AUXPLL in locked mode. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL freerunning mode control. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="101" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1ga0b0233ccc0dbd1827401be561dfa44b7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_divider_range_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7ae1882ffed2f4f34ba549340635791786" prot="public">
+          <name>NRF_AUXPLL_DIVIDER_RANGE_LOW</name>
+          <initializer>= AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Low</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Low range divider setting. Fractional divider in the range 3..4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a11ad56dd2b96d4a7f9527c58528e1abe" prot="public">
+          <name>NRF_AUXPLL_DIVIDER_RANGE_MID</name>
+          <initializer>= AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_Mid</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mid range divider setting. Fractional divider in the range 4..5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a7085c6393ddbb57c08f0c6b1d054b1e7" prot="public">
+          <name>NRF_AUXPLL_DIVIDER_RANGE_HIGH</name>
+          <initializer>= AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_High</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>High range divider setting. Fractional divider in the range 5..6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a673d8bc7bf0db2b8cdade1291adb8dcc" prot="public">
+          <name>NRF_AUXPLL_DIVIDER_RANGE_MAX</name>
+          <initializer>= AUXPLL_CONFIG_CFGSTATIC_AUXPLLRANGE_StaticHigh</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Maximum static divider setting. Fractional division not supported. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL Loop divider base settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="109" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="110" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__auxpll__hal_1gace4735eb15f18faf843dc6dccd98d6db" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_auxpll_freq_div_ratio_t</name>
+        <enumvalue id="group__nrf__auxpll__hal_1ggace4735eb15f18faf843dc6dccd98d6dba8f0b8901e80478f1c626d8ce968ff4c2" prot="public">
+          <name>NRF_AUXPLL_FREQUENCY_DIV_MIN</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_FREQUENCY_FREQUENCY_MinimumDiv</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Minimum division ratio of 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1ggace4735eb15f18faf843dc6dccd98d6dbabf94763a18b39be365ebc460357cedef" prot="public">
+          <name>NRF_AUXPLL_FREQUENCY_AUDIO_44K1</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_FREQUENCY_FREQUENCY_Audio44k1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Division ratio for audio 44.1kHz frequency family. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1ggace4735eb15f18faf843dc6dccd98d6dba6aae183f52d14bb1e859c8cebed5dded" prot="public">
+          <name>NRF_AUXPLL_FREQUENCY_USB_24M</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_FREQUENCY_FREQUENCY_USB24M</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Division ratio for USB PHY 24MHz clock. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1ggace4735eb15f18faf843dc6dccd98d6dba93ba9ecc88112f7e552716618ff0937f" prot="public">
+          <name>NRF_AUXPLL_FREQUENCY_AUDIO_48K</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_FREQUENCY_FREQUENCY_Audio48k</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Division ratio for 48kHz frequency family. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__auxpll__hal_1ggace4735eb15f18faf843dc6dccd98d6dba3b52e601a92e86f42e050205d704dde6" prot="public">
+          <name>NRF_AUXPLL_FREQUENCY_DIV_MAX</name>
+          <initializer>= AUXPLL_AUXPLLCTRL_FREQUENCY_FREQUENCY_MaximumDiv</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Maximum division ratio of 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>AUXPLL fractional PLL Divider ratio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="118" column="1" bodyfile="hal/nrf_auxpll.h" bodystart="119" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gaea4ddc341e17b6f10a867a025ee50527" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_task_trigger</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_task_t task)</argsstring>
+        <name>nrf_auxpll_task_trigger</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga00833a2371cfb56ad8392461a153a653" kindref="member">nrf_auxpll_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified AUXPLL task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="428" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="428" bodyend="432" declfile="hal/nrf_auxpll.h" declline="143" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gab420ff4daeb0acd4cae06be94a0ae987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_auxpll_task_address_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, nrf_auxpll_task_t task)</argsstring>
+        <name>nrf_auxpll_task_address_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga00833a2371cfb56ad8392461a153a653" kindref="member">nrf_auxpll_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified AUXPLL task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="434" column="28" bodyfile="hal/nrf_auxpll.h" bodystart="434" bodyend="438" declfile="hal/nrf_auxpll.h" declline="154" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga8adf4d621c7e8c8d7b9a76c1eb1b24e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_event_clear</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_event_t event)</argsstring>
+        <name>nrf_auxpll_event_clear</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga139a93ec776aed9979a96f249af7a7eb" kindref="member">nrf_auxpll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified AUXPLL event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="440" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="440" bodyend="445" declfile="hal/nrf_auxpll.h" declline="163" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga1f950ef4f2f16dd388cd309b481d2510" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_event_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, nrf_auxpll_event_t event)</argsstring>
+        <name>nrf_auxpll_event_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga139a93ec776aed9979a96f249af7a7eb" kindref="member">nrf_auxpll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the AUXPLL event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="447" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="447" bodyend="451" declfile="hal/nrf_auxpll.h" declline="175" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga3b67754ec3060a32d78f10f3010760a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_auxpll_event_address_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, nrf_auxpll_event_t event)</argsstring>
+        <name>nrf_auxpll_event_address_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga139a93ec776aed9979a96f249af7a7eb" kindref="member">nrf_auxpll_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified AUXPLL event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="453" column="28" bodyfile="hal/nrf_auxpll.h" bodystart="453" bodyend="457" declfile="hal/nrf_auxpll.h" declline="186" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga0ae47a49f04c20a2b4dc9ccfff2cf14a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_int_enable</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_auxpll_int_enable</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4" kindref="member">nrf_auxpll_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="459" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="459" bodyend="463" declfile="hal/nrf_auxpll.h" declline="196" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga676c5fb5d7f0fe08e4fccf82bd7af6b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_int_disable</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_auxpll_int_disable</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4" kindref="member">nrf_auxpll_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="465" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="465" bodyend="469" declfile="hal/nrf_auxpll.h" declline="206" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gaa4bc60bc8694ecce051777023a3fa7cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_int_enable_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_auxpll_int_enable_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4" kindref="member">nrf_auxpll_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true requested interrupts are enabled. </para>
+</simplesect>
+<simplesect kind="return"><para>false requested interrupts are disabled. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="471" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="471" bodyend="475" declfile="hal/nrf_auxpll.h" declline="219" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gadb36e8e2a3ff5c6fa7b4b7d9746721af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_int_pending_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_auxpll_int_pending_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are pending. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4" kindref="member">nrf_auxpll_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true requested interrupts are pending. </para>
+</simplesect>
+<simplesect kind="return"><para>false requested interrupts are not pending. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="477" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="477" bodyend="481" declfile="hal/nrf_auxpll.h" declline="232" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gad34dab532935eaeae43cb76e61ba57a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_auxpll_status_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_status_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting AUXPLL status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The AUXPLL STATUS register value. Use <ref refid="group__nrf__auxpll__hal_1ga89d83049d7868404bb730cb84cfe1007" kindref="member">nrf_auxpll_status_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="483" column="28" bodyfile="hal/nrf_auxpll.h" bodystart="483" bodyend="486" declfile="hal/nrf_auxpll.h" declline="242" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga6faf0bf81ee5075ef3fa54a107389c9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_config_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg, nrf_auxpll_config_t *p_cfg)</argsstring>
+        <name>nrf_auxpll_config_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__auxpll__config__t" kindref="compound">nrf_auxpll_config_t</ref> *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with current AUXPLL configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="488" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="488" bodyend="508" declfile="hal/nrf_auxpll.h" declline="250" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga266f286ffaf6891d66a8b0acbf174dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_config_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_config_t const *p_cfg)</argsstring>
+        <name>nrf_auxpll_config_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__auxpll__config__t" kindref="compound">nrf_auxpll_config_t</ref> const *</type>
+          <declname>p_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with AUXPLL configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="510" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="510" bodyend="526" declfile="hal/nrf_auxpll.h" declline="259" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga90e037c94c5d79f9e99c90e6ebccce0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_trim_ctune_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, uint8_t value)</argsstring>
+        <name>nrf_auxpll_trim_ctune_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL ring oscillator core process corner tuning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tuning frequency value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="528" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="528" bodyend="532" declfile="hal/nrf_auxpll.h" declline="268" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga009cc5192d245990cdef0154fdd14a23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_auxpll_trim_ctune_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_trim_ctune_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL ring oscillator core process corner tuning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The AUXPLL ring oscillator core process corner tuning value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="534" column="27" bodyfile="hal/nrf_auxpll.h" bodystart="534" bodyend="537" declfile="hal/nrf_auxpll.h" declline="278" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gacf900032d81246c39e730cc36b5beea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_ctrl_frequency_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_freq_div_ratio_t value)</argsstring>
+        <name>nrf_auxpll_ctrl_frequency_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1gace4735eb15f18faf843dc6dccd98d6db" kindref="member">nrf_auxpll_freq_div_ratio_t</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL fractional PLL divider ratio tuning. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fractional divider ratio. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="539" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="539" bodyend="543" declfile="hal/nrf_auxpll.h" declline="287" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga66f2cba55b729699377f5f5c9df7b4d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint16_t</type>
+        <definition>NRF_STATIC_INLINE uint16_t nrf_auxpll_ctrl_frequency_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_ctrl_frequency_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL fractional PLL divider ratio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Fractional divider ratio. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="545" column="28" bodyfile="hal/nrf_auxpll.h" bodystart="545" bodyend="548" declfile="hal/nrf_auxpll.h" declline="297" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga2d9df7b43bc7ab5043970dd79f39ddc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_ctrl_freqinc_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, int8_t value)</argsstring>
+        <name>nrf_auxpll_ctrl_freqinc_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL frequency increment value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signed 8-bit frequency increment, applied to current value of FREQUENCY register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="550" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="550" bodyend="554" declfile="hal/nrf_auxpll.h" declline="305" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gaee7e190c03c72049db9bd190358b09fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE int8_t</type>
+        <definition>NRF_STATIC_INLINE int8_t nrf_auxpll_ctrl_freqinc_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_ctrl_freqinc_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL frequency increment value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Signed 8-bit frequency increment. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="556" column="26" bodyfile="hal/nrf_auxpll.h" bodystart="556" bodyend="559" declfile="hal/nrf_auxpll.h" declline="315" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga0714101e5b11664b5ed7d62f2cd9274a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_ctrl_freqinc_period_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, uint16_t value)</argsstring>
+        <name>nrf_auxpll_ctrl_freqinc_period_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL frequency increment period. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency increment period in 1 us steps. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="561" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="561" bodyend="565" declfile="hal/nrf_auxpll.h" declline="323" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gad7b1219e2e02389b7f603ebcefa7b23a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint16_t</type>
+        <definition>NRF_STATIC_INLINE uint16_t nrf_auxpll_ctrl_freqinc_period_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_ctrl_freqinc_period_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL frequency increment period value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Frequency increment period. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="567" column="28" bodyfile="hal/nrf_auxpll.h" bodystart="567" bodyend="570" declfile="hal/nrf_auxpll.h" declline="333" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga89a038128bbcf6d6060e44e7e2ccb001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_ctrl_outsel_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_ctrl_outsel_t value)</argsstring>
+        <name>nrf_auxpll_ctrl_outsel_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga110addb039fdde0e61dca7ac7e65c8bf" kindref="member">nrf_auxpll_ctrl_outsel_t</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL output prescaler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Prescaler ratio. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="572" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="572" bodyend="576" declfile="hal/nrf_auxpll.h" declline="341" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga58bb555226de8e2c53d7d27359bc61e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__auxpll__hal_1ga110addb039fdde0e61dca7ac7e65c8bf" kindref="member">nrf_auxpll_ctrl_outsel_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_auxpll_ctrl_outsel_t nrf_auxpll_ctrl_outsel_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_ctrl_outsel_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL output prescaler value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Prescaler ratio. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="578" column="44" bodyfile="hal/nrf_auxpll.h" bodystart="578" bodyend="582" declfile="hal/nrf_auxpll.h" declline="351" declcolumn="44"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gadde772559f66a0c3192ccf4106344f6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_ctrl_mode_set</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg, nrf_auxpll_ctrl_mode_t value)</argsstring>
+        <name>nrf_auxpll_ctrl_mode_set</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__auxpll__hal_1ga4dbf54a08320cdb915cce469bb2a3833" kindref="member">nrf_auxpll_ctrl_mode_t</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the AUXPLL mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>AUXPLL running mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="584" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="584" bodyend="588" declfile="hal/nrf_auxpll.h" declline="359" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga25947ecad40fce8a75bea61885fdedd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__auxpll__hal_1ga4dbf54a08320cdb915cce469bb2a3833" kindref="member">nrf_auxpll_ctrl_mode_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_auxpll_ctrl_mode_t nrf_auxpll_ctrl_mode_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_ctrl_mode_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the AUXPLL mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>AUXPLL running mode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="590" column="42" bodyfile="hal/nrf_auxpll.h" bodystart="590" bodyend="596" declfile="hal/nrf_auxpll.h" declline="369" declcolumn="42"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1gaa6ce2278918e16a0d77638b28cff1f2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_lock</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg)</argsstring>
+        <name>nrf_auxpll_lock</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Enable LOCK for mirrored AUXPLL registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="598" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="598" bodyend="601" declfile="hal/nrf_auxpll.h" declline="376" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga022f5a242f3a44e3c2e611c274587372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_auxpll_unlock</definition>
+        <argsstring>(NRF_AUXPLL_Type *p_reg)</argsstring>
+        <name>nrf_auxpll_unlock</name>
+        <param>
+          <type>NRF_AUXPLL_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Disable the lock after configuring all AUXPLL mirrored registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The individual mirrored registers can be updated any time when the lock is disabled.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="603" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="603" bodyend="606" declfile="hal/nrf_auxpll.h" declline="385" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga2c5776fa7f4b3698a537e97ed2643b2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_lock_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_lock_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Check if mirrored AUXPLL registers are locked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL mirrored register lock enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL mirrored register lock disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="608" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="608" bodyend="611" declfile="hal/nrf_auxpll.h" declline="395" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga262d3d082f18d164fd5aa51bc7f9c31a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_auxpll_static_ratio_get</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_static_ratio_get</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Obtain static ratio when DSM is disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Static ratio value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="613" column="27" bodyfile="hal/nrf_auxpll.h" bodystart="613" bodyend="617" declfile="hal/nrf_auxpll.h" declline="404" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga6812e225d5d9f7ccaec012d52579d1cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_mode_locked_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_mode_locked_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Check if AUXPLL is locked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL is locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL is not locked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="619" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="619" bodyend="623" declfile="hal/nrf_auxpll.h" declline="414" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__auxpll__hal_1ga94579b718783bd57932afc4b46fefa41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_auxpll_running_check</definition>
+        <argsstring>(NRF_AUXPLL_Type const *p_reg)</argsstring>
+        <name>nrf_auxpll_running_check</name>
+        <param>
+          <type>NRF_AUXPLL_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Check if AUXPLL is running. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL is running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AUXPLL is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_auxpll.h" line="625" column="24" bodyfile="hal/nrf_auxpll.h" bodystart="625" bodyend="629" declfile="hal/nrf_auxpll.h" declline="424" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Auxiliary Phase Locked Loop (AUXPLL) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

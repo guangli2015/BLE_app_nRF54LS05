@@ -1,0 +1,1980 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__rramc__hal" kind="group">
+    <compoundname>nrf_rramc_hal</compoundname>
+    <title>RRAMC HAL</title>
+    <innerclass refid="structnrf__rramc__config__t" prot="public">nrf_rramc_config_t</innerclass>
+    <innerclass refid="structnrf__rramc__ready__next__timeout__t" prot="public">nrf_rramc_ready_next_timeout_t</innerclass>
+    <innerclass refid="structnrf__rramc__power__t" prot="public">nrf_rramc_power_t</innerclass>
+    <innerclass refid="structnrf__rramc__region__config__t" prot="public">nrf_rramc_region_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rramc_task_t</name>
+        <enumvalue id="group__nrf__rramc__hal_1ggadf80c0390d89b481d76b4f348b147cc7ae26d52348c5b64e26ef7a0d6fcea2424" prot="public">
+          <name>NRF_RRAMC_TASK_WAKEUP</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, TASKS_WAKEUP)</initializer>
+          <briefdescription>
+<para>Wakeup the RRAM from low power mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1ggadf80c0390d89b481d76b4f348b147cc7ae78e37462cb130d9e84894a34df2dbb4" prot="public">
+          <name>NRF_RRAMC_TASK_COMMIT_WRITEBUF</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, TASKS_COMMITWRITEBUF)</initializer>
+          <briefdescription>
+<para>Commit the data stored in internal write-buffer to RRAM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RRAMC tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="86" column="1" bodyfile="hal/nrf_rramc.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rramc_event_t</name>
+        <enumvalue id="group__nrf__rramc__hal_1gga12273d5b8ed1f0e2c15d4eb6b2bb45ddadb6b5788f971630e4599e9e0ff366a36" prot="public">
+          <name>NRF_RRAMC_EVENT_WOKENUP</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, EVENTS_WOKENUP)</initializer>
+          <briefdescription>
+<para>The RRAM is woken up from low power mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga12273d5b8ed1f0e2c15d4eb6b2bb45ddaa50022ae45e9aeccf043e9c25b0dc510" prot="public">
+          <name>NRF_RRAMC_EVENT_READY</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, EVENTS_READY)</initializer>
+          <briefdescription>
+<para>RRAMC is ready. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga12273d5b8ed1f0e2c15d4eb6b2bb45dda883352a74d9ebfc2a1868e7ffa080875" prot="public">
+          <name>NRF_RRAMC_EVENT_READY_NEXT</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, EVENTS_READYNEXT)</initializer>
+          <briefdescription>
+<para>Ready to accept a new write operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga12273d5b8ed1f0e2c15d4eb6b2bb45dda0ab2fc8a267c9cacfd4d4ef9a31fe968" prot="public">
+          <name>NRF_RRAMC_EVENT_ERROR_ACCESS</name>
+          <initializer>= offsetof(NRF_RRAMC_Type, EVENTS_ACCESSERROR)</initializer>
+          <briefdescription>
+<para>RRAM access error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RRAMC events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="93" column="1" bodyfile="hal/nrf_rramc.h" bodystart="94" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rramc_int_mask_t</name>
+        <enumvalue id="group__nrf__rramc__hal_1gga95ceba960c4e94ed070157dee96947cba41d959cedef3c33155d7cead48495930" prot="public">
+          <name>NRF_RRAMC_INT_WOKENUP_MASK</name>
+          <initializer>= RRAMC_INTENSET_WOKENUP_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on WOKENUP event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga95ceba960c4e94ed070157dee96947cba7778d5858a094b102b8ce0b6cfe8727a" prot="public">
+          <name>NRF_RRAMC_INT_READY_MASK</name>
+          <initializer>= RRAMC_INTENSET_READY_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on READY event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga95ceba960c4e94ed070157dee96947cba5db7e69a7cf1ef91b9d58fcd0ef5ceac" prot="public">
+          <name>NRF_RRAMC_INT_READY_NEXT_MASK</name>
+          <initializer>= RRAMC_INTENSET_READYNEXT_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on READYNEXT event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga95ceba960c4e94ed070157dee96947cbaf884152357d3a1de7fa0c384c2f3979d" prot="public">
+          <name>NRF_RRAMC_INT_ERROR_ACCESS_MASK</name>
+          <initializer>= RRAMC_INTENSET_ACCESSERROR_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on ACCESSERROR event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga95ceba960c4e94ed070157dee96947cba2145b2f305d5ea9efa8c8f4a3e96a1f9" prot="public">
+          <name>NRF_RRAMC_ALL_INTS_MASK</name>
+          <initializer>= NRF_RRAMC_INT_WOKENUP_MASK
+                                    | NRF_RRAMC_INT_READY_MASK
+                                    | NRF_RRAMC_INT_READY_NEXT_MASK
+                                    | NRF_RRAMC_INT_ERROR_ACCESS_MASK</initializer>
+          <briefdescription>
+<para>All RRAMC interrupts. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RRAMC interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="102" column="1" bodyfile="hal/nrf_rramc.h" bodystart="103" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rramc__hal_1ga7e764982c46a8f2ea0a6b1a48c8382f6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rramc_lp_mode_t</name>
+        <enumvalue id="group__nrf__rramc__hal_1gga7e764982c46a8f2ea0a6b1a48c8382f6a24aff0447fa2c110a31e5a697e031de7" prot="public">
+          <name>NRF_RRAMC_LP_POWER_DOWN</name>
+          <initializer>= RRAMC_POWER_LOWPOWERCONFIG_MODE_PowerDown</initializer>
+          <briefdescription>
+<para>The RRAM goes into power down mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga7e764982c46a8f2ea0a6b1a48c8382f6a8aa369a6084d2aedfaf300f64922040e" prot="public">
+          <name>NRF_RRAMC_LP_STANDBY</name>
+          <initializer>= RRAMC_POWER_LOWPOWERCONFIG_MODE_Standby</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The RRAM automatically goes into standby mode while the RRAM is not being accessed. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga7e764982c46a8f2ea0a6b1a48c8382f6aafb8c1ed975cec03122d7769f6ef8157" prot="public">
+          <name>NRF_RRAMC_LP_NAP</name>
+          <initializer>= RRAMC_POWER_LOWPOWERCONFIG_MODE_NAP</initializer>
+          <briefdescription>
+<para>The RRAM goes into NAP mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga7e764982c46a8f2ea0a6b1a48c8382f6af27add339eb7f9a35db3439b6d38afe5" prot="public">
+          <name>NRF_RRAMC_LP_POWER_OFF</name>
+          <initializer>= RRAMC_POWER_LOWPOWERCONFIG_MODE_PowerOff</initializer>
+          <briefdescription>
+<para>The RRAM is powered off. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RRAMC low power modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="115" column="1" bodyfile="hal/nrf_rramc.h" bodystart="116" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rramc__hal_1ga579f0477b16e9f6076ed83824c85fd8d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rramc_region_perm_mask_t</name>
+        <enumvalue id="group__nrf__rramc__hal_1gga579f0477b16e9f6076ed83824c85fd8da68e8704bfea43160bfdcfe1ae657f629" prot="public">
+          <name>NRF_RRAMC_REGION_PERM_READ_MASK</name>
+          <initializer>= RRAMC_REGION_CONFIG_READ_Msk</initializer>
+          <briefdescription>
+<para>Read access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga579f0477b16e9f6076ed83824c85fd8dad4062c4e387289a6409beb2822c3c704" prot="public">
+          <name>NRF_RRAMC_REGION_PERM_WRITE_MASK</name>
+          <initializer>= RRAMC_REGION_CONFIG_WRITE_Msk</initializer>
+          <briefdescription>
+<para>Write access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga579f0477b16e9f6076ed83824c85fd8dab7ef9b610bde97c4c05f40ab2b2d157f" prot="public">
+          <name>NRF_RRAMC_REGION_PERM_EXECUTE_MASK</name>
+          <initializer>= RRAMC_REGION_CONFIG_EXECUTE_Msk</initializer>
+          <briefdescription>
+<para>Software execute. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rramc__hal_1gga579f0477b16e9f6076ed83824c85fd8da83b03b5c7fd2e0c12a15061f3b8cb297" prot="public">
+          <name>NRF_RRAMC_REGION_PERM_SECURE_MASK</name>
+          <initializer>= RRAMC_REGION_CONFIG_SECURE_Msk</initializer>
+          <briefdescription>
+<para>Secure-only access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RRAMC region permissions mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When bit is set, the selected action is allowed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="154" column="1" bodyfile="hal/nrf_rramc.h" bodystart="155" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga489e48359c21e9aeab721abf8110252f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_task_trigger</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_task_t task)</argsstring>
+        <name>nrf_rramc_task_trigger</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" kindref="member">nrf_rramc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified RRAMC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="599" column="24" bodyfile="hal/nrf_rramc.h" bodystart="599" bodyend="602" declfile="hal/nrf_rramc.h" declline="180" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gabca757c359aa7a33adfcc6556f8c0fb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_task_address_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_task_t task)</argsstring>
+        <name>nrf_rramc_task_address_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" kindref="member">nrf_rramc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified RRAMC task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="604" column="28" bodyfile="hal/nrf_rramc.h" bodystart="604" bodyend="608" declfile="hal/nrf_rramc.h" declline="190" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga6a5a2e22bbd6b8d5af4c27fa64f1a9d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_event_clear</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_event_t event)</argsstring>
+        <name>nrf_rramc_event_clear</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified RRAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the peripheral register structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="610" column="24" bodyfile="hal/nrf_rramc.h" bodystart="610" bodyend="614" declfile="hal/nrf_rramc.h" declline="199" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga1f57b36da161e1cf21c82aa3876efb77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rramc_event_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_event_t event)</argsstring>
+        <name>nrf_rramc_event_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the RRAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="616" column="24" bodyfile="hal/nrf_rramc.h" bodystart="616" bodyend="619" declfile="hal/nrf_rramc.h" declline="210" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga3eb129f51c08e58c4cc381768eb60dc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_event_address_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_event_t event)</argsstring>
+        <name>nrf_rramc_event_address_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified RRAMC event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the peripheral register structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="621" column="28" bodyfile="hal/nrf_rramc.h" bodystart="621" bodyend="625" declfile="hal/nrf_rramc.h" declline="220" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga3f7f69bc71658a8215e67943284662f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_int_enable</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rramc_int_enable</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the peripheral register structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb" kindref="member">nrf_rramc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="627" column="24" bodyfile="hal/nrf_rramc.h" bodystart="627" bodyend="630" declfile="hal/nrf_rramc.h" declline="230" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga02dcfb8913610a45e1f11db523e921d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_int_disable</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rramc_int_disable</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the peripheral register structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb" kindref="member">nrf_rramc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="632" column="24" bodyfile="hal/nrf_rramc.h" bodystart="632" bodyend="635" declfile="hal/nrf_rramc.h" declline="239" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga5c5b504644d49c61de9703237c6d25ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_int_enable_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rramc_int_enable_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb" kindref="member">nrf_rramc_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="637" column="28" bodyfile="hal/nrf_rramc.h" bodystart="637" bodyend="641" declfile="hal/nrf_rramc.h" declline="250" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gaf00e75dd9d1eb6aa3619259951965b24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_int_pending_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_int_pending_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of pending interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bitmask with information about pending interrupts. Use <ref refid="group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb" kindref="member">nrf_rramc_int_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="643" column="28" bodyfile="hal/nrf_rramc.h" bodystart="643" bodyend="646" declfile="hal/nrf_rramc.h" declline="263" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga7ae9f5e904859c825e76cd71a1bdccf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_subscribe_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_rramc_subscribe_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" kindref="member">nrf_rramc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a wakeup RRAMC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Not every task has its corresponding subscribe register. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="277" column="24" declfile="hal/nrf_rramc.h" declline="277" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga572ef364bcf9cb3953a045a5b58fb749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_subscribe_clear</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_task_t task)</argsstring>
+        <name>nrf_rramc_subscribe_clear</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" kindref="member">nrf_rramc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a wakeup RRAMC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Not every task has its corresponding subscribe register. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="291" column="24" declfile="hal/nrf_rramc.h" declline="291" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga9e8e79747ffae747e7342eb8c1072720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_subscribe_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_task_t task)</argsstring>
+        <name>nrf_rramc_subscribe_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1gadf80c0390d89b481d76b4f348b147cc7" kindref="member">nrf_rramc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given RRAMC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RRAMC subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="302" column="28" declfile="hal/nrf_rramc.h" declline="302" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gacc11dfa1e7e8921b6e21a1bb9f7cf1d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_publish_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_rramc_publish_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a wokenup RRAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Not every event has its corresponding publish register. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="316" column="24" declfile="hal/nrf_rramc.h" declline="316" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga2aca81a5db0d6d818307cd50f825bbf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_publish_clear</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_event_t event)</argsstring>
+        <name>nrf_rramc_publish_clear</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a wokenup RRAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Not every event has its corresponding publish register. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="330" column="24" declfile="hal/nrf_rramc.h" declline="330" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gafae159bcd5fba5e774c34a03865813f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_publish_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_event_t event)</argsstring>
+        <name>nrf_rramc_publish_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given RRAMC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RRAMC publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="341" column="28" declfile="hal/nrf_rramc.h" declline="341" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gae3dd53c1f48d343e31268ab9fe3102d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rramc_ready_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_ready_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking current RRAMC operation status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current operation is completed, and RRAMC is ready. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="688" column="24" bodyfile="hal/nrf_rramc.h" bodystart="688" bodyend="693" declfile="hal/nrf_rramc.h" declline="354" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga3334d9ee37c8e0f156f1cddc9aa8f438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rramc_write_ready_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_write_ready_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether RRAMC is ready to accept a new write operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC is ready to accept a new write operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC cannot accept any write operation now. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="695" column="24" bodyfile="hal/nrf_rramc.h" bodystart="695" bodyend="700" declfile="hal/nrf_rramc.h" declline="364" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga7b3734fcb2edf3e513d48328718fe5fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_error_access_addr_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_error_access_addr_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Fuction for checking the address of the first access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Access error address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="702" column="28" bodyfile="hal/nrf_rramc.h" bodystart="702" bodyend="705" declfile="hal/nrf_rramc.h" declline="373" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gafad2c8c47ca125eec3724f54c62b891f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rramc_empty_buffer_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_empty_buffer_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the internal write-buffer has been committed to RRAM and is now empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The internal write-buffer is empty and has no content that needs to be commited. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The internal write-buffer has data that needs to be committed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="707" column="24" bodyfile="hal/nrf_rramc.h" bodystart="707" bodyend="712" declfile="hal/nrf_rramc.h" declline="383" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga600344f5d63d15447e2a49bd1bc87b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_config_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_config_t *p_config)</argsstring>
+        <name>nrf_rramc_config_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__config__t" kindref="compound">nrf_rramc_config_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the RRAMC peripheral configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with RRAMC configuration data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="714" column="24" bodyfile="hal/nrf_rramc.h" bodystart="714" bodyend="721" declfile="hal/nrf_rramc.h" declline="391" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_config_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_config_t const *p_config)</argsstring>
+        <name>nrf_rramc_config_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__config__t" kindref="compound">nrf_rramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the RRAMC peripheral configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="723" column="24" bodyfile="hal/nrf_rramc.h" bodystart="723" bodyend="730" declfile="hal/nrf_rramc.h" declline="400" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga04efa9e62632c8b8dff3d62382d448d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_ready_next_timeout_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_ready_next_timeout_t *p_config)</argsstring>
+        <name>nrf_rramc_ready_next_timeout_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__ready__next__timeout__t" kindref="compound">nrf_rramc_ready_next_timeout_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting preload timeout value for waiting for a next write. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with information about preload timeout value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="732" column="24" bodyfile="hal/nrf_rramc.h" bodystart="732" bodyend="739" declfile="hal/nrf_rramc.h" declline="410" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga66be625abc1ee4292bd40e299dbe4ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_ready_next_timeout_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_ready_next_timeout_t const *p_config)</argsstring>
+        <name>nrf_rramc_ready_next_timeout_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__ready__next__timeout__t" kindref="compound">nrf_rramc_ready_next_timeout_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting preload timeout value for waiting for a next write. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure filled with information about$ preload timeout value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="742" column="1" bodyfile="hal/nrf_rramc.h" bodystart="742" bodyend="751" declfile="hal/nrf_rramc.h" declline="421" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga0d04aaa18a1463ca07cdc2292a7d38f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_power_config_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, nrf_rramc_power_t *p_config)</argsstring>
+        <name>nrf_rramc_power_config_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__power__t" kindref="compound">nrf_rramc_power_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the RRAMC power configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with information about power configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="753" column="24" bodyfile="hal/nrf_rramc.h" bodystart="753" bodyend="763" declfile="hal/nrf_rramc.h" declline="431" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga5aa5b43d22070041f92b7396758ed8a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_power_config_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_power_t const *p_config)</argsstring>
+        <name>nrf_rramc_power_config_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__power__t" kindref="compound">nrf_rramc_power_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the RRAMC power configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure filled with information about power configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="765" column="24" bodyfile="hal/nrf_rramc.h" bodystart="765" bodyend="771" declfile="hal/nrf_rramc.h" declline="440" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gaad0e37d917d80c370ffbc37d22dfe6c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rramc_erase_all_check</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg)</argsstring>
+        <name>nrf_rramc_erase_all_check</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the erasing operation of the whole RRAM main block has been started. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Erase of chip started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No operation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="773" column="24" bodyfile="hal/nrf_rramc.h" bodystart="773" bodyend="778" declfile="hal/nrf_rramc.h" declline="451" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gabd91f162fa4e8bb5800e5ad46a10ac2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_erase_all_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg)</argsstring>
+        <name>nrf_rramc_erase_all_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for erasing whole RRAM main block, that includes the SICR and the UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="780" column="24" bodyfile="hal/nrf_rramc.h" bodystart="780" bodyend="783" declfile="hal/nrf_rramc.h" declline="458" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga0a8c03c1bbee5321883fc348fb246f4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_region_config_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, uint8_t region, nrf_rramc_region_config_t const *p_config)</argsstring>
+        <name>nrf_rramc_region_config_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>region</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__region__config__t" kindref="compound">nrf_rramc_region_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the configuration of the specified RRAMC region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">region</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the configuration structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="785" column="24" bodyfile="hal/nrf_rramc.h" bodystart="785" bodyend="800" declfile="hal/nrf_rramc.h" declline="467" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga203cf7cebc41d47f7eb2c416b238e738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_region_config_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, uint8_t region, nrf_rramc_region_config_t *p_config)</argsstring>
+        <name>nrf_rramc_region_config_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>region</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__rramc__region__config__t" kindref="compound">nrf_rramc_region_config_t</ref> *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the configuration of the specified RRAMC region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">region</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with RRAMC region settings. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="802" column="24" bodyfile="hal/nrf_rramc.h" bodystart="802" bodyend="815" declfile="hal/nrf_rramc.h" declline="478" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga1b692a77d2f320b73583f820c4a7c083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_region_config_raw_get</definition>
+        <argsstring>(NRF_RRAMC_Type const *p_reg, uint8_t region)</argsstring>
+        <name>nrf_rramc_region_config_raw_get</name>
+        <param>
+          <type>NRF_RRAMC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>region</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the raw configuration of the specified RRAMC region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">region</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Raw configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="817" column="28" bodyfile="hal/nrf_rramc.h" bodystart="817" bodyend="821" declfile="hal/nrf_rramc.h" declline="490" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga89e3b4414a1024a788af44acf969f074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_byte_write</definition>
+        <argsstring>(uint32_t address, uint8_t value)</argsstring>
+        <name>nrf_rramc_byte_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a byte to RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If write buffer is enabled, new data might not be immediately committed to the target memory.</para>
+</simplesect>
+<simplesect kind="warning"><para>Before calling this function, the caller must ensure that write mode is enabled using <ref refid="group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99" kindref="member">nrf_rramc_config_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the byte to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="823" column="24" bodyfile="hal/nrf_rramc.h" bodystart="823" bodyend="826" declfile="hal/nrf_rramc.h" declline="505" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga2e675d2d2c3b7061b60dac48d1198d21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_halfword_write</definition>
+        <argsstring>(uint32_t address, uint16_t value)</argsstring>
+        <name>nrf_rramc_halfword_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a halfword to RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If write buffer is enabled, new data might not be immediately committed to the target memory.</para>
+</simplesect>
+<simplesect kind="warning"><para>Before calling this function, the caller must ensure that write mode is enabled using <ref refid="group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99" kindref="member">nrf_rramc_config_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the halfword to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="828" column="24" bodyfile="hal/nrf_rramc.h" bodystart="828" bodyend="831" declfile="hal/nrf_rramc.h" declline="519" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gadcb0eda07ffcdb17931d1198d34216b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_word_write</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrf_rramc_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a word to RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If write buffer is enabled, new data might not be immediately committed to the target memory.</para>
+</simplesect>
+<simplesect kind="warning"><para>Before calling this function, the caller must ensure that write mode is enabled using <ref refid="group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99" kindref="member">nrf_rramc_config_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the word to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="833" column="24" bodyfile="hal/nrf_rramc.h" bodystart="833" bodyend="836" declfile="hal/nrf_rramc.h" declline="533" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga41edb2263e7e7f12db1304695068653d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_buffer_write</definition>
+        <argsstring>(uint32_t address, void *src, uint32_t num_bytes)</argsstring>
+        <name>nrf_rramc_buffer_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a given number of bytes from a specified buffer into RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If write buffer is enabled, new data might not be immediately committed to the target memory.</para>
+</simplesect>
+<simplesect kind="warning"><para>Before calling this function, the caller must ensure that write mode is enabled using <ref refid="group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99" kindref="member">nrf_rramc_config_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination address in RRAM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer from where data will be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="838" column="24" bodyfile="hal/nrf_rramc.h" bodystart="838" bodyend="841" declfile="hal/nrf_rramc.h" declline="550" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gad976e796c0828e2406cebe030be3b57c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_rramc_byte_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrf_rramc_byte_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a byte from the RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the byte to read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="843" column="27" bodyfile="hal/nrf_rramc.h" bodystart="843" bodyend="846" declfile="hal/nrf_rramc.h" declline="559" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga4a5d4371d0f7c394655a9f055ed8e101" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint16_t</type>
+        <definition>NRF_STATIC_INLINE uint16_t nrf_rramc_halfword_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrf_rramc_halfword_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a halfword from the RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the halfword to read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="848" column="28" bodyfile="hal/nrf_rramc.h" bodystart="848" bodyend="851" declfile="hal/nrf_rramc.h" declline="568" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga6e103c28da7e4122ffe3342ea5b75356" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rramc_word_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrf_rramc_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a word from the RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the word to read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="853" column="28" bodyfile="hal/nrf_rramc.h" bodystart="853" bodyend="856" declfile="hal/nrf_rramc.h" declline="577" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1ga8a61d0bcc7817419cd331fa02f3640e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_buffer_read</definition>
+        <argsstring>(void *dst, uint32_t address, uint32_t num_bytes)</argsstring>
+        <name>nrf_rramc_buffer_read</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a given number of bytes from RRAM memory into a specified buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to store the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first byte to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="858" column="24" bodyfile="hal/nrf_rramc.h" bodystart="858" bodyend="861" declfile="hal/nrf_rramc.h" declline="587" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rramc__hal_1gaf95d9b1427c8c442a2c61c419f2d67b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rramc_lp_mode_set</definition>
+        <argsstring>(NRF_RRAMC_Type *p_reg, nrf_rramc_lp_mode_t mode)</argsstring>
+        <name>nrf_rramc_lp_mode_set</name>
+        <param>
+          <type>NRF_RRAMC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rramc__hal_1ga7e764982c46a8f2ea0a6b1a48c8382f6" kindref="member">nrf_rramc_lp_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting RRAMC low power mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC low power mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="863" column="24" bodyfile="hal/nrf_rramc.h" bodystart="863" bodyend="869" declfile="hal/nrf_rramc.h" declline="595" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__rramc__hal_1ga487453592d9373e8fdce95fe379e2d27" prot="public" static="no">
+        <name>NRF_RRAMC_HAS_SECURE_CONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RRAM controller has secure-only access configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="53" column="9" bodyfile="hal/nrf_rramc.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__rramc__hal_1gaabf6516cd966539914647402038ad51f" prot="public" static="no">
+        <name>NRF_RRAMC_HAS_LP_MODE_NAP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RRAM controller has nap mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="60" column="9" bodyfile="hal/nrf_rramc.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__rramc__hal_1ga3af4fb8d8e7d8a1559a8ce368cc2636e" prot="public" static="no">
+        <name>NRF_RRAMC_HAS_LP_MODE_POWER_DOWN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RRAM controller has power down mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="67" column="9" bodyfile="hal/nrf_rramc.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__rramc__hal_1ga3c0bbef9aa4ef0796aef6851bc79fe74" prot="public" static="no">
+        <name>NRF_RRAMC_CONFIG_WRITE_BUFF_SIZE_MAX</name>
+        <initializer>RRAMC_CONFIG_WRITEBUFSIZE_Max</initializer>
+        <briefdescription>
+<para>Maximum size of a write-buffer in number of 128-bit words. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="73" column="9" bodyfile="hal/nrf_rramc.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__rramc__hal_1ga81f6fef9e0d33a32f16b7ff86bfacdd2" prot="public" static="no">
+        <name>NRF_RRAMC_READYNEXTTIMEOUT_MAX</name>
+        <initializer>RRAMC_READYNEXTTIMEOUT_VALUE_Max</initializer>
+        <briefdescription>
+<para>Maximum preload timeout value for waiting for a next write. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="76" column="9" bodyfile="hal/nrf_rramc.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__rramc__hal_1ga3d969b8a42d8c22b05d44adb5843aad9" prot="public" static="no">
+        <name>NRF_RRAMC_REGION_CONFIG_PERM_MASK</name>
+        <initializer>                                           (RRAMC_REGION_CONFIG_READ_Msk    |                        \
+                                           RRAMC_REGION_CONFIG_WRITE_Msk   |                        \
+                                           RRAMC_REGION_CONFIG_EXECUTE_Msk |                        \
+                                           <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__rramc__hal_1ga487453592d9373e8fdce95fe379e2d27" kindref="member">NRF_RRAMC_HAS_SECURE_CONFIG</ref>,            \
+                                                            (RRAMC_REGION_CONFIG_SECURE_Msk), (0))) \</initializer>
+        <briefdescription>
+<para>RRAMC region permissions bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rramc.h" line="79" column="9" bodyfile="hal/nrf_rramc.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the the Resistive Random Access Memory Controller (RRAMC) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2711 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__tdm__hal" kind="group">
+    <compoundname>nrf_tdm_hal</compoundname>
+    <title>TDM HAL</title>
+    <innerclass refid="structnrf__tdm__config__t" prot="public">nrf_tdm_config_t</innerclass>
+    <innerclass refid="structnrf__tdm__pins__t" prot="public">nrf_tdm_pins_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_task_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a9052c720c7d48db982836f23fdc317a5" prot="public">
+          <name>NRF_TDM_TASK_START</name>
+          <initializer>= offsetof(NRF_TDM_Type, TASKS_START)</initializer>
+          <briefdescription>
+<para>Starts continuous TDM transfer. Also starts the MCK generator if this is enabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a8b4ee3da2384d525f31107bd89bd8b7a" prot="public">
+          <name>NRF_TDM_TASK_STOP</name>
+          <initializer>= offsetof(NRF_TDM_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stops TDM transfer after completion of MAXCNT words. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a26a138fadb8a545426835e67c943b9be" prot="public">
+          <name>NRF_TDM_TASK_ABORT</name>
+          <initializer>= offsetof(NRF_TDM_Type, TASKS_ABORT)</initializer>
+          <briefdescription>
+<para>Aborts TDM transfer without completing MAXCNT words. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="94" column="1" bodyfile="hal/nrf_tdm.h" bodystart="95" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_event_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a6e701a11298b48d44dbc4dfa41d3dc6b" prot="public">
+          <name>NRF_TDM_EVENT_RXPTRUPD</name>
+          <initializer>= offsetof(NRF_TDM_Type, EVENTS_RXPTRUPD)</initializer>
+          <briefdescription>
+<para>The RXD.PTR register has been copied to internal double buffers. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a35adca94a2257909f4881e0b99de21ac" prot="public">
+          <name>NRF_TDM_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_TDM_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>TDM transfer stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3af75e6a221449f505996b5e216d74e3a0" prot="public">
+          <name>NRF_TDM_EVENT_ABORTED</name>
+          <initializer>= offsetof(NRF_TDM_Type, EVENTS_ABORTED)</initializer>
+          <briefdescription>
+<para>TDM transfer aborted. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3ae394c5200a02833b0c297fada45f34ff" prot="public">
+          <name>NRF_TDM_EVENT_TXPTRUPD</name>
+          <initializer>= offsetof(NRF_TDM_Type, EVENTS_TXPTRUPD)</initializer>
+          <briefdescription>
+<para>The TXD.PTR register has been copied to internal double buffers. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a48210f2f09cc86f2ac5f7d5a573bf96a" prot="public">
+          <name>NRF_TDM_EVENT_MAXCNT</name>
+          <initializer>= offsetof(NRF_TDM_Type, EVENTS_MAXCNT)</initializer>
+          <briefdescription>
+<para>MAXCNT block event, generated on the active edge of FSYNC of every MAXCNT block. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="102" column="1" bodyfile="hal/nrf_tdm.h" bodystart="103" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_int_mask_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80eac2e39023d369367c170867b127193d19" prot="public">
+          <name>NRF_TDM_INT_RXPTRUPD_MASK_MASK</name>
+          <initializer>= TDM_INTENSET_RXPTRUPD_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXPTRUPD event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ea1dacdfbea6cc5bffaa9b80fa6f973129" prot="public">
+          <name>NRF_TDM_INT_STOPPED_MASK_MASK</name>
+          <initializer>= TDM_INTENSET_STOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on STOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ea027ab8a65ac2a725f0eac9619238904e" prot="public">
+          <name>NRF_TDM_INT_ABORTED_MASK</name>
+          <initializer>= TDM_INTENSET_ABORTED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on EVENTS_ABORTED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ead298da2c4dc4de89c22b3a54d144a6c0" prot="public">
+          <name>NRF_TDM_INT_TXPTRUPD_MASK_MASK</name>
+          <initializer>= TDM_INTENSET_TXPTRUPD_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXPTRUPD event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80eaf93a4dc0ea0af6c23a56619684cfd16d" prot="public">
+          <name>NRF_TDM_INT_MAXCNT_MASK</name>
+          <initializer>= TDM_INTENSET_MAXCNT_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on EVENTS_MAXCNT event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="112" column="1" bodyfile="hal/nrf_tdm.h" bodystart="113" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga3be5f370705bf71041cda43df0b53bb5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_mode_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga3be5f370705bf71041cda43df0b53bb5ac5bd0e872a719775b9b8a30855f9f3d2" prot="public">
+          <name>NRF_TDM_MODE_MASTER</name>
+          <initializer>= TDM_CONFIG_MODE_MODE_Master</initializer>
+          <briefdescription>
+<para>Master mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga3be5f370705bf71041cda43df0b53bb5ab1a1b15d0d8a8ec15fab5529500b2668" prot="public">
+          <name>NRF_TDM_MODE_SLAVE</name>
+          <initializer>= TDM_CONFIG_MODE_MODE_Slave</initializer>
+          <briefdescription>
+<para>Slave mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM modes of operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="122" column="1" bodyfile="hal/nrf_tdm.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1gac4e15273a65acc1dc5b177913d1ff10f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_rxtxen_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fae15e37dfc0b9d42ab1c7722df5260b41" prot="public">
+          <name>NRF_TDM_RXTXEN_DUPLEX</name>
+          <initializer>= TDM_CONFIG_RXTXEN_RXTXEN_Duplex</initializer>
+          <briefdescription>
+<para>Enable reception and transmission. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fa41fa172f8cd73989314b5bde8f9b4f11" prot="public">
+          <name>NRF_TDM_RXTXEN_RX</name>
+          <initializer>= TDM_CONFIG_RXTXEN_RXTXEN_Rx</initializer>
+          <briefdescription>
+<para>Enable reception, disable transmission. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fa69531ed690f5735bfb64269ee40fb745" prot="public">
+          <name>NRF_TDM_RXTXEN_TX</name>
+          <initializer>= TDM_CONFIG_RXTXEN_RXTXEN_Tx</initializer>
+          <briefdescription>
+<para>Enable transmission, disable reception. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM Reception and transmission settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="129" column="1" bodyfile="hal/nrf_tdm.h" bodystart="130" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1gac8697e2b3c59454bdad94348043b9832" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_mck_div_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832af6d9be1126d471251a809414dd7f0f49" prot="public">
+          <name>NRF_TDM_MCK_DIV_2</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV2</initializer>
+          <briefdescription>
+<para>MCK divided by 2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a30612a410c8903499fe9a30f84132c59" prot="public">
+          <name>NRF_TDM_MCK_DIV_3</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV3</initializer>
+          <briefdescription>
+<para>MCK divided by 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ad02a6c0f9d92cfe01fdd3a08799f50b1" prot="public">
+          <name>NRF_TDM_MCK_DIV_4</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV4</initializer>
+          <briefdescription>
+<para>MCK divided by 4. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832adb08bd844538732f1ed2c10da92bb01f" prot="public">
+          <name>NRF_TDM_MCK_DIV_5</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV5</initializer>
+          <briefdescription>
+<para>MCK divided by 5. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a218a84604f642081896b645d16958c44" prot="public">
+          <name>NRF_TDM_MCK_DIV_6</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV6</initializer>
+          <briefdescription>
+<para>MCK divided by 6. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a5a16a6bf41de2cc0f4d77dd47594a716" prot="public">
+          <name>NRF_TDM_MCK_DIV_8</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV8</initializer>
+          <briefdescription>
+<para>MCK divided by 8. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a840664479cdc8caa174d8acf39f0f9c0" prot="public">
+          <name>NRF_TDM_MCK_DIV_10</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV10</initializer>
+          <briefdescription>
+<para>MCK divided by 10. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a5277d814f47d204c9f068e40e8f8f7f8" prot="public">
+          <name>NRF_TDM_MCK_DIV_11</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV11</initializer>
+          <briefdescription>
+<para>MCK divided by 11. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832acb4fbbb0d5ae5a684d95bfea0335a27b" prot="public">
+          <name>NRF_TDM_MCK_DIV_15</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV15</initializer>
+          <briefdescription>
+<para>MCK divided by 15. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a9dc5d823cae17a07f453d6e1cbfb2114" prot="public">
+          <name>NRF_TDM_MCK_DIV_16</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV16</initializer>
+          <briefdescription>
+<para>MCK divided by 16. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832adc2ac62fb9e8a79d69027862eb8489ce" prot="public">
+          <name>NRF_TDM_MCK_DIV_21</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV21</initializer>
+          <briefdescription>
+<para>MCK divided by 21. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a0b954b97f4b087d5cdefb5f0f68162bd" prot="public">
+          <name>NRF_TDM_MCK_DIV_23</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV23</initializer>
+          <briefdescription>
+<para>MCK divided by 23. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a3b4459eebdac8393edf68a1016f5e762" prot="public">
+          <name>NRF_TDM_MCK_DIV_30</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV30</initializer>
+          <briefdescription>
+<para>MCK divided by 30. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a174b1ec40b544dfe170e76fbd22b5a45" prot="public">
+          <name>NRF_TDM_MCK_DIV_31</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV31</initializer>
+          <briefdescription>
+<para>MCK divided by 31. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a97d5f2204c5102d10dbfcdc175e6d571" prot="public">
+          <name>NRF_TDM_MCK_DIV_32</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV32</initializer>
+          <briefdescription>
+<para>MCK divided by 32. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ae85cae1002c797bd24ad3dbd2fb55348" prot="public">
+          <name>NRF_TDM_MCK_DIV_42</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV42</initializer>
+          <briefdescription>
+<para>MCK divided by 42. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832abb36700d688527e060a7009443a44112" prot="public">
+          <name>NRF_TDM_MCK_DIV_63</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV63</initializer>
+          <briefdescription>
+<para>MCK divided by 63. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ae863f29af1ee2d82695c1656f5fca2a6" prot="public">
+          <name>NRF_TDM_MCK_DIV_125</name>
+          <initializer>= TDM_CONFIG_MCK_DIV_DIV_CKDIV125</initializer>
+          <briefdescription>
+<para>MCK divided by 125. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM master clock divider settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="137" column="1" bodyfile="hal/nrf_tdm.h" bodystart="138" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1gaf87a9bb7adc4ad5789a5b078ce59d9c1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_sck_div_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a6997c9c0f45d649c9716264a89086ecc" prot="public">
+          <name>NRF_TDM_SCK_DIV_2</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV2</initializer>
+          <briefdescription>
+<para>SCK divided by 2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a0ab2f19f5258d26641f2c3703c200db0" prot="public">
+          <name>NRF_TDM_SCK_DIV_3</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV3</initializer>
+          <briefdescription>
+<para>SCK divided by 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aff13738c460638853b73c441884d2001" prot="public">
+          <name>NRF_TDM_SCK_DIV_4</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV4</initializer>
+          <briefdescription>
+<para>SCK divided by 4. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a2491e195620e726303a22b75f4cdc583" prot="public">
+          <name>NRF_TDM_SCK_DIV_5</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV5</initializer>
+          <briefdescription>
+<para>SCK divided by 5. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a1e5c13d7baa82426ea9b52985a825e5a" prot="public">
+          <name>NRF_TDM_SCK_DIV_6</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV6</initializer>
+          <briefdescription>
+<para>SCK divided by 6. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aee37b23f50695606e1d834d70576e031" prot="public">
+          <name>NRF_TDM_SCK_DIV_8</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV8</initializer>
+          <briefdescription>
+<para>SCK divided by 8. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1ae416559183fb24ba9c583bf71373f4e4" prot="public">
+          <name>NRF_TDM_SCK_DIV_10</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV10</initializer>
+          <briefdescription>
+<para>SCK divided by 10. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aa8137f698f5e5e0891a01beb8269cf75" prot="public">
+          <name>NRF_TDM_SCK_DIV_11</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV11</initializer>
+          <briefdescription>
+<para>SCK divided by 11. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a833578830ef4a74ca20a6681e6826173" prot="public">
+          <name>NRF_TDM_SCK_DIV_15</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV15</initializer>
+          <briefdescription>
+<para>SCK divided by 15. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a9191fb689497cd5346a8ee7b91201826" prot="public">
+          <name>NRF_TDM_SCK_DIV_16</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV16</initializer>
+          <briefdescription>
+<para>SCK divided by 16. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1ad95846dc804651ff3eafe3e4f230c203" prot="public">
+          <name>NRF_TDM_SCK_DIV_21</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV21</initializer>
+          <briefdescription>
+<para>SCK divided by 21. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a19d1522960afc5ba4150ddcce3a64d00" prot="public">
+          <name>NRF_TDM_SCK_DIV_23</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV23</initializer>
+          <briefdescription>
+<para>SCK divided by 23. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a325ef83e328b44ba9b3caeadc2697564" prot="public">
+          <name>NRF_TDM_SCK_DIV_30</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV30</initializer>
+          <briefdescription>
+<para>SCK divided by 30. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a8ae1d138ad7e864f741533dfeb60c1e6" prot="public">
+          <name>NRF_TDM_SCK_DIV_31</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV31</initializer>
+          <briefdescription>
+<para>SCK divided by 31. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1af0cd39af9ee3958915c62c46396165a4" prot="public">
+          <name>NRF_TDM_SCK_DIV_32</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV32</initializer>
+          <briefdescription>
+<para>SCK divided by 32. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aca307b76d17a32f9c8e1263a674e51a7" prot="public">
+          <name>NRF_TDM_SCK_DIV_42</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV42</initializer>
+          <briefdescription>
+<para>SCK divided by 42. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a68db60baed9cf4843bddddfefe1e400b" prot="public">
+          <name>NRF_TDM_SCK_DIV_63</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV63</initializer>
+          <briefdescription>
+<para>SCK divided by 63. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a750a26e1f0dc58b79c0907037af7e846" prot="public">
+          <name>NRF_TDM_SCK_DIV_125</name>
+          <initializer>= TDM_CONFIG_SCK_DIV_SCKDIV_CKDIV125</initializer>
+          <briefdescription>
+<para>SCK divided by 125. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM serial clock divider settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="160" column="1" bodyfile="hal/nrf_tdm.h" bodystart="161" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga2e637b0d1773e5c4652fcdbd7236dc18" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_src_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18a7d5f0e760d90c85a340a1c78b63d4384" prot="public">
+          <name>NRF_TDM_SRC_PCLK32M</name>
+          <initializer>= TDM_CONFIG_SCK_SRC_CLKSRC_PCLK</initializer>
+          <briefdescription>
+<para>32MHz peripheral clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18af413764b4a20c8e13e0b7e2dbd10211e" prot="public">
+          <name>NRF_TDM_SRC_ACLK</name>
+          <initializer>= TDM_CONFIG_SCK_SRC_CLKSRC_ACLK</initializer>
+          <briefdescription>
+<para>Audio PLL clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM clock source selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="183" column="1" bodyfile="hal/nrf_tdm.h" bodystart="184" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga645baf7e40c3ea2bd03f17e0a4e8dd9b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_swidth_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba1734a0000f7ef76a63f47a4bf6b96fb6" prot="public">
+          <name>NRF_TDM_SWIDTH_8BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_8Bit</initializer>
+          <briefdescription>
+<para>8 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9bace087fbba5de0b5d269efd6506052fab" prot="public">
+          <name>NRF_TDM_SWIDTH_16BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_16Bit</initializer>
+          <briefdescription>
+<para>16 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9bad3ed49fc2ca05010736a33aa16f929df" prot="public">
+          <name>NRF_TDM_SWIDTH_24BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_24Bit</initializer>
+          <briefdescription>
+<para>24 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9babae97faaf52aa52f6de6788c9c30817a" prot="public">
+          <name>NRF_TDM_SWIDTH_32BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_32Bit</initializer>
+          <briefdescription>
+<para>32 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba9dff678c29a45df7f1638bcac4182a0c" prot="public">
+          <name>NRF_TDM_SWIDTH_8BIT_IN16BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_8BitIn16</initializer>
+          <briefdescription>
+<para>8 bit sample in a 16-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9baf438af7cf58d8cad0f6d1588d222192c" prot="public">
+          <name>NRF_TDM_SWIDTH_8BIT_IN32BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_8BitIn32</initializer>
+          <briefdescription>
+<para>8 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9badccc15afaf26cb9af4e7bc3b07d69a53" prot="public">
+          <name>NRF_TDM_SWIDTH_16BIT_IN32BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_16BitIn32</initializer>
+          <briefdescription>
+<para>16 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba23457139a97e16161172170102e2f965" prot="public">
+          <name>NRF_TDM_SWIDTH_24BIT_IN32BIT</name>
+          <initializer>= TDM_CONFIG_SWIDTH_SWIDTH_24BitIn32</initializer>
+          <briefdescription>
+<para>24 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM sample widths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="194" column="1" bodyfile="hal/nrf_tdm.h" bodystart="195" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga75960ff2f5a41a6708af0ca30849c2eb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_align_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga75960ff2f5a41a6708af0ca30849c2eba6c8a3cdc6ab878d64c857d10dabbcb70" prot="public">
+          <name>NRF_TDM_ALIGN_LEFT</name>
+          <initializer>= TDM_CONFIG_ALIGN_ALIGN_Left</initializer>
+          <briefdescription>
+<para>Left-aligned. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga75960ff2f5a41a6708af0ca30849c2ebaa72def14bba086fd88fbe1bdf94a89cd" prot="public">
+          <name>NRF_TDM_ALIGN_RIGHT</name>
+          <initializer>= TDM_CONFIG_ALIGN_ALIGN_Right</initializer>
+          <briefdescription>
+<para>Right-aligned. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM alignments of sample within a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="207" column="1" bodyfile="hal/nrf_tdm.h" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga9747ea0cc20eb5817c55d1e72b683bc5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_channel_mask_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a1f824edf8aed1257131d4347df74e081" prot="public">
+          <name>NRF_TDM_CHANNEL_RX0_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx0Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 0 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5aee3b894bb51275ee6ce688edfe2f1bc8" prot="public">
+          <name>NRF_TDM_CHANNEL_RX1_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx1Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 1 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a062ae730e687dbd0aafe224722385a3f" prot="public">
+          <name>NRF_TDM_CHANNEL_RX2_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx2Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 2 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a03811d571543f6a9a56ed7b6339e5761" prot="public">
+          <name>NRF_TDM_CHANNEL_RX3_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx3Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 3 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5acb9374c841a796a630011d98c831dff0" prot="public">
+          <name>NRF_TDM_CHANNEL_RX4_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx4Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 4 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5ad7fd6067050fce807591d5ce6b553150" prot="public">
+          <name>NRF_TDM_CHANNEL_RX5_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx5Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 5 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5acdd5a65ccd1c616d16a1470455f469e6" prot="public">
+          <name>NRF_TDM_CHANNEL_RX6_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx6Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 6 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5ad55ab60f02368b13c3a2c711cc4abef1" prot="public">
+          <name>NRF_TDM_CHANNEL_RX7_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Rx7Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable RX channel 7 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a5f5e4fd1c1bb1bb51d4110d3470600f1" prot="public">
+          <name>NRF_TDM_CHANNEL_TX0_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx0Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 0 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5adec73f33e0ed9c6565438665ee672f4e" prot="public">
+          <name>NRF_TDM_CHANNEL_TX1_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx1Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 1 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a62cb03c57150d9d6f562141c09a730da" prot="public">
+          <name>NRF_TDM_CHANNEL_TX2_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx2Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 2 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a90eab4ee34cb20eacdb8d56f424a6fed" prot="public">
+          <name>NRF_TDM_CHANNEL_TX3_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx3Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 3 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a9760b9e905c6469b3e57d45724e94d9f" prot="public">
+          <name>NRF_TDM_CHANNEL_TX4_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx4Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 4 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a120e84b3f901a728c01f13f1fbab9a53" prot="public">
+          <name>NRF_TDM_CHANNEL_TX5_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx5Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 5 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5aed181f038b96ad667b48f1c9180610d9" prot="public">
+          <name>NRF_TDM_CHANNEL_TX6_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx6Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 6 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a7dfea12c649a0a57ef0532a87544218c" prot="public">
+          <name>NRF_TDM_CHANNEL_TX7_MASK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_MASK_Tx7Enable_Msk</initializer>
+          <briefdescription>
+<para>Enable TX channel 7 data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM channel mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="214" column="1" bodyfile="hal/nrf_tdm.h" bodystart="215" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga926563f9b64a577da2834d00fc4bf895" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_channels_count_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a16d516854fed150710855fad54720bb7" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_1</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm1Ch</initializer>
+          <briefdescription>
+<para>1 channel audio (mono). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a15b3e0d83e2488aa47eb723a20fd995c" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_2</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm2Ch</initializer>
+          <briefdescription>
+<para>2 channels audio (stereo). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895aa5ed271455f26e2b2ab3836315ab97f9" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_3</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm3Ch</initializer>
+          <briefdescription>
+<para>3 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a0d296b34095b6cf0c338c8960751ae4f" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_4</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm4Ch</initializer>
+          <briefdescription>
+<para>4 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a39ba2e5d7c0b566990404d2e33959fe6" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_5</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm5Ch</initializer>
+          <briefdescription>
+<para>5 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a48a6247c68ddbba23182b4db0cf18656" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_6</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm6Ch</initializer>
+          <briefdescription>
+<para>6 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895af35af2c7ecf951346705b88169efdf95" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_7</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm7Ch</initializer>
+          <briefdescription>
+<para>7 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a99a8c7e0dd73317676dceff9fbb50f2c" prot="public">
+          <name>NRF_TDM_CHANNELS_COUNT_8</name>
+          <initializer>= TDM_CONFIG_CHANNEL_NUM_NUM_Tdm8Ch</initializer>
+          <briefdescription>
+<para>8 channels audio. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM number of channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="235" column="1" bodyfile="hal/nrf_tdm.h" bodystart="236" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga83c1473c6fc7df68a1208c92b8d9e0ee" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_channel_delay_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea5c7c2af7d7245860fac8d89571e3a36e" prot="public">
+          <name>NRF_TDM_CHANNEL_DELAY_NONE</name>
+          <initializer>= TDM_CONFIG_CHANNEL_DELAY_DELAY_Delay0Ck</initializer>
+          <briefdescription>
+<para>No delay. Use with DSP/Aligned format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea2877879b1d3b4723895ee2f807afce5f" prot="public">
+          <name>NRF_TDM_CHANNEL_DELAY_1CK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_DELAY_DELAY_Delay1Ck</initializer>
+          <briefdescription>
+<para>1 clock pulse delay. Used with original TDM format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea764f65a1355e4a9c4ec544b3031a5558" prot="public">
+          <name>NRF_TDM_CHANNEL_DELAY_2CK</name>
+          <initializer>= TDM_CONFIG_CHANNEL_DELAY_DELAY_Delay2Ck</initializer>
+          <briefdescription>
+<para>2 clock pulses delay. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM channel delay. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="248" column="1" bodyfile="hal/nrf_tdm.h" bodystart="249" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga37b518f0a9dc48ae43585e13a55bf5eb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_polarity_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5eba794ce754ef416f4fcda62d494adae618" prot="public">
+          <name>NRF_TDM_POLARITY_POSEDGE</name>
+          <briefdescription>
+<para>Synchronization at rising edge of the reference signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5ebac3361c0d19366e95e8c5cf8b56a56353" prot="public">
+          <name>NRF_TDM_POLARITY_NEGEDGE</name>
+          <briefdescription>
+<para>Synchronization at falling edge of the reference signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM signal polarity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="256" column="1" bodyfile="hal/nrf_tdm.h" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__tdm__hal_1ga97d81ae839402941bdb26c30ba11118b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_tdm_fsync_duration_t</name>
+        <enumvalue id="group__nrf__tdm__hal_1gga97d81ae839402941bdb26c30ba11118baf75aad0ddae9dcff51a5dd181942b67b" prot="public">
+          <name>NRF_TDM_FSYNC_DURATION_SCK</name>
+          <initializer>= TDM_CONFIG_FSYNC_DURATION_DURATION_Sck</initializer>
+          <briefdescription>
+<para>FSYNC is active for the duration of one SCK pulse. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__tdm__hal_1gga97d81ae839402941bdb26c30ba11118baa91fd69423a457cf4de2320beb902999" prot="public">
+          <name>NRF_TDM_FSYNC_DURATION_CHANNEL</name>
+          <initializer>= TDM_CONFIG_FSYNC_DURATION_DURATION_Channel</initializer>
+          <briefdescription>
+<para>FSYNC is active for the duration of channel transmission. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TDM frame synchronization pulse duration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="263" column="1" bodyfile="hal/nrf_tdm.h" bodystart="264" bodyend="267"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga00a802c4b15d45ca20676f1395485441" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_task_trigger</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_task_t task)</argsstring>
+        <name>nrf_tdm_task_trigger</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" kindref="member">nrf_tdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified TDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="709" column="24" bodyfile="hal/nrf_tdm.h" bodystart="709" bodyend="713" declfile="hal/nrf_tdm.h" declline="307" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga1825c917fd18dedb05fdcae2be0d96a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_task_address_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, nrf_tdm_task_t task)</argsstring>
+        <name>nrf_tdm_task_address_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" kindref="member">nrf_tdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified TDM task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="715" column="28" bodyfile="hal/nrf_tdm.h" bodystart="715" bodyend="719" declfile="hal/nrf_tdm.h" declline="318" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga841114ddf0fd7e80c4fb4f7b7e17306f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_event_clear</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_event_t event)</argsstring>
+        <name>nrf_tdm_event_clear</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified TDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="721" column="24" bodyfile="hal/nrf_tdm.h" bodystart="721" bodyend="726" declfile="hal/nrf_tdm.h" declline="327" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga2c9c88e805598cec52f4ac3137cc09cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tdm_event_check</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, nrf_tdm_event_t event)</argsstring>
+        <name>nrf_tdm_event_check</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the TDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="728" column="24" bodyfile="hal/nrf_tdm.h" bodystart="728" bodyend="732" declfile="hal/nrf_tdm.h" declline="339" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga902ed508b30545094c5993e5e5258dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_event_address_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, nrf_tdm_event_t event)</argsstring>
+        <name>nrf_tdm_event_address_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified TDM event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="734" column="28" bodyfile="hal/nrf_tdm.h" bodystart="734" bodyend="738" declfile="hal/nrf_tdm.h" declline="350" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga4c8919c26ac774ef37713e061158fc7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_int_enable</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tdm_int_enable</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e" kindref="member">nrf_tdm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="740" column="24" bodyfile="hal/nrf_tdm.h" bodystart="740" bodyend="743" declfile="hal/nrf_tdm.h" declline="360" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gad25f25329310340dd3e74c76c0dd650d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_int_disable</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tdm_int_disable</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e" kindref="member">nrf_tdm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="745" column="24" bodyfile="hal/nrf_tdm.h" bodystart="745" bodyend="748" declfile="hal/nrf_tdm.h" declline="369" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gae1d6cbaab99744e20118373c1d284a10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_int_enable_check</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_tdm_int_enable_check</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e" kindref="member">nrf_tdm_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="750" column="28" bodyfile="hal/nrf_tdm.h" bodystart="750" bodyend="753" declfile="hal/nrf_tdm.h" declline="380" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga764444243bb55ad64fc73332d14eafd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_enable</definition>
+        <argsstring>(NRF_TDM_Type *p_reg)</argsstring>
+        <name>nrf_tdm_enable</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="755" column="24" bodyfile="hal/nrf_tdm.h" bodystart="755" bodyend="758" declfile="hal/nrf_tdm.h" declline="387" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gabe1142e6da8b387273ec361ed7d5c44b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_disable</definition>
+        <argsstring>(NRF_TDM_Type *p_reg)</argsstring>
+        <name>nrf_tdm_disable</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="760" column="24" bodyfile="hal/nrf_tdm.h" bodystart="760" bodyend="763" declfile="hal/nrf_tdm.h" declline="394" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga9068005601734bcd1401ba0115c7a887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_tdm_enable_check</definition>
+        <argsstring>(NRF_TDM_Type *p_reg)</argsstring>
+        <name>nrf_tdm_enable_check</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TDM peripheral is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TDM is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TDM is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="765" column="24" bodyfile="hal/nrf_tdm.h" bodystart="765" bodyend="768" declfile="hal/nrf_tdm.h" declline="404" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gac9e604cf4675df23fec17eb112beca1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_subscribe_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_tdm_subscribe_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" kindref="member">nrf_tdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given TDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="415" column="24" declfile="hal/nrf_tdm.h" declline="415" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga8366779fe0d0aa31e81b32852b5dd371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_subscribe_clear</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_task_t task)</argsstring>
+        <name>nrf_tdm_subscribe_clear</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" kindref="member">nrf_tdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given TDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="426" column="24" declfile="hal/nrf_tdm.h" declline="426" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga5edc14fe16f9533cff580a34783867ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_subscribe_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, nrf_tdm_task_t task)</argsstring>
+        <name>nrf_tdm_subscribe_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08" kindref="member">nrf_tdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given TDM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TDM subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="438" column="28" declfile="hal/nrf_tdm.h" declline="438" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga34e7ab3c4c352adab7b39a6e6e0d3d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_publish_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_tdm_publish_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given TDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="449" column="24" declfile="hal/nrf_tdm.h" declline="449" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gaaeedf454fc5474eb2ab7c9ad8c13138c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_publish_clear</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_event_t event)</argsstring>
+        <name>nrf_tdm_publish_clear</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given TDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="460" column="24" declfile="hal/nrf_tdm.h" declline="460" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gaae44f0d87fdfa667e22840e1ca05b229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_publish_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg, nrf_tdm_event_t event)</argsstring>
+        <name>nrf_tdm_publish_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3" kindref="member">nrf_tdm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given TDM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>TDM publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="472" column="28" declfile="hal/nrf_tdm.h" declline="472" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga1d9b942da033f0a8fc354b8037a3c650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_pins_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_pins_t const *p_pins)</argsstring>
+        <name>nrf_tdm_pins_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__tdm__pins__t" kindref="compound">nrf_tdm_pins_t</ref> const *</type>
+          <declname>p_pins</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TDM pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Usage of the SDOUT, SDIN, and MCK signals is optional. If a given signal is not needed, pass the <ref refid="group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860" kindref="member">NRF_TDM_PIN_NOT_CONNECTED</ref> value instead of its pin number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with pins selection. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="814" column="24" bodyfile="hal/nrf_tdm.h" bodystart="814" bodyend="821" declfile="hal/nrf_tdm.h" declline="486" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga21a0285001e679328e1d7296158739b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_pins_get</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_pins_t *p_pins)</argsstring>
+        <name>nrf_tdm_pins_get</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__tdm__pins__t" kindref="compound">nrf_tdm_pins_t</ref> *</type>
+          <declname>p_pins</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting TDM pins configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with TDM pins configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="823" column="24" bodyfile="hal/nrf_tdm.h" bodystart="823" bodyend="830" declfile="hal/nrf_tdm.h" declline="494" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga8a0bc908e8cc94d0223fac80153f6299" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_sck_pin_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_sck_pin_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SCK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SCK pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="832" column="28" bodyfile="hal/nrf_tdm.h" bodystart="832" bodyend="835" declfile="hal/nrf_tdm.h" declline="503" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga4f94a1a5f2f5cdd014336c84f3b3c2d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_fsync_pin_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_fsync_pin_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the FSYNC pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>FSYNC pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="837" column="28" bodyfile="hal/nrf_tdm.h" bodystart="837" bodyend="840" declfile="hal/nrf_tdm.h" declline="512" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga78f235fc95e17d903575b8ea86d518c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_mck_pin_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_mck_pin_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the MCK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MCK pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="842" column="28" bodyfile="hal/nrf_tdm.h" bodystart="842" bodyend="845" declfile="hal/nrf_tdm.h" declline="521" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga5837d6347538da6e0a1e3ad6d8aef659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_sdout_pin_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_sdout_pin_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SDOUT pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SDOUT pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="847" column="28" bodyfile="hal/nrf_tdm.h" bodystart="847" bodyend="850" declfile="hal/nrf_tdm.h" declline="530" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga690e584ecb7c76e301afb2447c80c32b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_sdin_pin_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_sdin_pin_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SDIN pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SDIN pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="852" column="28" bodyfile="hal/nrf_tdm.h" bodystart="852" bodyend="855" declfile="hal/nrf_tdm.h" declline="539" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga443c5eea61c71bff96b77892db127f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_configure</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_config_t const *p_config)</argsstring>
+        <name>nrf_tdm_configure</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__tdm__config__t" kindref="compound">nrf_tdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the TDM peripheral configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="857" column="24" bodyfile="hal/nrf_tdm.h" bodystart="857" bodyend="874" declfile="hal/nrf_tdm.h" declline="547" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gaea100566cc9480a44b393c8a96719916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_mck_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, bool enable)</argsstring>
+        <name>nrf_tdm_mck_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the master clock generator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the master clock generator is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="876" column="24" bodyfile="hal/nrf_tdm.h" bodystart="876" bodyend="881" declfile="hal/nrf_tdm.h" declline="555" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_rx_count_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint16_t size)</argsstring>
+        <name>nrf_tdm_rx_count_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting up the TDM RX transfer length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function sets up the RX buffer size. At least one of <ref refid="group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8" kindref="member">nrf_tdm_rx_count_set</ref> or <ref refid="group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a" kindref="member">nrf_tdm_tx_count_set</ref> functions must be called before starting the transmission. Also <ref refid="group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1" kindref="member">nrf_tdm_transfer_direction_set</ref> and <ref refid="group__nrf__tdm__hal_1ga61fcb0ef7327e008cc398ae843e4ddc7" kindref="member">nrf_tdm_rx_buffer_set</ref> should be called before starting the transmission.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer (in 32-bit words). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="883" column="24" bodyfile="hal/nrf_tdm.h" bodystart="883" bodyend="891" declfile="hal/nrf_tdm.h" declline="568" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_tx_count_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint16_t size)</argsstring>
+        <name>nrf_tdm_tx_count_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting up the TDM TX transfer length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function sets up the RX buffer size. At least one of <ref refid="group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8" kindref="member">nrf_tdm_rx_count_set</ref> or <ref refid="group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a" kindref="member">nrf_tdm_tx_count_set</ref> functions must be called before starting the transmission. Also <ref refid="group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1" kindref="member">nrf_tdm_transfer_direction_set</ref> and <ref refid="group__nrf__tdm__hal_1gaf375ce34941a6b5af8513c6655001c57" kindref="member">nrf_tdm_tx_buffer_set</ref> should be called before starting the transmission.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer (in 32-bit words). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="893" column="24" bodyfile="hal/nrf_tdm.h" bodystart="893" bodyend="901" declfile="hal/nrf_tdm.h" declline="582" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_transfer_direction_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_rxtxen_t dir)</argsstring>
+        <name>nrf_tdm_transfer_direction_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1gac4e15273a65acc1dc5b177913d1ff10f" kindref="member">nrf_tdm_rxtxen_t</ref></type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting up the direction of the TDM transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transmission direction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="903" column="24" bodyfile="hal/nrf_tdm.h" bodystart="903" bodyend="907" declfile="hal/nrf_tdm.h" declline="591" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga61fcb0ef7327e008cc398ae843e4ddc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_rx_buffer_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint32_t *p_buffer)</argsstring>
+        <name>nrf_tdm_rx_buffer_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The size of the buffer can be set only by calling <ref refid="group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8" kindref="member">nrf_tdm_rx_count_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="909" column="24" bodyfile="hal/nrf_tdm.h" bodystart="909" bodyend="913" declfile="hal/nrf_tdm.h" declline="603" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga372465489bc0de6d3ad5f688cd51cbbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_tdm_rx_buffer_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_rx_buffer_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the receive buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="915" column="29" bodyfile="hal/nrf_tdm.h" bodystart="915" bodyend="918" declfile="hal/nrf_tdm.h" declline="613" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gaf375ce34941a6b5af8513c6655001c57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_tx_buffer_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint32_t const *p_buffer)</argsstring>
+        <name>nrf_tdm_tx_buffer_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The size of the buffer can be set only by calling <ref refid="group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a" kindref="member">nrf_tdm_tx_count_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transmit buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="920" column="24" bodyfile="hal/nrf_tdm.h" bodystart="920" bodyend="924" declfile="hal/nrf_tdm.h" declline="624" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gac7894e41679574d0b1c0d3e87c4d292e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_current_tx_transfer_amount_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_current_tx_transfer_amount_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of bytes transferred in the current transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes transferred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="926" column="28" bodyfile="hal/nrf_tdm.h" bodystart="926" bodyend="929" declfile="hal/nrf_tdm.h" declline="634" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga0933d2abd9b6c7d8866bee08ffec044e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_last_tx_transfer_amount_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_last_tx_transfer_amount_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of bytes transferred in the last transaction. The value has been updated after the END event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes transferred. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="931" column="28" bodyfile="hal/nrf_tdm.h" bodystart="931" bodyend="934" declfile="hal/nrf_tdm.h" declline="644" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gac430d295dff8ef6b0b5a1a9313212b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_current_rx_transfer_amount_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_current_rx_transfer_amount_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of bytes received in the current transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes received. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="936" column="28" bodyfile="hal/nrf_tdm.h" bodystart="936" bodyend="939" declfile="hal/nrf_tdm.h" declline="653" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga016e63814509245e4f08b79785aac096" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_tdm_last_rx_transfer_amount_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_last_rx_transfer_amount_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the number of bytes received in the last transaction. The value has been updated after the END event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of bytes received. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="941" column="28" bodyfile="hal/nrf_tdm.h" bodystart="941" bodyend="944" declfile="hal/nrf_tdm.h" declline="663" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1gaee897ce4f2fdcb7effe74167756a3c7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_tdm_tx_buffer_get</definition>
+        <argsstring>(NRF_TDM_Type const *p_reg)</argsstring>
+        <name>nrf_tdm_tx_buffer_get</name>
+        <param>
+          <type>NRF_TDM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the transmit buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="946" column="29" bodyfile="hal/nrf_tdm.h" bodystart="946" bodyend="949" declfile="hal/nrf_tdm.h" declline="672" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga1d1a9880dc363c20af3935bfa2b59862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_mck_configure</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_src_t clksrc, bool enable_bypass)</argsstring>
+        <name>nrf_tdm_mck_configure</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga2e637b0d1773e5c4652fcdbd7236dc18" kindref="member">nrf_tdm_src_t</ref></type>
+          <declname>clksrc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_bypass</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TDM master Clock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clksrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TDM master clock source selection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_bypass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bypass clock generator. MCK will be equal to source input. If bypass is enabled the MCK.DIV setting has no effect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="951" column="24" bodyfile="hal/nrf_tdm.h" bodystart="951" bodyend="959" declfile="hal/nrf_tdm.h" declline="682" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga092497e6cb868ce8a0420af882d81c6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_sck_configure</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, nrf_tdm_src_t clksrc, bool enable_bypass)</argsstring>
+        <name>nrf_tdm_sck_configure</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__tdm__hal_1ga2e637b0d1773e5c4652fcdbd7236dc18" kindref="member">nrf_tdm_src_t</ref></type>
+          <declname>clksrc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_bypass</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring TDM serial Clock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clksrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TDM serial clock source selection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_bypass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bypass clock generator. SCK will be equal to source input. If bypass is enabled the SCK.DIV setting has no effect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="961" column="24" bodyfile="hal/nrf_tdm.h" bodystart="961" bodyend="967" declfile="hal/nrf_tdm.h" declline="694" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__tdm__hal_1ga67a4a03e2c859f8d2fd83c10f90cb6a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_tdm_ors_set</definition>
+        <argsstring>(NRF_TDM_Type *p_reg, uint32_t ors)</argsstring>
+        <name>nrf_tdm_ors_set</name>
+        <param>
+          <type>NRF_TDM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ors</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting over-read sample. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value that will be transmitted in case of over-read of TXD buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="969" column="24" bodyfile="hal/nrf_tdm.h" bodystart="969" bodyend="972" declfile="hal/nrf_tdm.h" declline="705" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__tdm__hal_1ga6f9d4a5c1d25a5bc9cc06252bfa25348" prot="public" static="no">
+        <name>NRF_TDM_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, TDM, idx)</initializer>
+        <briefdescription>
+<para>Macro for getting a pointer to the structure of registers of the TDM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TDM instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the TDM peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="72" column="9" bodyfile="hal/nrf_tdm.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860" prot="public" static="no">
+        <name>NRF_TDM_PIN_NOT_CONNECTED</name>
+        <initializer>UINT32_MAX</initializer>
+        <briefdescription>
+<para>This value can be provided as a parameter for the <ref refid="group__nrf__tdm__hal_1ga1d9b942da033f0a8fc354b8037a3c650" kindref="member">nrf_tdm_pins_set</ref> function call to specify that the given TDM signal (SDOUT, SDIN, or MCK) shall not be connected to a physical pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="79" column="9" bodyfile="hal/nrf_tdm.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tdm__hal_1ga32bd59299acf2d42eaaaa943601af410" prot="public" static="no">
+        <name>NRF_TDM_PSEL_SCK_PIN_MASK</name>
+        <initializer>TDM_PSEL_SCK_PIN_Msk</initializer>
+        <briefdescription>
+<para>TDM SCK pin selection mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="82" column="9" bodyfile="hal/nrf_tdm.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tdm__hal_1gacb1c39fc57b1f5561cfc4640e3c17e27" prot="public" static="no">
+        <name>NRF_TDM_PSEL_SCK_PORT_MASK</name>
+        <initializer>TDM_PSEL_SCK_PORT_Msk</initializer>
+        <briefdescription>
+<para>TDM SCK port selection mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="85" column="9" bodyfile="hal/nrf_tdm.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tdm__hal_1ga5facad6956f7f01b9d82c2910d5a4ec5" prot="public" static="no">
+        <name>NRF_TDM_CK_DIV_MIN</name>
+        <initializer>TDM_CONFIG_MCK_DIV_DIV_Min</initializer>
+        <briefdescription>
+<para>Minimum value of TDM clock divisor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="88" column="9" bodyfile="hal/nrf_tdm.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__tdm__hal_1ga3c0d48b9c4b3699d63be7065d5295bea" prot="public" static="no">
+        <name>NRF_TDM_CK_DIV_MAX</name>
+        <initializer>TDM_CONFIG_MCK_DIV_DIV_Max</initializer>
+        <briefdescription>
+<para>Maximum value of TDM clock divisor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_tdm.h" line="91" column="9" bodyfile="hal/nrf_tdm.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Time Division Multiplexed Audio Interface (TDM) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

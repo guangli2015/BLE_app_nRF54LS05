@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__clock" kind="group">
+    <compoundname>nrfx_clock</compoundname>
+    <title>CLOCK driver</title>
+    <innergroup refid="group__nrfx__clock__config">CLOCK peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__clock_1gac74fe06485d31da90492fb20bc3694f0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_clock_evt_type_t</name>
+        <enumvalue id="group__nrfx__clock_1ggac74fe06485d31da90492fb20bc3694f0ae2a454c2d31cc826a4b36e59f3e8bfa3" prot="public">
+          <name>NRFX_CLOCK_EVT_HFCLK_STARTED</name>
+          <initializer>= NRFX_CLOCK_XO_EVT_HFCLK_STARTED</initializer>
+          <briefdescription>
+<para>XO has been started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Clock events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="74" column="1" bodyfile="drivers/include/nrfx_clock.h" bodystart="75" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__clock_1gab61bc93661a5532fa90dce6cf3213289" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_clock_event_handler_t) (nrfx_clock_evt_type_t event)</definition>
+        <argsstring>)(nrfx_clock_evt_type_t event)</argsstring>
+        <name>nrfx_clock_event_handler_t</name>
+        <briefdescription>
+<para>Clock event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="114" column="9" bodyfile="drivers/include/nrfx_clock.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__clock_1ga355b1969596ca7147b87c2298668f95e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_init</definition>
+        <argsstring>(nrfx_clock_event_handler_t event_handler)</argsstring>
+        <name>nrfx_clock_init</name>
+        <param>
+          <type><ref refid="group__nrfx__clock_1gab61bc93661a5532fa90dce6cf3213289" kindref="member">nrfx_clock_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing internal structures in the nrfx_clock module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After initialization, the module is in power off state (clocks are not started).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If not provided, driver works in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="127" column="5" declfile="drivers/include/nrfx_clock.h" declline="127" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gaaf29a4b1afa6f5f3065cf56827e97a0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for enabling interrupts in the clock module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="130" column="6" declfile="drivers/include/nrfx_clock.h" declline="130" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gad27a493977d7971d75e3e829c682bc27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling interrupts in the clock module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="133" column="6" declfile="drivers/include/nrfx_clock.h" declline="133" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga78c2e818f97f7da0f5d05a89ecf5766f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the clock module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="136" column="6" declfile="drivers/include/nrfx_clock.h" declline="136" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gad7c2277da318355ea47fb43331d781c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_clock_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the clock driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="144" column="6" declfile="drivers/include/nrfx_clock.h" declline="144" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga24fa01bb4b859ff01b3cc6cfdb526a7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_start</definition>
+        <argsstring>(nrf_clock_domain_t domain)</argsstring>
+        <name>nrfx_clock_start</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1" kindref="member">nrf_clock_domain_t</ref></type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the specified clock domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock domain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="151" column="6" declfile="drivers/include/nrfx_clock.h" declline="151" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gae6d17f0c0044976379550d7edc34c103" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_stop</definition>
+        <argsstring>(nrf_clock_domain_t domain)</argsstring>
+        <name>nrfx_clock_stop</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1" kindref="member">nrf_clock_domain_t</ref></type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the specified clock domain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock domain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="158" column="6" declfile="drivers/include/nrfx_clock.h" declline="158" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gaa2695758f2fb17065a77c96f097b5a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_clock_is_running</definition>
+        <argsstring>(nrf_clock_domain_t domain, void *p_clk_src)</argsstring>
+        <name>nrfx_clock_is_running</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1" kindref="member">nrf_clock_domain_t</ref></type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_clk_src</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the specified clock domain state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>XTAL source is assumed for domains with multiple sources.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_clk_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a clock source that is running. Set to NULL if not needed. Ignored for HFCLKAUDIO domain. Variable pointed by <computeroutput>p_clk_src</computeroutput> must be of either <ref refid="group__nrf__clock__hal_1ga5b00bcdc07defd8187f2be8a2ec7a597" kindref="member">nrf_clock_lfclk_t</ref> type for LFCLK or <ref refid="group__nrf__clock__hal_1gac89aad0e037b7aeefc5264a4dca76197" kindref="member">nrf_clock_hfclk_t</ref> type for HFCLK and HFCLK192M.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clock domain is running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clock domain is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="291" column="25" bodyfile="drivers/include/nrfx_clock.h" bodystart="291" bodyend="321" declfile="drivers/include/nrfx_clock.h" declline="174" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga691d7842017e512d062f1f7328140f06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_divider_set</definition>
+        <argsstring>(nrf_clock_domain_t domain, nrf_clock_hfclk_div_t div)</argsstring>
+        <name>nrfx_clock_divider_set</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1" kindref="member">nrf_clock_domain_t</ref></type>
+          <declname>domain</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga4ae12749dff0c4975b250728d6de0ad6" kindref="member">nrf_clock_hfclk_div_t</ref></type>
+          <declname>div</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the specified clock domain divider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock domain. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">div</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New divider for the clock domain.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divider successfully set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Domain does not support setting the divider. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divider not supported by the specified domain. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="188" column="5" declfile="drivers/include/nrfx_clock.h" declline="188" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga44f8fd4e7abedb0643bd313d7b300fd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE <ref refid="group__nrf__clock__hal_1ga4ae12749dff0c4975b250728d6de0ad6" kindref="member">nrf_clock_hfclk_div_t</ref></type>
+        <definition>NRFX_STATIC_INLINE nrf_clock_hfclk_div_t nrfx_clock_divider_get</definition>
+        <argsstring>(nrf_clock_domain_t domain)</argsstring>
+        <name>nrfx_clock_divider_get</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1" kindref="member">nrf_clock_domain_t</ref></type>
+          <declname>domain</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the specified clock domain divider. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">domain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock domain.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Current divider for the specified clock domain. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="199" column="42" declfile="drivers/include/nrfx_clock.h" declline="199" declcolumn="42"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga65708ec1102f22212666ca6c17cba10c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_calibration_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_calibration_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the calibration of internal LFCLK. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function starts the calibration process. The process cannot be aborted. LFCLK and HFCLK must be running before this function is called.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The low-frequency or high-frequency clock is off. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock is in the calibration phase. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="214" column="5" declfile="drivers/include/nrfx_clock.h" declline="214" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga10809b5323be0e73388850633eb187a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_clock_is_calibrating</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_is_calibrating</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if calibration is in progress. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function indicates that the system is in calibration phase.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clock is in the calibration phase. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="224" column="5" declfile="drivers/include/nrfx_clock.h" declline="224" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gaa44024508cd21c3c4d3f8495ca373250" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_calibration_timer_start</definition>
+        <argsstring>(uint8_t interval)</argsstring>
+        <name>nrfx_clock_calibration_timer_start</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting calibration timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time after which the CTTO event and interrupt will be generated (in 0.25 s units). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="233" column="6" declfile="drivers/include/nrfx_clock.h" declline="233" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga10ae5f204aeced69133f417ae708a8ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_clock_calibration_timer_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_clock_calibration_timer_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the calibration timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="236" column="6" declfile="drivers/include/nrfx_clock.h" declline="236" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1gac9cd3143caf49840e911c2d01e99fb93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_clock_task_address_get</definition>
+        <argsstring>(nrf_clock_task_t task)</argsstring>
+        <name>nrfx_clock_task_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga6bf1711bc8cb7614c8ae806155bd3f33" kindref="member">nrf_clock_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested task address for the clock driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the peripheral tasks.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="281" column="29" bodyfile="drivers/include/nrfx_clock.h" bodystart="281" bodyend="284" declfile="drivers/include/nrfx_clock.h" declline="248" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__clock_1ga50e51e62b438c1cd3fefd236928104dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_clock_event_address_get</definition>
+        <argsstring>(nrf_clock_event_t event)</argsstring>
+        <name>nrfx_clock_event_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__clock__hal_1ga8843dd5805c2b01f9b832ed73d583695" kindref="member">nrf_clock_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning a requested event address for the clock driver module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the peripheral events.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_clock.h" line="286" column="29" bodyfile="drivers/include/nrfx_clock.h" bodystart="286" bodyend="289" declfile="drivers/include/nrfx_clock.h" declline="257" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CLOCK peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

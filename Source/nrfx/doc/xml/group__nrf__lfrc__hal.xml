@@ -1,0 +1,1164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__lfrc__hal" kind="group">
+    <compoundname>nrf_lfrc_hal</compoundname>
+    <title>LFRC HAL</title>
+    <innerclass refid="structnrf__lfrc__config__t" prot="public">nrf_lfrc_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__lfrc__hal_1gabbb125cfe93c1a5a2e5cb6f4b8252d29" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfrc_task_t</name>
+        <enumvalue id="group__nrf__lfrc__hal_1ggabbb125cfe93c1a5a2e5cb6f4b8252d29aad4c9f9e6d4546049e876beda9c428da" prot="public">
+          <name>NRF_LFRC_TASK_CAL</name>
+          <initializer>= offsetof(NRF_LFRC_Type, TASKS_CAL)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start LFRC calibration. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1ggabbb125cfe93c1a5a2e5cb6f4b8252d29a6c474d86a9b670f7001138a51b6048c2" prot="public">
+          <name>NRF_LFRC_TASK_CANCELCAL</name>
+          <initializer>= offsetof(NRF_LFRC_Type, TASKS_CANCELCAL)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Cancel LFRC calibration. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFRC tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The NRF_LFRC_TASK_CANCELCAL task cannot be set when the calibration is not running. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="160" column="1" bodyfile="hal/nrf_lfrc.h" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfrc__hal_1gab2da83f9381f7ec8a9c172c7d219e2dd" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfrc_event_t</name>
+        <enumvalue id="group__nrf__lfrc__hal_1ggab2da83f9381f7ec8a9c172c7d219e2dda0280e03838b90c3069b60adbc2b0cc94" prot="public">
+          <name>NRF_LFRC_EVENT_CALDONE</name>
+          <initializer>= offsetof(NRF_LFRC_Type, EVENTS_CALDONE)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>LFRC calibration done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1ggab2da83f9381f7ec8a9c172c7d219e2ddaa545bd52dd0d4136f8745588b92aaa47" prot="public">
+          <name>NRF_LFRC_EVENT_TRIMDONE</name>
+          <initializer>= offsetof(NRF_LFRC_Type, EVENTS_TRIMDONE)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>LFRC trim done. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1ggab2da83f9381f7ec8a9c172c7d219e2dda77d183ee9d6ab8308e33b9408183b874" prot="public">
+          <name>NRF_LFRC_EVENT_TRIMERROR</name>
+          <initializer>= offsetof(NRF_LFRC_Type, EVENTS_TRIMERROR)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>LFRC trim error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFRC events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="167" column="1" bodyfile="hal/nrf_lfrc.h" bodystart="168" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfrc__hal_1ga1da11e4cbfed0ec2f1043ca58a8406e6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfrc_int_mask_t</name>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1da11e4cbfed0ec2f1043ca58a8406e6ad7224dbddad2d293d56b251272a0cd3e" prot="public">
+          <name>NRF_LFRC_INT_CALDONE_MASK</name>
+          <initializer>= LFRC_INTENSET_CALDONE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on CALDONE event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1da11e4cbfed0ec2f1043ca58a8406e6a7a50c40e062758b0cdd442aff5e5f712" prot="public">
+          <name>NRF_LFRC_INT_TRIMDONE_MASK</name>
+          <initializer>= LFRC_INTENSET_TRIMDONE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on TRIMDONE event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1da11e4cbfed0ec2f1043ca58a8406e6a58256141dab353bfd95bcb2f49d5bcdb" prot="public">
+          <name>NRF_LFRC_INT_TRIMERROR_MASK</name>
+          <initializer>= LFRC_INTENSET_TRIMERROR_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on TRIMERROR event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>LFRC interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="175" column="1" bodyfile="hal/nrf_lfrc.h" bodystart="176" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfrc__hal_1ga1b38c6fa306a94c639d8446ace63ffaf" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfrc_cal_cycle_length_t</name>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1b38c6fa306a94c639d8446ace63ffafa243753e6decdcebe44de19110cbfc640" prot="public">
+          <name>NRF_LFRC_CAL_CYCLE_LENGTH_64</name>
+          <initializer>= LFRC_CAL_LENGTH_LENGTH_N64</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>64 cycles <linebreak/>
+ </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1b38c6fa306a94c639d8446ace63ffafa982a3d65eac90ebd682a89cb164a5ee0" prot="public">
+          <name>NRF_LFRC_CAL_CYCLE_LENGTH_128</name>
+          <initializer>= LFRC_CAL_LENGTH_LENGTH_N128</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>128 cycles </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1b38c6fa306a94c639d8446ace63ffafa8d8f53c6208eacc49f8de5cdd7cbbb6e" prot="public">
+          <name>NRF_LFRC_CAL_CYCLE_LENGTH_256</name>
+          <initializer>= LFRC_CAL_LENGTH_LENGTH_N256</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>256 cycles </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1gga1b38c6fa306a94c639d8446ace63ffafa5758f4cd994c9f46f30b8ef7fb2306a6" prot="public">
+          <name>NRF_LFRC_CAL_CYCLE_LENGTH_512</name>
+          <initializer>= LFRC_CAL_LENGTH_LENGTH_N512</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>512 cycles </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Number of measurement cycles used during calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="202" column="1" bodyfile="hal/nrf_lfrc.h" bodystart="203" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__lfrc__hal_1gaf9a477b942693bac816e00fac33ebb45" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_lfrc_power_control_t</name>
+        <enumvalue id="group__nrf__lfrc__hal_1ggaf9a477b942693bac816e00fac33ebb45a9f68c2a20c395e737025ba0c7d6c3bb4" prot="public">
+          <name>NRF_LFRC_POWER_CONTROL_AUTO</name>
+          <initializer>= LFRC_PWRUPCTRL_CTRL_Auto</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Automatically handled by the peripheral </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1ggaf9a477b942693bac816e00fac33ebb45ac7771684aded2f6a33a902f603baaef7" prot="public">
+          <name>NRF_LFRC_POWER_CONTROL_POWER_UP</name>
+          <initializer>= LFRC_PWRUPCTRL_CTRL_PowerUp</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Power up </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__lfrc__hal_1ggaf9a477b942693bac816e00fac33ebb45a37a4689a88b26fcbca7a4b6ef1654bce" prot="public">
+          <name>NRF_LFRC_POWER_CONTROL_POWER_DOWN</name>
+          <initializer>= LFRC_PWRUPCTRL_CTRL_PowerDown</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Power down </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Power up control. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="212" column="1" bodyfile="hal/nrf_lfrc.h" bodystart="213" bodyend="217"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga8131f2ab6ff6f8cd4a1989c4ac672659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfrc_task_address_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg, nrf_lfrc_task_t task)</argsstring>
+        <name>nrf_lfrc_task_address_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gabbb125cfe93c1a5a2e5cb6f4b8252d29" kindref="member">nrf_lfrc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LFRC Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the requested task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="424" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="424" bodyend="428" declfile="hal/nrf_lfrc.h" declline="228" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga71b333f28a518719137487bc6d897e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_task_trigger</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, nrf_lfrc_task_t task)</argsstring>
+        <name>nrf_lfrc_task_trigger</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gabbb125cfe93c1a5a2e5cb6f4b8252d29" kindref="member">nrf_lfrc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="430" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="430" bodyend="433" declfile="hal/nrf_lfrc.h" declline="237" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga7a1c4805971de24178eb9b916811f281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfrc_event_address_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg, nrf_lfrc_event_t event)</argsstring>
+        <name>nrf_lfrc_event_address_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gab2da83f9381f7ec8a9c172c7d219e2dd" kindref="member">nrf_lfrc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LFRC Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="435" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="435" bodyend="439" declfile="hal/nrf_lfrc.h" declline="247" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga96dbe53e3720bedd0ff7f7e77217961b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_event_clear</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, nrf_lfrc_event_t event)</argsstring>
+        <name>nrf_lfrc_event_clear</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gab2da83f9381f7ec8a9c172c7d219e2dd" kindref="member">nrf_lfrc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="441" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="441" bodyend="445" declfile="hal/nrf_lfrc.h" declline="256" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1gab534ab000ad9f262fc9f93851ca70b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfrc_event_check</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg, nrf_lfrc_event_t event)</argsstring>
+        <name>nrf_lfrc_event_check</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gab2da83f9381f7ec8a9c172c7d219e2dd" kindref="member">nrf_lfrc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="447" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="447" bodyend="450" declfile="hal/nrf_lfrc.h" declline="267" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga5a511cd494be74ec1d09283e59de4f37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_int_enable</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfrc_int_enable</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__lfrc__hal_1ga1da11e4cbfed0ec2f1043ca58a8406e6" kindref="member">nrf_lfrc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="452" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="452" bodyend="455" declfile="hal/nrf_lfrc.h" declline="276" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga21c936311d86e9842d3b7e56d3235764" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_int_disable</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfrc_int_disable</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__lfrc__hal_1ga1da11e4cbfed0ec2f1043ca58a8406e6" kindref="member">nrf_lfrc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="457" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="457" bodyend="460" declfile="hal/nrf_lfrc.h" declline="285" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga9e3e24c9ce749544ea9248d4a63a6267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfrc_int_enable_check</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_lfrc_int_enable_check</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__lfrc__hal_1ga1da11e4cbfed0ec2f1043ca58a8406e6" kindref="member">nrf_lfrc_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="462" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="462" bodyend="465" declfile="hal/nrf_lfrc.h" declline="296" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1gae4a1398aac76aa6dd65981b089371470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfrc_int_pending_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg)</argsstring>
+        <name>nrf_lfrc_int_pending_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of pending interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bitmask with information about pending interrupts. Use <ref refid="group__nrf__lfrc__hal_1ga1da11e4cbfed0ec2f1043ca58a8406e6" kindref="member">nrf_lfrc_int_mask_t</ref> values for bit masking. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="467" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="467" bodyend="470" declfile="hal/nrf_lfrc.h" declline="309" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga2d4c573903d36949b0f91635e9352ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE int32_t</type>
+        <definition>NRF_STATIC_INLINE int32_t nrf_lfrc_trim_status_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg)</argsstring>
+        <name>nrf_lfrc_trim_status_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting current trimming value of the LFRCOSC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Returned value is in 2&apos;s complement format, 1.4% steps.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Trim value register contents. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="473" column="27" bodyfile="hal/nrf_lfrc.h" bodystart="473" bodyend="485" declfile="hal/nrf_lfrc.h" declline="321" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga79748853eaad6a54a3e270e6fe314300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfrc_statusana_ready_check</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg)</argsstring>
+        <name>nrf_lfrc_statusana_ready_check</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking status of analog module READY signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="489" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="489" bodyend="492" declfile="hal/nrf_lfrc.h" declline="333" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga9ef57d2deee4a2761ade0925bc257ffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_lfrc_statusana_settled_check</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg)</argsstring>
+        <name>nrf_lfrc_statusana_settled_check</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking status of analog module SETTLED signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 1. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal is logic 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="494" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="494" bodyend="497" declfile="hal/nrf_lfrc.h" declline="343" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga5e3e712af699bbad16bae6d813977fcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_config_set</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, nrf_lfrc_config_t const *p_config)</argsstring>
+        <name>nrf_lfrc_config_set</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__lfrc__config__t" kindref="compound">nrf_lfrc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for override the configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="501" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="501" bodyend="521" declfile="hal/nrf_lfrc.h" declline="353" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga10bab85cacf9ff862df7c40402cb83ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_cal_cycle_length_set</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, nrf_lfrc_cal_cycle_length_t length)</argsstring>
+        <name>nrf_lfrc_cal_cycle_length_set</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1ga1b38c6fa306a94c639d8446ace63ffaf" kindref="member">nrf_lfrc_cal_cycle_length_t</ref></type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting measurement cycle count length used while calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of cycles. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="525" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="525" bodyend="529" declfile="hal/nrf_lfrc.h" declline="364" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga8acf767da5ce07c363bd2a072cd7a943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_cal_trim_limit_low_set</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, uint32_t trimlimit)</argsstring>
+        <name>nrf_lfrc_cal_trim_limit_low_set</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>trimlimit</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting lower trim limit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">trimlimit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TRIM limit value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="533" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="533" bodyend="537" declfile="hal/nrf_lfrc.h" declline="375" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga04a9a934efa2789b09660e9bd1c023fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_cal_trim_limit_high_set</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, uint32_t trimlimit)</argsstring>
+        <name>nrf_lfrc_cal_trim_limit_high_set</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>trimlimit</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting higher trim limit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">trimlimit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TRIM limit value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="541" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="541" bodyend="545" declfile="hal/nrf_lfrc.h" declline="385" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1gad2862f954d721e1b50697abc9d5e7174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_lfrc_cal_result_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg, uint8_t number)</argsstring>
+        <name>nrf_lfrc_cal_result_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading calibration results. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result in 16 MHz clock cycles. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="549" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="549" bodyend="553" declfile="hal/nrf_lfrc.h" declline="397" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1ga87282a80c5675c687a9570013c91dd78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint16_t</type>
+        <definition>NRF_STATIC_INLINE uint16_t nrf_lfrc_cal_num_of_cycles_get</definition>
+        <argsstring>(NRF_LFRC_Type const *p_reg)</argsstring>
+        <name>nrf_lfrc_cal_num_of_cycles_get</name>
+        <param>
+          <type>NRF_LFRC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading number of cycles when the CAL signal is high. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of cycles. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="557" column="28" bodyfile="hal/nrf_lfrc.h" bodystart="557" bodyend="560" declfile="hal/nrf_lfrc.h" declline="408" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__lfrc__hal_1gad072d9b4b5e42e55acb1254038137e59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_lfrc_power_control_set</definition>
+        <argsstring>(NRF_LFRC_Type *p_reg, nrf_lfrc_power_control_t pwrctrl)</argsstring>
+        <name>nrf_lfrc_power_control_set</name>
+        <param>
+          <type>NRF_LFRC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__lfrc__hal_1gaf9a477b942693bac816e00fac33ebb45" kindref="member">nrf_lfrc_power_control_t</ref></type>
+          <declname>pwrctrl</declname>
+        </param>
+        <briefdescription>
+<para>Function for power control set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pwrctrl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Power up control. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="564" column="24" bodyfile="hal/nrf_lfrc.h" bodystart="564" bodyend="568" declfile="hal/nrf_lfrc.h" declline="418" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gac44750c61e3bbcdc6ac2f138fba0b3e0" prot="public" static="no">
+        <name>NRF_LFRC_HAS_DOUBLE_TAIL_CURRENT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether double tail current is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="52" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga5ed0cb657f18edebdcf91decf05bff05" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CONTINUOUS_TAIL_BIAS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether continuous tail bias is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="59" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gafc3fba066bbfddbffe00b1ed48e6b719" prot="public" static="no">
+        <name>NRF_LFRC_HAS_RETENTION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether CAL retention is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="66" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gafef8148dc2ecd96329be5f2c0ae84c81" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CFG_SPARE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether spare general purpose configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="73" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gadc4ce41e9e714d624716569faac52e39" prot="public" static="no">
+        <name>NRF_LFRC_HAS_INTPEND</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether INTPEND register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="80" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga44a886819c7052948608f7e18dbf81f5" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CALIBRATION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the Low Frequency Clock calibration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="87" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga7f0fbec3b8103a6acb94b174994b5e34" prot="public" static="no">
+        <name>NRF_LFRC_HAS_PWRUPCTRL</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the PWRUPCTRL register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="94" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga74672f7052202ede0c4a3b41c55d0e04" prot="public" static="no">
+        <name>NRF_LFRC_HAS_STATUSTRIM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the STATUSTRIM register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="101" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga962b7b9101436b6d0d272a5d4be9b6c7" prot="public" static="no">
+        <name>NRF_LFRC_HAS_STATUSANA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the STATUSANA register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="108" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gaf252c82ba4b2f15d04ef8a7ed6315b02" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CONFIG_CFG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CONFIG.CFG register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="115" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gab4f4ea38360d61276c86b7879526c959" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CAL_TRIMLIMITLO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CAL.TRIMLIMITLO register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="122" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga2f9f6b3537590e55c284af630d93768c" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CAL_TRIMLIMITHI</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CAL.TRIMLIMITHI register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="129" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1gab6c51170c660b8f09c37015bdc09bed7" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CAL_RESULT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CAL.RESULT register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="136" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga94012fcf0beb40d0f43cbe7cd1f6f79e" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CAL_LENGTH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CAL.LENGTH register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="143" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__lfrc__hal_1ga25beffe895922d0614e139743d772a5f" prot="public" static="no">
+        <name>NRF_LFRC_HAS_CAL_NHI</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether the CAL.NHI register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lfrc.h" line="150" column="9" bodyfile="hal/nrf_lfrc.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Low Frequency 32 KHz RC Oscillator (LFRC). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

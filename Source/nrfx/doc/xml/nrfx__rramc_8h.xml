@@ -1,0 +1,1185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__rramc_8h" kind="file" language="C++">
+    <compoundname>nrfx_rramc.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfy__rramc_8h" local="no">haly/nrfy_rramc.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_rramc.h</label>
+        <link refid="nrfx__rramc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__rramc__config__t" prot="public">nrfx_rramc_config_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__rramc_1ga23367938d26b0f95f93ede51c958ab6e" prot="public" static="no">
+        <name>NRFX_RRAMC_DEFAULT_CONFIG</name>
+        <param><defname>_write_buff_size</defname></param>
+        <initializer>{                                                                     \
+    .mode_write             = false,                                  \
+    .write_buff_size        = _write_buff_size,                       \
+    .preload_timeout        = 0x80,                                   \
+    .preload_timeout_enable = true,                                   \
+    .access_timeout         = 0x100,                                  \
+    .abort_on_pof           = true,                                   \
+    .irq_priority           = NRFX_RRAMC_DEFAULT_CONFIG_IRQ_PRIORITY, \
+}</initializer>
+        <briefdescription>
+<para>RRAMC driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up RRAMC with the following options:<itemizedlist>
+<listitem><para>Write mode disabled</para>
+</listitem><listitem><para>Preload timeout value: 0x80</para>
+</listitem><listitem><para>Write to the RRAM on the next timeout enabled</para>
+</listitem><listitem><para>Access timeout: 0x100</para>
+</listitem><listitem><para>Write operation is to be aborted on the power failure</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_write_buff_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of write buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="75" column="9" bodyfile="drivers/include/nrfx_rramc.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_rramc_evt_handler_t) (nrf_rramc_event_t const event_type)</definition>
+        <argsstring>)(nrf_rramc_event_t const event_type)</argsstring>
+        <name>nrfx_rramc_evt_handler_t</name>
+        <briefdescription>
+<para>RRAMC driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="91" column="9" bodyfile="drivers/include/nrfx_rramc.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__rramc_1gae9764a17fd1df06f1546def8e50c93bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_all_erase</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_all_erase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for erasing the whole RRAM memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>All user code and UICR will be erased. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="98" column="6" declfile="drivers/include/nrfx_rramc.h" declline="98" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaec063e3cfb090e111cdab61c7a5d6c59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_byte_write</definition>
+        <argsstring>(uint32_t address, uint8_t value)</argsstring>
+        <name>nrfx_rramc_byte_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a single byte to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="113" column="6" declfile="drivers/include/nrfx_rramc.h" declline="113" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga64e5c2a7b3b8064adb47191ed1c9ef83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_bytes_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_bytes)</argsstring>
+        <name>nrfx_rramc_bytes_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive bytes to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="129" column="6" declfile="drivers/include/nrfx_rramc.h" declline="129" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga2fe3ec9970ab4c6bc3d97311763aa6e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_word_write</definition>
+        <argsstring>(uint32_t address, uint32_t value)</argsstring>
+        <name>nrfx_rramc_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="144" column="6" declfile="drivers/include/nrfx_rramc.h" declline="144" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga8798ba574ca1cc546a0964cc1b6fc255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_words_write</definition>
+        <argsstring>(uint32_t address, void const *src, uint32_t num_words)</argsstring>
+        <name>nrfx_rramc_words_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_words</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing consecutive 32-bit words to RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To determine if the last RRAM write operation has been completed, use <ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check()</ref>. The status is not updated during writes to write-buffer.</para>
+<para><simplesect kind="note"><para>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to where data is to be written. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be copied. Must be word-aligned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_words</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of words to be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="160" column="6" declfile="drivers/include/nrfx_rramc.h" declline="160" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga68e1f8dcc25cfbe846d5b58e59db6c92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_write_enable_set</definition>
+        <argsstring>(bool enable, uint32_t write_buff_size)</argsstring>
+        <name>nrfx_rramc_write_enable_set</name>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>write_buff_size</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling write mode and setting size of write buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if write mode is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">write_buff_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of write buffer. If set to 0, buffering is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="168" column="6" declfile="drivers/include/nrfx_rramc.h" declline="168" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaf63670fb4b3f3c19d1dddfd60b960fe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_rramc_write_enable_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_enable_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if write mode is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if write mode is enabled, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="175" column="6" declfile="drivers/include/nrfx_rramc.h" declline="175" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaf7143d14bf418c55dec47a6253247d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_rramc_init</definition>
+        <argsstring>(nrfx_rramc_config_t const *p_config, nrfx_rramc_evt_handler_t handler)</argsstring>
+        <name>nrfx_rramc_init</name>
+        <param>
+          <type><ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" kindref="member">nrfx_rramc_evt_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver has already been initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="186" column="5" declfile="drivers/include/nrfx_rramc.h" declline="186" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga055295264be2d8a3a3c54f93b42bec26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_rramc_reconfigure</definition>
+        <argsstring>(nrfx_rramc_config_t const *p_config)</argsstring>
+        <name>nrfx_rramc_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure containing configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="197" column="5" declfile="drivers/include/nrfx_rramc.h" declline="197" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gac62410c59ef2f70c9fc2a6c24911f993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the RRAMC driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="200" column="6" declfile="drivers/include/nrfx_rramc.h" declline="200" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaa13c7eeb3ca6bfc608771fd56d6f2355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_rramc_memory_size_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_memory_size_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the total RRAM size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The function will return <computeroutput>FICR_INFO_RRAM_RRAM_Unspecified</computeroutput> value if the total RRAM size cannot be determined based on the FICR data.</para>
+</simplesect>
+<simplesect kind="return"><para>RRAM total size in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="210" column="10" declfile="drivers/include/nrfx_rramc.h" declline="210" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga4330181ffbe15dcc454887fa47eb76fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_write_buffer_commit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_buffer_commit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for committing write buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="213" column="6" declfile="drivers/include/nrfx_rramc.h" declline="213" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gaa60d2cc06aed61caf03364c99246f192" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_wake_up</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_wake_up</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for waking up the RRAMC. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="216" column="6" declfile="drivers/include/nrfx_rramc.h" declline="216" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga700deece4d7d7d8b09176dcf2c8973ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_rramc_write_buffer_empty_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_write_buffer_empty_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if RRAMC write buffer is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer is empty. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer is not empty. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="224" column="6" declfile="drivers/include/nrfx_rramc.h" declline="224" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga5eb8a91121d45064f40a8012030c29c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_rramc_otp_word_read</definition>
+        <argsstring>(uint32_t index)</argsstring>
+        <name>nrfx_rramc_otp_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a word from the OTP in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>OTP is a region of the UICR present in some chips. This function must be used to read word data from this region since unaligned accesses are not available on the OTP RRAM area.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address (index) in OTP table from which a word is to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contents at <computeroutput>index</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="301" column="29" bodyfile="drivers/include/nrfx_rramc.h" bodystart="301" bodyend="304" declfile="drivers/include/nrfx_rramc.h" declline="237" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga037f9f7abb5b51e07a61005ab57dd14c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_rramc_otp_word_write</definition>
+        <argsstring>(uint32_t index, uint32_t value)</argsstring>
+        <name>nrfx_rramc_otp_word_write</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for writing a 32-bit word at index position to OTP region in UICR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The OTP can only be written once after each Erase All is performed. This function checks if the value currently residing at the specified index can be transformed to the desired value. If yes, then performs the write operation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address (index) in OTP table to which a word it to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word can be written into the specified OTP index address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Word cannot be written into the specified OTP index address. Erase UICR or change index address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="306" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="306" bodyend="309" declfile="drivers/include/nrfx_rramc.h" declline="253" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga310b17606c9a6020b1ae805ed6b16e9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint8_t</type>
+        <definition>NRFX_STATIC_INLINE uint8_t nrfx_rramc_byte_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_rramc_byte_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a byte from the RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function in case accessing the RRAM gives the possibility to run the code in an environment where the flash is simulated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the byte to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="311" column="28" bodyfile="drivers/include/nrfx_rramc.h" bodystart="311" bodyend="314" declfile="drivers/include/nrfx_rramc.h" declline="265" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga4fad7b64c1b7fc32b756aa0831ee6762" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_rramc_word_read</definition>
+        <argsstring>(uint32_t address)</argsstring>
+        <name>nrfx_rramc_word_read</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a 32-bit word from the RRAM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this function in case accessing the RRAM gives the possibility to run the code in an environment where the flash is simulated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the word to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from RRAM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="316" column="29" bodyfile="drivers/include/nrfx_rramc.h" bodystart="316" bodyend="319" declfile="drivers/include/nrfx_rramc.h" declline="277" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1gace17df940cb023b091cf6f4532387a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_rramc_buffer_read</definition>
+        <argsstring>(void *dst, uint32_t address, uint32_t num_bytes)</argsstring>
+        <name>nrfx_rramc_buffer_read</name>
+        <param>
+          <type>void *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>num_bytes</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading a given number of bytes from the RRAM into the specified buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to store the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the first byte to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="321" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="321" bodyend="324" declfile="drivers/include/nrfx_rramc.h" declline="287" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_rramc_ready_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_ready_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking current RRAMC operation status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status is updated for all RRAMC operations except during read and writes to write-buffer.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current operation is completed, and RRAMC is ready. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RRAMC is busy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="326" column="25" bodyfile="drivers/include/nrfx_rramc.h" bodystart="326" bodyend="329" declfile="drivers/include/nrfx_rramc.h" declline="297" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__rramc_8h_1a3456696e19bcc6a1742512f621a00ecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_rramc_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_rramc_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_rramc.h" line="335" column="6" declfile="drivers/include/nrfx_rramc.h" declline="335" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2023<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_RRAMC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_RRAMC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_rramc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_rramc<sp/>RRAMC<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_rramc</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Resistive<sp/>Random<sp/>Access<sp/>Memory<sp/>Controller<sp/>(RRAMC)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**<sp/>@brief<sp/>Configuration<sp/>structure<sp/>of<sp/>the<sp/>RRAMC<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structnrfx__rramc__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>mode_write;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>True<sp/>if<sp/>write<sp/>mode<sp/>is<sp/>to<sp/>be<sp/>enabled,<sp/>false<sp/>otherwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>write_buff_size;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Size<sp/>of<sp/>write<sp/>buffer.<sp/>If<sp/>set<sp/>to<sp/>0,<sp/>buffering<sp/>is<sp/>disabled.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>preload_timeout;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Preload<sp/>value<sp/>expressed<sp/>in<sp/>clock<sp/>cycles.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>preload_timeout_enable;<sp/></highlight><highlight class="comment">///&lt;<sp/>True<sp/>if<sp/>writing<sp/>to<sp/>RRAM<sp/>is<sp/>to<sp/>be<sp/>triggered<sp/>on<sp/>the<sp/>next<sp/>timeout,<sp/>false<sp/>otherwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>access_timeout;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Access<sp/>timeout<sp/>used<sp/>either<sp/>for<sp/>going<sp/>into<sp/>standby<sp/>power<sp/>mode<sp/>or<sp/>to<sp/>remain<sp/>active<sp/>on<sp/>wake<sp/>up,<sp/>expressed<sp/>in<sp/>clock<sp/>cycles.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>abort_on_pof;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>True<sp/>if<sp/>the<sp/>current<sp/>RRAM<sp/>write<sp/>operation<sp/>is<sp/>to<sp/>be<sp/>aborted<sp/>on<sp/>the<sp/>power<sp/>failure,<sp/>false<sp/>otherwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>irq_priority;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@brief<sp/>RRAMC<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>RRAMC<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>-<sp/>Write<sp/>mode<sp/>disabled</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>-<sp/>Preload<sp/>timeout<sp/>value:<sp/>0x80</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>-<sp/>Write<sp/>to<sp/>the<sp/>RRAM<sp/>on<sp/>the<sp/>next<sp/>timeout<sp/>enabled</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>-<sp/>Access<sp/>timeout:<sp/>0x100</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>-<sp/>Write<sp/>operation<sp/>is<sp/>to<sp/>be<sp/>aborted<sp/>on<sp/>the<sp/>power<sp/>failure</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_write_buff_size<sp/>Size<sp/>of<sp/>write<sp/>buffer.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_RRAMC_DEFAULT_CONFIG(_write_buff_size)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="76"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="77"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.mode_write<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>false,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.write_buff_size<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_write_buff_size,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.preload_timeout<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x80,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="80"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.preload_timeout_enable<sp/>=<sp/>true,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="81"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.access_timeout<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x100,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="82"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.abort_on_pof<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>true,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.irq_priority<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRFX_RRAMC_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/>\</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>@brief<sp/>RRAMC<sp/>driver<sp/>event<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_type<sp/>RRAMC<sp/>event.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" kindref="member">nrfx_rramc_evt_handler_t</ref>)(<ref refid="group__nrf__rramc__hal_1ga12273d5b8ed1f0e2c15d4eb6b2bb45dd" kindref="member">nrf_rramc_event_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>event_type);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>erasing<sp/>the<sp/>whole<sp/>RRAM<sp/>memory.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>@note<sp/>All<sp/>user<sp/>code<sp/>and<sp/>UICR<sp/>will<sp/>be<sp/>erased.</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gae9764a17fd1df06f1546def8e50c93bd" kindref="member">nrfx_rramc_all_erase</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="100"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>writing<sp/>a<sp/>single<sp/>byte<sp/>to<sp/>RRAM.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/>To<sp/>determine<sp/>if<sp/>the<sp/>last<sp/>RRAM<sp/>write<sp/>operation<sp/>has<sp/>been<sp/>completed,</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/>use<sp/>@ref<sp/>nrfx_rramc_ready_check().<sp/>The<sp/>status<sp/>is<sp/>not<sp/>updated<sp/>during<sp/>writes<sp/>to<sp/>write-buffer.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>@note<sp/>Depending<sp/>on<sp/>the<sp/>source<sp/>of<sp/>the<sp/>code<sp/>being<sp/>executed,</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>CPU<sp/>may<sp/>be<sp/>halted<sp/>during<sp/>the<sp/>operation.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Refer<sp/>to<sp/>the<sp/>Product<sp/>Specification<sp/>for<sp/>more<sp/>information.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/>Address<sp/>to<sp/>where<sp/>data<sp/>is<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/><sp/><sp/>Value<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gaec063e3cfb090e111cdab61c7a5d6c59" kindref="member">nrfx_rramc_byte_write</ref>(uint32_t<sp/>address,<sp/>uint8_t<sp/>value);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="115"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>writing<sp/>consecutive<sp/>bytes<sp/>to<sp/>RRAM.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>To<sp/>determine<sp/>if<sp/>the<sp/>last<sp/>RRAM<sp/>write<sp/>operation<sp/>has<sp/>been<sp/>completed,</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>use<sp/>@ref<sp/>nrfx_rramc_ready_check().<sp/>The<sp/>status<sp/>is<sp/>not<sp/>updated<sp/>during<sp/>writes<sp/>to<sp/>write-buffer.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>@note<sp/>Depending<sp/>on<sp/>the<sp/>source<sp/>of<sp/>the<sp/>code<sp/>being<sp/>executed,</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>CPU<sp/>may<sp/>be<sp/>halted<sp/>during<sp/>the<sp/>operation.</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Refer<sp/>to<sp/>the<sp/>Product<sp/>Specification<sp/>for<sp/>more<sp/>information.</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/><sp/><sp/>Address<sp/>to<sp/>where<sp/>data<sp/>is<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>src<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>data<sp/>to<sp/>be<sp/>copied.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_bytes<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga64e5c2a7b3b8064adb47191ed1c9ef83" kindref="member">nrfx_rramc_bytes_write</ref>(uint32_t<sp/>address,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>src,<sp/>uint32_t<sp/>num_bytes);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="131"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>writing<sp/>a<sp/>32-bit<sp/>word<sp/>to<sp/>RRAM.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>To<sp/>determine<sp/>if<sp/>the<sp/>last<sp/>RRAM<sp/>write<sp/>operation<sp/>has<sp/>been<sp/>completed,</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>use<sp/>@ref<sp/>nrfx_rramc_ready_check().<sp/>The<sp/>status<sp/>is<sp/>not<sp/>updated<sp/>during<sp/>writes<sp/>to<sp/>write-buffer.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@note<sp/>Depending<sp/>on<sp/>the<sp/>source<sp/>of<sp/>the<sp/>code<sp/>being<sp/>executed,</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>CPU<sp/>may<sp/>be<sp/>halted<sp/>during<sp/>the<sp/>operation.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Refer<sp/>to<sp/>the<sp/>Product<sp/>Specification<sp/>for<sp/>more<sp/>information.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/>Address<sp/>to<sp/>where<sp/>data<sp/>is<sp/>to<sp/>be<sp/>written.<sp/>Must<sp/>be<sp/>word-aligned.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/><sp/><sp/>Value<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga2fe3ec9970ab4c6bc3d97311763aa6e7" kindref="member">nrfx_rramc_word_write</ref>(uint32_t<sp/>address,<sp/>uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="146"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>writing<sp/>consecutive<sp/>32-bit<sp/>words<sp/>to<sp/>RRAM.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*<sp/>To<sp/>determine<sp/>if<sp/>the<sp/>last<sp/>RRAM<sp/>write<sp/>operation<sp/>has<sp/>been<sp/>completed,</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>use<sp/>@ref<sp/>nrfx_rramc_ready_check().<sp/>The<sp/>status<sp/>is<sp/>not<sp/>updated<sp/>during<sp/>writes<sp/>to<sp/>write-buffer.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/>@note<sp/>Depending<sp/>on<sp/>the<sp/>source<sp/>of<sp/>the<sp/>code<sp/>being<sp/>executed,</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>CPU<sp/>may<sp/>be<sp/>halted<sp/>during<sp/>the<sp/>operation.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Refer<sp/>to<sp/>the<sp/>Product<sp/>Specification<sp/>for<sp/>more<sp/>information.</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/><sp/><sp/>Address<sp/>to<sp/>where<sp/>data<sp/>is<sp/>to<sp/>be<sp/>written.<sp/>Must<sp/>be<sp/>word-aligned.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>src<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>data<sp/>to<sp/>be<sp/>copied.<sp/>Must<sp/>be<sp/>word-aligned.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>num_words<sp/>Number<sp/>of<sp/>words<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga8798ba574ca1cc546a0964cc1b6fc255" kindref="member">nrfx_rramc_words_write</ref>(uint32_t<sp/>address,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>src,<sp/>uint32_t<sp/>num_words);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="162"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>write<sp/>mode<sp/>and<sp/>setting<sp/>size<sp/>of<sp/>write<sp/>buffer.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>enable<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>True<sp/>if<sp/>write<sp/>mode<sp/>is<sp/>to<sp/>be<sp/>enabled,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>write_buff_size<sp/>Size<sp/>of<sp/>write<sp/>buffer.<sp/>If<sp/>set<sp/>to<sp/>0,<sp/>buffering<sp/>is<sp/>disabled.</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga68e1f8dcc25cfbe846d5b58e59db6c92" kindref="member">nrfx_rramc_write_enable_set</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable,<sp/>uint32_t<sp/>write_buff_size);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="170"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>write<sp/>mode<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>write<sp/>mode<sp/>is<sp/>enabled,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gaf63670fb4b3f3c19d1dddfd60b960fe2" kindref="member">nrfx_rramc_write_enable_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="177"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>RRAMC<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>containing<sp/>configuration.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>handler<sp/><sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>has<sp/>already<sp/>been<sp/>initialized.</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gaf7143d14bf418c55dec47a6253247d46" kindref="member">nrfx_rramc_init</ref>(<ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__rramc_1gafc1bc69d75a1b24cee4a82f6ce5299f5" kindref="member">nrfx_rramc_evt_handler_t</ref><sp/><sp/><sp/><sp/>handler);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="189"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>the<sp/>RRAMC<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>containing<sp/>configuration.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga055295264be2d8a3a3c54f93b42bec26" kindref="member">nrfx_rramc_reconfigure</ref>(<ref refid="structnrfx__rramc__config__t" kindref="compound">nrfx_rramc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>RRAMC<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gac62410c59ef2f70c9fc2a6c24911f993" kindref="member">nrfx_rramc_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="202"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>total<sp/>RRAM<sp/>size<sp/>in<sp/>bytes.</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/>*<sp/>@note<sp/>The<sp/>function<sp/>will<sp/>return<sp/>@p<sp/>FICR_INFO_RRAM_RRAM_Unspecified<sp/>value</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>the<sp/>total<sp/>RRAM<sp/>size<sp/>cannot<sp/>be<sp/>determined<sp/>based<sp/>on<sp/>the<sp/>FICR<sp/>data.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/>*<sp/>@return<sp/>RRAM<sp/>total<sp/>size<sp/>in<sp/>bytes.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__rramc_1gaa13c7eeb3ca6bfc608771fd56d6f2355" kindref="member">nrfx_rramc_memory_size_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="212"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>committing<sp/>write<sp/>buffer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga4330181ffbe15dcc454887fa47eb76fd" kindref="member">nrfx_rramc_write_buffer_commit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="215"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>waking<sp/>up<sp/>the<sp/>RRAMC.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gaa60d2cc06aed61caf03364c99246f192" kindref="member">nrfx_rramc_wake_up</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="218"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>RRAMC<sp/>write<sp/>buffer<sp/>is<sp/>empty.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Buffer<sp/>is<sp/>empty.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Buffer<sp/>is<sp/>not<sp/>empty.</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga700deece4d7d7d8b09176dcf2c8973ad" kindref="member">nrfx_rramc_write_buffer_empty_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="226"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>a<sp/>word<sp/>from<sp/>the<sp/>OTP<sp/>in<sp/>UICR.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/>OTP<sp/>is<sp/>a<sp/>region<sp/>of<sp/>the<sp/>UICR<sp/>present<sp/>in<sp/>some<sp/>chips.<sp/>This<sp/>function<sp/>must<sp/>be<sp/>used</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/>to<sp/>read<sp/>word<sp/>data<sp/>from<sp/>this<sp/>region<sp/>since<sp/>unaligned<sp/>accesses<sp/>are<sp/>not</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*<sp/>available<sp/>on<sp/>the<sp/>OTP<sp/>RRAM<sp/>area.</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>index<sp/>Address<sp/>(index)<sp/>in<sp/>OTP<sp/>table<sp/>from<sp/>which<sp/>a<sp/>word<sp/>is<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/>@retval<sp/>The<sp/>contents<sp/>at<sp/>@p<sp/>index.</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__rramc_1ga5eb8a91121d45064f40a8012030c29c6" kindref="member">nrfx_rramc_otp_word_read</ref>(uint32_t<sp/>index);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="239"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>writing<sp/>a<sp/>32-bit<sp/>word<sp/>at<sp/>index<sp/>position<sp/>to<sp/>OTP<sp/>region<sp/>in<sp/>UICR.</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>The<sp/>OTP<sp/>can<sp/>only<sp/>be<sp/>written<sp/>once<sp/>after<sp/>each<sp/>Erase<sp/>All<sp/>is<sp/>performed.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>checks<sp/>if<sp/>the<sp/>value<sp/>currently<sp/>residing<sp/>at<sp/>the<sp/>specified<sp/>index<sp/>can</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/>be<sp/>transformed<sp/>to<sp/>the<sp/>desired<sp/>value.<sp/>If<sp/>yes,<sp/>then<sp/>performs<sp/>the<sp/>write<sp/>operation.</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>index<sp/>Address<sp/>(index)<sp/>in<sp/>OTP<sp/>table<sp/>to<sp/>which<sp/>a<sp/>word<sp/>it<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>value<sp/>Value<sp/>to<sp/>be<sp/>written.</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Word<sp/>can<sp/>be<sp/>written<sp/>into<sp/>the<sp/>specified<sp/>OTP<sp/>index<sp/>address.</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Word<sp/>cannot<sp/>be<sp/>written<sp/>into<sp/>the<sp/>specified<sp/>OTP<sp/>index<sp/>address.</highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Erase<sp/>UICR<sp/>or<sp/>change<sp/>index<sp/>address.</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga037f9f7abb5b51e07a61005ab57dd14c" kindref="member">nrfx_rramc_otp_word_write</ref>(uint32_t<sp/>index,<sp/>uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="255"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>a<sp/>byte<sp/>from<sp/>the<sp/>RRAM.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/>Use<sp/>this<sp/>function<sp/>in<sp/>case<sp/>accessing<sp/>the<sp/>RRAM<sp/>gives<sp/>the<sp/>possibility</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*<sp/>to<sp/>run<sp/>the<sp/>code<sp/>in<sp/>an<sp/>environment<sp/>where<sp/>the<sp/>flash<sp/>is<sp/>simulated.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/>Address<sp/>of<sp/>the<sp/>byte<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/>@return<sp/>Value<sp/>read<sp/>from<sp/>RRAM.</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrfx__rramc_1ga310b17606c9a6020b1ae805ed6b16e9c" kindref="member">nrfx_rramc_byte_read</ref>(uint32_t<sp/>address);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="267"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>a<sp/>32-bit<sp/>word<sp/>from<sp/>the<sp/>RRAM.</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/>*<sp/>Use<sp/>this<sp/>function<sp/>in<sp/>case<sp/>accessing<sp/>the<sp/>RRAM<sp/>gives<sp/>the<sp/>possibility</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*<sp/>to<sp/>run<sp/>the<sp/>code<sp/>in<sp/>an<sp/>environment<sp/>where<sp/>the<sp/>flash<sp/>is<sp/>simulated.</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>address<sp/>Address<sp/>of<sp/>the<sp/>word<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@return<sp/>Value<sp/>read<sp/>from<sp/>RRAM.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__rramc_1ga4fad7b64c1b7fc32b756aa0831ee6762" kindref="member">nrfx_rramc_word_read</ref>(uint32_t<sp/>address);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="279"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reading<sp/>a<sp/>given<sp/>number<sp/>of<sp/>bytes<sp/>from<sp/>the<sp/>RRAM<sp/>into<sp/>the<sp/>specified<sp/>buffer.</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>dst<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>buffer<sp/>to<sp/>store<sp/>the<sp/>data.</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>address<sp/><sp/><sp/>Address<sp/>of<sp/>the<sp/>first<sp/>byte<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline lineno="284"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>num_bytes<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>be<sp/>read.</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gace17df940cb023b091cf6f4532387a05" kindref="member">nrfx_rramc_buffer_read</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>dst,<sp/>uint32_t<sp/>address,<sp/>uint32_t<sp/>num_bytes);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="289"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>current<sp/>RRAMC<sp/>operation<sp/>status.</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/>*<sp/>The<sp/>status<sp/>is<sp/>updated<sp/>for<sp/>all<sp/>RRAMC<sp/>operations<sp/>except<sp/>during<sp/>read<sp/>and<sp/>writes<sp/>to<sp/>write-buffer.</highlight></codeline>
+<codeline lineno="293"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Current<sp/>operation<sp/>is<sp/>completed,<sp/>and<sp/>RRAMC<sp/>is<sp/>ready.</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>RRAMC<sp/>is<sp/>busy.</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__rramc_1ga5eb8a91121d45064f40a8012030c29c6" kindref="member">nrfx_rramc_otp_word_read</ref>(uint32_t<sp/>index)</highlight></codeline>
+<codeline lineno="302"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__rramc_1gafc58ecc87cb385a47158bd0a90382fb3" kindref="member">nrfy_rramc_otp_word_read</ref>(index);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga037f9f7abb5b51e07a61005ab57dd14c" kindref="member">nrfx_rramc_otp_word_write</ref>(uint32_t<sp/>index,<sp/>uint32_t<sp/>value)</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__rramc_1ga48c084c490fac5b38b9d2743452e81bf" kindref="member">nrfy_rramc_otp_word_write</ref>(NRF_RRAMC,<sp/>index,<sp/>value);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint8_t<sp/><ref refid="group__nrfx__rramc_1ga310b17606c9a6020b1ae805ed6b16e9c" kindref="member">nrfx_rramc_byte_read</ref>(uint32_t<sp/>address)</highlight></codeline>
+<codeline lineno="312"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__rramc_1gaa1eda0611bb72612d4bd6659e26be124" kindref="member">nrfy_rramc_byte_read</ref>(address);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__rramc_1ga4fad7b64c1b7fc32b756aa0831ee6762" kindref="member">nrfx_rramc_word_read</ref>(uint32_t<sp/>address)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__rramc_1ga149407b06fe990d30edc1279b3de7ede" kindref="member">nrfy_rramc_word_read</ref>(address);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1gace17df940cb023b091cf6f4532387a05" kindref="member">nrfx_rramc_buffer_read</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>dst,<sp/>uint32_t<sp/>address,<sp/>uint32_t<sp/>num_bytes)</highlight></codeline>
+<codeline lineno="322"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfy__rramc_1ga185185cedabee28fd39c576b7fb0b98d" kindref="member">nrfy_rramc_buffer_read</ref>(dst,<sp/>address,<sp/>num_bytes);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__rramc_1ga0fbcc146242823b38608f03be659e8b1" kindref="member">nrfx_rramc_ready_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrfy__rramc_1ga417e2945722e3f32594432c53378047f" kindref="member">nrfy_rramc_ready_check</ref>(NRF_RRAMC);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="333"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_rramc_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_RRAMC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_rramc.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__ipc" kind="group">
+    <compoundname>nrfx_ipc</compoundname>
+    <title>IPC driver</title>
+    <innerclass refid="structnrfx__ipc__config__t" prot="public">nrfx_ipc_config_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_ipc_handler_t) (uint8_t event_idx, void *p_context)</definition>
+        <argsstring>)(uint8_t event_idx, void *p_context)</argsstring>
+        <name>nrfx_ipc_handler_t</name>
+        <briefdescription>
+<para>IPC driver handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IPC event index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the interrupt handler, set on initialization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="56" column="9" bodyfile="drivers/include/nrfx_ipc.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__ipc_1gaef266a65859dd3f247c50c0ab252d0b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_ipc_init</definition>
+        <argsstring>(uint8_t irq_priority, nrfx_ipc_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_ipc_init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>irq_priority</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" kindref="member">nrfx_ipc_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the IPC driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>irq_priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt priority. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="77" column="5" declfile="drivers/include/nrfx_ipc.h" declline="77" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga03a6b4bfb32a14045fe344eb9c1a0faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_config_load</definition>
+        <argsstring>(nrfx_ipc_config_t const *p_config)</argsstring>
+        <name>nrfx_ipc_config_load</name>
+        <param>
+          <type><ref refid="structnrfx__ipc__config__t" kindref="compound">nrfx_ipc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for loading configuration directly into IPC peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="84" column="6" declfile="drivers/include/nrfx_ipc.h" declline="84" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga56bbc75ab762f7a0ddabfd3a10cc9dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_signal</definition>
+        <argsstring>(uint8_t send_index)</argsstring>
+        <name>nrfx_ipc_signal</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for convey signal on configured channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Events connected to the IPC channels configured within this signal will be set and can generate interrupts when configured.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the SEND task to trigger. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="201" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="201" bodyend="205" declfile="drivers/include/nrfx_ipc.h" declline="94" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gac086835df03b91e28f6024832824ea17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_gpmem_set</definition>
+        <argsstring>(uint8_t mem_index, uint32_t data)</argsstring>
+        <name>nrfx_ipc_gpmem_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>mem_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Function for storing data in the general purpose memory register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mem_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to be saved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="189" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="189" bodyend="193" declfile="drivers/include/nrfx_ipc.h" declline="102" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gab36802e7c7389de963309dbeb4dd85d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_ipc_gpmem_get</definition>
+        <argsstring>(uint8_t mem_index)</argsstring>
+        <name>nrfx_ipc_gpmem_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>mem_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting data from the general purpose memory register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mem_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory cell.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Saved data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="195" column="29" bodyfile="drivers/include/nrfx_ipc.h" bodystart="195" bodyend="199" declfile="drivers/include/nrfx_ipc.h" declline="111" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gae5fb31c6112a8d7e0784143716ec891a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_ipc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the IPC module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="114" column="6" declfile="drivers/include/nrfx_ipc.h" declline="114" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gafe1cc65803d1ee904492867330750831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_ipc_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_ipc_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the IPC driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="122" column="6" declfile="drivers/include/nrfx_ipc.h" declline="122" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga347e669da0aa2fe13ebf7bec01fc14c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_enable</definition>
+        <argsstring>(uint8_t event_index)</argsstring>
+        <name>nrfx_ipc_receive_event_enable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling events to generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of event to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="129" column="6" declfile="drivers/include/nrfx_ipc.h" declline="129" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga923e73ef9e7424b5918f2b0cf9ee578d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_disable</definition>
+        <argsstring>(uint8_t event_index)</argsstring>
+        <name>nrfx_ipc_receive_event_disable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling events from generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of event to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="136" column="6" declfile="drivers/include/nrfx_ipc.h" declline="136" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga3b1573895f6b325b97a69ad32b2246ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_group_enable</definition>
+        <argsstring>(uint32_t event_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_event_group_enable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling set of events to generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with events to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="143" column="6" declfile="drivers/include/nrfx_ipc.h" declline="143" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gadb09c53c8293e4b911e278aafb724708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_group_disable</definition>
+        <argsstring>(uint32_t event_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_event_group_disable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling set of events from generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with events to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="150" column="6" declfile="drivers/include/nrfx_ipc.h" declline="150" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gaa6e8bf00dce39fd34d0619f2d32f5dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_channel_assign</definition>
+        <argsstring>(uint8_t event_index, uint8_t channel_index)</argsstring>
+        <name>nrfx_ipc_receive_event_channel_assign</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning event to the IPC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the channel to which event will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="158" column="6" declfile="drivers/include/nrfx_ipc.h" declline="158" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga96bfcff486dfaf541bc97d09e3eb33d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_send_task_channel_assign</definition>
+        <argsstring>(uint8_t send_index, uint8_t channel_index)</argsstring>
+        <name>nrfx_ipc_send_task_channel_assign</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning signal to the IPC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the signal to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the instance of channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="166" column="6" declfile="drivers/include/nrfx_ipc.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gaa60ad4e03ce9f8371d913e462d2437b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_receive_config_set</definition>
+        <argsstring>(uint8_t event_index, uint32_t channel_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_config_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning event to the IPC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with channels to which event will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="207" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="207" bodyend="211" declfile="drivers/include/nrfx_ipc.h" declline="174" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga69ff49db4011e38d5ce3f3f4e43616db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_send_config_set</definition>
+        <argsstring>(uint8_t send_index, uint32_t channel_bitmask)</argsstring>
+        <name>nrfx_ipc_send_config_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning signal to the IPC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the signal to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with channels to which signal will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="213" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="213" bodyend="217" declfile="drivers/include/nrfx_ipc.h" declline="182" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interprocessor Communication (IPC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

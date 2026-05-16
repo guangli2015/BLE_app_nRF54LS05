@@ -1,0 +1,2331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__mpc__hal" kind="group">
+    <compoundname>nrf_mpc_hal</compoundname>
+    <title>MPC HAL</title>
+    <innerclass refid="structnrf__mpc__region__config__t" prot="public">nrf_mpc_region_config_t</innerclass>
+    <innerclass refid="structnrf__mpc__override__config__t" prot="public">nrf_mpc_override_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__mpc__hal_1ga934ee74ecdc1e369d8160adb9fc66720" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_mpc_event_t</name>
+        <enumvalue id="group__nrf__mpc__hal_1gga934ee74ecdc1e369d8160adb9fc66720a22af0570a23c55c1853b69faf805c232" prot="public">
+          <name>NRF_MPC_EVENT_MEMACCERR</name>
+          <initializer>= offsetof(NRF_MPC_Type, EVENTS_MEMACCERR)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Memory access error. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>MPC events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="140" column="1" bodyfile="hal/nrf_mpc.h" bodystart="141" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_mpc_int_mask_t</name>
+        <enumvalue id="group__nrf__mpc__hal_1gga772315a021c75e1da4c2e3e063187507ae01bcfb89be5b3c40fed1fc219d9643c" prot="public">
+          <name>NRF_MPC_INT_MEMACCERR_MASK</name>
+          <initializer>= MPC_INTENSET_MEMACCERR_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Interrupt on MEMACCERR event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>MPC interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="146" column="1" bodyfile="hal/nrf_mpc.h" bodystart="147" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__mpc__hal_1ga7a52bbfed00c736a7ee0f49896fa4081" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_mpc_errorsource_t</name>
+        <enumvalue id="group__nrf__mpc__hal_1gga7a52bbfed00c736a7ee0f49896fa4081a64cb903a31aa57615e678d5c7d1eafa3" prot="public">
+          <name>NRF_MPC_ERRORSOURCE_SLAVE</name>
+          <initializer>= MPC_MEMACCERR_INFO_ERRORSOURCE_Slave</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Error was triggered by an AXI slave. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga7a52bbfed00c736a7ee0f49896fa4081aef720a89162160fcd8414c59dfe9256b" prot="public">
+          <name>NRF_MPC_ERRORSOURCE_MPC</name>
+          <initializer>= MPC_MEMACCERR_INFO_ERRORSOURCE_MPC</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Error was triggered by MCP module. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Error sources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="152" column="1" bodyfile="hal/nrf_mpc.h" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_mpc_permission_mask_t</name>
+        <enumvalue id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a1c509f1ebed48d6867afccc726a4043b" prot="public">
+          <name>NRF_MPC_PERM_READ_MASK</name>
+          <initializer>= MPC_OVERRIDE_PERM_READ_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Read access. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a558f07197637e5a0b8a2a2f921fd447d" prot="public">
+          <name>NRF_MPC_PERM_WRITE_MASK</name>
+          <initializer>= MPC_OVERRIDE_PERM_WRITE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Write access. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a79c6b09eb35c7aad331e55d236dd2c70" prot="public">
+          <name>NRF_MPC_PERM_EXECUTE_MASK</name>
+          <initializer>= MPC_OVERRIDE_PERM_EXECUTE_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Software execute. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a262e5d8389b70a706fc90ee7bedfc21b" prot="public">
+          <name>NRF_MPC_PERM_SECURE_MASK</name>
+          <initializer>= MPC_OVERRIDE_PERM_SECATTR_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Security mapping. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a734dbdb2099216695b9fb5c5c554c2d8" prot="public">
+          <name>NRF_MPC_PERM_PRIVILEGED_MASK</name>
+          <initializer>= MPC_OVERRIDE_PERM_PRIVL_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Privilege mapping. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Permissions mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This enum may be used for both permission settings and permission settings mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="163" column="1" bodyfile="hal/nrf_mpc.h" bodystart="164" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_mpc_masterport_mask_t</name>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a43c186c29e44d048d4d7fe4ff28a652e" prot="public">
+          <name>NRF_MPC_MASTERPORT_0_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE0_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 0. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a7de1a72c217938e2df33c57e5c1d1dfd" prot="public">
+          <name>NRF_MPC_MASTERPORT_1_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE1_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 1. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a01c63fbb707890de841006fda673c7a0" prot="public">
+          <name>NRF_MPC_MASTERPORT_2_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE2_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 2. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a2e60961c3d173af19e69bb72d89359b0" prot="public">
+          <name>NRF_MPC_MASTERPORT_3_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE3_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 3. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a8d0d2f2319c6c8a0a03d5500cb3ec0e1" prot="public">
+          <name>NRF_MPC_MASTERPORT_4_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE4_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 4. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626ae0c8a06e6520ffd7a128333b53eae1ed" prot="public">
+          <name>NRF_MPC_MASTERPORT_5_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE5_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 5. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626aa78b1ac5e174da4d23be61d3d848c307" prot="public">
+          <name>NRF_MPC_MASTERPORT_6_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE6_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 6. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a8436ed84236cfdc080dfd18607d3104d" prot="public">
+          <name>NRF_MPC_MASTERPORT_7_MASK</name>
+          <initializer>= MPC_REGION_MASTERPORT_ENABLE7_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Enable master port 7. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Masterport mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="176" column="1" bodyfile="hal/nrf_mpc.h" bodystart="177" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga1efe7a5a8558565cc61d2c4f311d1cc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_mpc_event_check</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, nrf_mpc_event_t event)</argsstring>
+        <name>nrf_mpc_event_check</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__mpc__hal_1ga934ee74ecdc1e369d8160adb9fc66720" kindref="member">nrf_mpc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the specified MPC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="753" column="24" bodyfile="hal/nrf_mpc.h" bodystart="753" bodyend="756" declfile="hal/nrf_mpc.h" declline="249" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaa90d4919d314628db3a9c6d042715522" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_event_clear</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, nrf_mpc_event_t event)</argsstring>
+        <name>nrf_mpc_event_clear</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__mpc__hal_1ga934ee74ecdc1e369d8160adb9fc66720" kindref="member">nrf_mpc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified MPC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be cleared. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="758" column="24" bodyfile="hal/nrf_mpc.h" bodystart="758" bodyend="762" declfile="hal/nrf_mpc.h" declline="257" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga3904ca723acf510699a41b86c45ff6ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_event_address_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, nrf_mpc_event_t event)</argsstring>
+        <name>nrf_mpc_event_address_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__mpc__hal_1ga934ee74ecdc1e369d8160adb9fc66720" kindref="member">nrf_mpc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified MPC event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to get the address of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="764" column="28" bodyfile="hal/nrf_mpc.h" bodystart="764" bodyend="768" declfile="hal/nrf_mpc.h" declline="267" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga25ca9fe6b6ebcf95172d18727eee35c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_int_enable</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_int_enable</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507" kindref="member">nrf_mpc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="770" column="24" bodyfile="hal/nrf_mpc.h" bodystart="770" bodyend="773" declfile="hal/nrf_mpc.h" declline="277" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga1e22f8e05eb85b0ed1b14654c93abd7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_int_enable_check</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_int_enable_check</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507" kindref="member">nrf_mpc_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="775" column="28" bodyfile="hal/nrf_mpc.h" bodystart="775" bodyend="778" declfile="hal/nrf_mpc.h" declline="288" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaf40309fcc06c2cac4f55186a6c093042" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_int_disable</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_int_disable</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507" kindref="member">nrf_mpc_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="780" column="24" bodyfile="hal/nrf_mpc.h" bodystart="780" bodyend="783" declfile="hal/nrf_mpc.h" declline="297" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gacbff5f9ce331b63da982ea340f425c9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_region_config_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, nrf_mpc_region_config_t const *p_config)</argsstring>
+        <name>nrf_mpc_region_config_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__mpc__region__config__t" kindref="compound">nrf_mpc_region_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting configuration of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the region configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="786" column="24" bodyfile="hal/nrf_mpc.h" bodystart="786" bodyend="812" declfile="hal/nrf_mpc.h" declline="307" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gab554feb151d3a8a84aa1ef49985b24b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__mpc__region__config__t" kindref="compound">nrf_mpc_region_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_mpc_region_config_t nrf_mpc_region_config_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_region_config_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting configuration of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Structure with configuration of the region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="814" column="43" bodyfile="hal/nrf_mpc.h" bodystart="814" bodyend="842" declfile="hal/nrf_mpc.h" declline="319" declcolumn="43"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga7157d67ae0a98e234ee019202d106c40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_region_startaddr_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t address)</argsstring>
+        <name>nrf_mpc_region_startaddr_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting start address of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Address must be on a 4kB memory boundary.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="844" column="24" bodyfile="hal/nrf_mpc.h" bodystart="844" bodyend="851" declfile="hal/nrf_mpc.h" declline="331" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga32f4b879381393d713cce3491fb1e57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_region_startaddr_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_region_startaddr_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting start address of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start address of the region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="853" column="28" bodyfile="hal/nrf_mpc.h" bodystart="853" bodyend="858" declfile="hal/nrf_mpc.h" declline="343" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga22f8d9a1f3e4fd561edbbdb88e143f6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_region_addrmask_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t address)</argsstring>
+        <name>nrf_mpc_region_addrmask_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting address mask of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Mask must be on a 4kB memory boundary.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="860" column="24" bodyfile="hal/nrf_mpc.h" bodystart="860" bodyend="867" declfile="hal/nrf_mpc.h" declline="354" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gae5cffc828be3aca6ebdeac0461001f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_region_addrmask_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_region_addrmask_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting address mask of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address mask of the region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="869" column="28" bodyfile="hal/nrf_mpc.h" bodystart="869" bodyend="874" declfile="hal/nrf_mpc.h" declline="366" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga447c3ac18526b96414f7222acf308d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_region_masterport_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t mask)</argsstring>
+        <name>nrf_mpc_region_masterport_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified master ports of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of master ports to be enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="876" column="24" bodyfile="hal/nrf_mpc.h" bodystart="876" bodyend="883" declfile="hal/nrf_mpc.h" declline="376" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaf2ead7ef46873e85ffff2a217a3f1cd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_region_masterport_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_region_masterport_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting enabled master ports of the region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled master ports, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="885" column="28" bodyfile="hal/nrf_mpc.h" bodystart="885" bodyend="890" declfile="hal/nrf_mpc.h" declline="389" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga39c507026fa171618a79101c6233ca8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_config_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, nrf_mpc_override_config_t const *p_config)</argsstring>
+        <name>nrf_mpc_override_config_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__mpc__override__config__t" kindref="compound">nrf_mpc_override_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting configuration of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of the override region configuration parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="893" column="24" bodyfile="hal/nrf_mpc.h" bodystart="893" bodyend="916" declfile="hal/nrf_mpc.h" declline="399" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gac007fe07342b8eecba4932d41ed0efec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="structnrf__mpc__override__config__t" kindref="compound">nrf_mpc_override_config_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_mpc_override_config_t nrf_mpc_override_config_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_config_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting configuration of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Structure with configuration of the override region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="918" column="45" bodyfile="hal/nrf_mpc.h" bodystart="918" bodyend="947" declfile="hal/nrf_mpc.h" declline="411" declcolumn="45"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga860c13495b30810658e923daae9307c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_startaddr_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t address)</argsstring>
+        <name>nrf_mpc_override_startaddr_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting start address of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Address must be on a 4kB memory boundary.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="949" column="24" bodyfile="hal/nrf_mpc.h" bodystart="949" bodyend="956" declfile="hal/nrf_mpc.h" declline="423" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gae3d4c0b94e029e5c76125e12dee391cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_startaddr_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_startaddr_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting start address of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start address of the override region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="958" column="28" bodyfile="hal/nrf_mpc.h" bodystart="958" bodyend="964" declfile="hal/nrf_mpc.h" declline="435" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga3788c87dd9420235f8965883202c9c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_endaddr_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t address)</argsstring>
+        <name>nrf_mpc_override_endaddr_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting end address of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Address must be on a 4kB memory boundary.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="966" column="24" bodyfile="hal/nrf_mpc.h" bodystart="966" bodyend="973" declfile="hal/nrf_mpc.h" declline="447" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gac05d65c913a5fa0c53ea112257da7969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_endaddr_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_endaddr_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting end address of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>End address of the override region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="975" column="28" bodyfile="hal/nrf_mpc.h" bodystart="975" bodyend="981" declfile="hal/nrf_mpc.h" declline="459" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga4360714e10c9b3a46f342b9084b34911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_offset_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t offset)</argsstring>
+        <name>nrf_mpc_override_offset_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting offset of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Offset will be left shifted before applying, creating a 33-bit signed integer.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address offset value divided by 2. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="984" column="24" bodyfile="hal/nrf_mpc.h" bodystart="984" bodyend="991" declfile="hal/nrf_mpc.h" declline="472" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaebfa2cf1848130f9c4bc17c814545e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_offset_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_offset_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting offset of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Offset is left shifted before applying, creating a 33-bit signed integer.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address offset value divided by 2. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="993" column="28" bodyfile="hal/nrf_mpc.h" bodystart="993" bodyend="999" declfile="hal/nrf_mpc.h" declline="486" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga765e067757c5e85d628788848163ee95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_perm_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t permissions)</argsstring>
+        <name>nrf_mpc_override_perm_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>permissions</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting permission settings for the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">permissions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of permissions to be set, constructed from <ref refid="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9" kindref="member">nrf_mpc_permission_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1002" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1002" bodyend="1009" declfile="hal/nrf_mpc.h" declline="498" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gafced42e6003285cc6b93aef32c08715e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_perm_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_perm_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting permission settings of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of permissions, constructed from <ref refid="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9" kindref="member">nrf_mpc_permission_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1011" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1011" bodyend="1017" declfile="hal/nrf_mpc.h" declline="510" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga9baa4d2ef6d04d3c6125f2ed9493aaf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_permmask_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t permissions)</argsstring>
+        <name>nrf_mpc_override_permmask_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>permissions</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting permission settings mask for the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">permissions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of permissions settings mask to be set, constructed from <ref refid="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9" kindref="member">nrf_mpc_permission_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1019" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1019" bodyend="1026" declfile="hal/nrf_mpc.h" declline="521" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga13a7fe4a399c7d24fcf9f9c7788c09c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_permmask_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_permmask_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting permission settings mask of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of permissions settings mask, constructed from <ref refid="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9" kindref="member">nrf_mpc_permission_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1028" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1028" bodyend="1034" declfile="hal/nrf_mpc.h" declline="534" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga0fd600b1d367f88e6181ec42e9c1f842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_ownerid_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, nrf_owner_t owner_id)</argsstring>
+        <name>nrf_mpc_override_ownerid_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>nrf_owner_t</type>
+          <declname>owner_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting owner ID for the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">owner_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Owner ID to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1037" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1037" bodyend="1045" declfile="hal/nrf_mpc.h" declline="545" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gadc429ae244bf277645a5198dc9f27021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE nrf_owner_t</type>
+        <definition>NRF_STATIC_INLINE nrf_owner_t nrf_mpc_override_ownerid_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_ownerid_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting owner ID of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Owner ID of the overridde region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1047" column="31" bodyfile="hal/nrf_mpc.h" bodystart="1047" bodyend="1053" declfile="hal/nrf_mpc.h" declline="557" declcolumn="31"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gae79fb68d0f2cdb8bab520731e25b38e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_override_masterport_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t index, uint32_t mask)</argsstring>
+        <name>nrf_mpc_override_masterport_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified master ports of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of master ports to be enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1057" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1057" bodyend="1064" declfile="hal/nrf_mpc.h" declline="570" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga398b9aad20b0735a4ada32812a3dd3d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_override_masterport_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t index)</argsstring>
+        <name>nrf_mpc_override_masterport_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting enabled master ports of the override region. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Override region index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled master ports, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1066" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1066" bodyend="1072" declfile="hal/nrf_mpc.h" declline="583" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaaef975d68f3bb54b021d37ba1d64c9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_memaccerr_address_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_memaccerr_address_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the memory address of memory access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Register content will not be changed as long as MEMACCERR event is active.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Target address for the errroneous access. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1075" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1075" bodyend="1078" declfile="hal/nrf_mpc.h" declline="596" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga7b52f80f1b3190f2630418b740a8abbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE nrf_owner_t</type>
+        <definition>NRF_STATIC_INLINE nrf_owner_t nrf_mpc_memaccerr_info_ownerid_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_memaccerr_info_ownerid_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the owner identifier of the transaction that triggered memory access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Register content will not be changed as long as MEMACCERR event is active.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Owner identifier of the errorneous access. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1081" column="31" bodyfile="hal/nrf_mpc.h" bodystart="1081" bodyend="1085" declfile="hal/nrf_mpc.h" declline="608" declcolumn="31"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga788b2a97dba99dfa03f09ef727c178d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_mpc_memaccerr_info_masterport_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_memaccerr_info_masterport_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the master port of the transaction that triggered memory access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Register content will not be changed as long as MEMACCERR event is active.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Master port where errorneous access is detected. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1089" column="27" bodyfile="hal/nrf_mpc.h" bodystart="1089" bodyend="1093" declfile="hal/nrf_mpc.h" declline="621" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaeca19e5b26e7b6504cc179e01ed93f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_memaccerr_info_perm_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_memaccerr_info_perm_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the permissions of the transaction that triggered memory access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Register content will not be changed as long as MEMACCERR event is active.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Permission settings of the errorneous access. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1096" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1096" bodyend="1106" declfile="hal/nrf_mpc.h" declline="633" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gad5eedb315b47a18f9965755353a60f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__mpc__hal_1ga7a52bbfed00c736a7ee0f49896fa4081" kindref="member">nrf_mpc_errorsource_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_mpc_errorsource_t nrf_mpc_memaccerr_info_errorsource_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_memaccerr_info_errorsource_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the source of the transaction that triggered memory access error. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Register content will not be changed as long as MEMACCERR event is active.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Source of the errorneous access. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1109" column="1" bodyfile="hal/nrf_mpc.h" bodystart="1109" bodyend="1113" declfile="hal/nrf_mpc.h" declline="645" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gaeec50c60a288767deb1587481edbe762" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_globalslave_masterport_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_globalslave_masterport_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified master ports connection to global slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of master ports to be connected, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1116" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1116" bodyend="1119" declfile="hal/nrf_mpc.h" declline="655" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga0aae47ddb1607ea45e94b1f8bd281e85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_globalslave_masterport_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_globalslave_masterport_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting enabled master ports connection to global slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of master ports connected, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1121" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1121" bodyend="1124" declfile="hal/nrf_mpc.h" declline="665" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gae6edfd83d8f3f243e4637a3152d829f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_globalslave_lock_enable</definition>
+        <argsstring>(NRF_MPC_Type *p_reg)</argsstring>
+        <name>nrf_mpc_globalslave_lock_enable</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the global slave registers lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When global slave registers is enabled, modifying the global slave configuration is not possible.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1126" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1126" bodyend="1129" declfile="hal/nrf_mpc.h" declline="675" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga6a6e9ce5f593eca645894a5d5ca0aa1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_mpc_globalslave_lock_check</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_globalslave_lock_check</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the status of the global slave registers lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When global slave registers is enabled, modifying the global slave configuration is not possible.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if global slave registers are locked, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1131" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1131" bodyend="1135" declfile="hal/nrf_mpc.h" declline="687" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gac611c03b4cabceedf8df9694361a6f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_rtchoke_writeaccess_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_rtchoke_writeaccess_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the AXI Write Address Channel Real Time Choke for specified master ports. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of master ports to have the Write Real Time Choke enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1139" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1139" bodyend="1142" declfile="hal/nrf_mpc.h" declline="698" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga2ddf36ab7898e4415c2a2334198598d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_rtchoke_writeaccess_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_rtchoke_writeaccess_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting master ports with enabled AXI Write Address Channel Real Time Choke. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of master ports with the Write Real Time Choke enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1144" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1144" bodyend="1147" declfile="hal/nrf_mpc.h" declline="708" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga13bb38ea31028aae2aac0ee3e091b21e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_rtchoke_readaccess_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_mpc_rtchoke_readaccess_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the AXI Read Address Channel Real Time Choke for specified master ports. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of master ports to have the Read Real Time Choke enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1149" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1149" bodyend="1152" declfile="hal/nrf_mpc.h" declline="717" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga5e448fe5c32baa27c83d191623623249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_mpc_rtchoke_readaccess_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg)</argsstring>
+        <name>nrf_mpc_rtchoke_readaccess_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting master ports with enabled AXI Read Address Channel Real Time Choke. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of master ports with the Read Real Time Choke enabled, constructed from <ref refid="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626" kindref="member">nrf_mpc_masterport_mask_t</ref> enumerator values. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1154" column="28" bodyfile="hal/nrf_mpc.h" bodystart="1154" bodyend="1157" declfile="hal/nrf_mpc.h" declline="727" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1gad8417da63a1d979fbb0640f5863c4324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_mpc_rtchoke_delay_set</definition>
+        <argsstring>(NRF_MPC_Type *p_reg, uint8_t slave, uint8_t delay)</argsstring>
+        <name>nrf_mpc_rtchoke_delay_set</name>
+        <param>
+          <type>NRF_MPC_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>slave</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the Real Time Choke delay for the specified slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slave</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1159" column="24" bodyfile="hal/nrf_mpc.h" bodystart="1159" bodyend="1166" declfile="hal/nrf_mpc.h" declline="736" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__mpc__hal_1ga175f2577dab13295cdaec1156517ba2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_mpc_rtchoke_delay_get</definition>
+        <argsstring>(NRF_MPC_Type const *p_reg, uint8_t slave)</argsstring>
+        <name>nrf_mpc_rtchoke_delay_get</name>
+        <param>
+          <type>NRF_MPC_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>slave</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the Real Time Choke delay for the specified slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slave</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Delay value for slave. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="1168" column="27" bodyfile="hal/nrf_mpc.h" bodystart="1168" bodyend="1173" declfile="hal/nrf_mpc.h" declline="748" declcolumn="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga7be93b4931a85c0d99e1e57b3725bf62" prot="public" static="no">
+        <name>NRF_MPC_HAS_RTCHOKE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether RTCHOKE functionality is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="53" column="9" bodyfile="hal/nrf_mpc.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga10f21e5dc459acad0ea2d36f29b8037b" prot="public" static="no">
+        <name>NRF_MPC_HAS_SECDOM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether SECDOM functionality is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="60" column="9" bodyfile="hal/nrf_mpc.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga6ae811a31f3bcf5810c58d881071896b" prot="public" static="no">
+        <name>NRF_MPC_HAS_GLOBALSLAVE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether configuration of global slave master port connection is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="67" column="9" bodyfile="hal/nrf_mpc.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gab273d8e3ac44dfb001e8dd37079e10ed" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_OFFSET</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether configuration of offset for override region is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="74" column="9" bodyfile="hal/nrf_mpc.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga6240002c98950ace305a86bea93cb23d" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_OWNERID</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether configuration of owner for override region is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="81" column="9" bodyfile="hal/nrf_mpc.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga62874b808e1c6b5e5946c5c113899a49" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_MASTERPORT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether configuration of master port for override region is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="88" column="9" bodyfile="hal/nrf_mpc.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gaedfc946d02c1f87a9c0957222c44a649" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_SLAVENUMBER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether configuration of slave for override region is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="95" column="9" bodyfile="hal/nrf_mpc.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gab07a05b1284d2e795b7b3c3793baed5f" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_SECUREMASK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether secure bit check for override region indication is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="102" column="9" bodyfile="hal/nrf_mpc.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga7abf6a10ea4697a47d635b5f9e879d14" prot="public" static="no">
+        <name>NRF_MPC_HAS_OVERRIDE_PRIVILEGED</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether privilege level configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="109" column="9" bodyfile="hal/nrf_mpc.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gaa14ebbdcbd23614ea510d757edbf0c5c" prot="public" static="no">
+        <name>NRF_MPC_HAS_REGION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether region configuration is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="116" column="9" bodyfile="hal/nrf_mpc.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga23e057328b822941974380fd47f35540" prot="public" static="no">
+        <name>NRF_MPC_REGION_COUNT</name>
+        <initializer>MPC_REGION_MaxCount</initializer>
+        <briefdescription>
+<para>Number of regions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="123" column="9" bodyfile="hal/nrf_mpc.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gad1d9c129c96df36540f7e075aad3ad12" prot="public" static="no">
+        <name>NRF_MPC_OVERRIDE_COUNT</name>
+        <initializer>MPC_OVERRIDE_MaxCount</initializer>
+        <briefdescription>
+<para>Number of override regions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="127" column="9" bodyfile="hal/nrf_mpc.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1gabc595a5b1c0c672d60b76bb8b90d2c88" prot="public" static="no">
+        <name>NRF_MPC_MASTER_PORTS_COUNT</name>
+        <initializer>MPC_MASTER_PORTS_MaxCount</initializer>
+        <briefdescription>
+<para>Number of master ports. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="131" column="9" bodyfile="hal/nrf_mpc.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__mpc__hal_1ga61549ebb9c4c7beb97135757d0ea3b43" prot="public" static="no">
+        <name>NRF_MPC_RTCHOKE_COUNT</name>
+        <initializer>MPC_RTCHOKE_DELAY_MaxCount</initializer>
+        <briefdescription>
+<para>Number of Real Time Choke slaves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_mpc.h" line="136" column="9" bodyfile="hal/nrf_mpc.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Memory Privilege Controller (MPC) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

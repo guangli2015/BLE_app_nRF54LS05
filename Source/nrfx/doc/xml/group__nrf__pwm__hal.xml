@@ -1,0 +1,2288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__pwm__hal" kind="group">
+    <compoundname>nrf_pwm_hal</compoundname>
+    <title>PWM HAL</title>
+    <innerclass refid="structnrf__pwm__values__grouped__t" prot="public">nrf_pwm_values_grouped_t</innerclass>
+    <innerclass refid="structnrf__pwm__values__individual__t" prot="public">nrf_pwm_values_individual_t</innerclass>
+    <innerclass refid="structnrf__pwm__values__wave__form__t" prot="public">nrf_pwm_values_wave_form_t</innerclass>
+    <innerclass refid="unionnrf__pwm__values__t" prot="public">nrf_pwm_values_t</innerclass>
+    <innerclass refid="structnrf__pwm__sequence__t" prot="public">nrf_pwm_sequence_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_task_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga11cb9ca8fbb773011a3ad6658914418ea1cdbda5c0c8086b3e22909f93ae2eda8" prot="public">
+          <name>NRF_PWM_TASK_STOP</name>
+          <initializer>= offsetof(NRF_PWM_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stops PWM pulse generation on all channels at the end of the current PWM period, and stops the sequence playback. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga11cb9ca8fbb773011a3ad6658914418ea0e0eb4565d08c63ccd6b314e8b6b4c90" prot="public">
+          <name>NRF_PWM_TASK_SEQSTART0</name>
+          <initializer>= offsetof(NRF_PWM_Type, TASKS_DMA.SEQ[0].START)</initializer>
+          <briefdescription>
+<para>Starts playback of sequence 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga11cb9ca8fbb773011a3ad6658914418eafcce137014a7767686d57ccb832dcb99" prot="public">
+          <name>NRF_PWM_TASK_SEQSTART1</name>
+          <initializer>= offsetof(NRF_PWM_Type, TASKS_DMA.SEQ[1].START)</initializer>
+          <briefdescription>
+<para>Starts playback of sequence 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga11cb9ca8fbb773011a3ad6658914418eaaa206912dd578140efcf3a668a78f4e5" prot="public">
+          <name>NRF_PWM_TASK_NEXTSTEP</name>
+          <initializer>= offsetof(NRF_PWM_Type, TASKS_NEXTSTEP)</initializer>
+          <briefdescription>
+<para>Steps by one value in the current sequence if the decoder is set to <ref refid="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" kindref="member">NRF_PWM_STEP_TRIGGERED</ref> mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="121" column="1" bodyfile="hal/nrf_pwm.h" bodystart="122" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_event_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfadf20e481b3105e4ef6e6f80423c8192b" prot="public">
+          <name>NRF_PWM_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>Response to STOP task, emitted when PWM pulses are no longer generated. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfaa5bb09f0669ce66b58053dd382a3bcbf" prot="public">
+          <name>NRF_PWM_EVENT_SEQSTARTED0</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_SEQSTARTED[0])</initializer>
+          <briefdescription>
+<para>First PWM period started on sequence 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa79aea4fc8f7e536c180a1b5b4c9a2596" prot="public">
+          <name>NRF_PWM_EVENT_SEQSTARTED1</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_SEQSTARTED[1])</initializer>
+          <briefdescription>
+<para>First PWM period started on sequence 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa60bc770e86e8c3e1987b7828c5527e3b" prot="public">
+          <name>NRF_PWM_EVENT_SEQEND0</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_SEQEND[0])</initializer>
+          <briefdescription>
+<para>Emitted at the end of every sequence 0 when its last value has been read from RAM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa250b4184e07ce53864c00aa17f142c3e" prot="public">
+          <name>NRF_PWM_EVENT_SEQEND1</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_SEQEND[1])</initializer>
+          <briefdescription>
+<para>Emitted at the end of every sequence 1 when its last value has been read from RAM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa2340304c4d850deee64456310c272d13" prot="public">
+          <name>NRF_PWM_EVENT_PWMPERIODEND</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_PWMPERIODEND)</initializer>
+          <briefdescription>
+<para>Emitted at the end of each PWM period. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa904f95da3dc44a8e147623f4ae32a268" prot="public">
+          <name>NRF_PWM_EVENT_LOOPSDONE</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_LOOPSDONE)</initializer>
+          <briefdescription>
+<para>Concatenated sequences have been played the specified number of times. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa932fe92c7a8a40c893e447117a6920cd" prot="public">
+          <name>NRF_PWM_EVENT_COMPAREMATCH0</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_COMPAREMATCH[0])</initializer>
+          <briefdescription>
+<para>Compare matched for channel 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfaac4eb64be9e5d5a45c4a81d863cdab86" prot="public">
+          <name>NRF_PWM_EVENT_COMPAREMATCH1</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_COMPAREMATCH[1])</initializer>
+          <briefdescription>
+<para>Compare matched for channel 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfa213a2de6025a7d6c92493987f4e0f7d8" prot="public">
+          <name>NRF_PWM_EVENT_COMPAREMATCH2</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_COMPAREMATCH[2])</initializer>
+          <briefdescription>
+<para>Compare matched for channel 2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga4a8ceac653433e4ac8ee8682bdef45bfaa2fb786c7a7714e2eb2e4864621c5f42" prot="public">
+          <name>NRF_PWM_EVENT_COMPAREMATCH3</name>
+          <initializer>= offsetof(NRF_PWM_Type, EVENTS_COMPAREMATCH[3])</initializer>
+          <briefdescription>
+<para>Compare matched for channel 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="135" column="1" bodyfile="hal/nrf_pwm.h" bodystart="136" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga3f6888e6f40342ef64cf5b9555bd04d5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_int_mask_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5ad7b8b51084d217e44611e4353d8d8a36" prot="public">
+          <name>NRF_PWM_INT_STOPPED_MASK</name>
+          <initializer>= PWM_INTENSET_STOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on STOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a41e26a43feadb28f3fa05b41bee59a4e" prot="public">
+          <name>NRF_PWM_INT_SEQSTARTED0_MASK</name>
+          <initializer>= PWM_INTENSET_SEQSTARTED0_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on SEQSTARTED[0] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5ac6ae5c9057a052908572d3b03c7fa5e4" prot="public">
+          <name>NRF_PWM_INT_SEQSTARTED1_MASK</name>
+          <initializer>= PWM_INTENSET_SEQSTARTED1_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on SEQSTARTED[1] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a5bdd3b534ac4b8e538d653f69ce83627" prot="public">
+          <name>NRF_PWM_INT_SEQEND0_MASK</name>
+          <initializer>= PWM_INTENSET_SEQEND0_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on SEQEND[0] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a6727da1cd7e51206d5d51702ef249d1e" prot="public">
+          <name>NRF_PWM_INT_SEQEND1_MASK</name>
+          <initializer>= PWM_INTENSET_SEQEND1_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on SEQEND[1] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a11080b028d0f9714cef68a08be3ad1c2" prot="public">
+          <name>NRF_PWM_INT_PWMPERIODEND_MASK</name>
+          <initializer>= PWM_INTENSET_PWMPERIODEND_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on PWMPERIODEND event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a409117735d39f637f068291dcc5b02be" prot="public">
+          <name>NRF_PWM_INT_LOOPSDONE_MASK</name>
+          <initializer>= PWM_INTENSET_LOOPSDONE_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on LOOPSDONE event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5ad599f9314b1df710ca2f0722674be29d" prot="public">
+          <name>NRF_PWM_INT_COMPAREMATCH0_MASK</name>
+          <initializer>= PWM_INTENSET_COMPAREMATCH0_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on COMPAREMATCH[0] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a7eb80541f7a35d28e630a2a35e2b1da0" prot="public">
+          <name>NRF_PWM_INT_COMPAREMATCH1_MASK</name>
+          <initializer>= PWM_INTENSET_COMPAREMATCH1_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on COMPAREMATCH[1] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5a1d802ef44cc2e9b60e3fc01e6b1dd8a7" prot="public">
+          <name>NRF_PWM_INT_COMPAREMATCH2_MASK</name>
+          <initializer>= PWM_INTENSET_COMPAREMATCH2_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on COMPAREMATCH[2] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga3f6888e6f40342ef64cf5b9555bd04d5aa5b365ae4d489fb7786a2b3a9965767f" prot="public">
+          <name>NRF_PWM_INT_COMPAREMATCH3_MASK</name>
+          <initializer>= PWM_INTENSET_COMPAREMATCH3_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on COMPAREMATCH[3] event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="153" column="1" bodyfile="hal/nrf_pwm.h" bodystart="154" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga677eee0f6fb961e515018d5cf68d06a6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_short_mask_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga677eee0f6fb961e515018d5cf68d06a6aea663e579d7f33326625af10b4437024" prot="public">
+          <name>NRF_PWM_SHORT_SEQEND0_STOP_MASK</name>
+          <initializer>= PWM_SHORTS_SEQEND0_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between SEQEND[0] event and STOP task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga677eee0f6fb961e515018d5cf68d06a6add885779b4d8c2f77dd5d53119c17a40" prot="public">
+          <name>NRF_PWM_SHORT_SEQEND1_STOP_MASK</name>
+          <initializer>= PWM_SHORTS_SEQEND1_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between SEQEND[1] event and STOP task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga677eee0f6fb961e515018d5cf68d06a6ac3db7894c3849c4bc4fa1150799a12d5" prot="public">
+          <name>NRF_PWM_SHORT_LOOPSDONE_SEQSTART0_MASK</name>
+          <initializer>= PWM_SHORTS_LOOPSDONE_SEQSTART0_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between LOOPSDONE event and SEQSTART[0] task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga677eee0f6fb961e515018d5cf68d06a6aaefb987c3a650031c75517f6e8aa9221" prot="public">
+          <name>NRF_PWM_SHORT_LOOPSDONE_SEQSTART1_MASK</name>
+          <initializer>= PWM_SHORTS_LOOPSDONE_SEQSTART1_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between LOOPSDONE event and SEQSTART[1] task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga677eee0f6fb961e515018d5cf68d06a6aabc8554ee052151a9d49dafa25321cbe" prot="public">
+          <name>NRF_PWM_SHORT_LOOPSDONE_STOP_MASK</name>
+          <initializer>= PWM_SHORTS_LOOPSDONE_STOP_Msk</initializer>
+          <briefdescription>
+<para>Shortcut between LOOPSDONE event and STOP task. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="171" column="1" bodyfile="hal/nrf_pwm.h" bodystart="172" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga1f29b190ff13c52895d249e07ebe92cb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_mode_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga1f29b190ff13c52895d249e07ebe92cba0b9d394af2cbadb2fd430f73e6b2a28c" prot="public">
+          <name>NRF_PWM_MODE_UP</name>
+          <initializer>= PWM_MODE_UPDOWN_Up</initializer>
+          <briefdescription>
+<para>Up counter (edge-aligned PWM duty cycle). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga1f29b190ff13c52895d249e07ebe92cba37eab07de351c4001e96bfe588b5fac7" prot="public">
+          <name>NRF_PWM_MODE_UP_AND_DOWN</name>
+          <initializer>= PWM_MODE_UPDOWN_UpAndDown</initializer>
+          <briefdescription>
+<para>Up and down counter (center-aligned PWM duty cycle). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM modes of operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="186" column="1" bodyfile="hal/nrf_pwm.h" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga8479da20e14394fb2388b1be3b879670" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_clk_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a0074030b06b359a6caf1cf00eafd28cc" prot="public">
+          <name>NRF_PWM_CLK_16MHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_1</initializer>
+          <briefdescription>
+<para>16 MHz / 1 = 16 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a4a67fe77580783f462d89e2a6fcef9c6" prot="public">
+          <name>NRF_PWM_CLK_8MHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_2</initializer>
+          <briefdescription>
+<para>16 MHz / 2 = 8 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a64d3ac0932e8dc1b27a4133d56bf06be" prot="public">
+          <name>NRF_PWM_CLK_4MHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_4</initializer>
+          <briefdescription>
+<para>16 MHz / 4 = 4 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670acacabaa47b84f819006fe490792aa50e" prot="public">
+          <name>NRF_PWM_CLK_2MHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_8</initializer>
+          <briefdescription>
+<para>16 MHz / 8 = 2 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a30e595429e6787e18df7ca04b897bb11" prot="public">
+          <name>NRF_PWM_CLK_1MHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_16</initializer>
+          <briefdescription>
+<para>16 MHz / 16 = 1 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a5adb2af103d1968468dd46f572a4a2c5" prot="public">
+          <name>NRF_PWM_CLK_500kHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_32</initializer>
+          <briefdescription>
+<para>16 MHz / 32 = 500 kHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a52f5dff4d18dac79ea6387f1ed9e0aa0" prot="public">
+          <name>NRF_PWM_CLK_250kHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_64</initializer>
+          <briefdescription>
+<para>16 MHz / 64 = 250 kHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga8479da20e14394fb2388b1be3b879670a809f569f8bed353ccf5ef237c31a93f1" prot="public">
+          <name>NRF_PWM_CLK_125kHz</name>
+          <initializer>= PWM_PRESCALER_PRESCALER_DIV_128</initializer>
+          <briefdescription>
+<para>16 MHz / 128 = 125 kHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM base clock frequencies. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="193" column="1" bodyfile="hal/nrf_pwm.h" bodystart="194" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1ga453888e5feb46774da27499ca1eeafd2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_dec_load_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2a23a17dad88a8dff161e09c5057e70362" prot="public">
+          <name>NRF_PWM_LOAD_COMMON</name>
+          <initializer>= PWM_DECODER_LOAD_Common</initializer>
+          <briefdescription>
+<para>1st half word (16-bit) used in all PWM channels (0-3). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2ab66a66edb78babab583af6326452ed29" prot="public">
+          <name>NRF_PWM_LOAD_GROUPED</name>
+          <initializer>= PWM_DECODER_LOAD_Grouped</initializer>
+          <briefdescription>
+<para>1st half word (16-bit) used in channels 0 and 1; 2nd word in channels 2 and 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2a97607a1a4b271d76c6d1305408e6ca4e" prot="public">
+          <name>NRF_PWM_LOAD_INDIVIDUAL</name>
+          <initializer>= PWM_DECODER_LOAD_Individual</initializer>
+          <briefdescription>
+<para>1st half word (16-bit) used in channel 0; 2nd in channel 1; 3rd in channel 2; 4th in channel 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2a5e0beb030e89afbac264872b6991585a" prot="public">
+          <name>NRF_PWM_LOAD_WAVE_FORM</name>
+          <initializer>= PWM_DECODER_LOAD_WaveForm</initializer>
+          <briefdescription>
+<para>1st half word (16-bit) used in channel 0; 2nd in channel 1; ... ; 4th as the top value for the pulse generator counter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM decoder load modes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The selected mode determines how the sequence data is read from RAM and spread to the compare registers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="211" column="1" bodyfile="hal/nrf_pwm.h" bodystart="212" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__pwm__hal_1gae25a7e03c383934d33cda8a049b7dde4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_pwm_dec_step_t</name>
+        <enumvalue id="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aec7f52e96da457170f1a516ea78357a1" prot="public">
+          <name>NRF_PWM_STEP_AUTO</name>
+          <initializer>= PWM_DECODER_MODE_RefreshCount</initializer>
+          <briefdescription>
+<para>Automatically after the current value is played and repeated the requested number of times. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__pwm__hal_1ggae25a7e03c383934d33cda8a049b7dde4aa64f9312c7d5928aadcaf7596e61357b" prot="public">
+          <name>NRF_PWM_STEP_TRIGGERED</name>
+          <initializer>= PWM_DECODER_MODE_NextStep</initializer>
+          <briefdescription>
+<para>When the <ref refid="group__nrf__pwm__hal_1gga11cb9ca8fbb773011a3ad6658914418eaaa206912dd578140efcf3a668a78f4e5" kindref="member">NRF_PWM_TASK_NEXTSTEP</ref> task is triggered. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PWM decoder next step modes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The selected mode determines when the next value from the active sequence is loaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="225" column="1" bodyfile="hal/nrf_pwm.h" bodystart="226" bodyend="229"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrf__pwm__hal_1ga5a7353575cd92e960e569d94db319d8d" prot="public" static="no">
+        <type>uint16_t</type>
+        <definition>typedef uint16_t nrf_pwm_values_common_t</definition>
+        <argsstring></argsstring>
+        <name>nrf_pwm_values_common_t</name>
+        <briefdescription>
+<para>Type used for defining duty cycle values for a sequence loaded in <ref refid="group__nrf__pwm__hal_1gga453888e5feb46774da27499ca1eeafd2a23a17dad88a8dff161e09c5057e70362" kindref="member">NRF_PWM_LOAD_COMMON</ref> mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="235" column="18" bodyfile="hal/nrf_pwm.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga80273886334d6d99c516aa13e9e6773a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_task_trigger</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_task_t task)</argsstring>
+        <name>nrf_pwm_task_trigger</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified PWM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="707" column="24" bodyfile="hal/nrf_pwm.h" bodystart="707" bodyend="711" declfile="hal/nrf_pwm.h" declline="324" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaa78ad952a4164f2acdc2aa22b6fd0618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_task_address_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, nrf_pwm_task_t task)</argsstring>
+        <name>nrf_pwm_task_address_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified PWM task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="713" column="28" bodyfile="hal/nrf_pwm.h" bodystart="713" bodyend="717" declfile="hal/nrf_pwm.h" declline="335" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gadd2be0c46a34bece88f176db55cfe9ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_event_clear</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_event_t event)</argsstring>
+        <name>nrf_pwm_event_clear</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified PWM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="719" column="24" bodyfile="hal/nrf_pwm.h" bodystart="719" bodyend="724" declfile="hal/nrf_pwm.h" declline="344" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga7b6689ec738c01ef7e02d6923b8707a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_pwm_event_check</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, nrf_pwm_event_t event)</argsstring>
+        <name>nrf_pwm_event_check</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the PWM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="726" column="24" bodyfile="hal/nrf_pwm.h" bodystart="726" bodyend="730" declfile="hal/nrf_pwm.h" declline="356" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga3eba935312b4bf541151a30e0d408beb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_event_address_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, nrf_pwm_event_t event)</argsstring>
+        <name>nrf_pwm_event_address_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified PWM event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="732" column="28" bodyfile="hal/nrf_pwm.h" bodystart="732" bodyend="736" declfile="hal/nrf_pwm.h" declline="367" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gad37230defb6539bad9deeed03b4ec1ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_shorts_enable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_shorts_enable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the specified shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="738" column="24" bodyfile="hal/nrf_pwm.h" bodystart="738" bodyend="741" declfile="hal/nrf_pwm.h" declline="376" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga52672c9d16d8b47bfccf573a959d1929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_shorts_disable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_shorts_disable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the specified shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="743" column="24" bodyfile="hal/nrf_pwm.h" bodystart="743" bodyend="746" declfile="hal/nrf_pwm.h" declline="385" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga486254506e79e5017ec076850ac3b275" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_shorts_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_shorts_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the configuration of PWM shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shortcuts configuration to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="748" column="24" bodyfile="hal/nrf_pwm.h" bodystart="748" bodyend="751" declfile="hal/nrf_pwm.h" declline="394" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gad97a8c07dceaad191d77748b3311c25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_int_enable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_int_enable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__pwm__hal_1ga3f6888e6f40342ef64cf5b9555bd04d5" kindref="member">nrf_pwm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="753" column="24" bodyfile="hal/nrf_pwm.h" bodystart="753" bodyend="756" declfile="hal/nrf_pwm.h" declline="404" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga502fca6db746ea1fb1d5c45573cc6c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_int_disable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_int_disable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__pwm__hal_1ga3f6888e6f40342ef64cf5b9555bd04d5" kindref="member">nrf_pwm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="758" column="24" bodyfile="hal/nrf_pwm.h" bodystart="758" bodyend="761" declfile="hal/nrf_pwm.h" declline="414" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga188dee0693d8704d6d8d77bf2e68831a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_int_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_int_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the configuration of PWM interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be set. Use <ref refid="group__nrf__pwm__hal_1ga3f6888e6f40342ef64cf5b9555bd04d5" kindref="member">nrf_pwm_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="763" column="24" bodyfile="hal/nrf_pwm.h" bodystart="763" bodyend="766" declfile="hal/nrf_pwm.h" declline="424" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaec938406e805161ad153e2a95638a74c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_int_enable_check</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_pwm_int_enable_check</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__pwm__hal_1ga3f6888e6f40342ef64cf5b9555bd04d5" kindref="member">nrf_pwm_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="768" column="28" bodyfile="hal/nrf_pwm.h" bodystart="768" bodyend="771" declfile="hal/nrf_pwm.h" declline="436" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gad002575566c75b323e425cdf59c0a550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_subscribe_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_pwm_subscribe_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given PWM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="447" column="24" declfile="hal/nrf_pwm.h" declline="447" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga7622c00fccfd7653ef3ca5a2f43ca07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_subscribe_clear</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_task_t task)</argsstring>
+        <name>nrf_pwm_subscribe_clear</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given PWM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="458" column="24" declfile="hal/nrf_pwm.h" declline="458" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga9b9e73a008ccc0c860cc566990b2df41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_subscribe_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, nrf_pwm_task_t task)</argsstring>
+        <name>nrf_pwm_subscribe_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given PWM task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PWM subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="470" column="28" declfile="hal/nrf_pwm.h" declline="470" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga41edf2cfc651f859f465ac532cd4616a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_publish_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_pwm_publish_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given PWM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="481" column="24" declfile="hal/nrf_pwm.h" declline="481" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga6cd95cd70efae593bd68fa84e93fc433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_publish_clear</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_event_t event)</argsstring>
+        <name>nrf_pwm_publish_clear</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given PWM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="492" column="24" declfile="hal/nrf_pwm.h" declline="492" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaa7409aa93a00c5555fc342a1ff65046a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_publish_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, nrf_pwm_event_t event)</argsstring>
+        <name>nrf_pwm_publish_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given PWM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>PWM publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="504" column="28" declfile="hal/nrf_pwm.h" declline="504" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga592cb178b637ab0b03bea8523e8ded82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_enable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg)</argsstring>
+        <name>nrf_pwm_enable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the PWM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="815" column="24" bodyfile="hal/nrf_pwm.h" bodystart="815" bodyend="818" declfile="hal/nrf_pwm.h" declline="513" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga03d306651afccddaccc092b9da93789a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_disable</definition>
+        <argsstring>(NRF_PWM_Type *p_reg)</argsstring>
+        <name>nrf_pwm_disable</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the PWM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="820" column="24" bodyfile="hal/nrf_pwm.h" bodystart="820" bodyend="823" declfile="hal/nrf_pwm.h" declline="520" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga5895bf394e866a56f522c4bbdfb54996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_pwm_enable_check</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg)</argsstring>
+        <name>nrf_pwm_enable_check</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PWM peripheral is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PWM is not enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="825" column="24" bodyfile="hal/nrf_pwm.h" bodystart="825" bodyend="828" declfile="hal/nrf_pwm.h" declline="530" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga0bcd0f7311e790199cd14373fc823a9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_pins_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint32_t const out_pins[4])</argsstring>
+        <name>nrf_pwm_pins_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const</type>
+          <declname>out_pins</declname>
+          <array>[4]</array>
+        </param>
+        <briefdescription>
+<para>Function for assigning pins to PWM output channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Usage of all PWM output channels is optional. If a given channel is not needed, pass the <ref refid="group__nrf__pwm__hal_1gabf854890a14200d20e7aea8234a16887" kindref="member">NRF_PWM_PIN_NOT_CONNECTED</ref> value instead of its pin number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">out_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array with pin numbers for individual PWM output channels. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="830" column="24" bodyfile="hal/nrf_pwm.h" bodystart="830" bodyend="838" declfile="hal/nrf_pwm.h" declline="542" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga8425731e8848a1cc3105f42964006593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_pin_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t channel, uint32_t pin)</argsstring>
+        <name>nrf_pwm_pin_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting pin associated with specified PWM output channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output pin associated with specified PWM output channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="840" column="24" bodyfile="hal/nrf_pwm.h" bodystart="840" bodyend="844" declfile="hal/nrf_pwm.h" declline="552" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaafe7e1c261d441016e999e52ec8282b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_pwm_pin_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, uint8_t channel)</argsstring>
+        <name>nrf_pwm_pin_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting pin selection associated with specified PWM output channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pin selection associated with specified PWM output channel. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="846" column="28" bodyfile="hal/nrf_pwm.h" bodystart="846" bodyend="850" declfile="hal/nrf_pwm.h" declline="562" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga58bcf18a7b025c1416d7ea3d6e35038b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_configure</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_clk_t base_clock, nrf_pwm_mode_t mode, uint16_t top_value)</argsstring>
+        <name>nrf_pwm_configure</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga8479da20e14394fb2388b1be3b879670" kindref="member">nrf_pwm_clk_t</ref></type>
+          <declname>base_clock</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga1f29b190ff13c52895d249e07ebe92cb" kindref="member">nrf_pwm_mode_t</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>top_value</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring the PWM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">base_clock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Base clock frequency. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Operating mode of the pulse generator counter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">top_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value up to which the pulse generator counter counts. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="852" column="24" bodyfile="hal/nrf_pwm.h" bodystart="852" bodyend="862" declfile="hal/nrf_pwm.h" declline="572" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga993b47eb4fc9b6350ced9043945a8206" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_sequence_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t seq_id, nrf_pwm_sequence_t const *p_seq)</argsstring>
+        <name>nrf_pwm_sequence_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__pwm__sequence__t" kindref="compound">nrf_pwm_sequence_t</ref> const *</type>
+          <declname>p_seq</declname>
+        </param>
+        <briefdescription>
+<para>Function for defining a sequence of PWM duty cycles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_seq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the sequence definition. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="864" column="24" bodyfile="hal/nrf_pwm.h" bodystart="864" bodyend="874" declfile="hal/nrf_pwm.h" declline="584" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga5b99dfe4536733fdc46059eb5d4d704c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_seq_ptr_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t seq_id, uint16_t const *p_values)</argsstring>
+        <name>nrf_pwm_seq_ptr_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type>uint16_t const *</type>
+          <declname>p_values</declname>
+        </param>
+        <briefdescription>
+<para>Function for modifying the pointer to the duty cycle values in the specified sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an array with duty cycle values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="876" column="24" bodyfile="hal/nrf_pwm.h" bodystart="876" bodyend="886" declfile="hal/nrf_pwm.h" declline="596" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga794b85dd82faa63d636603e797259798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_seq_cnt_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t seq_id, uint16_t length)</argsstring>
+        <name>nrf_pwm_seq_cnt_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for modifying the total number of duty cycle values in the specified sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of duty cycle values (in 16-bit half words). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="888" column="24" bodyfile="hal/nrf_pwm.h" bodystart="888" bodyend="900" declfile="hal/nrf_pwm.h" declline="608" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gad0371b811ef5160dbcab8bdfa03b8448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_seq_refresh_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t seq_id, uint32_t refresh)</argsstring>
+        <name>nrf_pwm_seq_refresh_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>refresh</declname>
+        </param>
+        <briefdescription>
+<para>Function for modifying the additional number of PWM periods spent on each duty cycle value in the specified sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">refresh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of additional PWM periods for each duty cycle value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="902" column="24" bodyfile="hal/nrf_pwm.h" bodystart="902" bodyend="908" declfile="hal/nrf_pwm.h" declline="620" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga70c82b30f512bfb43092fd793e79fefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_seq_end_delay_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t seq_id, uint32_t end_delay)</argsstring>
+        <name>nrf_pwm_seq_end_delay_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>end_delay</declname>
+        </param>
+        <briefdescription>
+<para>Function for modifying the additional time added after the sequence is played. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier of the sequence (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">end_delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of PWM periods added at the end of the sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="910" column="24" bodyfile="hal/nrf_pwm.h" bodystart="910" bodyend="916" declfile="hal/nrf_pwm.h" declline="632" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga6a3c94d7139f17dd0f43ef4f16abb5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_decoder_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, nrf_pwm_dec_load_t dec_load, nrf_pwm_dec_step_t dec_step)</argsstring>
+        <name>nrf_pwm_decoder_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1ga453888e5feb46774da27499ca1eeafd2" kindref="member">nrf_pwm_dec_load_t</ref></type>
+          <declname>dec_load</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__pwm__hal_1gae25a7e03c383934d33cda8a049b7dde4" kindref="member">nrf_pwm_dec_step_t</ref></type>
+          <declname>dec_step</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the mode of loading sequence data from RAM and advancing the sequence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dec_load</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode of loading sequence data from RAM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dec_step</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode of advancing the active sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="918" column="24" bodyfile="hal/nrf_pwm.h" bodystart="918" bodyend="924" declfile="hal/nrf_pwm.h" declline="644" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaa7c79a9e33546f5dff5ef564052cbe1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_loop_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint16_t loop_count)</argsstring>
+        <name>nrf_pwm_loop_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>loop_count</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the number of times the sequence playback should be performed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function applies to two-sequence playback (concatenated sequence 0 and 1). A single sequence can be played back only once.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">loop_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of times to perform the sequence playback. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="926" column="24" bodyfile="hal/nrf_pwm.h" bodystart="926" bodyend="930" declfile="hal/nrf_pwm.h" declline="658" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1gaa0d334d0587cb0f3213e097a67475d5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__pwm__hal_1ga11cb9ca8fbb773011a3ad6658914418e" kindref="member">nrf_pwm_task_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_pwm_task_t nrf_pwm_seqstart_task_get</definition>
+        <argsstring>(uint8_t seq_id)</argsstring>
+        <name>nrf_pwm_seqstart_task_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the specified PWM SEQSTART task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The specified PWM SEQSTART task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="932" column="34" bodyfile="hal/nrf_pwm.h" bodystart="932" bodyend="940" declfile="hal/nrf_pwm.h" declline="667" declcolumn="34"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga9e0af905e8f4605795455630b66ea833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE <ref refid="group__nrf__pwm__hal_1ga4a8ceac653433e4ac8ee8682bdef45bf" kindref="member">nrf_pwm_event_t</ref></type>
+        <definition>NRF_STATIC_INLINE nrf_pwm_event_t nrf_pwm_seqend_event_get</definition>
+        <argsstring>(uint8_t seq_id)</argsstring>
+        <name>nrf_pwm_seqend_event_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>seq_id</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the specified PWM SEQEND event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">seq_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The specified PWM SEQEND event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="942" column="35" bodyfile="hal/nrf_pwm.h" bodystart="942" bodyend="950" declfile="hal/nrf_pwm.h" declline="676" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga69139bfae1b9d697972d7cfee1c03093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_pwm_channel_idle_set</definition>
+        <argsstring>(NRF_PWM_Type *p_reg, uint8_t channel, bool value)</argsstring>
+        <name>nrf_pwm_channel_idle_set</name>
+        <param>
+          <type>NRF_PWM_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the output value of specified channel while PDM is idle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, idle output will be high. If false, it will be low. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="953" column="24" bodyfile="hal/nrf_pwm.h" bodystart="953" bodyend="965" declfile="hal/nrf_pwm.h" declline="687" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__pwm__hal_1ga33108f2045b3231350b3d572d7957530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_pwm_channel_idle_get</definition>
+        <argsstring>(NRF_PWM_Type const *p_reg, uint8_t channel)</argsstring>
+        <name>nrf_pwm_channel_idle_get</name>
+        <param>
+          <type>NRF_PWM_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the output value of specified channel while PDM is idle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM output channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Idle output value is high. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Idle output value is low. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="967" column="24" bodyfile="hal/nrf_pwm.h" bodystart="967" bodyend="971" declfile="hal/nrf_pwm.h" declline="701" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga86811116140ecb75c7d757b01c4adb96" prot="public" static="no">
+        <name>NRF_PWM_HAS_DMA_REG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether dedicated DMA register is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="52" column="9" bodyfile="hal/nrf_pwm.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga240f49caf1c537e90c02a642cac6e783" prot="public" static="no">
+        <name>NRF_PWM_HAS_SHORT_LOOPSDONE_SEQSTART</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether shorting SEQSTART task with LOOPSDONE event is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="60" column="9" bodyfile="hal/nrf_pwm.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga2a18bc6151ac90276411d185a83140e1" prot="public" static="no">
+        <name>NRF_PWM_HAS_DMA_TASKS_EVENTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PWM DMA tasks and events are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="68" column="9" bodyfile="hal/nrf_pwm.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga8919d0a9f8aef141eb03920e66993c3b" prot="public" static="no">
+        <name>NRF_PWM_HAS_SEQ_CNT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether setting the number of duty cycle values for a sequence is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="75" column="9" bodyfile="hal/nrf_pwm.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga21f33d2a5759384128e8470176a42183" prot="public" static="no">
+        <name>NRF_PWM_HAS_IDLEOUT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PWM has IDLEOUT register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="82" column="9" bodyfile="hal/nrf_pwm.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga8c4e150dfdd74645bffd403b96ccebed" prot="public" static="no">
+        <name>NRF_PWM_HAS_COMPAREMATCH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether PWM has COMPAREMATCH events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="89" column="9" bodyfile="hal/nrf_pwm.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga885a662a4c5a59a3c260e2a98aeae523" prot="public" static="no">
+        <name>NRF_PWM_INST_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, PWM, idx)</initializer>
+        <briefdescription>
+<para>Macro getting pointer to the structure of registers of the PWM peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PWM instance index.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the structure of registers of the PWM peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="101" column="10" bodyfile="hal/nrf_pwm.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1gabf854890a14200d20e7aea8234a16887" prot="public" static="no">
+        <name>NRF_PWM_PIN_NOT_CONNECTED</name>
+        <initializer>0xFFFFFFFF</initializer>
+        <briefdescription>
+<para>This value can be provided as a parameter for the <ref refid="group__nrf__pwm__hal_1ga0bcd0f7311e790199cd14373fc823a9f" kindref="member">nrf_pwm_pins_set</ref> function call to specify that a given output channel shall not be connected to a physical pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="108" column="9" bodyfile="hal/nrf_pwm.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga9935002ab3ef7325efe73a6979e77990" prot="public" static="no">
+        <name>NRF_PWM_CHANNEL_COUNT</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>Number of channels in each PWM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="111" column="9" bodyfile="hal/nrf_pwm.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__pwm__hal_1ga22d0be020efeeabd0da15cf6a458beeb" prot="public" static="no">
+        <name>NRF_PWM_VALUES_LENGTH</name>
+        <param><defname>array</defname></param>
+        <initializer>(sizeof(array) / 2UL)</initializer>
+        <briefdescription>
+<para>Helper macro for calculating the number of 16-bit values in the specified array of duty cycle values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_pwm.h" line="117" column="9" bodyfile="hal/nrf_pwm.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Pulse Width Modulation (PWM) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__spis" kind="group">
+    <compoundname>nrfx_spis</compoundname>
+    <title>SPIS driver</title>
+    <innerclass refid="structnrfx__spis__event__t" prot="public">nrfx_spis_event_t</innerclass>
+    <innerclass refid="structnrfx__spis__t" prot="public">nrfx_spis_t</innerclass>
+    <innerclass refid="structnrfx__spis__config__t" prot="public">nrfx_spis_config_t</innerclass>
+    <innergroup refid="group__nrfx__spis__config">SPIS peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__spis_1ga9112a28f4d0f8ac47c7f44760a3fd715" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_spis_event_type_t</name>
+        <enumvalue id="group__nrfx__spis_1gga9112a28f4d0f8ac47c7f44760a3fd715af6d0127dab342753c7bc88b4c07f9825" prot="public">
+          <name>NRFX_SPIS_BUFFERS_SET_DONE</name>
+          <briefdescription>
+<para>Memory buffer set event. Memory buffers have been set successfully to the SPI slave device, and SPI transaction can be done. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__spis_1gga9112a28f4d0f8ac47c7f44760a3fd715a3382d980e1fe22494e8a776108e1461d" prot="public">
+          <name>NRFX_SPIS_XFER_DONE</name>
+          <briefdescription>
+<para>SPI transaction event. SPI transaction has been completed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__spis_1gga9112a28f4d0f8ac47c7f44760a3fd715a4e546d243c4f14e01fc27b515a5c5e55" prot="public">
+          <name>NRFX_SPIS_EVT_TYPE_MAX</name>
+          <briefdescription>
+<para>Enumeration upper bound. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SPI slave driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="56" column="1" bodyfile="drivers/include/nrfx_spis.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__spis_1ga652fd149cb50a61348cc19a1941f8d7b" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_spis_event_handler_t) (nrfx_spis_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_spis_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_spis_event_handler_t</name>
+        <briefdescription>
+<para>SPI slave driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event structure. The structure is allocated on the stack so it is valid only until the event handler returns. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context set on initialization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="83" column="9" bodyfile="drivers/include/nrfx_spis.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__spis_1ga0f10b80a7646024b4fc00a3ffe965890" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spis_init</definition>
+        <argsstring>(nrfx_spis_t *p_instance, nrfx_spis_config_t const *p_config, nrfx_spis_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_spis_init</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__spis__config__t" kindref="compound">nrfx_spis_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__spis_1ga652fd149cb50a61348cc19a1941f8d7b" kindref="member">nrfx_spis_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the SPI slave driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When the nRF52 Anomaly 109 workaround for SPIS is enabled, this function initializes the GPIOTE driver instance provided via <ref refid="group__nrfx__spis_1ga096299849dea7e7702fcaeb8770d5254" kindref="member">nrfx_spis_nrf52_anomaly_109_init</ref> as well, and uses one of GPIOTE channels to detect falling edges on CSN pin.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function to be called by the SPI slave driver upon event. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid parameter is supplied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GPIOTE channel for detecting falling edges on CSN pin cannot be initialized. Possible only when using nRF52 Anomaly 109 workaround. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="216" column="5" declfile="drivers/include/nrfx_spis.h" declline="216" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1gae1ccd373ca34bb5c7ab72612bf7a61dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spis_reconfigure</definition>
+        <argsstring>(nrfx_spis_t *p_instance, nrfx_spis_config_t const *p_config)</argsstring>
+        <name>nrfx_spis_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__spis__config__t" kindref="compound">nrfx_spis_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the SPI slave driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="231" column="5" declfile="drivers/include/nrfx_spis.h" declline="231" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1gad9f4a1c1ada30c9fa26d31575ebf6cba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spis_uninit</definition>
+        <argsstring>(nrfx_spis_t *p_instance)</argsstring>
+        <name>nrfx_spis_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the SPI slave driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="239" column="6" declfile="drivers/include/nrfx_spis.h" declline="239" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1ga39799f5b22991bbd37ebeb56648d66f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_spis_init_check</definition>
+        <argsstring>(nrfx_spis_t const *p_instance)</argsstring>
+        <name>nrfx_spis_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the SPIS driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="249" column="6" declfile="drivers/include/nrfx_spis.h" declline="249" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1ga0c39b2a46cea543059889a8693076656" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_spis_buffers_set</definition>
+        <argsstring>(nrfx_spis_t *p_instance, uint8_t const *p_tx_buffer, size_t tx_buffer_length, uint8_t *p_rx_buffer, size_t rx_buffer_length)</argsstring>
+        <name>nrfx_spis_buffers_set</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>tx_buffer_length</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_rx_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>rx_buffer_length</declname>
+        </param>
+        <briefdescription>
+<para>Function for preparing the SPI slave instance for a single SPI transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function prepares the SPI slave device to be ready for a single SPI transaction. It configures the SPI slave device to use the memory supplied with the function call in SPI transactions.</para>
+<para>When either the memory buffer configuration or the SPI transaction has been completed, the event callback function will be called with the appropriate event <ref refid="group__nrfx__spis_1ga9112a28f4d0f8ac47c7f44760a3fd715" kindref="member">nrfx_spis_event_type_t</ref>. The callback function can be called before returning from this function, because it is called from the SPI slave interrupt context.</para>
+<para><simplesect kind="note"><para>This function can be called from the callback function context.</para>
+</simplesect>
+<simplesect kind="note"><para>Client applications must call this function after every <ref refid="group__nrfx__spis_1gga9112a28f4d0f8ac47c7f44760a3fd715a3382d980e1fe22494e8a776108e1461d" kindref="member">NRFX_SPIS_XFER_DONE</ref> event if the SPI slave driver must be prepared for a possible new SPI transaction.</para>
+</simplesect>
+<simplesect kind="note"><para>Peripherals using EasyDMA (including SPIS) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the TX buffer. Can be NULL when the buffer length is zero. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_rx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the RX buffer. Can be NULL when the buffer length is zero. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tx_buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the TX buffer in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rx_buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the RX buffer in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation failed because the SPI slave device is in an incorrect state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-E2BIG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Provided lengths exceed the EasyDMA limits for the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation failed because of an internal error. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="283" column="5" declfile="drivers/include/nrfx_spis.h" declline="283" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1gac365bd108608215673edcc9c9d766900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spis_irq_handler</definition>
+        <argsstring>(nrfx_spis_t *p_instance)</argsstring>
+        <name>nrfx_spis_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="294" column="6" declfile="drivers/include/nrfx_spis.h" declline="294" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__spis_1ga096299849dea7e7702fcaeb8770d5254" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_spis_nrf52_anomaly_109_init</definition>
+        <argsstring>(nrfx_spis_t *p_instance, nrfx_gpiote_t *p_gpiote_inst)</argsstring>
+        <name>nrfx_spis_nrf52_anomaly_109_init</name>
+        <param>
+          <type><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__gpiote__t" kindref="compound">nrfx_gpiote_t</ref> *</type>
+          <declname>p_gpiote_inst</declname>
+        </param>
+        <briefdescription>
+<para>Function for providing GPIOTE driver instance for the nRF52 Anomaly 109 workaround. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Must be called before <ref refid="group__nrfx__spis_1ga0f10b80a7646024b4fc00a3ffe965890" kindref="member">nrfx_spis_init</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_gpiote_inst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the GPIOTE driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="305" column="6" declfile="drivers/include/nrfx_spis.h" declline="305" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__spis_1gae5dd85303e735326c93cbfdf15b7a20a" prot="public" static="no">
+        <name>NRFX_SPIS_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                  \
+    .p_reg = (NRF_SPIS_Type *)reg, \
+    .cb    = {0},                  \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the SPI slave driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="122" column="9" bodyfile="drivers/include/nrfx_spis.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__spis_1ga9ac698874c53e5b5e21d42e689801185" prot="public" static="no">
+        <name>NRFX_SPIS_DEFAULT_CONFIG</name>
+        <param><defname>_pin_sck</defname></param>
+        <param><defname>_pin_mosi</defname></param>
+        <param><defname>_pin_miso</defname></param>
+        <param><defname>_pin_csn</defname></param>
+        <initializer>{                                                                            \
+    .miso_pin      = _pin_miso,                                              \
+    .mosi_pin      = _pin_mosi,                                              \
+    .sck_pin       = _pin_sck,                                               \
+    .csn_pin       = _pin_csn,                                               \
+    .mode          = <ref refid="group__nrf__spis__hal_1ggabdceacd5f5f545e35342fe117adf57d8ae8847dcb4746aebce69827f05ae8063b" kindref="member">NRF_SPIS_MODE_0</ref>,                                        \
+    .bit_order     = <ref refid="group__nrf__spis__hal_1gga45fe2b8b4074fdffa1afc5d4da0baacca710fa90e8fc75221f6a019666e2b56c6" kindref="member">NRF_SPIS_BIT_ORDER_MSB_FIRST</ref>,                           \
+    .csn_pullup    = <ref refid="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca13ffcb94eb78be866c66b5f5b516af65" kindref="member">NRF_GPIO_PIN_NOPULL</ref>,                                    \
+    .miso_drive    = <ref refid="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a7430a2bb9ee97396d618b1de067add5f" kindref="member">NRF_GPIO_PIN_S0S1</ref>,                                      \
+    .def           = 0xFF,                                                   \
+    .orc           = 0xFE,                                                   \
+    .irq_priority  = <ref refid="group__nrfx__spis__config_1ga20fa87860ec9e06e20b34faa1c6365bd" kindref="member">NRFX_SPIS_DEFAULT_CONFIG_IRQ_PRIORITY</ref>,                  \
+    .skip_gpio_cfg = false,                                                  \
+    .skip_psel_cfg = false,                                                  \
+}</initializer>
+        <briefdescription>
+<para>SPIS driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up SPIS with the following options:<itemizedlist>
+<listitem><para>mode: 0 (SCK active high, sample on leading edge of the clock signal)</para>
+</listitem><listitem><para>MSB shifted out first</para>
+</listitem><listitem><para>CSN pull-up disabled</para>
+</listitem><listitem><para>MISO pin drive set to standard &apos;0&apos; and standard &apos;1&apos;</para>
+</listitem><listitem><para>default character set to 0xFF</para>
+</listitem><listitem><para>over-read character set to 0xFE</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_mosi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MOSI pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_miso</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MISO pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_csn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CSN pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_spis.h" line="144" column="9" bodyfile="drivers/include/nrfx_spis.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Serial Peripheral Interface Slave with EasyDMA (SPIS) driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

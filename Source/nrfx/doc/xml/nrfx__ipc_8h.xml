@@ -1,0 +1,828 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__ipc_8h" kind="file" language="C++">
+    <compoundname>nrfx_ipc.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__ipc_8h" local="no">hal/nrf_ipc.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_ipc.h</label>
+        <link refid="nrfx__ipc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__ipc__config__t" prot="public">nrfx_ipc_config_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_ipc_handler_t) (uint8_t event_idx, void *p_context)</definition>
+        <argsstring>)(uint8_t event_idx, void *p_context)</argsstring>
+        <name>nrfx_ipc_handler_t</name>
+        <briefdescription>
+<para>IPC driver handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IPC event index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the interrupt handler, set on initialization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="56" column="9" bodyfile="drivers/include/nrfx_ipc.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__ipc_1gaef266a65859dd3f247c50c0ab252d0b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_ipc_init</definition>
+        <argsstring>(uint8_t irq_priority, nrfx_ipc_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_ipc_init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>irq_priority</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" kindref="member">nrfx_ipc_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the IPC driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>irq_priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt priority. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="77" column="5" declfile="drivers/include/nrfx_ipc.h" declline="77" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga03a6b4bfb32a14045fe344eb9c1a0faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_config_load</definition>
+        <argsstring>(nrfx_ipc_config_t const *p_config)</argsstring>
+        <name>nrfx_ipc_config_load</name>
+        <param>
+          <type><ref refid="structnrfx__ipc__config__t" kindref="compound">nrfx_ipc_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for loading configuration directly into IPC peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="84" column="6" declfile="drivers/include/nrfx_ipc.h" declline="84" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga56bbc75ab762f7a0ddabfd3a10cc9dde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_signal</definition>
+        <argsstring>(uint8_t send_index)</argsstring>
+        <name>nrfx_ipc_signal</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for convey signal on configured channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Events connected to the IPC channels configured within this signal will be set and can generate interrupts when configured.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the SEND task to trigger. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="201" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="201" bodyend="205" declfile="drivers/include/nrfx_ipc.h" declline="94" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gac086835df03b91e28f6024832824ea17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_gpmem_set</definition>
+        <argsstring>(uint8_t mem_index, uint32_t data)</argsstring>
+        <name>nrfx_ipc_gpmem_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>mem_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Function for storing data in the general purpose memory register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mem_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory cell. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to be saved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="189" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="189" bodyend="193" declfile="drivers/include/nrfx_ipc.h" declline="102" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gab36802e7c7389de963309dbeb4dd85d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_ipc_gpmem_get</definition>
+        <argsstring>(uint8_t mem_index)</argsstring>
+        <name>nrfx_ipc_gpmem_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>mem_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting data from the general purpose memory register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mem_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the memory cell.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Saved data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="195" column="29" bodyfile="drivers/include/nrfx_ipc.h" bodystart="195" bodyend="199" declfile="drivers/include/nrfx_ipc.h" declline="111" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gae5fb31c6112a8d7e0784143716ec891a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_ipc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the IPC module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="114" column="6" declfile="drivers/include/nrfx_ipc.h" declline="114" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gafe1cc65803d1ee904492867330750831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_ipc_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_ipc_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the IPC driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="122" column="6" declfile="drivers/include/nrfx_ipc.h" declline="122" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga347e669da0aa2fe13ebf7bec01fc14c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_enable</definition>
+        <argsstring>(uint8_t event_index)</argsstring>
+        <name>nrfx_ipc_receive_event_enable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling events to generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of event to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="129" column="6" declfile="drivers/include/nrfx_ipc.h" declline="129" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga923e73ef9e7424b5918f2b0cf9ee578d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_disable</definition>
+        <argsstring>(uint8_t event_index)</argsstring>
+        <name>nrfx_ipc_receive_event_disable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling events from generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of event to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="136" column="6" declfile="drivers/include/nrfx_ipc.h" declline="136" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga3b1573895f6b325b97a69ad32b2246ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_group_enable</definition>
+        <argsstring>(uint32_t event_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_event_group_enable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling set of events to generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with events to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="143" column="6" declfile="drivers/include/nrfx_ipc.h" declline="143" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gadb09c53c8293e4b911e278aafb724708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_group_disable</definition>
+        <argsstring>(uint32_t event_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_event_group_disable</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling set of events from generate interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with events to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="150" column="6" declfile="drivers/include/nrfx_ipc.h" declline="150" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gaa6e8bf00dce39fd34d0619f2d32f5dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_receive_event_channel_assign</definition>
+        <argsstring>(uint8_t event_index, uint8_t channel_index)</argsstring>
+        <name>nrfx_ipc_receive_event_channel_assign</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning event to the IPC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the channel to which event will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="158" column="6" declfile="drivers/include/nrfx_ipc.h" declline="158" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga96bfcff486dfaf541bc97d09e3eb33d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_send_task_channel_assign</definition>
+        <argsstring>(uint8_t send_index, uint8_t channel_index)</argsstring>
+        <name>nrfx_ipc_send_task_channel_assign</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_index</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning signal to the IPC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the signal to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the instance of channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="166" column="6" declfile="drivers/include/nrfx_ipc.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1gaa60ad4e03ce9f8371d913e462d2437b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_receive_config_set</definition>
+        <argsstring>(uint8_t event_index, uint32_t channel_bitmask)</argsstring>
+        <name>nrfx_ipc_receive_config_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>event_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning event to the IPC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the event to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with channels to which event will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="207" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="207" bodyend="211" declfile="drivers/include/nrfx_ipc.h" declline="174" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__ipc_1ga69ff49db4011e38d5ce3f3f4e43616db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_ipc_send_config_set</definition>
+        <argsstring>(uint8_t send_index, uint32_t channel_bitmask)</argsstring>
+        <name>nrfx_ipc_send_config_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>send_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>channel_bitmask</declname>
+        </param>
+        <briefdescription>
+<para>Function for assigning signal to the IPC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>send_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the signal to be configured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitmask with channels to which signal will be connected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="213" column="25" bodyfile="drivers/include/nrfx_ipc.h" bodystart="213" bodyend="217" declfile="drivers/include/nrfx_ipc.h" declline="182" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="nrfx__ipc_8h_1ac4fd309a644000d3bff9b9bce1bf8785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_ipc_irq_handler</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_ipc_irq_handler</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_ipc.h" line="222" column="6" declfile="drivers/include/nrfx_ipc.h" declline="222" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2019<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_IPC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_IPC_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_ipc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_ipc<sp/>IPC<sp/>driver</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_ipc</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Interprocessor<sp/>Communication<sp/>(IPC)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>@brief<sp/>IPC<sp/>driver<sp/>handler<sp/>type.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_idx<sp/>IPC<sp/>event<sp/>index.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/>Context<sp/>passed<sp/>to<sp/>the<sp/>interrupt<sp/>handler,<sp/>set<sp/>on<sp/>initialization.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" kindref="member">nrfx_ipc_handler_t</ref>)(uint8_t<sp/>event_idx,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_context);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment">/**<sp/>@brief<sp/>IPC<sp/>configuration<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structnrfx__ipc__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>send_task_config[IPC_CONF_NUM];<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Configuration<sp/>of<sp/>the<sp/>connection<sp/>between<sp/>signals<sp/>and<sp/>IPC<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>receive_event_config[IPC_CONF_NUM];<sp/></highlight><highlight class="comment">///&lt;<sp/>Configuration<sp/>of<sp/>the<sp/>connection<sp/>between<sp/>events<sp/>and<sp/>IPC<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>receive_events_enabled;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Bitmask<sp/>with<sp/>events<sp/>to<sp/>be<sp/>enabled<sp/>to<sp/>generate<sp/>interrupt.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}<sp/><ref refid="structnrfx__ipc__config__t" kindref="compound">nrfx_ipc_config_t</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="66"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>IPC<sp/>driver.</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@param<sp/>irq_priority<sp/>Interrupt<sp/>priority.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>@param<sp/>handler<sp/><sp/><sp/><sp/><sp/><sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Must<sp/>not<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>@param<sp/>p_context<sp/><sp/><sp/><sp/>Context<sp/>passed<sp/>to<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gaef266a65859dd3f247c50c0ab252d0b0" kindref="member">nrfx_ipc_init</ref>(uint8_t<sp/>irq_priority,<sp/><ref refid="group__nrfx__ipc_1ga1b4af0e2e58b31bbd68df0f947f415cd" kindref="member">nrfx_ipc_handler_t</ref><sp/>handler,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>p_context);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>loading<sp/>configuration<sp/>directly<sp/>into<sp/>IPC<sp/>peripheral.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>@param<sp/>p_config<sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga03a6b4bfb32a14045fe344eb9c1a0faa" kindref="member">nrfx_ipc_config_load</ref>(<ref refid="structnrfx__ipc__config__t" kindref="compound">nrfx_ipc_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>convey<sp/>signal<sp/>on<sp/>configured<sp/>channels.</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>Events<sp/>connected<sp/>to<sp/>the<sp/>IPC<sp/>channels<sp/>configured<sp/>within<sp/>this<sp/>signal<sp/>will</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>be<sp/>set<sp/>and<sp/>can<sp/>generate<sp/>interrupts<sp/>when<sp/>configured.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@param<sp/>send_index<sp/>Index<sp/>of<sp/>the<sp/>SEND<sp/>task<sp/>to<sp/>trigger.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga56bbc75ab762f7a0ddabfd3a10cc9dde" kindref="member">nrfx_ipc_signal</ref>(uint8_t<sp/>send_index);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>storing<sp/>data<sp/>in<sp/>the<sp/>general<sp/>purpose<sp/>memory<sp/>register.</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@param<sp/>mem_index<sp/>Index<sp/>of<sp/>the<sp/>memory<sp/>cell.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@param<sp/>data<sp/><sp/><sp/><sp/><sp/><sp/>Data<sp/>to<sp/>be<sp/>saved.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gac086835df03b91e28f6024832824ea17" kindref="member">nrfx_ipc_gpmem_set</ref>(uint8_t<sp/>mem_index,<sp/>uint32_t<sp/>data);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>data<sp/>from<sp/>the<sp/>general<sp/>purpose<sp/>memory<sp/>register.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>@param<sp/>mem_index<sp/>Index<sp/>of<sp/>the<sp/>memory<sp/>cell.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>@return<sp/>Saved<sp/>data.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__ipc_1gab36802e7c7389de963309dbeb4dd85d0" kindref="member">nrfx_ipc_gpmem_get</ref>(uint8_t<sp/>mem_index);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>IPC<sp/>module.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gae5fb31c6112a8d7e0784143716ec891a" kindref="member">nrfx_ipc_uninit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>IPC<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Driver<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gafe1cc65803d1ee904492867330750831" kindref="member">nrfx_ipc_init_check</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>events<sp/>to<sp/>generate<sp/>interrupt.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_index<sp/>Index<sp/>of<sp/>event<sp/>to<sp/>be<sp/>enabled.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga347e669da0aa2fe13ebf7bec01fc14c7" kindref="member">nrfx_ipc_receive_event_enable</ref>(uint8_t<sp/>event_index);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="131"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>events<sp/>from<sp/>generate<sp/>interrupt.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_index<sp/>Index<sp/>of<sp/>event<sp/>to<sp/>be<sp/>disabled.</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga923e73ef9e7424b5918f2b0cf9ee578d" kindref="member">nrfx_ipc_receive_event_disable</ref>(uint8_t<sp/>event_index);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="138"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>set<sp/>of<sp/>events<sp/>to<sp/>generate<sp/>interrupt.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_bitmask<sp/>Bitmask<sp/>with<sp/>events<sp/>to<sp/>be<sp/>enabled.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga3b1573895f6b325b97a69ad32b2246ca" kindref="member">nrfx_ipc_receive_event_group_enable</ref>(uint32_t<sp/>event_bitmask);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="145"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>set<sp/>of<sp/>events<sp/>from<sp/>generate<sp/>interrupt.</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_bitmask<sp/>Bitmask<sp/>with<sp/>events<sp/>to<sp/>be<sp/>disabled.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gadb09c53c8293e4b911e278aafb724708" kindref="member">nrfx_ipc_receive_event_group_disable</ref>(uint32_t<sp/>event_bitmask);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="152"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>assigning<sp/>event<sp/>to<sp/>the<sp/>IPC<sp/>channel.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_index<sp/><sp/><sp/>Index<sp/>of<sp/>the<sp/>event<sp/>to<sp/>be<sp/>configured.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@param<sp/>channel_index<sp/>Index<sp/>of<sp/>the<sp/>channel<sp/>to<sp/>which<sp/>event<sp/>will<sp/>be<sp/>connected.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gaa6e8bf00dce39fd34d0619f2d32f5dc2" kindref="member">nrfx_ipc_receive_event_channel_assign</ref>(uint8_t<sp/>event_index,<sp/>uint8_t<sp/>channel_index);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="160"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>assigning<sp/>signal<sp/>to<sp/>the<sp/>IPC<sp/>channel.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*<sp/>@param<sp/>send_index<sp/><sp/><sp/><sp/>Index<sp/>of<sp/>the<sp/>signal<sp/>to<sp/>be<sp/>configured.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>@param<sp/>channel_index<sp/>Index<sp/>of<sp/>the<sp/>instance<sp/>of<sp/>channel.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga96bfcff486dfaf541bc97d09e3eb33d0" kindref="member">nrfx_ipc_send_task_channel_assign</ref>(uint8_t<sp/>send_index,<sp/>uint8_t<sp/>channel_index);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="168"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>assigning<sp/>event<sp/>to<sp/>the<sp/>IPC<sp/>channels.</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/>@param<sp/>event_index<sp/><sp/><sp/><sp/><sp/>Index<sp/>of<sp/>the<sp/>event<sp/>to<sp/>be<sp/>configured.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/>@param<sp/>channel_bitmask<sp/>Bitmask<sp/>with<sp/>channels<sp/>to<sp/>which<sp/>event<sp/>will<sp/>be<sp/>connected.</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gaa60ad4e03ce9f8371d913e462d2437b9" kindref="member">nrfx_ipc_receive_config_set</ref>(uint8_t<sp/>event_index,<sp/>uint32_t<sp/>channel_bitmask);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="176"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>assigning<sp/>signal<sp/>to<sp/>the<sp/>IPC<sp/>channels.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*<sp/>@param<sp/>send_index<sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>of<sp/>the<sp/>signal<sp/>to<sp/>be<sp/>configured.</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>@param<sp/>channel_bitmask<sp/>Bitmask<sp/>with<sp/>channels<sp/>to<sp/>which<sp/>signal<sp/>will<sp/>be<sp/>connected.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga69ff49db4011e38d5ce3f3f4e43616db" kindref="member">nrfx_ipc_send_config_set</ref>(uint8_t<sp/>send_index,<sp/>uint32_t<sp/>channel_bitmask);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gac086835df03b91e28f6024832824ea17" kindref="member">nrfx_ipc_gpmem_set</ref>(uint8_t<sp/>mem_index,<sp/>uint32_t<sp/>data)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(mem_index<sp/>&lt;<sp/><ref refid="group__nrfx__utils_1gafbf1f8a50035b7d9f6c1cc1155ed1989" kindref="member">NRFX_ARRAY_SIZE</ref>(NRF_IPC-&gt;GPMEM));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__ipc__hal_1ga6d2875c7dff0dca567f9d3f3629c5518" kindref="member">nrf_ipc_gpmem_set</ref>(NRF_IPC,<sp/>mem_index,<sp/>data);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">NRFX_STATIC_INLINE<sp/>uint32_t<sp/><ref refid="group__nrfx__ipc_1gab36802e7c7389de963309dbeb4dd85d0" kindref="member">nrfx_ipc_gpmem_get</ref>(uint8_t<sp/>mem_index)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(mem_index<sp/>&lt;<sp/><ref refid="group__nrfx__utils_1gafbf1f8a50035b7d9f6c1cc1155ed1989" kindref="member">NRFX_ARRAY_SIZE</ref>(NRF_IPC-&gt;GPMEM));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="group__nrf__ipc__hal_1ga3793c3ab49b52db7622354fddcfa5853" kindref="member">nrf_ipc_gpmem_get</ref>(NRF_IPC,<sp/>mem_index);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga56bbc75ab762f7a0ddabfd3a10cc9dde" kindref="member">nrfx_ipc_signal</ref>(uint8_t<sp/>send_index)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(send_index<sp/>&lt;<sp/>IPC_CONF_NUM);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__ipc__hal_1gaf34afb4c6f06e8f81de7e455d49b6ad7" kindref="member">nrf_ipc_task_trigger</ref>(NRF_IPC,<sp/><ref refid="group__nrf__ipc__hal_1ga7ec4734b14c9dc24ed6ea89a90082f90" kindref="member">nrf_ipc_send_task_get</ref>(send_index));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1gaa60ad4e03ce9f8371d913e462d2437b9" kindref="member">nrfx_ipc_receive_config_set</ref>(uint8_t<sp/>event_index,<sp/>uint32_t<sp/>channel_bitmask)</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(event_index<sp/>&lt;<sp/>IPC_CONF_NUM);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__ipc__hal_1ga253a3fd8e12378eda938edc30c0c43b3" kindref="member">nrf_ipc_receive_config_set</ref>(NRF_IPC,<sp/>event_index,<sp/>channel_bitmask);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__ipc_1ga69ff49db4011e38d5ce3f3f4e43616db" kindref="member">nrfx_ipc_send_config_set</ref>(uint8_t<sp/>send_index,<sp/>uint32_t<sp/>channel_bitmask)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga9698a3f6b6bea455d2b54a79e514ee36" kindref="member">NRFX_ASSERT</ref>(send_index<sp/>&lt;<sp/>IPC_CONF_NUM);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__ipc__hal_1gac247d5f733dce320409100e31c61c58e" kindref="member">nrf_ipc_send_config_set</ref>(NRF_IPC,<sp/>send_index,<sp/>channel_bitmask);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>nrfx_ipc_irq_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_IPC_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_ipc.h"/>
+  </compounddef>
+</doxygen>

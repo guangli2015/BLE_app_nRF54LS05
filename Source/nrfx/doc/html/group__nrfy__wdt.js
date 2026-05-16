@@ -1,0 +1,35 @@
+var group__nrfy__wdt =
+[
+    [ "nrfy_wdt_config_t", "structnrfy__wdt__config__t.html", [
+      [ "behaviour", "structnrfy__wdt__config__t.html#a38382e502ce2f88cbb688128614706d4", null ],
+      [ "reload_value", "structnrfy__wdt__config__t.html#a3ee4414d51651a7a32b9f494f0c0d143", null ]
+    ] ],
+    [ "NRFY_WDT_HAS_STOP", "group__nrfy__wdt.html#gaa2380bc0849ebe7ff2a797155075bda2", null ],
+    [ "nrfy_wdt_behaviour_set", "group__nrfy__wdt.html#gaa48a1e07a9bd846d335489ff4338be0e", null ],
+    [ "nrfy_wdt_event_address_get", "group__nrfy__wdt.html#ga926e56fbb9a7550c1c433341ed54c2cd", null ],
+    [ "nrfy_wdt_event_check", "group__nrfy__wdt.html#ga84dd6168c3ac562151267e00b443cb3f", null ],
+    [ "nrfy_wdt_event_clear", "group__nrfy__wdt.html#gaf8c66c2b42c0f375881236bd889d7e75", null ],
+    [ "nrfy_wdt_events_process", "group__nrfy__wdt.html#ga5400f4856cf8f3a1044930c5b2d1a8d5", null ],
+    [ "nrfy_wdt_int_disable", "group__nrfy__wdt.html#gaf31a47f24b4ad8df302c60391123e9f3", null ],
+    [ "nrfy_wdt_int_enable", "group__nrfy__wdt.html#gabacb3a78582410f0c72091d2fe628b05", null ],
+    [ "nrfy_wdt_int_enable_check", "group__nrfy__wdt.html#gadba1ca9b387702513e2f875d201258d0", null ],
+    [ "nrfy_wdt_int_init", "group__nrfy__wdt.html#ga910560e8843a3e9c9dcdfd5abb477418", null ],
+    [ "nrfy_wdt_int_uninit", "group__nrfy__wdt.html#gad723d88b89d994003640c64c5a472acf", null ],
+    [ "nrfy_wdt_periph_configure", "group__nrfy__wdt.html#gaf4293d1a15ce87b1447f9d88de9d656b", null ],
+    [ "nrfy_wdt_publish_clear", "group__nrfy__wdt.html#gaeab4f028a34e8b3db91cb5194a8c3f06", null ],
+    [ "nrfy_wdt_publish_set", "group__nrfy__wdt.html#gadabd2e4b65e2ac4b901acb5e7078bb38", null ],
+    [ "nrfy_wdt_reload_request_disable", "group__nrfy__wdt.html#ga3f418bf0292f5ccc5db6eca984891d6f", null ],
+    [ "nrfy_wdt_reload_request_enable", "group__nrfy__wdt.html#gab427e49f75ec381fef1095a0183dfa5d", null ],
+    [ "nrfy_wdt_reload_request_enable_check", "group__nrfy__wdt.html#ga84a80db1da1e57d4adae4f506ac100f8", null ],
+    [ "nrfy_wdt_reload_request_set", "group__nrfy__wdt.html#ga056a905c11972936f0166bad4e598fe0", null ],
+    [ "nrfy_wdt_reload_value_get", "group__nrfy__wdt.html#ga9111546378b3be722fb419db37a5e9f7", null ],
+    [ "nrfy_wdt_reload_value_set", "group__nrfy__wdt.html#gafa5e633e59717749adec660ad381ea11", null ],
+    [ "nrfy_wdt_request_status_check", "group__nrfy__wdt.html#ga7f9305677513d0f1799308d47e7c48d1", null ],
+    [ "nrfy_wdt_request_status_get", "group__nrfy__wdt.html#gafe7f3537706d715ba7552c8b06daf342", null ],
+    [ "nrfy_wdt_started_check", "group__nrfy__wdt.html#gaacf3161fb0b1efa183c14af9e86327c8", null ],
+    [ "nrfy_wdt_subscribe_clear", "group__nrfy__wdt.html#ga9b3f310ce5940741a43ba7b5cb19943b", null ],
+    [ "nrfy_wdt_subscribe_set", "group__nrfy__wdt.html#ga2e41d221f0d32b3dcd66fc4cc5259f01", null ],
+    [ "nrfy_wdt_task_address_get", "group__nrfy__wdt.html#gab7f6d612c8bf70197f0afd8b3381c916", null ],
+    [ "nrfy_wdt_task_stop_enable_set", "group__nrfy__wdt.html#gaf3b10f85b02beb77d4cedb55c1207596", null ],
+    [ "nrfy_wdt_task_trigger", "group__nrfy__wdt.html#ga3d72b5d55e6af97219ad4e3e17f5ccfe", null ]
+];

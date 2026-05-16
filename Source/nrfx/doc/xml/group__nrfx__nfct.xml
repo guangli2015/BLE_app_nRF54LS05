@@ -1,0 +1,913 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__nfct" kind="group">
+    <compoundname>nrfx_nfct</compoundname>
+    <title>NFCT driver</title>
+    <innerclass refid="structnrfx__nfct__nfcid1__t" prot="public">nrfx_nfct_nfcid1_t</innerclass>
+    <innerclass refid="structnrfx__nfct__param__t" prot="public">nrfx_nfct_param_t</innerclass>
+    <innerclass refid="structnrfx__nfct__data__desc__t" prot="public">nrfx_nfct_data_desc_t</innerclass>
+    <innerclass refid="structnrfx__nfct__evt__rx__frameend__t" prot="public">nrfx_nfct_evt_rx_frameend_t</innerclass>
+    <innerclass refid="structnrfx__nfct__evt__tx__framestart__t" prot="public">nrfx_nfct_evt_tx_framestart_t</innerclass>
+    <innerclass refid="structnrfx__nfct__evt__error__t" prot="public">nrfx_nfct_evt_error_t</innerclass>
+    <innerclass refid="structnrfx__nfct__evt__t" prot="public">nrfx_nfct_evt_t</innerclass>
+    <innerclass refid="structnrfx__nfct__config__t" prot="public">nrfx_nfct_config_t</innerclass>
+    <innergroup refid="group__nrfx__nfct__config">NFCT peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__nfct_1ga731f7d0d8d5975b151ef3749c877e2a3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_nfct_state_t</name>
+        <enumvalue id="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3aad6caab2cc68816c5ab1c938398e2b12" prot="public">
+          <name>NRFX_NFCT_STATE_DISABLED</name>
+          <initializer>= NRF_NFCT_TASK_DISABLE</initializer>
+          <briefdescription>
+<para>NFC Tag is disabled (no sensing of an external NFC field). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3ab7c71c0f33554eb0796cd9fc4608b64a" prot="public">
+          <name>NRFX_NFCT_STATE_SENSING</name>
+          <initializer>= NRF_NFCT_TASK_SENSE</initializer>
+          <briefdescription>
+<para>NFC Tag is sensing whether there is an external NFC field. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3a41c33cf9901c6f8168beb57497ed3d5d" prot="public">
+          <name>NRFX_NFCT_STATE_ACTIVATED</name>
+          <initializer>= NRF_NFCT_TASK_ACTIVATE</initializer>
+          <briefdescription>
+<para>NFC Tag is powered-up (see <ref refid="group__nrfx__nfct_1gaf30f9bb7b34b5ee816f7516c5cee472d" kindref="member">nrfx_nfct_active_state_t</ref> for possible substates). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NFCT hardware states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="58" column="1" bodyfile="drivers/include/nrfx_nfct.h" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__nfct_1gaf30f9bb7b34b5ee816f7516c5cee472d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_nfct_active_state_t</name>
+        <enumvalue id="group__nrfx__nfct_1ggaf30f9bb7b34b5ee816f7516c5cee472da7f549331dbe2de32702fc7cda3459f7a" prot="public">
+          <name>NRFX_NFCT_ACTIVE_STATE_IDLE</name>
+          <initializer>= NRF_NFCT_TASK_GOIDLE</initializer>
+          <briefdescription>
+<para>NFC Tag is activated and idle (not selected by a reader). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggaf30f9bb7b34b5ee816f7516c5cee472da854dbc4d03a8cdad07305c1e4150a355" prot="public">
+          <name>NRFX_NFCT_ACTIVE_STATE_SLEEP</name>
+          <initializer>= NRF_NFCT_TASK_GOSLEEP</initializer>
+          <briefdescription>
+<para>NFC Tag is sleeping. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggaf30f9bb7b34b5ee816f7516c5cee472dac9b082ae08e8aad051f286db70d9a64e" prot="public">
+          <name>NRFX_NFCT_ACTIVE_STATE_DEFAULT</name>
+          <briefdescription>
+<para>NFC Tag is either sleeping or idle, depending on the previous state before being selected by a poller. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NFC tag states, when NFCT hardware is activated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>These states are substates of the <ref refid="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3a41c33cf9901c6f8168beb57497ed3d5d" kindref="member">NRFX_NFCT_STATE_ACTIVATED</ref> state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="70" column="1" bodyfile="drivers/include/nrfx_nfct.h" bodystart="71" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__nfct_1gafb093b8d45e5bb6b92e65fa6d46f5991" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_nfct_evt_id_t</name>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991aee9e2173c1dde2479ebd2f339220e883" prot="public">
+          <name>NRFX_NFCT_EVT_FIELD_DETECTED</name>
+          <initializer>= NRF_NFCT_INT_FIELDDETECTED_MASK</initializer>
+          <briefdescription>
+<para>External NFC field is detected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991a293dbfc64f5ed0acbbae1ebc1f774e3b" prot="public">
+          <name>NRFX_NFCT_EVT_FIELD_LOST</name>
+          <initializer>= NRF_NFCT_INT_FIELDLOST_MASK</initializer>
+          <briefdescription>
+<para>External NFC Field is lost. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991ab1b3011ce41728f7f395249ed44b337d" prot="public">
+          <name>NRFX_NFCT_EVT_SELECTED</name>
+          <initializer>= NRF_NFCT_INT_SELECTED_MASK</initializer>
+          <briefdescription>
+<para>Tag was selected by the poller. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991a19d896539da2903258c3b7c348b7b2a7" prot="public">
+          <name>NRFX_NFCT_EVT_RX_FRAMESTART</name>
+          <initializer>= NRF_NFCT_INT_RXFRAMESTART_MASK</initializer>
+          <briefdescription>
+<para>Data frame reception started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991aab8d4ecffc5d51e56d52d9617669836d" prot="public">
+          <name>NRFX_NFCT_EVT_RX_FRAMEEND</name>
+          <initializer>= NRF_NFCT_INT_RXFRAMEEND_MASK</initializer>
+          <briefdescription>
+<para>Data frame is received. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991a0b7a2d4b8383a649503729e8cbe3beed" prot="public">
+          <name>NRFX_NFCT_EVT_TX_FRAMESTART</name>
+          <initializer>= NRF_NFCT_INT_TXFRAMESTART_MASK</initializer>
+          <briefdescription>
+<para>Data frame transmission started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991ad7bf9b1bc2382ade2de9cfac9053b0dc" prot="public">
+          <name>NRFX_NFCT_EVT_TX_FRAMEEND</name>
+          <initializer>= NRF_NFCT_INT_TXFRAMEEND_MASK</initializer>
+          <briefdescription>
+<para>Data frame is transmitted. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991a597221bdb25c94f81767d4f395297520" prot="public">
+          <name>NRFX_NFCT_EVT_ERROR</name>
+          <initializer>= NRF_NFCT_INT_ERROR_MASK</initializer>
+          <briefdescription>
+<para>Error occurred in an NFC communication. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NFCT driver event types, passed to the upper-layer callback function provided during the initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="81" column="1" bodyfile="drivers/include/nrfx_nfct.h" bodystart="82" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__nfct_1ga5c5e0f0bc8e2b623c3421e35c80fe217" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_nfct_error_t</name>
+        <enumvalue id="group__nrfx__nfct_1gga5c5e0f0bc8e2b623c3421e35c80fe217a73a3c413236a4e711b38c3178bbaf2ed" prot="public">
+          <name>NRFX_NFCT_ERROR_FRAMEDELAYTIMEOUT</name>
+          <briefdescription>
+<para>No response frame was transmitted to the poller in the transmit window. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga5c5e0f0bc8e2b623c3421e35c80fe217adceeb15e202a967b1c5c8be1a09ea615" prot="public">
+          <name>NRFX_NFCT_ERROR_NUM</name>
+          <briefdescription>
+<para>Total number of possible errors. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NFCT timing-related error types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="94" column="1" bodyfile="drivers/include/nrfx_nfct.h" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__nfct_1ga7e58a8b0ea7f85b68073f01f67f83e1f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_nfct_param_id_t</name>
+        <enumvalue id="group__nrfx__nfct_1gga7e58a8b0ea7f85b68073f01f67f83e1fa59382ac55aa24f1384523c5673030b94" prot="public">
+          <name>NRFX_NFCT_PARAM_ID_FDT</name>
+          <briefdescription>
+<para>NFC-A Frame Delay Time parameter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga7e58a8b0ea7f85b68073f01f67f83e1faa304701c13c1c7c44b84b13b5ef38900" prot="public">
+          <name>NRFX_NFCT_PARAM_ID_FDT_MIN</name>
+          <briefdescription>
+<para>NFC-A Frame Delay Time Min parameter. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga7e58a8b0ea7f85b68073f01f67f83e1fa7dd25d0178542682356907e0c211e0aa" prot="public">
+          <name>NRFX_NFCT_PARAM_ID_SEL_RES</name>
+          <briefdescription>
+<para>Value of the &apos;Protocol&apos; field in the NFC-A SEL_RES frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__nfct_1gga7e58a8b0ea7f85b68073f01f67f83e1fa843238cce40948bffe230fd51d21564c" prot="public">
+          <name>NRFX_NFCT_PARAM_ID_NFCID1</name>
+          <briefdescription>
+<para>NFC-A NFCID1 setting (NFC tag identifier). </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NFCT driver parameter types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="101" column="1" bodyfile="drivers/include/nrfx_nfct.h" bodystart="102" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__nfct_1ga9abd9ac021fc032be80b1802df8a169d" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_nfct_handler_t) (nrfx_nfct_evt_t const *p_event)</definition>
+        <argsstring>)(nrfx_nfct_evt_t const *p_event)</argsstring>
+        <name>nrfx_nfct_handler_t</name>
+        <briefdescription>
+<para>Callback descriptor to pass events from the NFCT driver to the upper layer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event descriptor.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para><ref refid="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991aee9e2173c1dde2479ebd2f339220e883" kindref="member">NRFX_NFCT_EVT_FIELD_DETECTED</ref> and <ref refid="group__nrfx__nfct_1ggafb093b8d45e5bb6b92e65fa6d46f5991a293dbfc64f5ed0acbbae1ebc1f774e3b" kindref="member">NRFX_NFCT_EVT_FIELD_LOST</ref> are generated only on field state transitions, i.e. there will be no multiple events of the same type (out of the 2 mentioned) coming in a row. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="175" column="9" bodyfile="drivers/include/nrfx_nfct.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__nfct_1ga0dcdf154f440d9e88b9c01e745ff2bbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_init</definition>
+        <argsstring>(nrfx_nfct_config_t const *p_config)</argsstring>
+        <name>nrfx_nfct_init</name>
+        <param>
+          <type><ref refid="structnrfx__nfct__config__t" kindref="compound">nrfx_nfct_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the NFCT driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the NFCT driver configuration structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NFCT driver was initialized successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NFCT antenna pads are not configured as antenna pins. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NFCT field timer was not configured successfully. This is possible only if workarounds for nRF52 errata 79, nRF52 errata 190 or nRF53 errata 70 are enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="197" column="5" declfile="drivers/include/nrfx_nfct.h" declline="197" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1gaf0b8e5a13760700247e1aeb5bdd82f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the NFCT driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After uninitialization, the instance is in disabled state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="204" column="6" declfile="drivers/include/nrfx_nfct.h" declline="204" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga4b4e8321617acae3183bcf5096f87bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nfct_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the NFCT driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="212" column="6" declfile="drivers/include/nrfx_nfct.h" declline="212" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga33232a3b1b6f9bf1150787d749aae46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the NFC subsystem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After this function completes, NFC readers are able to detect the tag. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="219" column="6" declfile="drivers/include/nrfx_nfct.h" declline="219" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga0b0a5aaf2b881f200ffc48c4998c9344" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the NFCT driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After this function returns, NFC readers are no longer able to connect to the tag. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="227" column="6" declfile="drivers/include/nrfx_nfct.h" declline="227" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga6d26bd3e4648933d968b8eea882c3c57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_nfct_field_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_field_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the external NFC field is present in the range of the tag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The NFC field is present. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No NFC field is present. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="235" column="6" declfile="drivers/include/nrfx_nfct.h" declline="235" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga4660266fe4183bbdd11bf381c0b58a49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_rx</definition>
+        <argsstring>(nrfx_nfct_data_desc_t const *p_rx_data)</argsstring>
+        <name>nrfx_nfct_rx</name>
+        <param>
+          <type><ref refid="structnrfx__nfct__data__desc__t" kindref="compound">nrfx_nfct_data_desc_t</ref> const *</type>
+          <declname>p_rx_data</declname>
+        </param>
+        <briefdescription>
+<para>Function for preparing the NFCT driver for receiving an NFC frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_rx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the RX buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data buffer does not point to memory region reachable by EasyDMA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="245" column="5" declfile="drivers/include/nrfx_nfct.h" declline="245" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga06a4515720cb0363025c33f83ab9fb18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_tx</definition>
+        <argsstring>(nrfx_nfct_data_desc_t const *p_tx_data, nrf_nfct_frame_delay_mode_t delay_mode)</argsstring>
+        <name>nrfx_nfct_tx</name>
+        <param>
+          <type><ref refid="structnrfx__nfct__data__desc__t" kindref="compound">nrfx_nfct_data_desc_t</ref> const *</type>
+          <declname>p_tx_data</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__nfct__hal_1ga440398a7c43c28c619f2326cf0d48408" kindref="member">nrf_nfct_frame_delay_mode_t</ref></type>
+          <declname>delay_mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for transmitting an NFC frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the TX buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delay_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay mode of the NFCT frame timer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-E2BIG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TX buffer size is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already transferring. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data buffer does not point to memory region reachable by EasyDMA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="258" column="5" declfile="drivers/include/nrfx_nfct.h" declline="258" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga4f172ddb7965c95b87e75a0896b768f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_bits_tx</definition>
+        <argsstring>(nrfx_nfct_data_desc_t const *p_tx_data, nrf_nfct_frame_delay_mode_t delay_mode)</argsstring>
+        <name>nrfx_nfct_bits_tx</name>
+        <param>
+          <type><ref refid="structnrfx__nfct__data__desc__t" kindref="compound">nrfx_nfct_data_desc_t</ref> const *</type>
+          <declname>p_tx_data</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__nfct__hal_1ga440398a7c43c28c619f2326cf0d48408" kindref="member">nrf_nfct_frame_delay_mode_t</ref></type>
+          <declname>delay_mode</declname>
+        </param>
+        <briefdescription>
+<para>Function for transmitting an NFC frame with a specified number of bits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the TX buffer. Unlike in <ref refid="group__nrfx__nfct_1ga06a4515720cb0363025c33f83ab9fb18" kindref="member">nrfx_nfct_tx</ref>, <computeroutput>data_size</computeroutput> is used as the number of bits to transmit, rather than bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delay_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay mode of the NFCT frame timer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-E2BIG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TX buffer size is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already transferring. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data buffer does not point to memory region reachable by EasyDMA. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="273" column="5" declfile="drivers/include/nrfx_nfct.h" declline="273" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1gacb1e776d8d50fcf8d25b4ca769eb10bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_state_force</definition>
+        <argsstring>(nrfx_nfct_state_t state)</argsstring>
+        <name>nrfx_nfct_state_force</name>
+        <param>
+          <type><ref refid="group__nrfx__nfct_1ga731f7d0d8d5975b151ef3749c877e2a3" kindref="member">nrfx_nfct_state_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Function for moving the NFCT to a new state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The HFCLK must be running before activating the NFCT with <ref refid="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3a41c33cf9901c6f8168beb57497ed3d5d" kindref="member">NRFX_NFCT_STATE_ACTIVATED</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The required state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="284" column="6" declfile="drivers/include/nrfx_nfct.h" declline="284" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1gab9309b026a18900a3f252bf3a698a706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_init_substate_force</definition>
+        <argsstring>(nrfx_nfct_active_state_t sub_state)</argsstring>
+        <name>nrfx_nfct_init_substate_force</name>
+        <param>
+          <type><ref refid="group__nrfx__nfct_1gaf30f9bb7b34b5ee816f7516c5cee472d" kindref="member">nrfx_nfct_active_state_t</ref></type>
+          <declname>sub_state</declname>
+        </param>
+        <briefdescription>
+<para>Function for moving the NFCT to a new initial substate within <ref refid="group__nrfx__nfct_1gga731f7d0d8d5975b151ef3749c877e2a3a41c33cf9901c6f8168beb57497ed3d5d" kindref="member">NRFX_NFCT_STATE_ACTIVATED</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sub_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The required substate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="291" column="6" declfile="drivers/include/nrfx_nfct.h" declline="291" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga98f2b41b30f25079f88b5aad35b7fab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_parameter_set</definition>
+        <argsstring>(nrfx_nfct_param_t const *p_param)</argsstring>
+        <name>nrfx_nfct_parameter_set</name>
+        <param>
+          <type><ref refid="structnrfx__nfct__param__t" kindref="compound">nrfx_nfct_param_t</ref> const *</type>
+          <declname>p_param</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the NFC communication parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Parameter validation for length and acceptable values.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to parameter descriptor.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parameter data is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="303" column="5" declfile="drivers/include/nrfx_nfct.h" declline="303" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga198d4cab29dd565f654619f2d699b8c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_nfct_nfcid1_default_bytes_get</definition>
+        <argsstring>(uint8_t *const p_nfcid1_buff, uint32_t nfcid1_buff_len)</argsstring>
+        <name>nrfx_nfct_nfcid1_default_bytes_get</name>
+        <param>
+          <type>uint8_t *const</type>
+          <declname>p_nfcid1_buff</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nfcid1_buff_len</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting default bytes for NFCID1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function cannot be used from the non-secure code because it requires access to FICR registers.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">p_nfcid1_buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In: empty buffer for data; Out: buffer with the NFCID1 default data. These values can be used to fill the Type 2 Tag Internal Bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nfcid1_buff_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the NFCID1 buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-E2BIG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the NFCID buffer is different than <ref refid="group__nrfx__nfct_1gaedc09e95d7768677834b924c9a3f2f96" kindref="member">NRFX_NFCT_NFCID1_SINGLE_SIZE</ref>, <ref refid="group__nrfx__nfct_1ga6044e33fe059b2400d7d8ac3d18f916e" kindref="member">NRFX_NFCT_NFCID1_DOUBLE_SIZE</ref>, or <ref refid="group__nrfx__nfct_1ga1f998c6f7af9d44404539738d154d366" kindref="member">NRFX_NFCT_NFCID1_TRIPLE_SIZE</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="320" column="5" declfile="drivers/include/nrfx_nfct.h" declline="320" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga1ecf44d3d3ce09bd0773d8d69bcc4d2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_autocolres_enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_autocolres_enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for enabling the automatic collision resolution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As defined by the NFC Forum Digital Protocol Technical Specification (and ISO 14443-3), the automatic collision resolution is implemented in the NFCT hardware. This function allows enabling and disabling this feature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="330" column="6" declfile="drivers/include/nrfx_nfct.h" declline="330" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__nfct_1ga199c4b66f4c1b02dae0f5877bcba9d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_nfct_autocolres_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_nfct_autocolres_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the automatic collision resolution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See also details in <ref refid="group__nrfx__nfct_1ga1ecf44d3d3ce09bd0773d8d69bcc4d2b" kindref="member">nrfx_nfct_autocolres_enable</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="337" column="6" declfile="drivers/include/nrfx_nfct.h" declline="337" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__nfct_1gaedc09e95d7768677834b924c9a3f2f96" prot="public" static="no">
+        <name>NRFX_NFCT_NFCID1_SINGLE_SIZE</name>
+        <initializer>4u</initializer>
+        <briefdescription>
+<para>Length of single-size NFCID1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="51" column="9" bodyfile="drivers/include/nrfx_nfct.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__nfct_1ga6044e33fe059b2400d7d8ac3d18f916e" prot="public" static="no">
+        <name>NRFX_NFCT_NFCID1_DOUBLE_SIZE</name>
+        <initializer>7u</initializer>
+        <briefdescription>
+<para>Length of double-size NFCID1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="52" column="9" bodyfile="drivers/include/nrfx_nfct.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__nfct_1ga1f998c6f7af9d44404539738d154d366" prot="public" static="no">
+        <name>NRFX_NFCT_NFCID1_TRIPLE_SIZE</name>
+        <initializer>10u</initializer>
+        <briefdescription>
+<para>Length of triple-size NFCID1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="53" column="9" bodyfile="drivers/include/nrfx_nfct.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__nfct_1ga45556afa2d1eb83434ba3609e2d8a55d" prot="public" static="no">
+        <name>NRFX_NFCT_NFCID1_DEFAULT_LEN</name>
+        <initializer><ref refid="group__nrfx__nfct_1ga6044e33fe059b2400d7d8ac3d18f916e" kindref="member">NRFX_NFCT_NFCID1_DOUBLE_SIZE</ref></initializer>
+        <briefdescription>
+<para>Default length of NFC ID. *<zwj/>/. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_nfct.h" line="55" column="9" bodyfile="drivers/include/nrfx_nfct.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Near Field Communication Tag (NFCT) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

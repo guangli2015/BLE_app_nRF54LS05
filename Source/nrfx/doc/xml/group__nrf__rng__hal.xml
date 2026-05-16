@@ -1,0 +1,888 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__rng__hal" kind="group">
+    <compoundname>nrf_rng_hal</compoundname>
+    <title>RNG HAL</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rng_task_t</name>
+        <enumvalue id="group__nrf__rng__hal_1ggab84a0edcab74e2753cefdaccd06ecc3da610a79cf9a2676df10355373c073c192" prot="public">
+          <name>NRF_RNG_TASK_START</name>
+          <initializer>= offsetof(NRF_RNG_Type, TASKS_START)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start the random number generator. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__rng__hal_1ggab84a0edcab74e2753cefdaccd06ecc3da862de9081d83cb1cdc0919456a40a0f2" prot="public">
+          <name>NRF_RNG_TASK_STOP</name>
+          <initializer>= offsetof(NRF_RNG_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Stop the random number generator. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RNG tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="51" column="1" bodyfile="hal/nrf_rng.h" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rng_event_t</name>
+        <enumvalue id="group__nrf__rng__hal_1gga87281dcd5f6e066cf94fcfafc6b21cf3aaff91dee2e5734103ce61d646e27bf67" prot="public">
+          <name>NRF_RNG_EVENT_VALRDY</name>
+          <initializer>= offsetof(NRF_RNG_Type, EVENTS_VALRDY)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>New random number generated event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RNG events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="58" column="1" bodyfile="hal/nrf_rng.h" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rng__hal_1gad6a9d5489399d1eca1b2dde336fda24c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rng_int_mask_t</name>
+        <enumvalue id="group__nrf__rng__hal_1ggad6a9d5489399d1eca1b2dde336fda24caca76866e6cb41a2ab1942f00c21b3189" prot="public">
+          <name>NRF_RNG_INT_VALRDY_MASK</name>
+          <initializer>= RNG_INTENSET_VALRDY_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for enabling or disabling an interrupt on VALRDY event. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RNG interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="64" column="1" bodyfile="hal/nrf_rng.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__rng__hal_1ga973da1da6dffe1d874cf29b11733f5e4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_rng_short_mask_t</name>
+        <enumvalue id="group__nrf__rng__hal_1gga973da1da6dffe1d874cf29b11733f5e4a9e6b85298a47c2e01c51316f82e3cd3a" prot="public">
+          <name>NRF_RNG_SHORT_VALRDY_STOP_MASK</name>
+          <initializer>= RNG_SHORTS_VALRDY_STOP_Msk</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for setting shortcut between EVENT_VALRDY and TASK_STOP. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of RNG shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="70" column="1" bodyfile="hal/nrf_rng.h" bodystart="71" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__rng__hal_1gabe896131020db537722eee3dc9a3182b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_int_enable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rng_int_enable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__rng__hal_1gad6a9d5489399d1eca1b2dde336fda24c" kindref="member">nrf_rng_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="270" column="24" bodyfile="hal/nrf_rng.h" bodystart="270" bodyend="273" declfile="hal/nrf_rng.h" declline="83" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga313d6ec9b10dd1a908d83e0299ea8185" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_int_disable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rng_int_disable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__rng__hal_1gad6a9d5489399d1eca1b2dde336fda24c" kindref="member">nrf_rng_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="275" column="24" bodyfile="hal/nrf_rng.h" bodystart="275" bodyend="278" declfile="hal/nrf_rng.h" declline="92" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gafa3f9bef11aec96ba956431d8a543532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rng_int_enable_check</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rng_int_enable_check</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__rng__hal_1gad6a9d5489399d1eca1b2dde336fda24c" kindref="member">nrf_rng_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="280" column="28" bodyfile="hal/nrf_rng.h" bodystart="280" bodyend="283" declfile="hal/nrf_rng.h" declline="103" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gaa4916b13e5dbcc1a15ac15a39e20449a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rng_task_address_get</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, nrf_rng_task_t rng_task)</argsstring>
+        <name>nrf_rng_task_address_get</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" kindref="member">nrf_rng_task_t</ref></type>
+          <declname>rng_task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be used by the PPI module.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rng_task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="285" column="28" bodyfile="hal/nrf_rng.h" bodystart="285" bodyend="289" declfile="hal/nrf_rng.h" declline="115" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga735cbf616d3bc63a27c8b139bf6709a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_task_trigger</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_task_t rng_task)</argsstring>
+        <name>nrf_rng_task_trigger</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" kindref="member">nrf_rng_task_t</ref></type>
+          <declname>rng_task</declname>
+        </param>
+        <briefdescription>
+<para>Function for triggering the specified task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rng_task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified Task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="291" column="24" bodyfile="hal/nrf_rng.h" bodystart="291" bodyend="294" declfile="hal/nrf_rng.h" declline="124" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gaba0479da6c050146bae443e7d389ea88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rng_event_address_get</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, nrf_rng_event_t rng_event)</argsstring>
+        <name>nrf_rng_event_address_get</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>rng_event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting address of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can be used by the PPI module.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rng_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="296" column="28" bodyfile="hal/nrf_rng.h" bodystart="296" bodyend="300" declfile="hal/nrf_rng.h" declline="136" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga1adbad520250d98886f112598ac63fb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_event_clear</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_event_t rng_event)</argsstring>
+        <name>nrf_rng_event_clear</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>rng_event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rng_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="302" column="24" bodyfile="hal/nrf_rng.h" bodystart="302" bodyend="306" declfile="hal/nrf_rng.h" declline="145" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga292c4d84a8b2fccf685b0821fcc568dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_rng_event_check</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, nrf_rng_event_t rng_event)</argsstring>
+        <name>nrf_rng_event_check</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>rng_event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the specified event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rng_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event is set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event is not set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="308" column="24" bodyfile="hal/nrf_rng.h" bodystart="308" bodyend="311" declfile="hal/nrf_rng.h" declline="156" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gabac7f9eddbfc436b8c7240752cc09da8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_shorts_enable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rng_shorts_enable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="313" column="24" bodyfile="hal/nrf_rng.h" bodystart="313" bodyend="316" declfile="hal/nrf_rng.h" declline="164" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga67d6e0c163ca0899ce57fd109480ca4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_shorts_disable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_rng_shorts_disable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing shortcuts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of shortcuts. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="318" column="24" bodyfile="hal/nrf_rng.h" bodystart="318" bodyend="321" declfile="hal/nrf_rng.h" declline="172" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga2931bde5aa7b2c1f1cd86068880d9fb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint8_t</type>
+        <definition>NRF_STATIC_INLINE uint8_t nrf_rng_random_value_get</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg)</argsstring>
+        <name>nrf_rng_random_value_get</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the previously generated random value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Previously generated random value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="323" column="27" bodyfile="hal/nrf_rng.h" bodystart="323" bodyend="326" declfile="hal/nrf_rng.h" declline="181" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gae009ecaa57345b562049fb7b31f15319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_error_correction_enable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg)</argsstring>
+        <name>nrf_rng_error_correction_enable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling digital error correction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="328" column="24" bodyfile="hal/nrf_rng.h" bodystart="328" bodyend="331" declfile="hal/nrf_rng.h" declline="188" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga8853443f64114e2b145778ba0748da5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_error_correction_disable</definition>
+        <argsstring>(NRF_RNG_Type *p_reg)</argsstring>
+        <name>nrf_rng_error_correction_disable</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling digital error correction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="333" column="24" bodyfile="hal/nrf_rng.h" bodystart="333" bodyend="336" declfile="hal/nrf_rng.h" declline="195" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga0e1b39a1e13d328e204feb6bbc1544a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_subscribe_set</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_rng_subscribe_set</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" kindref="member">nrf_rng_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given RNG task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="206" column="24" declfile="hal/nrf_rng.h" declline="206" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gae31ecb8b5ba1d709c9b3aae5b3a667ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_subscribe_clear</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_task_t task)</argsstring>
+        <name>nrf_rng_subscribe_clear</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" kindref="member">nrf_rng_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given RNG task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="217" column="24" declfile="hal/nrf_rng.h" declline="217" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gafc94ac6b2ce626fad0d584cdb566fbe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rng_subscribe_get</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, nrf_rng_task_t task)</argsstring>
+        <name>nrf_rng_subscribe_get</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1gab84a0edcab74e2753cefdaccd06ecc3d" kindref="member">nrf_rng_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given RNG task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ENG subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="229" column="28" declfile="hal/nrf_rng.h" declline="229" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga8da3de76d6d768ef5d83081facb79198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_publish_set</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_rng_publish_set</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given RNG event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="240" column="24" declfile="hal/nrf_rng.h" declline="240" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1gaf66e1f37b7a3ab1106942ac792eacee4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_rng_publish_clear</definition>
+        <argsstring>(NRF_RNG_Type *p_reg, nrf_rng_event_t event)</argsstring>
+        <name>nrf_rng_publish_clear</name>
+        <param>
+          <type>NRF_RNG_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given RNG event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="251" column="24" declfile="hal/nrf_rng.h" declline="251" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__rng__hal_1ga72136ca5d2fa24b720029abe88ccca44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_rng_publish_get</definition>
+        <argsstring>(NRF_RNG_Type const *p_reg, nrf_rng_event_t event)</argsstring>
+        <name>nrf_rng_publish_get</name>
+        <param>
+          <type>NRF_RNG_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__rng__hal_1ga87281dcd5f6e066cf94fcfafc6b21cf3" kindref="member">nrf_rng_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given RNG event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>RNG publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_rng.h" line="263" column="28" declfile="hal/nrf_rng.h" declline="263" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer (HAL) for managing the Random Number Generator (RNG) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

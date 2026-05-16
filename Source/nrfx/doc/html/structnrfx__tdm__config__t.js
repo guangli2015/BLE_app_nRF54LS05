@@ -1,0 +1,27 @@
+var structnrfx__tdm__config__t =
+[
+    [ "alignment", "structnrfx__tdm__config__t.html#aa2b4c39bce7fcd4bb08593a751d711ed", null ],
+    [ "channel_delay", "structnrfx__tdm__config__t.html#a447a847bc547b62f01f4d96321f9b5c4", null ],
+    [ "channel_number", "structnrfx__tdm__config__t.html#a6d52a386e1128b477b3d85c1d6ffefdf", null ],
+    [ "fsync_duration", "structnrfx__tdm__config__t.html#ae2c3f84d65a0efbe0382a3305f8aaa55", null ],
+    [ "fsync_pin", "structnrfx__tdm__config__t.html#a6f863f2ce2a12d3fe538e4644f2b4dc8", null ],
+    [ "fsync_polarity", "structnrfx__tdm__config__t.html#a0c7c15529bf49656387f0fb293cd74ac", null ],
+    [ "irq_priority", "structnrfx__tdm__config__t.html#a74b969d3e66dae763955ba6abf381f7f", null ],
+    [ "mck_bypass", "structnrfx__tdm__config__t.html#a6bc64da48ac28c5f3c1d72bb77aa9af4", null ],
+    [ "mck_pin", "structnrfx__tdm__config__t.html#a20f5cbeded62ee0ce8ba5a9663643f63", null ],
+    [ "mck_src", "structnrfx__tdm__config__t.html#aa619bf9cf66feea2026c2dbe0b3a1cfe", null ],
+    [ "mode", "structnrfx__tdm__config__t.html#a13640bc92d7e633a30608bceffa58478", null ],
+    [ "ors", "structnrfx__tdm__config__t.html#a4ceec62e1aecb0ebb511098be6aa7bc4", null ],
+    [ "prescalers", "structnrfx__tdm__config__t.html#af4163de7430f6fda2fe1cb7b045578e7", null ],
+    [ "rx_channel_mask", "structnrfx__tdm__config__t.html#ae24b8c6c702dce44b7019e3c0b14d852", null ],
+    [ "sample_width", "structnrfx__tdm__config__t.html#a69335bdd14d7a7d09652adace9936424", null ],
+    [ "sck_bypass", "structnrfx__tdm__config__t.html#a213de200508815884efb86d89aac61f3", null ],
+    [ "sck_pin", "structnrfx__tdm__config__t.html#a8091f5b5944111f7b0040941264c5c5d", null ],
+    [ "sck_polarity", "structnrfx__tdm__config__t.html#a6053630984688cb7cbe6ab18629f9b65", null ],
+    [ "sck_src", "structnrfx__tdm__config__t.html#a0b92bfcc47f120e542eadad3e334bfd8", null ],
+    [ "sdin_pin", "structnrfx__tdm__config__t.html#a4bfe007fa4e244b1405b3fcbe9f3633c", null ],
+    [ "sdout_pin", "structnrfx__tdm__config__t.html#a5d6dc79a5d6353938bc7f765b4063118", null ],
+    [ "skip_gpio_cfg", "structnrfx__tdm__config__t.html#a48f8c7a3c1bebd98dfb97c577730a014", null ],
+    [ "skip_psel_cfg", "structnrfx__tdm__config__t.html#a0f11d4fcebddcdb94d67666c790dd1b2", null ],
+    [ "tx_channel_mask", "structnrfx__tdm__config__t.html#af4c242606bfbd8fddd90f265dde0f2c2", null ]
+];

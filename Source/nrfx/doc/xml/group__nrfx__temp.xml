@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__temp" kind="group">
+    <compoundname>nrfx_temp</compoundname>
+    <title>TEMP driver</title>
+    <innerclass refid="structnrfx__temp__config__t" prot="public">nrfx_temp_config_t</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_temp_data_handler_t) (int32_t temperature)</definition>
+        <argsstring>)(int32_t temperature)</argsstring>
+        <name>nrfx_temp_data_handler_t</name>
+        <briefdescription>
+<para>TEMP driver data ready handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>temperature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw temperature in a 2&apos;s complement signed value representation. This value can be converted to Celsius scale using the <ref refid="group__nrfx__temp_1ga9c99e430d526913f0bbb93afff9617ae" kindref="member">nrfx_temp_calculate()</ref> function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="70" column="9" bodyfile="drivers/include/nrfx_temp.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__temp_1ga072824b066c170856b3413cdb8381f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_temp_init</definition>
+        <argsstring>(nrfx_temp_config_t const *p_config, nrfx_temp_data_handler_t handler)</argsstring>
+        <name>nrfx_temp_init</name>
+        <param>
+          <type><ref refid="structnrfx__temp__config__t" kindref="compound">nrfx_temp_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__temp_1ga7058e9a221b87aee0e3e07140b147b88" kindref="member">nrfx_temp_data_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TEMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data handler provided by the user. If not provided, the driver is initialized in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was successfully initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver was already initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="82" column="5" declfile="drivers/include/nrfx_temp.h" declline="82" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga59ec603263d649ac4303bc5db4d24cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_temp_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TEMP driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="85" column="6" declfile="drivers/include/nrfx_temp.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga8fe7031791dc3db4d1b9695d0d9d1579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_temp_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TEMP driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="93" column="6" declfile="drivers/include/nrfx_temp.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int32_t</type>
+        <definition>NRFX_STATIC_INLINE int32_t nrfx_temp_result_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_result_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the temperature measurement in a 2&apos;s complement signed value representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns the last value prepared by the TEMP peripheral. In blocking mode, it should be used after calling the <ref refid="group__nrfx__temp_1ga5889c06cb3cd22f8bddb36d3f8b285a2" kindref="member">nrfx_temp_measure()</ref> function. In non-blocking mode, it is called internally by the driver, and the value it returns is passed to the data handler.</para>
+<para><simplesect kind="return"><para>Temperature measurement result in a 2&apos;s complement signed value representation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="144" column="28" bodyfile="drivers/include/nrfx_temp.h" bodystart="144" bodyend="147" declfile="drivers/include/nrfx_temp.h" declline="107" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga9c99e430d526913f0bbb93afff9617ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t nrfx_temp_calculate</definition>
+        <argsstring>(int32_t raw_measurement)</argsstring>
+        <name>nrfx_temp_calculate</name>
+        <param>
+          <type>int32_t</type>
+          <declname>raw_measurement</declname>
+        </param>
+        <briefdescription>
+<para>Function for calculating the temperature value in Celsius scale from raw data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The returned temperature value is in Celsius scale, multiplied by 100 For example, the actual temperature of 25.75[C] will be returned as a 2575 signed integer. Measurement accuracy is 0.25[C].</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">raw_measurement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Temperature value in a 2&apos;s complement signed value representation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Temperature measurement result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="121" column="9" declfile="drivers/include/nrfx_temp.h" declline="121" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__temp_1ga5889c06cb3cd22f8bddb36d3f8b285a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_temp_measure</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_temp_measure</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the temperature measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Non-blocking mode: This function returns immediately. After a measurement, the handler specified during initialization is called, with measurement result as the parameter.</para>
+<para>Blocking mode: This function waits until the measurement is finished. The value should be read using the <ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get()</ref> function.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In non-blocking mode: Measurement was started. An interrupt will be generated soon. <linebreak/>
+ In blocking mode: Measurement was started and finished. Data can be read using the <ref refid="group__nrfx__temp_1gab4470baf38b99d0dbdcd4d6312998061" kindref="member">nrfx_temp_result_get()</ref> function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In non-blocking mode: Not applicable. <linebreak/>
+ In blocking mode: Measurement data ready event did not occur. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="141" column="5" declfile="drivers/include/nrfx_temp.h" declline="141" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__temp_1ga7189e64c47d44bbea8297651d960d32f" prot="public" static="no">
+        <name>NRFX_TEMP_DEFAULT_CONFIG</name>
+        <initializer>    {                                                                   \
+        .interrupt_priority = NRFX_TEMP_DEFAULT_CONFIG_IRQ_PRIORITY,    \
+    }</initializer>
+        <briefdescription>
+<para>TEMP default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_temp.h" line="58" column="9" bodyfile="drivers/include/nrfx_temp.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Temperature sensor (TEMP) driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

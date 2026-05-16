@@ -1,0 +1,1615 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__twim_8h" kind="file" language="C++">
+    <compoundname>nrfx_twim.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrfx__twi__twim_8h" local="no">nrfx_twi_twim.h</includes>
+    <includes refid="nrfy__twim_8h" local="no">haly/nrfy_twim.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_twim.h</label>
+        <link refid="nrfx__twim_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__twim__xfer__desc__t" prot="public">nrfx_twim_xfer_desc_t</innerclass>
+    <innerclass refid="structnrfx__twim__event__t" prot="public">nrfx_twim_event_t</innerclass>
+    <innerclass refid="structnrfx__twim__t" prot="public">nrfx_twim_t</innerclass>
+    <innerclass refid="structnrfx__twim__config__t" prot="public">nrfx_twim_config_t</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__twim_1ga6ad635a5c2d12275c08cb79ecc63bdb2" prot="public" static="no">
+        <name>NRFX_TWIM_INSTANCE</name>
+        <param><defname>reg</defname></param>
+        <initializer>{                                   \
+    .p_twim = (NRF_TWIM_Type *)reg, \
+    .cb    = {0},                   \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a TWIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="124" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga9b6909a16a98da94492b0d7329f34c01" prot="public" static="no">
+        <name>NRFX_TWIM_DEFAULT_CONFIG</name>
+        <param><defname>_pin_scl</defname></param>
+        <param><defname>_pin_sda</defname></param>
+        <initializer>{                                                                \
+    .scl_pin            = _pin_scl,                              \
+    .sda_pin            = _pin_sda,                              \
+    .frequency          = <ref refid="group__nrf__twim__hal_1gga63248331964302df70fdc0fbd85ce6b7a85f5bb1285c0b1f13513aa3e056c1473" kindref="member">NRF_TWIM_FREQ_100K</ref>,                    \
+    .interrupt_priority = <ref refid="group__nrfx__twim__config_1ga0f95d997b9650fce333fd3729ef1863e" kindref="member">NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY</ref>, \
+    .hold_bus_uninit    = false,                                 \
+}</initializer>
+        <briefdescription>
+<para>TWIM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up TWIM with the following options:<itemizedlist>
+<listitem><para>clock frequency: 100 kHz</para>
+</listitem><listitem><para>disable bus holding after uninit</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_scl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sda</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="164" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga202fb0746fddcaa65b2a53aaac223268" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_TX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Flag indicating that TX buffer address will be incremented after the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="174" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_RX_POSTINC</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Flag indicating that RX buffer address will be incremented after the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="176" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</name>
+        <initializer>(1UL &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>Flag indicating that the interrupt after each transfer will be suppressed, and the event handler will not be called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="178" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_HOLD_XFER</name>
+        <initializer>(1UL &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be set up, but not started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="180" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_REPEATED_XFER</name>
+        <initializer>(1UL &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>Flag indicating that the transfer will be executed multiple times. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="182" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_TX_NO_STOP</name>
+        <initializer>(1UL &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>Flag indicating that the TX transfer will not end with a stop condition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="184" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga38391ab98a2ca3095ad4648e7b11c95b" prot="public" static="no">
+        <name>NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK</name>
+        <initializer>(1UL &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Flag indicating that checks for spurious STOP condition will not be performed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="186" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC</name>
+        <param><defname>transfer</defname></param>
+        <param><defname>addr</defname></param>
+        <param><defname>p_buf1</defname></param>
+        <param><defname>buf_len1</defname></param>
+        <param><defname>p_buf2</defname></param>
+        <param><defname>buf_len2</defname></param>
+        <initializer>{                                                                               \
+    .type             = (transfer),                                             \
+    .address          = (addr),                                                 \
+    .primary_length   = (buf_len1),                                             \
+    .secondary_length = (buf_len2),                                             \
+    .p_primary_buf    = (p_buf1),                                               \
+    .p_secondary_buf  = (p_buf2)                                                \
+}</initializer>
+        <briefdescription>
+<para>Macro for setting the transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="189" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf5c6310cff2a4288810f066a8d56d1a2" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref>, addr, p_data, length, NULL, 0)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="200" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaa87a3de9c2092f6d20c6d41bbfafd168" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_RX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_data</defname></param>
+        <param><defname>length</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" kindref="member">NRFX_TWIM_XFER_RX</ref>, addr, p_data, length, NULL, 0)</initializer>
+        <briefdescription>
+<para>Macro for setting the RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="204" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1ga07a7b732d1b87b714338fccce09996bc" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TXRX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_rx</defname></param>
+        <param><defname>rx_len</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" kindref="member">NRFX_TWIM_XFER_TXRX</ref>, addr, p_tx, tx_len, p_rx, rx_len)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-RX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="208" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim_1gaf9f42bc0fd9d26a9516ff2de689d320f" prot="public" static="no">
+        <name>NRFX_TWIM_XFER_DESC_TXTX</name>
+        <param><defname>addr</defname></param>
+        <param><defname>p_tx</defname></param>
+        <param><defname>tx_len</defname></param>
+        <param><defname>p_tx2</defname></param>
+        <param><defname>tx_len2</defname></param>
+        <initializer>        <ref refid="group__nrfx__twim_1gae17035cdbaec7b554abf15ab8c7eb8c8" kindref="member">NRFX_TWIM_XFER_DESC</ref>(<ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref>, addr, p_tx, tx_len, p_tx2, tx_len2)</initializer>
+        <briefdescription>
+<para>Macro for setting the TX-TX transfer descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="212" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twim_xfer_type_t</name>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" prot="public">
+          <name>NRFX_TWIM_XFER_TX</name>
+          <briefdescription>
+<para>TX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" prot="public">
+          <name>NRFX_TWIM_XFER_RX</name>
+          <briefdescription>
+<para>RX transfer. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" prot="public">
+          <name>NRFX_TWIM_XFER_TXRX</name>
+          <briefdescription>
+<para>TX transfer followed by RX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" prot="public">
+          <name>NRFX_TWIM_XFER_TXTX</name>
+          <briefdescription>
+<para>TX transfer followed by TX transfer with repeated start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIM driver transfer types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="53" column="1" bodyfile="drivers/include/nrfx_twim.h" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__twim_1ga8d672a982a44e419b47eb62025c7d2a0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_twim_event_type_t</name>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a0c3da05dd0c1c9ba975bbb09da691888" prot="public">
+          <name>NRFX_TWIM_EVT_DONE</name>
+          <briefdescription>
+<para>Transfer completed event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0aa979e5ea226b037863482cfb19c87f7e" prot="public">
+          <name>NRFX_TWIM_EVT_ADDRESS_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending the address. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a38763e24f6695893eca916025267864c" prot="public">
+          <name>NRFX_TWIM_EVT_DATA_NACK</name>
+          <briefdescription>
+<para>Error event: NACK received after sending a data byte. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a9c9e873cf41ad070a6438806a391ff9f" prot="public">
+          <name>NRFX_TWIM_EVT_OVERRUN</name>
+          <briefdescription>
+<para>Error event: The unread data is replaced by new data. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0ad0c96945b3c8c3904602ee34c0561cb3" prot="public">
+          <name>NRFX_TWIM_EVT_BUS_ERROR</name>
+          <briefdescription>
+<para>Error event: An unexpected transition occurred on the bus. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>TWIM driver event types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="62" column="1" bodyfile="drivers/include/nrfx_twim.h" bodystart="63" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_twim_event_handler_t) (nrfx_twim_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_twim_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_twim_event_handler_t</name>
+        <briefdescription>
+<para>TWIM driver event handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="90" column="9" bodyfile="drivers/include/nrfx_twim.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_init</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_config_t const *p_config, nrfx_twim_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_twim_init</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the TWIM driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If NULL, blocking mode is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>On nRF5340, 1 MHz setting is supported only on the dedicated pins. See the chapter <ulink url="https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf5340%2Fchapters%2Fpin.html">Pin assignments</ulink> in the Product Specification.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified pins. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="234" column="5" declfile="drivers/include/nrfx_twim.h" declline="234" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga16a0ae17e6a54307ef4e4bf0785cf56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_reconfigure</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_config_t const *p_config)</argsstring>
+        <name>nrfx_twim_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested frequency is not available on the specified pins. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="250" column="5" declfile="drivers/include/nrfx_twim.h" declline="250" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga2b030ae0602501afc12ff1154d25b390" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_callback_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance, nrfx_twim_event_handler_t *p_event_handler, void **pp_context)</argsstring>
+        <name>nrfx_twim_callback_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref> *</type>
+          <declname>p_event_handler</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>pp_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting current TWIM event handler and associated context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to be filled with the current event handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pp_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to be filled with a pointer to the current event handler context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="260" column="6" declfile="drivers/include/nrfx_twim.h" declline="260" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga171ef1967ffb946962a56e1dd164c301" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_callback_set</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_event_handler_t event_handler, void *p_context)</argsstring>
+        <name>nrfx_twim_callback_set</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting event handler of a TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function overwrites the internally stored values of <computeroutput>event_handler</computeroutput> and <computeroutput>p_context</computeroutput> parameters passed to the <ref refid="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" kindref="member">nrfx_twim_init</ref> function. To be able to restore previous event handler you can use the <ref refid="group__nrfx__twim_1ga2b030ae0602501afc12ff1154d25b390" kindref="member">nrfx_twim_callback_get</ref> .</para>
+<para><simplesect kind="warning"><para>This function can be used only for reconfiguring handler in the non-blocking mode. Use <ref refid="group__nrfx__twim_1gad6ee10f61e8095cf874595d8fcbc2f26" kindref="member">nrfx_twim_uninit</ref> and <ref refid="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" kindref="member">nrfx_twim_init</ref> to reconfigure driver in the blocking mode.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Cannot be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is performing transaction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINPROGRESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is configured in blocking mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="282" column="5" declfile="drivers/include/nrfx_twim.h" declline="282" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gad6ee10f61e8095cf874595d8fcbc2f26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_uninit</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="291" column="6" declfile="drivers/include/nrfx_twim.h" declline="291" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1926b246ae2a852859d4599940783b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twim_init_check</definition>
+        <argsstring>(nrfx_twim_t const *p_instance)</argsstring>
+        <name>nrfx_twim_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the TWIM driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="301" column="6" declfile="drivers/include/nrfx_twim.h" declline="301" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga3f40061fa4ebb768655b2188b5bbd2b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_enable</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_enable</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="308" column="6" declfile="drivers/include/nrfx_twim.h" declline="308" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1c5f6cf18a86a2f2b0cb14c1073d33a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_disable</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_disable</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the TWIM instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="315" column="6" declfile="drivers/include/nrfx_twim.h" declline="315" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_twim_xfer</definition>
+        <argsstring>(nrfx_twim_t *p_instance, nrfx_twim_xfer_desc_t const *p_xfer_desc, uint32_t flags)</argsstring>
+        <name>nrfx_twim_xfer</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__twim__xfer__desc__t" kindref="compound">nrfx_twim_xfer_desc_t</ref> const *</type>
+          <declname>p_xfer_desc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing a TWIM transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The following transfer types can be configured (<ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref>):<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" kindref="member">NRFX_TWIM_XFER_TXRX</ref> - Write operation followed by a read operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref> - Write operation followed by a write operation (without STOP condition in between).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref> - Write operation (with or without STOP condition).</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" kindref="member">NRFX_TWIM_XFER_RX</ref> - Read operation (with STOP condition).</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>TX-RX and TX-TX transfers are supported only in non-blocking mode.</para>
+</simplesect>
+Additional options are provided using the flags parameter:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1ga202fb0746fddcaa65b2a53aaac223268" kindref="member">NRFX_TWIM_FLAG_TX_POSTINC</ref> and <ref refid="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" kindref="member">NRFX_TWIM_FLAG_RX_POSTINC</ref> - Post-incrementation of buffer addresses.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> - No user event handler after the transfer completion. In most cases, this also means no interrupt at the end of the transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" kindref="member">NRFX_TWIM_FLAG_HOLD_XFER</ref> - Driver is not starting the transfer. Use this flag if the transfer is triggered externally by PPI. Use <ref refid="group__nrfx__twim_1gab2b131cedfc031575c868bb0f8e2bd21" kindref="member">nrfx_twim_start_task_address_get</ref> to get the address of the start task.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> - Prepare for repeated transfers. You can set up a number of transfers that will be triggered externally (for example by PPI). An example is a TXRX transfer with the options <ref refid="group__nrfx__twim_1gaeb7e2ec41cf63c3bb6963757237b6e0b" kindref="member">NRFX_TWIM_FLAG_RX_POSTINC</ref>, <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref>, and <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref>. After the transfer is set up, a set of transfers can be triggered by PPI that will read, for example, the same register of an external component and put it into a RAM buffer without any interrupts. <ref refid="group__nrfx__twim_1ga1a839b5aedb9390ad881baedb49ace2b" kindref="member">nrfx_twim_stopped_event_address_get</ref> can be used to get the address of the STOPPED event, which can be used to count the number of transfers. If <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> is used, the driver does not set the driver instance into busy state, so you must ensure that the next transfers are set up when TWIM is not active.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> - No stop condition after the TX transfer.</para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga38391ab98a2ca3095ad4648e7b11c95b" kindref="member">NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK</ref> - Checks for spurious STOP conditions are disabled. Used together with <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> can result in lower power consumption when transfers are triggered externally and CPU is sleeping. Use only with I2C standard-compliant slave devices.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Some flag combinations are invalid:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> with <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> different than <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> with <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> set to <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref></para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+If <ref refid="structnrfx__twim__xfer__desc__t_1aa0296ce64f9423d5f8baee1545b5dd9e" kindref="member">nrfx_twim_xfer_desc_t::type</ref> is set to <ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref> and the <ref refid="group__nrfx__twim_1gad63c4a75991aea41e27e21e562bd04cd" kindref="member">NRFX_TWIM_FLAG_TX_NO_STOP</ref> and <ref refid="group__nrfx__twim_1ga2bf5386fc2e5421da9d6d265e5deef83" kindref="member">NRFX_TWIM_FLAG_REPEATED_XFER</ref> flags are set, two tasks must be used to trigger a transfer: TASKS_RESUME followed by TASKS_STARTTX. If no stop condition is generated, TWIM is in SUSPENDED state. Therefore, it must be resumed before the transfer can be started.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including TWIM) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code -EACCES.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_xfer_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transfer descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EBUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOTSUP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided parameters are not supported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unexpected transition occurred on the bus. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EACCES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EOVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The unread data is replaced by new data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EFAULT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NACK is received after sending the address. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EAGAIN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>NACK is received after sending a data byte. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="372" column="5" declfile="drivers/include/nrfx_twim.h" declline="372" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga93130cda80db8e32afb4c7a4531ac7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_twim_is_busy</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_is_busy</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking the TWIM driver state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TWIM instance.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIM driver is currently busy performing a transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The TWIM driver is ready for a new transfer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="384" column="6" declfile="drivers/include/nrfx_twim.h" declline="384" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gab2b131cedfc031575c868bb0f8e2bd21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twim_start_task_address_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance, nrfx_twim_xfer_type_t xfer_type)</argsstring>
+        <name>nrfx_twim_start_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref></type>
+          <declname>xfer_type</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a TWIM start task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is to be used if <ref refid="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" kindref="member">nrfx_twim_xfer</ref> was called with the flag <ref refid="group__nrfx__twim_1gaf2f189655c4fee0ed50936a4290671cc" kindref="member">NRFX_TWIM_FLAG_HOLD_XFER</ref>. In that case, the transfer is not started by the driver, but it must be started externally by PPI.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">xfer_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer type used in the last call of the <ref refid="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" kindref="member">nrfx_twim_xfer</ref> function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Start task address (TX or RX) depending on the value of xfer_type. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="398" column="10" declfile="drivers/include/nrfx_twim.h" declline="398" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga1a839b5aedb9390ad881baedb49ace2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_twim_stopped_event_address_get</definition>
+        <argsstring>(nrfx_twim_t const *p_instance)</argsstring>
+        <name>nrfx_twim_stopped_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of a STOPPED TWIM event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A STOPPED event can be used to detect the end of a transfer if the <ref refid="group__nrfx__twim_1gab41afeb3c39b734c0171ad8f71f305ba" kindref="member">NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</ref> option is used.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>STOPPED event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="411" column="10" declfile="drivers/include/nrfx_twim.h" declline="411" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1ga5dc0edc41ca3acdde15d39c8985e8df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE int</type>
+        <definition>NRFX_STATIC_INLINE int nrfx_twim_bus_recover</definition>
+        <argsstring>(uint32_t scl_pin, uint32_t sda_pin)</argsstring>
+        <name>nrfx_twim_bus_recover</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>scl_pin</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sda_pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for recovering the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function checks if the bus is not stuck because of a slave holding the SDA line in the low state, and if needed it performs required number of pulses on the SCL line to make the slave release the SDA line. Finally, the function generates a STOP condition on the bus to put it into a known state.</para>
+<para><simplesect kind="note"><para>This function can be used only if the TWIM driver is uninitialized.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">scl_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCL pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sda_pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDA pin number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bus recovery failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="438" column="24" bodyfile="drivers/include/nrfx_twim.h" bodystart="438" bodyend="441" declfile="drivers/include/nrfx_twim.h" declline="428" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__twim_1gad9526f8916a96ee9eb3f6ca4b242e2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_twim_irq_handler</definition>
+        <argsstring>(nrfx_twim_t *p_instance)</argsstring>
+        <name>nrfx_twim_irq_handler</name>
+        <param>
+          <type><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref> *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Driver interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="435" column="6" declfile="drivers/include/nrfx_twim.h" declline="435" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_TWIM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx_twi_twim.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;haly/nrfy_twim.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_twim<sp/>TWIM<sp/>driver</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_twim</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Two<sp/>Wire<sp/>Interface<sp/>Master<sp/>with<sp/>EasyDMA<sp/>(TWIM)<sp/>peripheral<sp/>driver.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**<sp/>@brief<sp/>TWIM<sp/>driver<sp/>transfer<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa94a97510c1bfdfff5084e94dea95ace0" kindref="member">NRFX_TWIM_XFER_TX</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>TX<sp/>transfer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fad0be0873d2e76374ae147bde733fece2" kindref="member">NRFX_TWIM_XFER_RX</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>RX<sp/>transfer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa89736f2c78e463456126da975d806a3a" kindref="member">NRFX_TWIM_XFER_TXRX</ref>,<sp/></highlight><highlight class="comment">///&lt;<sp/>TX<sp/>transfer<sp/>followed<sp/>by<sp/>RX<sp/>transfer<sp/>with<sp/>repeated<sp/>start.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1ggaee5cd6cb780546f1b40e0d7dd741a37fa142515e780cb343521ab099178310a32" kindref="member">NRFX_TWIM_XFER_TXTX</ref><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>TX<sp/>transfer<sp/>followed<sp/>by<sp/>TX<sp/>transfer<sp/>with<sp/>repeated<sp/>start.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}<sp/><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment">/**<sp/>@brief<sp/>TWIM<sp/>driver<sp/>event<sp/>types.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a0c3da05dd0c1c9ba975bbb09da691888" kindref="member">NRFX_TWIM_EVT_DONE</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Transfer<sp/>completed<sp/>event.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0aa979e5ea226b037863482cfb19c87f7e" kindref="member">NRFX_TWIM_EVT_ADDRESS_NACK</ref>,<sp/></highlight><highlight class="comment">///&lt;<sp/>Error<sp/>event:<sp/>NACK<sp/>received<sp/>after<sp/>sending<sp/>the<sp/>address.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a38763e24f6695893eca916025267864c" kindref="member">NRFX_TWIM_EVT_DATA_NACK</ref>,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Error<sp/>event:<sp/>NACK<sp/>received<sp/>after<sp/>sending<sp/>a<sp/>data<sp/>byte.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0a9c9e873cf41ad070a6438806a391ff9f" kindref="member">NRFX_TWIM_EVT_OVERRUN</ref>,<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Error<sp/>event:<sp/>The<sp/>unread<sp/>data<sp/>is<sp/>replaced<sp/>by<sp/>new<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gga8d672a982a44e419b47eb62025c7d2a0ad0c96945b3c8c3904602ee34c0561cb3" kindref="member">NRFX_TWIM_EVT_BUS_ERROR</ref><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Error<sp/>event:<sp/>An<sp/>unexpected<sp/>transition<sp/>occurred<sp/>on<sp/>the<sp/>bus.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="group__nrfx__twim_1ga8d672a982a44e419b47eb62025c7d2a0" kindref="member">nrfx_twim_event_type_t</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>a<sp/>TWIM<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structnrfx__twim__xfer__desc__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref><sp/>type;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Type<sp/>of<sp/>transfer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>address;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Slave<sp/>address.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>primary_length;<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Number<sp/>of<sp/>bytes<sp/>transferred.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>secondary_length;<sp/></highlight><highlight class="comment">///&lt;<sp/>Number<sp/>of<sp/>bytes<sp/>transferred.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_primary_buf;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>transferred<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_secondary_buf;<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>transferred<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="structnrfx__twim__xfer__desc__t" kindref="compound">nrfx_twim_xfer_desc_t</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>a<sp/>TWIM<sp/>event.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="structnrfx__twim__event__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1ga8d672a982a44e419b47eb62025c7d2a0" kindref="member">nrfx_twim_event_type_t</ref><sp/>type;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Event<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfx__twim__xfer__desc__t" kindref="compound">nrfx_twim_xfer_desc_t</ref><sp/><sp/>xfer_desc;<sp/></highlight><highlight class="comment">///&lt;<sp/>Transfer<sp/>details.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/><ref refid="structnrfx__twim__event__t" kindref="compound">nrfx_twim_event_t</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**<sp/>@brief<sp/>TWIM<sp/>driver<sp/>event<sp/>handler<sp/>type.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<sp/><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref>)(<ref refid="structnrfx__twim__event__t" kindref="compound">nrfx_twim_event_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_event,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/**<sp/>@cond<sp/>Driver<sp/>internal<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref><sp/>handler;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int_mask;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfy__twim__xfer__desc__t" kindref="compound">nrfy_twim_xfer_desc_t</ref><sp/><sp/><sp/><sp/><sp/>xfer_desc_primary;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structnrfy__twim__xfer__desc__t" kindref="compound">nrfy_twim_xfer_desc_t</ref><sp/><sp/><sp/><sp/><sp/>xfer_desc_secondary;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref><sp/><sp/><sp/><sp/><sp/>xfer_type;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>address;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__common_1gae09c4084ccd60f0b39742ce7e5c85794" kindref="member">nrfx_drv_state_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>busy;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>repeated;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hold_bus_uninit;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>NRF_ERRATA_STATIC_CHECK(52,<sp/>109)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__twim__hal_1ga63248331964302df70fdc0fbd85ce6b7" kindref="member">nrf_twim_frequency_t</ref><sp/><sp/><sp/><sp/><sp/><sp/>bus_frequency;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}<sp/>nrfx_twim_control_block_t;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="114"><highlight class="comment">/**<sp/>@endcond<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>the<sp/>TWIM<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="structnrfx__twim__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_TWIM_Type<sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_twim;<sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>a<sp/>structure<sp/>with<sp/>TWIM<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>nrfx_twim_control_block_t<sp/>cb;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Driver<sp/>internal<sp/>data.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}<sp/><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>creating<sp/>a<sp/>TWIM<sp/>driver<sp/>instance.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_INSTANCE(reg)<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="125"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="126"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_twim<sp/>=<sp/>(NRF_TWIM_Type<sp/>*)reg,<sp/>\</highlight></codeline>
+<codeline lineno="127"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.cb<sp/><sp/><sp/><sp/>=<sp/>{0},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="128"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="130"><highlight class="comment">/**<sp/>@brief<sp/>Structure<sp/>for<sp/>the<sp/>TWIM<sp/>driver<sp/>instance<sp/>configuration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="structnrfx__twim__config__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scl_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>SCL<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sda_pin;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>SDA<sp/>pin<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrf__twim__hal_1ga63248331964302df70fdc0fbd85ce6b7" kindref="member">nrf_twim_frequency_t</ref><sp/>frequency;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>TWIM<sp/>frequency.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interrupt_priority;<sp/></highlight><highlight class="comment">///&lt;<sp/>Interrupt<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hold_bus_uninit;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Hold<sp/>pull<sp/>up<sp/>state<sp/>on<sp/>GPIO<sp/>pins<sp/>after<sp/>uninit.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_gpio_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>GPIO<sp/>configuration<sp/>of<sp/>pins.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>any<sp/>GPIO<sp/>parameters<sp/>of<sp/>the<sp/>used<sp/>pins.<sp/>Those</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>parameters<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>configured</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skip_psel_cfg;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Skip<sp/>pin<sp/>selection<sp/>configuration.</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>When<sp/>set<sp/>to<sp/>true,<sp/>the<sp/>driver<sp/>does<sp/>not<sp/>modify</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>pin<sp/>select<sp/>registers<sp/>in<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>Those<sp/>registers<sp/>are<sp/>supposed<sp/>to<sp/>be<sp/>set<sp/>up</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>externally<sp/>before<sp/>the<sp/>driver<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>@note<sp/>When<sp/>both<sp/>GPIO<sp/>configuration<sp/>and<sp/>pin</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>selection<sp/>are<sp/>to<sp/>be<sp/>skipped,<sp/>the<sp/>structure</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>fields<sp/>that<sp/>specify<sp/>pins<sp/>can<sp/>be<sp/>omitted,</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/>as<sp/>they<sp/>are<sp/>ignored<sp/>anyway.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}<sp/><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@brief<sp/>TWIM<sp/>driver<sp/>default<sp/>configuration.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>This<sp/>configuration<sp/>sets<sp/>up<sp/>TWIM<sp/>with<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*<sp/>-<sp/>clock<sp/>frequency:<sp/>100<sp/>kHz</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>-<sp/>disable<sp/>bus<sp/>holding<sp/>after<sp/>uninit</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_scl<sp/>SCL<sp/>pin.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>_pin_sda<sp/>SDA<sp/>pin.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_DEFAULT_CONFIG(_pin_scl,<sp/>_pin_sda)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.scl_pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_scl,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.sda_pin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>_pin_sda,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.frequency<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>NRF_TWIM_FREQ_100K,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="169"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.interrupt_priority<sp/>=<sp/>NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY,<sp/>\</highlight></codeline>
+<codeline lineno="170"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.hold_bus_uninit<sp/><sp/><sp/><sp/>=<sp/>false,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="171"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="173"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>TX<sp/>buffer<sp/>address<sp/>will<sp/>be<sp/>incremented<sp/>after<sp/>the<sp/>transfer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_TX_POSTINC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>0)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="175"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>RX<sp/>buffer<sp/>address<sp/>will<sp/>be<sp/>incremented<sp/>after<sp/>the<sp/>transfer.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_RX_POSTINC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>1)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="177"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>the<sp/>interrupt<sp/>after<sp/>each<sp/>transfer<sp/>will<sp/>be<sp/>suppressed,<sp/>and<sp/>the<sp/>event<sp/>handler<sp/>will<sp/>not<sp/>be<sp/>called.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER<sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>2)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="179"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>the<sp/>transfer<sp/>will<sp/>be<sp/>set<sp/>up,<sp/>but<sp/>not<sp/>started.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_HOLD_XFER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>3)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="181"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>the<sp/>transfer<sp/>will<sp/>be<sp/>executed<sp/>multiple<sp/>times.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_REPEATED_XFER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>4)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="183"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>the<sp/>TX<sp/>transfer<sp/>will<sp/>not<sp/>end<sp/>with<sp/>a<sp/>stop<sp/>condition.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_TX_NO_STOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>5)</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="185"><highlight class="comment">/**<sp/>@brief<sp/>Flag<sp/>indicating<sp/>that<sp/>checks<sp/>for<sp/>spurious<sp/>STOP<sp/>condition<sp/>will<sp/>not<sp/>be<sp/>performed.<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK<sp/>(1UL<sp/>&lt;&lt;<sp/>6)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="188"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>the<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_XFER_DESC(transfer,<sp/>addr,<sp/>p_buf1,<sp/>buf_len1,<sp/>p_buf2,<sp/>buf_len2)<sp/>\</highlight></codeline>
+<codeline lineno="190"><highlight class="preprocessor">{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="191"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.type<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(transfer),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="192"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.address<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(addr),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="193"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.primary_length<sp/><sp/><sp/>=<sp/>(buf_len1),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="194"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.secondary_length<sp/>=<sp/>(buf_len2),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="195"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_primary_buf<sp/><sp/><sp/><sp/>=<sp/>(p_buf1),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.p_secondary_buf<sp/><sp/>=<sp/>(p_buf2)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="197"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>the<sp/>TX<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_XFER_DESC_TX(addr,<sp/>p_data,<sp/>length)<sp/>\</highlight></codeline>
+<codeline lineno="201"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_TWIM_XFER_DESC(NRFX_TWIM_XFER_TX,<sp/>addr,<sp/>p_data,<sp/>length,<sp/>NULL,<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="203"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>the<sp/>RX<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_XFER_DESC_RX(addr,<sp/>p_data,<sp/>length)<sp/>\</highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_TWIM_XFER_DESC(NRFX_TWIM_XFER_RX,<sp/>addr,<sp/>p_data,<sp/>length,<sp/>NULL,<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="207"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>the<sp/>TX-RX<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_XFER_DESC_TXRX(addr,<sp/>p_tx,<sp/>tx_len,<sp/>p_rx,<sp/>rx_len)<sp/>\</highlight></codeline>
+<codeline lineno="209"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_TWIM_XFER_DESC(NRFX_TWIM_XFER_TXRX,<sp/>addr,<sp/>p_tx,<sp/>tx_len,<sp/>p_rx,<sp/>rx_len)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="211"><highlight class="comment">/**<sp/>@brief<sp/>Macro<sp/>for<sp/>setting<sp/>the<sp/>TX-TX<sp/>transfer<sp/>descriptor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_XFER_DESC_TXTX(addr,<sp/>p_tx,<sp/>tx_len,<sp/>p_tx2,<sp/>tx_len2)<sp/>\</highlight></codeline>
+<codeline lineno="213"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_TWIM_XFER_DESC(NRFX_TWIM_XFER_TXTX,<sp/>addr,<sp/>p_tx,<sp/>tx_len,<sp/>p_tx2,<sp/>tx_len2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="215"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>initializing<sp/>the<sp/>TWIM<sp/>driver<sp/>instance.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>initial<sp/>configuration.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>If<sp/>NULL,<sp/>blocking<sp/>mode<sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/><sp/><sp/><sp/>Context<sp/>passed<sp/>to<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/>*<sp/>@warning<sp/>On<sp/>nRF5340,<sp/>1<sp/>MHz<sp/>setting<sp/>is<sp/>supported<sp/>only<sp/>on<sp/>the<sp/>dedicated<sp/>pins.<sp/>See<sp/>the<sp/>chapter</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;a<sp/>href=@nRF5340pinAssignmentsURL&gt;Pin<sp/>assignments&lt;/a&gt;<sp/>in<sp/>the<sp/>Product<sp/>Specification.</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EALREADY<sp/>The<sp/>driver<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/>Requested<sp/>frequency<sp/>is<sp/>not<sp/>available<sp/>on<sp/>the<sp/>specified<sp/>pins.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/>Some<sp/>other<sp/>peripheral<sp/>with<sp/>the<sp/>same</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>instance<sp/>ID<sp/>is<sp/>already<sp/>in<sp/>use.<sp/>This<sp/>is</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>possible<sp/>only<sp/>if<sp/>@ref<sp/>nrfx_prs<sp/>module</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>enabled.</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga52ff4fb2a5f2d6982a28cc53826b848b" kindref="member">nrfx_twim_init</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref><sp/><sp/>event_handler,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="239"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>reconfiguring<sp/>the<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_config<sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>structure<sp/>with<sp/>the<sp/>configuration.</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>during<sp/>transaction.</highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINVAL<sp/><sp/><sp/><sp/><sp/><sp/>Requested<sp/>frequency<sp/>is<sp/>not<sp/>available<sp/>on<sp/>the<sp/>specified<sp/>pins.</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga16a0ae17e6a54307ef4e4bf0785cf56c" kindref="member">nrfx_twim_reconfigure</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__twim__config__t" kindref="compound">nrfx_twim_config_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_config);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="253"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>current<sp/>TWIM<sp/>event<sp/>handler<sp/>and<sp/>associated<sp/>context.</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/><sp/>p_instance<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_event_handler<sp/>Pointer<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>the<sp/>current<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>pp_context<sp/><sp/><sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>be<sp/>filled<sp/>with<sp/>a<sp/>pointer<sp/>to<sp/>the<sp/>current<sp/>event<sp/>handler<sp/>context.</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga2b030ae0602501afc12ff1154d25b390" kindref="member">nrfx_twim_callback_get</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref><sp/>*<sp/>p_event_handler,</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pp_context);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="264"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>setting<sp/>event<sp/>handler<sp/>of<sp/>a<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>overwrites<sp/>the<sp/>internally<sp/>stored<sp/>values<sp/>of<sp/>@c<sp/>event_handler<sp/>and<sp/>@c<sp/>p_context</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/>*<sp/>parameters<sp/>passed<sp/>to<sp/>the<sp/>@ref<sp/>nrfx_twim_init<sp/>function.<sp/>To<sp/>be<sp/>able<sp/>to<sp/>restore<sp/>previous<sp/>event<sp/>handler</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/>*<sp/>you<sp/>can<sp/>use<sp/>the<sp/>@ref<sp/>nrfx_twim_callback_get<sp/>.</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/>*<sp/>@warning<sp/>This<sp/>function<sp/>can<sp/>be<sp/>used<sp/>only<sp/>for<sp/>reconfiguring<sp/>handler<sp/>in<sp/>the<sp/>non-blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>@ref<sp/>nrfx_twim_uninit<sp/>and<sp/>@ref<sp/>nrfx_twim_init<sp/>to<sp/>reconfigure<sp/>driver<sp/>in<sp/>the<sp/>blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/><sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>event_handler<sp/>Event<sp/>handler<sp/>provided<sp/>by<sp/>the<sp/>user.<sp/>Cannot<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_context<sp/><sp/><sp/><sp/><sp/>Context<sp/>passed<sp/>to<sp/>event<sp/>handler.</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Reconfiguration<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>performing<sp/>transaction.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EINPROGRESS<sp/>The<sp/>driver<sp/>is<sp/>configured<sp/>in<sp/>blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga171ef1967ffb946962a56e1dd164c301" kindref="member">nrfx_twim_callback_set</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gabe97cfe56127a053af7b55596daa4139" kindref="member">nrfx_twim_event_handler_t</ref><sp/>event_handler,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_context);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="286"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="287"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>uninitializing<sp/>the<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="288"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1gad6ee10f61e8095cf874595d8fcbc2f26" kindref="member">nrfx_twim_uninit</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="293"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>if<sp/>the<sp/>TWIM<sp/>driver<sp/>instance<sp/>is<sp/>initialized.</highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="297"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>Instance<sp/>is<sp/>already<sp/>initialized.</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>Instance<sp/>is<sp/>not<sp/>initialized.</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga1926b246ae2a852859d4599940783b63" kindref="member">nrfx_twim_init_check</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="303"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="304"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>enabling<sp/>the<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="305"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="306"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="307"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga3f40061fa4ebb768655b2188b5bbd2b4" kindref="member">nrfx_twim_enable</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="310"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>disabling<sp/>the<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga1c5f6cf18a86a2f2b0cb14c1073d33a1" kindref="member">nrfx_twim_disable</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="317"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>performing<sp/>a<sp/>TWIM<sp/>transfer.</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/>*<sp/>The<sp/>following<sp/>transfer<sp/>types<sp/>can<sp/>be<sp/>configured<sp/>(@ref<sp/>nrfx_twim_xfer_desc_t.type):</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_XFER_TXRX<sp/>-<sp/>Write<sp/>operation<sp/>followed<sp/>by<sp/>a<sp/>read<sp/>operation<sp/>(without<sp/>STOP<sp/>condition<sp/>in<sp/>between).</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_XFER_TXTX<sp/>-<sp/>Write<sp/>operation<sp/>followed<sp/>by<sp/>a<sp/>write<sp/>operation<sp/>(without<sp/>STOP<sp/>condition<sp/>in<sp/>between).</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_XFER_TX<sp/>-<sp/>Write<sp/>operation<sp/>(with<sp/>or<sp/>without<sp/>STOP<sp/>condition).</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_XFER_RX<sp/>-<sp/>Read<sp/>operation<sp/><sp/>(with<sp/>STOP<sp/>condition).</highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/>*<sp/>@note<sp/>TX-RX<sp/>and<sp/>TX-TX<sp/>transfers<sp/>are<sp/>supported<sp/>only<sp/>in<sp/>non-blocking<sp/>mode.</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/>*<sp/>Additional<sp/>options<sp/>are<sp/>provided<sp/>using<sp/>the<sp/>flags<sp/>parameter:</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_TX_POSTINC<sp/>and<sp/>@ref<sp/>NRFX_TWIM_FLAG_RX_POSTINC<sp/>-<sp/>Post-incrementation<sp/>of<sp/>buffer<sp/>addresses.</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER<sp/>-<sp/>No<sp/>user<sp/>event<sp/>handler<sp/>after<sp/>the<sp/>transfer<sp/>completion.<sp/>In<sp/>most<sp/>cases,<sp/>this<sp/>also<sp/>means<sp/>no<sp/>interrupt<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the<sp/>transfer.</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_HOLD_XFER<sp/>-<sp/>Driver<sp/>is<sp/>not<sp/>starting<sp/>the<sp/>transfer.<sp/>Use<sp/>this<sp/>flag<sp/>if<sp/>the<sp/>transfer<sp/>is<sp/>triggered<sp/>externally<sp/>by<sp/>PPI.</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Use<sp/>@ref<sp/>nrfx_twim_start_task_address_get<sp/>to<sp/>get<sp/>the<sp/>address<sp/>of<sp/>the<sp/>start<sp/>task.</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_REPEATED_XFER<sp/>-<sp/>Prepare<sp/>for<sp/>repeated<sp/>transfers.<sp/>You<sp/>can<sp/>set<sp/>up<sp/>a<sp/>number<sp/>of<sp/>transfers<sp/>that<sp/>will<sp/>be<sp/>triggered<sp/>externally<sp/>(for<sp/>example<sp/>by<sp/>PPI).</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/>*<sp/><sp/><sp/>An<sp/>example<sp/>is<sp/>a<sp/>TXRX<sp/>transfer<sp/>with<sp/>the<sp/>options<sp/>@ref<sp/>NRFX_TWIM_FLAG_RX_POSTINC,<sp/>@ref<sp/>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER,<sp/>and<sp/>@ref<sp/>NRFX_TWIM_FLAG_REPEATED_XFER.</highlight></codeline>
+<codeline lineno="335"><highlight class="comment"><sp/>*<sp/><sp/><sp/>After<sp/>the<sp/>transfer<sp/>is<sp/>set<sp/>up,<sp/>a<sp/>set<sp/>of<sp/>transfers<sp/>can<sp/>be<sp/>triggered<sp/>by<sp/>PPI<sp/>that<sp/>will<sp/>read,<sp/>for<sp/>example,<sp/>the<sp/>same<sp/>register<sp/>of<sp/>an</highlight></codeline>
+<codeline lineno="336"><highlight class="comment"><sp/>*<sp/><sp/><sp/>external<sp/>component<sp/>and<sp/>put<sp/>it<sp/>into<sp/>a<sp/>RAM<sp/>buffer<sp/>without<sp/>any<sp/>interrupts.<sp/>@ref<sp/>nrfx_twim_stopped_event_address_get<sp/>can<sp/>be<sp/>used<sp/>to<sp/>get<sp/>the</highlight></codeline>
+<codeline lineno="337"><highlight class="comment"><sp/>*<sp/><sp/><sp/>address<sp/>of<sp/>the<sp/>STOPPED<sp/>event,<sp/>which<sp/>can<sp/>be<sp/>used<sp/>to<sp/>count<sp/>the<sp/>number<sp/>of<sp/>transfers.<sp/>If<sp/>@ref<sp/>NRFX_TWIM_FLAG_REPEATED_XFER<sp/>is<sp/>used,</highlight></codeline>
+<codeline lineno="338"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>driver<sp/>does<sp/>not<sp/>set<sp/>the<sp/>driver<sp/>instance<sp/>into<sp/>busy<sp/>state,<sp/>so<sp/>you<sp/>must<sp/>ensure<sp/>that<sp/>the<sp/>next<sp/>transfers<sp/>are<sp/>set<sp/>up</highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/>*<sp/><sp/><sp/>when<sp/>TWIM<sp/>is<sp/>not<sp/>active.</highlight></codeline>
+<codeline lineno="340"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_TX_NO_STOP<sp/>-<sp/>No<sp/>stop<sp/>condition<sp/>after<sp/>the<sp/>TX<sp/>transfer.</highlight></codeline>
+<codeline lineno="341"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_NO_SPURIOUS_STOP_CHECK<sp/>-<sp/>Checks<sp/>for<sp/>spurious<sp/>STOP<sp/>conditions<sp/>are<sp/>disabled.</highlight></codeline>
+<codeline lineno="342"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Used<sp/>together<sp/>with<sp/>@ref<sp/>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER<sp/>can<sp/>result<sp/>in<sp/>lower<sp/>power<sp/>consumption</highlight></codeline>
+<codeline lineno="343"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>when<sp/>transfers<sp/>are<sp/>triggered<sp/>externally<sp/>and<sp/>CPU<sp/>is<sp/>sleeping.</highlight></codeline>
+<codeline lineno="344"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Use<sp/>only<sp/>with<sp/>I2C<sp/>standard-compliant<sp/>slave<sp/>devices.</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/>*<sp/>@note</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/>*<sp/>Some<sp/>flag<sp/>combinations<sp/>are<sp/>invalid:</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_TX_NO_STOP<sp/>with<sp/>@ref<sp/>nrfx_twim_xfer_desc_t.type<sp/>different<sp/>than<sp/>@ref<sp/>NRFX_TWIM_XFER_TX</highlight></codeline>
+<codeline lineno="349"><highlight class="comment"><sp/>*<sp/>-<sp/>@ref<sp/>NRFX_TWIM_FLAG_REPEATED_XFER<sp/>with<sp/>@ref<sp/>nrfx_twim_xfer_desc_t.type<sp/>set<sp/>to<sp/>@ref<sp/>NRFX_TWIM_XFER_TXTX</highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/>*<sp/>If<sp/>@ref<sp/>nrfx_twim_xfer_desc_t.type<sp/>is<sp/>set<sp/>to<sp/>@ref<sp/>NRFX_TWIM_XFER_TX<sp/>and<sp/>the<sp/>@ref<sp/>NRFX_TWIM_FLAG_TX_NO_STOP<sp/>and<sp/>@ref<sp/>NRFX_TWIM_FLAG_REPEATED_XFER</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/>*<sp/>flags<sp/>are<sp/>set,<sp/>two<sp/>tasks<sp/>must<sp/>be<sp/>used<sp/>to<sp/>trigger<sp/>a<sp/>transfer:<sp/>TASKS_RESUME<sp/>followed<sp/>by<sp/>TASKS_STARTTX.<sp/>If<sp/>no<sp/>stop<sp/>condition<sp/>is<sp/>generated,</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/>*<sp/>TWIM<sp/>is<sp/>in<sp/>SUSPENDED<sp/>state.<sp/>Therefore,<sp/>it<sp/>must<sp/>be<sp/>resumed<sp/>before<sp/>the<sp/>transfer<sp/>can<sp/>be<sp/>started.</highlight></codeline>
+<codeline lineno="354"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="355"><highlight class="comment"><sp/>*<sp/>@note<sp/>Peripherals<sp/>using<sp/>EasyDMA<sp/>(including<sp/>TWIM)<sp/>require<sp/>the<sp/>transfer<sp/>buffers</highlight></codeline>
+<codeline lineno="356"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>to<sp/>be<sp/>placed<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.<sp/>If<sp/>this<sp/>condition<sp/>is<sp/>not<sp/>met,</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>this<sp/>function<sp/>will<sp/>fail<sp/>with<sp/>the<sp/>error<sp/>code<sp/>-EACCES.</highlight></codeline>
+<codeline lineno="358"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="359"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/><sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="360"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_xfer_desc<sp/>Pointer<sp/>to<sp/>the<sp/>transfer<sp/>descriptor.</highlight></codeline>
+<codeline lineno="361"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>flags<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Transfer<sp/>options<sp/>(0<sp/>for<sp/>default<sp/>settings).</highlight></codeline>
+<codeline lineno="362"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="363"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>procedure<sp/>is<sp/>successful.</highlight></codeline>
+<codeline lineno="364"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EBUSY<sp/><sp/><sp/><sp/><sp/>The<sp/>driver<sp/>is<sp/>not<sp/>ready<sp/>for<sp/>a<sp/>new<sp/>transfer.</highlight></codeline>
+<codeline lineno="365"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ENOTSUP<sp/><sp/><sp/>The<sp/>provided<sp/>parameters<sp/>are<sp/>not<sp/>supported.</highlight></codeline>
+<codeline lineno="366"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ECANCELED<sp/>An<sp/>unexpected<sp/>transition<sp/>occurred<sp/>on<sp/>the<sp/>bus.</highlight></codeline>
+<codeline lineno="367"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EACCES<sp/><sp/><sp/><sp/>The<sp/>provided<sp/>buffers<sp/>are<sp/>not<sp/>placed<sp/>in<sp/>the<sp/>Data<sp/>RAM<sp/>region.</highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EOVERFLOW<sp/>The<sp/>unread<sp/>data<sp/>is<sp/>replaced<sp/>by<sp/>new<sp/>data.</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EFAULT<sp/><sp/><sp/><sp/>NACK<sp/>is<sp/>received<sp/>after<sp/>sending<sp/>the<sp/>address.</highlight></codeline>
+<codeline lineno="370"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-EAGAIN<sp/><sp/><sp/><sp/>NACK<sp/>is<sp/>received<sp/>after<sp/>sending<sp/>a<sp/>data<sp/>byte.</highlight></codeline>
+<codeline lineno="371"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga91ba6f43471a4792ff9f356f7384e915" kindref="member">nrfx_twim_xfer</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structnrfx__twim__xfer__desc__t" kindref="compound">nrfx_twim_xfer_desc_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_xfer_desc,</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="376"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="377"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>checking<sp/>the<sp/>TWIM<sp/>driver<sp/>state.</highlight></codeline>
+<codeline lineno="378"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="379"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>TWIM<sp/>instance.</highlight></codeline>
+<codeline lineno="380"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="381"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>TWIM<sp/>driver<sp/>is<sp/>currently<sp/>busy<sp/>performing<sp/>a<sp/>transfer.</highlight></codeline>
+<codeline lineno="382"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>TWIM<sp/>driver<sp/>is<sp/>ready<sp/>for<sp/>a<sp/>new<sp/>transfer.</highlight></codeline>
+<codeline lineno="383"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga93130cda80db8e32afb4c7a4531ac7f1" kindref="member">nrfx_twim_is_busy</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="387"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="388"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>a<sp/>TWIM<sp/>start<sp/>task.</highlight></codeline>
+<codeline lineno="389"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="390"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>is<sp/>to<sp/>be<sp/>used<sp/>if<sp/>@ref<sp/>nrfx_twim_xfer<sp/>was<sp/>called<sp/>with<sp/>the<sp/>flag<sp/>@ref<sp/>NRFX_TWIM_FLAG_HOLD_XFER.</highlight></codeline>
+<codeline lineno="391"><highlight class="comment"><sp/>*<sp/>In<sp/>that<sp/>case,<sp/>the<sp/>transfer<sp/>is<sp/>not<sp/>started<sp/>by<sp/>the<sp/>driver,<sp/>but<sp/>it<sp/>must<sp/>be<sp/>started<sp/>externally<sp/>by<sp/>PPI.</highlight></codeline>
+<codeline lineno="392"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="393"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="394"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>xfer_type<sp/><sp/>Transfer<sp/>type<sp/>used<sp/>in<sp/>the<sp/>last<sp/>call<sp/>of<sp/>the<sp/>@ref<sp/>nrfx_twim_xfer<sp/>function.</highlight></codeline>
+<codeline lineno="395"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="396"><highlight class="comment"><sp/>*<sp/>@return<sp/>Start<sp/>task<sp/>address<sp/>(TX<sp/>or<sp/>RX)<sp/>depending<sp/>on<sp/>the<sp/>value<sp/>of<sp/>xfer_type.</highlight></codeline>
+<codeline lineno="397"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__twim_1gab2b131cedfc031575c868bb0f8e2bd21" kindref="member">nrfx_twim_start_task_address_get</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><sp/><sp/>p_instance,</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__nrfx__twim_1gaee5cd6cb780546f1b40e0d7dd741a37f" kindref="member">nrfx_twim_xfer_type_t</ref><sp/>xfer_type);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="401"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="402"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>returning<sp/>the<sp/>address<sp/>of<sp/>a<sp/>STOPPED<sp/>TWIM<sp/>event.</highlight></codeline>
+<codeline lineno="403"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="404"><highlight class="comment"><sp/>*<sp/>A<sp/>STOPPED<sp/>event<sp/>can<sp/>be<sp/>used<sp/>to<sp/>detect<sp/>the<sp/>end<sp/>of<sp/>a<sp/>transfer<sp/>if<sp/>the<sp/>@ref<sp/>NRFX_TWIM_FLAG_NO_XFER_EVT_HANDLER</highlight></codeline>
+<codeline lineno="405"><highlight class="comment"><sp/>*<sp/>option<sp/>is<sp/>used.</highlight></codeline>
+<codeline lineno="406"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="407"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="408"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="409"><highlight class="comment"><sp/>*<sp/>@return<sp/>STOPPED<sp/>event<sp/>address.</highlight></codeline>
+<codeline lineno="410"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="normal">uint32_t<sp/><ref refid="group__nrfx__twim_1ga1a839b5aedb9390ad881baedb49ace2b" kindref="member">nrfx_twim_stopped_event_address_get</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="413"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="414"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>recovering<sp/>the<sp/>bus.</highlight></codeline>
+<codeline lineno="415"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="416"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>checks<sp/>if<sp/>the<sp/>bus<sp/>is<sp/>not<sp/>stuck<sp/>because<sp/>of<sp/>a<sp/>slave<sp/>holding<sp/>the<sp/>SDA<sp/>line<sp/>in<sp/>the<sp/>low<sp/>state,</highlight></codeline>
+<codeline lineno="417"><highlight class="comment"><sp/>*<sp/>and<sp/>if<sp/>needed<sp/>it<sp/>performs<sp/>required<sp/>number<sp/>of<sp/>pulses<sp/>on<sp/>the<sp/>SCL<sp/>line<sp/>to<sp/>make<sp/>the<sp/>slave<sp/>release<sp/>the<sp/>SDA<sp/>line.</highlight></codeline>
+<codeline lineno="418"><highlight class="comment"><sp/>*<sp/>Finally,<sp/>the<sp/>function<sp/>generates<sp/>a<sp/>STOP<sp/>condition<sp/>on<sp/>the<sp/>bus<sp/>to<sp/>put<sp/>it<sp/>into<sp/>a<sp/>known<sp/>state.</highlight></codeline>
+<codeline lineno="419"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="420"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>function<sp/>can<sp/>be<sp/>used<sp/>only<sp/>if<sp/>the<sp/>TWIM<sp/>driver<sp/>is<sp/>uninitialized.</highlight></codeline>
+<codeline lineno="421"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="422"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>scl_pin<sp/>SCL<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="423"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>sda_pin<sp/>SDA<sp/>pin<sp/>number.</highlight></codeline>
+<codeline lineno="424"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="425"><highlight class="comment"><sp/>*<sp/>@retval<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Bus<sp/>recovery<sp/>was<sp/>successful.</highlight></codeline>
+<codeline lineno="426"><highlight class="comment"><sp/>*<sp/>@retval<sp/>-ECANCELED<sp/>Bus<sp/>recovery<sp/>failed.</highlight></codeline>
+<codeline lineno="427"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="428"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga5dc0edc41ca3acdde15d39c8985e8df0" kindref="member">nrfx_twim_bus_recover</ref>(uint32_t<sp/>scl_pin,<sp/>uint32_t<sp/>sda_pin);</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="430"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="431"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Driver<sp/>interrupt<sp/>handler.</highlight></codeline>
+<codeline lineno="432"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="433"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_instance<sp/>Pointer<sp/>to<sp/>the<sp/>driver<sp/>instance<sp/>structure.</highlight></codeline>
+<codeline lineno="434"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="435"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1gad9526f8916a96ee9eb3f6ca4b242e2eb" kindref="member">nrfx_twim_irq_handler</ref>(<ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref><sp/>*<sp/>p_instance);</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_DECLARE_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal">NRFX_STATIC_INLINE<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__twim_1ga5dc0edc41ca3acdde15d39c8985e8df0" kindref="member">nrfx_twim_bus_recover</ref>(uint32_t<sp/>scl_pin,<sp/>uint32_t<sp/>sda_pin)</highlight></codeline>
+<codeline lineno="439"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nrfx_twi_twim_bus_recover(scl_pin,<sp/>sda_pin);</highlight></codeline>
+<codeline lineno="441"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="443"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="444"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight></codeline>
+<codeline lineno="446"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="447"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="449"><highlight class="normal"></highlight></codeline>
+<codeline lineno="450"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_TWIM_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_twim.h"/>
+  </compounddef>
+</doxygen>

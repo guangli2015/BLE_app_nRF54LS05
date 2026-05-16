@@ -1,0 +1,691 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="md_doc_nrfx_4_0_migration_guide" kind="page">
+    <compoundname>md_doc_nrfx_4_0_migration_guide</compoundname>
+    <title>nrfx 4.0 migration notes</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>nrfx 4.0 introduces API and structure changes. This guide lists actions required to make your code compatible with these changes.</para>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md190">
+<title>BSP (Board Support Package)</title>
+<para><itemizedlist>
+<listitem><para>Added new directory that contains:<itemizedlist>
+<listitem><para>MDK</para>
+</listitem><listitem><para>SoC-specific templates</para>
+</listitem><listitem><para>SoC-specific defines from nrfx drivers</para>
+</listitem><listitem><para>Soc-specific files from soc/ directory (IRQ handlers and interconnect) <linebreak/>
+Action : Always include <computeroutput>nrfx.h</computeroutput> header globally, do not include sub-headers like:</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>nrf.h</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrf_erratas.h</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrf_mem.h</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrf_peripherals.h</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md191">
+<title>Errata</title>
+<para><itemizedlist>
+<listitem><para>Reworked the errata system. The workarounds for unsupported SoCs were removed. Summary table <ulink url="https://github.com/NordicSemiconductor/nrfx/blob/master/doc/errata.dox">Doxygen file</ulink> was created, which presents the currently implemented workarounds in nrfx.</para>
+</listitem><listitem><para>Added the following errata workarounds:<itemizedlist>
+<listitem><para>nRF52 Series:<itemizedlist>
+<listitem><para>58,</para>
+</listitem><listitem><para>173,</para>
+</listitem><listitem><para>174,</para>
+</listitem><listitem><para>214,</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>nRF53 Series:<itemizedlist>
+<listitem><para>65,</para>
+</listitem><listitem><para>119,</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>nRF91 Series:<itemizedlist>
+<listitem><para>7 (added <ref refid="group__nrfx__nvmc_1ga4682d19b4fdf44e21a48a937d4ee496f" kindref="member">nrfx_nvmc_uicr_word_write()</ref> and fixed <ref refid="group__nrfx__nvmc_1ga12bc6d38b813eaa6c3e33d8681b15529" kindref="member">nrfx_nvmc_otp_halfword_read()</ref>) <linebreak/>
+Action : Remove fixes for errata now handled internally by the nrfx.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Some errata are now disabled by default, even if the chip should apply them. They should be carefully enabled by the user on a case-by-case manner. The list includes:<itemizedlist>
+<listitem><para>nRF52 Series erratum 58,</para>
+</listitem><listitem><para>nRF52 Series erratum 109.</para>
+</listitem><listitem><para>nRF54H Series erratum 62. <linebreak/>
+Actions :</para>
+</listitem><listitem><para>If required, explicitly enable nRF52 Series erratum 58 workaround, by defining <computeroutput>NRF52_ERRATA_58_ENABLE_WORKAROUND</computeroutput> to <computeroutput>1</computeroutput>.</para>
+</listitem><listitem><para>If required, explicitly enable nRF52 Series erratum 109 workaround, by defining <computeroutput>NRF52_ERRATA_109_ENABLE_WORKAROUND</computeroutput> to <computeroutput>1</computeroutput>.</para>
+</listitem><listitem><para>If required, explicitly enable nRF54H Series erratum 62 workaround, by defining <computeroutput>NRF54H_ERRATA_62_ENABLE_WORKAROUND</computeroutput> to <computeroutput>1</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md192">
+<title>Error codes</title>
+<para>All nrfx drivers and helpers now return int errno values. Failed function execution is indicated by negative return value. <computeroutput>nrfx_err_t</computeroutput> type is deprecated. Expressions like <computeroutput>NRFX_ASSERT(err == NRFX_SUCCESS)</computeroutput> will no longer work as expected. <linebreak/>
+Action : Update the affected code. Update implementation of <computeroutput>NRFX_LOG_ERROR_STRING_GET</computeroutput> macro to new error type.</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md193">
+<title>Instance interrupt handlers</title>
+<para>Some nrfx drivers now expect instance specific interrupt handlers to be defined by users using <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>. Macro expects three parameters - lowercase peripheral name, instance index and address of peripheral instance. <linebreak/>
+Action : Define instance specific interrupt handler for affected drivers.</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md194">
+<title>Configuration</title>
+<para><itemizedlist>
+<listitem><para>Removed instance specific driver enablement configs, eg. <computeroutput>NRFX_SPIM20_ENABLED</computeroutput>. <linebreak/>
+Action : Do not redefine these symbols, nrfx now considers all present peripheral instances to be enabled.</para>
+</listitem><listitem><para>Drivers are no longer dependent on driver enablement configs, eg. <computeroutput>NRFX_SPIM_ENABLED</computeroutput>. <linebreak/>
+Action : Adjust build system to add appropriate driver source files to compilation accordingly, rather that relying on preprocessor symbols to disable driver source file contents.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md195">
+<title>HALYs</title>
+<para>HALY is now deprecated for all peripherals. <linebreak/>
+Action : Use respective HAL functions instead or migrate to driver.</para>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md196">
+<title>Drivers</title>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md197">
+<title>CLOCK</title>
+<para><itemizedlist>
+<listitem><para>Split <computeroutput>nrfx_clock</computeroutput> driver into separate drivers for each clock type :<itemizedlist>
+<listitem><para><computeroutput>nrfx_clock_hfclk</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrfx_clock_hfclk192m</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrfx_clock_hfclkaudio</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrfx_clock_lfclk</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrfx_clock_xo</computeroutput></para>
+</listitem><listitem><para><computeroutput>nrfx_clock_xo24m</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><linebreak/>
+Action : Adjust build system to add appropriate clock driver source files to compilation. Do not include specific clock driver headers separately.</para>
+</listitem><listitem><para><computeroutput>nrfx_clock_hfclk_start</computeroutput>, <computeroutput>nrfx_clock_hfclk_stop</computeroutput>, <computeroutput>nrfx_clock_lfclk_start</computeroutput> and <computeroutput>nrfx_clock_lfclk_stop</computeroutput> functions are no longer deprecated. <linebreak/>
+Action : No action required from user.</para>
+</listitem><listitem><para><computeroutput>nrfx_clock_hfclk_is_running</computeroutput> function has been renamed to <computeroutput>nrfx_clock_hfclk_running_check</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>nrfx_clock_lfclk_is_running</computeroutput> function has been renamed to <computeroutput>nrfx_clock_lfclk_running_check</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md198">
+<title>COMP</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>nrfx_comp_short_mask_t</computeroutput> enumerator. <linebreak/>
+Action : Use <computeroutput>nrf_comp_short_mask_t</computeroutput> instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrfx_comp_evt_en_mask_t</computeroutput> enumerator. <linebreak/>
+Action : Use <computeroutput>nrf_comp_int_mask_t</computeroutput> instead.</para>
+</listitem><listitem><para>Changed type of <computeroutput>ext_ref</computeroutput> and <computeroutput>input</computeroutput> fields in <computeroutput><ref refid="structnrfx__comp__config__t" kindref="compound">nrfx_comp_config_t</ref></computeroutput> type to <computeroutput>nrfx_analog_input_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>nrfx_comp_pin_select</computeroutput> now expects <computeroutput>nrfx_analog_input_t</computeroutput> parameter and returns <computeroutput>int</computeroutput> error value. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md199">
+<title>DPPI</title>
+<para><itemizedlist>
+<listitem><para>Removed DPPI driver. Use GPPI helper layer instead. If GPPI connection API is used then DPPI channels are handled internally. However, it is possible to allocate a specific group or channel and handle it outside of the GPPI driver, e.g. using HAL.</para>
+</listitem><listitem><para>Each domain has one unique DPPI instance and domain ID can be used to identify which DPPI instance shall be used to allocate resources. <computeroutput>nrfx_gppi_domain_id_get(addr)</computeroutput> is used to derive the domain ID from a peripheral register address.</para>
+<para><linebreak/>
+Action : Replace following template code to allocate a specific DPPI channels <programlisting><codeline><highlight class="normal">nrfx_dppi_t<sp/>dppi<sp/>=<sp/>NRFX_DPPI_INSTANCE(20);</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>chan;</highlight></codeline>
+<codeline><highlight class="normal">nrf_dppi_channel_group_t<sp/>group_chan;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_err_t<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_dppi_channel_alloc(&amp;dppi,<sp/>&amp;chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_dppi_group_alloc(&amp;dppi,<sp/>&amp;group_chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_free(&amp;dppi,<sp/>chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_dppi_group_free(&amp;dppi,<sp/>group_chan);</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>with</para>
+<para><programlisting><codeline><highlight class="normal">uint32_t<sp/>domain_id<sp/>=<sp/>nrfx_gppi_domain_id_get(NRF_DPPIC20);</highlight></codeline>
+<codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(domain_id);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>group_chan<sp/>=<sp/>nrfx_gppi_group_channel_alloc(domain_id);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(domain_id,<sp/>(uint8_t)chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_channel_free(domain_id,<sp/>(uint8_t)group_chan);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md200">
+<title>EGU</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>NRFX_EGU_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__egu_1ga6f4e3b805cc5bdb231314a4dc0738599" kindref="member">NRFX_EGU_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__egu_1ga6f4e3b805cc5bdb231314a4dc0738599" kindref="member">NRFX_EGU_INSTANCE(NRF_EGU20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__egu__t" kindref="compound">nrfx_egu_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_egu_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_EGU_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md201">
+<title>GPIOTE</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>nrfx_gpiote_input_config_t</computeroutput> type and single instance API variant. <linebreak/>
+Action : Use multi-instance API instead.</para>
+</listitem><listitem><para><computeroutput>NRFX_GPIOTE_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__gpiote__t" kindref="compound">nrfx_gpiote_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__gpiote_1gafba8064f2cb48e1c65f9454445d48f30" kindref="member">NRFX_GPIOTE_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__gpiote_1gafba8064f2cb48e1c65f9454445d48f30" kindref="member">NRFX_GPIOTE_INSTANCE(NRF_GPIOTE20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__gpiote__t" kindref="compound">nrfx_gpiote_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_gpiote_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_GPIOTE_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md202">
+<title>GRTC</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>nrfx_grtc_syscounter_get</computeroutput> takes no arguments, it now returns <computeroutput>uint64_t</computeroutput> syscounter value instead of error code. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md203">
+<title>I2S</title>
+<para><itemizedlist>
+<listitem><para>Encapsulated <computeroutput>mck_setup</computeroutput>, <computeroutput>ratio</computeroutput> and <computeroutput>enable_bypass</computeroutput> fields from <computeroutput><ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref></computeroutput> type into separate <computeroutput><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref></computeroutput> type substructure. <linebreak/>
+Action : Update the affected code. Content of <computeroutput><ref refid="structnrfx__i2s__prescalers__t" kindref="compound">nrfx_i2s_prescalers_t</ref></computeroutput> substructure can now be acquired using <computeroutput>nrfx_i2s_prescalers_calc</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>NRFX_I2S_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__i2s_1gabd4763d797f808c9ac80cc239a184ac1" kindref="member">NRFX_I2S_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__i2s_1gabd4763d797f808c9ac80cc239a184ac1" kindref="member">NRFX_I2S_INSTANCE(NRF_I2S20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_i2s_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_I2S_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md204">
+<title>LPCOMP</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>config</computeroutput> field in <computeroutput><ref refid="structnrfx__lpcomp__config__t" kindref="compound">nrfx_lpcomp_config_t</ref></computeroutput> type. <linebreak/>
+Action : Use <computeroutput>reference</computeroutput>, <computeroutput>ext_ref</computeroutput>, <computeroutput>detection</computeroutput> and <computeroutput>hyst</computeroutput> fields.</para>
+</listitem><listitem><para>Changed type of <computeroutput>ext_ref</computeroutput> and <computeroutput>input</computeroutput> fields in <computeroutput><ref refid="structnrfx__lpcomp__config__t" kindref="compound">nrfx_lpcomp_config_t</ref></computeroutput> type to <computeroutput>nrfx_analog_input_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrfx_lpcomp_enable</computeroutput>. <linebreak/>
+Action : Use <computeroutput>nrfx_lpcomp_start</computeroutput> instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrfx_lpcomp_disable</computeroutput>. <linebreak/>
+Action : Use <computeroutput>nrfx_lpcomp_stop</computeroutput> instead.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md205">
+<title>PDM</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated single instance API variant. <linebreak/>
+Action : Use multi-instance API instead.</para>
+</listitem><listitem><para>Encapsulated <computeroutput>clock_freq</computeroutput>, <computeroutput>prescaler</computeroutput> and <computeroutput>ratio</computeroutput> fields from <computeroutput><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref></computeroutput> type into separate <computeroutput><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref></computeroutput> type substructure. <linebreak/>
+Action : Update the affected code. Content of <computeroutput><ref refid="structnrfx__pdm__prescalers__t" kindref="compound">nrfx_pdm_prescalers_t</ref></computeroutput> substructure can now be acquired using <computeroutput>nrfx_pdm_prescalers_calc</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>NRFX_PDM_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__pdm_1ga7aa707033bbc985be4624ec0ddaddff2" kindref="member">NRFX_PDM_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__pdm_1ga7aa707033bbc985be4624ec0ddaddff2" kindref="member">NRFX_PDM_INSTANCE(NRF_PDM20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__pdm__t" kindref="compound">nrfx_pdm_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_pdm_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_PDM_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md206">
+<title>PPI</title>
+<para><itemizedlist>
+<listitem><para>Removed PPI driver. Use GPPI helper layer instead. If GPPI connection API is used then PPI channel is handled internally. However, it is possible to allocate a specific group or channel and handle it outside of the GPPI driver, e.g. using HAL.</para>
+<para><linebreak/>
+Action : Replace following template code to allocate a specific PPI channel <programlisting><codeline><highlight class="normal">uint8_t<sp/>chan;</highlight></codeline>
+<codeline><highlight class="normal">nrf_ppi_channel_group_t<sp/>group_chan;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_err_t<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_ppi_channel_alloc(&amp;chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">err<sp/>=<sp/>nrfx_ppi_group_alloc(&amp;group_chan);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(err<sp/>!=<sp/>NRFX_SUCCESS)<sp/>return<sp/>err;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_ppi_channel_free(chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_ppi_group_free(group_chan);</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>with</para>
+<para><programlisting><codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(0);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>group_chan<sp/>=<sp/>nrfx_gppi_group_channel_alloc(0);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(group_chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(0,<sp/>(uint8_t)chan);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_channel_free(0,<sp/>(uint8_t)group_chan);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md207">
+<title>PPIB</title>
+<para><itemizedlist>
+<listitem><para>Removed PPIB driver. Use GPPI helper layer instead. If GPPI connection API is used then PPIB are handled internally. However, it is possible to allocate a channel in a SoC specific pair of PPIB instances and handle it outside of the GPPI driver, e.g. using HAL.</para>
+<para><linebreak/>
+Action : Use following code to allocate a PPIB channel <programlisting><codeline><highlight class="normal">#include<sp/>&lt;soc/interconnect/nrfx_gppi_lumos.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>chan<sp/>=<sp/>nrfx_gppi_channel_alloc(NRFX_GPPI_NODE_PPIB01_20);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(chan<sp/>&lt;<sp/>0)<sp/>return<sp/>chan;<sp/>//<sp/>Negative<sp/>error<sp/>code</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_free(NRFX_GPPI_NODE_PPIB01_20,<sp/>(uint8_t)chan);</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md208">
+<title>PWM</title>
+<para><itemizedlist>
+<listitem><para>Renamed symbols in <computeroutput>nrfx_pwm_event_t</computeroutput> from <computeroutput>NRFX_PWM_EVT_</computeroutput> to <computeroutput>NRFX_PWM_EVENT_</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_pwm_handler_t</computeroutput> to <computeroutput>nrfx_pwm_event_handler_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_pwm_evt_type_t</computeroutput> to <computeroutput>nrfx_pwm_event_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>NRFX_PWM_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__pwm_1ga07d95c9cbb7b0f0890b5d1a0264419bd" kindref="member">NRFX_PWM_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__pwm_1ga07d95c9cbb7b0f0890b5d1a0264419bd" kindref="member">NRFX_PWM_INSTANCE(NRF_PWM20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_pwm_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_PWM_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__pwm__t" kindref="compound">nrfx_pwm_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md209">
+<title>QDEC</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>NRFX_QDEC_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__qdec_1gabf314c38bfb95788b4a124f1e8a17f9b" kindref="member">NRFX_QDEC_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__qdec_1gabf314c38bfb95788b4a124f1e8a17f9b" kindref="member">NRFX_QDEC_INSTANCE(NRF_QDEC20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_qdec_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_QDEC_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md210">
+<title>SAADC</title>
+<para><itemizedlist>
+<listitem><para>Changed type of <computeroutput>pin_p</computeroutput> and <computeroutput>pin_n</computeroutput> fields in <computeroutput><ref refid="structnrfx__saadc__channel__t" kindref="compound">nrfx_saadc_channel_t</ref></computeroutput> type to <computeroutput>nrfx_analog_input_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md211">
+<title>SPIM</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrfx_spim_evt_type_t</computeroutput> to <computeroutput>nrfx_spim_event_type_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_spim_evt_t</computeroutput> to <computeroutput><ref refid="structnrfx__spim__event__t" kindref="compound">nrfx_spim_event_t</ref></computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_spim_evt_handler_t</computeroutput> to <computeroutput>nrfx_spim_event_handler_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver no longer validates whether an instance supports SPIM extended features. <linebreak/>
+Action : Provide proper configuration in <computeroutput><ref refid="structnrfx__spim__config__t" kindref="compound">nrfx_spim_config_t</ref></computeroutput> based on hardware capabilities of an instance. Refer to Product Specification for details.</para>
+</listitem><listitem><para><computeroutput>NRFX_SPIM_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__spim_1ga8c78414e6726d3a53b8e9afbacba6baa" kindref="member">NRFX_SPIM_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__spim_1ga8c78414e6726d3a53b8e9afbacba6baa" kindref="member">NRFX_SPIM_INSTANCE(NRF_SPIM20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__spim__t" kindref="compound">nrfx_spim_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_spim_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_SPIM_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md212">
+<title>SPIS</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrfx_spis_evt_type_t</computeroutput> to <computeroutput>nrfx_spis_event_type_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_spis_evt_t</computeroutput> to <computeroutput><ref refid="structnrfx__spis__event__t" kindref="compound">nrfx_spis_event_t</ref></computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>NRFX_SPIS_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__spis_1gae5dd85303e735326c93cbfdf15b7a20a" kindref="member">NRFX_SPIS_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__spis_1gae5dd85303e735326c93cbfdf15b7a20a" kindref="member">NRFX_SPIS_INSTANCE(NRF_SPIS20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__spis__t" kindref="compound">nrfx_spis_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_spis_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_SPIS_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md213">
+<title>TIMER</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>NRFX_TIMER_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__timer_1gaca158586dc862a10cb4ed6def758ea51" kindref="member">NRFX_TIMER_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__timer_1gaca158586dc862a10cb4ed6def758ea51" kindref="member">NRFX_TIMER_INSTANCE(NRF_TIMER20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__timer__t" kindref="compound">nrfx_timer_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_timer_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_TIMER_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md214">
+<title>TWIM</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrfx_twim_evt_type_t</computeroutput> to <computeroutput>nrfx_twim_event_type_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_twim_evt_t</computeroutput> to <computeroutput><ref refid="structnrfx__twim__event__t" kindref="compound">nrfx_twim_event_t</ref></computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_twim_evt_handler_t</computeroutput> to <computeroutput>nrfx_twim_event_handler_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>NRFX_TWIM_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__twim_1ga6ad635a5c2d12275c08cb79ecc63bdb2" kindref="member">NRFX_TWIM_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__twim_1ga6ad635a5c2d12275c08cb79ecc63bdb2" kindref="member">NRFX_TWIM_INSTANCE(NRF_TWIM20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__twim__t" kindref="compound">nrfx_twim_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_twim_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_TWIM_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md215">
+<title>TWIS</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrfx_twis_evt_type_t</computeroutput> to <computeroutput>nrfx_twis_event_type_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Renamed <computeroutput>nrfx_twis_evt_t</computeroutput> to <computeroutput><ref refid="structnrfx__twis__event__t" kindref="compound">nrfx_twis_event_t</ref></computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para><computeroutput>NRFX_TWIS_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__twis_1ga9497865b453ad388395de189f8be695f" kindref="member">NRFX_TWIS_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__twis_1ga9497865b453ad388395de189f8be695f" kindref="member">NRFX_TWIS_INSTANCE(NRF_TWIS20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__twis__t" kindref="compound">nrfx_twis_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_twis_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_TWIS_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md216">
+<title>UARTE</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrfx_uarte_evt_type_t</computeroutput> to <computeroutput>nrfx_uarte_event_type_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrfx_uarte_rx</computeroutput> function. <linebreak/>
+Action : Use <computeroutput>nrfx_uarte_rx_enable</computeroutput> and <computeroutput>nrfx_uarte_rx_buffer_set</computeroutput> instead.</para>
+</listitem><listitem><para><computeroutput>NRFX_UARTE_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__uarte__t" kindref="compound">nrfx_uarte_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__uarte_1gafce592f10cc9c533e414acd309e65887" kindref="member">NRFX_UARTE_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__uarte_1gafce592f10cc9c533e414acd309e65887" kindref="member">NRFX_UARTE_INSTANCE(NRF_UARTE20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__uarte__t" kindref="compound">nrfx_uarte_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_uarte_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_UARTE_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md217">
+<title>WDT</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated event handler type expecting single parameter. <linebreak/>
+Action : Use new variant instead.</para>
+</listitem><listitem><para>Removed deprecated variant of <computeroutput>nrfx_wdt_init</computeroutput> taking 3 parameters. <linebreak/>
+Action : Use new variant instead.</para>
+</listitem><listitem><para><computeroutput>NRFX_WDT_INSTANCE</computeroutput> macro for creating <computeroutput><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref></computeroutput> driver instance now expects peripheral&apos;s base address instead of instance number. <linebreak/>
+Action : Update the affected code, e.g. from <computeroutput><ref refid="group__nrfx__wdt_1gad25549c618d6baef297141806fd66966" kindref="member">NRFX_WDT_INSTANCE(20)</ref></computeroutput> to <computeroutput><ref refid="group__nrfx__wdt_1gad25549c618d6baef297141806fd66966" kindref="member">NRFX_WDT_INSTANCE(NRF_WDT20)</ref></computeroutput>.</para>
+</listitem><listitem><para>Driver internal state is now kept within driver&apos;s instance object. Driver instance object must have static storage to remain valid throughout application runtime. Creating multiple driver instances associated with same hardware peripheral instance will not share peripheral state. <linebreak/>
+Action : Declare single driver instance within the system and share it among dependent software components, e.g. by using global scope.</para>
+</listitem><listitem><para>Some driver functions expect <computeroutput><ref refid="structnrfx__wdt__t" kindref="compound">nrfx_wdt_t</ref></computeroutput> parameter to be mutable. <linebreak/>
+Action : Update the affected code.</para>
+</listitem><listitem><para>Driver instance interrupt handler now has to be explicitly defined by user and call <computeroutput>nrfx_wdt_irq_handler</computeroutput> with pointer to the driver instance as an argument. Removed <computeroutput>NRFX_WDT_INST_HANDLER_GET</computeroutput> macro. <linebreak/>
+Action : Use <computeroutput>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md218">
+<title>Helpers</title>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md219">
+<title>GPPI</title>
+<para>GPPI has been reworked to accommodate for a multi-instance DPPI architecture present in the newest SoC, e.g. nRF54 famlily. GPPI focuses on establishing and managing connections between endpoints or domains rather than a particular channels. Connection can spread across multiple and consists of resources in mutliple DPPIC and PPIB instances. Legacy architecture with a single PPI or DPPIC instance can be seen as the simplest example. GPPI API provides API for a basic one-to-one connection and API that allows to setup more complex many-to-many, spreading across multiple domains, connections.<itemizedlist>
+<listitem><para>New GPPI API has limited support on nRF54H20. Full support requires a dedicated Ironside service which is planned in the near future. Support is limited to one-to-one connections: <computeroutput>nrfx_gppi_conn_alloc</computeroutput>, <computeroutput>nrfx_gppi_conn_free</computeroutput>, <computeroutput>nrfx_gppi_conn_enable</computeroutput>, <computeroutput>nrfx_gppi_conn_disable</computeroutput>. It is using legacy GPPI implementation underneath.</para>
+</listitem><listitem><para>Contrary to the legacy solution, GPPI needs to be initialized prior to using the GPPI API. Ensure that <computeroutput>nrfx_gppi_init</computeroutput> is called before calling any GPPI API.</para>
+</listitem><listitem><para>Removed <computeroutput>nrfx_gppi_channel_group_t</computeroutput> and <computeroutput>nrfx_gppi_task_t</computeroutput> enumerators and <computeroutput>nrfx_gppi_channel_check</computeroutput>, <computeroutput>nrfx_gppi_channels_disable_all</computeroutput>, <computeroutput>nrfx_gppi_task_endpoint_setup</computeroutput>, <computeroutput>nrfx_gppi_channel_endpoints_setup</computeroutput>, <computeroutput>nrfx_gppi_channel_endpoints_clear</computeroutput>, <computeroutput>nrfx_gppi_task_endpoint_clear</computeroutput>, <computeroutput>nrfx_gppi_fork_endpoint_setup</computeroutput>, <computeroutput>nrfx_gppi_fork_endpoint_clear</computeroutput>, <computeroutput>nrfx_gppi_fork_endpoint_clear</computeroutput> , <computeroutput>nrfx_gppi_task_trigger</computeroutput>, <computeroutput>nrfx_gppi_task_address_get</computeroutput>, <computeroutput>nrfx_gppi_group_disable_task_get</computeroutput>, <computeroutput>nrfx_gppi_group_enable_task_get</computeroutput> and <computeroutput>nrfx_gppi_edge_connection_setup</computeroutput> functions. <linebreak/>
+Action : Use new API.</para>
+</listitem><listitem><para>Removed <computeroutput>nrfx_gppi_event_endpoint_setup</computeroutput>. <linebreak/>
+Action : Use <computeroutput>nrfx_gppi_ep_attach</computeroutput> instead.</para>
+</listitem><listitem><para>Removed <computeroutput>nrfx_gppi_event_endpoint_clear</computeroutput>. <linebreak/>
+Action : Use nrfx_gppi_ep_clear.</para>
+</listitem><listitem><para><computeroutput>nrfx_gppi_channels_enable</computeroutput> and <computeroutput>nrfx_gppi_channels_enable</computeroutput> functions now expects additional <computeroutput>domain_id</computeroutput> parameter which enables a particular channel in a specific domain. <linebreak/>
+Action : Update the affected code. Use domain ID returned by <computeroutput>nrfx_gppi_domain_id_get</computeroutput>. For controlling all channels within a connection, use <computeroutput>nrfx_gppi_conn_enable</computeroutput> and <computeroutput>nrfx_gppi_conn_disable</computeroutput>.</para>
+</listitem><listitem><para>Some API accepts domain ID as a parameter. Each domain has one unique DPPI instance and domain ID can be used to identify which DPPI instance shall be used to allocate resources. <computeroutput>nrfx_gppi_domain_id_get(addr)</computeroutput> is used to derive the domain ID from a peripheral register address.</para>
+</listitem><listitem><para>Reworked connection workflow using DPPI. <linebreak/>
+Action : Replace following template code <programlisting><codeline><highlight class="normal">static<sp/>uint8_t<sp/>dppi_channel;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_dppi_t<sp/>dppi<sp/>=<sp/>NRFX_DPPI_INSTANCE(0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_alloc(&amp;dppi,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrf_&lt;a&gt;_subscribe_set(p_reg_a,<sp/>A_TASK,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">nrf_&lt;b&gt;_publish_set(p_reg_b,<sp/>B_EVENT,<sp/>&amp;dppi_channel);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_enable(&amp;dppi,<sp/>dppi_channel);</highlight></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_dppi_channel_disable(&amp;dppi,<sp/>dppi_channel);</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>with</para>
+<para><programlisting><codeline><highlight class="normal">uint32_t<sp/>eep,<sp/>tep;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_handle_t<sp/>gppi_handle;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">tep_a<sp/>=<sp/>nrf_&lt;a&gt;_task_address_get(p_reg_a,<sp/>A_TASK);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_a,<sp/>tep_b,<sp/>&amp;gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handle);</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>Reworked multiple endpoints workflow using DPPI. <linebreak/>
+Action : Replace following template code <programlisting><codeline><highlight class="normal">nrf_&lt;c&gt;_subscribe_set(p_reg_c,<sp/>C_TASK,<sp/>&amp;dppi_channel);</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>with</para>
+<para><programlisting><codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_attach(tep_c,<sp/>gppi_handle);</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>Reworked channel grouping using GPPI. <linebreak/>
+Action : Replace following template code <programlisting><codeline><highlight class="normal">uint8_t<sp/>chan_a,<sp/>chan_b;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_alloc(&amp;chan_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_alloc(&amp;chan_b);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">eep_a<sp/>=<sp/>nrf_&lt;a&gt;_event_address_get(p_reg_a,<sp/>A_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_clear(NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_disable(NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_include_in_group(BIT(chan_a)<sp/>|<sp/>BIT(chan_b),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_setup(chan_a,<sp/>eep_a,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_EN));</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_setup(chan_b,<sp/>eep_b,<sp/>tep_c);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_fork_endpoint_setup(chan_b,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_DIS));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_enable(BIT(chan_a)<sp/>|<sp/>BIT(chan_b));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_disable_all(BIT(chan_a)<sp/>|<sp/>BIT(chan_b));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channels_remove_from_group(BIT(chan_a)<sp/>|<sp/>BIT(chan_b),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NRFX_GPPI_CHANNEL_GROUP0);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_fork_endpoint_clear(chan_b,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_DIS));</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_clear(chan_b,<sp/>eep_b,<sp/>tep_c);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_channel_endpoints_clear(chan_a,<sp/>eep_a,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nrfx_gppi_task_address_get(NRFX_GPPI_TASK_CHG0_EN));</highlight></codeline>
+</programlisting></para>
+</listitem></itemizedlist>
+</para>
+<para>with</para>
+<para><programlisting><codeline><highlight class="normal">nrfx_gppi_handle_t<sp/>gppi_handle,<sp/>gppi_handle2;</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_handle_t<sp/>gppi_group;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">eep_a<sp/>=<sp/>nrf_&lt;a&gt;_event_address_get(p_reg_a,<sp/>A_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">eep_b<sp/>=<sp/>nrf_&lt;b&gt;_event_address_get(p_reg_b,<sp/>B_EVENT);</highlight></codeline>
+<codeline><highlight class="normal">tep_c<sp/>=<sp/>nrf_&lt;c&gt;_task_address_get(p_reg_c,<sp/>C_TASK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_alloc(nrfx_gppi_domain_id_get(eep_a),<sp/>&amp;gppi_group);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_a,<sp/>nrfx_gppi_group_task_en_addr(gppi_group),<sp/>&amp;gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_alloc(eep_b,<sp/>tep_c,<sp/>&amp;gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_attach(nrfx_gppi_group_task_dis_addr(gppi_group),<sp/>gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_ep_add(gppi_group,<sp/>eep_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_group_ap_add(gppi_group,<sp/>eep_b);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_enable(gppi_handle2);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handl2);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_conn_disable(gppi_handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(eep_a);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(eep_b);</highlight></codeline>
+<codeline><highlight class="normal">nrfx_gppi_ep_clear(tep_c);</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md220">
+<title>HALs</title>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md221">
+<title>CACHE</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>nrf_cache_data_get</computeroutput>, <computeroutput>nrf_cache_tag_get</computeroutput>, <computeroutput>nrf_cache_line_validity_check</computeroutput>, <computeroutput>nrf_cache_mru_get</computeroutput>, <computeroutput>nrf_cache_data_unit_validity_check</computeroutput> and <computeroutput>nrf_cache_is_data_unit_dirty_check</computeroutput> now expect <computeroutput>NRF_CACHE_Type</computeroutput> as their first parameter. <linebreak/>
+Action : Update the affected code by using <computeroutput>NRF_CACHE</computeroutput>, <computeroutput>NRF_DCACHE</computeroutput> or <computeroutput>NRF_ICACHE</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md222">
+<title>CLOCK</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>nrf_clock_lf_actv_src_get</computeroutput>, <computeroutput>nrf_clock_lf_is_running</computeroutput> and <computeroutput>nrf_clock_hf_is_running</computeroutput> functions and <computeroutput>nrf_clock_start_task_status_t</computeroutput> enumerator. <linebreak/>
+Action: Use <computeroutput>nrf_clock_is_running</computeroutput> instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrf_clock_lf_start_task_status_get</computeroutput> and <computeroutput>nrf_clock_hf_start_task_status_get</computeroutput> functions. <linebreak/>
+Action : Use <computeroutput>nrf_clock_start_task_check</computeroutput> instead.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md223">
+<title>COMP</title>
+<para><itemizedlist>
+<listitem><para>Renamed <computeroutput>nrf_isource_t</computeroutput> type to <computeroutput>nrf_comp_isource_t</computeroutput>. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md224">
+<title>LPCOMP</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>NRF_LPCOMP_REF_EXT_REF0</computeroutput> and <computeroutput>NRF_LPCOMP_REF_EXT_REF1</computeroutput> symbols from <computeroutput>nrf_lpcomp_ref_t</computeroutput> enumerator. <linebreak/>
+Action : Use <computeroutput>NRF_LPCOMP_EXT_REF_REF0</computeroutput> or <computeroutput>NRF_LPCOMP_EXT_REF_REF1</computeroutput> symbols from <computeroutput>nrf_lpcomp_ext_ref_t</computeroutput> enumerator instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrf_lpcomp_configure</computeroutput> function and <computeroutput>nrf_lpcomp_config_t</computeroutput> type. <linebreak/>
+Action : Use dedicated functions to configure specific parameters.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md225">
+<title>POWER</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>nrf_power_rampower_t</computeroutput> enumerator. <linebreak/>
+Action : Use <computeroutput>NRF_POWER_RAMPOWER_S0POWER_POS</computeroutput> or <computeroutput>NRF_POWER_RAMPOWER_S0RETENTION_POS</computeroutput> symbols instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrf_power_vreg_enable</computeroutput> and <computeroutput>nrf_power_vreg_disable</computeroutput> functions. <linebreak/>
+Action : Use <computeroutput>nrf_power_vreg_set</computeroutput> instead.</para>
+</listitem><listitem><para>Removed deprecated <computeroutput>nrf_power_vreg_enable_check</computeroutput> function. <linebreak/>
+Action : Use <computeroutput>nrf_power_vreg_get</computeroutput> instead.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md226">
+<title>RESET</title>
+<para><itemizedlist>
+<listitem><para>Removed <computeroutput>NRF_RESET_HAS_APPLICATION</computeroutput> symbol. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md227">
+<title>SAADC</title>
+<para><itemizedlist>
+<listitem><para>Removed deprecated <computeroutput>NRF_SAADC_8BIT_SAMPLE_WIDTH</computeroutput> symbol. <linebreak/>
+Action : Update the affected code, all SAADC samples are 16 bits wide now.</para>
+</listitem><listitem><para>Defined <computeroutput>nrf_saadc_value_t</computeroutput> type as <computeroutput>int16_t</computeroutput>. <computeroutput>nrf_saadc_value_min_get</computeroutput>, <computeroutput>nrf_saadc_value_max_get</computeroutput>, <computeroutput>nrf_saadc_value_min_get</computeroutput> and <computeroutput>nrf_saadc_value_max_get</computeroutput> functions now return <computeroutput>nrf_saadc_value_t</computeroutput> type. <linebreak/>
+Action : Update the affected code.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md228">
+<title>Others</title>
+<sect2 id="md_doc_nrfx_4_0_migration_guide_1autotoc_md229">
+<title>nrfx_coredep</title>
+<para><itemizedlist>
+<listitem><para>Moved from <computeroutput>soc</computeroutput> directory to <computeroutput>lib</computeroutput> directory. <linebreak/>
+Action : Update the inclusion paths. </para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="doc/nrfx_4_0_migration_guide.md"/>
+  </compounddef>
+</doxygen>

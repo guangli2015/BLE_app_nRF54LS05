@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__comp__common" kind="group">
+    <compoundname>nrfx_comp_common</compoundname>
+    <title>Generic COMP inputs layer.</title>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group__nrfx__comp__common_1ga2e791cbb4f497c8d2786217667e41fe3" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref></type>
+        <definition>const nrf_comp_input_t nrfx_comp_external_ain_psels[]</definition>
+        <argsstring>[]</argsstring>
+        <name>nrfx_comp_external_ain_psels</name>
+        <initializer>=
+{
+    COMP_EXTERNAL_AIN_PSELS
+}</initializer>
+        <briefdescription>
+<para>COMP external analog input pins mapping table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="56" column="31" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__nrfx__comp__common_1ga50cf7d5c095a5c8fcd3888db80765145" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref></type>
+        <definition>const nrf_comp_input_t nrfx_comp_internal_ain_psels[]</definition>
+        <argsstring>[]</argsstring>
+        <name>nrfx_comp_internal_ain_psels</name>
+        <initializer>=
+{
+    (<ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref>) UINT32_MAX ,
+
+
+
+    (<ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref>) UINT32_MAX ,
+
+    (<ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref>) UINT32_MAX ,
+    (<ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref>) UINT32_MAX ,
+
+
+
+}</initializer>
+        <briefdescription>
+<para>COMP internal inputs mapping table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="62" column="31" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__nrfx__comp__common_1gae189b101d09a62d8e0e9b72bb2c2d363" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="group__nrf__comp__hal_1gaa940ec4e99c2581cdf5000e61d327a8e" kindref="member">nrf_comp_ext_ref_t</ref></type>
+        <definition>const nrf_comp_ext_ref_t nrfx_comp_external_ref_psels[]</definition>
+        <argsstring>[]</argsstring>
+        <name>nrfx_comp_external_ref_psels</name>
+        <initializer>=
+{
+    COMP_EXTERNAL_REF_PSELS
+}</initializer>
+        <briefdescription>
+<para>COMP external analog reference pins mapping table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="78" column="33" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__comp__common_1ga553245822bc8c0c5be2da9217888afcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE <ref refid="group__nrf__comp__hal_1ga4fb8152c87746c98fa6952a30ef7ad01" kindref="member">nrf_comp_input_t</ref></type>
+        <definition>NRFX_STATIC_INLINE nrf_comp_input_t nrfx_comp_ain_get</definition>
+        <argsstring>(nrfx_analog_input_t input)</argsstring>
+        <name>nrfx_comp_ain_get</name>
+        <param>
+          <type><ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref></type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the COMP input configuration for given generic analog input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The generic analog input to get the configuration for.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The COMP input configuration for the given analog input.</para>
+</simplesect>
+<simplesect kind="note"><para>The function takes into account the internal and external analog inputs. The function returns NRFX_COMP_INPUT_NOT_PRESENT for analog inputs that are not supported by the given device. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="94" column="37" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="94" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__comp__common_1ga4d33317d950b133a45aea785c735d5f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE <ref refid="group__nrf__comp__hal_1gaa940ec4e99c2581cdf5000e61d327a8e" kindref="member">nrf_comp_ext_ref_t</ref></type>
+        <definition>NRFX_STATIC_INLINE nrf_comp_ext_ref_t nrfx_comp_ext_ref_get</definition>
+        <argsstring>(nrfx_analog_input_t input)</argsstring>
+        <name>nrfx_comp_ext_ref_get</name>
+        <param>
+          <type><ref refid="group__nrfx__analog__common_1gaf727a59cfc5495ba282cefc8e06da3cf" kindref="member">nrfx_analog_input_t</ref></type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the COMP external reference input configuration for given generic analog input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The generic analog input to get the configuration for.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The COMP external reference input configuration for the given analog input.</para>
+</simplesect>
+<simplesect kind="note"><para>The function returns NRFX_COMP_INPUT_NOT_PRESENT for reference inputs that are not supported by the given device. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="121" column="39" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="121" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__comp__common_1ga4e5335031b4ba56d0c37c17d2adca55f" prot="public" static="no">
+        <name>NRFX_COMP_INPUT_NOT_PRESENT</name>
+        <initializer>UINT32_MAX</initializer>
+        <briefdescription>
+<para>Symbol specifying not existing analog input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/src/nrfx_comp_common.h" line="53" column="9" bodyfile="drivers/src/nrfx_comp_common.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Helper layer that provides the common functionality of COMP driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__systick" kind="group">
+    <compoundname>nrfx_systick</compoundname>
+    <title>ARM(R) SysTick driver</title>
+    <innerclass refid="structnrfx__systick__state__t" prot="public">nrfx_systick_state_t</innerclass>
+    <innergroup refid="group__nrfx__systick__config">ARM(R) SysTick driver configuration</innergroup>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__systick_1ga79202c2efdff6c6d04876298a99eab17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_systick_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for configuring and starting the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function configures SysTick as a free-running timer without interrupt. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="76" column="6" declfile="drivers/include/nrfx_systick.h" declline="76" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga0c9edf1ca066f5c15bc479a3dec6ce3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_get</definition>
+        <argsstring>(nrfx_systick_state_t *p_state)</argsstring>
+        <name>nrfx_systick_get</name>
+        <param>
+          <type><ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref> *</type>
+          <declname>p_state</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the current SysTick state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function gets the current state of the SysTick timer. It can be used to check time-out by <ref refid="group__nrfx__systick_1ga82276707ec341ad6051e8f3e90dc81fa" kindref="member">nrfx_systick_test</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the state variable to be filled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="86" column="6" declfile="drivers/include/nrfx_systick.h" declline="86" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga82276707ec341ad6051e8f3e90dc81fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_systick_test</definition>
+        <argsstring>(nrfx_systick_state_t const *p_state, uint32_t us)</argsstring>
+        <name>nrfx_systick_test</name>
+        <param>
+          <type><ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref> const *</type>
+          <declname>p_state</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>us</declname>
+        </param>
+        <briefdescription>
+<para>Function for testing if the current time is higher in relation to the remembered state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Remembered state set by <ref refid="group__nrfx__systick_1ga0c9edf1ca066f5c15bc479a3dec6ce3a" kindref="member">nrfx_systick_get</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Required time-out.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time is higher than the specified state plus the given time-out. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time is lower than the specified state plus the given time-out. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="97" column="6" declfile="drivers/include/nrfx_systick.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga4b2f7d8e11f5fe7bfc5e6f7419a30ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_ticks</definition>
+        <argsstring>(uint32_t ticks)</argsstring>
+        <name>nrfx_systick_delay_ticks</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ticks</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of CPU ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ticks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of CPU ticks when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="104" column="6" declfile="drivers/include/nrfx_systick.h" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga8aca32403bcd76a7fb809025f2dd80da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_us</definition>
+        <argsstring>(uint32_t us)</argsstring>
+        <name>nrfx_systick_delay_us</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>us</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of microseconds when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="111" column="6" declfile="drivers/include/nrfx_systick.h" declline="111" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga6b30d93a34f24799a048380ac69d96a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_ms</definition>
+        <argsstring>(uint32_t ms)</argsstring>
+        <name>nrfx_systick_delay_ms</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ms</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This delay function removes the limits of the highest possible delay value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of milliseconds when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="120" column="6" declfile="drivers/include/nrfx_systick.h" declline="120" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ARM(R) SysTick driver. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This driver configures ARM(R) SysTick as a free-running timer. This timer is used to generate delays and pool for timeouts. Only relatively short timeouts are supported. The SysTick works on 64MHz and is 24-bit wide. This means that it overflows around 4 times per second and around 250 microseconds will be the highest supported time in the library. As it is hard to detect if the overflow is generated without using interrupts, the maximum delay range is halved for safety reasons. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

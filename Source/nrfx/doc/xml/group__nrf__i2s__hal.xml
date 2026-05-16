@@ -1,0 +1,2153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrf__i2s__hal" kind="group">
+    <compoundname>nrf_i2s_hal</compoundname>
+    <title>I2S HAL</title>
+    <innerclass refid="structnrf__i2s__config__t" prot="public">nrf_i2s_config_t</innerclass>
+    <innerclass refid="structnrf__i2s__pins__t" prot="public">nrf_i2s_pins_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_task_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga1b0d6237adff2552380ed192c4f2446cabbefc91625909b371318b3cfc78b1456" prot="public">
+          <name>NRF_I2S_TASK_START</name>
+          <initializer>= offsetof(NRF_I2S_Type, TASKS_START)</initializer>
+          <briefdescription>
+<para>Starts continuous I2S transfer. Also starts the MCK generator if this is enabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1b0d6237adff2552380ed192c4f2446ca9754abf68b9149b7f599fcccdd29586b" prot="public">
+          <name>NRF_I2S_TASK_STOP</name>
+          <initializer>= offsetof(NRF_I2S_Type, TASKS_STOP)</initializer>
+          <briefdescription>
+<para>Stops I2S transfer. Also stops the MCK generator. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S tasks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="106" column="1" bodyfile="hal/nrf_i2s.h" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_event_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a1f7f78cdb45f7a6792810623c6806798" prot="public">
+          <name>NRF_I2S_EVENT_RXPTRUPD</name>
+          <initializer>= offsetof(NRF_I2S_Type, EVENTS_RXPTRUPD)</initializer>
+          <briefdescription>
+<para>The RXD.PTR register has been copied to internal double buffers. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130ac532888736efb62e2afb6c76aeb0d651" prot="public">
+          <name>NRF_I2S_EVENT_TXPTRUPD</name>
+          <initializer>= offsetof(NRF_I2S_Type, EVENTS_TXPTRUPD)</initializer>
+          <briefdescription>
+<para>The TXD.PTR register has been copied to internal double buffers. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a8c791bd62d42d5761f0920076c1dd2cf" prot="public">
+          <name>NRF_I2S_EVENT_STOPPED</name>
+          <initializer>= offsetof(NRF_I2S_Type, EVENTS_STOPPED)</initializer>
+          <briefdescription>
+<para>I2S transfer stopped. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a93d84b351e2600ed47959e2e6a429b95" prot="public">
+          <name>NRF_I2S_EVENT_FRAMESTART</name>
+          <initializer>= offsetof(NRF_I2S_Type, EVENTS_FRAMESTART)</initializer>
+          <briefdescription>
+<para>Frame start event, generated on the active edge of LRCK. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="113" column="1" bodyfile="hal/nrf_i2s.h" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_int_mask_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029af03b50ce11123bdaa44c148e73c340c7" prot="public">
+          <name>NRF_I2S_INT_RXPTRUPD_MASK</name>
+          <initializer>= I2S_INTENSET_RXPTRUPD_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on RXPTRUPD event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029a43e537211fbe458d62a9fae275163514" prot="public">
+          <name>NRF_I2S_INT_TXPTRUPD_MASK</name>
+          <initializer>= I2S_INTENSET_TXPTRUPD_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on TXPTRUPD event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029a3154828ac8dfc2c4a70101c9acd60c1c" prot="public">
+          <name>NRF_I2S_INT_STOPPED_MASK</name>
+          <initializer>= I2S_INTENSET_STOPPED_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on STOPPED event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029acc6166c86d5e63e4288d0b892c8d7504" prot="public">
+          <name>NRF_I2S_INT_FRAMESTART_MASK</name>
+          <initializer>= I2S_INTENCLR_FRAMESTART_Msk</initializer>
+          <briefdescription>
+<para>Interrupt on FRAMESTART event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="124" column="1" bodyfile="hal/nrf_i2s.h" bodystart="125" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga05fa70f696366c5a06fa5f5e673735af" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_mode_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa24a0b56d47e1d15b9b5c9b9d3775d4b2" prot="public">
+          <name>NRF_I2S_MODE_MASTER</name>
+          <initializer>= I2S_CONFIG_MODE_MODE_Master</initializer>
+          <briefdescription>
+<para>Master mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa381753eabfe4bd24348d05f27fe9f946" prot="public">
+          <name>NRF_I2S_MODE_SLAVE</name>
+          <initializer>= I2S_CONFIG_MODE_MODE_Slave</initializer>
+          <briefdescription>
+<para>Slave mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S modes of operation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="135" column="1" bodyfile="hal/nrf_i2s.h" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga1e7fb828b72fa48367cbaeed264f9372" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_mck_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a91a3ed8417e245a7a6f40e9265e9f8b4" prot="public">
+          <name>NRF_I2S_MCK_DISABLED</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>MCK disabled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a8e0d2df6f941afbc0b221275d8dac217" prot="public">
+          <name>NRF_I2S_MCK_32MDIV2</name>
+          <initializer>= (int)I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV2</initializer>
+          <briefdescription>
+<para>32 MHz / 2 = 16.0 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a07799733c266afe2a3ff6e287ba16570" prot="public">
+          <name>NRF_I2S_MCK_32MDIV3</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV3</initializer>
+          <briefdescription>
+<para>32 MHz / 3 = 10.6666667 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a37099054b461641464a581ae3501ba0b" prot="public">
+          <name>NRF_I2S_MCK_32MDIV4</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV4</initializer>
+          <briefdescription>
+<para>32 MHz / 4 = 8.0 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aab3fd645d05c261d6c02cee0426712d5" prot="public">
+          <name>NRF_I2S_MCK_32MDIV5</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV5</initializer>
+          <briefdescription>
+<para>32 MHz / 5 = 6.4 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a0e8a600b3c708080f06e5ae79eacdb29" prot="public">
+          <name>NRF_I2S_MCK_32MDIV6</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV6</initializer>
+          <briefdescription>
+<para>32 MHz / 6 = 5.3333333 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aa02748b1a696e23de61f2587c972cb80" prot="public">
+          <name>NRF_I2S_MCK_32MDIV8</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV8</initializer>
+          <briefdescription>
+<para>32 MHz / 8 = 4.0 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372af462345fd7fa15e375430f3e4c7d0b1c" prot="public">
+          <name>NRF_I2S_MCK_32MDIV10</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV10</initializer>
+          <briefdescription>
+<para>32 MHz / 10 = 3.2 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a9f18c1c2b24039ed3d462141cda5044a" prot="public">
+          <name>NRF_I2S_MCK_32MDIV11</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV11</initializer>
+          <briefdescription>
+<para>32 MHz / 11 = 2.9090909 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a1a81c1a63a0be014b2fabec4180c1e1d" prot="public">
+          <name>NRF_I2S_MCK_32MDIV15</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV15</initializer>
+          <briefdescription>
+<para>32 MHz / 15 = 2.1333333 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a80fbb2b7d6c7f8fe7843d7b44b591f49" prot="public">
+          <name>NRF_I2S_MCK_32MDIV16</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV16</initializer>
+          <briefdescription>
+<para>32 MHz / 16 = 2.0 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a5d5cd5dfa34dde86151c1623d26be14d" prot="public">
+          <name>NRF_I2S_MCK_32MDIV21</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV21</initializer>
+          <briefdescription>
+<para>32 MHz / 21 = 1.5238095 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a14d8add095a0d9394d83a557bbebdd2b" prot="public">
+          <name>NRF_I2S_MCK_32MDIV23</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV23</initializer>
+          <briefdescription>
+<para>32 MHz / 23 = 1.3913043 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a5cd00d9c0315ebd896ddd79e1080bb5b" prot="public">
+          <name>NRF_I2S_MCK_32MDIV30</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV30</initializer>
+          <briefdescription>
+<para>32 MHz / 30 = 1.0666667 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372afe9d9c0d12809516b94fe3aa9617c7ed" prot="public">
+          <name>NRF_I2S_MCK_32MDIV31</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV31</initializer>
+          <briefdescription>
+<para>32 MHz / 31 = 1.0322581 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372adcc9a908c6d0ff260403eb8b5355334c" prot="public">
+          <name>NRF_I2S_MCK_32MDIV32</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV32</initializer>
+          <briefdescription>
+<para>32 MHz / 32 = 1.0 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a47c43818a811318535b52e60d385b608" prot="public">
+          <name>NRF_I2S_MCK_32MDIV42</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV42</initializer>
+          <briefdescription>
+<para>32 MHz / 42 = 0.7619048 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aee4dee75ed99dcbe8b6ab72ba0e6fca9" prot="public">
+          <name>NRF_I2S_MCK_32MDIV63</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV63</initializer>
+          <briefdescription>
+<para>32 MHz / 63 = 0.5079365 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372ac955cbfda803705f9b419a7249e62620" prot="public">
+          <name>NRF_I2S_MCK_32MDIV125</name>
+          <initializer>= I2S_CONFIG_MCKFREQ_MCKFREQ_32MDIV125</initializer>
+          <briefdescription>
+<para>32 MHz / 125 = 0.256 MHz. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S master clock generator settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="142" column="1" bodyfile="hal/nrf_i2s.h" bodystart="143" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga11ab985aa62eb48d2177d6784e9a1820" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_ratio_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a2e0d2025041a5f77159649b23c4e3be1" prot="public">
+          <name>NRF_I2S_RATIO_32X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_32X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 32. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a464eb658eb4dc14be2778c4206df5e3d" prot="public">
+          <name>NRF_I2S_RATIO_48X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_48X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 48. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a9e5b735f322f0837f125ed8800bb03cb" prot="public">
+          <name>NRF_I2S_RATIO_64X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_64X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 64. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820ace83ade3551e12b1e6d6786552236ef3" prot="public">
+          <name>NRF_I2S_RATIO_96X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_96X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 96. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a95043fb96126d45f7962ecb44fcc8326" prot="public">
+          <name>NRF_I2S_RATIO_128X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_128X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 128. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a002df3214118ae5d9dc5a5a681be27b4" prot="public">
+          <name>NRF_I2S_RATIO_192X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_192X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 192. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a54378d898f762ca10e8c19bb2fbf92f7" prot="public">
+          <name>NRF_I2S_RATIO_256X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_256X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 256. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a7ad64239518ee68973609b7dec83a850" prot="public">
+          <name>NRF_I2S_RATIO_384X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_384X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 384. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820aa20a211b8d083895903d1131d2f6fbb2" prot="public">
+          <name>NRF_I2S_RATIO_512X</name>
+          <initializer>= I2S_CONFIG_RATIO_RATIO_512X</initializer>
+          <briefdescription>
+<para>LRCK = MCK / 512. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S MCK/LRCK ratios. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="178" column="1" bodyfile="hal/nrf_i2s.h" bodystart="179" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1gac06986979fa6e2b0f4dd1f444b95ef00" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_swidth_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a1d5cf8f57d1b2987c2c8026ae6f6e8d4" prot="public">
+          <name>NRF_I2S_SWIDTH_8BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_8Bit</initializer>
+          <briefdescription>
+<para>8 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a736f17419ddfa2cd390715b0b5c933eb" prot="public">
+          <name>NRF_I2S_SWIDTH_16BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_16Bit</initializer>
+          <briefdescription>
+<para>16 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a6c2eae4d02cd3c2bf5d5117911a986ad" prot="public">
+          <name>NRF_I2S_SWIDTH_24BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_24Bit</initializer>
+          <briefdescription>
+<para>24 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00ae68942ddf8363103641f3a3a03ecca0a" prot="public">
+          <name>NRF_I2S_SWIDTH_32BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_32Bit</initializer>
+          <briefdescription>
+<para>32 bit. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00af63112e2a72c606cdab0953c01ac8e9c" prot="public">
+          <name>NRF_I2S_SWIDTH_8BIT_IN16BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_8BitIn16</initializer>
+          <briefdescription>
+<para>8 bit sample in a 16-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a80848a2aed6c474753e23f5e1b50ceab" prot="public">
+          <name>NRF_I2S_SWIDTH_8BIT_IN32BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_8BitIn32</initializer>
+          <briefdescription>
+<para>8 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a193365ba6e28558ab9f8f639203cf8bc" prot="public">
+          <name>NRF_I2S_SWIDTH_16BIT_IN32BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_16BitIn32</initializer>
+          <briefdescription>
+<para>16 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a9c541cb19eed47f8cc3335260d9c8c3b" prot="public">
+          <name>NRF_I2S_SWIDTH_24BIT_IN32BIT</name>
+          <initializer>= I2S_CONFIG_SWIDTH_SWIDTH_24BitIn32</initializer>
+          <briefdescription>
+<para>24 bit sample in a 32-bit half-frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S sample widths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="192" column="1" bodyfile="hal/nrf_i2s.h" bodystart="193" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1gae48fd73f7f8f0c2f321f192e4b9ed190" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_align_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190aa0c153dfb284d0433cf811e257f68e92" prot="public">
+          <name>NRF_I2S_ALIGN_LEFT</name>
+          <initializer>= I2S_CONFIG_ALIGN_ALIGN_Left</initializer>
+          <briefdescription>
+<para>Left-aligned. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190a89c6fd3bdfdc412617fc6328b8b882f7" prot="public">
+          <name>NRF_I2S_ALIGN_RIGHT</name>
+          <initializer>= I2S_CONFIG_ALIGN_ALIGN_Right</initializer>
+          <briefdescription>
+<para>Right-aligned. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S alignments of sample within a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="215" column="1" bodyfile="hal/nrf_i2s.h" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga18ab6f73e00677525e1ab53f24dfc1cc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_format_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1cca68f5e22fc456e548528bf1037201ae68" prot="public">
+          <name>NRF_I2S_FORMAT_I2S</name>
+          <initializer>= I2S_CONFIG_FORMAT_FORMAT_I2S</initializer>
+          <briefdescription>
+<para>Original I2S format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1ccabdf99037b33682b6cffafc9240283121" prot="public">
+          <name>NRF_I2S_FORMAT_ALIGNED</name>
+          <initializer>= I2S_CONFIG_FORMAT_FORMAT_Aligned</initializer>
+          <briefdescription>
+<para>Alternate (left-aligned or right-aligned) format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S frame formats. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="222" column="1" bodyfile="hal/nrf_i2s.h" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1ga60b286e35e447040e992a3ded4375dbe" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_channels_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea2b60ebd0c804a2a9d7cecbe1f073dab5" prot="public">
+          <name>NRF_I2S_CHANNELS_STEREO</name>
+          <initializer>= I2S_CONFIG_CHANNELS_CHANNELS_Stereo</initializer>
+          <briefdescription>
+<para>Stereo. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea1c11023af3fc2f8d9bd8bad901275234" prot="public">
+          <name>NRF_I2S_CHANNELS_LEFT</name>
+          <initializer>= I2S_CONFIG_CHANNELS_CHANNELS_Left</initializer>
+          <briefdescription>
+<para>Left only. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbeabf436a70e4b064360cfa54ecd459c348" prot="public">
+          <name>NRF_I2S_CHANNELS_RIGHT</name>
+          <initializer>= I2S_CONFIG_CHANNELS_CHANNELS_Right</initializer>
+          <briefdescription>
+<para>Right only. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S enabled channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="229" column="1" bodyfile="hal/nrf_i2s.h" bodystart="230" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrf__i2s__hal_1gad0c72277d28dba147ebb0696a425c38c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrf_i2s_clksrc_t</name>
+        <enumvalue id="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca006d0a833b037022286e7c7cb196b1ef" prot="public">
+          <name>NRF_I2S_CLKSRC_PCLK32M</name>
+          <initializer>= I2S_CONFIG_CLKCONFIG_CLKSRC_PCLK32M</initializer>
+          <briefdescription>
+<para>32MHz peripheral clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca05504cc606fa043629a895cb9a8986e2" prot="public">
+          <name>NRF_I2S_CLKSRC_ACLK</name>
+          <initializer>= I2S_CONFIG_CLKCONFIG_CLKSRC_ACLK</initializer>
+          <briefdescription>
+<para>Audio PLL clock. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>I2S Clock source selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="238" column="1" bodyfile="hal/nrf_i2s.h" bodystart="239" bodyend="242"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga9a685f05dd1d4b12353186b7046c6e23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_task_trigger</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_task_t task)</argsstring>
+        <name>nrf_i2s_task_trigger</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" kindref="member">nrf_i2s_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for activating the specified I2S task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task to be activated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="630" column="24" bodyfile="hal/nrf_i2s.h" bodystart="630" bodyend="634" declfile="hal/nrf_i2s.h" declline="279" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga50d49f34a959cc036ab0ce55ff1840d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_task_address_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, nrf_i2s_task_t task)</argsstring>
+        <name>nrf_i2s_task_address_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" kindref="member">nrf_i2s_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified I2S task register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified task register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="636" column="28" bodyfile="hal/nrf_i2s.h" bodystart="636" bodyend="640" declfile="hal/nrf_i2s.h" declline="290" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga38474d2787174fb01658bb28d7dfaba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_event_clear</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_event_t event)</argsstring>
+        <name>nrf_i2s_event_clear</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the specified I2S event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="642" column="24" bodyfile="hal/nrf_i2s.h" bodystart="642" bodyend="647" declfile="hal/nrf_i2s.h" declline="299" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaa21fbad4b6843761743180678de57d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_i2s_event_check</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, nrf_i2s_event_t event)</argsstring>
+        <name>nrf_i2s_event_check</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the I2S event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="649" column="24" bodyfile="hal/nrf_i2s.h" bodystart="649" bodyend="653" declfile="hal/nrf_i2s.h" declline="311" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga53a98a96f313e6e74143d7dcb60a98a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_event_address_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, nrf_i2s_event_t event)</argsstring>
+        <name>nrf_i2s_event_address_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified I2S event register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specified event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Address of the specified event register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="655" column="28" bodyfile="hal/nrf_i2s.h" bodystart="655" bodyend="659" declfile="hal/nrf_i2s.h" declline="322" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gae6ad420da3decfe88fdaf1795878e28f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_int_enable</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_i2s_int_enable</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be enabled. Use <ref refid="group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029" kindref="member">nrf_i2s_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="661" column="24" bodyfile="hal/nrf_i2s.h" bodystart="661" bodyend="664" declfile="hal/nrf_i2s.h" declline="332" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga296d21e44439e25f10cc4dd717d45b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_int_disable</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_i2s_int_disable</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling specified interrupts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be disabled. Use <ref refid="group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029" kindref="member">nrf_i2s_int_mask_t</ref> values for bit masking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="666" column="24" bodyfile="hal/nrf_i2s.h" bodystart="666" bodyend="669" declfile="hal/nrf_i2s.h" declline="341" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga87f4010060652e1620d24a3fddefed09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_int_enable_check</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, uint32_t mask)</argsstring>
+        <name>nrf_i2s_int_enable_check</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the specified interrupts are enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask of interrupts to be checked. Use <ref refid="group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029" kindref="member">nrf_i2s_int_mask_t</ref> values for bit masking.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of enabled interrupts. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="671" column="28" bodyfile="hal/nrf_i2s.h" bodystart="671" bodyend="674" declfile="hal/nrf_i2s.h" declline="352" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga88eb6dcb016cc499886e58bd5c914089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_enable</definition>
+        <argsstring>(NRF_I2S_Type *p_reg)</argsstring>
+        <name>nrf_i2s_enable</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the I2S peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="676" column="24" bodyfile="hal/nrf_i2s.h" bodystart="676" bodyend="679" declfile="hal/nrf_i2s.h" declline="359" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gab762c64e38a866a51001b50ef6e2ed2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_disable</definition>
+        <argsstring>(NRF_I2S_Type *p_reg)</argsstring>
+        <name>nrf_i2s_disable</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the I2S peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="681" column="24" bodyfile="hal/nrf_i2s.h" bodystart="681" bodyend="684" declfile="hal/nrf_i2s.h" declline="366" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga1cc8e79f477a2ae232123bda7648bd24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_subscribe_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_task_t task, uint8_t channel)</argsstring>
+        <name>nrf_i2s_subscribe_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" kindref="member">nrf_i2s_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the subscribe configuration for a given I2S task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to subscribe events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="377" column="24" declfile="hal/nrf_i2s.h" declline="377" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga842b1ddeaec04def545f9e6d948ee0e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_subscribe_clear</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_task_t task)</argsstring>
+        <name>nrf_i2s_subscribe_clear</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" kindref="member">nrf_i2s_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the subscribe configuration for a given I2S task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="388" column="24" declfile="hal/nrf_i2s.h" declline="388" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaf19996c81265f61b92a6bcd7f54b7fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_subscribe_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, nrf_i2s_task_t task)</argsstring>
+        <name>nrf_i2s_subscribe_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c" kindref="member">nrf_i2s_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the subscribe configuration for a given I2S task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>I2S subscribe configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="400" column="28" declfile="hal/nrf_i2s.h" declline="400" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gadb2bbc32fe7c8ce5dada74f7e85cf89e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_publish_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_event_t event, uint8_t channel)</argsstring>
+        <name>nrf_i2s_publish_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the publish configuration for a given I2S event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to set the configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel through which to publish the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="411" column="24" declfile="hal/nrf_i2s.h" declline="411" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga41e38e06a6caa21708e69e89f1d8b5fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_publish_clear</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_event_t event)</argsstring>
+        <name>nrf_i2s_publish_clear</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for clearing the publish configuration for a given I2S event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to clear the configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="422" column="24" declfile="hal/nrf_i2s.h" declline="422" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga8c85a01fffe98b67fbf90635906db94d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_publish_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg, nrf_i2s_event_t event)</argsstring>
+        <name>nrf_i2s_publish_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130" kindref="member">nrf_i2s_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the publish configuration for a given I2S event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event for which to read the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>I2S publish configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="434" column="28" declfile="hal/nrf_i2s.h" declline="434" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaa24e58ad729cb0f561c8d3fb2f264aba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_pins_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_pins_t const *p_pins)</argsstring>
+        <name>nrf_i2s_pins_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__i2s__pins__t" kindref="compound">nrf_i2s_pins_t</ref> const *</type>
+          <declname>p_pins</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring I2S pins. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Usage of the SDOUT, SDIN, and MCK signals is optional. If a given signal is not needed, pass the <ref refid="group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9" kindref="member">NRF_I2S_PIN_NOT_CONNECTED</ref> value instead of its pin number.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with pins selection. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="728" column="24" bodyfile="hal/nrf_i2s.h" bodystart="728" bodyend="735" declfile="hal/nrf_i2s.h" declline="448" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaaaba8da2df555d0523b36d8cbcd59c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_sck_pin_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_i2s_sck_pin_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SCK pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="737" column="24" bodyfile="hal/nrf_i2s.h" bodystart="737" bodyend="740" declfile="hal/nrf_i2s.h" declline="456" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga90a3d188b3fbda58fee39bdc720f850f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_lrck_pin_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_i2s_lrck_pin_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the LRCK pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LRCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="742" column="24" bodyfile="hal/nrf_i2s.h" bodystart="742" bodyend="745" declfile="hal/nrf_i2s.h" declline="464" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaf8d765ac9086c2087f92275dc130742a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_mck_pin_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_i2s_mck_pin_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the MCK pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="747" column="24" bodyfile="hal/nrf_i2s.h" bodystart="747" bodyend="750" declfile="hal/nrf_i2s.h" declline="472" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gadfb55229e399f92c1b496bd0c32b7d08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_sdout_pin_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_i2s_sdout_pin_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SDOUT pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDOUT pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="752" column="24" bodyfile="hal/nrf_i2s.h" bodystart="752" bodyend="755" declfile="hal/nrf_i2s.h" declline="480" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga8eaea7c89863b4c1c1c087ee9dbea0b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_sdin_pin_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t pin)</argsstring>
+        <name>nrf_i2s_sdin_pin_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the SDIN pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDIN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="757" column="24" bodyfile="hal/nrf_i2s.h" bodystart="757" bodyend="760" declfile="hal/nrf_i2s.h" declline="488" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gab71de58ff97197873fa3872370ed7002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_sck_pin_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_sck_pin_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SCK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SCK pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="762" column="28" bodyfile="hal/nrf_i2s.h" bodystart="762" bodyend="765" declfile="hal/nrf_i2s.h" declline="497" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga95fb128feef63ca105d8d35600baa5aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_lrck_pin_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_lrck_pin_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the LRCK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>LRCK pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="767" column="28" bodyfile="hal/nrf_i2s.h" bodystart="767" bodyend="770" declfile="hal/nrf_i2s.h" declline="506" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga10e1013c82eb5ef067aa11eb141c4a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_mck_pin_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_mck_pin_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the MCK pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MCK pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="772" column="28" bodyfile="hal/nrf_i2s.h" bodystart="772" bodyend="775" declfile="hal/nrf_i2s.h" declline="515" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gace9c22fceb75c64829fafbade7aa6860" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_sdout_pin_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_sdout_pin_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SDOUT pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SDOUT pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="777" column="28" bodyfile="hal/nrf_i2s.h" bodystart="777" bodyend="780" declfile="hal/nrf_i2s.h" declline="524" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga909727234ecb199fcdf436b15f6223cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t</type>
+        <definition>NRF_STATIC_INLINE uint32_t nrf_i2s_sdin_pin_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_sdin_pin_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SDIN pin selection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SDIN pin selection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="782" column="28" bodyfile="hal/nrf_i2s.h" bodystart="782" bodyend="785" declfile="hal/nrf_i2s.h" declline="533" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gac44d394b69e4da572f28745cfa3a1218" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE bool</type>
+        <definition>NRF_STATIC_INLINE bool nrf_i2s_mck_pin_connected_check</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_mck_pin_connected_check</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether MCK is connected to an output pin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MCK signal is connected to an ouput pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MCK signal is not connected to an ouput pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="787" column="24" bodyfile="hal/nrf_i2s.h" bodystart="787" bodyend="791" declfile="hal/nrf_i2s.h" declline="543" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga1e35046cd7d3decaf2e9c7e304c51487" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_configure</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_config_t const *p_config)</argsstring>
+        <name>nrf_i2s_configure</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrf__i2s__config__t" kindref="compound">nrf_i2s_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the I2S peripheral configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="793" column="24" bodyfile="hal/nrf_i2s.h" bodystart="793" bodyend="813" declfile="hal/nrf_i2s.h" declline="551" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_transfer_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint16_t size, uint32_t *p_rx_buffer, uint32_t const *p_tx_buffer)</argsstring>
+        <name>nrf_i2s_transfer_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_rx_buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_tx_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting up the I2S transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function sets up the RX and TX buffers and enables reception or transmission (or both) accordingly. If the transfer in a given direction is not required, pass NULL instead of the pointer to the corresponding buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffers (in 32-bit words). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_rx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. Pass NULL to disable reception. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_tx_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transmit buffer. Pass NULL to disable transmission. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="815" column="24" bodyfile="hal/nrf_i2s.h" bodystart="815" bodyend="831" declfile="hal/nrf_i2s.h" declline="567" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaef70cd84afcc91341aa82324155e5b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_rx_buffer_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t *p_buffer)</argsstring>
+        <name>nrf_i2s_rx_buffer_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The size of the buffer can be set only by calling <ref refid="group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530" kindref="member">nrf_i2s_transfer_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="833" column="24" bodyfile="hal/nrf_i2s.h" bodystart="833" bodyend="837" declfile="hal/nrf_i2s.h" declline="581" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga300c23337833839f4c517069604bc4a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_i2s_rx_buffer_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_rx_buffer_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the receive buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the receive buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="839" column="29" bodyfile="hal/nrf_i2s.h" bodystart="839" bodyend="842" declfile="hal/nrf_i2s.h" declline="591" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaedfeb0764a02f811b3cd7f37096ff284" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_tx_buffer_set</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, uint32_t const *p_buffer)</argsstring>
+        <name>nrf_i2s_tx_buffer_set</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type>uint32_t const *</type>
+          <declname>p_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the pointer to the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The size of the buffer can be set only by calling <ref refid="group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530" kindref="member">nrf_i2s_transfer_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the transmit buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="844" column="24" bodyfile="hal/nrf_i2s.h" bodystart="844" bodyend="848" declfile="hal/nrf_i2s.h" declline="602" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1ga599b42b26c7c26fdc277eb1c72602d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE uint32_t *</type>
+        <definition>NRF_STATIC_INLINE uint32_t * nrf_i2s_tx_buffer_get</definition>
+        <argsstring>(NRF_I2S_Type const *p_reg)</argsstring>
+        <name>nrf_i2s_tx_buffer_get</name>
+        <param>
+          <type>NRF_I2S_Type const *</type>
+          <declname>p_reg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the pointer to the transmit buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the transmit buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="850" column="29" bodyfile="hal/nrf_i2s.h" bodystart="850" bodyend="853" declfile="hal/nrf_i2s.h" declline="612" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrf__i2s__hal_1gaad29a9133da28846b000d43a4edd5553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRF_STATIC_INLINE void</type>
+        <definition>NRF_STATIC_INLINE void nrf_i2s_clk_configure</definition>
+        <argsstring>(NRF_I2S_Type *p_reg, nrf_i2s_clksrc_t clksrc, bool enable_bypass)</argsstring>
+        <name>nrf_i2s_clk_configure</name>
+        <param>
+          <type>NRF_I2S_Type *</type>
+          <declname>p_reg</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__i2s__hal_1gad0c72277d28dba147ebb0696a425c38c" kindref="member">nrf_i2s_clksrc_t</ref></type>
+          <declname>clksrc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_bypass</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring I2S Clock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure of registers of the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clksrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2S Clock source selection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_bypass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bypass clock generator. MCK will be equal to source input. If bypass is enabled the MCKFREQ setting has no effect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="856" column="24" bodyfile="hal/nrf_i2s.h" bodystart="856" bodyend="862" declfile="hal/nrf_i2s.h" declline="623" declcolumn="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrf__i2s__hal_1gae6fd9e57a9e93488c6200e98a1c53c60" prot="public" static="no">
+        <name>NRF_I2S_HAS_CLKCONFIG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether clock source configuration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="66" column="9" bodyfile="hal/nrf_i2s.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1ga8deb74881fd11355aa7a79c8d1f5d987" prot="public" static="no">
+        <name>NRF_I2S_HAS_FRAMESTART</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether frame start event is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="73" column="9" bodyfile="hal/nrf_i2s.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1ga2327c9ec121c8ded6b631ce0e34f594c" prot="public" static="no">
+        <name>NRF_I2S_HAS_GPIO_PORT_SELECTION</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether GPIO port selection for pins is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="80" column="9" bodyfile="hal/nrf_i2s.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1gaa890efc8f7bdf507e07763fbdab319f3" prot="public" static="no">
+        <name>NRF_I2S_HAS_SWIDTH_32BIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Symbol indicating whether 32-bit sample width is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="87" column="9" bodyfile="hal/nrf_i2s.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9" prot="public" static="no">
+        <name>NRF_I2S_PIN_NOT_CONNECTED</name>
+        <initializer>0xFFFFFFFF</initializer>
+        <briefdescription>
+<para>This value can be provided as a parameter for the <ref refid="group__nrf__i2s__hal_1gaa24e58ad729cb0f561c8d3fb2f264aba" kindref="member">nrf_i2s_pins_set</ref> function call to specify that the given I2S signal (SDOUT, SDIN, or MCK) shall not be connected to a physical pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="97" column="9" bodyfile="hal/nrf_i2s.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1ga48568a306a6e92daf4154f4c487b81ba" prot="public" static="no">
+        <name>NRF_I2S_PSEL_SCK_PIN_MASK</name>
+        <initializer>I2S_PSEL_SCK_PIN_Msk</initializer>
+        <briefdescription>
+<para>I2S SCK pin selection mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="100" column="9" bodyfile="hal/nrf_i2s.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrf__i2s__hal_1ga6c3b902ba174c76aa2a186044047521a" prot="public" static="no">
+        <name>NRF_I2S_PSEL_SCK_PORT_MASK</name>
+        <initializer>I2S_PSEL_SCK_PORT_Msk</initializer>
+        <briefdescription>
+<para>I2S SCK port selection mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_i2s.h" line="103" column="9" bodyfile="hal/nrf_i2s.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hardware access layer for managing the Inter-IC Sound (I2S) peripheral. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

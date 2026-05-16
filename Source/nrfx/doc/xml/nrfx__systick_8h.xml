@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__systick_8h" kind="file" language="C++">
+    <compoundname>nrfx_systick.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__systick_8h" local="no">hal/nrf_systick.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>drivers/include/nrfx_systick.h</label>
+        <link refid="nrfx__systick_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__systick__state__t" prot="public">nrfx_systick_state_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__systick_1ga79202c2efdff6c6d04876298a99eab17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_systick_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for configuring and starting the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function configures SysTick as a free-running timer without interrupt. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="76" column="6" declfile="drivers/include/nrfx_systick.h" declline="76" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga0c9edf1ca066f5c15bc479a3dec6ce3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_get</definition>
+        <argsstring>(nrfx_systick_state_t *p_state)</argsstring>
+        <name>nrfx_systick_get</name>
+        <param>
+          <type><ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref> *</type>
+          <declname>p_state</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the current SysTick state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function gets the current state of the SysTick timer. It can be used to check time-out by <ref refid="group__nrfx__systick_1ga82276707ec341ad6051e8f3e90dc81fa" kindref="member">nrfx_systick_test</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the state variable to be filled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="86" column="6" declfile="drivers/include/nrfx_systick.h" declline="86" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga82276707ec341ad6051e8f3e90dc81fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_systick_test</definition>
+        <argsstring>(nrfx_systick_state_t const *p_state, uint32_t us)</argsstring>
+        <name>nrfx_systick_test</name>
+        <param>
+          <type><ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref> const *</type>
+          <declname>p_state</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>us</declname>
+        </param>
+        <briefdescription>
+<para>Function for testing if the current time is higher in relation to the remembered state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Remembered state set by <ref refid="group__nrfx__systick_1ga0c9edf1ca066f5c15bc479a3dec6ce3a" kindref="member">nrfx_systick_get</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Required time-out.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time is higher than the specified state plus the given time-out. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time is lower than the specified state plus the given time-out. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="97" column="6" declfile="drivers/include/nrfx_systick.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga4b2f7d8e11f5fe7bfc5e6f7419a30ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_ticks</definition>
+        <argsstring>(uint32_t ticks)</argsstring>
+        <name>nrfx_systick_delay_ticks</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ticks</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of CPU ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ticks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of CPU ticks when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="104" column="6" declfile="drivers/include/nrfx_systick.h" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga8aca32403bcd76a7fb809025f2dd80da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_us</definition>
+        <argsstring>(uint32_t us)</argsstring>
+        <name>nrfx_systick_delay_us</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>us</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of microseconds when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="111" column="6" declfile="drivers/include/nrfx_systick.h" declline="111" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__systick_1ga6b30d93a34f24799a048380ac69d96a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_systick_delay_ms</definition>
+        <argsstring>(uint32_t ms)</argsstring>
+        <name>nrfx_systick_delay_ms</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ms</declname>
+        </param>
+        <briefdescription>
+<para>Function for delaying the execution for the specified amount of milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This delay function removes the limits of the highest possible delay value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of milliseconds when the execution is blocked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_systick.h" line="120" column="6" declfile="drivers/include/nrfx_systick.h" declline="120" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2016<sp/>-<sp/>2026,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_SYSTICK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_SYSTICK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_systick.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_systick<sp/>ARM(R)<sp/>SysTick<sp/>driver</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrf_systick</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>ARM(R)<sp/>SysTick<sp/>driver.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>This<sp/>driver<sp/>configures<sp/>ARM(R)<sp/>SysTick<sp/>as<sp/>a<sp/>free-running<sp/>timer.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>This<sp/>timer<sp/>is<sp/>used<sp/>to<sp/>generate<sp/>delays<sp/>and<sp/>pool<sp/>for<sp/>timeouts.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Only<sp/>relatively<sp/>short<sp/>timeouts<sp/>are<sp/>supported.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>The<sp/>SysTick<sp/>works<sp/>on<sp/>64MHz<sp/>and<sp/>is<sp/>24-bit<sp/>wide.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>This<sp/>means<sp/>that<sp/>it<sp/>overflows<sp/>around<sp/>4<sp/>times<sp/>per<sp/>second<sp/>and</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>around<sp/>250<sp/>microseconds<sp/>will<sp/>be<sp/>the<sp/>highest<sp/>supported<sp/>time<sp/>in<sp/>the<sp/>library.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>As<sp/>it<sp/>is<sp/>hard<sp/>to<sp/>detect<sp/>if<sp/>the<sp/>overflow<sp/>is<sp/>generated<sp/>without</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>using<sp/>interrupts,<sp/>the<sp/>maximum<sp/>delay<sp/>range<sp/>is<sp/>halved<sp/>for<sp/>safety<sp/>reasons.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>@brief<sp/>The<sp/>value<sp/>type<sp/>that<sp/>holds<sp/>the<sp/>SysTick<sp/>state.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>This<sp/>variable<sp/>is<sp/>used<sp/>to<sp/>count<sp/>the<sp/>requested<sp/>timeout.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>@sa<sp/>nrfx_systick_get</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structnrfx__systick__state__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>time;<sp/></highlight><highlight class="comment">//!&lt;<sp/>Registered<sp/>time<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>configuring<sp/>and<sp/>starting<sp/>the<sp/>timer.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>Function<sp/>configures<sp/>SysTick<sp/>as<sp/>a<sp/>free-running<sp/>timer<sp/>without<sp/>interrupt.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga79202c2efdff6c6d04876298a99eab17" kindref="member">nrfx_systick_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>current<sp/>SysTick<sp/>state.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>Function<sp/>gets<sp/>the<sp/>current<sp/>state<sp/>of<sp/>the<sp/>SysTick<sp/>timer.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*<sp/>It<sp/>can<sp/>be<sp/>used<sp/>to<sp/>check<sp/>time-out<sp/>by<sp/>@ref<sp/>nrfx_systick_test.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>p_state<sp/>The<sp/>pointer<sp/>to<sp/>the<sp/>state<sp/>variable<sp/>to<sp/>be<sp/>filled.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga0c9edf1ca066f5c15bc479a3dec6ce3a" kindref="member">nrfx_systick_get</ref>(<ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref><sp/>*<sp/>p_state);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="88"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>testing<sp/>if<sp/>the<sp/>current<sp/>time<sp/>is<sp/>higher<sp/>in<sp/>relation<sp/>to<sp/>the<sp/>remembered<sp/>state.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_state<sp/>Remembered<sp/>state<sp/>set<sp/>by<sp/>@ref<sp/>nrfx_systick_get</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>us<sp/><sp/><sp/><sp/><sp/><sp/>Required<sp/>time-out.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@retval<sp/>true<sp/><sp/>The<sp/>current<sp/>time<sp/>is<sp/>higher<sp/>than<sp/>the<sp/>specified<sp/>state<sp/>plus<sp/>the<sp/>given<sp/>time-out.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>@retval<sp/>false<sp/>The<sp/>current<sp/>time<sp/>is<sp/>lower<sp/>than<sp/>the<sp/>specified<sp/>state<sp/>plus<sp/>the<sp/>given<sp/>time-out.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga82276707ec341ad6051e8f3e90dc81fa" kindref="member">nrfx_systick_test</ref>(<ref refid="structnrfx__systick__state__t" kindref="compound">nrfx_systick_state_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_state,<sp/>uint32_t<sp/>us);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>delaying<sp/>the<sp/>execution<sp/>for<sp/>the<sp/>specified<sp/>amount<sp/>of<sp/>CPU<sp/>ticks.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>ticks<sp/>Number<sp/>of<sp/>CPU<sp/>ticks<sp/>when<sp/>the<sp/>execution<sp/>is<sp/>blocked.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga4b2f7d8e11f5fe7bfc5e6f7419a30ac8" kindref="member">nrfx_systick_delay_ticks</ref>(uint32_t<sp/>ticks);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="106"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>delaying<sp/>the<sp/>execution<sp/>for<sp/>the<sp/>specified<sp/>amount<sp/>of<sp/>microseconds.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>us<sp/>Number<sp/>of<sp/>microseconds<sp/>when<sp/>the<sp/>execution<sp/>is<sp/>blocked.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga8aca32403bcd76a7fb809025f2dd80da" kindref="member">nrfx_systick_delay_us</ref>(uint32_t<sp/>us);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>delaying<sp/>the<sp/>execution<sp/>for<sp/>the<sp/>specified<sp/>amount<sp/>of<sp/>milliseconds.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>This<sp/>delay<sp/>function<sp/>removes<sp/>the<sp/>limits<sp/>of<sp/>the<sp/>highest<sp/>possible<sp/>delay<sp/>value.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>ms<sp/>Number<sp/>of<sp/>milliseconds<sp/>when<sp/>the<sp/>execution<sp/>is<sp/>blocked.</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__systick_1ga6b30d93a34f24799a048380ac69d96a0" kindref="member">nrfx_systick_delay_ms</ref>(uint32_t<sp/>ms);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>NRFX_SYSTICK_H__<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="drivers/include/nrfx_systick.h"/>
+  </compounddef>
+</doxygen>

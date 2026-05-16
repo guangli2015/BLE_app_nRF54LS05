@@ -1,0 +1,2202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__utils" kind="group">
+    <compoundname>nrfx_utils</compoundname>
+    <title>Preprocessor utility macros</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__utils_1gaf8e9c8e0bf6d67f69eb7ed0dbfcbe621" prot="public" static="no">
+        <name>NRFX_CHECK</name>
+        <param><defname>module_enabled</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga238278032464c932dc46946bedd44473" kindref="member">NRFX_IS_ENABLED</ref>(module_enabled)</initializer>
+        <briefdescription>
+<para>Macro for checking if the specified identifier is defined and it has a non-zero value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Normally, preprocessors treat all undefined identifiers as having the value zero. However, some tools, like static code analyzers, can issue a warning when such identifier is evaluated. This macro gives the possibility to suppress such warnings only in places where this macro is used for evaluation, not in the whole analyzed code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="55" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga96f4b818e9b3f7bf144afe72b027f307" prot="public" static="no">
+        <name>NRFX_RELEASE_VER_AT_LEAST</name>
+        <param><defname>major</defname></param>
+        <param><defname>minor</defname></param>
+        <param><defname>micro</defname></param>
+        <initializer>    (((<ref refid="group__nrfx__common_1ga189498e7f2291e95ba383069e73041c9" kindref="member">NRFX_RELEASE_VER_MAJOR</ref> &gt; (major))) ||                                      \
+     ((<ref refid="group__nrfx__common_1ga189498e7f2291e95ba383069e73041c9" kindref="member">NRFX_RELEASE_VER_MAJOR</ref> == major) &amp;&amp; (<ref refid="group__nrfx__common_1ga38f29ab153aebdc6f59034511f456794" kindref="member">NRFX_RELEASE_VER_MINOR</ref> &gt; (minor))) || \
+     ((<ref refid="group__nrfx__common_1ga189498e7f2291e95ba383069e73041c9" kindref="member">NRFX_RELEASE_VER_MAJOR</ref> == major) &amp;&amp; (<ref refid="group__nrfx__common_1ga38f29ab153aebdc6f59034511f456794" kindref="member">NRFX_RELEASE_VER_MINOR</ref> == minor) &amp;&amp;   \
+      (<ref refid="group__nrfx__common_1gacc8bdfc868847f4c04b0727f7793f7c9" kindref="member">NRFX_RELEASE_VER_MICRO</ref> &gt;= (micro))))</initializer>
+        <briefdescription>
+<para>Macro for checking if the nrfx version is greater than or equal to the specified version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Current nrfx version is specified with the following symbols:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__common_1ga189498e7f2291e95ba383069e73041c9" kindref="member">NRFX_RELEASE_VER_MAJOR</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__common_1ga38f29ab153aebdc6f59034511f456794" kindref="member">NRFX_RELEASE_VER_MINOR</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__common_1gacc8bdfc868847f4c04b0727f7793f7c9" kindref="member">NRFX_RELEASE_VER_MICRO</ref></para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Major version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minor version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">micro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Micro version.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current nrfx version is greater than or equal to the specified version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current nrfx version is smaller than the specified version. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="73" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaecad8a6485425eddd9394900eb38786f" prot="public" static="no">
+        <name>NRFX_API_VER_AT_LEAST</name>
+        <param><defname>major</defname></param>
+        <param><defname>minor</defname></param>
+        <param><defname>micro</defname></param>
+        <initializer>    (((<ref refid="group__nrfx__common__config_1gaf14738ceb195dd31d4322d07d41d0eb4" kindref="member">NRFX_CONFIG_API_VER_MAJOR</ref> &gt; (major))) ||                                         \
+     ((<ref refid="group__nrfx__common__config_1gaf14738ceb195dd31d4322d07d41d0eb4" kindref="member">NRFX_CONFIG_API_VER_MAJOR</ref> == major) &amp;&amp; (<ref refid="group__nrfx__common__config_1gae351f1ad60c1b6e1761cd201f5b4d8bc" kindref="member">NRFX_CONFIG_API_VER_MINOR</ref> &gt; (minor))) || \
+     ((<ref refid="group__nrfx__common__config_1gaf14738ceb195dd31d4322d07d41d0eb4" kindref="member">NRFX_CONFIG_API_VER_MAJOR</ref> == major) &amp;&amp; (<ref refid="group__nrfx__common__config_1gae351f1ad60c1b6e1761cd201f5b4d8bc" kindref="member">NRFX_CONFIG_API_VER_MINOR</ref> == minor) &amp;&amp;   \
+      (<ref refid="group__nrfx__common__config_1ga36af34ce39f29b5e7803930195c6a1d5" kindref="member">NRFX_CONFIG_API_VER_MICRO</ref> &gt;= (micro))))</initializer>
+        <briefdescription>
+<para>Macro for checking if the configured API version is greater than or equal to the specified API version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>API version to be used is configured using following symbols:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__common__config_1gaf14738ceb195dd31d4322d07d41d0eb4" kindref="member">NRFX_CONFIG_API_VER_MAJOR</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__common__config_1gae351f1ad60c1b6e1761cd201f5b4d8bc" kindref="member">NRFX_CONFIG_API_VER_MINOR</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__common__config_1ga36af34ce39f29b5e7803930195c6a1d5" kindref="member">NRFX_CONFIG_API_VER_MICRO</ref></para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">major</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Major API version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">minor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minor API version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">micro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Micro API version.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configured API version is greater than or equal to the specified API version. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Configured API version is smaller than the specified API version. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="95" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga6d45af3faab5d861172ff70e48ebc540" prot="public" static="no">
+        <name>NRFX_BIT</name>
+        <param><defname>x</defname></param>
+        <initializer>(1UL &lt;&lt; (x))</initializer>
+        <briefdescription>
+<para>Macro for creating unsigned integer with bit position <computeroutput>x</computeroutput> set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit position to be set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Unsigned integer with requested bit position set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="108" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga5297a05d3568750308e0f3e33074235c" prot="public" static="no">
+        <name>NRFX_BIT_MASK</name>
+        <param><defname>x</defname></param>
+        <initializer>(((x) == 32) ? UINT32_MAX : ((1UL &lt;&lt; (x)) - 1))</initializer>
+        <briefdescription>
+<para>Macro for returning bit mask or 0 if <computeroutput>x</computeroutput> is 0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit mask size. Bit mask has bits 0 through x-1 (inclusive) set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bit mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="117" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga42eebf999b96ade647c5c75b280081e3" prot="public" static="no">
+        <name>NRFX_BIT_SIZE</name>
+        <param><defname>x</defname></param>
+        <initializer>((x) &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Macro for returning size in bits for given size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size in bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Size in bits. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="126" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" prot="public" static="no">
+        <name>NRFX_CONCAT_2</name>
+        <param><defname>p1</defname></param>
+        <param><defname>p2</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga0a62bf54a7a56a54d6385a6139e8976f" kindref="member">NRFX_CONCAT_2_</ref>(p1, p2)</initializer>
+        <briefdescription>
+<para>Macro for concatenating two tokens in macro expansion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This macro is expanded in two steps so that tokens given as macros themselves are fully expanded before they are merged.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First token. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The two tokens merged into one, unless they cannot together form a valid token (in such case, the preprocessor issues a warning and does not perform the concatenation).</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__utils_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" kindref="member">NRFX_CONCAT_3</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="143" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga0a62bf54a7a56a54d6385a6139e8976f" prot="public" static="no">
+        <name>NRFX_CONCAT_2_</name>
+        <param><defname>p1</defname></param>
+        <param><defname>p2</defname></param>
+        <initializer>p1 ## p2</initializer>
+        <briefdescription>
+<para>Internal macro used by <ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref> to perform the expansion in two steps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="146" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" prot="public" static="no">
+        <name>NRFX_CONCAT_3</name>
+        <param><defname>p1</defname></param>
+        <param><defname>p2</defname></param>
+        <param><defname>p3</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga097c0e3f5995932a0c273b85ca786581" kindref="member">NRFX_CONCAT_3_</ref>(p1, p2, p3)</initializer>
+        <briefdescription>
+<para>Macro for concatenating three tokens in macro expansion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This macro is expanded in two steps so that tokens given as macros themselves are fully expanded before they are merged.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First token. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second token. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Third token.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The three tokens merged into one, unless they cannot together form a valid token (in such case, the preprocessor issues a warning and does not perform the concatenation).</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="164" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga097c0e3f5995932a0c273b85ca786581" prot="public" static="no">
+        <name>NRFX_CONCAT_3_</name>
+        <param><defname>p1</defname></param>
+        <param><defname>p2</defname></param>
+        <param><defname>p3</defname></param>
+        <initializer>p1 ## p2 ## p3</initializer>
+        <briefdescription>
+<para>Internal macro used by <ref refid="group__nrfx__utils_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" kindref="member">NRFX_CONCAT_3</ref> to perform the expansion in two steps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="167" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac856b9983c8485fb865f017c77dd4f81" prot="public" static="no">
+        <name>NRFX_ABS</name>
+        <param><defname>a</defname></param>
+        <initializer>((a) &lt; (0) ? -(a) : (a))</initializer>
+        <briefdescription>
+<para>Macro for computing the absolute value of an integer number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Absolute value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="176" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac65c90e6e35bff94d76cb038b34abcfc" prot="public" static="no">
+        <name>NRFX_DIFF</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a) &lt; (b) ? ((b) - (a)) : ((a) - (b)))</initializer>
+        <briefdescription>
+<para>Macro for computing the difference between two unsigned values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First input value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second input value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Difference. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="186" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9bb83016125feb768471ed62b4bf9181" prot="public" static="no">
+        <name>NRFX_FEATURE_PRESENT</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>feature_name</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1gac0b7db186b16e71e28d7eb956869a30a" kindref="member">NRFX_COND_CODE_0</ref>(<ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(0,                                                            \
+                            _NRFX_FEATURE_PRESENT(periph_name, feature_name, 256),                 \
+                            _NRFX_FEATURE_PRESENT(<ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(periph_name, 0), feature_name, 100), \
+                            _NRFX_FEATURE_PRESENT(<ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(periph_name, 00), feature_name, 10)  \
+                         ),                                                                        \
+                        (0), (1))</initializer>
+        <briefdescription>
+<para>Macro for checking whether any of the instance of the specified peripheral supports a given feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro checks flags set in &lt;device&gt;_peripherals.h file.</para>
+<para>Macro supports check on instances with following names:<itemizedlist>
+<listitem><para>&lt;periph_name&gt;0 - &lt;periph_name&gt;255 - e.g. SPIM0, SPIM255</para>
+</listitem><listitem><para>&lt;periph_name&gt;00 - &lt;periph_name&gt;099 - e.g. SPIM00, SPIM099</para>
+</listitem><listitem><para>&lt;periph_name&gt;000 - &lt;periph_name&gt;009 - e.g. SPIM000, SPIM009</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">feature_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feature flag name suffix following an instance name, e.g. _FEATURE_HARDWARE_CSN_PRESENT.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>At least one instance on current device supports a given feature. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>None of peripheral instances supports a given feature. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="205" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" prot="public" static="no">
+        <name>NRFX_FOREACH_ENABLED</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>macro</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>off_code</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(256, _NRFX_EVAL_IF_ENABLED, sep,                                 \
+                     off_code, periph_name, , macro, __VA_ARGS__) NRFX_DEBRACKET sep  \
+        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(100, _NRFX_EVAL_IF_ENABLED, sep,                                 \
+                     off_code, periph_name, 0, macro, __VA_ARGS__) NRFX_DEBRACKET sep \
+        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(10, _NRFX_EVAL_IF_ENABLED, sep,                                  \
+                     off_code, periph_name, 00, macro, __VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for resolving provided user macro for enabled instances of a driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro checks if driver instances are enabled for all potential instaces of a peripheral. It takes peripheral name and checks whether NRFX_&lt;peripheral&gt;&lt;id&gt;_ENABLED is set to 1 and if yes then provided macro is evaluated for given instance.</para>
+<para>Macro supports check on instances with following names:<itemizedlist>
+<listitem><para>&lt;periph_name&gt;0 - &lt;periph_name&gt;255 - e.g. SPIM0, SPIM255</para>
+</listitem><listitem><para>&lt;periph_name&gt;00 - &lt;periph_name&gt;099 - e.g. SPIM00, SPIM099</para>
+</listitem><listitem><para>&lt;periph_name&gt;000 - &lt;periph_name&gt;009 - e.g. SPIM000, SPIM009</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro which is resolved if driver instance is enabled. Macro has following arguments: macro(periph_name, prefix, i, ...). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator added between all evaluations, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">off_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Code injected for disabled instances, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="231" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga38f2594b8cce4f921d570218f394c1ec" prot="public" static="no">
+        <name>NRFX_FOREACH_INDEXED_PRESENT</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>macro</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>off_code</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(256, _NRFX_EVAL_IF_PRESENT, sep,                                  \
+                     off_code, periph_name, , macro, __VA_ARGS__) NRFX_DEBRACKET sep   \
+        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(100, _NRFX_EVAL_IF_PRESENT, sep,                                  \
+                     off_code, periph_name, 0, macro, __VA_ARGS__) NRFX_DEBRACKET sep  \
+        <ref refid="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" kindref="member">NRFX_LISTIFY</ref>(10, _NRFX_EVAL_IF_PRESENT, sep,                                   \
+                     off_code, periph_name, 00, macro, __VA_ARGS__) NRFX_DEBRACKET sep \</initializer>
+        <briefdescription>
+<para>Macro for resolving provided user macro for present indexed instances of a peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro checks if peripheral instances are present by checking if there is a token NRF_&lt;periph_name&gt;&lt;id&gt; defined with wrapped in parenthesis value.</para>
+<para>Macro supports check on instances with following names:<itemizedlist>
+<listitem><para>&lt;periph_name&gt;0 - &lt;periph_name&gt;255 - e.g. SPIM0, SPIM255</para>
+</listitem><listitem><para>&lt;periph_name&gt;00 - &lt;periph_name&gt;099 - e.g. SPIM00, SPIM099</para>
+</listitem><listitem><para>&lt;periph_name&gt;000 - &lt;periph_name&gt;009 - e.g. SPIM000, SPIM009</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro which is resolved if peripheral instance is present. Macro has following arguments: macro(periph_name, prefix, i, ...). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator added between all evaluations, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">off_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Code injected for disabled instances, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="256" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga0b8fc2ee054d67089fabbccc4fd30386" prot="public" static="no">
+        <name>NRFX_FOREACH_PRESENT</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>macro</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>off_code</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1ga38f2594b8cce4f921d570218f394c1ec" kindref="member">NRFX_FOREACH_INDEXED_PRESENT</ref>(periph_name, macro, sep, off_code, __VA_ARGS__) \
+        _NRFX_EVAL_IF_PRESENT(, off_code, periph_name, , macro, __VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for resolving provided user macro for present instances of a peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro checks if peripheral instances are present by checking if there is a token NRF_&lt;periph_name&gt;&lt;id&gt; defined with wrapped in parenthesis value.</para>
+<para>Macro supports check on instances with following names:<itemizedlist>
+<listitem><para>&lt;periph_name&gt;0 - &lt;periph_name&gt;255 - e.g. SPIM0, SPIM255</para>
+</listitem><listitem><para>&lt;periph_name&gt;00 - &lt;periph_name&gt;099 - e.g. SPIM00, SPIM099</para>
+</listitem><listitem><para>&lt;periph_name&gt;000 - &lt;periph_name&gt;009 - e.g. SPIM000, SPIM009</para>
+</listitem><listitem><para>&lt;periph_name&gt; - e.g. SPIM</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro which is resolved if peripheral instance is present. Macro has following arguments: macro(periph_name, prefix, i, ...). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator added between all evaluations, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">off_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Code injected for disabled instances, in parentheses. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="282" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga22607aaeca14ce95965ee9d83ef97130" prot="public" static="no">
+        <name>NRFX_INSTANCE_CONCAT</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>prefix</defname></param>
+        <param><defname>i</defname></param>
+        <param><defname>macro</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>      macro(<ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(periph_name, prefix, i), __VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for resolving provided user macro on concatenated peripheral name and instance index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Execute provided macro with single argument &lt;instance&gt; that is the concatenation of <computeroutput>periph_name</computeroutput>, <computeroutput>prefix</computeroutput> and <computeroutput>i</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prefix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Prefix added before instance index, e.g. some device has instances named like SPIM00. First 0 is passed here as prefix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro which is executed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable length arguments passed to the <computeroutput>macro</computeroutput>. Macro has following arguments: macro(instance, ...). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="301" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga97a94e1334c4262979cb718e0f5e6cec" prot="public" static="no">
+        <name>NRFX_INSTANCE_ENUM_LIST</name>
+        <param><defname>periph_name</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" kindref="member">NRFX_FOREACH_ENABLED</ref>(periph_name, _NRFX_INST_ENUM, (), ())</initializer>
+        <briefdescription>
+<para>Macro for creating a content for enum which is listing enabled driver instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It creates comma separated list of entries like NRFX_&lt;instance_name&gt;<emphasis>INST_IDX, e.g. (NRFX_SPIM0_INST_IDX) for all enabled instances (NRFX</emphasis>&lt;instance_name&gt;_ENABLED is set to 1). It should be called within enum declaration. Created enum is used by the driver to index all enabled instances of the driver.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name (e.g. SPIM). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="314" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga27753ed440b1d056dc839a5321cc37aa" prot="public" static="no">
+        <name>NRFX_INSTANCE_PRESENT_ENUM_LIST</name>
+        <param><defname>periph_name</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1ga38f2594b8cce4f921d570218f394c1ec" kindref="member">NRFX_FOREACH_INDEXED_PRESENT</ref>(periph_name, _NRFX_INST_ENUM, (), ())</initializer>
+        <briefdescription>
+<para>Macro for creating a content for enum which is listing potential driver instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It creates comma separated list of entries like NRFX_&lt;instance_name&gt;<emphasis>INST_IDX, e.g. (NRFX_SPIM0_INST_IDX) for all present instances (NRF</emphasis>&lt;instance_name&gt; is present). It should be called within enum declaration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name (e.g. SPIM). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="326" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga4d3c38dbb4efd28a8dc45479ee900dce" prot="public" static="no">
+        <name>NRFX_REG_TO_INSTANCE</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>reg</defname></param>
+        <initializer>        <ref refid="group__nrfx__utils_1ga38f2594b8cce4f921d570218f394c1ec" kindref="member">NRFX_FOREACH_INDEXED_PRESENT</ref>(periph_name, _PERIPH_PTR_COMPARE, (), (), reg) \
+        255</initializer>
+        <briefdescription>
+<para>Macro for translating peripheral address to its instance number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral address.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Peripheral instance number if address matches, 255 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="337" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac954051ae958ca6de190526f6996af8b" prot="public" static="no">
+        <name>NRFX_INSTANCE_IRQ_HANDLERS</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>periph_name_small</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" kindref="member">NRFX_FOREACH_ENABLED</ref>(periph_name, _NRFX_IRQ_HANDLER, (), (), periph_name_small)</initializer>
+        <briefdescription>
+<para>Macro for creating an interrupt handler for all enabled driver instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro creates a set of functions which calls generic <computeroutput>irq_handler</computeroutput> function with two parameters:<itemizedlist>
+<listitem><para>peripheral instance register pointer</para>
+</listitem><listitem><para>pointer to a control block structure associated with the given instance</para>
+</listitem></itemizedlist>
+</para>
+<para>Generic interrupt handler function with above mentioned parameters named <computeroutput>irq_handler</computeroutput> must be implemented in the driver.</para>
+<para><simplesect kind="note"><para>Handlers are using enum which should be generated using <ref refid="group__nrfx__utils_1ga97a94e1334c4262979cb718e0f5e6cec" kindref="member">NRFX_INSTANCE_ENUM_LIST</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name_small</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name written with small letters, e.g. spim. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="356" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gab0a56e850cdc324f487e734e3ef896d8" prot="public" static="no">
+        <name>NRFX_INSTANCE_IRQ_HANDLERS_EXT</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>periph_name_small</defname></param>
+        <param><defname>ext_macro</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" kindref="member">NRFX_FOREACH_ENABLED</ref>(periph_name, _NRFX_IRQ_HANDLER_EXT, (), (), periph_name_small, ext_macro)</initializer>
+        <briefdescription>
+<para>Macro for creating an interrupt handler for all enabled driver instances with the specified extra parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro creates set of function which calls generic <computeroutput>irq_handler</computeroutput> function with three parameters:<itemizedlist>
+<listitem><para>peripheral instance register pointer</para>
+</listitem><listitem><para>pointer to a control block structure associated with the given instance</para>
+</listitem><listitem><para>provided <computeroutput>ext_macro</computeroutput> called with peripheral name suffix (e.g. 01 for TIMER01)</para>
+</listitem></itemizedlist>
+</para>
+<para>Generic interrupt handler function with above mentioned parameters named <computeroutput>irq_handler</computeroutput> must be implemented in the driver.</para>
+<para><simplesect kind="note"><para>Handlers are using enum which should be generated using <ref refid="group__nrfx__utils_1ga97a94e1334c4262979cb718e0f5e6cec" kindref="member">NRFX_INSTANCE_ENUM_LIST</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name_small</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name written with small letters, e.g. rtc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ext_macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>External macro to be executed for each instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="377" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gae3bda8e976c1f0e657e9260af2def0ef" prot="public" static="no">
+        <name>NRFX_INSTANCE_IRQ_HANDLERS_DECLARE</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>periph_name_small</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" kindref="member">NRFX_FOREACH_ENABLED</ref>(periph_name, _NRFX_IRQ_HANDLER_DECLARE, (), (), periph_name_small)</initializer>
+        <briefdescription>
+<para>Macro for declaring an interrupt handler for all enabled driver instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro creates set of function declarations. It is intended to be used in the driver header.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name_small</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name written with small letters, e.g. spim. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="388" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaf4c6ab6524ef4a8636cc97f2447ab65c" prot="public" static="no">
+        <name>NRFX_INSTANCE_IRQ_HANDLERS_LIST</name>
+        <param><defname>periph_name</defname></param>
+        <param><defname>periph_name_small</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga67de60e8d50b057ffcc75c9479fd0d1d" kindref="member">NRFX_FOREACH_ENABLED</ref>(periph_name, _NRFX_IRQ_HANDLER_LIST, (), (), periph_name_small)</initializer>
+        <briefdescription>
+<para>Macro for generating comma-separated list of interrupt handlers for all enabled driver instances. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Interrupt handlers are generated using <ref refid="group__nrfx__utils_1gac954051ae958ca6de190526f6996af8b" kindref="member">NRFX_INSTANCE_IRQ_HANDLERS</ref>. It is intended to be used to create a list which is used for passing an interrupt handler function to the PRS driver.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name, e.g. SPIM. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name_small</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name written with small letters, e.g. spim. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="402" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac9d9cc7519298354cfb5cb777e679557" prot="public" static="no">
+        <name>NRFX_INSTANCE_IRQ_HANDLER_DEFINE</name>
+        <param><defname>periph_name_small</defname></param>
+        <param><defname>inst_idx</defname></param>
+        <param><defname>p_instance</defname></param>
+        <initializer>    void <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(nrfx_, periph_name_small, _, inst_idx, _irq_handler)(void * p_context) \
+    {                                                                                       \
+        (void)p_context;                                                                    \
+        <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(nrfx_, periph_name_small, _irq_handler)(p_instance);                    \
+    }</initializer>
+        <briefdescription>
+<para>Macro for generating instance specific interrupt handler for a specific driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro should be called in user code outside of function if user wants to use interrupts with given peripheral instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">periph_name_small</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral name written with small letters, e.g. spim. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">inst_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="416" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9cc7f9da377228c1f0b191bd660577af" prot="public" static="no">
+        <name>NRFX_INSTANCE_PRESENT</name>
+        <param><defname>_inst</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1ga61259822a6d31a2d4cb15a9943a24521" kindref="member">NRFX_ARG_HAS_PARENTHESIS</ref>(<ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, _inst))</initializer>
+        <briefdescription>
+<para>Macro for checking if given peripheral instance is present on the target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro utilizes the fact that for each existing instance a define is created which points to the memory mapped register set casted to a register set structure. It is wrapped in parenthesis and existance of parethesis wrapping is used to determine if instance exists. It if does not exist then token (e.g. NRF_SPIM10) is undefined so it does not have parenthesis wrapping.</para>
+<para>Since macro returns literal 1 it can be used by other macros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_inst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance, .e.g SPIM10.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If instance is present. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If instance is not present. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="438" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga3a3c912a8618b4181054a51dc49e6bd4" prot="public" static="no">
+        <name>NRFX_MIN</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a) &lt; (b) ? (a) : (b))</initializer>
+        <briefdescription>
+<para>Macro for getting the smaller value between two arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First argument. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Smaller value between two arguments. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="448" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaaf20fb75ada3be75dbf03d6fe4d43f6a" prot="public" static="no">
+        <name>NRFX_MAX</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((a) &gt; (b) ? (a) : (b))</initializer>
+        <briefdescription>
+<para>Macro for getting the larger value between two arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First argument. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Larger value between two arguments. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="458" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9ab9182c3b8a8fd3bced580fdf215d2d" prot="public" static="no">
+        <name>NRFX_IN_RANGE</name>
+        <param><defname>val</defname></param>
+        <param><defname>min</defname></param>
+        <param><defname>max</defname></param>
+        <initializer>((val) &gt;= (min) &amp;&amp; (val) &lt;= (max))</initializer>
+        <briefdescription>
+<para>Macro for checking if a given value is in a given range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><computeroutput>val</computeroutput> is evaluated twice.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A value to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lower bound (inclusive). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The upper bound (inclusive).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is in the given range. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is out of the given range. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="472" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gace8c98e2beb5dae71ccd6da8a5c50f93" prot="public" static="no">
+        <name>NRFX_ROUNDED_DIV</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>    ((((a) &lt; 0) ^ ((b) &lt; 0)) ? (((a) - (b) / 2) / (b)) : (((a) + (b) / 2) / (b)))</initializer>
+        <briefdescription>
+<para>Macro for performing rounded integer division (as opposed to truncating the result). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Numerator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denominator.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Rounded (integer) result of dividing <computeroutput>a</computeroutput> by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="483" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="483" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac6eb065c273d30e60564b323d2cabd21" prot="public" static="no">
+        <name>NRFX_CEIL_DIV</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>((((a) - 1) / (b)) + 1)</initializer>
+        <briefdescription>
+<para>Macro for performing integer division, making sure the result is rounded up. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A typical use case for this macro is to compute the number of objects with size <computeroutput>b</computeroutput> required to hold <computeroutput>a</computeroutput> number of bytes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Numerator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Denominator.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Integer result of dividing <computeroutput>a</computeroutput> by <computeroutput>b</computeroutput>, rounded up. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="497" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="497" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gafbf1f8a50035b7d9f6c1cc1155ed1989" prot="public" static="no">
+        <name>NRFX_ARRAY_SIZE</name>
+        <param><defname>array</defname></param>
+        <initializer>(sizeof(array) / sizeof((array)[0]))</initializer>
+        <briefdescription>
+<para>Macro for getting the number of elements in an array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Array element count. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="506" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="506" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaf356c97c2527d9ac57b04dd9f12fc9d3" prot="public" static="no">
+        <name>NRFX_OFFSETOF</name>
+        <param><defname>type</defname></param>
+        <param><defname>member</defname></param>
+        <initializer>((size_t) &amp; (((type *)0)-&gt;member))</initializer>
+        <briefdescription>
+<para>Macro for getting the offset (in bytes) from the beginning of a structure of the specified type to its specified member. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure member whose offset is searched for.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Member offset in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="517" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="517" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gad915509e5196347904abacd49406158f" prot="public" static="no">
+        <name>NRFX_IS_POWER_OF_TWO</name>
+        <param><defname>val</defname></param>
+        <initializer>(((val) != 0) &amp;&amp; ((val) &amp; ((val) - 1)) == 0)</initializer>
+        <briefdescription>
+<para>Macro for checking whether given number is power of 2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tested value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is power of 2. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is not power of 2. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="527" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga8442c06f3943789856920c4bbec6b586" prot="public" static="no">
+        <name>NRFX_IS_EVEN</name>
+        <param><defname>val</defname></param>
+        <initializer>(((val) % 2)  == 0)</initializer>
+        <briefdescription>
+<para>Macro for checking whether a given number is even. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tested value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is even. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value is odd. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="537" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="537" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga7ca284ed361da5e254887608b58fa282" prot="public" static="no">
+        <name>NRFX_EASYDMA_LENGTH_VALIDATE</name>
+        <param><defname>peripheral</defname></param>
+        <param><defname>length1</defname></param>
+        <param><defname>length2</defname></param>
+        <initializer>    (((length1) &lt; (1U &lt;&lt; <ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref>(peripheral, _EASYDMA_MAXCNT_SIZE))) &amp;&amp; \
+     ((length2) &lt; (1U &lt;&lt; <ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref>(peripheral, _EASYDMA_MAXCNT_SIZE))))</initializer>
+        <briefdescription>
+<para>Macro for checking if given lengths of EasyDMA transfers do not exceed the limit of the specified peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">peripheral</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral to check the lengths against. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First length to be checked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second length to be checked (pass 0 if not needed).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of buffers does not exceed the limit of the specified peripheral. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of buffers exceeds the limit of the specified peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="550" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="550" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga3292710cf0aa46e2e5cc6c6fc240ff19" prot="public" static="no">
+        <name>NRFX_WAIT_FOR</name>
+        <param><defname>condition</defname></param>
+        <param><defname>attempts</defname></param>
+        <param><defname>delay_us</defname></param>
+        <param><defname>result</defname></param>
+        <initializer>do {                                                         \
+    result =  false;                                         \
+    uint32_t remaining_attempts = (attempts);                \
+    do {                                                     \
+           if (condition)                                    \
+           {                                                 \
+               result =  true;                               \
+               break;                                        \
+           }                                                 \
+           <ref refid="group__nrfx__glue_1ga97d116463eb34d7e7b6317861b905d7b" kindref="member">NRFX_DELAY_US</ref>(delay_us);                          \
+    } while (--remaining_attempts);                          \
+} while(0)</initializer>
+        <briefdescription>
+<para>Macro for waiting until condition is met. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">condition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Condition to meet. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attempts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of condition checks. Must not be 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">delay_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay between consecutive checks, in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean variable to store the result of the wait process. Set to true if the condition is met or false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="563" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="563" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gabb3f39c8950fb847210fe0dd03b4d85c" prot="public" static="no">
+        <name>NRFX_PERIPHERAL_ID_GET</name>
+        <param><defname>base_addr</defname></param>
+        <initializer>(uint16_t)(((uint32_t)(base_addr) &gt;&gt; 12) &amp; 0x000001FF)</initializer>
+        <briefdescription>
+<para>Macro for getting the ID number of the specified peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For peripherals in Nordic SoCs, there is a direct relationship between their ID numbers and their base addresses. See the chapter &quot;Peripheral interface&quot; (section &quot;Peripheral ID&quot;) in the Product Specification.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral base address or pointer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ID number associated with the specified peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="588" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="588" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9cb38ace2c9ba19bfa7f270fb2a17297" prot="public" static="no">
+        <name>NRFX_IRQ_NUMBER_GET</name>
+        <param><defname>base_addr</defname></param>
+        <initializer><ref refid="group__nrfx__utils_1gabb3f39c8950fb847210fe0dd03b4d85c" kindref="member">NRFX_PERIPHERAL_ID_GET</ref>(base_addr)</initializer>
+        <briefdescription>
+<para>Macro for getting the interrupt number assigned to a specific peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For peripherals in Nordic SoCs, the IRQ number assigned to a peripheral is equal to its ID number. See the chapter &quot;Peripheral interface&quot; (sections &quot;Peripheral ID&quot; and &quot;Interrupts&quot;) in the Product Specification.</para>
+<para><simplesect kind="warning"><para>This macro is valid only for peripherals with a single interrupt line.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">base_addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral base address or pointer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Interrupt number associated with the specified peripheral. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="604" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="604" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga3528e3108745eba098ef97d545b454cc" prot="public" static="no">
+        <name>NRFX_KHZ_TO_HZ</name>
+        <param><defname>freq</defname></param>
+        <initializer>((freq) * 1000)</initializer>
+        <briefdescription>
+<para>Macro for converting frequency in kHz to Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">freq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency value in kHz.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of Hz in <computeroutput>freq</computeroutput> kHz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="613" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="613" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga30e3c68cc0831c3bd64574a0a64439cc" prot="public" static="no">
+        <name>NRFX_MHZ_TO_HZ</name>
+        <param><defname>freq</defname></param>
+        <initializer>((freq) * 1000 * 1000)</initializer>
+        <briefdescription>
+<para>Macro for converting frequency in MHz to Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">freq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency value in MHz.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of Hz in <computeroutput>freq</computeroutput> MHz. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="622" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="622" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga3759226de0d998545425ded334168058" prot="public" static="no">
+        <name>NRFX_COND_CODE_1</name>
+        <param><defname>_flag</defname></param>
+        <param><defname>_if_1_code</defname></param>
+        <param><defname>_else_code</defname></param>
+        <initializer>    _NRFX_COND_CODE_1(_flag, _if_1_code, _else_code)</initializer>
+        <briefdescription>
+<para>Macro for inserting code depending on whether <computeroutput>_flag</computeroutput> exists and expands to 1 or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To prevent the preprocessor from treating commas as argument separators, the <computeroutput>_if_1_code</computeroutput> and <computeroutput>_else_code</computeroutput> expressions must be inside brackets/parentheses: <computeroutput>()</computeroutput>. These are stripped away during macro expansion.</para>
+<para>Example: <verbatim>NRFX_COND_CODE_1(CONFIG_FLAG, (uint32_t x;), (there_is_no_flag();))
+</verbatim> If <computeroutput>CONFIG_FLAG</computeroutput> is defined to 1, this expands to: <verbatim>uint32_t x;
+</verbatim> It expands to <computeroutput>there_is_no_flag();</computeroutput> otherwise.</para>
+<para>This could be used as an alternative to: <verbatim>#if defined(CONFIG_FLAG) &amp;&amp; (CONFIG_FLAG == 1)
+#define MAYBE_DECLARE(x) uint32_t x
+#else
+#define MAYBE_DECLARE(x) there_is_no_flag()
+#endif
+
+MAYBE_DECLARE(x);
+</verbatim> However, the advantage of COND_CODE_1() is that code is resolved in place where it is used, while the <computeroutput>#if</computeroutput> method defines <computeroutput>MAYBE_DECLARE</computeroutput> on two lines and requires it to be invoked again on a separate line. This makes COND_CODE_1() more concise and also sometimes more useful when used within another macro&apos;s expansion.</para>
+<para><simplesect kind="note"><para><computeroutput>_flag</computeroutput> can be the result of preprocessor expansion, however <computeroutput>_if_1_code</computeroutput> is only expanded if <computeroutput>_flag</computeroutput> expands to the integer literal 1. Integer expressions that evaluate to 1, e.g. after doing some arithmetic, will not work.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Evaluated flag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_if_1_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result if <computeroutput>_flag</computeroutput> expands to 1; must be in parentheses </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_else_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result otherwise; must be in parentheses </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="667" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="667" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gac0b7db186b16e71e28d7eb956869a30a" prot="public" static="no">
+        <name>NRFX_COND_CODE_0</name>
+        <param><defname>_flag</defname></param>
+        <param><defname>_if_0_code</defname></param>
+        <param><defname>_else_code</defname></param>
+        <initializer>    _NRFX_COND_CODE_0(_flag, _if_0_code, _else_code)</initializer>
+        <briefdescription>
+<para>Macro for inserting code depending on whether <computeroutput>_flag</computeroutput> exists and expands to 0 or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is like <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1()</ref>, except that it tests whether <computeroutput>_flag</computeroutput> expands to the integer literal 0. It expands to <computeroutput>_if_0_code</computeroutput> if so, and <computeroutput>_else_code</computeroutput> otherwise; both of these must be enclosed in parentheses.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Evaluated flag </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_if_0_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result if <computeroutput>_flag</computeroutput> expands to 0; must be in parentheses </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_else_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Result otherwise; must be in parentheses </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="682" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="682" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga238278032464c932dc46946bedd44473" prot="public" static="no">
+        <name>NRFX_IS_ENABLED</name>
+        <param><defname>config_macro</defname></param>
+        <initializer>_NRFX_IS_ENABLED1(config_macro)</initializer>
+        <briefdescription>
+<para>Macro for checking for macro definition in compiler-visible expressions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It has the effect of taking a macro value that may be defined to &quot;1&quot; or may not be defined at all and turning it into a literal expression that can be handled by the C compiler instead of just the preprocessor.</para>
+<para>That is, it works similarly to <computeroutput>#if defined(CONFIG_FOO)</computeroutput> except that its expansion is a C expression. Thus, much <computeroutput>#ifdef</computeroutput> usage can be replaced with equivalents like: <verbatim>if (IS_ENABLED(CONFIG_FOO)) {
+        do_something_with_foo
+}
+</verbatim> This is cleaner since the compiler can generate errors and warnings for <computeroutput>do_something_with_foo</computeroutput> even when <computeroutput>CONFIG_FOO</computeroutput> is undefined.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config_macro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro to check</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if <computeroutput>config_macro</computeroutput> is defined to 1, 0 otherwise (including if <computeroutput>config_macro</computeroutput> is not defined) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="709" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="709" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaec8b3bf0959011b5e1eda4252a8f329a" prot="public" static="no">
+        <name>NRFX_LISTIFY</name>
+        <param><defname>LEN</defname></param>
+        <param><defname>F</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref>(_NRFX_LISTIFY_, LEN)(F, sep, __VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for generating a sequence of code with configurable separator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Example: <verbatim>#define FOO(i, _) MY_PWM ## i
+{ NRFX_LISTIFY(PWM_COUNT, FOO, (,)) }
+</verbatim> The above two lines expand to:</para>
+<para>{ MY_PWM0 , MY_PWM1 }</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">LEN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the sequence. Must be an integer literal less than 255. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">F</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A macro function that accepts at least two arguments: <computeroutput>F(i, ...)</computeroutput>. <computeroutput>F</computeroutput> is called repeatedly in the expansion. Its first argument <computeroutput>i</computeroutput> is the index in the sequence, and the variable list of arguments passed to LISTIFY are passed through to <computeroutput>F</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator (e.g. comma or semicolon). Must be in parentheses; this is required to enable providing a comma as separator.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Calling NRFX_LISTIFY with undefined arguments has undefined behavior. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="735" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="735" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga49d7e75b5cdb92a5f8e4196c4f3e52bf" prot="public" static="no">
+        <name>NRFX_IS_EMPTY</name>
+        <param><defname>arg</defname></param>
+        <initializer>_NRFX_IS_EMPTY(arg)</initializer>
+        <briefdescription>
+<para>Macro for checking if input argument is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Empty means that nothing is provided or provided value is resolved to nothing (e.g. empty define).</para>
+<para>Macro idea is taken from P99 which is under Apache 2.0 license and described by Jens Gustedt <ulink url="https://gustedt.wordpress.com/2010/06/08/detect-empty-macro-arguments/">https://gustedt.wordpress.com/2010/06/08/detect-empty-macro-arguments/</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if argument is empty. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if argument is not empty. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="752" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="752" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9b4880ee0671521522e81f00f8229fb5" prot="public" static="no">
+        <name>NRFX_NUM_VA_ARGS_LESS_1</name>
+        <param><defname>...</defname></param>
+        <initializer>        _NRFX_NUM_VA_ARGS_LESS_1_IMPL(__VA_ARGS__, 63, 62, 61, \
+                    60, 59, 58, 57, 56, 55, 54, 53, 52, 51, \
+                    50, 49, 48, 47, 46, 45, 44, 43, 42, 41, \
+                    40, 39, 38, 37, 36, 35, 34, 33, 32, 31, \
+                    30, 29, 28, 27, 26, 25, 24, 23, 22, 21, \
+                    20, 19, 18, 17, 16, 15, 14, 13, 12, 11, \
+                    10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, ~)</initializer>
+        <briefdescription>
+<para>Macro for calculating number of arguments in the variable arguments list minus one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of arguments</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of variadic arguments in the argument list, minus one </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="761" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="761" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" prot="public" static="no">
+        <name>NRFX_CONCAT</name>
+        <param><defname>...</defname></param>
+        <initializer>    <ref refid="group__nrfx__utils_1ga9fced903f4d0fc450e63d40426050236" kindref="member">NRFX_CONCAT_2</ref>(_NRFX_CONCAT_, <ref refid="group__nrfx__utils_1ga9b4880ee0671521522e81f00f8229fb5" kindref="member">NRFX_NUM_VA_ARGS_LESS_1</ref>(__VA_ARGS__))(__VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for concatenating multiple arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Support up to 8 arguments.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments to concatenate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="777" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="777" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga61259822a6d31a2d4cb15a9943a24521" prot="public" static="no">
+        <name>NRFX_ARG_HAS_PARENTHESIS</name>
+        <param><defname>x</defname></param>
+        <initializer>_NRFX_GET_ARG3(_NRFX_EVAL(_NRFX_ARG_HAS_PARENTHESIS x, 1, 0))</initializer>
+        <briefdescription>
+<para>Macro for checking if argument starts with opening round bracket and contains matching closing bracket (parenthesis). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input argument.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If input argument starts with opening bracket and contains closing bracket. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If input argument does not match above mentioned condition. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="789" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="789" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga9b551cefe9795f4eabe3a3cbce957ba6" prot="public" static="no">
+        <name>NRFX_FOR_EACH</name>
+        <param><defname>F</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    _NRFX_FOR_EACH(F, sep, <ref refid="group__nrfx__utils_1ga00142655b3872c09ccbe8178696b6d31" kindref="member">NRFX_REVERSE_ARGS</ref>(__VA_ARGS__))</initializer>
+        <briefdescription>
+<para>Macro for calling a macro <computeroutput>F</computeroutput> on each provided argument with a given separator between each call. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Example: <verbatim>#define F(x) int a##x
+NRFX_FOR_EACH(F, (;), 4, 5, 6);
+</verbatim> This expands to: <verbatim>int a4;
+int a5;
+int a6;
+</verbatim> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>F</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro to invoke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator (e.g. comma or semicolon). Must be in parentheses; this is required to enable providing a comma as a separator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable argument list. The macro <computeroutput>F</computeroutput> is invoked as <computeroutput>F(element)</computeroutput> for each element in the list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="812" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="812" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga17d2cf34acf3b05105b494aab2e14926" prot="public" static="no">
+        <name>NRFX_FOR_EACH_IDX</name>
+        <param><defname>F</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    _NRFX_FOR_EACH_IDX(F, sep, <ref refid="group__nrfx__utils_1ga00142655b3872c09ccbe8178696b6d31" kindref="member">NRFX_REVERSE_ARGS</ref>(__VA_ARGS__))</initializer>
+        <briefdescription>
+<para>Call macro <computeroutput>F</computeroutput> on each provided argument, with the argument&apos;s index as an additional parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is like <ref refid="group__nrfx__utils_1ga9b551cefe9795f4eabe3a3cbce957ba6" kindref="member">NRFX_FOR_EACH()</ref>, except <computeroutput>F</computeroutput> should be a macro which takes two arguments: <computeroutput>F(index, variable_arg)</computeroutput>.</para>
+<para>Example: <verbatim>#define F(idx, x) int a##idx = x
+NRFX_FOR_EACH_IDX(F, (;), 4, 5, 6);
+</verbatim> This expands to: <verbatim>int a0 = 4;
+int a1 = 5;
+int a2 = 6;
+</verbatim> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>F</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro to invoke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator (e.g. comma or semicolon). Must be in parentheses; this is required to enable providing a comma as a separator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable argument list. The macro <computeroutput>F</computeroutput> is invoked as <computeroutput>F(index, element)</computeroutput> for each element in the list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="839" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="839" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1gaf9a75fa66390a5833db6697214dba323" prot="public" static="no">
+        <name>NRFX_FOR_EACH_FIXED_ARG</name>
+        <param><defname>F</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>fixed_arg</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    _NRFX_FOR_EACH_FIXED_ARG(F, sep, fixed_arg, <ref refid="group__nrfx__utils_1ga00142655b3872c09ccbe8178696b6d31" kindref="member">NRFX_REVERSE_ARGS</ref>(__VA_ARGS__))</initializer>
+        <briefdescription>
+<para>Macro for calling macro <computeroutput>F</computeroutput> on each provided argument, with an additional fixed argument as a parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is like <ref refid="group__nrfx__utils_1ga9b551cefe9795f4eabe3a3cbce957ba6" kindref="member">NRFX_FOR_EACH()</ref>, except <computeroutput>F</computeroutput> should be a macro which takes two arguments: <computeroutput>F(variable_arg, fixed_arg)</computeroutput>.</para>
+<para>Example: <verbatim>static void func(int val, void *dev);
+NRFX_FOR_EACH_FIXED_ARG(func, (;), dev, 4, 5, 6);
+</verbatim> This expands to: <verbatim>func(4, dev);
+func(5, dev);
+func(6, dev);
+</verbatim> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>F</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro to invoke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator (e.g. comma or semicolon). Must be in parentheses; this is required to enable providing a comma as a separator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fixed_arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fixed argument passed to <computeroutput>F</computeroutput> as the second macro parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable argument list. The macro <computeroutput>F</computeroutput> is invoked as <computeroutput>F(element, fixed_arg)</computeroutput> for each element in the list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="867" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="867" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga70aaf745a268eaf9afb98f00f542231e" prot="public" static="no">
+        <name>NRFX_FOR_EACH_IDX_FIXED_ARG</name>
+        <param><defname>F</defname></param>
+        <param><defname>sep</defname></param>
+        <param><defname>fixed_arg</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    _NRFX_FOR_EACH_IDX_FIXED_ARG(F, sep, fixed_arg, <ref refid="group__nrfx__utils_1ga00142655b3872c09ccbe8178696b6d31" kindref="member">NRFX_REVERSE_ARGS</ref>(__VA_ARGS__))</initializer>
+        <briefdescription>
+<para>Macro from calling macro <computeroutput>F</computeroutput> for each variable argument with an index and fixed argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is like the combination of <ref refid="group__nrfx__utils_1ga17d2cf34acf3b05105b494aab2e14926" kindref="member">NRFX_FOR_EACH_IDX()</ref> with <ref refid="group__nrfx__utils_1gaf9a75fa66390a5833db6697214dba323" kindref="member">NRFX_FOR_EACH_FIXED_ARG()</ref>.</para>
+<para>Example: <verbatim>#define F(idx, x, fixed_arg) int fixed_arg##idx = x
+NRFX_FOR_EACH_IDX_FIXED_ARG(F, (;), a, 4, 5, 6);
+</verbatim> This expands to: <verbatim>int a0 = 4;
+int a1 = 5;
+int a2 = 6;
+</verbatim> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>F</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Macro to invoke </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Separator (e.g. comma or semicolon). Must be in parentheses; This is required to enable providing a comma as a separator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fixed_arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fixed argument passed to <computeroutput>F</computeroutput> as the third macro parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable list of arguments. The macro <computeroutput>F</computeroutput> is invoked as <computeroutput>F(index, element, fixed_arg)</computeroutput> for each element in the list. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="895" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="895" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga00142655b3872c09ccbe8178696b6d31" prot="public" static="no">
+        <name>NRFX_REVERSE_ARGS</name>
+        <param><defname>...</defname></param>
+        <initializer>    _NRFX_FOR_EACH_ENGINE(_NRFX_FOR_EACH_EXEC, (,), NRFX_EVAL, _, __VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Macro for reversing arguments order. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable argument list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Input arguments in reversed order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="905" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="905" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga7558c8c1390a9256f39a82da2087c8df" prot="public" static="no">
+        <name>NRFX_MAX_N</name>
+        <param><defname>...</defname></param>
+        <initializer>    NRFX_EVAL(<ref refid="group__nrfx__utils_1ga9b551cefe9795f4eabe3a3cbce957ba6" kindref="member">NRFX_FOR_EACH</ref>(_NRFX_MAX_P1, (), __VA_ARGS__) 0 \
+              <ref refid="group__nrfx__utils_1ga9b551cefe9795f4eabe3a3cbce957ba6" kindref="member">NRFX_FOR_EACH</ref>(_NRFX_MAX_P2, (), __VA_ARGS__))</initializer>
+        <briefdescription>
+<para>Macro for getting the highest value from input arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It is similar to <ref refid="group__nrfx__utils_1gaaf20fb75ada3be75dbf03d6fe4d43f6a" kindref="member">NRFX_MAX</ref> but accepts a variable number of arguments.</para>
+<para><simplesect kind="note"><para>Input arguments must be numeric variables.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable argument list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Highest value from the input list. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="920" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="920" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__utils_1ga2a8eea823058c345c3a98d5dc130724a" prot="public" static="no">
+        <name>NRFX_BITMASK_TO_BITPOS</name>
+        <param><defname>_bitmask</defname></param>
+        <briefdescription>
+<para>Macro for getting a position of a bit in a bit mask with only one bit set. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro shall be used only on fixed value so that it can be resolved at compile time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>32 bit mask with one bit set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Index of a bit. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/nrfx_utils.h" line="933" column="9" bodyfile="drivers/nrfx_utils.h" bodystart="933" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Preprocessor utility macros. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

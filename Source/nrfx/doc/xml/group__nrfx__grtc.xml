@@ -1,0 +1,2203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__grtc" kind="group">
+    <compoundname>nrfx_grtc</compoundname>
+    <title>GRTC driver</title>
+    <innerclass refid="structnrfx__grtc__channel__t" prot="public">nrfx_grtc_channel_t</innerclass>
+    <innerclass refid="structnrfx__grtc__rtcounter__handler__data__t" prot="public">nrfx_grtc_rtcounter_handler_data_t</innerclass>
+    <innerclass refid="structnrfx__grtc__sleep__config__t" prot="public">nrfx_grtc_sleep_config_t</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__grtc_1ga919f661781afaec8b40729a9cbe9c910" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_grtc_action_t</name>
+        <enumvalue id="group__nrfx__grtc_1gga919f661781afaec8b40729a9cbe9c910ab7539d56231ab81f2356cd7c82cd17dd" prot="public">
+          <name>NRFX_GRTC_ACTION_START</name>
+          <initializer>= NRF_GRTC_TASK_START</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Start the GRTC. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__grtc_1gga919f661781afaec8b40729a9cbe9c910afe572c706ca850d5e033ed4e13603ec0" prot="public">
+          <name>NRFX_GRTC_ACTION_STOP</name>
+          <initializer>= NRF_GRTC_TASK_STOP</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Stop the GRTC. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__grtc_1gga919f661781afaec8b40729a9cbe9c910ac0e9562ce180d5420c686cfbcac4e5b7" prot="public">
+          <name>NRFX_GRTC_ACTION_CLEAR</name>
+          <initializer>= NRF_GRTC_TASK_CLEAR</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Clear the GRTC. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>GRTC action types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="97" column="1" bodyfile="drivers/include/nrfx_grtc.h" bodystart="98" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__nrfx__grtc_1gaafe9cdf921f6648745b5aedc466cefa2" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_grtc_cc_relative_reference_t</name>
+        <enumvalue id="group__nrfx__grtc_1ggaafe9cdf921f6648745b5aedc466cefa2a2afd144de90f24cc7e9e256295e01416" prot="public">
+          <name>NRFX_GRTC_CC_RELATIVE_SYSCOUNTER</name>
+          <initializer>= NRF_GRTC_CC_ADD_REFERENCE_SYSCOUNTER</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The SYSCOUNTER content will be used as the reference. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__grtc_1ggaafe9cdf921f6648745b5aedc466cefa2ad8762f37ebbf24fb4855d79feed6db25" prot="public">
+          <name>NRFX_GRTC_CC_RELATIVE_COMPARE</name>
+          <initializer>= NRF_GRTC_CC_ADD_REFERENCE_CC</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The corresponding compare register content will be used as the reference. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>GRTC compare event relative references. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="129" column="1" bodyfile="drivers/include/nrfx_grtc.h" bodystart="130" bodyend="133"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__grtc_1ga13eef8185e245f5514bebd28c09b7c2b" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_grtc_cc_handler_t) (int32_t id, uint64_t cc_value, void *p_context)</definition>
+        <argsstring>)(int32_t id, uint64_t cc_value, void *p_context)</argsstring>
+        <name>nrfx_grtc_cc_handler_t</name>
+        <briefdescription>
+<para>GRTC driver instance compare handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cc_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="58" column="9" bodyfile="drivers/include/nrfx_grtc.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__grtc_1ga602066a9929545ca4989e75e9381540e" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_grtc_syscountervalid_handler_t) (void *p_context)</definition>
+        <argsstring>)(void *p_context)</argsstring>
+        <name>nrfx_grtc_syscountervalid_handler_t</name>
+        <briefdescription>
+<para>GRTC driver instance SYSCOUNTER valid handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="66" column="9" bodyfile="drivers/include/nrfx_grtc.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__grtc_1gace6c484271309dc59f66989380334a0f" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_grtc_rtcomparesync_handler_t) (void *p_context)</definition>
+        <argsstring>)(void *p_context)</argsstring>
+        <name>nrfx_grtc_rtcomparesync_handler_t</name>
+        <briefdescription>
+<para>GRTC driver instance RTCOMPARESYNC handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="75" column="9" bodyfile="drivers/include/nrfx_grtc.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__grtc_1ga2b62aaf020abf1c0e1c9532e263e1263" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_sleep_configure</definition>
+        <argsstring>(nrfx_grtc_sleep_config_t const *p_sleep_cfg)</argsstring>
+        <name>nrfx_grtc_sleep_configure</name>
+        <param>
+          <type><ref refid="structnrfx__grtc__sleep__config__t" kindref="compound">nrfx_grtc_sleep_config_t</ref> const *</type>
+          <declname>p_sleep_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for configuring the SYSCOUNTER sleep feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_sleep_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the configuration sleep structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="141" column="6" declfile="drivers/include/nrfx_grtc.h" declline="141" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gabfd081e7ae8ad742d7b5939c83690068" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_sleep_configuration_get</definition>
+        <argsstring>(nrfx_grtc_sleep_config_t *p_sleep_cfg)</argsstring>
+        <name>nrfx_grtc_sleep_configuration_get</name>
+        <param>
+          <type><ref refid="structnrfx__grtc__sleep__config__t" kindref="compound">nrfx_grtc_sleep_config_t</ref> *</type>
+          <declname>p_sleep_cfg</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the SYSCOUNTER sleep configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_sleep_cfg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure to be filled with sleep configuration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="148" column="6" declfile="drivers/include/nrfx_grtc.h" declline="148" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gabcee1db1ec8ed92152b7149cedc0b53e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_channel_alloc</definition>
+        <argsstring>(uint8_t *p_channel)</argsstring>
+        <name>nrfx_grtc_channel_alloc</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating the GRTC capture/compare channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe as it uses <ref refid="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" kindref="member">nrfx_flag32_alloc</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>Routines that allocate and free the GRTC channels are independent from the rest of the driver. In particular, the driver does not need to be initialized when this function is called.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the capture/compare channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No resource available. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="164" column="5" declfile="drivers/include/nrfx_grtc.h" declline="164" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga973f11e0f5eef607992f1066c46bd62a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_extended_channel_alloc</definition>
+        <argsstring>(uint8_t *p_channel)</argsstring>
+        <name>nrfx_grtc_extended_channel_alloc</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for allocating the extended GRTC capture/compare channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The periodic CC event (interval) is the special feature, that requires allocating channel such way. See <ref refid="group__nrfx__grtc_1ga003976a482233d8fa24956cb283866ee" kindref="member">nrfx_grtc_syscounter_cc_interval_set</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>The channels supporting special features are defined by the hardware. Refer to Product Specification for more details. </para>
+</simplesect>
+<simplesect kind="note"><para>Function is thread safe as it uses <ref refid="group__nrfx__flag32__allocator_1gab9aa044891a1292acc241bd7a35c5d5a" kindref="member">nrfx_flag32_alloc</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>Routines that allocate and free the GRTC channels are independent from the rest of the driver. In particular, the driver does not need to be initialized when this function is called. </para>
+</simplesect>
+<simplesect kind="note"><para>To free the special channel, just use <ref refid="group__nrfx__grtc_1gaf5d9217e1bafbd5cc651d73840e3af57" kindref="member">nrfx_grtc_channel_free</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">p_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the capture/compare channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No resource available. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="184" column="5" declfile="drivers/include/nrfx_grtc.h" declline="184" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gadacf03be60f115556d5f354bf57332be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_channel_callback_set</definition>
+        <argsstring>(uint8_t channel, nrfx_grtc_cc_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_grtc_channel_callback_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1ga13eef8185e245f5514bebd28c09b7c2b" kindref="member">nrfx_grtc_cc_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting a callback to a channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function enables the interrupt for that channel.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User handler called when channel expires. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the callback. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="195" column="6" declfile="drivers/include/nrfx_grtc.h" declline="195" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaf5d9217e1bafbd5cc651d73840e3af57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_channel_free</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_channel_free</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for freeing the GRTC capture/compare channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function is thread safe as it uses <ref refid="group__nrfx__flag32__allocator_1ga67e05348a66fed2ffde5357680da8110" kindref="member">nrfx_flag32_free</ref>. </para>
+</simplesect>
+<simplesect kind="note"><para>Routines that allocate and free the GRTC channels are independent from the rest of the driver. In particular, the driver does not need to be initialized when this function is called. </para>
+</simplesect>
+<simplesect kind="note"><para>This function also mark specified channel as unused by the driver.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocated channel to be freed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allocation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not allocated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="214" column="5" declfile="drivers/include/nrfx_grtc.h" declline="214" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga254f4896562f25472fbbc7b43c430917" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_grtc_is_channel_used</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_is_channel_used</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified channel is used by the driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Channels marked as used cannot be utilized by external API.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is used by the driver. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not used by the driver. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="226" column="6" declfile="drivers/include/nrfx_grtc.h" declline="226" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga986348f802c1420e3e938e4df03b5bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_init</definition>
+        <argsstring>(uint8_t interrupt_priority)</argsstring>
+        <name>nrfx_grtc_init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>interrupt_priority</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the GRTC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">interrupt_priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interrupt priority.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No valid channel configuration provided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="237" column="5" declfile="drivers/include/nrfx_grtc.h" declline="237" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaa5d64ab654b35af0a1bbaf7d4e297105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_rtcounter_cc_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_rtcounter_cc_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the RTCOUNTER CC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is running and the operation is not allowed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RTCOUNTER compare interrupt is pending. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="247" column="5" declfile="drivers/include/nrfx_grtc.h" declline="247" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaf91c540afe49d02845289cf302f2b616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_rtcomparesync_int_enable</definition>
+        <argsstring>(nrfx_grtc_rtcomparesync_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_grtc_rtcomparesync_int_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1gace6c484271309dc59f66989380334a0f" kindref="member">nrfx_grtc_rtcomparesync_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the RTCOMPARESYNC interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handler provided by the user. May be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="255" column="6" declfile="drivers/include/nrfx_grtc.h" declline="255" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga56344b0f586ff303652d534216f57d85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_rtcomparesync_int_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_rtcomparesync_int_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the RTCOMPARESYNC interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="259" column="6" declfile="drivers/include/nrfx_grtc.h" declline="259" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga1fb0ba249e1cd4d4e46bc3d3bc79c844" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_rtcounter_cc_absolute_set</definition>
+        <argsstring>(nrfx_grtc_rtcounter_handler_data_t *handler_data, uint64_t val, bool enable_irq, bool sync)</argsstring>
+        <name>nrfx_grtc_rtcounter_cc_absolute_set</name>
+        <param>
+          <type><ref refid="structnrfx__grtc__rtcounter__handler__data__t" kindref="compound">nrfx_grtc_rtcounter_handler_data_t</ref> *</type>
+          <declname>handler_data</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_irq</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>sync</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the absolute compare value for the RTCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the handler data instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute value to be set in the compare register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_irq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if interrupt is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sync</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the internal synchronization mechanism shall be used, false otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is running and the operation is not allowed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="273" column="5" declfile="drivers/include/nrfx_grtc.h" declline="273" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga92df8956ec610050a39fae63210dd8ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_rtcounter_cc_int_enable</definition>
+        <argsstring>(bool sync)</argsstring>
+        <name>nrfx_grtc_rtcounter_cc_int_enable</name>
+        <param>
+          <type>bool</type>
+          <declname>sync</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the RTCOUNTER compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sync</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if the internal synchronization mechanism shall be used, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="284" column="6" declfile="drivers/include/nrfx_grtc.h" declline="284" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga4814419fb2996ea6112e4d8f2c03874e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_rtcounter_cc_int_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_rtcounter_cc_int_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the RTCOUNTER compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="287" column="6" declfile="drivers/include/nrfx_grtc.h" declline="287" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga1f86f9f67ff5dce0e5c573e125b05d81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscountervalid_int_enable</definition>
+        <argsstring>(nrfx_grtc_syscountervalid_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_grtc_syscountervalid_int_enable</name>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1ga602066a9929545ca4989e75e9381540e" kindref="member">nrfx_grtc_syscountervalid_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the SYSCOUNTERVALID interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handler provided by the user. May be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="298" column="6" declfile="drivers/include/nrfx_grtc.h" declline="298" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga203853658564baf7d04df3b0d53711c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscountervalid_int_disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_syscountervalid_int_disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for disabling the SYSCOUNTERVALID interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="302" column="6" declfile="drivers/include/nrfx_grtc.h" declline="302" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gada17e9463b919b043676e5c30377f26d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_start</definition>
+        <argsstring>(bool busy_wait, uint8_t *p_main_cc_channel)</argsstring>
+        <name>nrfx_grtc_syscounter_start</name>
+        <param>
+          <type>bool</type>
+          <declname>busy_wait</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_main_cc_channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the 1 MHz SYSCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function automatically allocates and marks as used the special-purpose main capture/compare channel. It is available only for GRTC manager. It can be freed by <ref refid="group__nrfx__grtc_1gaf5d9217e1bafbd5cc651d73840e3af57" kindref="member">nrfx_grtc_channel_free</ref>.</para>
+</simplesect>
+<simplesect kind="note"><para>Use auxiliary structure of type <ref refid="structnrfx__grtc__channel__t" kindref="compound">nrfx_grtc_channel_t</ref> when working with SYSCOUNTER.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">busy_wait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if wait for synchronization operation is to be performed, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_main_cc_channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the main capture/compare channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ENOMEM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No resource available to allocate main channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GRTC is already running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER failed to start due to a timeout. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="323" column="5" declfile="drivers/include/nrfx_grtc.h" declline="323" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga77a5cc87e98195848dbfbf58b09aa50d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_action_perform</definition>
+        <argsstring>(nrfx_grtc_action_t action)</argsstring>
+        <name>nrfx_grtc_action_perform</name>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1ga919f661781afaec8b40729a9cbe9c910" kindref="member">nrfx_grtc_action_t</ref></type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Function for performing an action for the GRTC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Action to be performed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Starting was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is running and the operation is not allowed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="333" column="5" declfile="drivers/include/nrfx_grtc.h" declline="333" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga5e051bae4aff202f56c6232c675877aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the GRTC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function automatically frees all channels used by the driver. It also marks these channels as unused </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="342" column="6" declfile="drivers/include/nrfx_grtc.h" declline="342" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga92242c7abb125bf46caa826c7b845af1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_grtc_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the GRTC driver is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="350" column="6" declfile="drivers/include/nrfx_grtc.h" declline="350" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga41cb1d37ec2247ef621629e8a0d03ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_disable</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_disable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the SYSCOUNTER CC channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function marks the specified <computeroutput>channel</computeroutput> as unused.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel to be disabled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified <computeroutput>channel</computeroutput> is either not allocated or marked as unused. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ETIMEDOUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SYSCOUNTER compare interrupt is pending on the requested channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="365" column="5" declfile="drivers/include/nrfx_grtc.h" declline="365" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga5440988c805df0ab2083f9148aacafb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_absolute_set</definition>
+        <argsstring>(nrfx_grtc_channel_t *p_chan_data, uint64_t val, bool enable_irq)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_absolute_set</name>
+        <param>
+          <type><ref refid="structnrfx__grtc__channel__t" kindref="compound">nrfx_grtc_channel_t</ref> *</type>
+          <declname>p_chan_data</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_irq</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the absolute compare value for the SYSCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function is deprecated. Use <ref refid="group__nrfx__grtc_1ga07f743ffbf480a78c186b1d7b9a788cd" kindref="member">nrfx_grtc_syscounter_cc_abs_set</ref> instead. </para>
+</simplesect>
+<simplesect kind="note"><para>This function marks the specified <computeroutput>channel</computeroutput> as used.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_chan_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the channel data instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute value to be set in the compare register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_irq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if interrupt is to be enabled, false otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="382" column="5" declfile="drivers/include/nrfx_grtc.h" declline="382" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga003976a482233d8fa24956cb283866ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscounter_cc_interval_set</definition>
+        <argsstring>(uint8_t channel, uint32_t start_val, uint32_t val)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_interval_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>start_val</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the interval compare value for the SYSCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function configures a periodic compare event for the given channel. If interrupts are to be used, <ref refid="group__nrfx__grtc_1gadacf03be60f115556d5f354bf57332be" kindref="member">nrfx_grtc_channel_callback_set</ref> must also be called. The first event will occur after <computeroutput>start_val</computeroutput>. </para>
+</simplesect>
+<simplesect kind="note"><para>To stop generating periodic event <ref refid="group__nrfx__grtc_1gaddd721963bba323924d43e1c91ee65b7" kindref="member">nrfx_grtc_syscounter_cc_interval_reset</ref> must be called.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative compare value (in SYSCOUNTER ticks) value after which the first interval event is generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative interval value (in SYSCOUNTER ticks), that defines the period between consecutive compare events. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="402" column="6" declfile="drivers/include/nrfx_grtc.h" declline="402" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaddd721963bba323924d43e1c91ee65b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscounter_cc_interval_reset</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_interval_reset</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for resetting the interval compare value for the SYSCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function stops a periodic compare event mode initiated by <ref refid="group__nrfx__grtc_1ga003976a482233d8fa24956cb283866ee" kindref="member">nrfx_grtc_syscounter_cc_interval_set</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="412" column="6" declfile="drivers/include/nrfx_grtc.h" declline="412" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga07f743ffbf480a78c186b1d7b9a788cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscounter_cc_abs_set</definition>
+        <argsstring>(uint8_t channel, uint64_t val, bool safe_setting)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_abs_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>safe_setting</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the absolute compare value for the SYSCOUNTER in an optimized way. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function must be called with interrupts locked. If <computeroutput>safe_setting</computeroutput> is true then it means that previous CC for that channel did not yet expire and it was set to a value earlier than <computeroutput>val</computeroutput> so there is a chance that it will expire during setting the new value. In that case compare event may be misinterpreted. Slower but safe procedure is used in that case which ensures that there will be no unexpected user callback triggered. If <computeroutput>safe_setting</computeroutput> is false then function just sets new CC value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Absolute value to be set in the compare register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">safe_setting</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if safe procedure is to be used, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="430" column="6" declfile="drivers/include/nrfx_grtc.h" declline="430" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga385ff196e3c36934309f0a4c879a1c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_relative_set</definition>
+        <argsstring>(nrfx_grtc_channel_t *p_chan_data, uint32_t val, bool enable_irq, nrfx_grtc_cc_relative_reference_t reference)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_relative_set</name>
+        <param>
+          <type><ref refid="structnrfx__grtc__channel__t" kindref="compound">nrfx_grtc_channel_t</ref> *</type>
+          <declname>p_chan_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enable_irq</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1gaafe9cdf921f6648745b5aedc466cefa2" kindref="member">nrfx_grtc_cc_relative_reference_t</ref></type>
+          <declname>reference</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the relative compare value for the SYSCOUNTER. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function is deprecated. Use <ref refid="group__nrfx__grtc_1ga05b2e298d63eed7d815007b714e27ced" kindref="member">nrfx_grtc_syscounter_cc_rel_set</ref> instead.</para>
+</simplesect>
+Function has no assumptions on the current channel state so channel event is cleared and interrupt can optionally be enabled for that channel.</para>
+<para><simplesect kind="note"><para>This function marks the specified <computeroutput>channel</computeroutput> as used.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_chan_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the channel data instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative value to be set in the compare register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">enable_irq</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if interrupt is to be enabled, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reference</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference type to be used.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="452" column="5" declfile="drivers/include/nrfx_grtc.h" declline="452" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga05b2e298d63eed7d815007b714e27ced" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_syscounter_cc_rel_set</definition>
+        <argsstring>(uint8_t channel, uint32_t val, nrfx_grtc_cc_relative_reference_t reference)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_rel_set</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__grtc_1gaafe9cdf921f6648745b5aedc466cefa2" kindref="member">nrfx_grtc_cc_relative_reference_t</ref></type>
+          <declname>reference</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the relative compare value in an optimized way. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function just sets CCADD value and does not attempt to enable or disable the interrupt. It assumes that expected channel configuration is done prior to that call. Function assumes that previously used CC value has already expired so new value can be safely set without a risk of spurious CC expiration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative value to be set in the CCADD register. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reference</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference. Current counter value or current CC value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="469" column="6" declfile="drivers/include/nrfx_grtc.h" declline="469" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga32c00f7ac6343b5c4459c352f716766b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_int_disable</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_int_disable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the SYSCOUNTER compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified <computeroutput>channel</computeroutput> is either not allocated or marked as unused. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="483" column="5" declfile="drivers/include/nrfx_grtc.h" declline="483" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga4fae1fee7b9604e680a7858b59bdd100" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_int_enable</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_int_enable</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the SYSCOUNTER compare interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function marks the specified <computeroutput>channel</computeroutput> as used.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="497" column="5" declfile="drivers/include/nrfx_grtc.h" declline="497" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga3f64f947670999383730a4d0f09413fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_grtc_syscounter_cc_int_enable_check</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_int_enable_check</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the SYSCOUNTER compare interrupt is enabled for the specified channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The interrupt is enabled for the specified channel. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The interrupt is disabled for the specified channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="508" column="6" declfile="drivers/include/nrfx_grtc.h" declline="508" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga9dedaad81a7e838b5b44eeb0b16baeae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_capture</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_capture</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for triggering the SYSCOUNTER capture task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function marks the specified <computeroutput>channel</computeroutput> as used.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is not allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="522" column="5" declfile="drivers/include/nrfx_grtc.h" declline="522" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga395557709f1359e2b59b6ecae6ee03cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int nrfx_grtc_syscounter_cc_value_read</definition>
+        <argsstring>(uint8_t channel, uint64_t *p_val)</argsstring>
+        <name>nrfx_grtc_syscounter_cc_value_read</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint64_t *</type>
+          <declname>p_val</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading the GRTC capture/compare register for the specified <computeroutput>channel</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable where the result is to be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The procedure was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EPERM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The domain is not allowed to use specified <computeroutput>channel</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-EINVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified <computeroutput>channel</computeroutput> is either not allocated or marked as unused. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-ECANCELED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER (1 MHz) is not running. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="535" column="5" declfile="drivers/include/nrfx_grtc.h" declline="535" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga21471e565334c8aec4bfe3366c1e8f51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_grtc_ready_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_ready_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the SYSCOUNTER is in ready state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>When the SYSCOUNTER is not ready its value may be corrupted.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER is in ready state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER is not in ready state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="546" column="6" declfile="drivers/include/nrfx_grtc.h" declline="546" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaca670ab8f661556cf080343ebacf0a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_grtc_active_request_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_active_request_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking the current request for the SYSCOUNTER state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER is requested to be enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYSCOUNTER is requested to be disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="554" column="6" declfile="drivers/include/nrfx_grtc.h" declline="554" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gaa1aa072f72ff7dcdd78eee8b3035f404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_grtc_active_request_set</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>nrfx_grtc_active_request_set</name>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Function for requesting the SYSCOUNTER state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>By using this function any domain can prevent SYSCOUNTER from going to sleep state.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if SYSCOUNTER is to be always kept active, false otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="563" column="6" declfile="drivers/include/nrfx_grtc.h" declline="563" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gafc2bd4c06734224387be75ce380eace8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t nrfx_grtc_syscounter_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_syscounter_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for reading the GRTC SYSCOUNTER value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>SYSCOUNTER value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="570" column="10" declfile="drivers/include/nrfx_grtc.h" declline="570" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga41058d0dc6e01890485ebf29c10de8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_grtc_task_address_get</definition>
+        <argsstring>(nrf_grtc_task_t task)</argsstring>
+        <name>nrfx_grtc_task_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__grtc__hal_1ga3ead45038f169b586ca21cd6ef8acde9" kindref="member">nrf_grtc_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified GRTC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GRTC task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="657" column="29" bodyfile="drivers/include/nrfx_grtc.h" bodystart="657" bodyend="660" declfile="drivers/include/nrfx_grtc.h" declline="579" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga433c2b91747b2830881ed6fcd3089a5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_grtc_event_address_get</definition>
+        <argsstring>(nrf_grtc_event_t event)</argsstring>
+        <name>nrfx_grtc_event_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__grtc__hal_1ga7ae05a37545fa5a2c94e90d048bb2b65" kindref="member">nrf_grtc_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the specified GRTC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GRTC event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="662" column="29" bodyfile="drivers/include/nrfx_grtc.h" bodystart="662" bodyend="665" declfile="drivers/include/nrfx_grtc.h" declline="588" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga30e1de2ea5e6ccc0058b64a6a92e9211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_grtc_capture_task_address_get</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_capture_task_address_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the capture task for the specified channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Capture channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="667" column="29" bodyfile="drivers/include/nrfx_grtc.h" bodystart="667" bodyend="670" declfile="drivers/include/nrfx_grtc.h" declline="597" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gafc0ce7d1e745fc900cc3b2d40e86305c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_grtc_event_compare_address_get</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_event_compare_address_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the address of the capture task for the specified channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel number.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="672" column="29" bodyfile="drivers/include/nrfx_grtc.h" bodystart="672" bodyend="675" declfile="drivers/include/nrfx_grtc.h" declline="606" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga8b824eec07ef0d37d664612c28a5a855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_grtc_sys_counter_cc_enable_check</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_sys_counter_cc_enable_check</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking whether the specified capture/compare channel is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="677" column="25" bodyfile="drivers/include/nrfx_grtc.h" bodystart="677" bodyend="681" declfile="drivers/include/nrfx_grtc.h" declline="616" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga0040edf972220add9845a3ae9604f12e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_grtc_syscounter_compare_event_check</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_syscounter_compare_event_check</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving the state of the compare GRTC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel of the corresponding event to be checked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has been generated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event has not been generated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="683" column="25" bodyfile="drivers/include/nrfx_grtc.h" bodystart="683" bodyend="686" declfile="drivers/include/nrfx_grtc.h" declline="626" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga1c24f6160b8538711dd3047a0531635e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint64_t</type>
+        <definition>NRFX_STATIC_INLINE uint64_t nrfx_grtc_sys_counter_cc_get</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>nrfx_grtc_sys_counter_cc_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Function for retrieving CC value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Compare channel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value read from CC register. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="688" column="29" bodyfile="drivers/include/nrfx_grtc.h" bodystart="688" bodyend="691" declfile="drivers/include/nrfx_grtc.h" declline="635" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1gadef8dbc36e525c40de1f531f752542a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint64_t</type>
+        <definition>NRFX_STATIC_INLINE uint64_t nrfx_grtc_rtcounter_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_grtc_rtcounter_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for reading the GRTC RTCOUNTER value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>RTCOUNTER (32 kHz) value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="643" column="29" declfile="drivers/include/nrfx_grtc.h" declline="643" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__grtc_1ga801b49a867c2fc1517fe12ea8ebbed0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE void</type>
+        <definition>NRFX_STATIC_INLINE void nrfx_grtc_clock_source_set</definition>
+        <argsstring>(nrf_grtc_clksel_t clk_src)</argsstring>
+        <name>nrfx_grtc_clock_source_set</name>
+        <param>
+          <type><ref refid="group__nrf__grtc__hal_1gae439fae87a8f39984fe088a02960a7ae" kindref="member">nrf_grtc_clksel_t</ref></type>
+          <declname>clk_src</declname>
+        </param>
+        <briefdescription>
+<para>Function for setting the clock source for the GRTC low-frequency clock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">clk_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Selected clock source. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="652" column="25" declfile="drivers/include/nrfx_grtc.h" declline="652" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__grtc_1gaa4a67d16b2613731f8d76bbcd9719ce5" prot="public" static="no">
+        <name>NRFX_GRTC_SLEEP_DEFAULT_CONFIG</name>
+        <initializer>{                                      \
+    .timeout   = 5,                    \
+    .waketime  = 4,                    \
+    .auto_mode = true                  \
+}</initializer>
+        <briefdescription>
+<para>GRTC sleep default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up GRTC with the following options:<itemizedlist>
+<listitem><para>sleep timeout: 5 LFCLK cycles</para>
+</listitem><listitem><para>wake time: 4 LFCLK cycles</para>
+</listitem><listitem><para>automatic mode: true </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_grtc.h" line="120" column="9" bodyfile="drivers/include/nrfx_grtc.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Global Real Timer Counter (GRTC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
