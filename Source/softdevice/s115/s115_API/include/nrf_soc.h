@@ -48,7 +48,6 @@
 #define NRF_SOC_H__
 
 #include <stdint.h>
-#include "nrf.h"
 #include "nrf_svc.h"
 #include "nrf_error.h"
 #include "nrf_error_soc.h"
@@ -92,7 +91,7 @@ extern "C" {
 
 #define NRF_RADIO_EARLIEST_TIMEOUT_MAX_US (256000000UL - 1UL) /**< The longest timeout, in microseconds, allowed when requesting the earliest possible timeslot. */
 
-#define NRF_RADIO_START_JITTER_US         (1)                 /**< The maximum jitter in @ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_START relative to the requested start time. */
+#define NRF_RADIO_START_JITTER_US         (0)                 /**< The maximum jitter in @ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_START relative to the requested start time. */
 
 #define SD_RAND_SEED_SIZE                 (32)                /**< Seed size for @ref sd_rand_seed_set. */
 
@@ -193,7 +192,7 @@ enum NRF_RADIO_NOTIFICATION_TYPES
 enum NRF_RADIO_CALLBACK_SIGNAL_TYPE
 {
   NRF_RADIO_CALLBACK_SIGNAL_TYPE_START,             /**< This signal indicates the start of the radio timeslot. */
-  NRF_RADIO_CALLBACK_SIGNAL_TYPE_TIMER0,            /**< This signal indicates the NRF_TIMER0 interrupt. */
+  NRF_RADIO_CALLBACK_SIGNAL_TYPE_TIMER0,            /**< This signal indicates the @ref SD_TIMESLOT_TIMER0 interrupt. */
   NRF_RADIO_CALLBACK_SIGNAL_TYPE_RADIO,             /**< This signal indicates the NRF_RADIO interrupt. */
   NRF_RADIO_CALLBACK_SIGNAL_TYPE_EXTEND_FAILED,     /**< This signal indicates extend action failed. */
   NRF_RADIO_CALLBACK_SIGNAL_TYPE_EXTEND_SUCCEEDED   /**< This signal indicates extend action succeeded. */
@@ -256,7 +255,6 @@ enum NRF_SOC_EVTS
   NRF_EVT_FLASH_OPERATION_SUCCESS,              /**< Event indicating that the ongoing flash operation has completed successfully. */
   NRF_EVT_FLASH_OPERATION_ERROR,                /**< Event indicating that the ongoing flash operation has timed out with an error. */
   NRF_EVT_RADIO_BLOCKED,                        /**< Event indicating that a radio timeslot was blocked. */
-  NRF_EVT_RADIO_CANCELED,                       /**< Event indicating that a radio timeslot was canceled by SoftDevice. */
   NRF_EVT_RADIO_SIGNAL_CALLBACK_INVALID_RETURN, /**< Event indicating that a radio timeslot signal callback handler return was invalid. */
   NRF_EVT_RADIO_SESSION_IDLE,                   /**< Event indicating that a radio timeslot session is idle. */
   NRF_EVT_RADIO_SESSION_CLOSED,                 /**< Event indicating that a radio timeslot session is closed. */
@@ -279,7 +277,7 @@ typedef struct
 {
   uint8_t       hfclk;                              /**< High frequency clock source, see @ref NRF_RADIO_HFCLK_CFG. */
   uint8_t       priority;                           /**< The radio timeslot priority, see @ref NRF_RADIO_PRIORITY. */
-  uint32_t      length_us;                          /**< The radio timeslot length (in the range 100 to 100,000] microseconds). */
+  uint32_t      length_us;                          /**< The radio timeslot length (in the range @ref NRF_RADIO_LENGTH_MIN_US to @ref NRF_RADIO_LENGTH_MAX_US). */
   uint32_t      timeout_us;                         /**< Longest acceptable delay until the start of the requested timeslot (up to @ref NRF_RADIO_EARLIEST_TIMEOUT_MAX_US microseconds). */
 } nrf_radio_request_earliest_t;
 
@@ -289,7 +287,7 @@ typedef struct
   uint8_t       hfclk;                              /**< High frequency clock source, see @ref NRF_RADIO_HFCLK_CFG. */
   uint8_t       priority;                           /**< The radio timeslot priority, see @ref NRF_RADIO_PRIORITY. */
   uint32_t      distance_us;                        /**< Distance from the start of the previous radio timeslot (up to @ref NRF_RADIO_DISTANCE_MAX_US microseconds). */
-  uint32_t      length_us;                          /**< The radio timeslot length (in the range [100..100,000] microseconds). */
+  uint32_t      length_us;                          /**< The radio timeslot length (in the range @ref NRF_RADIO_LENGTH_MIN_US to @ref NRF_RADIO_LENGTH_MAX_US). */
 } nrf_radio_request_normal_t;
 
 /**@brief Radio timeslot request parameters. */
@@ -385,46 +383,6 @@ SVCALL(SD_MUTEX_ACQUIRE, uint32_t, sd_mutex_acquire(nrf_mutex_t * p_mutex));
  * @retval ::NRF_SUCCESS
  */
 SVCALL(SD_MUTEX_RELEASE, uint32_t, sd_mutex_release(nrf_mutex_t * p_mutex));
-
-/**@brief Query the capacity of the application random pool.
- *
- * @param[out] p_pool_capacity The capacity of the pool.
- *
- * @deprecated This function is deprecated and will be removed in a future release.
- *
- * @retval ::NRF_SUCCESS
- */
-#ifdef SUPPRESS_INLINE_IMPLEMENTATION
-uint32_t sd_rand_application_pool_capacity_get(uint8_t * p_pool_capacity);
-#else
-__STATIC_INLINE uint32_t sd_rand_application_pool_capacity_get(uint8_t * p_pool_capacity)
-{
-  *p_pool_capacity = 255;
-
-  return NRF_SUCCESS;
-}
-#endif /* SUPPRESS_INLINE_IMPLEMENTATION */
-
-
-/**@brief Get number of random bytes available to the application.
- *
- * @param[out] p_bytes_available The number of bytes currently available in the pool.
- *
- * @deprecated This function is deprecated and will be removed in a future release.
- *
- * @retval ::NRF_SUCCESS
- */
-#ifdef SUPPRESS_INLINE_IMPLEMENTATION
-uint32_t sd_rand_application_bytes_available_get(uint8_t * p_bytes_available);
-
-#else
-__STATIC_INLINE uint32_t sd_rand_application_bytes_available_get(uint8_t * p_bytes_available)
-{
-  *p_bytes_available = 255;
-
-  return NRF_SUCCESS;
-}
-#endif /* SUPPRESS_INLINE_IMPLEMENTATION */
 
 /**@brief Generate NIST SP 800-90A compliant random numbers
  *
@@ -545,46 +503,6 @@ SVCALL(SD_CLOCK_HFCLK_RELEASE, uint32_t, sd_clock_hfclk_release(void));
  */
 SVCALL(SD_CLOCK_HFCLK_IS_RUNNING, uint32_t, sd_clock_hfclk_is_running(uint32_t * p_is_running));
 
-/**@brief Waits for an event.
- *
- * An event is either an interrupt or a pended interrupt when the interrupt
- * is disabled.
- *
- * In order to wake up from disabled interrupts, the SEVONPEND flag has to be set in the Cortex-M
- * MCU's System Control Register (SCR), CMSIS_SCB. In that case, when a disabled interrupt gets
- * pended, this function will return.
- *
- * @note The application must ensure that the pended flag is cleared using NVIC_ClearPendingIRQ
- *       in order to sleep using this function. This is only necessary for disabled interrupts, as
- *       the interrupt handler will clear the pending flag automatically for enabled interrupts.
- *
- * @note If an interrupt has happened since the last time sd_app_evt_wait was
- *       called this function will return immediately and not go to sleep. This is to avoid race
- *       conditions that can occur when a flag is updated in the interrupt handler and processed
- *       in the main loop.
- *
- * @post An interrupt has happened or a interrupt pending flag is set.
- *
- * @deprecated This function is deprecated and will be removed in a future release.
- *
- * @retval ::NRF_SUCCESS
- */
-#ifdef SUPPRESS_INLINE_IMPLEMENTATION
-uint32_t sd_app_evt_wait(void);
-#else
-__STATIC_INLINE uint32_t sd_app_evt_wait(void)
-{
-  /* Wait for an event. */
-  __WFE();
-
-  /* Clear Event Register */
-  __SEV();
-  __WFE();
-
-  return NRF_SUCCESS;
-}
-#endif /* SUPPRESS_INLINE_IMPLEMENTATION */
-
 /**@brief Configures the Radio Notification signal.
  *
  * @note
@@ -698,13 +616,12 @@ SVCALL(SD_TEMP_GET, uint32_t, sd_temp_get(int32_t * p_temp));
 *
 * @param[in]  p_dst Pointer to start of flash location to be written.
 * @param[in]  p_src Pointer to buffer with data to be written.
-* @param[in]  size  Number of 32-bit words to write. Maximum size is the number of words in one
-*                   flash page. See the device's Product Specification for details.
+* @param[in]  size  Number of 32-bit words to write.
 *
 * @retval ::NRF_ERROR_INVALID_STATE  Power-fail comparator is enabled and a POFWARN event is pending.
 * @retval ::NRF_ERROR_INVALID_ADDR   Tried to write to a non existing flash address, or p_dst or p_src was unaligned.
 * @retval ::NRF_ERROR_BUSY           The previous command has not yet completed.
-* @retval ::NRF_ERROR_INVALID_LENGTH Size was 0, or higher than the maximum allowed size.
+* @retval ::NRF_ERROR_INVALID_LENGTH Size was 0.
 * @retval ::NRF_ERROR_FORBIDDEN      Tried to write to an address outside the application flash area.
 * @retval ::NRF_SUCCESS              The command was accepted.
 */
@@ -714,9 +631,9 @@ SVCALL(SD_FLASH_WRITE, uint32_t, sd_flash_write(uint32_t * p_dst, uint32_t const
  *
  * @note Only one session can be open at a time.
  * @note p_radio_signal_callback(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_START) will be called when the radio timeslot
- *       starts. From this point the NRF_RADIO and NRF_TIMER0 peripherals can be freely accessed
+ *       starts. From this point the NRF_RADIO and @ref SD_TIMESLOT_TIMER0 peripherals can be freely accessed
  *       by the application.
- * @note p_radio_signal_callback(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_TIMER0) is called whenever the NRF_TIMER0
+ * @note p_radio_signal_callback(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_TIMER0) is called whenever the @ref SD_TIMESLOT_TIMER0
  *       interrupt occurs.
  * @note p_radio_signal_callback(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_RADIO) is called whenever the NRF_RADIO
  *       interrupt occurs.
@@ -754,7 +671,7 @@ SVCALL(SD_FLASH_WRITE, uint32_t, sd_flash_write(uint32_t * p_dst, uint32_t const
  * @note A too small p_request->distance_us will lead to a @ref NRF_EVT_RADIO_BLOCKED event.
  * @note Timeslots scheduled too close will lead to a @ref NRF_EVT_RADIO_BLOCKED event.
  * @note See the SoftDevice Specification for more on radio timeslot scheduling, distances and lengths.
- * @note If an opportunity for the first radio timeslot is not found before 100 ms after the call to this
+ * @note If an opportunity for the first radio timeslot is not found before @ref nrf_radio_request_earliest_t::timeout_us after the call to this
  *       function, it is not scheduled, and instead a @ref NRF_EVT_RADIO_BLOCKED event is sent.
  *       The application may then try to schedule the first radio timeslot again.
  * @note Successful requests will result in nrf_radio_signal_callback_t(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_START).
@@ -762,10 +679,10 @@ SVCALL(SD_FLASH_WRITE, uint32_t, sd_flash_write(uint32_t * p_dst, uint32_t const
  * @note The jitter in the start time of the radio timeslots is +/- @ref NRF_RADIO_START_JITTER_US us.
  * @note The nrf_radio_signal_callback_t(@ref NRF_RADIO_CALLBACK_SIGNAL_TYPE_START) call has a latency relative to the
  *       specified radio timeslot start, but this does not affect the actual start time of the timeslot.
- * @note NRF_TIMER0 is reset at the start of the radio timeslot, and is clocked at 1MHz from the high frequency
+ * @note @ref SD_TIMESLOT_TIMER0 is reset at the start of the radio timeslot, and is clocked at 1MHz from the high frequency
  *       (16 MHz) clock source. If p_request->hfclk_force_xtal is true, the high frequency clock is
  *       guaranteed to be clocked from the external crystal.
- * @note The SoftDevice will neither access the NRF_RADIO peripheral nor the NRF_TIMER0 peripheral
+ * @note The SoftDevice will neither access the NRF_RADIO peripheral nor the @ref SD_TIMESLOT_TIMER0 peripheral
  *       during the radio timeslot.
  *
  * @param[in] p_request Pointer to the request parameters.

@@ -82,7 +82,6 @@ extern "C" {
 #define BLE_GATT_OP_INVALID                0x00  /**< Invalid Operation. */
 #define BLE_GATT_OP_WRITE_REQ              0x01  /**< Write Request. */
 #define BLE_GATT_OP_WRITE_CMD              0x02  /**< Write Command. */
-#define BLE_GATT_OP_SIGN_WRITE_CMD         0x03  /**< Signed Write Command. */
 #define BLE_GATT_OP_PREP_WRITE_REQ         0x04  /**< Prepare Write Request. */
 #define BLE_GATT_OP_EXEC_WRITE_REQ         0x05  /**< Execute Write Request. */
 /** @} */
@@ -138,7 +137,7 @@ extern "C" {
 
 
 /** @defgroup BLE_GATT_CPF_FORMATS Characteristic Presentation Formats
- *  @note Found at https://www.bluetooth.com/specifications/assigned-numbers/format-types/
+ *  @note Defined in Bluetooth Assigned Numbers, Section 2.4 Characteristic Presentation Format
  * @{ */
 #define BLE_GATT_CPF_FORMAT_RFU                 0x00 /**< Reserved For Future Use. */
 #define BLE_GATT_CPF_FORMAT_BOOLEAN             0x01 /**< Boolean. */

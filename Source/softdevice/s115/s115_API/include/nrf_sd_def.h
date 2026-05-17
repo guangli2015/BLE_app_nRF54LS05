@@ -36,11 +36,16 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * @defgroup nrf_sd_def SoftDevice definitions
+ * @{
+ *
+ * @brief Peripherals reserved by SoftDevice.
+ *
+ */
+
 #ifndef NRF_SD_DEF_H__
 #define NRF_SD_DEF_H__
-
-#include <stdint.h>
-#include "nrf_soc.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,8 +59,27 @@ extern "C" {
 #define SD_PPIB11_CHANNELS_USED  0x00000001uL /**< PPIB11 channels utilized by SoftDevice (not available to the application). */
 #define SD_PPIB21_CHANNELS_USED  0x00000001uL /**< PPIB21 channels utilized by SoftDevice (not available to the application). */
 
+#define SD_TIMER0X_INSTANCES_USED 0x00000000uL /**< TIMER instances utilized by SoftDevice (not available to the application). */
+#define SD_TIMER1X_INSTANCES_USED 0x00000001uL /**< TIMER instances utilized by SoftDevice (not available to the application). */
+#define SD_TIMER2X_INSTANCES_USED 0x00000001uL /**< TIMER instances utilized by SoftDevice (not available to the application). */
+
+#define SD_AAR_INSTANCE_USED      NRF_AAR00 /**< AAR instance utilized by SoftDevice (not available to the application). */
+#define SD_CCM_INSTANCE_USED      NRF_CCM00 /**< CCM instance utilized by SoftDevice (not available to the application). */
+#define SD_ECB_INSTANCE_USED      NRF_ECB00 /**< ECB instance utilized by SoftDevice (not available to the application). */
+#define SD_RRAMC_INSTANCE_USED    NRF_RRAMC /**< RRAMC instance utilized by SoftDevice (not available to the application). */
+#define SD_RADIO_INSTANCE_USED    NRF_RADIO /**< RADIO instance utilized by SoftDevice (not available to the application). */
+
+#define SD_GRTC_CC_CHANNELS_USED  0x00000F80uL /**< GRTC channels utilized by SoftDevice (not available to the application). */
+#define SD_GRTC_IRQn_USED         GRTC_3_IRQn /**< GRTC interrupt utilized by SoftDevice (not available to the application). */
+
+#define SD_SWI_USED               0x00000007uL /**< Software interrupts utilized by SoftDevice (not available to the application). */
+
+#define SD_TIMESLOT_TIMER0        NRF_TIMER10 /**< TIMER instance utilized by SoftDevice (not available to the application). */
+
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* NRF_SD_DEF_H__ */
+
+/**@} */

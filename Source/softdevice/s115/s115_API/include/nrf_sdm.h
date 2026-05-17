@@ -48,11 +48,9 @@
 #define NRF_SDM_H__
 
 #include <stdint.h>
-#include "nrf.h"
 #include "nrf_svc.h"
 #include "nrf_error.h"
 #include "nrf_error_sdm.h"
-#include "nrf_soc.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -62,7 +60,7 @@ extern "C" {
  * @{ */
 
 /** @brief The major version for the SoftDevice binary distributed with this header file. */
-#define SD_MAJOR_VERSION  (9)
+#define SD_MAJOR_VERSION  (10)
 
 /** @brief The minor version for the SoftDevice binary distributed with this header file. */
 #define SD_MINOR_VERSION  (0)
@@ -127,8 +125,8 @@ the start of the SoftDevice */
 #define SD_SIZE_GET(baseaddr) (*((uint32_t *) ((baseaddr) + SD_SIZE_OFFSET)))
 
 /** @brief Defines the amount of flash that is used by the SoftDevice. */
-#define SD_FLASH_SIZE 0x20000
- 
+#define SD_FLASH_SIZE 0x19400
+
 /** @brief Defines a macro for retrieving the actual FWID value from a given base address. */
 #define SD_FWID_GET(baseaddr) (*((uint16_t *) ((baseaddr) + SD_FWID_OFFSET)))
 
@@ -216,33 +214,42 @@ enum NRF_SD_SVCS
 typedef struct
 {
   uint8_t source;         /**< LF oscillator clock source, see @ref NRF_CLOCK_LF_SRC. */
-  uint8_t rc_ctiv;        /**< Only for ::NRF_CLOCK_LF_SRC_RC: Calibration timer interval in 1/4 second
-                               units (nRF52: 1-32).
+  uint8_t rc_ctiv;        /**< Only for ::NRF_CLOCK_LF_SRC_RC: Calibration timer interval in 1/4 second units (1-32).
                                @note To avoid excessive clock drift, 0.5 degrees Celsius is the
                                      maximum temperature change allowed in one calibration timer
                                      interval. The interval should be selected to ensure this.
 
-                                  @note Must be 0 if source is not ::NRF_CLOCK_LF_SRC_RC.  */
-  uint8_t rc_temp_ctiv;   /**<  Only for ::NRF_CLOCK_LF_SRC_RC: How often (in number of calibration
-                                intervals) the RC oscillator shall be calibrated if the temperature
-                                hasn't changed.
-                                     0: Always calibrate even if the temperature hasn't changed.
-                                     1: Only calibrate if the temperature has changed (legacy - nRF51 only).
-                                     2-33: Check the temperature and only calibrate if it has changed,
-                                           however calibration will take place every rc_temp_ctiv
-                                           intervals in any case.
+                               @note Must be 0 if source is not ::NRF_CLOCK_LF_SRC_RC.  */
+  uint8_t rc_temp_ctiv;   /**< Only for ::NRF_CLOCK_LF_SRC_RC: How often (in number of calibration
+                               intervals) the RC oscillator shall be calibrated if the temperature
+                               hasn't changed.
+                                    0: Always calibrate even if the temperature hasn't changed.
+                                    1: Invalid
+                                    2-33: Check the temperature and only calibrate if it has changed,
+                                          however calibration will take place every rc_temp_ctiv
+                                          intervals in any case.
 
-                                @note Must be 0 if source is not ::NRF_CLOCK_LF_SRC_RC.
+                               @note Must be 0 if source is not ::NRF_CLOCK_LF_SRC_RC.
 
-                                @note For nRF52, the application must ensure calibration at least once
-                                      every 8 seconds to ensure +/-500 ppm clock stability. The
-                                      recommended configuration for ::NRF_CLOCK_LF_SRC_RC on nRF52 is
-                                      rc_ctiv=16 and rc_temp_ctiv=2. This will ensure calibration at
-                                      least once every 8 seconds and for temperature changes of 0.5
-                                      degrees Celsius every 4 seconds. See the Product Specification
-                                      for the nRF52 device being used for more information.*/
+                               @note The application must ensure calibration at least once
+                                     every 8 seconds to ensure +/-500 ppm clock stability. The
+                                     recommended configuration for ::NRF_CLOCK_LF_SRC_RC is
+                                     rc_ctiv=16 and rc_temp_ctiv=2. This will ensure calibration at
+                                     least once every 8 seconds and for temperature changes of 0.5
+                                     degrees Celsius every 4 seconds. See the Product Specification
+                                     for the device being used for more information.*/
   uint8_t accuracy;       /**< External clock accuracy used in the LL to compute timing
                                windows, see @ref NRF_CLOCK_LF_ACCURACY.*/
+  uint16_t hfclk_latency; /**< Ramp-up time of the high-frequency crystal oscillator in microseconds.
+                               @note Using a value smaller than the actual ramp-up time needed will cause asserts. */
+  uint8_t hfint_ctiv;     /**< HFINT calibration interval in seconds (1-255).
+                               @note To ensure correct operation, 10 degrees Celsius is the
+                               maximum temperature change allowed in one calibration timer
+                               interval. The interval should be selected to ensure this.
+
+                               @note If ::NRF_CLOCK_LF_SRC_RC is used as the clock source,
+                               the minimum interval of rc_ctiv and hfint_ctiv will be used
+                               for both LFRC and HFINT calibration. */
 } nrf_clock_lf_cfg_t;
 
 /**@brief Fault Handler type.
@@ -289,7 +296,7 @@ typedef void (*nrf_fault_handler_t)(uint32_t id, uint32_t pc, uint32_t info);
  *       - Chosen low frequency clock source will be running.
  *
  * @param p_clock_lf_cfg Low frequency clock source and accuracy.
- *                       If NULL the clock will be configured as an RC source with rc_ctiv = 16 and .rc_temp_ctiv = 2
+ *                       If NULL the clock will be configured as an RC source with rc_ctiv = 16, .rc_temp_ctiv = 2, .hfclk_latency = 1500, .hfint_ctiv = 4
  *                       In the case of XTAL source, the PPM accuracy of the chosen clock source must be greater than or equal to the actual characteristics of your XTAL clock.
  * @param fault_handler Callback to be invoked in case of fault, cannot be NULL.
  *
@@ -297,6 +304,7 @@ typedef void (*nrf_fault_handler_t)(uint32_t id, uint32_t pc, uint32_t info);
  * @retval ::NRF_ERROR_INVALID_ADDR  Invalid or NULL pointer supplied.
  * @retval ::NRF_ERROR_INVALID_STATE SoftDevice is already enabled, and the clock source and fault handler cannot be updated.
  * @retval ::NRF_ERROR_SDM_INCORRECT_INTERRUPT_CONFIGURATION SoftDevice interrupt is already enabled, or an enabled interrupt has an illegal priority level.
+ * @retval ::NRF_ERROR_SDM_INCORRECT_GRTC_CONFIGURATION GRTC is not running with SYSCOUNTER on or AUTOEN is not set.
  * @retval ::NRF_ERROR_SDM_LFCLK_SOURCE_UNKNOWN Unknown low frequency clock source selected.
  * @retval ::NRF_ERROR_INVALID_PARAM Invalid clock source configuration supplied in p_clock_lf_cfg.
  */

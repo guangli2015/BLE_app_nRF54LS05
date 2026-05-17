@@ -44,8 +44,8 @@ int main(void) {
   nrf_gpio_cfg_output(BOARD_PIN_LED_3);
 
 
-  nrf_gpio_pin_write(BOARD_PIN_LED_0, 1);
-  nrf_gpio_pin_write(BOARD_PIN_LED_1, 0);
+  nrf_gpio_pin_write(BOARD_PIN_LED_0, 0);
+  nrf_gpio_pin_write(BOARD_PIN_LED_1, 1);
   nrf_gpio_pin_write(BOARD_PIN_LED_3, 0);
   nrf_gpio_pin_write(BOARD_PIN_LED_2, 1);
 
