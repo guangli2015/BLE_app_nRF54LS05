@@ -109,7 +109,7 @@ enum nrf_sdh_state_evt {
 /**
  * @brief SoftDevice Handler state event handler.
  */
-typedef void (*nrf_sdh_state_evt_handler_t)(enum nrf_sdh_state_evt state, void *context);
+typedef int (*nrf_sdh_state_evt_handler_t)(enum nrf_sdh_state_evt state, void *context);
 
 /**
  * @brief SoftDevice Handler state observer.
@@ -124,7 +124,8 @@ typedef struct
 	 * @brief A context parameter to the event handler.
 	 */
 	void *context;
-} const nrf_sdh_state_evt_observer;
+        bool is_busy;
+}  nrf_sdh_state_evt_observer;
 
 /**@brief   Macro for registering a SoftDevice state observer.
  *
