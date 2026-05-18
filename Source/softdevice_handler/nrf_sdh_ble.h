@@ -70,23 +70,33 @@ NRF_SECTION_SET_ITEM_REGISTER(sdh_ble_observers, _prio, static nrf_sdh_ble_evt_o
 
 
 /**
- * @brief Retrieve the starting address of the application's RAM.
- *
- * @param[out] app_ram_start The starting address of the application's RAM.
- *
- * @retval 0 On success.
- * @retval -EFAULT @p app_ram_start is @c NULL.
- */
-int nrf_sdh_ble_app_ram_start_get(uint32_t *app_ram_start);
-
-/**
  * @brief Enable the SoftDevice Bluetooth stack.
  *
- * @param[in] conn_tag Connection configuration tag.
+ * @param[in] conn_cfg_tag Connection configuration tag.
  *
  * @retval 0 On success.
  */
 int nrf_sdh_ble_enable(uint8_t conn_cfg_tag);
+
+/**
+ * @brief Stringify a SoftDevice Bluetooth LE event.
+ *
+ * If :option:`CONFIG_NRF_SDH_STR_TABLES` is enabled, returns the event name.
+ * Otherwise, returns the supplied integer as a string.
+ *
+ * @param evt A @ref BLE_GAP_EVTS, @ref BLE_GATTS_EVTS, or @ref BLE_GATTC_EVTS enumeration value.
+ * @return A statically allocated string containing the event name or numerical value.
+ */
+const char *nrf_sdh_ble_evt_to_str(uint32_t evt);
+
+/**
+ * @brief Get the SoftDevice RAM usage.
+ *
+ * The value is only valid after enabling Bluetooth LE with @ref nrf_sdh_ble_enable.
+ *
+ * @return SoftDevice RAM usage in bytes.
+ */
+uint32_t nrf_sdh_ble_sd_ram_usage_get(void);
 
 /**
  * @brief Get the assigned index for a connection handle.
@@ -96,21 +106,19 @@ int nrf_sdh_ble_enable(uint8_t conn_cfg_tag);
  *
  * @param[in] conn_handle Connection handle.
  *
- * @returns An integer in the range from 0 to (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT - 1) if the
- *          connection handle has been assigned to an index, otherwise -1.
+ * @return An integer in the range from 0 to (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT - 1) if the
+ *         connection handle has been assigned to an index, otherwise -1.
  */
-static inline int nrf_sdh_ble_idx_get(uint16_t conn_handle)
-{
-	/* Code size optimization when supporting only one connection. */
-	if (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT == 1) {
-		ARG_UNUSED(conn_handle);
-		return 0;
-	}
+int nrf_sdh_ble_idx_get(uint16_t conn_handle);
 
-	/* This is used when supporting multiple connections. */
-	int _nrf_sdh_ble_idx_get(uint16_t conn_handle);
-	return _nrf_sdh_ble_idx_get(conn_handle);
-}
+/**
+ * @brief Get the connection handle for an assigned index.
+ *
+ * @param[in] idx Assigned index.
+ *
+ * @return The connection handle for the given index or @c BLE_CONN_HANDLE_INVALID if not found.
+ */
+uint16_t nrf_sdh_ble_conn_handle_get(int idx);
 
 #ifdef __cplusplus
 }

@@ -122,4 +122,22 @@
 // at linking time.
 //#include <soc/nrfx_irqs.h>
 
+/* Segger/embedded libc errno.h is often minimal; nrfx drivers need these. */
+#include <errno.h>
+#ifndef E2BIG
+#define E2BIG 7
+#endif
+#ifndef EBUSY
+#define EBUSY 16
+#endif
+#ifndef EINVAL
+#define EINVAL 22
+#endif
+#ifndef EALREADY
+#define EALREADY 120
+#endif
+#ifndef ECANCELED
+#define ECANCELED 125
+#endif
+
 #endif // NRFX_CONFIG_H__

@@ -6,15 +6,21 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <nrf_sdh.h>
 #include <nrf_sdh_ble.h>
 #include <ble.h>
 #include <string.h>
 #include "log.h"
+
+#ifndef __aligned
+#define __aligned(x) __attribute__((aligned(x)))
+#endif
 //#define APP_RAM_START 0x20004400
+#define SD_RAM_START   0x20000080u
 #define	EFAULT 14	/* Bad address */
 #define CONFIG_NRF_SDH_BLE_CONN_TAG 99
-#define NRF_SDH_BLE_STACK_OBSERVER_PRIO 0
+#define NRF_SDH_BLE_STACK_OBSERVER_PRIO 1
 #define CONFIG_NRF_SDH_BLE_GAP_EVENT_LENGTH 3
 #define CONFIG_SOFTDEVICE_PERIPHERAL 1
 #define CONFIG_NRF_SDH_BLE_GATT_MAX_MTU_SIZE 23
@@ -23,6 +29,7 @@
 #define CONFIG_NRF_SDH_BLE_SERVICE_CHANGED 0
 #define CONFIG_NRF_SDH_STR_TABLES 1
 #define CONFIG_NRF_SDH_BLE_PERIPHERAL_LINK_COUNT 1
+#define CONFIG_SOFTDEVICE_DATA_LENGTH_UPDATE 1
 #define LOG_WRN
 #define LOG_DBG
 #define LOG_ERR
@@ -32,9 +39,15 @@
 #define NRF_SDH_BLE_OBSERVER_PRIO_LEVELS 2
 NRF_SECTION_SET_DEF(sdh_ble_observers, nrf_sdh_ble_evt_observer, NRF_SDH_BLE_OBSERVER_PRIO_LEVELS);
 extern uint32_t __ram_origin;
-const char *gap_evt_tostr(int evt)
+static uint32_t sd_ram_size;
+const char *nrf_sdh_ble_evt_to_str(uint32_t evt)
 {
+	int err;
+	static char buf[sizeof("BLE event: 0xFFFFFFFF")];
+
 	switch (evt) {
+#if defined(CONFIG_NRF_SDH_STR_TABLES)
+	/* GAP */
 	case BLE_GAP_EVT_CONNECTED:
 		return "BLE_GAP_EVT_CONNECTED";
 	case BLE_GAP_EVT_DISCONNECTED:
@@ -87,11 +100,62 @@ const char *gap_evt_tostr(int evt)
 #endif
 	case BLE_GAP_EVT_ADV_SET_TERMINATED:
 		return "BLE_GAP_EVT_ADV_SET_TERMINATED";
+
+	/* GATTS */
+	case BLE_GATTS_EVT_WRITE:
+		return "BLE_GATTS_EVT_WRITE";
+	case BLE_GATTS_EVT_RW_AUTHORIZE_REQUEST:
+		return "BLE_GATTS_EVT_RW_AUTHORIZE_REQUEST";
+	case BLE_GATTS_EVT_SYS_ATTR_MISSING:
+		return "BLE_GATTS_EVT_SYS_ATTR_MISSING";
+	case BLE_GATTS_EVT_HVC:
+		return "BLE_GATTS_EVT_HVC";
+	case BLE_GATTS_EVT_SC_CONFIRM:
+		return "BLE_GATTS_EVT_SC_CONFIRM";
+	case BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST:
+		return "BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST";
+	case BLE_GATTS_EVT_TIMEOUT:
+		return "BLE_GATTS_EVT_TIMEOUT";
+	case BLE_GATTS_EVT_HVN_TX_COMPLETE:
+		return "BLE_GATTS_EVT_HVN_TX_COMPLETE";
+
+	/* GATTC */
+	case BLE_GATTC_EVT_PRIM_SRVC_DISC_RSP:
+		return "BLE_GATTC_EVT_PRIM_SRVC_DISC_RSP";
+	case BLE_GATTC_EVT_REL_DISC_RSP:
+		return "BLE_GATTC_EVT_REL_DISC_RSP";
+	case BLE_GATTC_EVT_CHAR_DISC_RSP:
+		return "BLE_GATTC_EVT_CHAR_DISC_RSP";
+	case BLE_GATTC_EVT_DESC_DISC_RSP:
+		return "BLE_GATTC_EVT_DESC_DISC_RSP";
+	case BLE_GATTC_EVT_ATTR_INFO_DISC_RSP:
+		return "BLE_GATTC_EVT_ATTR_INFO_DISC_RSP";
+	case BLE_GATTC_EVT_CHAR_VAL_BY_UUID_READ_RSP:
+		return "BLE_GATTC_EVT_CHAR_VAL_BY_UUID_READ_RSP";
+	case BLE_GATTC_EVT_READ_RSP:
+		return "BLE_GATTC_EVT_READ_RSP";
+	case BLE_GATTC_EVT_CHAR_VALS_READ_RSP:
+		return "BLE_GATTC_EVT_CHAR_VALS_READ_RSP";
+	case BLE_GATTC_EVT_WRITE_RSP:
+		return "BLE_GATTC_EVT_WRITE_RSP";
+	case BLE_GATTC_EVT_HVX:
+		return "BLE_GATTC_EVT_HVX";
+	case BLE_GATTC_EVT_EXCHANGE_MTU_RSP:
+		return "BLE_GATTC_EVT_EXCHANGE_MTU_RSP";
+	case BLE_GATTC_EVT_TIMEOUT:
+		return "BLE_GATTC_EVT_TIMEOUT";
+	case BLE_GATTC_EVT_WRITE_CMD_TX_COMPLETE:
+		return "BLE_GATTC_EVT_WRITE_CMD_TX_COMPLETE";
+#endif
 	default:
-		return "unknown";
+		err = snprintf(buf, sizeof(buf), "BLE event: %#x", evt);
+		__ASSERT(err > 0, "Encode error");
+		__ASSERT(err < sizeof(buf), "Buffer too small");
+		(void)err;
+		return buf;
 	}
 }
-
+#if 0
 int nrf_sdh_ble_app_ram_start_get(uint32_t *app_ram_start)
 {
 	if (!app_ram_start) {
@@ -102,7 +166,11 @@ int nrf_sdh_ble_app_ram_start_get(uint32_t *app_ram_start)
 
 	return 0;
 }
-
+#endif
+uint32_t nrf_sdh_ble_sd_ram_usage_get(void)
+{
+	return sd_ram_size;
+}
 static int default_cfg_set(void)
 {
 	int err;
@@ -235,7 +303,8 @@ int nrf_sdh_ble_enable(uint8_t conn_cfg_tag)
 
           handler(NRF_SDH_STATE_EVT_BLE_ENABLED, p_observer->context);
         }*/
-        sdh_state_evt_observer_notify(NRF_SDH_STATE_EVT_BLE_ENABLED);
+        sd_ram_size = app_ram_minimum - SD_RAM_START;
+        (void)sdh_state_evt_observer_notify(NRF_SDH_STATE_EVT_BLE_ENABLED);
 
 	return 0;
 }
@@ -244,8 +313,14 @@ static uint16_t conn_handles[CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT] = {
 	[0 ... CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT - 1] = BLE_CONN_HANDLE_INVALID,
 };
 
-int _nrf_sdh_ble_idx_get(uint16_t conn_handle)
+int nrf_sdh_ble_idx_get(uint16_t conn_handle)
 {
+	/* Code size optimization when supporting only one connection. */
+	if (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT == 1) {
+		ARG_UNUSED(conn_handle);
+		return 0;
+	}
+
 	for (int idx = 0; idx < ARRAY_SIZE(conn_handles); idx++) {
 		if (conn_handles[idx] == conn_handle) {
 			return idx;
@@ -255,8 +330,25 @@ int _nrf_sdh_ble_idx_get(uint16_t conn_handle)
 	return -1;
 }
 
+uint16_t nrf_sdh_ble_conn_handle_get(int idx)
+{
+	if (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT == 1) {
+		return conn_handles[0];
+	}
+
+	if (idx >= 0 && idx < ARRAY_SIZE(conn_handles)) {
+		return conn_handles[idx];
+	}
+
+	return BLE_CONN_HANDLE_INVALID;
+}
 static void idx_assign(uint16_t conn_handle)
 {
+	if (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT == 1) {
+		conn_handles[0] = conn_handle;
+		return;
+	}
+
 	__ASSERT(conn_handle != BLE_CONN_HANDLE_INVALID, "Got invalid conn_handle from SoftDevice");
 
 	for (int idx = 0; idx < ARRAY_SIZE(conn_handles); idx++) {
@@ -279,6 +371,11 @@ static void idx_assign(uint16_t conn_handle)
 
 static void idx_unassign(uint16_t conn_handle)
 {
+	if (CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT == 1) {
+		conn_handles[0] = BLE_CONN_HANDLE_INVALID;
+		return;
+	}
+
 	for (int idx = 0; idx < ARRAY_SIZE(conn_handles); idx++) {
 		if (conn_handles[idx] == conn_handle) {
 			conn_handles[idx] = BLE_CONN_HANDLE_INVALID;
@@ -294,7 +391,7 @@ static void ble_evt_poll(void *context)
 {
 	int err;
 LOG_INF("ble_evt_poll\r\n");
-	__ALIGN(4) static uint8_t evt_buffer[NRF_SDH_BLE_EVT_BUF_SIZE];
+	__aligned(4) static uint8_t evt_buffer[NRF_SDH_BLE_EVT_BUF_SIZE];
 	ble_evt_t * const ble_evt = (ble_evt_t *)evt_buffer;
 
 	while (true) {
@@ -302,19 +399,12 @@ LOG_INF("ble_evt_poll\r\n");
 
 		err = sd_ble_evt_get(evt_buffer, &evt_len);
 		if (err) {
-                LOG_INF("ble evt not found\r\n");
 			break;
 		}
-LOG_INF("ble evt found\r\n");
-		//if (IS_ENABLED(CONFIG_NRF_SDH_STR_TABLES)) {
-                if ((CONFIG_NRF_SDH_STR_TABLES)) {
-			LOG_INF("BLE event: %s\r\n", gap_evt_tostr(ble_evt->header.evt_id));
-		} else {
-			LOG_INF("BLE event: %#x", ble_evt->header.evt_id);
-		}
 
-		if ((CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT > 1) &&
-		    (ble_evt->header.evt_id == BLE_GAP_EVT_CONNECTED)) {
+		LOG_INF("%s\r\n", nrf_sdh_ble_evt_to_str(ble_evt->header.evt_id));
+
+		if (ble_evt->header.evt_id == BLE_GAP_EVT_CONNECTED) {
 			idx_assign(ble_evt->evt.gap_evt.conn_handle);
 		}
 
@@ -337,19 +427,18 @@ LOG_INF("ble evt found\r\n");
             handler(ble_evt, p_observer->context);
         }
 
-		if ((CONFIG_NRF_SDH_BLE_TOTAL_LINK_COUNT > 1) &&
-		    (ble_evt->header.evt_id == BLE_GAP_EVT_DISCONNECTED)) {
+		if (ble_evt->header.evt_id == BLE_GAP_EVT_DISCONNECTED) {
 			idx_unassign(ble_evt->evt.gap_evt.conn_handle);
 		}
 	}
 
-	__ASSERT(err == NRF_ERROR_NOT_FOUND,
-		"Failed to receive SoftDevice event, nrf_error %#x", err);
+	/*__ASSERT((err == NRF_ERROR_NOT_FOUND) || (err == BLE_ERROR_NOT_ENABLED),
+		 "Failed to receive SoftDevice BLE event, nrf_error %#x", err);*/
 }
 
 /* Listen to SoftDevice events */
 //NRF_SDH_STACK_EVT_OBSERVER(ble_evt_obs, ble_evt_poll, NULL, 0);
-NRF_SDH_STACK_OBSERVER(m_nrf_sdh_ble_evts_poll, NRF_SDH_BLE_STACK_OBSERVER_PRIO) =
+NRF_SDH_STACK_OBSERVER(m_nrf_sdh_ble_evts_poll, 1) =
 {
     .handler   = ble_evt_poll,
     .context = NULL,
