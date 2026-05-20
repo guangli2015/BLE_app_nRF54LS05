@@ -48,7 +48,7 @@
       arm_target_device_name="nRF54LS05B_M33"
       arm_target_interface_type="SWD"
       c_preprocessor_definitions="NRF54LS05B_XXAA;NRF_APPLICATION;__STARTUP_CLEAR_BSS"
-      c_user_include_directories=".;Source/nrfx/drivers;Source/nrfx/drivers/include;Source/nrfx/bsp/stable/mdk;Source/nrfx/hal;Source/nrfx/haly;Source/nrfx/drivers/src;Source/nrfx/helpers;Source/nrfx/bsp/stable/soc;Source/nrfx/bsp/stable/soc/irqs;Source/nrfx/bsp/stable;Source;Source/nrfx;Source/cmsis/include;Source/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure;Source/FreeRTOS/include;Source/section_vars;Source/softdevice_handler;Source/softdevice/s115/s115_API/include;Source/ble_adv;Source/ble_conn_params;Source/bm_buttons;Source/bluetooth_services/ble_dis;Source/bluetooth_services/ble_lbs;Source/bluetooth_services;Source/rtt"
+      c_user_include_directories=".;Source/nrfx/drivers;Source/nrfx/drivers/include;Source/nrfx/bsp/stable/mdk;Source/nrfx/hal;Source/nrfx/haly;Source/nrfx/drivers/src;Source/nrfx/helpers;Source/nrfx/bsp/stable/soc;Source/nrfx/bsp/stable/soc/irqs;Source/nrfx/bsp/stable;Source/nrfx/lib;Source;Source/nrfx;Source/cmsis/include;Source/FreeRTOS/portable/GCC/ARM_CM33_NTZ/non_secure;Source/FreeRTOS/include;Source/section_vars;Source/softdevice_handler;Source/softdevice/s115/s115_API/include;Source/ble_adv;Source/ble_conn_params;Source/bm_buttons;Source/bluetooth_services/ble_dis;Source/bluetooth_services/ble_lbs;Source/bluetooth_services;Source/rtt"
       debug_stack_pointer_start="__stack_end__"
       debug_target_connection="J-Link"
       gcc_entry_point="Reset_Handler"
@@ -67,16 +67,29 @@
     <configuration
       LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
       Name="Release_MinSize" />
+    <folder Name="nrfx">
+      <file file_name="Source/nrfx/lib/nrfx_atomic.c" />
+      <file file_name="Source/nrfx/drivers/src/nrfx_clock.c" />
+      <file file_name="Source/nrfx/drivers/src/nrfx_clock_lfclk.c">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+      <file file_name="Source/nrfx/drivers/src/nrfx_clock_xo.c">
+        <configuration Name="Debug" build_exclude_from_build="No" />
+      </file>
+      <file file_name="Source/nrfx/drivers/src/nrfx_cracen.c" />
+      <file file_name="Source/nrfx/helpers/nrfx_flag32_allocator.c" />
+      <file file_name="Source/nrfx/drivers/src/nrfx_grtc.c" />
+    </folder>
     <folder Name="Setup">
       <file file_name="Setup/nrf54ls05b_xxaa_application.ld" />
     </folder>
     <folder Name="softdevice_handler">
       <configuration Name="Debug" build_exclude_from_build="No" />
       <file file_name="Source/softdevice_handler/irq_connect.c">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="No" />
       </file>
       <file file_name="Source/softdevice_handler/irq_forward.s">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="No" />
       </file>
       <file file_name="Source/softdevice_handler/nrf_sdh.c">
         <configuration Name="Debug" build_exclude_from_build="No" />
@@ -95,13 +108,17 @@
       </file>
       <file file_name="Source/softdevice_handler/rand_seed.c" />
     </folder>
-    <folder Name="nrfx">
-      <file file_name="Source/nrfx/drivers/src/nrfx_cracen.c" />
-    </folder>
     <folder Name="Source">
       <file file_name="Source/nrfx/bsp/stable/mdk/gcc_startup_nrf54ls05b_application.S" />
+      <file file_name="Source/grtc_sys.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="Source/log.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
       <file file_name="Source/main.c" />
       <file file_name="Source/rtt/SEGGER_RTT_printf.c" />
+      <file file_name="Source/softdevice_test.c" />
       <file file_name="Source/nrfx/bsp/stable/mdk/system_nrf54l.c">
         <configuration Name="Debug" build_exclude_from_build="No" />
       </file>

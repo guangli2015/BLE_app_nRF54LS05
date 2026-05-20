@@ -54,7 +54,7 @@
  * Boolean. Accepted values: 0 and 1.
  */
 #ifndef NRFX_CLOCK_ENABLED
-#define NRFX_CLOCK_ENABLED 0
+#define NRFX_CLOCK_ENABLED 1
 #endif
 
 /**
@@ -283,7 +283,7 @@
  * Boolean. Accepted values: 0 and 1.
  */
 #ifndef NRFX_GRTC_ENABLED
-#define NRFX_GRTC_ENABLED 0
+#define NRFX_GRTC_ENABLED 1
 #endif
 
 /**

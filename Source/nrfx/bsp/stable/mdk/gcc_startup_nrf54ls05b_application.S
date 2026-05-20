@@ -360,7 +360,7 @@ __isr_vector:
     .long   0                           /*Reserved */
     .long   GPIOTE30_0_IRQHandler
     .long   0                           /*Reserved */
-    .long   CLOCK_POWER_IRQHandler
+    .long   CLOCK_POWER_SD_IRQHandler
 
     .size __isr_vector, . - __isr_vector
 
@@ -605,6 +605,6 @@ Default_Handler:
     IRQ  TAMPC_IRQHandler
     IRQ  WDT30_IRQHandler
     IRQ  GPIOTE30_0_IRQHandler
-    IRQ  CLOCK_POWER_IRQHandler
+    IRQ  CLOCK_POWER_SD_IRQHandler
 
   .end

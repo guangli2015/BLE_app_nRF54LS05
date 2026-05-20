@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include "irq_connect.h"
 #include <nrf_sdm.h>
-extern void CLOCK_POWER_IRQHandler(void);
+extern void CLOCK_POWER_SD_IRQHandler(void);
 extern void RADIO_0_IRQHandler(void);
 extern void TIMER10_IRQHandler(void);
 extern void GRTC_3_IRQHandler(void);
@@ -23,7 +23,7 @@ uint32_t softdevice_vector_forward_address;
 
 static void sd_enable_irq_forwarding(void)
 {
-	softdevice_vector_forward_address = 0x00162000;
+	softdevice_vector_forward_address = 0x00065800;
 #ifdef CONFIG_BOOTLOADER_MCUBOOT
 	softdevice_vector_forward_address += CONFIG_ROM_START_OFFSET;
 #endif
@@ -88,44 +88,44 @@ __attribute__((weak)) void C_HardFault_Handler(void)
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_TIMER0_Handler(void)
+__attribute__((weak)) void C_TIMER10_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_RTC0_Handler(void)
+__attribute__((weak)) void C_GRTC_3_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_SIGNALLING_Handler(void)
+__attribute__((weak)) void C_SWI00_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_RADIO_Handler(void)
+__attribute__((weak)) void C_RADIO_0_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_RNG_Handler(void)
+__attribute__((weak)) void C_ECB00_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_ECB_Handler(void)
+__attribute__((weak)) void C_AAR00_CCM00_Handler(void)
 {
 	__asm__("SVC 255");
 }
 
-__attribute__((weak)) void C_CCM_Handler(void)
+__attribute__((weak)) void C_CLOCK_POWER_SD_Handler(void)
 {
+#if defined(CONFIG_NRFX_POWER) || defined(CONFIG_NRFX_CLOCK)
+	extern void nrfx_power_clock_irq_handler(void);
+	nrfx_power_clock_irq_handler();
+#else
 	__asm__("SVC 255");
-}
-
-__attribute__((weak)) void C_POWER_CLOCK_Handler(void)
-{
-	__asm__("SVC 255");
+#endif
 }
 
 

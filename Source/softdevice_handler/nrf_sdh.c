@@ -272,7 +272,7 @@ int nrf_sdh_enable_request(void)
         nrf_sdh_state_evt_handler_t   handler;
 
         p_observer = (nrf_sdh_state_evt_observer *) nrf_section_iter_get(&iter);
-        p_observer->is_busy = true;
+        //p_observer->is_busy = true;
 
     }
 
@@ -317,7 +317,7 @@ int nrf_sdh_disable_request(void)
         nrf_sdh_state_evt_handler_t   handler;
 
         p_observer = (nrf_sdh_state_evt_observer *) nrf_section_iter_get(&iter);
-        p_observer->is_busy = true;
+        //p_observer->is_busy = true;
 
     }
 

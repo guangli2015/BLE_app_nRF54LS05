@@ -136,8 +136,13 @@
 #ifndef EALREADY
 #define EALREADY 120
 #endif
+#ifndef EINPROGRESS
+#define EINPROGRESS 119
+#endif
 #ifndef ECANCELED
 #define ECANCELED 125
 #endif
+
+
 
 #endif // NRFX_CONFIG_H__

@@ -9,7 +9,8 @@ MEMORY
   RAM (rwx) : ORIGIN = 0x20004400, LENGTH = 0x8000
   /*RAM1 (rwx) : ORIGIN = 0x20008000, LENGTH = 0x10000*/
 }
-
+__flash_origin = ORIGIN(FLASH); 
+__ram_origin   = ORIGIN(RAM);
 
 /* Linker script for Nordic Semiconductor nRF devices
  *
