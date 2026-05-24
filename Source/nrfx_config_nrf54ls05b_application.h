@@ -232,7 +232,7 @@
  * Boolean. Accepted values: 0 and 1.
  */
 #ifndef NRFX_GPIOTE_ENABLED
-#define NRFX_GPIOTE_ENABLED 0
+#define NRFX_GPIOTE_ENABLED 1
 #endif
 
 /**

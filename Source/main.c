@@ -38,6 +38,7 @@ extern int sftdevice_test(void);
 extern int softdevice_irq_init(void);
 
 void SysTick_Configuration(void);
+extern int ble_lbs_sample(void);
 /*********************************************************************
 *
 *       main()
@@ -62,7 +63,7 @@ int main(void) {
   nrf_gpio_pin_write(BOARD_PIN_LED_1, 0);
   nrf_gpio_pin_write(BOARD_PIN_LED_3, 0);
   nrf_gpio_pin_write(BOARD_PIN_LED_2, 1);
-sftdevice_test();
+ble_lbs_sample();
 }
 void _start(void) {
 main();
